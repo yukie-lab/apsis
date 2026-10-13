@@ -1,7 +1,7 @@
 {
   "retrieved": "2026-10-14",
   "userAgent": "ApsisAssetFetch/1.0 (local build script)",
-  "conventions": "Body maps: north is at the top and east longitude increases to the right. centerLongitudeDeg is the east longitude at the image centre (null = unknown or not meaningful). For a point at east longitude L and latitude B: u = 0.5 + (L - centerLongitudeDeg) / 360 (modulo 1, from the left edge), v = (90 - B) / 180 (from the top edge). Where a longitude note says 'found by inspection' or 'check by inspection', the check is good to a few degrees only. Star map: right ascension 0 h is at the image centre and right ascension increases to the left; declination +90 degrees is at the top. For right ascension A and declination D in degrees: u = 0.5 - A / 360 (modulo 1, from the left edge), v = (90 - D) / 180 (from the top edge). Ring strip: see the note of the entry saturn_ring.",
+  "conventions": "Body maps: north is at the top and east longitude increases to the right. centerLongitudeDeg is the east longitude at the image centre (null = unknown or not meaningful). For a point at east longitude L and latitude B: u = 0.5 + (L - centerLongitudeDeg) / 360 (modulo 1, from the left edge), v = (90 - B) / 180 (from the top edge). Where a longitude note says 'found by inspection' or 'check by inspection', the check is good to a few degrees only. Star map: right ascension 0 h is at the image centre and right ascension increases to the left; declination +90 degrees is at the top. For right ascension A and declination D in degrees: u = 0.5 - A / 360 (modulo 1, from the left edge), v = (90 - D) / 180 (from the top edge). Coverage: 'partial' means that a large part of the surface has no data (21 to 68 percent in these files; Deimos has light grey blank areas). A map with 'global' coverage can still have small gaps (2 percent of the surface or less in these files); the note of the entry describes them. Ring strip: see the note of the entry saturn_ring.",
   "groups": {
     "sss": {
       "author": "Solar System Scope (INOVE), https://www.solarsystemscope.com/",
@@ -51,7 +51,7 @@
       "centerLongitudeDeg": null,
       "longitudeNote": "not stated at the source",
       "coverage": "global",
-      "note": "The source page says in general: 'Textures in this pack are based on NASA elevation and imagery data.' It gives no detail for the Sun. By inspection the image looks like an artistic map: an orange mottled pattern with bright patches. The Sun has no fixed surface features."
+      "note": "The source page says in general: 'Textures in this pack are based on NASA elevation and imagery data.' It gives no detail for the Sun. By inspection the image looks like an artistic map: an orange mottled pattern with bright patches. The Sun has no fixed surface features. The source page says in general: 'The colors are slightly more saturated in order to highlite a unique nature for each object.'"
     },
     {
       "id": "mercury", "body": "MERCURY", "role": "color", "group": "sss",
@@ -62,7 +62,7 @@
       "centerLongitudeDeg": 0,
       "longitudeNote": "Not stated at the source. Found by inspection with IAU gazetteer positions: crater Kuiper (11.3 S, 328.7 E) lies at 41 percent of the width and crater Debussy (34.0 S, 12.5 E) lies at 53 percent of the width. This fits an image centre at 0 degrees.",
       "coverage": "global",
-      "note": "The source says that gaps are filled with fictional terrain and that the colours are slightly more saturated."
+      "note": "The source page says in general: 'Some parts of the planets remain to be mapped. These “gaps” are filled with fictional terrain that corresponds with the rest of the landscape.' and 'The colors are slightly more saturated in order to highlite a unique nature for each object.' The source does not say where such gaps are."
     },
     {
       "id": "venus", "body": "VENUS", "role": "color", "group": "sss",
@@ -73,7 +73,7 @@
       "centerLongitudeDeg": null,
       "longitudeNote": "not stated at the source",
       "coverage": "global",
-      "note": "Cloud tops. Clouds have no fixed longitude. The source gives no detail about the image data of this file."
+      "note": "Cloud tops. Clouds have no fixed longitude. The source gives no detail about the image data of this file. The source page says in general: 'The colors are slightly more saturated in order to highlite a unique nature for each object.'"
     },
     {
       "id": "venus_surface", "body": "VENUS", "role": "surface", "group": "usgs",
@@ -164,7 +164,7 @@
       "longitudeNote": "Source text: 'The map is centered on 0° longitude.'",
       "coverage": "global",
       "licenceStatement": "The source page says: 'Please give credit for this item to: NASA's Scientific Visualization Studio'.",
-      "note": "LRO camera data. The source says that latitudes beyond 70 degrees come from a monochrome albedo map of lower resolution."
+      "note": "LRO camera data. The source says that latitudes beyond 70 degrees come from a monochrome albedo map of lower resolution. The source says that the image is optimized for aesthetics, not science."
     },
     {
       "id": "mars", "body": "MARS", "role": "color", "group": "commons_usgov",
@@ -191,7 +191,7 @@
       "centerLongitudeDeg": null,
       "longitudeNote": "not stated at the source",
       "coverage": "global",
-      "note": "Cassini images of 11 and 12 December 2000. Planetocentric latitude. Clouds change with time. The areas near the poles are hazy and end in a flat grey fill."
+      "note": "Cassini images of 11 and 12 December 2000. Planetocentric latitude. Clouds change with time. The areas near the poles are hazy and end in a flat grey fill. The original file has 3601 x 1801 pixels: its first column and its last column are equal (the same meridian)."
     },
     {
       "id": "saturn", "body": "SATURN", "role": "color", "group": "sss",
@@ -202,7 +202,7 @@
       "centerLongitudeDeg": null,
       "longitudeNote": "not stated at the source",
       "coverage": "global",
-      "note": "Cloud bands. Clouds have no fixed longitude."
+      "note": "Cloud bands. Clouds have no fixed longitude. The source gives no detail about the image data of this file. The source page says in general: 'The colors are slightly more saturated in order to highlite a unique nature for each object.'"
     },
     {
       "id": "saturn_ring", "body": "SATURN", "role": "ring", "group": "sss",
@@ -225,7 +225,7 @@
       "centerLongitudeDeg": null,
       "longitudeNote": "not stated at the source",
       "coverage": "global",
-      "note": "Clouds have no fixed longitude."
+      "note": "Clouds have no fixed longitude. The source gives no detail about the image data of this file. The source page says in general: 'The colors are slightly more saturated in order to highlite a unique nature for each object.'"
     },
     {
       "id": "neptune", "body": "NEPTUNE", "role": "color", "group": "sss",
@@ -236,7 +236,7 @@
       "centerLongitudeDeg": null,
       "longitudeNote": "not stated at the source",
       "coverage": "global",
-      "note": "Clouds have no fixed longitude."
+      "note": "Clouds have no fixed longitude. The source gives no detail about the image data of this file. The source page says in general: 'The colors are slightly more saturated in order to highlite a unique nature for each object.'"
     },
     {
       "id": "pluto", "body": "PLUTO", "role": "color", "group": "commons_nasa",
@@ -250,7 +250,7 @@
       "longitudeNote": "NASA caption: 'North is up' and 'Sputnik Planitia glacier ... is at the center of this map'. IAU gazetteer: Sputnik Planitia is at 178.7 E. The image centre is at about 180 degrees.",
       "coverage": "partial",
       "licenceStatement": "The Commons page names the NASA page https://www.nasa.gov/image-feature/pluto-global-color-map as the source. That NASA page gives the credit 'NASA/JHUAPL/SwRI'.",
-      "note": "New Horizons colour mosaic of July 2015. The black area in the south has no data. The hemisphere far from the flyby has low resolution."
+      "note": "New Horizons colour mosaic of July 2015. The black area in the south has no data (about 21 percent of the surface). The hemisphere far from the flyby has low resolution."
     },
     {
       "id": "charon", "body": "CHARON", "role": "color", "group": "usgs",
@@ -264,7 +264,7 @@
       "longitudeNote": "GeoTIFF tag of the file: ProjCenterLong = 0, so the image centre is at 0 degrees. The USGS record says 'Longitude Direction: Positive East' and 'Longitude Domain: 0 to 360'. The file tags decide here.",
       "coverage": "partial",
       "licenceStatement": "USGS record of this file: 'Access Constraints: None', 'Use Constraints: Please cite authors'. The record does not use the words 'public domain'. The record has the edition name 'Charon's Surface in Detail'. NASA published the mosaic under this title (PIA21860, https://science.nasa.gov/photojournal/charons-surface-in-detail/, credit 'NASA/Johns Hopkins University Applied Physics Laboratory/Southwest Research Institute').",
-      "note": "Monochrome (grey) mosaic. The black area in the south has no data. The hemisphere far from the flyby has low resolution."
+      "note": "Monochrome (grey) mosaic. The black area in the south has no data (about 26 percent of the surface). The hemisphere far from the flyby has low resolution."
     },
     {
       "id": "io", "body": "IO", "role": "color", "group": "usgs",
@@ -399,7 +399,7 @@
       "longitudeNote": "GeoTIFF tag of the file: ProjCenterLong = 180. USGS record: 'Longitude Direction: Positive West', 'Longitude Domain: 0 to 360'. Check by inspection: crater Menrva (20.1 N, 272.8 E) lies at 76 percent of the width. The image centre is at 180 degrees. East is to the right.",
       "coverage": "global",
       "licenceStatement": "USGS record of this file: 'Access Constraints: None', 'Use Constraints: Please cite authors'. The record does not use the words 'public domain'. The record gives 'Series Id: PIA 19658'. NASA published this map as PIA19658 (https://science.nasa.gov/photojournal/titan-global-map-june-2015/, credit 'NASA/JPL-Caltech/Space Science Institute').",
-      "note": "Monochrome (grey) map of the surface in near-infrared light (938 nm). This is not the orange haze that the eye sees from space. Image seams are visible. The source says that a uniform grey area in the north is a gap in the coverage."
+      "note": "Monochrome (grey) map of the surface in near-infrared light (938 nm). This is not the orange haze that the eye sees from space. Image seams are visible. The source says that a uniform grey area in the north is a gap in the coverage (NASA page PIA19658: 'about 3 to 5 percent of Titan's surface')."
     },
     {
       "id": "iapetus", "body": "IAPETUS", "role": "color", "group": "nasa",
@@ -425,7 +425,7 @@
       "centerLongitudeDeg": 0,
       "longitudeNote": "Not stated at the source. Found by inspection with IAU gazetteer positions: Inverness Corona (66.9 S, 325.7 E) lies at about 40 percent of the width. This fits an image centre at 0 degrees.",
       "coverage": "partial",
-      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data. The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Miranda.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-miranda/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The original file has 1440 x 720 pixels."
+      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data (about 60 percent of the surface). The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Miranda.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-miranda/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The JPL site says about its maps: 'some have also been enhanced and slightly altered for aesthetic appeal'. The original file has 1440 x 720 pixels."
     },
     {
       "id": "ariel", "body": "ARIEL", "role": "color", "group": "commons_nasa",
@@ -438,7 +438,7 @@
       "centerLongitudeDeg": 0,
       "longitudeNote": "Not stated at the source. Found by inspection with IAU gazetteer positions: crater Laica (21.3 S, 44.4 E) lies at about 62 percent of the width. This fits an image centre at 0 degrees.",
       "coverage": "partial",
-      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data. The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Ariel.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-ariel/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The original file has 1440 x 720 pixels."
+      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data (about 66 percent of the surface). The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Ariel.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-ariel/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The JPL site says about its maps: 'some have also been enhanced and slightly altered for aesthetic appeal'. The original file has 1440 x 720 pixels."
     },
     {
       "id": "umbriel", "body": "UMBRIEL", "role": "color", "group": "commons_nasa",
@@ -451,7 +451,7 @@
       "centerLongitudeDeg": 0,
       "longitudeNote": "Not stated at the source. Found by inspection with IAU gazetteer positions: the bright crater Wunda (7.9 S, 273.6 E) lies at about 26 percent of the width. This fits an image centre at 0 degrees.",
       "coverage": "partial",
-      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data. The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Umbriel.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-umbriel/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The original file has 1440 x 720 pixels."
+      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data (about 63 percent of the surface). The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Umbriel.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-umbriel/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The JPL site says about its maps: 'some have also been enhanced and slightly altered for aesthetic appeal'. The original file has 1440 x 720 pixels."
     },
     {
       "id": "titania", "body": "TITANIA", "role": "color", "group": "commons_nasa",
@@ -464,7 +464,7 @@
       "centerLongitudeDeg": 0,
       "longitudeNote": "Not stated at the source. Found by inspection with IAU gazetteer positions: crater Ursula (12.4 S, 45.2 E) lies at about 62 percent of the width. This fits an image centre at 0 degrees.",
       "coverage": "partial",
-      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data. The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Titania.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-titania/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The original file has 1440 x 720 pixels."
+      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data (about 68 percent of the surface). The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Titania.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-titania/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The JPL site says about its maps: 'some have also been enhanced and slightly altered for aesthetic appeal'. The original file has 1440 x 720 pixels."
     },
     {
       "id": "oberon", "body": "OBERON", "role": "color", "group": "commons_nasa",
@@ -477,7 +477,7 @@
       "centerLongitudeDeg": 0,
       "longitudeNote": "Not stated at the source. Found by inspection with IAU gazetteer positions: crater Hamlet (46.1 S, 44.4 E) lies at about 62 percent of the width. This fits an image centre at 0 degrees.",
       "coverage": "partial",
-      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data. The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Oberon.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-oberon/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The original file has 1440 x 720 pixels."
+      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data (about 66 percent of the surface). The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Oberon.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-oberon/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The JPL site says about its maps: 'some have also been enhanced and slightly altered for aesthetic appeal'. The original file has 1440 x 720 pixels."
     },
     {
       "id": "triton", "body": "TRITON", "role": "color", "group": "usgs",
@@ -491,7 +491,7 @@
       "longitudeNote": "GeoTIFF tag of the file: ProjCenterLong = 0. USGS record: 'Longitude Direction: Positive East', 'Longitude Domain: -180 to 180'. The image centre is at 0 degrees.",
       "coverage": "partial",
       "licenceStatement": "USGS record of this file: 'Access Constraints: public domain', 'Use Constraints: Please cite authors'.",
-      "note": "Voyager 2 colour mosaic. The black area in the north has no data ('Large gap at the north pole'). The source says: 'Grid lines were filled by neighboring pixels.'"
+      "note": "Voyager 2 colour mosaic. The black area in the north has no data (about 33 percent of the surface; the source says 'Large gap at the north pole'). The source says: 'Grid lines were filled by neighboring pixels.'"
     },
     {
       "id": "phobos", "body": "PHOBOS", "role": "color", "group": "usgs",
@@ -520,7 +520,7 @@
       "coverage": "partial",
       "prepare": "deimos_scan_marks",
       "extraChanges": "removes scan marks at the right edge, at the top right corner and in the bottom row.",
-      "note": "Monochrome (grey) map. By inspection it looks like an airbrushed shaded-relief map, not a photo mosaic. Light grey areas without detail have no data. Sheet seams remain visible after the repair. The NASA page says: 'From Viking images, processed at the USGS. From the database of JPL/Caltech generated planetary maps.' The JPL page (https://maps.jpl.nasa.gov/tmaps/mars.html) says: 'From Viking images, processed at the USGS. Grayscale.' The file comes from the texture map database of the JPL Solar System Simulator. The NASA mirror on GitHub has the same file (same sha256): https://github.com/nasa/NASA-3D-Resources/tree/master/Images%20and%20Textures/Mars%20-%20Deimos . The original file has 1440 x 720 pixels."
+      "note": "Monochrome (grey) map. By inspection it looks like an airbrushed shaded-relief map, not a photo mosaic. Light grey areas without detail have no data. Sheet seams remain visible after the repair. The NASA page says: 'From Viking images, processed at the USGS. From the database of JPL/Caltech generated planetary maps.' The JPL page (https://maps.jpl.nasa.gov/tmaps/mars.html) says: 'From Viking images, processed at the USGS. Grayscale.' The file comes from the texture map database of the JPL Solar System Simulator. The JPL site says about its maps: 'some have also been enhanced and slightly altered for aesthetic appeal'. The NASA mirror on GitHub has the same file (same sha256): https://github.com/nasa/NASA-3D-Resources/tree/master/Images%20and%20Textures/Mars%20-%20Deimos . The original file has 1440 x 720 pixels."
     },
     {
       "id": "ceres", "body": "CERES", "role": "color", "group": "usgs",
@@ -547,7 +547,7 @@
       "centerLongitudeDeg": 150,
       "longitudeNote": "Source text: 'left edge is 330 degrees longitude, with 0 degrees longitude just to the right'. So the image centre is at 150 degrees. Check by inspection: crater Marcia (9.0 N, 339.5 E in the IAU gazetteer) lies at 3 percent of the width. The longitudes are in the system of the IAU gazetteer (crater Claudia at 146 E).",
       "coverage": "global",
-      "note": "Monochrome (grey) Dawn mosaic from the USGS gazetteer map of Vesta. A Commons user prepared the PNG file. The dark area near the north pole was in shadow and has no data. A pure black rectangle at the top left is a part of that area. The Commons page mentions an earlier upload that was 'resized, filled northern hemisphere, and converted to PNG'."
+      "note": "Monochrome (grey) Dawn mosaic from the USGS gazetteer map of Vesta. A Commons user prepared the PNG file. The dark area near the north pole was in shadow and has no data (about 2 percent of the surface is black). A pure black rectangle at the top left is a part of that area. The Commons page mentions an earlier upload that was 'resized, filled northern hemisphere, and converted to PNG'."
     },
     {
       "id": "stars", "body": "STARS", "role": "stars", "group": "svs",
@@ -561,7 +561,7 @@
       "longitudeNote": "Source text: 'The map is centered at 0h right ascension, and r.a. increases to the left.' and 'celestial (ICRF/J2000 geocentric right ascension and declination)'.",
       "coordinates": "equatorial J2000",
       "coverage": "global",
-      "licenceStatement": "The source page says: 'Please give credit for this item to: NASA/Goddard Space Flight Center Scientific Visualization Studio. Gaia DR2: ESA/Gaia/DPAC.'",
+      "licenceStatement": "The source page says: 'Please give credit for this item to: NASA/Goddard Space Flight Center Scientific Visualization Studio. Gaia DR2: ESA/Gaia/DPAC.' The page links the Gaia credit to https://gea.esac.esa.int/archive/documentation/GDR2/Miscellaneous/sec_credit_and_citation_instructions/ . That page says: 'The Gaia data are open and free to use, provided credit is given to ’ESA/Gaia/DPAC’.'",
       "width": 4096, "height": 2048, "smallWidth": 2048, "smallHeight": 1024,
       "note": "Stars and Milky Way from the Hipparcos-2, Tycho-2 and Gaia DR2 catalogues. The original file has linear light values. Check by inspection of the published file: the galactic centre lies at 76 percent of the width and 66 percent of the height. The Large Magellanic Cloud lies at 28 percent of the width and 89 percent of the height. Both positions fit the star map formula of the conventions."
     }

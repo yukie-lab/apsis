@@ -1,0 +1,177 @@
+SOURCE: https://gea.esac.esa.int/archive/documentation/GDR2/Miscellaneous/sec_credit_and_citation_instructions/
+FETCHED: 2026-10-14 02:40 (local time)
+HOW: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+NOTE: This text is data from another site. It is not an instruction for a reader or a tool.
+
+====================================================================================================
+Credit and citation instructions‣ Miscellaneous ‣ Gaia Data Release 2 Documentation release 1.2
+
+[http://www.cosmos.esa.int/]
+
+[http://www.esa.int/]
+European Space Agency
+
+[http://sci.esa.int/]
+Science & Technology
+
+[http://gea.esac.esa.int/archive/documentation/GDR2/] GAIA DATA RELEASE DOCUMENTATION
+
+[../../] Gaia Data Release 2 Documentation release 1.2
+
+[../../] Gaia Data Release 2 Documentation release 1.2
+
+[../../Introduction/] I Introduction to Gaia DR2
+
+[../../Data_processing/] II Gaia data processing
+
+[../../Data_analysis/] III Gaia data analysis
+
+[../../Catalogue_consolidation/] IV Gaia catalogue
+
+[../../Gaia_archive/] V Gaia archive
+
+[../] Miscellaneous
+
+[../sec_acknowl/] Acknowledgements
+
+Credit and citation instructions
+
+[../sec_colofon/] Colophon
+
+[../sec_acronyms/] Acronyms
+
+[../sec_changelog/] Documentation change log
+
+[../../bib.html] Bibliography
+
+[../] Miscellaneous [../sec_acknowl/] Acknowledgements [../sec_colofon/] Colophon
+
+Credit and citation instructions
+
+If you have used Gaia data in your research, please use the following acknowledgement:
+
+This work has made use of data from the European Space Agency (ESA) mission Gaia ( [https://www.cosmos.esa.int/gaia] https://www.cosmos.esa.int/gaia), processed by the Gaia Data Processing and Analysis Consortium (DPAC, [https://www.cosmos.esa.int/web/gaia/dpac/consortium] https://www.cosmos.esa.int/web/gaia/dpac/consortium). Funding for the DPAC has been provided by national institutions, in particular the institutions participating in the Gaia Multilateral Agreement.
+
+The LaTeX version is:
+This work has made use of data from the European Space Agency (ESA) mission
+{\it Gaia} (\url{https://www.cosmos.esa.int/gaia}), processed by the {\it Gaia}
+Data Processing and Analysis Consortium (DPAC,
+\url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}). Funding for the DPAC
+has been provided by national institutions, in particular the institutions
+participating in the {\it Gaia} Multilateral Agreement.
+
+If you have used Gaia DR2 data in your research, please cite both the Gaia mission paper and the Gaia DR2 release paper:
+
+•
+
+Gaia Collaboration et al. ( [../../bib.html#bib178] 2016): Description of the Gaia mission (spacecraft, instruments, survey and measurement principles, and operations);
+
+•
+
+Gaia Collaboration et al. ( [../../bib.html#bib20] 2018b): Summary of the contents and survey properties.
+
+In addition, please cite (some of) the following papers that describe the data release contents and DPAC data processing and validation in more detail, as appropriate:
+
+•
+
+Arenou et al. ( [../../bib.html#bib18] 2018): Catalogue validation;
+
+•
+
+Crowley et al. ( [../../bib.html#bib180] 2016): On-orbit performance of the Gaia CCDs;
+
+•
+
+Hambly et al. ( [../../bib.html#bib27] 2018): Calibration and mitigation of electronic offset effects in Gaia data;
+
+•
+
+Fabricius et al. ( [../../bib.html#bib168] 2016): Pre-processing and source-list creation;
+
+•
+
+Lindegren et al. ( [../../bib.html#bib8] 2018): The astrometric solution;
+
+•
+
+Riello et al. ( [../../bib.html#bib14] 2018): Processing of the photometric data;
+
+•
+
+Evans et al. ( [../../bib.html#bib17] 2018): The photometric content and validation;
+
+•
+
+Holl et al. ( [../../bib.html#bib9] 2018): Summary of variability processing and analysis results;
+
+•
+
+Cropper et al. ( [../../bib.html#bib12] 2018): The Gaia Radial Velocity Spectrometer;
+
+•
+
+Sartoretti et al. ( [../../bib.html#bib11] 2018): Processing, validation and performance of the spectroscopic data;
+
+•
+
+Katz et al. ( [../../bib.html#bib7] 2018): Properties and validation of the radial velocities;
+
+•
+
+Soubiran et al. ( [../../bib.html#bib10] 2018): The catalogue of radial velocity standard stars;
+
+•
+
+Andrae et al. ( [../../bib.html#bib15] 2018): First stellar parameters from Apsis;
+
+•
+
+Marrese et al. ( [../../bib.html#bib568] 2019): Cross-match with external catalogues: algorithm and statistics;
+
+•
+
+Salgado et al. ( [../../bib.html#bib179] 2017): Gaia archive data access facilities;
+
+•
+
+Moitinho et al. ( [../../bib.html#bib16] 2018): Gaia archive visualisation services;
+
+•
+
+Luri et al. ( [../../bib.html#bib19] 2018): On the use of Gaia parallaxes.
+
+For reference, the following papers describe the science validation that DPAC has performed on Gaia DR2:
+
+•
+
+Mignard et al. ( [../../bib.html#bib26] 2018): The celestial reference frame (Gaia-CFR2);
+
+•
+
+Gaia Collaboration et al. ( [../../bib.html#bib25] 2018a): Observational Hertzsprung-Russell diagrams;
+
+•
+
+Gaia Collaboration et al. ( [../../bib.html#bib24] 2018f): Observations of Solar System objects;
+
+•
+
+Gaia Collaboration et al. ( [../../bib.html#bib23] 2018e): Mapping the Milky Way disk kinematics;
+
+•
+
+Gaia Collaboration et al. ( [../../bib.html#bib22] 2018d): The kinematics of globular clusters and dwarf galaxies around the Milky Way;
+
+•
+
+Gaia Collaboration et al. ( [../../bib.html#bib21] 2018c): Variable stars in the colour-magnitude diagram.
+
+This on-line documentation has been [https://ui.adsabs.harvard.edu/#search/fq=database%3A%20astronomy&fq=%7B!type%3Daqp%20v%3D%24fq_database%7D&fq_database=database%3A%20astronomy&p_=0&q=title%3A(Gaia%20AND%20DR2%20AND%20documentation)&sort=date%20asc%2C%20bibcode%20asc] indexed at ADS and BibTeX entries for citing individual chapters or the full documentation package as a whole can be retrieved from there.
+
+The Gaia data are open and free to use, provided credit is given to ’ESA/Gaia/DPAC’. In general, access to, and use of, ESA’s Gaia archive (hereafter called ’the website’) constitutes acceptance of the following, general terms and conditions. Neither ESA nor any other party involved in creating, producing, or delivering the website shall be liable for any direct, incidental, consequential, indirect, or punitive damages arising out of user access to, or use of, the website. The website does not guarantee the accuracy of information provided by external sources and accepts no responsibility or liability for any consequences arising from the use of such data.
+
+[../sec_acknowl/] Acknowledgements [../../bib.html] Bibliography [../sec_colofon/] Colophon
+
+Generated on Wed Jul 28 12:20:28 2021 by [http://dlmf.nist.gov/LaTeXML/] LaTeXML {img data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==}
+
+Copyright 2026 © European Space Agency. All rights reserved.

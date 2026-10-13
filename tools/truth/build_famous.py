@@ -71,7 +71,7 @@ def encounter(e, last=False, burn=False):
         k = min(range(len(hj)), key=lambda q: abs(hj[q] - (jd - 0.5)))
         bp = bplane(e['hourly']['state'][k], gm(pid))
         return {'body': NAME[pid], 'jdTdb': hj[k] + bp['timeToPeriapsis'] / 86400.0, 'radiusKm': bp['rp'], 'vinfKmS': bp['vinf'],
-                'aim': {'BdotT': bp['BdotT'], 'BdotR': bp['BdotR']},
+                'aim': {'BdotT': bp['BdotT'], 'BdotR': bp['BdotR']}, 'approachLeadS': bp['timeToPeriapsis'],
                 'note': 'Periapsis of the approach hyperbola 12 hours before the closest approach (before the insertion burn). Closest approach in the data: JD %.6f TDB, %.0f km.' % (jd, rad)}
     bp = bplane(e['stateAtClosest'], gm(pid))
     out = {'body': NAME[pid], 'jdTdb': jd, 'radiusKm': rad, 'vinfKmS': bp.get('vinf')}
@@ -133,7 +133,7 @@ bp = bplane(e['hourly']['state'][k], gm('499'))
 missions['mars2020'] = {
     'startTdb': start_tdb('mars2020'), 'arrival': 'entry', 'source': 'JPL Horizons trajectory ' + ENC['mars2020']['horizonsId'],
     'encounters': [{'body': 'MARS', 'jdTdb': e['hourly']['jd'][k] + bp['timeToPeriapsis'] / 86400.0, 'radiusKm': bp['rp'], 'vinfKmS': bp['vinf'],
-                    'aim': {'BdotT': bp['BdotT'], 'BdotR': bp['BdotR']},
+                    'aim': {'BdotT': bp['BdotT'], 'BdotR': bp['BdotR']}, 'approachLeadS': bp['timeToPeriapsis'],
                     'note': 'Vacuum periapsis of the approach hyperbola (below the surface: the spacecraft enters the atmosphere). End of the data: JD %.6f TDB.' % e['fine']['jd'][-1]}],
 }
 

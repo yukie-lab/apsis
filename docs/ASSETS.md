@@ -73,4 +73,40 @@ The list shows each body that lacks a texture.
 
 ## Spacecraft models
 
-See the section that the spacecraft model work adds.
+The spacecraft models are original work for Apsis.
+The code in `src/render/spacecraft/` builds each model when the application runs.
+The models use no model file, no image file and no font.
+The code makes each texture of the models.
+The models copy no model file and no texture of other software.
+The licence of the models is the licence of the Apsis source code.
+No model shows an agency logo, a flag, a mission patch or text.
+The `voyager` model has a plain gold disc on its bus.
+The disc has no picture and no text.
+
+Each model shows the general look of one class of real spacecraft.
+No model is an exact copy of a real spacecraft.
+The model `apsis` is an original design.
+It represents no real spacecraft.
+
+The table shows the spacecraft class of each model.
+It also shows the public document that gives the main sizes.
+The retrieval date of each document is 2026-10-14.
+A local copy is a file in `truth/published/`.
+
+| Model | Spacecraft class | Document | Sizes from the document |
+|---|---|---|---|
+| `voyager` | Voyager 1 and Voyager 2 class probe | NASA NSSDCA Master Catalog, Voyager 1, <https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1977-084A> (local copy `nssdc_voyager1.html`) | Bus 1.78 m across and 0.47 m high. Dish 3.66 m. Science boom about 2.5 m. Magnetometer boom 13 m. Two whip antennas of 10 m. Generator case 0.41 m by 0.51 m. |
+| `cassini` | Cassini class Saturn orbiter with its atmospheric probe | NASA Science, Cassini Quick Facts, <https://science.nasa.gov/mission/cassini/quick-facts/>. NASA Science, Cassini Orbiter, <https://science.nasa.gov/mission/cassini/spacecraft/cassini-orbiter/> | Height 6.7 m. Width 4 m. One high-gain antenna. Three generators. |
+| `newhorizons` | New Horizons class flyby probe | NASA NSSDCA Master Catalog, New Horizons, <https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2006-001A> (local copy `nssdc_newhorizons.html`) | Bus 0.68 m by 2.11 m by 2.74 m. Dish 2.1 m. One generator at one corner. |
+| `juno` | Juno class Jupiter orbiter | NASA NSSDCA Master Catalog, Juno, <https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2011-040A> | Six-sided bus 3.5 m across and 3.5 m high. Three solar wings, about 20 m across. Eleven panels. Boom at the end of one wing. Vault 0.8 m by 0.8 m by 0.6 m. Spin rate 2 rpm. |
+| `galileo` | Galileo class Jupiter orbiter with its atmospheric probe | NASA Science, Galileo, <https://science.nasa.gov/mission/galileo/> | Dish 4.8 m. Height 5.3 m. Magnetometer boom 11 m. Two generators. Spin rate about 3 rpm. Probe 1.27 m wide and 0.91 m high. |
+| `pioneer` | Pioneer 10 and Pioneer 11 class probe | NASA NSSDCA Master Catalog, Pioneer 10, <https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1972-012A> | Dish 2.74 m. Six-sided bus 0.36 m deep with sides of 0.71 m. Feed on three struts. Four generators on two trusses, about 3 m from the centre. Magnetometer boom 6.6 m. |
+| `marscruise` | Mars rover mission in the cruise configuration (aeroshell and cruise stage) | None | Approximate proportions from general knowledge, not verified against a document. |
+| `apsis` | Original design of this product | None | The model represents no real spacecraft. |
+| `ulysses` | Ulysses class solar polar probe | None | Approximate proportions from general knowledge, not verified against a document. |
+
+A document gives only the main sizes of a spacecraft.
+The models follow these sizes approximately.
+All other proportions come from general knowledge.
+No document confirms them.
+The local Mars 2020 pages give no size of the cruise stage or the aeroshell.

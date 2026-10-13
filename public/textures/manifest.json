@@ -1,6 +1,6 @@
 {
   "retrieved": "2026-10-14",
-  "conventions": "Body maps: north is at the top and east longitude increases to the right. centerLongitudeDeg is the east longitude at the image centre (null = unknown or not meaningful). For a point at east longitude L and latitude B: u = 0.5 + (L - centerLongitudeDeg) / 360 (modulo 1, from the left edge), v = (90 - B) / 180 (from the top edge). Where a longitude note says 'found by inspection' or 'check by inspection', the check is good to a few degrees only. Star map: right ascension 0 h is at the image centre and right ascension increases to the left; declination +90 degrees is at the top. For right ascension A and declination D in degrees: u = 0.5 - A / 360 (modulo 1, from the left edge), v = (90 - D) / 180 (from the top edge). Ring strip: see the note of the entry saturn_ring.",
+  "conventions": "Body maps: north is at the top and east longitude increases to the right. centerLongitudeDeg is the east longitude at the image centre (null = unknown or not meaningful). For a point at east longitude L and latitude B: u = 0.5 + (L - centerLongitudeDeg) / 360 (modulo 1, from the left edge), v = (90 - B) / 180 (from the top edge). Where a longitude note says 'found by inspection' or 'check by inspection', the check is good to a few degrees only. Star map: right ascension 0 h is at the image centre and right ascension increases to the left; declination +90 degrees is at the top. For right ascension A and declination D in degrees: u = 0.5 - A / 360 (modulo 1, from the left edge), v = (90 - D) / 180 (from the top edge). Coverage: 'partial' means that a large part of the surface has no data (21 to 68 percent in these files; Deimos has light grey blank areas). A map with 'global' coverage can still have small gaps (2 percent of the surface or less in these files); the note of the entry describes them. Ring strip: see the note of the entry saturn_ring.",
   "textures": [
     {
       "id": "sun",
@@ -24,7 +24,7 @@
       "sha256": "ff0f076ba65e03b5ab518451bc96699325be38e3ccbdd5869ee1c00f3a0c8816",
       "changes": "The build encodes the image again as JPEG (quality 85).",
       "licenceStatement": "Text of the source page: 'Distributed under Attribution 4.0 International license: You may use, adapt, and share these textures for any purpose, even commercially.' The page shows a link to https://creativecommons.org/licenses/by/4.0/ next to this text.",
-      "note": "The source page says in general: 'Textures in this pack are based on NASA elevation and imagery data.' It gives no detail for the Sun. By inspection the image looks like an artistic map: an orange mottled pattern with bright patches. The Sun has no fixed surface features."
+      "note": "The source page says in general: 'Textures in this pack are based on NASA elevation and imagery data.' It gives no detail for the Sun. By inspection the image looks like an artistic map: an orange mottled pattern with bright patches. The Sun has no fixed surface features. The source page says in general: 'The colors are slightly more saturated in order to highlite a unique nature for each object.'"
     },
     {
       "id": "mercury",
@@ -48,7 +48,7 @@
       "sha256": "5a5c80607f643496bac9a631e71957def35ed788895f18b678ac849c2b38e48a",
       "changes": "The build encodes the image again as JPEG (quality 85).",
       "licenceStatement": "Text of the source page: 'Distributed under Attribution 4.0 International license: You may use, adapt, and share these textures for any purpose, even commercially.' The page shows a link to https://creativecommons.org/licenses/by/4.0/ next to this text.",
-      "note": "The source says that gaps are filled with fictional terrain and that the colours are slightly more saturated."
+      "note": "The source page says in general: 'Some parts of the planets remain to be mapped. These “gaps” are filled with fictional terrain that corresponds with the rest of the landscape.' and 'The colors are slightly more saturated in order to highlite a unique nature for each object.' The source does not say where such gaps are."
     },
     {
       "id": "venus",
@@ -72,7 +72,7 @@
       "sha256": "225012ad4911730605c4e189ca2a3bf674fce50cc48aab4102b936b47d6991ac",
       "changes": "The build encodes the image again as JPEG (quality 85).",
       "licenceStatement": "Text of the source page: 'Distributed under Attribution 4.0 International license: You may use, adapt, and share these textures for any purpose, even commercially.' The page shows a link to https://creativecommons.org/licenses/by/4.0/ next to this text.",
-      "note": "Cloud tops. Clouds have no fixed longitude. The source gives no detail about the image data of this file."
+      "note": "Cloud tops. Clouds have no fixed longitude. The source gives no detail about the image data of this file. The source page says in general: 'The colors are slightly more saturated in order to highlite a unique nature for each object.'"
     },
     {
       "id": "venus_surface",
@@ -240,7 +240,7 @@
       "sha256": "f7130a1822681fa7512d7dcfd40db8c10b9ba4f06777910348698260ed7a2170",
       "changes": "The build encodes the image again as JPEG (quality 85).",
       "licenceStatement": "The source page says: 'Please give credit for this item to: NASA's Scientific Visualization Studio'. Help page of the NASA Scientific Visualization Studio: 'All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.' The source page of this file has no note that says otherwise.",
-      "note": "LRO camera data. The source says that latitudes beyond 70 degrees come from a monochrome albedo map of lower resolution."
+      "note": "LRO camera data. The source says that latitudes beyond 70 degrees come from a monochrome albedo map of lower resolution. The source says that the image is optimized for aesthetics, not science."
     },
     {
       "id": "mars",
@@ -288,7 +288,7 @@
       "sha256": "f92ffc7a2fa0235c47ec8f1f168dd36bffeb6acc318292b237878a00a48cf7d9",
       "changes": "The build resizes the image from 3601 x 1801 to 2048 x 1024 pixels. It converts the image from TIFF to JPEG (quality 85). It tags the image with the sRGB colour profile.",
       "licenceStatement": "The source page is a NASA page. It has no copyright mark and no licence mark. Its menu links to the NASA Brand & Usage Guidelines (https://www.nasa.gov/nasa-brand-center/). NASA Images and Media Usage Guidelines (https://www.nasa.gov/nasa-brand-center/images-and-media/): 'NASA content – images, audio, video, and media files used in the rendition of 3-dimensional models, such as texture maps and polygon data in any format – generally are not subject to copyright in the United States.' and 'NASA should be acknowledged as the source of the material.' and 'If the NASA material is to be used for commercial purposes, including advertisements, it must not explicitly or implicitly convey NASA’s endorsement of commercial goods or services.' The same page also says: 'The NASA Insignia, Logotype, identifiers, and imagery are not in the public domain.'",
-      "note": "Cassini images of 11 and 12 December 2000. Planetocentric latitude. Clouds change with time. The areas near the poles are hazy and end in a flat grey fill."
+      "note": "Cassini images of 11 and 12 December 2000. Planetocentric latitude. Clouds change with time. The areas near the poles are hazy and end in a flat grey fill. The original file has 3601 x 1801 pixels: its first column and its last column are equal (the same meridian)."
     },
     {
       "id": "saturn",
@@ -312,7 +312,7 @@
       "sha256": "54a900ca9bf7ab62e70f862852759abdf342e6d6436a95a2fe9ebdb6bcd3bbac",
       "changes": "The build encodes the image again as JPEG (quality 85).",
       "licenceStatement": "Text of the source page: 'Distributed under Attribution 4.0 International license: You may use, adapt, and share these textures for any purpose, even commercially.' The page shows a link to https://creativecommons.org/licenses/by/4.0/ next to this text.",
-      "note": "Cloud bands. Clouds have no fixed longitude."
+      "note": "Cloud bands. Clouds have no fixed longitude. The source gives no detail about the image data of this file. The source page says in general: 'The colors are slightly more saturated in order to highlite a unique nature for each object.'"
     },
     {
       "id": "saturn_ring",
@@ -360,7 +360,7 @@
       "sha256": "d15239d46f82d3ea13d2b260b5b29b2a382f42f2916dae0694d0387b1204a09d",
       "changes": "The build encodes the image again as JPEG (quality 85).",
       "licenceStatement": "Text of the source page: 'Distributed under Attribution 4.0 International license: You may use, adapt, and share these textures for any purpose, even commercially.' The page shows a link to https://creativecommons.org/licenses/by/4.0/ next to this text.",
-      "note": "Clouds have no fixed longitude."
+      "note": "Clouds have no fixed longitude. The source gives no detail about the image data of this file. The source page says in general: 'The colors are slightly more saturated in order to highlite a unique nature for each object.'"
     },
     {
       "id": "neptune",
@@ -384,7 +384,7 @@
       "sha256": "cb42ea82709741d28b0af44d8b283cbc6dbd0c521a7f0e1e1e010ade00977df6",
       "changes": "The build encodes the image again as JPEG (quality 85).",
       "licenceStatement": "Text of the source page: 'Distributed under Attribution 4.0 International license: You may use, adapt, and share these textures for any purpose, even commercially.' The page shows a link to https://creativecommons.org/licenses/by/4.0/ next to this text.",
-      "note": "Clouds have no fixed longitude."
+      "note": "Clouds have no fixed longitude. The source gives no detail about the image data of this file. The source page says in general: 'The colors are slightly more saturated in order to highlite a unique nature for each object.'"
     },
     {
       "id": "pluto",
@@ -408,7 +408,7 @@
       "sha256": "d63da5ee9eab8d0b98ebef3c0cdc3a92676d7c9b247b2383294fb5da5c67a71a",
       "changes": "The build resizes the image from 5926 x 2963 to 2048 x 1024 pixels. It encodes the image again as JPEG (quality 85).",
       "licenceStatement": "The Commons page names the NASA page https://www.nasa.gov/image-feature/pluto-global-color-map as the source. That NASA page gives the credit 'NASA/JHUAPL/SwRI'. Licence text on the Wikimedia Commons file page (template PD-USGov-NASA): 'This file is in the public domain in the United States because it was solely created by NASA. NASA copyright policy states that \"NASA material is not protected by copyright unless noted\".' The Commons API gives LicenseShortName 'Public domain' and Copyrighted 'False'.",
-      "note": "New Horizons colour mosaic of July 2015. The black area in the south has no data. The hemisphere far from the flyby has low resolution."
+      "note": "New Horizons colour mosaic of July 2015. The black area in the south has no data (about 21 percent of the surface). The hemisphere far from the flyby has low resolution."
     },
     {
       "id": "charon",
@@ -432,7 +432,7 @@
       "sha256": "4a874809e0a33a851cd026b8e4647f5875ed15807e677d413812367509564b00",
       "changes": "The build resizes the image from 12693 x 6347 to 2048 x 1024 pixels. It converts the image from TIFF to JPEG (quality 85). It converts the image from greyscale to sRGB colour.",
       "licenceStatement": "USGS record of this file: 'Access Constraints: None', 'Use Constraints: Please cite authors'. The record does not use the words 'public domain'. The record has the edition name 'Charon's Surface in Detail'. NASA published the mosaic under this title (PIA21860, https://science.nasa.gov/photojournal/charons-surface-in-detail/, credit 'NASA/Johns Hopkins University Applied Physics Laboratory/Southwest Research Institute'). USGS policy page: 'USGS-authored or produced data and information are considered to be in the U.S. Public Domain.' and 'When using information from USGS information products, publications, or websites, we ask that proper credit be given.'",
-      "note": "Monochrome (grey) mosaic. The black area in the south has no data. The hemisphere far from the flyby has low resolution."
+      "note": "Monochrome (grey) mosaic. The black area in the south has no data (about 26 percent of the surface). The hemisphere far from the flyby has low resolution."
     },
     {
       "id": "io",
@@ -672,7 +672,7 @@
       "sha256": "ca0fe5f6f9bdba1b6d03245969a42336a010ddc17d636e5e06fffa939d10ca83",
       "changes": "The build resizes the image from 4040 x 2020 to 2048 x 1024 pixels. It converts the image from TIFF to JPEG (quality 85). It converts the image from greyscale to sRGB colour.",
       "licenceStatement": "USGS record of this file: 'Access Constraints: None', 'Use Constraints: Please cite authors'. The record does not use the words 'public domain'. The record gives 'Series Id: PIA 19658'. NASA published this map as PIA19658 (https://science.nasa.gov/photojournal/titan-global-map-june-2015/, credit 'NASA/JPL-Caltech/Space Science Institute'). USGS policy page: 'USGS-authored or produced data and information are considered to be in the U.S. Public Domain.' and 'When using information from USGS information products, publications, or websites, we ask that proper credit be given.'",
-      "note": "Monochrome (grey) map of the surface in near-infrared light (938 nm). This is not the orange haze that the eye sees from space. Image seams are visible. The source says that a uniform grey area in the north is a gap in the coverage."
+      "note": "Monochrome (grey) map of the surface in near-infrared light (938 nm). This is not the orange haze that the eye sees from space. Image seams are visible. The source says that a uniform grey area in the north is a gap in the coverage (NASA page PIA19658: 'about 3 to 5 percent of Titan's surface')."
     },
     {
       "id": "iapetus",
@@ -720,7 +720,7 @@
       "sha256": "844b2deb88b8dbc93142bf5b85036ce7dd45db131e6251b4e6a95e179ae44c81",
       "changes": "The build enlarges the image from 1440 x 720 to 2048 x 1024 pixels. It encodes the image again as JPEG (quality 85).",
       "licenceStatement": "Licence text on the Wikimedia Commons file page (template PD-USGov-NASA): 'This file is in the public domain in the United States because it was solely created by NASA. NASA copyright policy states that \"NASA material is not protected by copyright unless noted\".' The Commons API gives LicenseShortName 'Public domain' and Copyrighted 'False'.",
-      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data. The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Miranda.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-miranda/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The original file has 1440 x 720 pixels."
+      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data (about 60 percent of the surface). The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Miranda.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-miranda/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The JPL site says about its maps: 'some have also been enhanced and slightly altered for aesthetic appeal'. The original file has 1440 x 720 pixels."
     },
     {
       "id": "ariel",
@@ -744,7 +744,7 @@
       "sha256": "fc0f8a59b5c29e44e4a3409e452f0427f5b53b8c9b41c89dc35d28babaae5cee",
       "changes": "The build enlarges the image from 1440 x 720 to 2048 x 1024 pixels. It encodes the image again as JPEG (quality 85).",
       "licenceStatement": "Licence text on the Wikimedia Commons file page (template PD-USGov-NASA): 'This file is in the public domain in the United States because it was solely created by NASA. NASA copyright policy states that \"NASA material is not protected by copyright unless noted\".' The Commons API gives LicenseShortName 'Public domain' and Copyrighted 'False'.",
-      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data. The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Ariel.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-ariel/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The original file has 1440 x 720 pixels."
+      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data (about 66 percent of the surface). The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Ariel.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-ariel/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The JPL site says about its maps: 'some have also been enhanced and slightly altered for aesthetic appeal'. The original file has 1440 x 720 pixels."
     },
     {
       "id": "umbriel",
@@ -768,7 +768,7 @@
       "sha256": "f1378bc2880bb0d4ddad50815083987aab38c9aae630cbd65465c6773495e511",
       "changes": "The build enlarges the image from 1440 x 720 to 2048 x 1024 pixels. It encodes the image again as JPEG (quality 85).",
       "licenceStatement": "Licence text on the Wikimedia Commons file page (template PD-USGov-NASA): 'This file is in the public domain in the United States because it was solely created by NASA. NASA copyright policy states that \"NASA material is not protected by copyright unless noted\".' The Commons API gives LicenseShortName 'Public domain' and Copyrighted 'False'.",
-      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data. The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Umbriel.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-umbriel/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The original file has 1440 x 720 pixels."
+      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data (about 63 percent of the surface). The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Umbriel.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-umbriel/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The JPL site says about its maps: 'some have also been enhanced and slightly altered for aesthetic appeal'. The original file has 1440 x 720 pixels."
     },
     {
       "id": "titania",
@@ -792,7 +792,7 @@
       "sha256": "087425752c8f5090965f5a4fac7d50a4c450563edd50b807bbc1d45ebeedd312",
       "changes": "The build enlarges the image from 1440 x 720 to 2048 x 1024 pixels. It encodes the image again as JPEG (quality 85).",
       "licenceStatement": "Licence text on the Wikimedia Commons file page (template PD-USGov-NASA): 'This file is in the public domain in the United States because it was solely created by NASA. NASA copyright policy states that \"NASA material is not protected by copyright unless noted\".' The Commons API gives LicenseShortName 'Public domain' and Copyrighted 'False'.",
-      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data. The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Titania.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-titania/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The original file has 1440 x 720 pixels."
+      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data (about 68 percent of the surface). The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Titania.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-titania/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The JPL site says about its maps: 'some have also been enhanced and slightly altered for aesthetic appeal'. The original file has 1440 x 720 pixels."
     },
     {
       "id": "oberon",
@@ -816,7 +816,7 @@
       "sha256": "ed29842e1b1fb96ee9626a62d4ee7bbf53756997ef33b1edda2dbead43383460",
       "changes": "The build enlarges the image from 1440 x 720 to 2048 x 1024 pixels. It encodes the image again as JPEG (quality 85). It converts the image from greyscale to sRGB colour.",
       "licenceStatement": "Licence text on the Wikimedia Commons file page (template PD-USGov-NASA): 'This file is in the public domain in the United States because it was solely created by NASA. NASA copyright policy states that \"NASA material is not protected by copyright unless noted\".' The Commons API gives LicenseShortName 'Public domain' and Copyrighted 'False'.",
-      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data. The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Oberon.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-oberon/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The original file has 1440 x 720 pixels."
+      "note": "Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area has no data (about 66 percent of the surface). The NASA 3D Resources mirror on GitHub has the same file (same sha256) with the name 'Uranus - Oberon.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-oberon/ gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The JPL site says about its maps: 'some have also been enhanced and slightly altered for aesthetic appeal'. The original file has 1440 x 720 pixels."
     },
     {
       "id": "triton",
@@ -840,7 +840,7 @@
       "sha256": "f20ed332e85df469725629b81d3a73ad026897fe561ec59d6245d249a09507db",
       "changes": "The build resizes the image from 14138 x 7069 to 2048 x 1024 pixels. It converts the image from TIFF to JPEG (quality 85). It tags the image with the sRGB colour profile.",
       "licenceStatement": "USGS record of this file: 'Access Constraints: public domain', 'Use Constraints: Please cite authors'. USGS policy page: 'USGS-authored or produced data and information are considered to be in the U.S. Public Domain.' and 'When using information from USGS information products, publications, or websites, we ask that proper credit be given.'",
-      "note": "Voyager 2 colour mosaic. The black area in the north has no data ('Large gap at the north pole'). The source says: 'Grid lines were filled by neighboring pixels.'"
+      "note": "Voyager 2 colour mosaic. The black area in the north has no data (about 33 percent of the surface; the source says 'Large gap at the north pole'). The source says: 'Grid lines were filled by neighboring pixels.'"
     },
     {
       "id": "phobos",
@@ -888,7 +888,7 @@
       "sha256": "85fd0e7d05810b725af997b226143887e84df1922d3b6a83b9d2bac47d4f8716",
       "changes": "The build enlarges the image from 1440 x 720 to 2048 x 1024 pixels. It converts the image from TIFF to JPEG (quality 85). It tags the image with the sRGB colour profile. It removes scan marks at the right edge, at the top right corner and in the bottom row.",
       "licenceStatement": "NASA 3D Resources page (https://science.nasa.gov/3d-resources/): 'All of these assets are free to download and use. They are also mirrored on GitHub. Refer to the NASA Images and Media Usage Guidelines.' README of the NASA mirror (https://github.com/nasa/NASA-3D-Resources): 'These assets are free and without copyright.' NASA Images and Media Usage Guidelines (https://www.nasa.gov/nasa-brand-center/images-and-media/): 'NASA content – images, audio, video, and media files used in the rendition of 3-dimensional models, such as texture maps and polygon data in any format – generally are not subject to copyright in the United States.' and 'NASA should be acknowledged as the source of the material.' and 'If the NASA material is to be used for commercial purposes, including advertisements, it must not explicitly or implicitly convey NASA’s endorsement of commercial goods or services.' The same page also says: 'The NASA Insignia, Logotype, identifiers, and imagery are not in the public domain.'",
-      "note": "Monochrome (grey) map. By inspection it looks like an airbrushed shaded-relief map, not a photo mosaic. Light grey areas without detail have no data. Sheet seams remain visible after the repair. The NASA page says: 'From Viking images, processed at the USGS. From the database of JPL/Caltech generated planetary maps.' The JPL page (https://maps.jpl.nasa.gov/tmaps/mars.html) says: 'From Viking images, processed at the USGS. Grayscale.' The file comes from the texture map database of the JPL Solar System Simulator. The NASA mirror on GitHub has the same file (same sha256): https://github.com/nasa/NASA-3D-Resources/tree/master/Images%20and%20Textures/Mars%20-%20Deimos . The original file has 1440 x 720 pixels."
+      "note": "Monochrome (grey) map. By inspection it looks like an airbrushed shaded-relief map, not a photo mosaic. Light grey areas without detail have no data. Sheet seams remain visible after the repair. The NASA page says: 'From Viking images, processed at the USGS. From the database of JPL/Caltech generated planetary maps.' The JPL page (https://maps.jpl.nasa.gov/tmaps/mars.html) says: 'From Viking images, processed at the USGS. Grayscale.' The file comes from the texture map database of the JPL Solar System Simulator. The JPL site says about its maps: 'some have also been enhanced and slightly altered for aesthetic appeal'. The NASA mirror on GitHub has the same file (same sha256): https://github.com/nasa/NASA-3D-Resources/tree/master/Images%20and%20Textures/Mars%20-%20Deimos . The original file has 1440 x 720 pixels."
     },
     {
       "id": "ceres",
@@ -936,7 +936,7 @@
       "sha256": "f211e4b86601a22df9526cada4a68b3e5061a8a35038fca7e339e2db28edfffb",
       "changes": "The build resizes the image from 3561 x 1781 to 2048 x 1024 pixels. It converts the image from PNG to JPEG (quality 85). It converts the image from greyscale to sRGB colour.",
       "licenceStatement": "Licence text on the Wikimedia Commons file page (template PD-USGov-NASA): 'This file is in the public domain in the United States because it was solely created by NASA. NASA copyright policy states that \"NASA material is not protected by copyright unless noted\".' The Commons API gives LicenseShortName 'Public domain' and Copyrighted 'False'.",
-      "note": "Monochrome (grey) Dawn mosaic from the USGS gazetteer map of Vesta. A Commons user prepared the PNG file. The dark area near the north pole was in shadow and has no data. A pure black rectangle at the top left is a part of that area. The Commons page mentions an earlier upload that was 'resized, filled northern hemisphere, and converted to PNG'."
+      "note": "Monochrome (grey) Dawn mosaic from the USGS gazetteer map of Vesta. A Commons user prepared the PNG file. The dark area near the north pole was in shadow and has no data (about 2 percent of the surface is black). A pure black rectangle at the top left is a part of that area. The Commons page mentions an earlier upload that was 'resized, filled northern hemisphere, and converted to PNG'."
     },
     {
       "id": "stars",
@@ -960,7 +960,7 @@
       "originalFile": "data-src/textures/original/starmap_2020_4k.exr",
       "sha256": "69b841cd048c2ef35543eb1c5819b322530e78aa4b0cab97ec1de3ef56a4ddcd",
       "changes": "The build converts the image from OpenEXR to JPEG (quality 85). It converts the image from linear light to the sRGB colour profile.",
-      "licenceStatement": "The source page says: 'Please give credit for this item to: NASA/Goddard Space Flight Center Scientific Visualization Studio. Gaia DR2: ESA/Gaia/DPAC.' Help page of the NASA Scientific Visualization Studio: 'All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.' The source page of this file has no note that says otherwise.",
+      "licenceStatement": "The source page says: 'Please give credit for this item to: NASA/Goddard Space Flight Center Scientific Visualization Studio. Gaia DR2: ESA/Gaia/DPAC.' The page links the Gaia credit to https://gea.esac.esa.int/archive/documentation/GDR2/Miscellaneous/sec_credit_and_citation_instructions/ . That page says: 'The Gaia data are open and free to use, provided credit is given to ’ESA/Gaia/DPAC’.' Help page of the NASA Scientific Visualization Studio: 'All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.' The source page of this file has no note that says otherwise.",
       "note": "Stars and Milky Way from the Hipparcos-2, Tycho-2 and Gaia DR2 catalogues. The original file has linear light values. Check by inspection of the published file: the galactic centre lies at 76 percent of the width and 66 percent of the height. The Large Magellanic Cloud lies at 28 percent of the width and 89 percent of the height. Both positions fit the star map formula of the conventions."
     }
   ],

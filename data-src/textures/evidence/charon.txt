@@ -1,0 +1,1210 @@
+Licence evidence for the texture "charon"
+============================================================
+
+Texture id:        charon
+Body and role:     CHARON, color
+Published file:    public/textures/charon.jpg (sha256 3c01a2f04ab0985193beecdce670819de0d5cb0b4eeb53a568a3e459cb1c047d)
+Small file:        public/textures/sm/charon.jpg (sha256 93c3f5f0be467e703fcd649f349fa7bc166b558a3d3fe5f3980d40ce1118cf87)
+Original file:     data-src/textures/original/Charon_NewHorizons_Global_Mosaic_300m_Jul2017_8bit.tif (80613890 bytes, sha256 4a874809e0a33a851cd026b8e4647f5875ed15807e677d413812367509564b00)
+Retrieved:         2026-10-14
+Title:             Charon New Horizons LORRI MVIC Global Mosaic 300m
+Author or credit:  New Horizons Team (primary authors); NASA, Johns Hopkins University Applied Physics Laboratory, Southwest Research Institute, Lunar and Planetary Institute (originators); USGS Astrogeology Science Center (publisher)
+Source page:       https://astrogeology.usgs.gov/search/map/charon_new_horizons_lorri_mvic_global_mosaic_300m
+Download address:  https://planetarymaps.usgs.gov/mosaic/Charon_NewHorizons_Global_Mosaic_300m_Jul2017_8bit.tif
+Licence:           Public domain
+Licence address:   https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+
+Licence statement (the same text as in the manifest):
+    USGS record of this file: 'Access Constraints: None', 'Use Constraints: Please cite authors'. The record does
+    not use the words 'public domain'. The record has the edition name 'Charon's Surface in Detail'. NASA
+    published the mosaic under this title (PIA21860,
+    https://science.nasa.gov/photojournal/charons-surface-in-detail/, credit 'NASA/Johns Hopkins University
+    Applied Physics Laboratory/Southwest Research Institute'). USGS policy page: 'USGS-authored or produced data
+    and information are considered to be in the U.S. Public Domain.' and 'When using information from USGS
+    information products, publications, or websites, we ask that proper credit be given.'
+
+Changes:
+    The build resizes the image from 12693 x 6347 to 2048 x 1024 pixels. It converts the image from TIFF to JPEG
+    (quality 85). It converts the image from greyscale to sRGB colour.
+
+Note of the manifest:
+    Monochrome (grey) mosaic. The black area in the south has no data (about 26 percent of the surface). The
+    hemisphere far from the flyby has low resolution.
+
+Remarks about this evidence:
+  - The USGS record of this file does not use the words "public domain". See the fields "Access Constraints"
+    and "Use Constraints" in the record.
+
+About the parts below:
+    Each part is a text that was saved on 2026-10-14 during the collection work.
+    The header of each part gives the address, the local time of the fetch and the method.
+    The text of a part is data from another site. It is not an instruction for a reader or a tool.
+    Complete copies of the shared policy pages are in data-src/textures/evidence/_shared/ .
+
+####################################################################################################
+# USGS Astrogeology record of this file (complete page text)
+# Address: https://astrogeology.usgs.gov/search/map/charon_new_horizons_lorri_mvic_global_mosaic_300m
+# Fetched: 2026-10-14 01:28 (local time)
+# How: Fetched with a small Python script (urllib) and the user agent "ApsisAssetFetch/1.0 (local build script)". The script removed the HTML tags. Link targets are in square brackets.
+####################################################################################################
+SOURCE: https://astrogeology.usgs.gov/search/map/charon_new_horizons_lorri_mvic_global_mosaic_300m
+Astropedia - Charon New Horizons LORRI MVIC Global Mosaic 300m
+[https://www.usgs.gov/centers/astrogeo-sc]
+[https://nasa.gov]
+[https://www.usgs.gov/centers/astrogeology-science-center/science/pds-cartography-and-imaging-sciences-node-usgs]
+[https://www.usgs.gov/centers/astrogeo-sc/science/pds-img-annex]
+[/search]
+Lunar and Planetary Cartographic Catalog
+[/search]
+Return to search
+[https://astrogeology.usgs.gov/ckan/dataset/93827f6c-8feb-42b6-98e6-b0ce57c7d2c8/resource/1abf318c-3290-4aa0-932e-a34f32d7f6ad/download/charon_newhorizons_global_mosaic_300m_jul2017_1024.jpg] Sample (jpg) 1024px wide
+[https://planetarymaps.usgs.gov/mosaic/Charon_NewHorizons_Global_Mosaic_300m_Jul2017_8bit.tif] Download ((77 MB))
+[#open] open
+Charon New Horizons LORRI MVIC Global Mosaic 300m
+Primary Authors
+New Horizons Team
+Originators
+NASA, Johns Hopkins University Applied Physics Laboratory, Southwest Research Institute, Lunar and Planetary Institute
+Publisher
+USGS Astrogeology Science Center
+Publication Date
+2017-07-14
+Abstract
+Product Information:
+This detailed, high-quality global mosaic of Pluto's largest moon, Charon, was assembled from nearly all of the highest-resolution images obtained by the Long-Range Reconnaissance Imager (LORRI) and the Multispectral Visible Imaging Camera (MVIC) on New Horizons. The mosaic is the most detailed and comprehensive global view yet of Charon's surface using New Horizons data. Standing out on Charon is an enormous trough at least 350 kilometers long, and reaching 14 kilometers deep, more than seven times as deep as the Grand Canyon.
+This mosaic is available in equirectangular projection at an equatorial pixel scale of 300 meters per pixel (m). An ISIS3 cube 32bit formatted file is available from the ancillary section. This map was produced using radii of 606 kilometers for Charon.
+Mission and Instrument Information:
+Pluto was discovered on February 18, 1930 at Lowell Observatory in Flagstaff, Arizona. It was discovered by an observing assistant, Clyde Tombaugh, as he assisted the search for planet X which was believed (incorrectly) to be responsible for anomalies in the orbits of Uranus and Neptune. At about half the size of Earth's moon, Pluto has been officially re-classified as a dwarf planet. It is in the Kuiper Belt and orbits the sun at an average distance of 3.6 billion miles. Pluto has five moons, the largest of which is Charon. Pluto and Charon orbit each other like a double planet system.
+New Horizons spacecraft launched onboard a Lockheed Martin Atlas V rocket at Cape Canaveral Air Force Station in Florida on January 19, 2006. The main objectives of New Horizons was a Pluto Flyby and a Kuiper Belt Object Flyby. The science payload includes seven instruments: visible and infrared imager/spectrometer (Ralph), ultraviolet imaging spectrometer (Alice), Radio science EXperiment (REX), Long Range Reconnaissance Image (LORRI), solar wind around Pluto (SWAP), Pluto Energetic Particle Spectrometer Science Investigation (PEPSSI), and Student Dust Counter (SDC).
+New Horizons passed Mars on April 7th, 2006 and received a gravity assist from Jupiter on Feb 28th, 2007. The spacecraft was put into hibernation mode starting June 28th, 2007 and it reached the halfway point to Pluto on February 25th, 2010. Ground controllers revived New Horizons from hibernation on December 6th, 2014. At that time, it took four hours and twenty-five minutes for a signal from the spacecraft to reach Earth. New Horizons began its approach to Pluto on January 15th, 2015 and flew about 4,800 miles above the surface of Pluto on July 14th, 2015. The entire series of data collected during New Horizons' encounter with Pluto and Charon is about 6.25 gigabytes and was transmitted to earth at about 1-2 kilobits per second over a distance of roughly 4.5 light-hours from Earth. As of March 2019, New Horizons was about 4.1 billion miles from Earth and continuing its journey deep into the Kuiper Belt at nearly 33,000 miles per hour. The New Horizons mission is currently extended through 2021 with the objective to explore Kuiper Belt objects.
+References:
+Moore, J. M., McKinnon, W. B., Spencer, J. R., Howard, A. D., Schenk, P. M., Beyer, R. A., Nimmo, F., et al. (2016). The Geology of Pluto and Charon Through the Eyes of New Horizons. Science, 351(6279), 1284-1293. [https://10.1126/science.aad7055] https://10.1126/science.aad7055
+Schenk, P., Beyer, R. A., McKinnon, W. B., Moore, J. M., Spencer, J. R., White, O. L., New Horizons Geology and Geophysics Investigation Team, et al. (2018). Breaking Up is Hard to Do: Global Cartography and Topography of Charon from New Horizons. Icarus, 315, 124-145. [https://doi.org/10.1016/j.icarus.2018.06.010] https://doi.org/10.1016/j.icarus.2018.06.010
+Purpose
+Image map of Charon
+Contact and Distribution
+Format
+Global Mosaic, Image, Remote-sensing Data
+Access Constraints
+None
+Access Scope
+PDS
+Use Constraints
+Please cite authors
+Edition
+2016-12-12T15:42:39
+Edition Name
+Charon's Surface in Detail
+Supplemental Information
+https://arxiv.org/abs/1604.05702
+Native Data Set Environment
+ISIS v3
+Astrogeology Theme
+Image Processing, Regolith
+Mission Names
+New Horizons
+Online Package Link
+https://astrogeology.usgs.gov/search/map/charon_new_horizons_lorri_mvic_global_mosaic_300m
+External File Size
+(77 MB)
+Online File Link
+https://planetarymaps.usgs.gov/mosaic/Charon_NewHorizons_Global_Mosaic_300m_Jul2017_8bit.tif
+Contact Address
+2255 N. Gemini Drive
+Contact City
+Flagstaff
+Contact State
+AZ
+Contact Postal Code
+86001
+Contact Email
+[/cdn-cgi/l/email-protection] [email protected]
+Data Status and Quality
+Time Period of Content (start)
+2015-07-14
+Time Period of Content (stop)
+2016-10-25
+Currentness Reference
+Ground condition
+Progress
+Complete
+Update Frequency
+As needed
+Process Description
+The original 32bit pixel values were stretch to 8bit (1-255) using a 0.5% to 99.5% range which resulted in in using the pixel value range from 0.10892 to 1.3745.
+Source Title
+Charon's Surface in Detail
+Source Online Linkage
+{https://pds-smallbodies.astro.umd.edu/holdings/nh-p_psa-lorri_mvic-5-geophys-v1.0/dataset.html,https://pds-smallbodies.astro.umd.edu/data_sb/missions/newhorizons/index.shtml}
+PDS Status
+PDS 3 Archived
+Geospatial Information
+Target
+Charon
+System
+Pluto
+Minimum Latitude
+-90
+Maximum Latitude
+90
+Minimum Longitude
+0
+Maximum Longitude
+360
+Direct Spatial Reference Method
+Raster
+Object Type
+Grid Cell
+Raster Row Count (lines)
+6347
+Raster Column Count (samples)
+12693
+Bit Type (8, 16, 32)
+8
+Quad Name
+Radius A
+606000
+Radius C
+606000
+Bands
+1
+Pixel Resolution (meters/pixel)
+300
+Scale (pixels/degree)
+35.255650890285
+Map Projection Name
+Simple Cylindrical
+Latitude Type
+Planetographic
+Longitude Direction
+Positive East
+Longitude Domain
+0 to 360
+Project, clip, convert format (e.g. PDS, GeoTIFF, Jpeg) and download this product with Map a Planet
+FGDC: XML Metadata
+Ancillary Data
+[https://astrogeology.usgs.gov/ckan/dataset/93827f6c-8feb-42b6-98e6-b0ce57c7d2c8/resource/dd59f4b5-7998-4905-98ce-a74d3b177b2f/download/charon_newhorizons_global_mosaic_300m_jul2017_8bit.lbl] ISIS3 Label
+[https://astrogeology.usgs.gov/ckan/dataset/93827f6c-8feb-42b6-98e6-b0ce57c7d2c8/resource/086c7b1f-4c51-486d-ab6a-edbc4a1902e6/download/charon_newhorizons_global_mosaic_300m_jul2017_8bit_pds3.lbl] PDS3 Label
+[https://astrogeology.usgs.gov/ckan/dataset/93827f6c-8feb-42b6-98e6-b0ce57c7d2c8/resource/87e4b0d6-d6ec-4369-bb3d-05f21902875c/download/thumb.png] thumb image
+[https://astrogeology.usgs.gov/ckan/dataset/93827f6c-8feb-42b6-98e6-b0ce57c7d2c8/resource/552966b9-b813-408b-a33d-b1483b336f8c/download/charon_newhorizons_global_mosaic_300m_jul2017_512.jpg] browse image
+[https://astrogeology.usgs.gov/ckan/dataset/93827f6c-8feb-42b6-98e6-b0ce57c7d2c8/resource/1abf318c-3290-4aa0-932e-a34f32d7f6ad/download/charon_newhorizons_global_mosaic_300m_jul2017_1024.jpg] full image
+Related Products
+[https://astrogeology.usgs.gov/search/map/charon_new_horizons_lorri_mvic_global_dem_300m]
+[https://astrogeology.usgs.gov/search/map/charon_new_horizons_lorri_mvic_global_dem_300m]
+Charon New Horizons LORRI MVIC Global DEM 300m
+[http://isis.astrogeology.usgs.gov]
+ISIS
+[http://planetarynames.wr.usgs.gov]
+Planetary Nomenclature
+[https://astrocloud.wr.usgs.gov/index.php]
+Map a Planet 2
+[https://www.usgs.gov/centers/astrogeo-sc/science/cartography-and-imaging-sciences-node-nasa-planetary-data-system]
+PDS Cartography and Imaging Science Node
+[https://www.usgs.gov/centers/astrogeology-science-center/science/astrolink]
+AstroLink
+Photogrammetry Guest Facility
+[https://pilot.wr.usgs.gov]
+PILOT
+[https://www.usgs.gov/centers/astrogeo-sc/science/mrctr-gis-lab]
+MRCTR GIS Lab
+[http://astrogeology.usgs.gov/search/about] About
+[https://www.usgs.gov/centers/astrogeo-sc] USGS Astrogeology Science Center
+
+####################################################################################################
+# USGS policy page: Copyrights and Credits (excerpt, lines 419 to 427 of the saved text)
+# Address: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+# Fetched: 2026-10-14 01:50 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The complete text is in data-src/textures/evidence/_shared/usgs_copyrights_and_credits.txt
+####################################################################################################
+Important information related to copyrights and credits.
+
+USGS-authored or produced data and information are considered to be in the U.S. Public Domain. While the content of most USGS websites is in the U.S. Public Domain, not all information, illustrations, or photographs on our site are. Some non-USGS photographs, images, and/or graphics that appear on USGS websites are used by the USGS with permission from the copyright holder (as required by USGS policy on the use of copyrighted material). These materials are generally marked as being copyrighted. To use these copyrighted materials, you must obtain permission from the copyright holder under copyright law.
+For any content or multimedia containing USGS personnel or staff, and regardless of the license applied, their likeness, or voice, the person may have publicity rights. For commercial use of that multimedia, permission may be required.
+When using information from USGS information products, publications, or websites, we ask that proper credit be given. Credit can be provided by including a citation such as the following:
+Credit: U.S. Geological Survey
+Department of the Interior/USGS
+U.S. Geological Survey/photo by Jane Doe (if the photographer/artist is known)
+Additional information on Acknowledging or Crediting USGS as Information Source is available.
+
+####################################################################################################
+# GeoTIFF tags of the stored original file (read from the file header by a local script)
+# Address: (local file)
+# Fetched: 2026-10-14 (local time)
+# How: The script reads the TIFF tag directory only. It does not decode pixels.
+# These tags give the longitude at the image centre.
+####################################################################################################
+## Charon_NewHorizons_Global_Mosaic_300m_Jul2017_8bit.tif
+   TIFF  size 12693x6347  bits (8,)  samples 1  photometric (1,)  compression (1,)
+   pixelScale: (300.0, 300.0, 0.0)
+   tiePoint: (0.0, 0.0, 0.0, -1903950.0, 952200.0, 0.0)
+   key 1024 GTModelType = 1
+   key 1025 GTRasterType = 1
+   key 1026 GTCitation = SimpleCylindrical Charon
+   key 2048 GeographicType = 32767
+   key 2049 GeogCitation = GCS Name = GCS_Charon|Datum = D_Charon|Ellipsoid = Charon|Primem = Reference_Meridian
+   key 2050 GeogGeodeticDatum = 32767
+   key 2054 GeogAngularUnits = 9102
+   key 2056 GeogEllipsoid = 32767
+   key 2057 GeogSemiMajorAxis = 606000.0
+   key 2058 GeogSemiMinorAxis = 606000.0
+   key 2061 GeogPrimeMeridianLong = 0.0
+   key 3072 ProjectedCSType = 32767
+   key 3074 Projection = 32767
+   key 3075 ProjCoordTrans = 17
+   key 3076 ProjLinearUnits = 9001
+   key 3078 ProjStdParallel1 = 0.0
+   key 3082 ProjFalseEasting = 0.0
+   key 3083 ProjFalseNorthing = 0.0
+   key 3088 ProjCenterLong = 0.0
+   key 3089 ProjCenterLat = 0.0
+   GDAL nodata: 0
+   radius 606000.0 m, lon0 0.0000, stdpar 0.0
+   left edge -180.0137 deg, centre 0.0000 deg, right edge 180.0137 deg (east positive)
+   top lat 90.0281 deg, bottom lat -89.9998 deg
+
+####################################################################################################
+# NASA Photojournal PIA21860 "Charon's Surface in Detail" (complete page text; second source for the same mosaic)
+# Address: https://science.nasa.gov/photojournal/charons-surface-in-detail/
+# Fetched: 2026-10-14 02:24 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The navigation menus of this page list unrelated items.
+####################################################################################################
+Charon's Surface in Detail - NASA Science
+
+[https://www.nasa.gov]
+{img https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png}
+
+Explore
+
+Search
+
+[https://www.nasa.gov]
+{img https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png}
+
+News & Events
+
+[https://www.nasa.gov/news/]
+
+News & Events
+
+[https://www.nasa.gov/news/recently-published/]
+Recently Published
+
+[https://www.nasa.gov/plus/]
+Video Series on NASA+
+
+[https://www.nasa.gov/podcasts-and-audio/]
+Podcasts & Audio
+
+[https://www.nasa.gov/nasa-blogs/]
+Blogs
+
+[https://www.nasa.gov/newsletters/]
+Newsletters
+
+[https://www.nasa.gov/socialmedia/]
+Social Media
+
+[https://www.nasa.gov/news/nasa-media-contacts/]
+Media Resources
+
+Multimedia
+
+[https://www.nasa.gov/multimedia/]
+
+Multimedia
+
+[https://plus.nasa.gov/]
+NASA+
+
+[https://www.nasa.gov/images/]
+Images
+
+[https://www.nasa.gov/live]
+NASA Live
+
+[https://www.nasa.gov/apps/]
+NASA Apps
+
+[https://www.nasa.gov/podcasts/]
+Podcasts
+
+[https://www.nasa.gov/image-of-the-day/]
+Image of the Day
+
+[https://www.nasa.gov/ebooks/]
+e-Books
+
+[https://science.nasa.gov/3d-resources/]
+3D Resources
+
+[https://www.nasa.gov/nasa-interactive-features/]
+Interactives
+
+[https://www.nasa.gov/learning-resources/search/?terms=8058%2C8059%2C8061%2C8062%2C8068]
+STEM Multimedia
+
+[https://www.nasa.gov/nasa-brand-center/]
+NASA Brand & Usage Guidelines
+
+[https://plus.nasa.gov/]
+NASA+
+
+Search
+
+Suggested Searches
+
+[https://science.nasa.gov/?search=ISS]
+
+ISS
+
+[https://science.nasa.gov/?search=Roman]
+
+Roman
+
+[https://science.nasa.gov/?search=Webb]
+
+Webb
+
+[https://science.nasa.gov/?search=Quesst]
+
+Quesst
+
+[https://science.nasa.gov/?search=Moon%20Base]
+
+Moon Base
+
+[https://science.nasa.gov/a-to-z-topics-listing/]
+View All Topics A-Z
+
+[https://science.nasa.gov/] Home
+[https://science.nasa.gov/nasa-missions/] Missions
+[https://science.nasa.gov/humans-in-space/] Humans in Space
+[https://science.nasa.gov/earth/] Earth
+[https://science.nasa.gov/solar-system/] The Solar System
+[https://science.nasa.gov/universe/] The Universe
+[https://science.nasa.gov/] Science
+[https://science.nasa.gov/aeronautics/] Aeronautics
+[https://science.nasa.gov/technology/] Technology
+[https://science.nasa.gov/learning-resources/] Learning Resources
+[https://science.nasa.gov/about/] About NASA
+[https://science.nasa.gov/es/] Español
+
+[#]
+News & Events
+
+[#]
+Multimedia
+
+[https://plus.nasa.gov/]
+NASA+
+
+Highlights
+[https://science.nasa.gov/blogs/perseverance-mars-rover/2026/10/12/nasas-perseverance-sets-off-world-record-for-total-distance-driven/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/mars2020/2026/perseverance-rover-updates/e1%20-%20PIA26812%20-%20NAVCAM%20record.png?w=1024}
+
+5 min read
+
+NASA’s Perseverance Sets Off-World Record for Total Distance Driven
+article20 hours ago [https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/e1-pia23684.jpg?w=150&h=150&crop=1}
+
+5 min read
+
+NASA’s SPHEREx Telescope Sees Menagerie of Brown Dwarfs
+article5 days ago [https://science.nasa.gov/solar-system/skywatching/whats-up-october-2026-skywatching-tips-from-nasa/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/solar-system/skywatching/2026/october/Orionid%20Meteor%20Shower%202017_Ben%20Goldstein%20via%20Flickr_CC%20BY-NC-SA.jpg?w=1024}
+
+3 min read
+
+What’s Up: October 2026 Skywatching Tips from NASA
+article2 weeks ago
+
+Back
+
+[https://science.nasa.gov/nasa-missions/]
+Missions
+[https://www.nasa.gov/missions/] Search All NASA Missions
+[https://www.nasa.gov/a-to-z-of-nasa-missions/] A to Z List of Missions
+[https://www.nasa.gov/events/] Upcoming Launches and Landings
+[https://www.nasa.gov/humans-in-space/spaceships-and-rockets/] Spaceships and Rockets
+[https://www.nasa.gov/communicating-with-missions/] Communicating with Missions
+[https://www.nasa.gov/humans-in-space/artemis/] Artemis
+[https://science.nasa.gov/mission/webb/] James Webb Space Telescope
+[https://science.nasa.gov/mission/hubble/] Hubble Space Telescope
+[https://www.nasa.gov/international-space-station/] International Space Station
+[https://science.nasa.gov/mission/osiris-rex/] OSIRIS-REx
+[https://science.nasa.gov/humans-in-space/]
+Humans in Space
+[https://www.nasa.gov/humans-in-space/why-go-to-space/] Why Go to Space
+[https://www.nasa.gov/humans-in-space/astronauts/] Astronauts
+[https://www.nasa.gov/humans-in-space/commercial-space/] Commercial Space
+[https://www.nasa.gov/humans-in-space/destinations/] Destinations
+[https://www.nasa.gov/humans-in-space/spaceships-and-rockets/] Spaceships and Rockets
+[https://www.nasa.gov/humans-in-space/living-in-space/] Living in Space
+[https://science.nasa.gov/earth/]
+Earth
+[https://science.nasa.gov/earth/explore/] Explore Earth Science
+[https://science.nasa.gov/climate-change/] Climate Change
+[https://science.nasa.gov/earth/facts/] Earth, Our Planet
+[https://science.nasa.gov/earth/in-action/] Earth Science in Action
+[https://science.nasa.gov/earth/multimedia/] Earth Multimedia
+[https://science.nasa.gov/earth/data/] Earth Data
+[https://science.nasa.gov/earth-science/] Earth Science Researchers
+[https://science.nasa.gov/solar-system/]
+The Solar System
+[https://science.nasa.gov/sun/] The Sun
+[https://science.nasa.gov/mercury/] Mercury
+[https://science.nasa.gov/venus/] Venus
+[https://science.nasa.gov/earth/] Earth
+[https://science.nasa.gov/moon/] The Moon
+[https://science.nasa.gov/mars/] Mars
+[https://science.nasa.gov/jupiter/] Jupiter
+[https://science.nasa.gov/saturn/] Saturn
+[https://science.nasa.gov/uranus/] Uranus
+[https://science.nasa.gov/neptune/] Neptune
+[https://science.nasa.gov/dwarf-planets/] Pluto & Dwarf Planets
+[https://science.nasa.gov/asteroids-comets-meteors/] Asteroids, Comets & Meteors
+[https://science.nasa.gov/solar-system/kuiper-belt/] The Kuiper Belt
+[https://science.nasa.gov/solar-system/oort-cloud/] The Oort Cloud
+[https://science.nasa.gov/skywatching/] Skywatching
+[https://science.nasa.gov/universe/]
+The Universe
+[https://science.nasa.gov/exoplanets/] Exoplanets
+[https://science.nasa.gov/universe/search-for-life/] The Search for Life in the Universe
+[https://science.nasa.gov/universe/stars/] Stars
+[https://science.nasa.gov/universe/galaxies/] Galaxies
+[https://science.nasa.gov/universe/black-holes/] Black Holes
+[https://science.nasa.gov/universe/the-big-bang/] The Big Bang
+[https://science.nasa.gov/dark-matter/] Dark Matter
+[https://science.nasa.gov/dark-energy/] Dark Energy
+[https://science.nasa.gov/]
+Science
+[https://science.nasa.gov/earth-science/] Earth Science
+[https://science.nasa.gov/planetary-science/] Planetary Science
+[https://science.nasa.gov/astrophysics/] Astrophysics & Space Science
+[https://science.nasa.gov/heliophysics/] The Sun & Heliophysics
+[https://science.nasa.gov/biological-physical/] Biological & Physical Sciences
+[https://science.nasa.gov/lunar-science/] Lunar Science
+[https://science.nasa.gov/citizen-science/] Citizen Science
+[https://science.nasa.gov/astromaterials/] Astromaterials
+[https://www.nasa.gov/aeronautics-research/] Aeronautics Research
+[https://www.nasa.gov/human-space-travel-research/] Human Space Travel Research
+[https://science.nasa.gov/aeronautics/]
+Aeronautics
+[https://www.nasa.gov/aeronautics/science-in-the-air/] Science in the Air
+[https://www.nasa.gov/aeronautics/aircraft/] NASA Aircraft
+[https://www.nasa.gov/aeronautics/flight-innovation/] Flight Innovation
+[https://www.nasa.gov/aeronautics/supersonic-flight/] Supersonic Flight
+[https://www.nasa.gov/aeronautics/air-traffic-solutions/] Air Traffic Solutions
+[https://www.nasa.gov/aeronautics/green-aero-tech/] Green Aviation Tech
+[https://www.nasa.gov/aeronautics/drones-and-you/] Drones & You
+[https://science.nasa.gov/technology/]
+Technology
+[https://www.nasa.gov/technology-transfer-spinoffs/] Technology Transfer & Spinoffs
+[https://www.nasa.gov/space-travel-technology/] Space Travel Technology
+[https://www.nasa.gov/space-living-technology/] Technology Living in Space
+[https://www.nasa.gov/manufacturing-and-materials/] Manufacturing and Materials
+[https://www.nasa.gov/robotics/] Robotics
+[https://www.nasa.gov/science-instruments/] Science Instruments
+[https://www.nasa.gov/computing/] Computing
+[https://science.nasa.gov/learning-resources/]
+Learning Resources
+[https://www.nasa.gov/learning-resources/for-kids-and-students/] For Kids and Students
+[https://www.nasa.gov/learning-resources/for-educators/] For Educators
+[https://www.nasa.gov/learning-resources/colleges-and-universities/] For Colleges and Universities
+[https://www.nasa.gov/learning-resources/for-professionals/] For Professionals
+[https://science.nasa.gov/for-everyone/] Science for Everyone
+[https://www.nasa.gov/learning-resources/requests-for-exhibits-artifacts-or-speakers/] Requests for Exhibits, Artifacts, or Speakers
+[https://www.nasa.gov/learning-resources/stem-engagement-at-nasa/] STEM Engagement at NASA
+[https://science.nasa.gov/about/]
+About NASA
+[https://www.nasa.gov/nasa-impacts/] NASA's Impacts
+[https://www.nasa.gov/nasa-centers-and-facilities/] Centers and Facilities
+[https://www.nasa.gov/nasa-directorates/] Directorates
+[https://www.nasa.gov/nasa-organization/] Organizations
+[https://www.nasa.gov/people-of-nasa/] People of NASA
+[https://www.nasa.gov/careers/] Careers
+[https://www.nasa.gov/learning-resources/nasa-internship-programs/] Internships
+[https://www.nasa.gov/history/] Our History
+[https://www.nasa.gov/doing-business-with-nasa/] Doing Business with NASA
+[https://www.nasa.gov/get-involved/] Get Involved
+[https://www.nasa.gov/contact-nasa/] Contact
+[https://science.nasa.gov/es/]
+NASA en Español
+[https://ciencia.nasa.gov/] Ciencia
+[https://www.nasa.gov/espanol/aeronautica-en-espanol/] Aeronáutica
+[https://ciencia.nasa.gov/tierra] Ciencias Terrestres
+[https://ciencia.nasa.gov/sistema-solar] Sistema Solar
+[https://ciencia.nasa.gov/universo] Universo
+[https://science.nasa.gov/news/]
+News & Events
+[https://www.nasa.gov/news/recently-published/] Recently Published
+[https://www.nasa.gov/plus/] Video Series on NASA+
+[https://www.nasa.gov/podcasts-and-audio/] Podcasts & Audio
+[https://www.nasa.gov/nasa-blogs/] Blogs
+[https://www.nasa.gov/newsletters/] Newsletters
+[https://www.nasa.gov/socialmedia/] Social Media
+[https://www.nasa.gov/news/nasa-media-contacts/] Media Resources
+[https://science.nasa.gov/multimedia/]
+Multimedia
+[https://plus.nasa.gov/] NASA+
+[https://www.nasa.gov/images/] Images
+[https://www.nasa.gov/live] NASA Live
+[https://www.nasa.gov/apps/] NASA Apps
+[https://www.nasa.gov/podcasts/] Podcasts
+[https://www.nasa.gov/image-of-the-day/] Image of the Day
+[https://www.nasa.gov/ebooks/] e-Books
+[https://science.nasa.gov/3d-resources/] 3D Resources
+[https://www.nasa.gov/nasa-interactive-features/] Interactives
+[https://www.nasa.gov/learning-resources/search/?terms=8058%2C8059%2C8061%2C8062%2C8068] STEM Multimedia
+[https://www.nasa.gov/nasa-brand-center/] NASA Brand & Usage Guidelines
+
+Highlights
+[https://science.nasa.gov/blogs/perseverance-mars-rover/2026/10/12/nasas-perseverance-sets-off-world-record-for-total-distance-driven/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/mars2020/2026/perseverance-rover-updates/e1%20-%20PIA26812%20-%20NAVCAM%20record.png?w=1024}
+
+5 min read
+
+NASA’s Perseverance Sets Off-World Record for Total Distance Driven
+
+article
+
+20 hours ago
+
+[https://science.nasa.gov/missions/webb/webb-measures-distance-to-farthest-fast-radio-burst-suggesting-origin/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/webb/science/2026/10/STScI-01KKCJGBWX6TE4ABRTFWE9B8SQ.jpg?w=1024}
+
+5 min read
+
+Webb Measures Distance to Farthest Fast Radio Burst, Suggesting Origin
+
+article
+
+5 days ago
+
+[https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/e1-pia23684.jpg?w=150&h=150&crop=1}
+
+5 min read
+
+NASA’s SPHEREx Telescope Sees Menagerie of Brown Dwarfs
+
+article
+
+5 days ago
+
+Highlights
+[https://www.nasa.gov/help-nasa-find-practical-ways-to-monitor-astronaut-body-temperature-in-low-earth-orbit/]
+
+{img https://images-assets.nasa.gov/image/iss074e0788315/iss074e0788315~large.jpg?w=1920&h=1280&fit=clip&crop=faces%2Cfocalpoint}
+
+2 min read
+
+Help NASA Find Practical Ways to Monitor Astronaut Body Temperature in Low Earth Orbit
+
+article
+
+2 weeks ago
+
+[https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-opens-2027-human-lander-challenge-for-lunar-communications/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/09/2027-hulc-graphic-thumbnail-a-new-arrival-on-the-moon.png?w=150&h=150&crop=1}
+
+3 min read
+
+NASA Opens 2027 Human Lander Challenge for Lunar Communications
+
+article
+
+2 weeks ago
+
+[https://www.nasa.gov/researchers-help-nasa-prevent-blood-clot-formation-in-space/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/07/mcclain-kim-iss-venousstudy.png?w=150&h=150&crop=1}
+
+3 min read
+
+Researchers: Help NASA Prevent Blood Clot Formation in Space
+
+article
+
+3 weeks ago
+
+Highlights
+[https://science.nasa.gov/earth/earth-observatory/an-impact-structure-with-legs/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-impact-structure-with-legs/aus_spidercrater_oli2_20260920_th.jpg?w=1024}
+
+3 min read
+
+An Impact Structure With Legs
+
+article
+
+13 hours ago
+
+[https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/antarctic-sea-ice-grows-to-its-2026-maximum/antarctic_nsidc_20260914_th.jpg?w=1024}
+
+3 min read
+
+Antarctic Sea Ice Grows to Its 2026 Maximum
+
+article
+
+2 days ago
+
+[https://science.nasa.gov/earth/earth-observatory/floodwaters-overwhelm-thailand/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/floodwaters-overwhelm-thailand/thailandflooding_oli2_20261002_th.jpg?w=1024}
+
+2 min read
+
+Floodwaters Overwhelm Thailand
+
+article
+
+5 days ago
+
+Highlights
+[https://www.nasa.gov/missions/moon-base/nasa-jpl-testing-readies-voyager-technologies-lander-for-moon-mission/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/1-pia26708-grifffin-tvac-wings.jpeg?w=150&h=150&crop=1}
+
+4 min read
+
+NASA JPL Testing Readies Voyager Technologies Lander for Moon Mission
+
+article
+
+4 hours ago
+
+[https://science.nasa.gov/feature/artemis-ii-preliminary-lunar-science-report/]
+
+{img https://images-assets.nasa.gov/image/art002e016204/art002e016204~large.jpg}
+
+1 min read
+
+Artemis II Preliminary Lunar Science Report
+
+article
+
+6 days ago
+
+[https://www.nasa.gov/missions/mars-science-laboratory/curiosity-rover/nasas-curiosity-rover-catches-stunning-martian-dawn/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/1-pia26728-fig-a-curiosity-captures-dawn-breaking-on-wind-carved-cliffs.png?w=150&h=150&crop=1}
+
+3 min read
+
+NASA’s Curiosity Rover Catches Stunning Martian Dawn
+
+article
+
+1 week ago
+
+Highlights
+[https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/e1-pia23684.jpg?w=150&h=150&crop=1}
+
+5 min read
+
+NASA’s SPHEREx Telescope Sees Menagerie of Brown Dwarfs
+
+article
+
+5 days ago
+
+[https://science.nasa.gov/missions/webb/webb-measures-distance-to-farthest-fast-radio-burst-suggesting-origin/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/webb/science/2026/10/STScI-01KKCJGBWX6TE4ABRTFWE9B8SQ.jpg?w=1024}
+
+5 min read
+
+Webb Measures Distance to Farthest Fast Radio Burst, Suggesting Origin
+
+article
+
+5 days ago
+
+[https://science.nasa.gov/missions/lisa/nasa-advances-lisa-mission-contributions-with-new-test-telescope/]
+
+{img https://science.nasa.gov/wp-content/uploads/2024/10/gsfc-20240520-lisa-000535.jpg}
+
+3 min read
+
+NASA Advances LISA Mission Contributions With New Test Telescope
+
+article
+
+5 days ago
+
+Highlights
+[https://science.nasa.gov/earth/earth-observatory/an-impact-structure-with-legs/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-impact-structure-with-legs/aus_spidercrater_oli2_20260920_th.jpg?w=1024}
+
+3 min read
+
+An Impact Structure With Legs
+
+article
+
+13 hours ago
+
+[https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/bps/bps_investigations/wholemiBrainMicroglia_AVATAR_org1.jpg?w=1024}
+
+3 min read
+
+NASA’s SpaceX CRS-35 Mission to Launch Health Research
+
+article
+
+24 hours ago
+
+[https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/antarctic-sea-ice-grows-to-its-2026-maximum/antarctic_nsidc_20260914_th.jpg?w=1024}
+
+3 min read
+
+Antarctic Sea Ice Grows to Its 2026 Maximum
+
+article
+
+2 days ago
+
+Highlights
+[https://www.nasa.gov/centers-and-facilities/langley/nasa-model-wing-lights-up-during-first-pressure-sensitive-paint-tests/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/bscw-side-by-side-image.jpg?w=150&h=150&crop=1}
+
+2 min read
+
+NASA Model Wing Lights Up During First Pressure Sensitive Paint Tests
+
+article
+
+2 weeks ago
+
+[https://www.nasa.gov/ames/dr-natasha-schatzman-receives-vertical-flight-society-vfs-award/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/dr-natasha-schatzman-.png?w=150&h=150&crop=1}
+
+2 min read
+
+Dr. Natasha Schatzman Receives Vertical Flight Society (VFS) Award
+
+article
+
+2 weeks ago
+
+[https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-middle-school-design-challenge/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/09/dwu-x-plane-design2-16x9-ms-web.jpg?w=150&h=150&crop=1}
+
+10 min read
+
+2026-2027 DWU: Middle School Design Challenge
+
+article
+
+3 weeks ago
+
+Highlights
+[https://science.nasa.gov/earth/earth-observatory/rains-swamp-the-gandak-river/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/torrential-rains-swamp-the-gandaki-river/floodingindianepal_amo_20260929_th.jpg?w=1024}
+
+3 min read
+
+Rains Swamp the Gandak River
+
+article
+
+2 weeks ago
+
+[https://www.nasa.gov/space-nuclear/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/06/sr-1-freedom-hi-res-8-18-26.png?w=150&h=150&crop=1}
+
+1 min read
+
+Space Reactors Division
+
+article
+
+2 weeks ago
+
+[https://science.nasa.gov/earth/earth-observatory/powerful-storms-continue-to-prowl-the-pacific/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/powerful-storms-continue-to-prowl-the-pacific/polonolo_vir_20260928_th.jpg?w=1024}
+
+4 min read
+
+Powerful Storms Continue to Prowl the Pacific
+
+article
+
+2 weeks ago
+
+Highlights
+[https://www.nasa.gov/centers-and-facilities/ames/nasa-demonstrates-next-generation-heat-shield-technologies/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/iss075e0185943.jpg?w=150&h=150&crop=1}
+
+4 min read
+
+NASA Demonstrates Next-Generation Heat Shield Technologies
+
+article
+
+4 days ago
+
+[https://science.nasa.gov/learn/roses25_sciact_selections/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/cds/learn/2026/SciActROSES25Map.jpg?w=1024}
+
+8 min read
+
+NASA Selects Projects to Engage Communities Across the US with NASA Science
+
+article
+
+2 weeks ago
+
+[https://www.nasa.gov/stmd-flight-opportunities/access-flight-tests/techrise/]
+
+{img https://www.nasa.gov/wp-content/uploads/2023/02/techrise5-1080x1080-1.jpg?w=150&h=150&crop=1}
+
+3 min read
+
+TechRise (for 6–12 graders)
+
+article
+
+2 weeks ago
+
+Highlights
+[https://www.nasa.gov/news-release/nasa-energy-department-advance-new-era-of-nuclear-powered-exploration/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/nasa-doe-mou-release-smaller-image-oct-8.jpg?w=150&h=150&crop=1}
+
+4 min read
+
+NASA, Energy Department Advance New Era of Nuclear-Powered Exploration
+
+article
+
+5 days ago
+
+[https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/bps/bps_investigations/wholemiBrainMicroglia_AVATAR_org1.jpg?w=1024}
+
+3 min read
+
+NASA’s SpaceX CRS-35 Mission to Launch Health Research
+
+article
+
+24 hours ago
+
+[https://www.nasa.gov/blogs/missions/2026/10/07/nasa-releases-artemis-ii-lunar-science-data-images/]
+
+{img https://images-assets.nasa.gov/image/art002e025880/art002e025880~large.jpg?w=1920&h=1280&fit=clip&crop=faces%2Cfocalpoint}
+
+2 min read
+
+NASA Releases Artemis II Lunar Science Data, Images
+
+article
+
+6 days ago
+
+Highlights
+[https://www.nasa.gov/es/la-nasa-anuncia-la-cobertura-de-la-mision-lunar-artemis-ii/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/03/a2crew-7ff19d.jpg?w=150&h=150&crop=1}
+
+11 min read
+
+La NASA anuncia la cobertura de la misión lunar Artemis II
+
+article
+
+7 months ago
+
+[https://www.nasa.gov/es/agenda-diaria-de-la-mision-a-la-luna-de-artemis-ii-de-la-nasa/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/03/suit-patch.jpg?w=150&h=150&crop=1}
+
+15 min read
+
+Agenda diaria de la misión a la Luna de Artemis II de la NASA
+
+article
+
+7 months ago
+
+[https://www.nasa.gov/humans-in-space/astronauts/la-nasa-refuerza-artemis-anade-una-mision-y-perfecciona-su-arquitectura-general/]
+
+{img https://images-assets.nasa.gov/image/iss074e0325229/iss074e0325229~large.jpg?w=1920&h=1280&fit=clip&crop=faces%2Cfocalpoint}
+
+6 min read
+
+La NASA refuerza Artemis: añade una misión y perfecciona su arquitectura general
+
+article
+
+7 months ago
+
+Photojournal Navigation
+
+[https://science.nasa.gov/] Science
+[https://science.nasa.gov/category/photojournal/] Photojournal
+Charon’s Surface in Detail
+
+[https://science.nasa.gov/photojournal/] Photojournal Home
+[https://science.nasa.gov/photojournal/search/] Photojournal Search
+[https://science.nasa.gov/photojournal/latest/] Latest Content
+[https://science.nasa.gov/photojournal/galleries/] Galleries
+[https://science.nasa.gov/photojournal/feedback/] Feedback
+[https://science.nasa.gov/photojournal/rss-feeds/] RSS
+[https://science.nasa.gov/photojournal/about-photojournal/] About
+
+2 Min Read
+
+Charon’s Surface in Detail
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia21/pia21860/PIA21860.jpg?w=2130&h=1074&fit=clip&crop=faces%2Cfocalpoint}
+
+PIA21860
+
+Credits:
+NASA/Johns Hopkins University Applied Physics Laboratory/Southwest Research Institute
+
+Image Addition Date:07/14/2017
+Target:
+[https://science.nasa.gov/science-org-term/photojournal-target-charon/] Charon
+Is a satellite of:
+[https://science.nasa.gov/science-org-term/photojournal-target-pluto/] Pluto
+Mission(s):
+[https://science.nasa.gov/science-org-term/photojournal-mission-new-horizons/] New Horizons
+Spacecraft(s):
+[https://science.nasa.gov/science-org-term/photojournal-spacecraft-new-horizons/] New Horizons
+Instrument(s):
+[https://science.nasa.gov/science-org-term/photojournal-instrument-lorri-long-range-reconnaissance-imager/] LORRI (Long Range Reconnaissance Imager)
+[https://science.nasa.gov/science-org-term/photojournal-instrument-mvic-multispectral-visible-imaging-camera/] MVIC (Multispectral Visible Imaging Camera)
+
+Downloads
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia21/pia21860/PIA21860.jpg?w=2130&h=1074&fit=clip&crop=faces%2Cfocalpoint}
+
+Charon’s Surface in Detail
+
+JPEG (278.75 KB)
+
+[https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia21/pia21860/PIA21860.jpg]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia21/pia21860/PIA21860.tif?w=150}
+
+Charon’s Surface in Detail
+
+TIFF (3.99 MB)
+
+[https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia21/pia21860/PIA21860.tif]
+
+Description
+
+[http://photojournal.jpl.nasa.gov/figures/PIA21860_fig1_half.jpg] {img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia21/pia21860/figures/PIA21860_fig1_thumb.jpg?w=400&h=200&fit=clip&crop=faces%2Cfocalpoint}
+Charon Basemap
+Click on the image for half-size version
+[http://photojournal.jpl.nasa.gov/figures/PIA21860_fig1_full.jpg] View the full-size basemap
+
+On July 14, 2015, NASA's New Horizons spacecraft made its historic flight through the Pluto system. This detailed, high-quality global mosaic of Pluto's largest moon, Charon, was assembled from nearly all of the highest-resolution images obtained by the Long-Range Reconnaissance Imager (LORRI) and the Multispectral Visible Imaging Camera (MVIC) on New Horizons.
+
+The mosaic is the most detailed and comprehensive global view yet of Charon's surface using New Horizons data. It includes topography data of the hemisphere visible to New Horizons during the spacecraft's closest approach. The topography is derived from digital stereo-image mapping tools that measure the parallax -- or the difference in the apparent relative positions -- of features on the surface obtained at different viewing angles during the encounter. Scientists use these parallax displacements of high and low terrain to estimate landform heights.
+
+The global mosaic has been overlain with transparent, colorized topography data wherever on the surface stereo data is available. Terrain south of about 30°S was in darkness leading up to and during the flyby, so is shown in black. All feature names on Pluto and Charon are informal.
+
+The global mosaic has been overlain with transparent, colorized topography data wherever on their surfaces stereo data is available. Standing out on Charon is the Caleuche Chasma ("C") in the far north, an enormous trough at least 350 kilometers (nearly 220 miles) long, and reaching 14 kilometers (8.5 miles) deep -- more than seven times as deep as the Grand Canyon.
+
+The Johns Hopkins University Applied Physics Laboratory in Laurel, Maryland, designed, built, and operates the New Horizons spacecraft, and manages the mission for NASA's Science Mission Directorate. The Southwest Research Institute, based in San Antonio, leads the science team, payload operations and encounter science planning. New Horizons is part of the New Frontiers Program managed by NASA's Marshall Space Flight Center in Huntsville, Alabama.
+
+[http://pluto.jhuapl.edu/Multimedia/Science-Photos/image.php?page=1&gallery_id=2&image_id=508]
+Read More
+
+Keep Exploring
+
+Discover More Topics From Photojournal
+
+[https://science.nasa.gov/photojournal/]
+
+Photojournal
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia22/pia22567/PIA22567.jpg?w=5000&h=1848&fit=clip&crop=faces%2Cfocalpoint}
+
+[https://science.nasa.gov/photojournal/search/]
+
+Search Photojournal
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia25/pia25729/PIA25729.jpg?w=1014&h=1014&fit=clip&crop=faces%2Cfocalpoint}
+
+[https://science.nasa.gov/photojournal/latest/]
+
+Photojournal’s Latest Content
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia24/pia24543/PIA24543.jpg?w=21969&h=14501&fit=clip&crop=faces%2Cfocalpoint}
+
+[https://science.nasa.gov/photojournal/feedback/]
+
+Feedback
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia25/pia25691/PIA25691.jpg?w=2002&h=1125&fit=clip&crop=faces%2Cfocalpoint}
+
+{img https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png}
+
+National Aeronautics and Space Administration
+
+NASA explores the unknown in air and space, innovates for the benefit of humanity, and inspires the world through discovery.
+
+[https://www.nasa.gov/about/] About NASA's Mission
+
+[https://www.nasa.gov/get-involved/]
+Join Us
+
+[https://www.nasa.gov] Home
+
+[https://www.nasa.gov/news/] News & Events
+
+[https://www.nasa.gov/multimedia/] Multimedia
+
+[https://plus.nasa.gov/] NASA+
+
+[https://www.nasa.gov/nasa-missions/] Missions
+
+[https://www.nasa.gov/humans-in-space/] Humans in Space
+
+[https://science.nasa.gov/earth/] Earth
+
+[https://science.nasa.gov/solar-system/] The Solar System
+
+[https://science.nasa.gov/universe/] The Universe
+
+[https://science.nasa.gov/] Science
+
+[https://www.nasa.gov/aeronautics/] Aeronautics
+
+[https://www.nasa.gov/technology/] Technology
+
+[https://www.nasa.gov/learning-resources/] Learning Resources
+
+[https://www.nasa.gov/about/] About NASA
+
+[https://www.nasa.gov/es/] NASA en Español
+
+Follow NASA
+
+[https://www.facebook.com/NASA]
+
+[https://www.instagram.com/nasa/]
+
+[https://x.com/NASA]
+
+[https://www.youtube.com/@NASA]
+
+[https://www.nasa.gov/social-media/] More NASA Social Accounts
+
+[https://www.nasa.gov/nasa-newsletters/] NASA Newsletters
+
+[https://www.nasa.gov/sitemap/] Sitemap
+
+[https://www.nasa.gov/news/nasa-media-contacts/] For Media
+
+[https://www.nasa.gov/nasa-web-privacy-policy-and-important-notices/] Privacy Policy
+
+[https://www.nasa.gov/foia/] FOIA
+
+[https://www.nasa.gov/no-fear-act/] No FEAR Act
+
+[http://oig.nasa.gov/] Office of the IG
+
+[https://www.nasa.gov/budgets-plans-and-reports/] Budget & Annual Reports
+
+[https://www.nasa.gov/organizations/budget-annual-reports/agency-financial-reports/] Agency Financial Reports
+
+[https://www.nasa.gov/contact-nasa/] Contact NASA
+
+[https://www.nasa.gov/accessibility/] Accessibility
+
+Page Last Updated:
+
+Sep 24, 2025
+
+Page Editor:
+
+Rafael Alanis
+
+Responsible NASA Official for Science:
+
+Dana Bolles
+
+Δ
+
+Did you find what you were looking for?(Required)
+
+Yes
+
+No
+
+Partly
+
+What were you looking for?(Required)
+
+What were you hoping to accomplish by visiting our website?(Required)
+
+Submit
+
+×
+
+####################################################################################################
+# NASA Images and Media Usage Guidelines (excerpt, lines 480 to 500 of the saved text)
+# Address: https://www.nasa.gov/nasa-brand-center/images-and-media/
+# Fetched: 2026-10-14 01:17 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The complete text is in data-src/textures/evidence/_shared/nasa_images_and_media.txt
+####################################################################################################
+The NASA Insignia, Logotype, identifiers, and imagery are not in the public domain. The use of the Insignia, Logotype and NASA identifiers is protected by law, and imagery is made available for use consistent with [https://www.nasa.gov/nasa-brand-center/images-and-media/] Media Usage Guidelines.
+NASA Images and Media Usage Guidelines
+NASA content – images, audio, video, and media files used in the rendition of 3-dimensional models, such as texture maps and polygon data in any format – generally are not subject to copyright in the United States. You may use this material for educational or informational purposes, including photo collections, textbooks, public exhibits, computer graphical simulations and Internet Web pages. This general permission extends to personal Web pages.
+News outlets, schools, and text-book authors may use NASA content without needing explicit permission, subject to compliance with these guidelines. NASA content used in a factual manner that does not imply endorsement may be used without needing explicit permission. NASA should be acknowledged as the source of the material. NASA occasionally uses copyright-protected material of third parties with permission on its website. Those images will be marked identified as copyright protected with the name of the copyright holder. NASA’s use does not convey any rights to others to use the same material. Those wishing to use copyright protected material of third parties must contact the copyright holder directly.
+NON-COMMERCIAL USE
+For educational or informational purposes
+NASA content – images, audio, video, related media and files used in the rendition of 3-dimensional models, such as texture maps and polygon data in any format – generally are not subject to copyright in the United States. You may use this material for educational or informational purposes, including photo collections, textbooks, public exhibits, computer graphical simulations and Internet Web pages. This general permission extends to personal Web pages.
+News outlets, schools, and text-book authors
+News outlets, schools, and text-book authors may use NASA content without needing explicit permission, subject to compliance with these guidelines. NASA content used in a factual manner that does not imply endorsement may be used without needing explicit permission. NASA should be acknowledged as the source of the material. NASA occasionally uses copyright-protected material of third parties with permission on its website. Those images will be marked identified as copyright protected with the name of the copyright holder. NASA’s use does not convey any rights to others to use the same material. Those wishing to use copyright protected material of third parties must contact the copyright holder directly.
+[https://www.nasa.gov/image-article/august-1-1971-second-apollo-15-moonwalk/] {img https://www.nasa.gov/wp-content/uploads/2023/03/a15pan11845-7.jpg?w=1041}
+This mini-panorama combines two photographs taken by Apollo 15 lunar module pilot Jim Irwin, from the Apollo Lunar Surface Experiments Package (ALSEP) site, at the end of the second Apollo 15 moonwalk on August 1, 1971. Mission commander David R. Scott is leaning to his right and is putting down the Apollo Lunar Surface drill.
+COMMERCIAL USE
+For use of NASA images clearances may be necessary for images that include any NASA logos or NASA employees to be used as cover art or in promotional content. Otherwise, NASA imagery can be generally used editorially within published works that are not promotional in nature.
+If the NASA material is to be used for commercial purposes, including advertisements, it must not explicitly or implicitly convey NASA’s endorsement of commercial goods or services.
+Commercials and promotional content cannot be filmed on NASA property.
+For commercial use of NASA’s images, intellectual property, emblems, or logos on merchandise or products refer to the [https://www.nasa.gov/nasa-brand-center/merchandise-approvals/] Merchandise Guidelines and Approvals page.
+Media including Identifiable Persons
+If a NASA image, audio, video or media includes an identifiable person, using the media for commercial purposes may infringe that person’s right of privacy or publicity, and permission should be obtained from the person.
+Astronauts or employees who are currently employed by NASA cannot have their names, likenesses or other personality traits displayed or position title used on any commercial products, advertisements, promotional material or commercial product packaging.
+For guidance on commercial use on merchandise please refer to NASA’s Merchandise Guidelines.
+For more information on using NASA content for commercial purposes, please read NASA Advertising Guidelines and Merchandise Guidelines. Any questions regarding use of NASA content, or any NASA emblems, should be directed to nasa-merchandise-&-brand-team@mail.nasa.gov in NASA’s Office of Communications at NASA Headquarters in Washington.

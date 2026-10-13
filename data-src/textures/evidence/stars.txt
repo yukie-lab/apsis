@@ -1,0 +1,810 @@
+Licence evidence for the texture "stars"
+============================================================
+
+Texture id:        stars
+Body and role:     STARS, stars
+Published file:    public/textures/stars.jpg (sha256 ffdaf25519d1a7287b98db6d0b18afbf28bc357735b00e000239db3b09001ed3)
+Small file:        public/textures/sm/stars.jpg (sha256 f377ddc7b1601052f3d26257f389b85513ab31ffa8801fa4f4d27eb400318e18)
+Original file:     data-src/textures/original/starmap_2020_4k.exr (35997085 bytes, sha256 69b841cd048c2ef35543eb1c5819b322530e78aa4b0cab97ec1de3ef56a4ddcd)
+Retrieved:         2026-10-14
+Title:             Deep Star Maps 2020 (star map in celestial coordinates, starmap_2020_4k.exr)
+Author or credit:  NASA/Goddard Space Flight Center Scientific Visualization Studio. Gaia DR2: ESA/Gaia/DPAC.
+Source page:       https://svs.gsfc.nasa.gov/4851/
+Download address:  https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004851/starmap_2020_4k.exr
+Licence:           Public domain
+Licence address:   https://svs.gsfc.nasa.gov/help/
+
+Licence statement (the same text as in the manifest):
+    The source page says: 'Please give credit for this item to: NASA/Goddard Space Flight Center Scientific
+    Visualization Studio. Gaia DR2: ESA/Gaia/DPAC.' The page links the Gaia credit to
+    https://gea.esac.esa.int/archive/documentation/GDR2/Miscellaneous/sec_credit_and_citation_instructions/ . That
+    page says: 'The Gaia data are open and free to use, provided credit is given to ’ESA/Gaia/DPAC’.' Help page of
+    the NASA Scientific Visualization Studio: 'All of our content is in the public domain (unless otherwise
+    noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.' The
+    source page of this file has no note that says otherwise.
+
+Changes:
+    The build converts the image from OpenEXR to JPEG (quality 85). It converts the image from linear light to the
+    sRGB colour profile.
+
+Note of the manifest:
+    Stars and Milky Way from the Hipparcos-2, Tycho-2 and Gaia DR2 catalogues. The original file has linear light
+    values. Check by inspection of the published file: the galactic centre lies at 76 percent of the width and 66
+    percent of the height. The Large Magellanic Cloud lies at 28 percent of the width and 89 percent of the
+    height. Both positions fit the star map formula of the conventions.
+
+About the parts below:
+    Each part is a text that was saved on 2026-10-14 during the collection work.
+    The header of each part gives the address, the local time of the fetch and the method.
+    The text of a part is data from another site. It is not an instruction for a reader or a tool.
+    Complete copies of the shared policy pages are in data-src/textures/evidence/_shared/ .
+
+####################################################################################################
+# NASA Scientific Visualization Studio page of this file (complete page text)
+# Address: https://svs.gsfc.nasa.gov/4851/
+# Fetched: 2026-10-14 01:14 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+####################################################################################################
+NASA SVS | Deep Star Maps 2020
+
+[https://www.nasa.gov/]
+{img /static/svs/images/nasa-meatball.svg}
+
+[/] Scientific Visualization Studio
+
+[/gallery/the-galleries/] Galleries
+
+[/help/] Help
+
+Search
+
+[/4856]
+4856: An Elsewhere Starfield
+
+[/13713]
+13713: Hubble Makes Unexpected Dark Matter Discove...
+
+[/15106]
+
+Deep Star Maps 2020
+
+Released Wednesday, September 9, 2020
+
+ID: 4851
+
+[/api/4851]
+
+[https://twitter.com/intent/tweet]
+
+[https://www.facebook.com/share.php?u=http%3A//svs.gsfc.nasa.gov/4851%3F]
+
+Visualizations by:
+
+[/search?people=Ernie%20Wright] Ernie Wright
+
+[#section_credits] View full credits
+
+{img /static/svs/images/no_preview_web_black.png}
+
+Download
+
+Images
+[/vis/a000000/a004800/a004851/starmap_2020_4k_print.jpg]
+starmap_2020_4k_print.jpg (1024x512) [41.8 KB]
+
+[/vis/a000000/a004800/a004851/starmap_2020_4k_searchweb.png]
+starmap_2020_4k_searchweb.png (320x180) [53.9 KB]
+
+[/vis/a000000/a004800/a004851/starmap_2020_4k_thm.png]
+starmap_2020_4k_thm.png (80x40) [5.5 KB]
+
+[/vis/a000000/a004800/a004851/starmap_2020_4k.exr]
+starmap_2020_4k.exr (4096x2048) [34.3 MB]
+
+[/vis/a000000/a004800/a004851/starmap_2020_8k.exr]
+starmap_2020_8k.exr (8192x4096) [124.5 MB]
+
+[/vis/a000000/a004800/a004851/starmap_2020_16k.exr]
+starmap_2020_16k.exr (16384x8192) [422.9 MB]
+
+[/vis/a000000/a004800/a004851/starmap_2020_32k.exr]
+starmap_2020_32k.exr (32768x16384) [1.4 GB]
+
+[/vis/a000000/a004800/a004851/starmap_2020_64k.exr]
+starmap_2020_64k.exr (65536x32768) [3.8 GB]
+
+The star map in celestial coordinates, at five different resolutions. The map is centered at 0h right ascension, and r.a. increases to the left.
+
+This set of star maps was created by plotting the position, brightness, and color of 1.7 billion stars from the [https://cdsarc.unistra.fr/viz-bin/cat/I/311] Hipparcos-2, [https://cdsarc.unistra.fr/viz-bin/cat/I/259] Tycho-2, and [https://cdsarc.unistra.fr/viz-bin/cat/I/345] Gaia Data Release 2 star catalogs, with help from the [https://cdsarc.unistra.fr/viz-bin/cat/V/50] Yale Bright Star Catalog, [https://cdsarc.unistra.fr/viz-bin/cat/I/315] UCAC3, and the [https://cdsarc.unistra.fr/viz-bin/cat/V/137D] XHIP Hipparcos cross-reference. The constellation [http://cdsarc.u-strasbg.fr/viz-bin/cat/VI/49] boundaries are those established by the International Astronomical Union in 1930. The constellation [https://www.iau.org/public/themes/constellations/] figures also come from the IAU, although they're not official.
+[#media_group_319117] Skip the explanationThe maps are presented in plate carrée projections using either celestial (ICRF/J2000 geocentric right ascension and declination) or galactic coordinates. They are designed for spherical mapping in animation software. The oval shapes near the top and bottom of the star maps are not galaxies. The distortion of the stars in those parts of the map is just an effect of the projection.
+
+The celestial coordinate mapping will be the more useful one for 3D animation, since camera rotations in the software will correspond in a straightforward way to the right ascension and declination in astronomy references. The galactic coordinate mapping is probably better for 2D animation and compositing. It also works as a standalone image showing the edge-on view of our home galaxy, from the inside. Update: The galactic images were replaced on January 4, 2021. The original images used ICRF/J2000 coordinates in a galactic coordinate transformation meant for B1950. The new images use the transformation described in the Hipparcos and Gaia documentation.
+
+The boundary, figure, and grid images are conventional grayscale TIFF files. The star maps are in OpenEXR's half-float format, which provides higher dynamic range in a linear colorspace while easily accommodating very large files. Most 3D animation and HDR image processing software can read OpenEXR.
+
+Catalog CompletenessHipparcos-2 provided the data for stars brighter than magnitude 8.0. To check HIP2's completeness, it was compared with the Yale Bright Star Catalog by matching positions, by using the XHIP cross-reference catalog, and by consulting the [http://simbad.u-strasbg.fr/simbad/] SIMBAD database.
+
+Of the 9096 stars in Yale, about one hundred have no matching Henry Draper ID in HIP2. Most of these are the second members of double or multiple stars that are represented in HIP2 as a single entry, and their omission has no visible effect on the star map. Another few are highly variable stars listed in Yale at their brightest magnitude, even though this magnitude is atypical. An example is T Coronae Borealis, the Blaze Star, which reached the magnitude listed in Yale only in 1866 and 1946; it normally hovers around magnitude 10.
+
+The remaining 18 stars can be considered genuinely missing:
+
+HRMagComment
+4210 4.30Eta Car
+4375 4.41Xi UMa A
+4374 4.87Xi UMa B
+5978 4.77Xi Sco A
+5977 5.07Xi Sco B
+4729 4.86256 Cru, 90" from Acrux (Alp Cru)
+2322 5.98
+5343 5.98CN Boo, 17' from Arcturus (Alp Boo)
+2950 6.0212' from Procyon (Alp CMi)
+1982 6.15AK Lep, 97" from Gam Lep
+5034 6.1861" from J Cen
+2366 6.20HIP 31067, omitted from HIP2
+4619 6.373.6' from Del Cen
+1704 6.3715' from Rigel (Bet Ori)
+6660 6.38part of M7 in Sco
+6263 6.45part of NGC 6231 in Sco
+2341 6.5110' from Canopus (Alp Car)
+6848 6.84part of M24 in Sgr
+These were added to the star maps. Some are relatively near very bright stars that may have made the measurement of their dimmer neighbor by Hipparcos problematic. The magnitude of Eta Carina is an estimate based on the [https://www.aavso.org/lcg] AAVSO Light Curve Generator as of July 2020. All other data was taken from Yale.
+
+Missing stars at fainter magnitudes are in general much less visually apparent. The completeness of Tycho-2, used for stars with visual magnitudes between 8.0 and 11.5, was assumed. And since data in the Hipparcos and Tycho catalogs share the same provenance, there's less concern about drawing stars twice or losing them in the cracks at the crossover magnitude. Gaia DR2, however, has two obvious data holes centered at r.a. 97.9°, dec. 57.5° and 34.2°, 22.1°. These were filled in using stars from UCAC3.
+
+Star ColorsThe colors of the stars from both Hipparcos-2 and Tycho-2 were based on the B-V color index. This requires a mapping from B-V to effective temperature, Teff. In previous versions of this product, the mapping used a high-degree polynomial fit, but it was found that this fit was calculated using a relatively narrow range of B-V. Outside this range, the fit behaved poorly, producing a number of unrealistically red stars. For this version, the mapping was a slightly modified version of [https://en.wikipedia.org/wiki/Color_index] a function ascribed to F. Ballesteros.
+
+The spectrum of light emitted by a blackbody with a temperature Teff can in turn be mapped to an RGB triple, yielding the star color. See Mitchell Charity's [http://www.vendian.org/mncharity/dir3/blackbody/] What color is a blackbody?, which was used for the present work. In common with Charity, the modest goal here was not-completely-bogus colors.
+
+The colors of Gaia DR2 stars were taken from the fields called G, GRP, GBP, scaled by color balance factors estimated by eye. See [https://www.cosmos.esa.int/web/gaia/iow_20180316] this article from the Gaia team for more information about the passbands for these three measurements. Roughly a quarter of the DR2 stars lack GRP, GBP values, and those are set to white.
+
+TourThe animation demonstrates the use of the maps in a tour of the sky. The tour starts at W-shaped Cassiopeia, then heads south through Perseus to the winter constellation of Orion the Hunter and the Hyades and Pleiades star clusters in Taurus. It moves southeast past Orion's canine companion and its star, Sirius, brightest in the sky, eventually pausing at the rich southern hemisphere portion of the Milky Way in Carina and Crux, the Southern Cross.
+
+East of the Cross, in Centaurus, is the binary star Alpha Centauri, at 4.4 light-years the naked-eye star system nearest to the Sun. Also visible as a fuzzy spot near the top of the frame is the globular cluster Omega Centauri. The number of stars used to draw the star maps is large enough to reveal many globular and open star clusters as well as the Large and Small Magellanic Clouds.
+
+After passing near the celestial south pole, the tour moves north along the Milky Way to the center of our galaxy near the teapot in Sagittarius. The tour veers northwest from there, finally stopping at the familiar Big Dipper or Plough asterism in Ursa Major.
+
+This is an update to entry [/3895] 3895.
+
+{img /static/svs/images/no_preview_web_black.png}
+
+Download
+
+Images
+[/vis/a000000/a004800/a004851/celestial_grid_16k_print.jpg]
+celestial_grid_16k_print.jpg (1024x512) [41.2 KB]
+
+[/vis/a000000/a004800/a004851/celestial_grid_16k.tif]
+celestial_grid_16k.tif (16384x8192) [2.6 MB]
+
+[/vis/a000000/a004800/a004851/celestial_grid_32k.tif]
+celestial_grid_32k.tif (32768x16384) [6.5 MB]
+
+[/vis/a000000/a004800/a004851/celestial_grid_64k.tif]
+celestial_grid_64k.tif (65536x32768) [16.9 MB]
+
+A celestial coordinate grid.
+
+{img /static/svs/images/no_preview_web_black.png}
+
+Download
+
+Images
+[/vis/a000000/a004800/a004851/constellation_bounds_4k_print.jpg]
+constellation_bounds_4k_print.jpg (1024x512) [49.9 KB]
+
+[/vis/a000000/a004800/a004851/constellation_bounds_4k.tif]
+constellation_bounds_4k.tif (4096x2048) [319.1 KB]
+
+[/vis/a000000/a004800/a004851/constellation_bounds_8k.tif]
+constellation_bounds_8k.tif (8192x4096) [684.3 KB]
+
+[/vis/a000000/a004800/a004851/constellation_bounds_16k.tif]
+constellation_bounds_16k.tif (16384x8192) [1.5 MB]
+
+[/vis/a000000/a004800/a004851/constellation_bounds_32k.tif]
+constellation_bounds_32k.tif (32768x16384) [3.5 MB]
+
+[/vis/a000000/a004800/a004851/constellation_bounds_64k.tif]
+constellation_bounds_64k.tif (65536x32768) [9.2 MB]
+
+Official IAU constellation bounds in celestial coordinates.
+
+{img /static/svs/images/no_preview_web_black.png}
+
+Download
+
+Images
+[/vis/a000000/a004800/a004851/constellation_figures_4k_print.jpg]
+constellation_figures_4k_print.jpg (1024x512) [71.0 KB]
+
+[/vis/a000000/a004800/a004851/constellation_figures_4k.tif]
+constellation_figures_4k.tif (4096x2048) [361.3 KB]
+
+[/vis/a000000/a004800/a004851/constellation_figures_8k.tif]
+constellation_figures_8k.tif (8192x4096) [760.9 KB]
+
+[/vis/a000000/a004800/a004851/constellation_figures_16k.tif]
+constellation_figures_16k.tif (16384x8192) [1.7 MB]
+
+[/vis/a000000/a004800/a004851/constellation_figures_32k.tif]
+constellation_figures_32k.tif (32768x16384) [4.1 MB]
+
+[/vis/a000000/a004800/a004851/constellation_figures_64k.tif]
+constellation_figures_64k.tif (65536x32768) [10.8 MB]
+
+Constellation figures in celestial coordinates.
+
+{img /static/svs/images/no_preview_web_black.png}
+
+Download
+
+Images
+[/vis/a000000/a004800/a004851/milkyway_2020_4k_print.jpg]
+milkyway_2020_4k_print.jpg (1024x512) [69.6 KB]
+
+[/vis/a000000/a004800/a004851/milkyway_2020_4k.exr]
+milkyway_2020_4k.exr (4096x2048) [34.7 MB]
+
+[/vis/a000000/a004800/a004851/milkyway_2020_8k.exr]
+milkyway_2020_8k.exr (8192x4096) [130.9 MB]
+
+[/vis/a000000/a004800/a004851/milkyway_2020_16k.exr]
+milkyway_2020_16k.exr (16384x8192) [413.9 MB]
+
+[/vis/a000000/a004800/a004851/milkyway_2020_32k.exr]
+milkyway_2020_32k.exr (32768x16384) [1.4 GB]
+
+[/vis/a000000/a004800/a004851/milkyway_2020_64k.exr]
+milkyway_2020_64k.exr (65536x32768) [3.7 GB]
+
+The Milky Way background in celestial coordinates. This is a version of the star map that omits the bright (Hipparcos and Tycho) stars.
+
+{img /static/svs/images/no_preview_web_black.png}
+
+Download
+
+Images
+[/vis/a000000/a004800/a004851/hiptyc_2020_4k_print.jpg]
+hiptyc_2020_4k_print.jpg (1024x512) [76.9 KB]
+
+[/vis/a000000/a004800/a004851/hiptyc_2020_16k.exr]
+hiptyc_2020_16k.exr (16384x8192) [68.0 MB]
+
+[/vis/a000000/a004800/a004851/hiptyc_2020_8k.exr]
+hiptyc_2020_8k.exr (8192x4096) [48.2 MB]
+
+[/vis/a000000/a004800/a004851/hiptyc_2020_4k.exr]
+hiptyc_2020_4k.exr (4096x2048) [20.3 MB]
+
+[/vis/a000000/a004800/a004851/hiptyc_2020_32k.exr]
+hiptyc_2020_32k.exr (32768x16384) [132.1 MB]
+
+[/vis/a000000/a004800/a004851/hiptyc_2020_64k.exr]
+hiptyc_2020_64k.exr (65536x32768) [236.5 MB]
+
+The bright star (Hipparcos and Tycho) foreground in celestial coordinates.
+
+{img /static/svs/images/no_preview_web_black.png}
+
+Download
+
+Images
+[/vis/a000000/a004800/a004851/starmap_2020_4k_gal_print.jpg]
+starmap_2020_4k_gal_print.jpg (1024x512) [35.7 KB]
+
+[/vis/a000000/a004800/a004851/starmap_2020_4k_gal.exr]
+starmap_2020_4k_gal.exr (4096x2048) [38.7 MB]
+
+[/vis/a000000/a004800/a004851/starmap_2020_8k_gal.exr]
+starmap_2020_8k_gal.exr (8192x4096) [153.3 MB]
+
+[/vis/a000000/a004800/a004851/starmap_2020_16k_gal.exr]
+starmap_2020_16k_gal.exr (16384x8192) [366.4 MB]
+
+[/vis/a000000/a004800/a004851/starmap_2020_32k_gal.exr]
+starmap_2020_32k_gal.exr (32768x16384) [1.2 GB]
+
+[/vis/a000000/a004800/a004851/starmap_2020_64k_gal.exr]
+starmap_2020_64k_gal.exr (65536x32768) [3.1 GB]
+
+The star map in galactic coordinates. The map is centered at 0° longitude, and longitude increases to the left. Images updated 4 Jan 2021 to correct a coordinate transformation error.
+
+{img /static/svs/images/no_preview_web_black.png}
+
+Download
+
+Images
+[/vis/a000000/a004800/a004851/constellation_bounds_4k_gal_print.jpg]
+constellation_bounds_4k_gal_print.jpg (1024x512) [76.1 KB]
+
+[/vis/a000000/a004800/a004851/constellation_bounds_4k_gal.tif]
+constellation_bounds_4k_gal.tif (4096x2048) [380.8 KB]
+
+[/vis/a000000/a004800/a004851/constellation_bounds_8k_gal.tif]
+constellation_bounds_8k_gal.tif (8192x4096) [820.4 KB]
+
+[/vis/a000000/a004800/a004851/constellation_bounds_16k_gal.tif]
+constellation_bounds_16k_gal.tif (16384x8192) [1.8 MB]
+
+[/vis/a000000/a004800/a004851/constellation_bounds_32k_gal.tif]
+constellation_bounds_32k_gal.tif (32768x16384) [4.4 MB]
+
+[/vis/a000000/a004800/a004851/constellation_bounds_64k_gal.tif]
+constellation_bounds_64k_gal.tif (65536x32768) [11.4 MB]
+
+Official IAU constellation boundaries in galactic coordinates. Images updated 4 Jan 2021 to correct a coordinate transformation error.
+
+{img /static/svs/images/no_preview_web_black.png}
+
+Download
+
+Images
+[/vis/a000000/a004800/a004851/constellation_figures_4k_gal_print.jpg]
+constellation_figures_4k_gal_print.jpg (1024x512) [70.6 KB]
+
+[/vis/a000000/a004800/a004851/constellation_figures_4k_gal.tif]
+constellation_figures_4k_gal.tif (4096x2048) [355.4 KB]
+
+[/vis/a000000/a004800/a004851/constellation_figures_8k_gal.tif]
+constellation_figures_8k_gal.tif (8192x4096) [745.5 KB]
+
+[/vis/a000000/a004800/a004851/constellation_figures_16k_gal.tif]
+constellation_figures_16k_gal.tif (16384x8192) [1.6 MB]
+
+[/vis/a000000/a004800/a004851/constellation_figures_32k_gal.tif]
+constellation_figures_32k_gal.tif (32768x16384) [4.1 MB]
+
+[/vis/a000000/a004800/a004851/constellation_figures_64k_gal.tif]
+constellation_figures_64k_gal.tif (65536x32768) [10.6 MB]
+
+Constellation figures in galactic coordinates. Images updated 4 Jan 2021 to correct a coordinate transformation error.
+
+{img /static/svs/images/no_preview_web_black.png}
+
+Download
+
+Images
+[/vis/a000000/a004800/a004851/milkyway_2020_4k_gal_print.jpg]
+milkyway_2020_4k_gal_print.jpg (1024x512) [64.7 KB]
+
+[/vis/a000000/a004800/a004851/milkyway_2020_4k_gal.exr]
+milkyway_2020_4k_gal.exr (4096x2048) [33.2 MB]
+
+[/vis/a000000/a004800/a004851/milkyway_2020_8k_gal.exr]
+milkyway_2020_8k_gal.exr (8192x4096) [119.3 MB]
+
+[/vis/a000000/a004800/a004851/milkyway_2020_16k_gal.exr]
+milkyway_2020_16k_gal.exr (16384x8192) [356.5 MB]
+
+[/vis/a000000/a004800/a004851/milkyway_2020_32k_gal.exr]
+milkyway_2020_32k_gal.exr (32768x16384) [1.2 GB]
+
+[/vis/a000000/a004800/a004851/milkyway_2020_64k_gal.exr]
+milkyway_2020_64k_gal.exr (65536x32768) [3.0 GB]
+
+The Milky Way background in galactic coordinates. This is a version of the star map that omits the bright (Hipparcos and Tycho) stars.
+
+{img /static/svs/images/no_preview_web_black.png}
+
+Download
+
+Images
+[/vis/a000000/a004800/a004851/hiptyc_2020_4k_gal_print.jpg]
+hiptyc_2020_4k_gal_print.jpg (1024x512) [68.6 KB]
+
+[/vis/a000000/a004800/a004851/hiptyc_2020_16k_gal.exr]
+hiptyc_2020_16k_gal.exr (16384x8192) [61.1 MB]
+
+[/vis/a000000/a004800/a004851/hiptyc_2020_8k_gal.exr]
+hiptyc_2020_8k_gal.exr (8192x4096) [43.2 MB]
+
+[/vis/a000000/a004800/a004851/hiptyc_2020_4k_gal.exr]
+hiptyc_2020_4k_gal.exr (4096x2048) [18.1 MB]
+
+[/vis/a000000/a004800/a004851/hiptyc_2020_32k_gal.exr]
+hiptyc_2020_32k_gal.exr (32768x16384) [120.0 MB]
+
+[/vis/a000000/a004800/a004851/hiptyc_2020_64k_gal.exr]
+hiptyc_2020_64k_gal.exr (65536x32768) [215.3 MB]
+
+The bright star (Hipparcos and Tycho) foreground in galactic coordinates.
+
+A short tour of the sky demonstrating the use of the star maps.
+
+Download
+
+Movies
+[/vis/a000000/a004800/a004851/starmap_2020_tour_720p30.mp4]
+starmap_2020_tour_720p30.mp4 (1280x720) [17.5 MB]
+
+[/vis/a000000/a004800/a004851/starmap_2020_tour_1080p30.mp4]
+starmap_2020_tour_1080p30.mp4 (1920x1080) [36.5 MB]
+
+[/vis/a000000/a004800/a004851/starmap_2020_tour_720p30.webm]
+starmap_2020_tour_720p30.webm (1280x720) [14.2 MB]
+
+[/vis/a000000/a004800/a004851/starmap_2020_tour_360p30.mp4]
+starmap_2020_tour_360p30.mp4 (640x360) [5.8 MB]
+
+Frame sets
+[/vis/a000000/a004800/a004851/frames/1920x1080_16x9_30p/]
+1920x1080_16x9_30p (1920x1080) [3601 Item(s)]
+
+Images
+[/vis/a000000/a004800/a004851/tour.2640_print.jpg]
+tour.2640_print.jpg (1024x576) [57.3 KB]
+
+Hyperwall shows
+[/vis/a000000/a004800/a004851/starmap_2020_tour_1080p30.mp4.hwshow]
+starmap_2020_tour_1080p30.mp4.hwshow [191 bytes]
+
+A short tour of the sky demonstrating the use of the star maps.
+
+[/search?nasa_science_categories=Universe]
+Universe
+
+[/search?keywords=360] 360
+
+[/search?keywords=Ast] Ast
+
+[/search?keywords=Astronomy] Astronomy
+
+[/search?keywords=Astrophysics] Astrophysics
+
+[/search?keywords=Big Dipper] Big Dipper
+
+[/search?keywords=Canis Major] Canis Major
+
+[/search?keywords=Constellation] Constellation
+
+[/search?keywords=Constellations] Constellations
+
+[/search?keywords=Galaxy] Galaxy
+
+[/search?keywords=HDTV] HDTV
+
+[/search?keywords=Hyperwall] Hyperwall
+
+[/search?keywords=Milky Way] Milky Way
+
+[/search?keywords=orion] orion
+
+[/search?keywords=Saggitarius] Saggitarius
+
+[/search?keywords=Sky Map] Sky Map
+
+[/search?keywords=Southern Cross] Southern Cross
+
+[/search?keywords=Space] Space
+
+[/search?keywords=Space science] Space science
+
+[/search?keywords=Star] Star
+
+[/search?keywords=Taurus] Taurus
+
+[/search?keywords=Universe] Universe
+
+Credits
+
+Please give credit for this item to:
+NASA/Goddard Space Flight Center Scientific Visualization Studio. Gaia DR2: [https://gea.esac.esa.int/archive/documentation/GDR2/Miscellaneous/sec_credit_and_citation_instructions/] ESA/Gaia/DPAC. Constellation figures based on those developed for the IAU by Alan MacRobert of Sky and Telescope magazine (Roger Sinnott and Rick Fienberg).
+
+Animator
+
+[/search/?people=Ernie%20Wright]
+Ernie Wright
+
+(USRA)
+
+[https://orcid.org/0000-0002-5970-5019] {img /static/detailspage/images/ORCID-iD_icon_vector.svg}
+
+Technical support
+
+[/search/?people=Laurence%20Schuler]
+Laurence Schuler
+
+(ADNET Systems, Inc.)
+
+[/search/?people=Ian%20Jones]
+Ian Jones
+
+(ADNET Systems, Inc.)
+
+Datasets used
+
+Hipparcos Catalogue [Hipparcos: Telescope]
+
+ID: 549
+
+Type: Database
+
+Sensor: Telescope
+
+This dataset can be found at: [http://www.rssd.esa.int/index.php?project=HIPPARCOS] http://www.rssd.esa.int/index.php?project=HIPPARCOS
+
+[/search/?datasets=549] See all pages that use this dataset
+
+Tycho Catalogue (Tycho 2 Catalogue) [Hipparcos: Telescope]
+
+ID: 550
+
+Type: Database
+
+Sensor: Telescope
+
+This dataset can be found at: [http://archive.eso.org/ASTROM/] http://archive.eso.org/ASTROM/
+
+[/search/?datasets=550] See all pages that use this dataset
+
+UCAC3 (Catalog) [U.S. Naval Observatory: Third CCD Astrograph]
+
+ID: 724
+
+Type: Database
+
+Sensor: Third CCD Astrograph
+
+Collected by: USNO
+
+[/search/?datasets=724] See all pages that use this dataset
+
+Gaia DR2 (Data Release 2) [Gaia]
+
+ID: 1090
+
+Type: Database
+
+Collected by: ESA
+
+Catalog of 1.7 billion stars brighter than magnitude 21.
+
+Credit: Gaia team/ESA
+
+[/search/?datasets=1090] See all pages that use this dataset
+
+Note: While we identify the data sets used on this page, we do not store any further details, nor the data sets themselves on our site.
+
+Related
+
+[/4856/]
+{img /vis/a000000/a004800/a004856/starmap_random_2020_4k_print.jpg} ID: 4856
+Visualization
+
+[/4856/]
+An Elsewhere Starfield
+
+Older Versions
+
+[/3895/]
+{img /vis/a000000/a003800/a003895/startour.1147_print.jpg} ID: 3895
+Visualization
+
+[/3895/]
+Deep Star Maps
+
+Used as a Source In
+
+[/14992/]
+{img /vis/a010000/a014900/a014992/Moon_Phases_Waning_Thumbnail_V2_Small.jpg} ID: 14992
+Animation
+
+[/14992/]
+Lunar Near and Far Side Phases
+
+Release date
+
+This page was originally published on Wednesday, September 9, 2020.
+
+This page was last updated on Friday, August 12, 2022 at 3:39 PM EDT.
+
+You may also like...
+
+No results.
+
+An error occurred. Please reload this page and try again.
+
+[https://www.nasa.gov/]
+{img /static/svs/images/nasa-meatball.svg}
+
+[https://www.usa.gov/]
+{img /static/svs/images/USAgov_logo.svg}
+
+[https://www.nasa.gov/about/highlights/HP_Privacy.html] Privacy Policy and Important Notices
+
+[https://www.nasa.gov/multimedia/guidelines/index.html] Reproduction Guidelines
+
+NASA Official:
+
+Site Curator:
+
+####################################################################################################
+# NASA Scientific Visualization Studio help page (excerpt, lines 42 to 46 of the saved text)
+# Address: https://svs.gsfc.nasa.gov/help/
+# Fetched: 2026-10-14 01:14 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The complete text is in data-src/textures/evidence/_shared/nasa_svs_help.txt
+####################################################################################################
+Can I use your visualizations?
+
+All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit. For more information, see [https://www.nasa.gov/multimedia/guidelines/index.html] NASA’s media usage guidelines.
+
+Note: some of our visualizations feature licensed music, which is not in the public domain. In these instances, the visualizations themselves are still in the public domain, meaning you're allowed to use them without the associated audio tracks. Individual visualizations will make note of this where applicable.
+
+####################################################################################################
+# Gaia DR2 documentation: credit and citation instructions (complete page text; the source page links to it)
+# Address: https://gea.esac.esa.int/archive/documentation/GDR2/Miscellaneous/sec_credit_and_citation_instructions/
+# Fetched: 2026-10-14 02:40 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+####################################################################################################
+Credit and citation instructions‣ Miscellaneous ‣ Gaia Data Release 2 Documentation release 1.2
+
+[http://www.cosmos.esa.int/]
+
+[http://www.esa.int/]
+European Space Agency
+
+[http://sci.esa.int/]
+Science & Technology
+
+[http://gea.esac.esa.int/archive/documentation/GDR2/] GAIA DATA RELEASE DOCUMENTATION
+
+[../../] Gaia Data Release 2 Documentation release 1.2
+
+[../../] Gaia Data Release 2 Documentation release 1.2
+
+[../../Introduction/] I Introduction to Gaia DR2
+
+[../../Data_processing/] II Gaia data processing
+
+[../../Data_analysis/] III Gaia data analysis
+
+[../../Catalogue_consolidation/] IV Gaia catalogue
+
+[../../Gaia_archive/] V Gaia archive
+
+[../] Miscellaneous
+
+[../sec_acknowl/] Acknowledgements
+
+Credit and citation instructions
+
+[../sec_colofon/] Colophon
+
+[../sec_acronyms/] Acronyms
+
+[../sec_changelog/] Documentation change log
+
+[../../bib.html] Bibliography
+
+[../] Miscellaneous [../sec_acknowl/] Acknowledgements [../sec_colofon/] Colophon
+
+Credit and citation instructions
+
+If you have used Gaia data in your research, please use the following acknowledgement:
+
+This work has made use of data from the European Space Agency (ESA) mission Gaia ( [https://www.cosmos.esa.int/gaia] https://www.cosmos.esa.int/gaia), processed by the Gaia Data Processing and Analysis Consortium (DPAC, [https://www.cosmos.esa.int/web/gaia/dpac/consortium] https://www.cosmos.esa.int/web/gaia/dpac/consortium). Funding for the DPAC has been provided by national institutions, in particular the institutions participating in the Gaia Multilateral Agreement.
+
+The LaTeX version is:
+This work has made use of data from the European Space Agency (ESA) mission
+{\it Gaia} (\url{https://www.cosmos.esa.int/gaia}), processed by the {\it Gaia}
+Data Processing and Analysis Consortium (DPAC,
+\url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}). Funding for the DPAC
+has been provided by national institutions, in particular the institutions
+participating in the {\it Gaia} Multilateral Agreement.
+
+If you have used Gaia DR2 data in your research, please cite both the Gaia mission paper and the Gaia DR2 release paper:
+
+•
+
+Gaia Collaboration et al. ( [../../bib.html#bib178] 2016): Description of the Gaia mission (spacecraft, instruments, survey and measurement principles, and operations);
+
+•
+
+Gaia Collaboration et al. ( [../../bib.html#bib20] 2018b): Summary of the contents and survey properties.
+
+In addition, please cite (some of) the following papers that describe the data release contents and DPAC data processing and validation in more detail, as appropriate:
+
+•
+
+Arenou et al. ( [../../bib.html#bib18] 2018): Catalogue validation;
+
+•
+
+Crowley et al. ( [../../bib.html#bib180] 2016): On-orbit performance of the Gaia CCDs;
+
+•
+
+Hambly et al. ( [../../bib.html#bib27] 2018): Calibration and mitigation of electronic offset effects in Gaia data;
+
+•
+
+Fabricius et al. ( [../../bib.html#bib168] 2016): Pre-processing and source-list creation;
+
+•
+
+Lindegren et al. ( [../../bib.html#bib8] 2018): The astrometric solution;
+
+•
+
+Riello et al. ( [../../bib.html#bib14] 2018): Processing of the photometric data;
+
+•
+
+Evans et al. ( [../../bib.html#bib17] 2018): The photometric content and validation;
+
+•
+
+Holl et al. ( [../../bib.html#bib9] 2018): Summary of variability processing and analysis results;
+
+•
+
+Cropper et al. ( [../../bib.html#bib12] 2018): The Gaia Radial Velocity Spectrometer;
+
+•
+
+Sartoretti et al. ( [../../bib.html#bib11] 2018): Processing, validation and performance of the spectroscopic data;
+
+•
+
+Katz et al. ( [../../bib.html#bib7] 2018): Properties and validation of the radial velocities;
+
+•
+
+Soubiran et al. ( [../../bib.html#bib10] 2018): The catalogue of radial velocity standard stars;
+
+•
+
+Andrae et al. ( [../../bib.html#bib15] 2018): First stellar parameters from Apsis;
+
+•
+
+Marrese et al. ( [../../bib.html#bib568] 2019): Cross-match with external catalogues: algorithm and statistics;
+
+•
+
+Salgado et al. ( [../../bib.html#bib179] 2017): Gaia archive data access facilities;
+
+•
+
+Moitinho et al. ( [../../bib.html#bib16] 2018): Gaia archive visualisation services;
+
+•
+
+Luri et al. ( [../../bib.html#bib19] 2018): On the use of Gaia parallaxes.
+
+For reference, the following papers describe the science validation that DPAC has performed on Gaia DR2:
+
+•
+
+Mignard et al. ( [../../bib.html#bib26] 2018): The celestial reference frame (Gaia-CFR2);
+
+•
+
+Gaia Collaboration et al. ( [../../bib.html#bib25] 2018a): Observational Hertzsprung-Russell diagrams;
+
+•
+
+Gaia Collaboration et al. ( [../../bib.html#bib24] 2018f): Observations of Solar System objects;
+
+•
+
+Gaia Collaboration et al. ( [../../bib.html#bib23] 2018e): Mapping the Milky Way disk kinematics;
+
+•
+
+Gaia Collaboration et al. ( [../../bib.html#bib22] 2018d): The kinematics of globular clusters and dwarf galaxies around the Milky Way;
+
+•
+
+Gaia Collaboration et al. ( [../../bib.html#bib21] 2018c): Variable stars in the colour-magnitude diagram.
+
+This on-line documentation has been [https://ui.adsabs.harvard.edu/#search/fq=database%3A%20astronomy&fq=%7B!type%3Daqp%20v%3D%24fq_database%7D&fq_database=database%3A%20astronomy&p_=0&q=title%3A(Gaia%20AND%20DR2%20AND%20documentation)&sort=date%20asc%2C%20bibcode%20asc] indexed at ADS and BibTeX entries for citing individual chapters or the full documentation package as a whole can be retrieved from there.
+
+The Gaia data are open and free to use, provided credit is given to ’ESA/Gaia/DPAC’. In general, access to, and use of, ESA’s Gaia archive (hereafter called ’the website’) constitutes acceptance of the following, general terms and conditions. Neither ESA nor any other party involved in creating, producing, or delivering the website shall be liable for any direct, incidental, consequential, indirect, or punitive damages arising out of user access to, or use of, the website. The website does not guarantee the accuracy of information provided by external sources and accepts no responsibility or liability for any consequences arising from the use of such data.
+
+[../sec_acknowl/] Acknowledgements [../../bib.html] Bibliography [../sec_colofon/] Colophon
+
+Generated on Wed Jul 28 12:20:28 2021 by [http://dlmf.nist.gov/LaTeXML/] LaTeXML {img data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==}
+
+Copyright 2026 © European Space Agency. All rights reserved.

@@ -241,6 +241,8 @@ export class Propagator {
 
   /** Ids of the bodies of the force model (moons included when the option is on). */
   get bodyIds(): string[] { return this.pert.map((p) => p.id); }
+  /** GM of a body in the force model, km^3/s^2 (planet system if its moons are not separate masses). 0: not in the model. */
+  gmOf(id: string): number { return this.pert.find((p) => p.id === id)?.gm ?? 0; }
 
   /** Update the positions of all perturbers at time t. (x, y, z): position of the spacecraft. */
   private updateBodies(t: number, x: number, y: number, z: number): void {

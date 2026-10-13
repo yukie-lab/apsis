@@ -195,9 +195,15 @@ export interface EncounterReport {
   et: number;
   radius: number;
   altitude: number;
+  /** Speed at infinity and aim point of the approach hyperbola (state some 30 body radii before the periapsis). */
   vinf: number;
   BdotT: number;
   BdotR: number;
+  /**
+   * Speed at infinity of the two-body orbit that has the state at the closest approach (GM of the planet system).
+   * At an oblate planet this value is larger than vinf. JPL Horizons data gives this value at a flyby.
+   */
+  vinfClosest: number;
 }
 
 export interface RefineReport {
@@ -272,10 +278,9 @@ export function refinePlan(sys: SolarSystem, plan: Plan, result: PlanResult, opt
   const stages: RefineReport['stages'] = [];
   // GM of the body of node i in the force model. 0 for a body that is not a gravity body of the model (most small
   // bodies), or that has no data at the node time: the path near such a body is a straight line.
-  const modelIds = new Set(prop.bodyIds);
   const gms = plan.nodes.map((nd) => {
     const cov = sys.coverage(nd.body);
-    return modelIds.has(nd.body) && nd.et >= cov[0] && nd.et <= cov[1] ? BODIES[nd.body].gm : 0;
+    return nd.et >= cov[0] && nd.et <= cov[1] ? prop.gmOf(nd.body) : 0;
   });
 
   // Aim points from the plan
@@ -504,7 +509,9 @@ export function refinePlan(sys: SolarSystem, plan: Plan, result: PlanResult, opt
     let R = g && resid(f, g);
     if (!g || !R) return fail(x);
 
-    const merit = (q: Res) => 100 * ss(q.c) + ss(q.rho);
+    // Merit function of the line search: |rho|^2 + mu |c|^2. The weight mu is increased when necessary, so that
+    // the step is a descent direction (a step that satisfies the constraints can increase |rho|).
+    let mu = 100;
     let it = 0, converged = false;
     for (; it < 30; it++) {
       solverTrace.log?.(`B ${it}: |c| ${mx(R.c).toExponential(2)} |rho| ${Math.sqrt(ss(R.rho)).toExponential(3)} (${(Math.sqrt(ss(R.rho)) * scV * 1000).toFixed(2)} m/s)`);
@@ -535,16 +542,27 @@ export function refinePlan(sys: SolarSystem, plan: Plan, result: PlanResult, opt
       const rhoNew = R.rho.map((v, k) => v + Jr[k].reduce((a, q, j) => a + q * step[j], 0));
       const gain = Math.sqrt(ss(R.rho)) - Math.sqrt(ss(rhoNew));
       if (mx(R.c) <= 1 && (mx(R.rho) <= 1 || gain <= 1)) { converged = true; break; }
-      let alpha = 1, improved = false;
-      const base = merit(R);
-      for (let ls = 0; ls < 12; ls++) {
-        const xn = x.map((v, j) => v + alpha * step[j]);
-        const wn = w.map((v, j) => v + alpha * step[3 + j]);
-        const fn = forward(xn);
-        const gn = fn && backward(wn);
-        const Rn = fn && gn && resid(fn, gn);
-        if (fn && gn && Rn && merit(Rn) < base) { x = xn; w = wn; f = fn; g = gn; R = Rn; improved = true; break; }
-        alpha *= 0.4;
+      const slope = 2 * R.rho.reduce((a, v, k) => a + v * (rhoNew[k] - v), 0);
+      if (ss(R.c) > 0 && slope > 0) mu = Math.max(mu, (2 * slope) / ss(R.c));
+      const search = (dir: number[], value: (q: Res) => number): boolean => {
+        let alpha = 1;
+        const base = value(R!);
+        for (let ls = 0; ls < 12; ls++) {
+          const xn = x.map((v, j) => v + alpha * dir[j]);
+          const wn = w.map((v, j) => v + alpha * dir[3 + j]);
+          const fn = forward(xn);
+          const gn = fn && backward(wn);
+          const Rn = fn && gn && resid(fn, gn);
+          if (fn && gn && Rn && value(Rn) < base) { x = xn; w = wn; f = fn; g = gn; R = Rn; return true; }
+          alpha *= 0.4;
+        }
+        return false;
+      };
+      let improved = search(step, (q) => mu * ss(q.c) + ss(q.rho));
+      if (!improved && mx(R.c) > 1) {
+        // Only the constraints: the smallest step that satisfies their linear model.
+        const back = solveMinNorm(Jc, R.c);
+        improved = !!back && search(back, (q) => ss(q.c));
       }
       if (!improved) { converged = mx(R.c) <= STALL; break; }
     }
@@ -727,7 +745,12 @@ export function refinePlan(sys: SolarSystem, plan: Plan, result: PlanResult, opt
     // osculating hyperbola at the periapsis of an oblate body is not the approach hyperbola.
     const tau = aimLead(i, aims[i]);
     const bp = gms[i] > 0 ? bPlane(relTo(sys, nd.body, et - tau, trajectory.stateAt(et - tau)), gms[i], bPole(plan, et - tau)) : null;
-    encounters.push({ body: nd.body, etPlanned: nd.et, et, radius: norm(rel.r), altitude: norm(rel.r) - body.radius, vinf: bp?.vinf ?? norm(rel.v), BdotT: bp?.BdotT ?? 0, BdotR: bp?.BdotR ?? 0 });
+    const rr = norm(rel.r);
+    const c3 = dot(rel.v, rel.v) - (gms[i] > 0 ? (2 * body.gmSystem) / rr : 0);
+    encounters.push({
+      body: nd.body, etPlanned: nd.et, et, radius: rr, altitude: rr - body.radius, vinf: bp?.vinf ?? norm(rel.v), BdotT: bp?.BdotT ?? 0, BdotR: bp?.BdotR ?? 0,
+      vinfClosest: Math.sqrt(Math.max(c3, 0)),
+    });
   }
   const corrections = maneuvers.map((m) => ({ et: m.et, dv: norm(m.dv), kind: m.label === 'DSM' ? ('dsm' as const) : m.label === 'ARRIVAL' ? ('arrival' as const) : ('tcm' as const) }));
   const report: RefineReport = {

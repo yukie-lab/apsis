@@ -117,7 +117,17 @@ export function missionFromJson(text: string): Mission {
 
 // ------------------------------------------------------------------------------------------------ real missions
 
-interface FamousEncounter { body: string; jdTdb: number; radiusKm: number; vinfKmS: number; aim?: { BdotT: number; BdotR: number }; note?: string }
+interface FamousEncounter {
+  body: string;
+  /** Time of the closest approach (or of the periapsis of the approach hyperbola), Julian date TDB. */
+  jdTdb: number;
+  radiusKm: number;
+  vinfKmS: number;
+  aim?: { BdotT: number; BdotR: number };
+  /** If the values come from an approach hyperbola: time from the data sample to the periapsis, s. */
+  approachLeadS?: number;
+  note?: string;
+}
 export interface FamousFacts {
   startTdb: string;
   encounters: FamousEncounter[];

@@ -158,6 +158,7 @@
       "BdotT": 440143.3009463407,
       "BdotR": -200413.75870269243
      },
+     "approachLeadS": 41866.681477108184,
      "note": "Periapsis of the approach hyperbola 12 hours before the closest approach (before the insertion burn). Closest approach in the data: JD 2453187.610769 TDB, 80228 km."
     }
    ],
@@ -194,6 +195,7 @@
       "BdotT": -8996.062706216157,
       "BdotR": -817460.5525586526
      },
+     "approachLeadS": 42512.11715540961,
      "note": "Periapsis of the approach hyperbola 12 hours before the closest approach (before the insertion burn). Closest approach in the data: JD 2457574.617130 TDB, 75974 km."
     }
    ],
@@ -231,6 +233,7 @@
       "BdotT": 7272.847813929269,
       "BdotR": -1305.4379570684102
      },
+     "approachLeadS": 20551.72782891798,
      "note": "Vacuum periapsis of the approach hyperbola (below the surface: the spacecraft enters the atmosphere). End of the data: JD 2459264.929167 TDB."
     }
    ]

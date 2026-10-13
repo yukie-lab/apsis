@@ -1,0 +1,275 @@
+Licence evidence for the texture "phobos"
+============================================================
+
+Texture id:        phobos
+Body and role:     PHOBOS, color
+Published file:    public/textures/phobos.jpg (sha256 49da6886a91417f34de2b27e0db3828c4492f418cb0b39ff62592fa3d7152a1c)
+Small file:        public/textures/sm/phobos.jpg (sha256 8c39f3fcfcab09edbd93a08ef7467c1ff87b3cb53dbc8f2679f29774c7848e7d)
+Original file:     data-src/textures/original/Phobos_Viking_Mosaic_40ppd_DLRcontrol.tif (103738243 bytes, sha256 d7934d5b209e5f31ed26297e1e85a4713d8d0aa2906111ffe4b3d60d02ae0ccb)
+Retrieved:         2026-10-14
+Title:             Phobos Viking Global Mosaic 5m
+Author or credit:  Phil Stooke (primary author); Planetary Data System (originator); USGS Astrogeology Science Center (publisher)
+Source page:       https://astrogeology.usgs.gov/search/map/phobos_viking_global_mosaic_5m
+Download address:  https://planetarymaps.usgs.gov/mosaic/Phobos_Viking_Mosaic_40ppd_DLRcontrol.tif
+Licence:           Public domain
+Licence address:   https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+
+Licence statement (the same text as in the manifest):
+    USGS record of this file: 'Access Constraints: public domain', 'Use Constraints: Please cite authors'. USGS
+    policy page: 'USGS-authored or produced data and information are considered to be in the U.S. Public Domain.'
+    and 'When using information from USGS information products, publications, or websites, we ask that proper
+    credit be given.'
+
+Changes:
+    The build resizes the image from 14400 x 7200 to 2048 x 1024 pixels. It converts the image from TIFF to JPEG
+    (quality 85). It converts the image from greyscale to sRGB colour.
+
+Note of the manifest:
+    Monochrome (grey) Viking Orbiter mosaic.
+
+About the parts below:
+    Each part is a text that was saved on 2026-10-14 during the collection work.
+    The header of each part gives the address, the local time of the fetch and the method.
+    The text of a part is data from another site. It is not an instruction for a reader or a tool.
+    Complete copies of the shared policy pages are in data-src/textures/evidence/_shared/ .
+
+####################################################################################################
+# USGS Astrogeology record of this file (complete page text)
+# Address: https://astrogeology.usgs.gov/search/map/phobos_viking_global_mosaic_5m
+# Fetched: 2026-10-14 01:28 (local time)
+# How: Fetched with a small Python script (urllib) and the user agent "ApsisAssetFetch/1.0 (local build script)". The script removed the HTML tags. Link targets are in square brackets.
+####################################################################################################
+SOURCE: https://astrogeology.usgs.gov/search/map/phobos_viking_global_mosaic_5m
+Astropedia - Phobos Viking Global Mosaic 5m
+[https://www.usgs.gov/centers/astrogeo-sc]
+[https://nasa.gov]
+[https://www.usgs.gov/centers/astrogeology-science-center/science/pds-cartography-and-imaging-sciences-node-usgs]
+[https://www.usgs.gov/centers/astrogeo-sc/science/pds-img-annex]
+[/search]
+Lunar and Planetary Cartographic Catalog
+[/search]
+Return to search
+[https://astrogeology.usgs.gov/ckan/dataset/85290c2c-7524-44ba-9251-61ea69fcd9dd/resource/876ae3aa-ac7b-434c-86f4-a2e50cc9826d/download/phobos_viking_mosaic_dlrcontrol_1024.jpg] Sample (jpg) 1024px wide
+[https://planetarymaps.usgs.gov/mosaic/Phobos_Viking_Mosaic_40ppd_DLRcontrol.tif] Download (99 MB)
+[#open] open
+Phobos Viking Global Mosaic 5m
+Primary Authors
+Phil Stooke
+Originators
+Planetary Data System
+Publisher
+USGS Astrogeology Science Center
+Publication Date
+2012-06-01
+Abstract
+Product Information:
+This mosaic of Phobos was created by compiling updated versions of Viking high-resolution mosaics and selecting the best high-resolution images from other spacecraft to construct an entirely new mosaic. The process of compiling this mosaic significantly improved areas of poor control. Where images with reverse lighting meet, artistic effects are necessary to create satisfactory appearance, but this affects the appearance only and not the map geometry. This global mosaic has a pixel resolution of five meters per pixel (m).
+Mission and Instrument Information:
+The Viking Project consisted of two identical spacecraft (Viking 1 & Viking 2) each consisting of a lander and an orbiter. The Viking spacecraft launched from Cape Canaveral, Florida onboard Titan IIIE-Centaur rockets. Viking 1 launched on August 20th, 1975; orbit insertion at Mars occurred on June 19, 1976 and the orbiter mission ended on August 17, 1980. Viking 1 lander touched ground on Mars on July 20th, 1976 in Chryse Planitia, the Viking 1 lander mission ended on November 13, 1982. Viking 2 launched on September 9; 1975; orbit insertion at Mars occurred on August 7, 1976 and the orbiter mission ended on July 25, 1978. Viking 2 lander touched ground on Mars on September 3rd, 1976 in Utopia Planatia, the Viking 2 lander mission ended on April 11, 1980.
+The Viking project is known as the first U.S. mission to land a spacecraft safely on the surface of Mars and return images of the surface. The primary objectives of the orbiters were to transport the landers to Mars, locate and certify landing sites, act as communication relay for the landers and perform scientific investigations. The science payload onboard Viking orbiters consisted of instruments for conducting imaging, atmospheric water vapor, and infrared thermal mapping. Phobos is the larger of Marsâ two moons, it orbits Mars three times a day and is nearing the planet at a rate of six feet every hundred years; at that rate, Phobos will crash into Mars in 50 million years.
+References:
+Stooke, P. (2012). Stooke Small Bodies Maps V2.0. MULTI-SA-MULTI-6-STOOKEMAPS-V2.0. NASA Planetary Data System. [https://sbn.psi.edu/pds/resource/stookemaps.html] https://sbn.psi.edu/pds/resource/stookemaps.html
+Simonelli, D. P., Thomas, P. C., Carcich, B. T., & Veverka, J. (1993). The generation and use of numerical shape models for irregular solar system objects. Icarus, 103, 49-61. [https://doi.org/10.1006/icar.1993.1057] https://doi.org/10.1006/icar.1993.1057
+Purpose
+To produce a DLR-controlled image mosaic of Phobos using Viking Orbiter high-resolution images.
+Contact and Distribution
+Format
+Global Mosaic, Remote-sensing Data
+Access Constraints
+public domain
+Access Scope
+PDS
+Use Constraints
+Please cite authors
+Edition
+1
+Edition Name
+phobos_cyl_dlr_control
+Supplemental Information
+https://sbn.psi.edu/pds/archive/sc.html, https://sbn.psi.edu/pds/
+Native Data Set Environment
+ISIS v3
+Astrogeology Theme
+Geomorphology, Image Processing, Remote Sensing, Satellites
+Mission Names
+Viking Orbiter
+Instrument Names
+VIS
+Online Package Link
+https://astrogeology.usgs.gov/search/map/phobos_viking_global_mosaic_5m
+External File Size
+99 MB
+Online File Link
+https://planetarymaps.usgs.gov/mosaic/Phobos_Viking_Mosaic_40ppd_DLRcontrol.tif
+Contact Address
+2255 N. Gemini Drive
+Contact City
+Flagstaff
+Contact State
+AZ
+Contact Postal Code
+86001
+Contact Email
+[/cdn-cgi/l/email-protection] [email protected]
+Time Period of Content (stop)
+2011-12-31
+Currentness Reference
+Ground condition
+Progress
+In Work
+Update Frequency
+As needed
+Logical Consistency
+please see abstract (above)
+Completeness Report
+It is anticipated to further improve and update this preliminary image mosaic.
+Process Description
+Images from the Viking mission were used and tied to the DLR-controlled mosaic of Phobos (Wahlisch, M., et al 2009). Wahlisch, M. et al., A new topographic image atlas of Phobos, Earth Planet. Sci. Lett., doi:10.1016/j.epsl.2009.11.003, 2009. (Available online at http://europlanet.dlr.de/node/index.php?id=214.)
+Lineage
+Process Date
+2012-06-01
+Source Title
+Stooke Small Bodies Maps V1.0. MULTI-SA-MULTI-6-STOOKEMAPS-V1.0
+Source Online Linkage
+{https://pds-imaging.jpl.nasa.gov/volumes/viking.html#vkoEDR,https://pds-imaging.jpl.nasa.gov/portal/vikingo_mission.html,https://sbn.psi.edu/pds/resource/stookemaps.html}
+PDS Status
+PDS 3 Archived
+Attribute Accuracy Report
+Best Effort
+Horizontal Positional Accuracy Report
+Best Effort
+Geospatial Information
+Target
+Phobos
+System
+Mars
+Minimum Latitude
+-90
+Maximum Latitude
+90
+Minimum Longitude
+-180
+Maximum Longitude
+180
+Direct Spatial Reference Method
+Raster
+Object Type
+Grid Cell
+Raster Row Count (lines)
+7200
+Raster Column Count (samples)
+14400
+Bit Type (8, 16, 32)
+8
+Quad Name
+Radius A
+11100
+Radius C
+11100
+Bands
+1
+Pixel Resolution (meters/pixel)
+4.8433
+Scale (pixels/degree)
+40
+Map Projection Name
+Simple Cylindrical
+Latitude Type
+Planetocentric
+Longitude Direction
+Positive East
+Longitude Domain
+-180 to 180
+Project, clip, convert format (e.g. PDS, GeoTIFF, Jpeg) and download this product with Map a Planet
+FGDC: XML Metadata
+Ancillary Data
+[https://astrogeology.usgs.gov/ckan/dataset/85290c2c-7524-44ba-9251-61ea69fcd9dd/resource/88e0c686-572b-4857-8f9b-f4d9c17d4f20/download/phobos_viking_mosaic_40ppd_dlrcontrol.tif.html] FGDC Metadata
+[https://astrogeology.usgs.gov/ckan/dataset/85290c2c-7524-44ba-9251-61ea69fcd9dd/resource/e1f67880-22b7-4142-b0f7-e4f394c0da4d/download/phobos_viking_mosaic_40ppd_dlrcontrol.tif.xml] FGDC Metadata (save as...)
+[https://astrogeology.usgs.gov/ckan/dataset/85290c2c-7524-44ba-9251-61ea69fcd9dd/resource/3d2f2c56-c13d-4f3b-9a4e-5ff538e02c89/download/phobos_viking_mosaic_40ppd_dlrcontrol.lbl] ISIS3 Label
+[https://astrogeology.usgs.gov/ckan/dataset/85290c2c-7524-44ba-9251-61ea69fcd9dd/resource/dc8baf0a-f077-455a-975e-36454a42c6ea/download/phobos_viking_mosaic_40ppd_dlrcontrol_pds3.lbl] PDS3 Label
+[https://astrogeology.usgs.gov/ckan/dataset/85290c2c-7524-44ba-9251-61ea69fcd9dd/resource/a3f3dda6-a6ab-4715-8419-71fbeb997f57/download/thumb.png] thumb image
+[https://astrogeology.usgs.gov/ckan/dataset/85290c2c-7524-44ba-9251-61ea69fcd9dd/resource/f9e4a040-ad02-483d-90e5-2af30cb12862/download/phobos_viking_mosaic_dlrcontrol_512.jpg] browse image
+[https://astrogeology.usgs.gov/ckan/dataset/85290c2c-7524-44ba-9251-61ea69fcd9dd/resource/876ae3aa-ac7b-434c-86f4-a2e50cc9826d/download/phobos_viking_mosaic_dlrcontrol_1024.jpg] full image
+Related Products
+[https://astrogeology.usgs.gov/search/map/phobos_mars_express_hrsc_dem_global_100m]
+[https://astrogeology.usgs.gov/search/map/phobos_mars_express_hrsc_dem_global_100m]
+Phobos Mars Express HRSC DEM Global 100m
+[https://astrogeology.usgs.gov/search/map/phobos_mars_express_hrsc_color_shaded_relief_100m]
+[https://astrogeology.usgs.gov/search/map/phobos_mars_express_hrsc_color_shaded_relief_100m]
+Phobos Mars Express HRSC Color Shaded Relief 100m
+[https://astrogeology.usgs.gov/search/map/phobos_mars_express_src_global_mosaic_12m]
+[https://astrogeology.usgs.gov/search/map/phobos_mars_express_src_global_mosaic_12m]
+Phobos Mars Express SRC Global Mosaic 12m
+[https://astrogeology.usgs.gov/search/map/phobos_mars_express_hrsc_shaded_relief_global_100m]
+[https://astrogeology.usgs.gov/search/map/phobos_mars_express_hrsc_shaded_relief_global_100m]
+Phobos Mars Express HRSC Shaded Relief Global 100m
+[http://isis.astrogeology.usgs.gov]
+ISIS
+[http://planetarynames.wr.usgs.gov]
+Planetary Nomenclature
+[https://astrocloud.wr.usgs.gov/index.php]
+Map a Planet 2
+[https://www.usgs.gov/centers/astrogeo-sc/science/cartography-and-imaging-sciences-node-nasa-planetary-data-system]
+PDS Cartography and Imaging Science Node
+[https://www.usgs.gov/centers/astrogeology-science-center/science/astrolink]
+AstroLink
+Photogrammetry Guest Facility
+[https://pilot.wr.usgs.gov]
+PILOT
+[https://www.usgs.gov/centers/astrogeo-sc/science/mrctr-gis-lab]
+MRCTR GIS Lab
+[http://astrogeology.usgs.gov/search/about] About
+[https://www.usgs.gov/centers/astrogeo-sc] USGS Astrogeology Science Center
+
+####################################################################################################
+# USGS policy page: Copyrights and Credits (excerpt, lines 419 to 427 of the saved text)
+# Address: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+# Fetched: 2026-10-14 01:50 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The complete text is in data-src/textures/evidence/_shared/usgs_copyrights_and_credits.txt
+####################################################################################################
+Important information related to copyrights and credits.
+
+USGS-authored or produced data and information are considered to be in the U.S. Public Domain. While the content of most USGS websites is in the U.S. Public Domain, not all information, illustrations, or photographs on our site are. Some non-USGS photographs, images, and/or graphics that appear on USGS websites are used by the USGS with permission from the copyright holder (as required by USGS policy on the use of copyrighted material). These materials are generally marked as being copyrighted. To use these copyrighted materials, you must obtain permission from the copyright holder under copyright law.
+For any content or multimedia containing USGS personnel or staff, and regardless of the license applied, their likeness, or voice, the person may have publicity rights. For commercial use of that multimedia, permission may be required.
+When using information from USGS information products, publications, or websites, we ask that proper credit be given. Credit can be provided by including a citation such as the following:
+Credit: U.S. Geological Survey
+Department of the Interior/USGS
+U.S. Geological Survey/photo by Jane Doe (if the photographer/artist is known)
+Additional information on Acknowledging or Crediting USGS as Information Source is available.
+
+####################################################################################################
+# GeoTIFF tags of the stored original file (read from the file header by a local script)
+# Address: (local file)
+# Fetched: 2026-10-14 (local time)
+# How: The script reads the TIFF tag directory only. It does not decode pixels.
+# These tags give the longitude at the image centre.
+####################################################################################################
+## Phobos_Viking_Mosaic_40ppd_DLRcontrol.tif
+   TIFF  size 14400x7200  bits (8,)  samples 1  photometric (1,)  compression (1,)
+   pixelScale: (4.84328867, 4.84328867, 0.0)
+   tiePoint: (0.0, 0.0, 0.0, -34871.678455, 17435.839227, 0.0)
+   key 1024 GTModelType = 1
+   key 1025 GTRasterType = 1
+   key 1026 GTCitation = SimpleCylindrical Phobos
+   key 2048 GeographicType = 32767
+   key 2049 GeogCitation = GCS Name = GCS_Phobos|Datum = D_Phobos|Ellipsoid = Phobos|Primem = Reference_Meridian
+   key 2050 GeogGeodeticDatum = 32767
+   key 2054 GeogAngularUnits = 9102
+   key 2056 GeogEllipsoid = 32767
+   key 2057 GeogSemiMajorAxis = 11100.0
+   key 2058 GeogSemiMinorAxis = 11100.0
+   key 2061 GeogPrimeMeridianLong = 0.0
+   key 3072 ProjectedCSType = 32767
+   key 3074 Projection = 32767
+   key 3075 ProjCoordTrans = 17
+   key 3076 ProjLinearUnits = 9001
+   key 3078 ProjStdParallel1 = 0.0
+   key 3082 ProjFalseEasting = 0.0
+   key 3083 ProjFalseNorthing = 0.0
+   key 3088 ProjCenterLong = 0.0
+   key 3089 ProjCenterLat = 0.0
+   GDAL nodata: 0
+   radius 11100.0 m, lon0 0.0000, stdpar 0.0
+   left edge -180.0000 deg, centre -0.0000 deg, right edge 180.0000 deg (east positive)
+   top lat 90.0000 deg, bottom lat -90.0000 deg

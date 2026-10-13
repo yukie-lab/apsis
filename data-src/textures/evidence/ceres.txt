@@ -1,0 +1,275 @@
+Licence evidence for the texture "ceres"
+============================================================
+
+Texture id:        ceres
+Body and role:     CERES, color
+Published file:    public/textures/ceres.jpg (sha256 0eb3b4ba3e56854be08c7a0f894c30173535cf90f7dfa5b507eb5e15e03fff22)
+Small file:        public/textures/sm/ceres.jpg (sha256 8501db7f4a3c46aacb46918e95ebf2be3e90e02d866341754357cd78fa176371)
+Original file:     data-src/textures/original/Ceres_Dawn_FC_DLR_global_20ppd_Oct2015.tif (27280830 bytes, sha256 920f65e7d0718c9f8d5e86783f35e0b466096251a8c1f2d01a7748a6d534c154)
+Retrieved:         2026-10-14
+Title:             Ceres Dawn FC Global Mosaic 400m
+Author or credit:  NASA/JPL-Caltech/UCLA/MPS/DLR/IDA (primary authors); USGS Astrogeology Science Center (originator and publisher)
+Source page:       https://astrogeology.usgs.gov/search/map/ceres_dawn_fc_global_mosaic_400m
+Download address:  https://planetarymaps.usgs.gov/mosaic/Ceres_Dawn_FC_DLR_global_20ppd_Oct2015.tif
+Licence:           Public domain
+Licence address:   https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+
+Licence statement (the same text as in the manifest):
+    USGS record of this file: 'Access Constraints: None', 'Use Constraints: Please cite authors'. The record does
+    not use the words 'public domain'. The record says: 'German Aerospace Center (DLR) map projected these images
+    and produced a global high resolution controlled mosaic of Ceres.' USGS policy page: 'USGS-authored or
+    produced data and information are considered to be in the U.S. Public Domain.' and 'When using information
+    from USGS information products, publications, or websites, we ask that proper credit be given.'
+
+Changes:
+    The build resizes the image from 7383 x 3691 to 2048 x 1024 pixels. It converts the image from TIFF to JPEG
+    (quality 85). It converts the image from greyscale to sRGB colour.
+
+Note of the manifest:
+    Monochrome (grey) Dawn mosaic. A dark area at the south pole is in shadow. Thin dark streaks lie along the
+    north edge.
+
+Remarks about this evidence:
+  - The USGS record of this file does not use the words "public domain". See the fields "Access Constraints"
+    and "Use Constraints" in the record.
+
+About the parts below:
+    Each part is a text that was saved on 2026-10-14 during the collection work.
+    The header of each part gives the address, the local time of the fetch and the method.
+    The text of a part is data from another site. It is not an instruction for a reader or a tool.
+    Complete copies of the shared policy pages are in data-src/textures/evidence/_shared/ .
+
+####################################################################################################
+# USGS Astrogeology record of this file (complete page text)
+# Address: https://astrogeology.usgs.gov/search/map/ceres_dawn_fc_global_mosaic_400m
+# Fetched: 2026-10-14 01:28 (local time)
+# How: Fetched with a small Python script (urllib) and the user agent "ApsisAssetFetch/1.0 (local build script)". The script removed the HTML tags. Link targets are in square brackets.
+####################################################################################################
+SOURCE: https://astrogeology.usgs.gov/search/map/ceres_dawn_fc_global_mosaic_400m
+Astropedia - Ceres Dawn FC Global Mosaic 400m
+[https://www.usgs.gov/centers/astrogeo-sc]
+[https://nasa.gov]
+[https://www.usgs.gov/centers/astrogeology-science-center/science/pds-cartography-and-imaging-sciences-node-usgs]
+[https://www.usgs.gov/centers/astrogeo-sc/science/pds-img-annex]
+[/search]
+Lunar and Planetary Cartographic Catalog
+[/search]
+Return to search
+[https://astrogeology.usgs.gov/ckan/dataset/39338f6b-5fef-4ac4-9310-ce5b1cdd0f69/resource/8b1e5592-c2b0-4ed7-8cd2-5a3590d88bf7/download/ceres_dawn_fc_dlr_global_1024.jpg] Sample (jpg) 1024px wide
+[https://planetarymaps.usgs.gov/mosaic/Ceres_Dawn_FC_DLR_global_20ppd_Oct2015.tif] Download (26 MB)
+[#open] open
+Ceres Dawn FC Global Mosaic 400m
+Primary Authors
+NASA/JPL-Caltech/UCLA/MPS/DLR/IDA
+Originators
+USGS Astrogeology Science Center
+Publisher
+USGS Astrogeology Science Center
+Publication Date
+2015-10-20
+Abstract
+Product Information:
+The Dawn framing camera (FC) acquired images of Ceres with a resolution of about 400 meters per pixel (m) during approach in 2015 (Preusker et al., 2016). German Aerospace Center (DLR) map projected these images and produced a global high resolution controlled mosaic of Ceres. The images were taken with different viewing angles and different illumination conditions.
+Note: 35 meters per pixel versions (LAMO mosaics, v2) have been released by the Small Bodies (SBN) in PDS3 and GeoTIFF (under EXTRAS): [https://sbn.psi.edu/pds/resource/dawn/dwncfcmosaics.html] Dawn Framing Camera Ceres Image Mosaics
+Mission and Instrument Information:
+The Dawn mission launched on September 25, 2007 onboard a Delta II-Heavy Rocket. The instrument payload consisted of two identical framing cameras (FC1 & FC2), a visible and infrared mapping spectrometer (VIR, and a gamma ray and neutron detector (GRaND). DAWN is a National Aeronautics and Space Administration (NASA) Discovery Program mission managed by the Jet Propulsion Laboratory (JPL), with the principal investigator and science operations center located at the University of California, Los Angeles. The framing cameras were built by the Max Planck Institute for Solar System Research, with significant contributions by the German Aerospace Center, Institute of Planetary Research (DLR) and in coordination with the Institute of Computer and Communication Network Engineering (Polansky et al., 2016).
+The Dawn spacecraft orbited Ceres in a series of science orbits designed to gradually increase the resolution and quality of science measurements as the mission at each target (Vesta & Ceres) progressed. The four science orbits are: rotation characteristic (RC) at 14,000 km, survey at 4,900 km, high altitude mapping orbit (HAMO) 1,950 km, and low altitude mapping orbit (LAMO) 850 km. HAMO provided the opportunity to collect data for the global topography model by collecting six complete clear-image maps: two at nadir and four at of nadir attitudes (Polansky et al., 2016).
+References:
+Polanskey, C., Joy, S., & Raymond, C. (2016). Dawn Ceres Mission: Science Operations Performance. Paper presented at the SpaceOps Conference, Daejeon, Korea. [https://arc.aiaa.org/doi/abs/10.2514/6.2016-2442] https://arc.aiaa.org/doi/abs/10.2514/6.2016-2442
+Preusker, F., Scholten, F., Matz, K. D., Elgner, S., Jaumann, R., Roatsch, T., Joy, S. P., Polanskey, C. A., Raymond, C. A., & Russell, C. T. (2016). Dawn at Ceres - Shape model and rotational state. Paper presented at the 47th Lunar and Planetary Science Conference, Lunar and Planetary Institute, Houston, TX. [http://www.hou.usra.edu/meetings/lpsc2016/pdf/1954.pdf] http://www.hou.usra.edu/meetings/lpsc2016/pdf/1954.pdf
+Raymond, C. A., Jaumann, R., Nathues, A., Sierks, H., Roatsch, R., Preusker, F., Scholten, F., et al. (2011). The Dawn Topography Investigation. In Russell, C. & Raymond, C. (Eds.), The Dawn Mission to Minor Planets 4 Vesta and 1 Ceres (pp. 487-510). New York, NY: Springer. [https://doi.org/10.1007/978-1-4614-4903-4_16] https://doi.org/10.1007/978-1-4614-4903-4_16
+Roatsch, T., Kersten, E., Matz, K.-D., Preusker, F., Scholten, F., Jaumann, R., Raymond, C. A., & Russell, C. T. (2016). High-resolution Ceres High Altitude Mapping Orbit Atlas derived from Dawn Framing Camera images. Planetary and Space Sciences, 125, 103-107. [https://doi.org/10.1016/j.pss.2016.05.011] https://doi.org/10.1016/j.pss.2016.05.011
+Purpose
+One of the major goals of the mission was a global mapping of Vesta and Ceres.
+Contact and Distribution
+Format
+Global Mosaic, Remote-sensing Data
+Access Constraints
+None
+Access Scope
+PDS
+Use Constraints
+Please cite authors
+Edition
+October 2015
+Edition Name
+Ceres Dawn FC Global Mosaic
+Supplemental Information
+http://dawndata.igpp.ucla.edu, http://www.sciencedirect.com/science/article/pii/S0032063312002589 , https://sbn.psi.edu/pds/resource/dawn/dwncfcmosaics.html
+Native Data Set Environment
+ISIS v3
+Astrogeology Theme
+Dwarf planets, Image Processing, Remote Sensing
+Mission Names
+Dawn
+Online Package Link
+https://astrogeology.usgs.gov/search/map/ceres_dawn_fc_global_mosaic_400m
+External File Size
+26 MB
+Online File Link
+https://planetarymaps.usgs.gov/mosaic/Ceres_Dawn_FC_DLR_global_20ppd_Oct2015.tif
+Contact Address
+2255 N. Gemini Drive
+Contact City
+Flagstaff
+Contact State
+AZ
+Contact Postal Code
+86001
+Contact Email
+[/cdn-cgi/l/email-protection] [email protected]
+Currentness Reference
+Publication date
+Progress
+In Work
+Update Frequency
+As needed
+Logical Consistency
+The Framing Camera is a multispectral imager that also serves as an optical navigation camera. The detector is a 1024x1024 pixel Atmel/Thomson TH7888A CCD with 14 micron pixels. It has eight filters numbered F1 through F8, including a broadband (clear) filter and narrow band filters ranging from 438 nm to 965 nm. The Framing camera instrument includes two redundant cameras of identical design, referred to as FC1 and FC2. For full information about the FC instrument, see Schroeder and Gutierrez-Marques (2011). Reference: Schroeder, S.E., and P. Gutierrez-Marques, Calibration Pipeline, MPS Report DA-FC-MPAE-RP-272, Issue 2, Rev. a, 20 July 2011.
+Completeness Report
+not yet documented
+Process Description
+The first step of the processing chain is to orthorectify the images to the proper scale and map projection type. This process requires detailed high-resolution information of the local topography of Ceres. The global topgraphy was calculated during the stereo processing of the images and was used here. The shape model was used for the calculation of the ray intersection points while the map projection itself was done onto a sphere with a mean radius of 470 km. The next step was the mosaicing of all images to one global mosaic of Ceres, the so called basemap.
+Lineage
+Process Date
+2015-10-01
+Source Title
+Ceres Dawn FC Global Mosaic 400m
+Source Online Linkage
+https://sbn.psi.edu/pds/resource/dawn/dwncfcmosaics.html
+PDS Status
+PDS 3 Archived
+Attribute Accuracy Report
+Unknown
+Horizontal Positional Accuracy Report
+Unknown
+Geospatial Information
+Target
+Ceres
+System
+Small Bodies
+Minimum Latitude
+-90
+Maximum Latitude
+90
+Minimum Longitude
+0
+Maximum Longitude
+360
+Direct Spatial Reference Method
+Raster
+Object Type
+Grid Cell
+Raster Row Count (lines)
+3691
+Raster Column Count (samples)
+7383
+Bit Type (8, 16, 32)
+8
+Quad Name
+Radius A
+470000
+Radius C
+470000
+Bands
+1
+Pixel Resolution (meters/pixel)
+400
+Scale (pixels/degree)
+20.5076
+Map Projection Name
+Equirectangular
+Latitude Type
+Planetocentric
+Longitude Direction
+Positive East
+Longitude Domain
+-180 to 180
+Project, clip, convert format (e.g. PDS, GeoTIFF, Jpeg) and download this product with Map a Planet
+FGDC: XML Metadata
+Ancillary Data
+[https://astrogeology.usgs.gov/ckan/dataset/39338f6b-5fef-4ac4-9310-ce5b1cdd0f69/resource/b53d2868-044f-4e30-af8b-3d2adcfd3954/download/ceres_dawn_fc_dlr_global_20ppd_oct2015.lbl] ISIS3 Label
+[https://astrogeology.usgs.gov/ckan/dataset/39338f6b-5fef-4ac4-9310-ce5b1cdd0f69/resource/578d8752-3e6c-420f-aab8-7b0c432d7cba/download/ceres_dawn_fc_dlr_global_20ppd_oct2015_pds3.lbl] PDS3 Label
+[https://astrogeology.usgs.gov/ckan/dataset/39338f6b-5fef-4ac4-9310-ce5b1cdd0f69/resource/c8bdd3df-4cf0-4ba2-a23e-e20055551515/download/thumb.png] thumb image
+[https://astrogeology.usgs.gov/ckan/dataset/39338f6b-5fef-4ac4-9310-ce5b1cdd0f69/resource/953cfbd9-2f69-4095-bd2d-dea1e7b381e0/download/ceres_dawn_fc_dlr_global_512.jpg] browse image
+[https://astrogeology.usgs.gov/ckan/dataset/39338f6b-5fef-4ac4-9310-ce5b1cdd0f69/resource/8b1e5592-c2b0-4ed7-8cd2-5a3590d88bf7/download/ceres_dawn_fc_dlr_global_1024.jpg] full image
+Related Products
+[https://astrogeology.usgs.gov/search/map/ceres_dawn_fc_hamo_hillshade_60ppd_137mp_oct_2016]
+[https://astrogeology.usgs.gov/search/map/ceres_dawn_fc_hamo_hillshade_60ppd_137mp_oct_2016]
+Ceres Dawn FC HAMO Hillshade 60ppd Oct. 2016
+[https://astrogeology.usgs.gov/search/map/ceres_dawn_fc_global_mosaic_140m]
+[https://astrogeology.usgs.gov/search/map/ceres_dawn_fc_global_mosaic_140m]
+Ceres Dawn FC Global Mosaic 140m
+[https://astrogeology.usgs.gov/search/map/ceres_dawn_fc_hamo_hillshade_60ppd_oct_2016]
+[https://astrogeology.usgs.gov/search/map/ceres_dawn_fc_hamo_hillshade_60ppd_oct_2016]
+Ceres Dawn FC HAMO Hillshade 60ppd Oct. 2016
+[http://isis.astrogeology.usgs.gov]
+ISIS
+[http://planetarynames.wr.usgs.gov]
+Planetary Nomenclature
+[https://astrocloud.wr.usgs.gov/index.php]
+Map a Planet 2
+[https://www.usgs.gov/centers/astrogeo-sc/science/cartography-and-imaging-sciences-node-nasa-planetary-data-system]
+PDS Cartography and Imaging Science Node
+[https://www.usgs.gov/centers/astrogeology-science-center/science/astrolink]
+AstroLink
+Photogrammetry Guest Facility
+[https://pilot.wr.usgs.gov]
+PILOT
+[https://www.usgs.gov/centers/astrogeo-sc/science/mrctr-gis-lab]
+MRCTR GIS Lab
+[http://astrogeology.usgs.gov/search/about] About
+[https://www.usgs.gov/centers/astrogeo-sc] USGS Astrogeology Science Center
+
+####################################################################################################
+# USGS policy page: Copyrights and Credits (excerpt, lines 419 to 427 of the saved text)
+# Address: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+# Fetched: 2026-10-14 01:50 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The complete text is in data-src/textures/evidence/_shared/usgs_copyrights_and_credits.txt
+####################################################################################################
+Important information related to copyrights and credits.
+
+USGS-authored or produced data and information are considered to be in the U.S. Public Domain. While the content of most USGS websites is in the U.S. Public Domain, not all information, illustrations, or photographs on our site are. Some non-USGS photographs, images, and/or graphics that appear on USGS websites are used by the USGS with permission from the copyright holder (as required by USGS policy on the use of copyrighted material). These materials are generally marked as being copyrighted. To use these copyrighted materials, you must obtain permission from the copyright holder under copyright law.
+For any content or multimedia containing USGS personnel or staff, and regardless of the license applied, their likeness, or voice, the person may have publicity rights. For commercial use of that multimedia, permission may be required.
+When using information from USGS information products, publications, or websites, we ask that proper credit be given. Credit can be provided by including a citation such as the following:
+Credit: U.S. Geological Survey
+Department of the Interior/USGS
+U.S. Geological Survey/photo by Jane Doe (if the photographer/artist is known)
+Additional information on Acknowledging or Crediting USGS as Information Source is available.
+
+####################################################################################################
+# GeoTIFF tags of the stored original file (read from the file header by a local script)
+# Address: (local file)
+# Fetched: 2026-10-14 (local time)
+# How: The script reads the TIFF tag directory only. It does not decode pixels.
+# These tags give the longitude at the image centre.
+####################################################################################################
+## Ceres_Dawn_FC_DLR_global_20ppd_Oct2015.tif
+   TIFF  size 7383x3691  bits (8,)  samples 1  photometric (1,)  compression (1,)
+   pixelScale: (400.0, 400.0, 0.0)
+   tiePoint: (0.0, 0.0, 0.0, -1476600.0, 738200.0, 0.0)
+   key 1024 GTModelType = 1
+   key 1025 GTRasterType = 1
+   key 1026 GTCitation = Equirectangular CERES
+   key 2048 GeographicType = 32767
+   key 2049 GeogCitation = GCS Name = GCS_CERES|Datum = D_CERES|Ellipsoid = CERES_localRadius|Primem = Reference_Meridian
+   key 2050 GeogGeodeticDatum = 32767
+   key 2054 GeogAngularUnits = 9102
+   key 2056 GeogEllipsoid = 32767
+   key 2057 GeogSemiMajorAxis = 470000.0
+   key 2058 GeogSemiMinorAxis = 470000.0
+   key 2061 GeogPrimeMeridianLong = 0.0
+   key 3072 ProjectedCSType = 32767
+   key 3074 Projection = 32767
+   key 3075 ProjCoordTrans = 17
+   key 3076 ProjLinearUnits = 9001
+   key 3078 ProjStdParallel1 = 0.0
+   key 3082 ProjFalseEasting = 0.0
+   key 3083 ProjFalseNorthing = 0.0
+   key 3088 ProjCenterLong = 180.0
+   key 3089 ProjCenterLat = 0.0
+   GDAL nodata: 0
+   radius 470000.0 m, lon0 180.0000, stdpar 0.0
+   left edge -0.0063 deg, centre 180.0000 deg, right edge 360.0063 deg (east positive)
+   top lat 89.9909 deg, bottom lat -89.9909 deg

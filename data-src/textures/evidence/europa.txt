@@ -1,0 +1,283 @@
+Licence evidence for the texture "europa"
+============================================================
+
+Texture id:        europa
+Body and role:     EUROPA, color
+Published file:    public/textures/europa.jpg (sha256 3526ae67a3201c837d05a562474e8e2f5a8d799e00d23b71d8fc40eda62bdabb)
+Small file:        public/textures/sm/europa.jpg (sha256 7cf57903865246596198b0e16d582bc216fb42358e986e16c079b45641b7f5fa)
+Original file:     data-src/textures/original/Europa_Voyager_GalileoSSI_global_mosaic_500m.tif (192777263 bytes, sha256 a323f0c9ccb47d5af9902ea8297fe81f9a9708795645b80801f103c3f7c9a624)
+Retrieved:         2026-10-14
+Title:             Europa Voyager - Galileo SSI Global Mosaic 500m
+Author or credit:  Tammy Becker (primary author); Archinal, B., Colvin, T, Davies, M, Gitlin, A., Kirk, R., Weller, L. (originators); USGS Astrogeology Science Center (publisher)
+Source page:       https://astrogeology.usgs.gov/search/map/europa_voyager_galileo_ssi_global_mosaic_500m
+Download address:  https://planetarymaps.usgs.gov/mosaic/Europa_Voyager_GalileoSSI_global_mosaic_500m.tif
+Licence:           Public domain
+Licence address:   https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+
+Licence statement (the same text as in the manifest):
+    USGS record of this file: 'Access Constraints: None', 'Use Constraints: None'. The record does not use the
+    words 'public domain'. The record names the USGS Astrogeology Science Center as the publisher. USGS policy
+    page: 'USGS-authored or produced data and information are considered to be in the U.S. Public Domain.' and
+    'When using information from USGS information products, publications, or websites, we ask that proper credit
+    be given.'
+
+Changes:
+    The build resizes the image from 19631 x 9816 to 2048 x 1024 pixels. It converts the image from TIFF to JPEG
+    (quality 85). It converts the image from greyscale to sRGB colour.
+
+Note of the manifest:
+    Monochrome (grey) mosaic. The source says: 'no coverage exists south of latitude -83 degrees'. That strip is
+    black.
+
+Remarks about this evidence:
+  - The USGS record of this file does not use the words "public domain". See the fields "Access Constraints"
+    and "Use Constraints" in the record.
+
+About the parts below:
+    Each part is a text that was saved on 2026-10-14 during the collection work.
+    The header of each part gives the address, the local time of the fetch and the method.
+    The text of a part is data from another site. It is not an instruction for a reader or a tool.
+    Complete copies of the shared policy pages are in data-src/textures/evidence/_shared/ .
+
+####################################################################################################
+# USGS Astrogeology record of this file (complete page text)
+# Address: https://astrogeology.usgs.gov/search/map/europa_voyager_galileo_ssi_global_mosaic_500m
+# Fetched: 2026-10-14 01:23 (local time)
+# How: Fetched with a small Python script (urllib) and the user agent "ApsisAssetFetch/1.0 (local build script)". The script removed the HTML tags. Link targets are in square brackets.
+####################################################################################################
+SOURCE: https://astrogeology.usgs.gov/search/map/europa_voyager_galileo_ssi_global_mosaic_500m
+Astropedia - Europa Voyager - Galileo SSI Global Mosaic 500m
+[https://www.usgs.gov/centers/astrogeo-sc]
+[https://nasa.gov]
+[https://www.usgs.gov/centers/astrogeology-science-center/science/pds-cartography-and-imaging-sciences-node-usgs]
+[https://www.usgs.gov/centers/astrogeo-sc/science/pds-img-annex]
+[/search]
+Lunar and Planetary Cartographic Catalog
+[/search]
+Return to search
+[https://astrogeology.usgs.gov/ckan/dataset/4080036f-afc5-422e-abe9-1c0c8e4f98ea/resource/3647e7b3-425e-4dcf-951b-cc4a22fb0129/download/europa_voyager_galileossi_global_mosaic_500m_1024.jpg] Sample (jpg) 1024px wide
+[https://planetarymaps.usgs.gov/mosaic/Europa_Voyager_GalileoSSI_global_mosaic_500m.tif] Download (184 MB)
+[#open] open
+Europa Voyager - Galileo SSI Global Mosaic 500m
+Primary Authors
+Tammy Becker
+Originators
+Archinal, B., Colvin, T, Davies, M, Gitlin, A., Kirk, R., Weller, L.
+Publisher
+USGS Astrogeology Science Center
+Publication Date
+2010-01-01
+Abstract
+Product Information:
+This global map base of Europa utilizes the best image quality and moderate resolution coverage supplied by the Galileo SSI (Solid-State Imaging) instrument and Voyager 1 and 2. The image data was selected on the basis of overall image quality, reasonable input resolution (from 20 km/pixel for gap fill to as high as 200 meters per pixel[m]), and availability of moderate viewing and sun angles for topography. The map projections are based on a sphere having a radius of 1,562.09 kilometers. A Simple Cylindrical projection was used at a resolution of 500 m. A plot of the footprints of the original image data used for the mosaic is available as a PDF under "Ancillary Products" on the right of this page.
+Digital image processing of the Voyager pictures was done in the Flagstaff Image Processing Facility. The programs and techniques that were used have been developed over a period of several years by a team of scientists and programmers (Batson, 1984). Two levels of digital image processing are commonly used for planetary mapping. Level 1 is intended to restore the pictures to the quality that would have been produced by a âperfectâ camera, this is done by removing âartifactsâ from lens distortions and electronic recording and transmitting systems. Level 2 processing is done to correct image geometry to match appropriate map projections. Final map/ mosaic complications are done with level 2, geometrically corrected, images (Batson, 1984). Both level 1 and level 2 processing are done to preserve the original contrast captured by the camera which may include very dark and or very light areas.
+Mission and Instrument Information:
+The Voyager I spacecraft launched September 5, 1977 and passed through the Saturnian system on November 12, 1981. Voyager 2 launched August 20, 1977 and made a similar encounter with Jupiter on July 9th, 1979. The spacecraft carried both wide- and narrow- angle cameras, which were able to capture and return moderate- to high- resolution images of the satellites Rhea, Dione, Enceladus, Mimas, Tethys, and Iapetus. The rapid speed of the spacecraft as it approached the satellites resulted in significant mis-matches of image resolution and image blur (Greely & Batson, 2007; Batson, 1984).
+Galileo launched on October 18, 1989 from the Kennedy Space Center in Florida aboard the space shuttle Atlantis with the aim to study Jupiter and its moons. It arrived at Jupiter on December 7th, 1995 and ended when the spacecraft entered Jupiterâs atmosphere on September 21, 2003. Galileo made seven flybys of Io during its fourteen-year mission in the Jovian system.
+Galileo's Solid-State Imaging (SSI) experiment was designed to study Jupiter and itâs satellites using multi-spectral, high-resolution, charge-coupled device (CCD) camera. The camera was operated in eight filtered band passes from 350-1100nm, the eight -position filter wheel consisted of three broad-band filters: violet(404nm), green(559nm), and red(671nm). The borad-band filters allowed for the reconstruction of visible color photographs. The use of a CCD permitted the SSI to have an image geometry which was independent of brightness gradients, greater sensitivity to incident photons, and a wider spectral range than any camera previously flown on a planetary mission.
+References:
+Batson, R. (1984). Voyager 1 and 2 Atlas of Six Saturnian Satellites (NASA-SP-474). Washington, DC: National Aeronautics and Space Administration (NASA). [https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19840027171.pdf] https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19840027171.pdf
+Belton, M. J. S., Klaasen, K. P., Clary, M. C., Anderson, J. L., Anger, C. D., Carr, M. H., Chapman, C. R., et al. (1992). The Galileo Solid-State Imaging experiment. Space Science Reviews, 60(1-4), 413-455. [https://doi.org/10.1007/BF00216864] https://doi.org/10.1007/BF00216864
+Greely, R., & Batson, R. (2007). Planetary Mapping. (ISBN 0-521-30774-0). New York, NY: Cambridge University Press.
+U.S. Geological Survey (2002). Controlled Photomosaic Map of Europa, Je 15M CMN. (U.S. Geological Survey Geologic Investigations Series Iâ2757). Flagstaff, AZ: US Geological Survey. [http://pubs.usgs.gov/imap/i2757] http://pubs.usgs.gov/imap/i2757
+Purpose
+This mosaic updates Voyager mission global maps of Europa with Galileo SSI (Solid-State Imaging) data of superior resolution and geometric fidelity. This product has been used to map lineament locations (Crawford, Z.A. and Pappalardo, R.T. 2006. Evidence for Episodic Formation of Europa's Global Lineaments Via Non-Synchronous Rotation. 37th Annual Lunar and Planetary Science Conference 37) and as a base map for formal planetary nomenclature.
+Contact and Distribution
+Format
+Global Mosaic, Raster Data, Remote-sensing Data
+Access Constraints
+None
+Access Scope
+PDS
+Use Constraints
+None
+Supplemental Information
+http://pubs.usgs.gov/imap/i2757/, Galileo SSI data, http://pds-imaging.jpl.nasa.gov/volumes/galileo.html#gllSSIREDR , (volumes go_0018-0021, go_0023, go_1005-1008) , Voyager ISS data, http://pds-imaging.jpl.nasa.gov/volumes/voyager.html , (volumes vg_0013, vg_0015-25)
+Native Data Set Environment
+ISIS v3
+Astrogeology Theme
+Cartography, Geology, Satellites
+Mission Names
+Galileo, Voyager
+Instrument Names
+SSI, Voyager 1, Voyager 2
+Online Package Link
+https://astrogeology.usgs.gov/search/map/europa_voyager_galileo_ssi_global_mosaic_500m
+External File Size
+184 MB
+Online File Link
+https://planetarymaps.usgs.gov/mosaic/Europa_Voyager_GalileoSSI_global_mosaic_500m.tif
+Contact Address
+2255 N. Gemini Drive
+Contact City
+Flagstaff
+Contact State
+AZ
+Contact Postal Code
+86001
+Contact Email
+[/cdn-cgi/l/email-protection] [email protected]
+Time Period of Content (stop)
+1969-12-31
+Currentness Reference
+Publication date
+Progress
+Complete
+Update Frequency
+None planned
+Logical Consistency
+This map is built on updated radii, planet constant values (Wo), and adjusted C-matrices from the Galileo mission. The RAND calculations were based on a sphere, and so a single mean radius was used for mapping (1562.09 km) (Davies, M. E., Colvin, T. R., Oberst, J., Zeitler, W., Schuster, P., Neukum, G., McEwen, A. S., Phillips, C. B., Thomas, P. C., Veverka, J., Belton, M. J. S., and Schubert, G. 1998. The Control Networks of the Galilean Satellites and Implications for Global Shape. Icarus 135. doi:10.1006/icar.1998.5982). The results for using an ellipsoid instead of a sphere indicated minimal differences except at high emission angles at the poles and near the equator at longitudes 0 and 180. Given that the poles have very poor resolution coverage or no coverage at all, using a sphere rather than an ellipsoid is considered sufficient. For the digital global map, image data with lower emission angles were selected when available at the equator, thus reducing the effects of the shape chosen in these areas.
+Completeness Report
+A data gap occurs in the Europa mosaic at the south pole; no coverage exists south of latitude -83 degrees. Only low resolution data (~20 km/pixel) cover the north pole and many high latitudes in the north and south.
+Process Description
+The individual images were radiometrically calibrated and then were photometrically normalized using a Lunar- Lambert function with empirically derived values (Kirk, R. L. 2000. Geometric Calibration of the Wide-Angle Mars Orbiter Camera. Lunar and Planetary Institute Science Conference Abstract 31., 2025; McEwen, A.S. 1991. Photometric functions for photoclinometry and other applications. Icarus 92. doi:10.1016/0019-1035(91)90053-V). A linear correction based on the statistics of all overlapping areas was then applied to minimize image brightness variations. A final application of a filter seam-removal technique further minimized image boundary seams (Soderblom, L. A., Edwards, K., Eliason, E. M., Sanchez, E. M., and Charette, M. P. 1978. Global color variations on the Martian surface. Icarus 34. doi:10.1016/0019-1035(78)90037-4).
+Lineage
+Process Date
+2013-08-06
+Source Title
+Galileo SSI and Voyager ISS PDS Archives
+Source Online Linkage
+{https://pds-imaging.jpl.nasa.gov/volumes/galileo.html#gllSSIREDR,https://pds-imaging.jpl.nasa.gov/volumes/voyager.html#vgrISSEDR-J,http://pds-imaging.jpl.nasa.gov/portal/galileo_mission.html,https://pds-imaging.jpl.nasa.gov/portal/voyager_mission.html}
+Source PDS Archive
+Galileo
+PDS Status
+PDS 3 Like
+Attribute Accuracy Report
+Unknown
+Horizontal Positional Accuracy Report
+Unknown
+Geospatial Information
+Target
+Europa
+System
+Jupiter
+Minimum Latitude
+-90
+Maximum Latitude
+90
+Minimum Longitude
+0
+Maximum Longitude
+360
+Direct Spatial Reference Method
+Raster
+Object Type
+Grid Cell
+Raster Row Count (lines)
+9816
+Raster Column Count (samples)
+19631
+Bit Type (8, 16, 32)
+8
+Quad Name
+Radius A
+1562089.9658
+Radius C
+1562089.9658
+Bands
+1
+Pixel Resolution (meters/pixel)
+500
+Scale (pixels/degree)
+54.53
+Map Projection Name
+Simple Cylindrical
+Latitude Type
+Planetocentric
+Longitude Direction
+Positive West
+Longitude Domain
+0 to 360
+Project, clip, convert format (e.g. PDS, GeoTIFF, Jpeg) and download this product with Map a Planet
+FGDC: XML Metadata
+Ancillary Data
+[https://astrogeology.usgs.gov/ckan/dataset/4080036f-afc5-422e-abe9-1c0c8e4f98ea/resource/740685f6-148c-4b9b-97e3-151998f82add/download/europa_simp.pdf] Image Footprint Chart
+[https://astrogeology.usgs.gov/ckan/dataset/4080036f-afc5-422e-abe9-1c0c8e4f98ea/resource/db62f55a-9d03-474e-a349-1fd7d8f0d5fc/download/europa_voyager_galileossi_global_mosaic_500m.lbl] ISIS3 Label
+[https://astrogeology.usgs.gov/ckan/dataset/4080036f-afc5-422e-abe9-1c0c8e4f98ea/resource/8638d940-e761-4c28-ad71-a73819fa811f/download/europa_voyager_galileossi_global_mosaic_500m_pds3.lbl] PDS3 Label
+[https://astrogeology.usgs.gov/ckan/dataset/4080036f-afc5-422e-abe9-1c0c8e4f98ea/resource/f703e7d9-76c8-49a6-b195-ce8ff7a78328/download/europa_voyager_galileossi_global_mosaic_500m_100.jpg] thumb image
+[https://astrogeology.usgs.gov/ckan/dataset/4080036f-afc5-422e-abe9-1c0c8e4f98ea/resource/4db7ab3d-872d-4d26-9eb0-4b87dbc6a56b/download/europa_voyager_galileossi_global_mosaic_500m_512.jpg] browse image
+[https://astrogeology.usgs.gov/ckan/dataset/4080036f-afc5-422e-abe9-1c0c8e4f98ea/resource/3647e7b3-425e-4dcf-951b-cc4a22fb0129/download/europa_voyager_galileossi_global_mosaic_500m_1024.jpg] full image
+Related Products
+[https://pdsimage2.wr.usgs.gov/Individual_Investigations/multi_galileo_nims_tube.gcube_cahill_2019/]
+[https://pdsimage2.wr.usgs.gov/Individual_Investigations/multi_galileo_nims_tube.gcube_cahill_2019/]
+Galileo NIMS Tubes and G-Cubes PDS4 Archive
+[https://astrogeology.usgs.gov/search/map/europa_voyager_galileo_global_image_mosaic_map]
+[https://astrogeology.usgs.gov/search/map/europa_voyager_galileo_global_image_mosaic_map]
+Europa Voyager / Galileo Global Image Mosaic Map
+[https://astrogeology.usgs.gov/search/map/europa_preliminary_pictorial_map]
+[https://astrogeology.usgs.gov/search/map/europa_preliminary_pictorial_map]
+Europa Preliminary Pictorial Map
+[https://astrogeology.usgs.gov/search/map/europa-galileo-nims-hyperspectral-map-products-registered-archive#open]
+[https://astrogeology.usgs.gov/search/map/europa-galileo-nims-hyperspectral-map-products-registered-archive#open]
+Europa Galileo NIMS Hyperspectral Map Products Registered Archive
+[http://isis.astrogeology.usgs.gov]
+ISIS
+[http://planetarynames.wr.usgs.gov]
+Planetary Nomenclature
+[https://astrocloud.wr.usgs.gov/index.php]
+Map a Planet 2
+[https://www.usgs.gov/centers/astrogeo-sc/science/cartography-and-imaging-sciences-node-nasa-planetary-data-system]
+PDS Cartography and Imaging Science Node
+[https://www.usgs.gov/centers/astrogeology-science-center/science/astrolink]
+AstroLink
+Photogrammetry Guest Facility
+[https://pilot.wr.usgs.gov]
+PILOT
+[https://www.usgs.gov/centers/astrogeo-sc/science/mrctr-gis-lab]
+MRCTR GIS Lab
+[http://astrogeology.usgs.gov/search/about] About
+[https://www.usgs.gov/centers/astrogeo-sc] USGS Astrogeology Science Center
+
+####################################################################################################
+# USGS policy page: Copyrights and Credits (excerpt, lines 419 to 427 of the saved text)
+# Address: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+# Fetched: 2026-10-14 01:50 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The complete text is in data-src/textures/evidence/_shared/usgs_copyrights_and_credits.txt
+####################################################################################################
+Important information related to copyrights and credits.
+
+USGS-authored or produced data and information are considered to be in the U.S. Public Domain. While the content of most USGS websites is in the U.S. Public Domain, not all information, illustrations, or photographs on our site are. Some non-USGS photographs, images, and/or graphics that appear on USGS websites are used by the USGS with permission from the copyright holder (as required by USGS policy on the use of copyrighted material). These materials are generally marked as being copyrighted. To use these copyrighted materials, you must obtain permission from the copyright holder under copyright law.
+For any content or multimedia containing USGS personnel or staff, and regardless of the license applied, their likeness, or voice, the person may have publicity rights. For commercial use of that multimedia, permission may be required.
+When using information from USGS information products, publications, or websites, we ask that proper credit be given. Credit can be provided by including a citation such as the following:
+Credit: U.S. Geological Survey
+Department of the Interior/USGS
+U.S. Geological Survey/photo by Jane Doe (if the photographer/artist is known)
+Additional information on Acknowledging or Crediting USGS as Information Source is available.
+
+####################################################################################################
+# GeoTIFF tags of the stored original file (read from the file header by a local script)
+# Address: (local file)
+# Fetched: 2026-10-14 (local time)
+# How: The script reads the TIFF tag directory only. It does not decode pixels.
+# These tags give the longitude at the image centre.
+####################################################################################################
+## Europa_Voyager_GalileoSSI_global_mosaic_500m.tif
+   TIFF  size 19631x9816  bits (8,)  samples 1  photometric (1,)  compression (1,)
+   pixelScale: (499.97456657942, 499.97456657942, 0.0)
+   tiePoint: (0.0, 0.0, 0.0, -4907750.3455436, 2453875.1727718, 0.0)
+   key 1024 GTModelType = 1
+   key 1025 GTRasterType = 1
+   key 1026 GTCitation = SimpleCylindrical Europa
+   key 2048 GeographicType = 32767
+   key 2049 GeogCitation = GCS Name = GCS_Europa|Datum = D_Europa|Ellipsoid = Europa|Primem = Reference_Meridian
+   key 2050 GeogGeodeticDatum = 32767
+   key 2054 GeogAngularUnits = 9102
+   key 2056 GeogEllipsoid = 32767
+   key 2057 GeogSemiMajorAxis = 1562089.9658
+   key 2058 GeogSemiMinorAxis = 1562089.9658
+   key 2061 GeogPrimeMeridianLong = 0.0
+   key 3072 ProjectedCSType = 32767
+   key 3074 Projection = 32767
+   key 3075 ProjCoordTrans = 17
+   key 3076 ProjLinearUnits = 9001
+   key 3078 ProjStdParallel1 = 0.0
+   key 3082 ProjFalseEasting = 0.0
+   key 3083 ProjFalseNorthing = 0.0
+   key 3088 ProjCenterLong = 180.0
+   key 3089 ProjCenterLat = 0.0
+   GDAL metadata: <GDALMetadata>   <Item name="OFFSET" sample="0" role="offset">-0.0029527570999999999</Item>   <Item name="SCALE" sample="0" role="scale">0.0059055141000000002</Item> </GDALMetadata> 
+   GDAL nodata: 0
+   radius 1562090.0 m, lon0 180.0000, stdpar 0.0
+   left edge -0.0110 deg, centre 179.9908 deg, right edge 359.9927 deg (east positive)
+   top lat 90.0055 deg, bottom lat -90.0055 deg

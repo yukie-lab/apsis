@@ -1,0 +1,992 @@
+Licence evidence for the texture "mimas"
+============================================================
+
+Texture id:        mimas
+Body and role:     MIMAS, color
+Published file:    public/textures/mimas.jpg (sha256 d1bf1b3f26caaa213ee09355486bc9882e24dfe60ee707428f5e3d4dc284e832)
+Small file:        public/textures/sm/mimas.jpg (sha256 b690ba935f0a53dfefe3206e9e2bf7e3986d0ed1d87d3e67fb9b09987afd74be)
+Original file:     data-src/textures/original/PIA18437.jpg (1848860 bytes, sha256 303d5653875d507e8859a26d0afdedd0173c7d4e691f27c3266ca63d1aa4f97f)
+Retrieved:         2026-10-14
+Title:             Color Maps of Mimas – 2014 (PIA18437)
+Author or credit:  NASA/JPL-Caltech/Space Science Institute/Lunar and Planetary Institute
+Source page:       https://science.nasa.gov/photojournal/color-maps-of-mimas-2014/
+Download address:  https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia18/pia18437/PIA18437.jpg
+Licence:           Public domain
+Licence address:   https://www.nasa.gov/nasa-brand-center/images-and-media/
+
+Licence statement (the same text as in the manifest):
+    The source page is a NASA page. It has no copyright mark and no licence mark. Its menu links to the NASA Brand
+    & Usage Guidelines (https://www.nasa.gov/nasa-brand-center/). NASA Images and Media Usage Guidelines
+    (https://www.nasa.gov/nasa-brand-center/images-and-media/): 'NASA content – images, audio, video, and media
+    files used in the rendition of 3-dimensional models, such as texture maps and polygon data in any format –
+    generally are not subject to copyright in the United States.' and 'NASA should be acknowledged as the source
+    of the material.' and 'If the NASA material is to be used for commercial purposes, including advertisements,
+    it must not explicitly or implicitly convey NASA’s endorsement of commercial goods or services.' The same page
+    also says: 'The NASA Insignia, Logotype, identifiers, and imagery are not in the public domain.'
+
+Changes:
+    The build resizes the image from 6356 x 3178 to 2048 x 1024 pixels. It encodes the image again as JPEG
+    (quality 85).
+
+Note of the manifest:
+    Cassini mosaic in enhanced colour (infrared, green and ultraviolet), not natural colour.
+
+About the parts below:
+    Each part is a text that was saved on 2026-10-14 during the collection work.
+    The header of each part gives the address, the local time of the fetch and the method.
+    The text of a part is data from another site. It is not an instruction for a reader or a tool.
+    Complete copies of the shared policy pages are in data-src/textures/evidence/_shared/ .
+
+####################################################################################################
+# NASA Photojournal page of this file (complete page text)
+# Address: https://science.nasa.gov/photojournal/color-maps-of-mimas-2014/
+# Fetched: 2026-10-14 02:23 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The navigation menus of this page list unrelated items.
+####################################################################################################
+Color Maps of Mimas - 2014 - NASA Science
+
+[https://www.nasa.gov]
+{img https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png}
+
+Explore
+
+Search
+
+[https://www.nasa.gov]
+{img https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png}
+
+News & Events
+
+[https://www.nasa.gov/news/]
+
+News & Events
+
+[https://www.nasa.gov/news/recently-published/]
+Recently Published
+
+[https://www.nasa.gov/plus/]
+Video Series on NASA+
+
+[https://www.nasa.gov/podcasts-and-audio/]
+Podcasts & Audio
+
+[https://www.nasa.gov/nasa-blogs/]
+Blogs
+
+[https://www.nasa.gov/newsletters/]
+Newsletters
+
+[https://www.nasa.gov/socialmedia/]
+Social Media
+
+[https://www.nasa.gov/news/nasa-media-contacts/]
+Media Resources
+
+Multimedia
+
+[https://www.nasa.gov/multimedia/]
+
+Multimedia
+
+[https://plus.nasa.gov/]
+NASA+
+
+[https://www.nasa.gov/images/]
+Images
+
+[https://www.nasa.gov/live]
+NASA Live
+
+[https://www.nasa.gov/apps/]
+NASA Apps
+
+[https://www.nasa.gov/podcasts/]
+Podcasts
+
+[https://www.nasa.gov/image-of-the-day/]
+Image of the Day
+
+[https://www.nasa.gov/ebooks/]
+e-Books
+
+[https://science.nasa.gov/3d-resources/]
+3D Resources
+
+[https://www.nasa.gov/nasa-interactive-features/]
+Interactives
+
+[https://www.nasa.gov/learning-resources/search/?terms=8058%2C8059%2C8061%2C8062%2C8068]
+STEM Multimedia
+
+[https://www.nasa.gov/nasa-brand-center/]
+NASA Brand & Usage Guidelines
+
+[https://plus.nasa.gov/]
+NASA+
+
+Search
+
+Suggested Searches
+
+[https://science.nasa.gov/?search=ISS]
+
+ISS
+
+[https://science.nasa.gov/?search=Roman]
+
+Roman
+
+[https://science.nasa.gov/?search=Webb]
+
+Webb
+
+[https://science.nasa.gov/?search=Quesst]
+
+Quesst
+
+[https://science.nasa.gov/?search=Moon%20Base]
+
+Moon Base
+
+[https://science.nasa.gov/a-to-z-topics-listing/]
+View All Topics A-Z
+
+[https://science.nasa.gov/] Home
+[https://science.nasa.gov/nasa-missions/] Missions
+[https://science.nasa.gov/humans-in-space/] Humans in Space
+[https://science.nasa.gov/earth/] Earth
+[https://science.nasa.gov/solar-system/] The Solar System
+[https://science.nasa.gov/universe/] The Universe
+[https://science.nasa.gov/] Science
+[https://science.nasa.gov/aeronautics/] Aeronautics
+[https://science.nasa.gov/technology/] Technology
+[https://science.nasa.gov/learning-resources/] Learning Resources
+[https://science.nasa.gov/about/] About NASA
+[https://science.nasa.gov/es/] Español
+
+[#]
+News & Events
+
+[#]
+Multimedia
+
+[https://plus.nasa.gov/]
+NASA+
+
+Highlights
+[https://science.nasa.gov/blogs/perseverance-mars-rover/2026/10/12/nasas-perseverance-sets-off-world-record-for-total-distance-driven/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/mars2020/2026/perseverance-rover-updates/e1%20-%20PIA26812%20-%20NAVCAM%20record.png?w=1024}
+
+5 min read
+
+NASA’s Perseverance Sets Off-World Record for Total Distance Driven
+article19 hours ago [https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/e1-pia23684.jpg?w=150&h=150&crop=1}
+
+5 min read
+
+NASA’s SPHEREx Telescope Sees Menagerie of Brown Dwarfs
+article5 days ago [https://science.nasa.gov/solar-system/skywatching/whats-up-october-2026-skywatching-tips-from-nasa/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/solar-system/skywatching/2026/october/Orionid%20Meteor%20Shower%202017_Ben%20Goldstein%20via%20Flickr_CC%20BY-NC-SA.jpg?w=1024}
+
+3 min read
+
+What’s Up: October 2026 Skywatching Tips from NASA
+article2 weeks ago
+
+Back
+
+[https://science.nasa.gov/nasa-missions/]
+Missions
+[https://www.nasa.gov/missions/] Search All NASA Missions
+[https://www.nasa.gov/a-to-z-of-nasa-missions/] A to Z List of Missions
+[https://www.nasa.gov/events/] Upcoming Launches and Landings
+[https://www.nasa.gov/humans-in-space/spaceships-and-rockets/] Spaceships and Rockets
+[https://www.nasa.gov/communicating-with-missions/] Communicating with Missions
+[https://www.nasa.gov/humans-in-space/artemis/] Artemis
+[https://science.nasa.gov/mission/webb/] James Webb Space Telescope
+[https://science.nasa.gov/mission/hubble/] Hubble Space Telescope
+[https://www.nasa.gov/international-space-station/] International Space Station
+[https://science.nasa.gov/mission/osiris-rex/] OSIRIS-REx
+[https://science.nasa.gov/humans-in-space/]
+Humans in Space
+[https://www.nasa.gov/humans-in-space/why-go-to-space/] Why Go to Space
+[https://www.nasa.gov/humans-in-space/astronauts/] Astronauts
+[https://www.nasa.gov/humans-in-space/commercial-space/] Commercial Space
+[https://www.nasa.gov/humans-in-space/destinations/] Destinations
+[https://www.nasa.gov/humans-in-space/spaceships-and-rockets/] Spaceships and Rockets
+[https://www.nasa.gov/humans-in-space/living-in-space/] Living in Space
+[https://science.nasa.gov/earth/]
+Earth
+[https://science.nasa.gov/earth/explore/] Explore Earth Science
+[https://science.nasa.gov/climate-change/] Climate Change
+[https://science.nasa.gov/earth/facts/] Earth, Our Planet
+[https://science.nasa.gov/earth/in-action/] Earth Science in Action
+[https://science.nasa.gov/earth/multimedia/] Earth Multimedia
+[https://science.nasa.gov/earth/data/] Earth Data
+[https://science.nasa.gov/earth-science/] Earth Science Researchers
+[https://science.nasa.gov/solar-system/]
+The Solar System
+[https://science.nasa.gov/sun/] The Sun
+[https://science.nasa.gov/mercury/] Mercury
+[https://science.nasa.gov/venus/] Venus
+[https://science.nasa.gov/earth/] Earth
+[https://science.nasa.gov/moon/] The Moon
+[https://science.nasa.gov/mars/] Mars
+[https://science.nasa.gov/jupiter/] Jupiter
+[https://science.nasa.gov/saturn/] Saturn
+[https://science.nasa.gov/uranus/] Uranus
+[https://science.nasa.gov/neptune/] Neptune
+[https://science.nasa.gov/dwarf-planets/] Pluto & Dwarf Planets
+[https://science.nasa.gov/asteroids-comets-meteors/] Asteroids, Comets & Meteors
+[https://science.nasa.gov/solar-system/kuiper-belt/] The Kuiper Belt
+[https://science.nasa.gov/solar-system/oort-cloud/] The Oort Cloud
+[https://science.nasa.gov/skywatching/] Skywatching
+[https://science.nasa.gov/universe/]
+The Universe
+[https://science.nasa.gov/exoplanets/] Exoplanets
+[https://science.nasa.gov/universe/search-for-life/] The Search for Life in the Universe
+[https://science.nasa.gov/universe/stars/] Stars
+[https://science.nasa.gov/universe/galaxies/] Galaxies
+[https://science.nasa.gov/universe/black-holes/] Black Holes
+[https://science.nasa.gov/universe/the-big-bang/] The Big Bang
+[https://science.nasa.gov/dark-matter/] Dark Matter
+[https://science.nasa.gov/dark-energy/] Dark Energy
+[https://science.nasa.gov/]
+Science
+[https://science.nasa.gov/earth-science/] Earth Science
+[https://science.nasa.gov/planetary-science/] Planetary Science
+[https://science.nasa.gov/astrophysics/] Astrophysics & Space Science
+[https://science.nasa.gov/heliophysics/] The Sun & Heliophysics
+[https://science.nasa.gov/biological-physical/] Biological & Physical Sciences
+[https://science.nasa.gov/lunar-science/] Lunar Science
+[https://science.nasa.gov/citizen-science/] Citizen Science
+[https://science.nasa.gov/astromaterials/] Astromaterials
+[https://www.nasa.gov/aeronautics-research/] Aeronautics Research
+[https://www.nasa.gov/human-space-travel-research/] Human Space Travel Research
+[https://science.nasa.gov/aeronautics/]
+Aeronautics
+[https://www.nasa.gov/aeronautics/science-in-the-air/] Science in the Air
+[https://www.nasa.gov/aeronautics/aircraft/] NASA Aircraft
+[https://www.nasa.gov/aeronautics/flight-innovation/] Flight Innovation
+[https://www.nasa.gov/aeronautics/supersonic-flight/] Supersonic Flight
+[https://www.nasa.gov/aeronautics/air-traffic-solutions/] Air Traffic Solutions
+[https://www.nasa.gov/aeronautics/green-aero-tech/] Green Aviation Tech
+[https://www.nasa.gov/aeronautics/drones-and-you/] Drones & You
+[https://science.nasa.gov/technology/]
+Technology
+[https://www.nasa.gov/technology-transfer-spinoffs/] Technology Transfer & Spinoffs
+[https://www.nasa.gov/space-travel-technology/] Space Travel Technology
+[https://www.nasa.gov/space-living-technology/] Technology Living in Space
+[https://www.nasa.gov/manufacturing-and-materials/] Manufacturing and Materials
+[https://www.nasa.gov/robotics/] Robotics
+[https://www.nasa.gov/science-instruments/] Science Instruments
+[https://www.nasa.gov/computing/] Computing
+[https://science.nasa.gov/learning-resources/]
+Learning Resources
+[https://www.nasa.gov/learning-resources/for-kids-and-students/] For Kids and Students
+[https://www.nasa.gov/learning-resources/for-educators/] For Educators
+[https://www.nasa.gov/learning-resources/colleges-and-universities/] For Colleges and Universities
+[https://www.nasa.gov/learning-resources/for-professionals/] For Professionals
+[https://science.nasa.gov/for-everyone/] Science for Everyone
+[https://www.nasa.gov/learning-resources/requests-for-exhibits-artifacts-or-speakers/] Requests for Exhibits, Artifacts, or Speakers
+[https://www.nasa.gov/learning-resources/stem-engagement-at-nasa/] STEM Engagement at NASA
+[https://science.nasa.gov/about/]
+About NASA
+[https://www.nasa.gov/nasa-impacts/] NASA's Impacts
+[https://www.nasa.gov/nasa-centers-and-facilities/] Centers and Facilities
+[https://www.nasa.gov/nasa-directorates/] Directorates
+[https://www.nasa.gov/nasa-organization/] Organizations
+[https://www.nasa.gov/people-of-nasa/] People of NASA
+[https://www.nasa.gov/careers/] Careers
+[https://www.nasa.gov/learning-resources/nasa-internship-programs/] Internships
+[https://www.nasa.gov/history/] Our History
+[https://www.nasa.gov/doing-business-with-nasa/] Doing Business with NASA
+[https://www.nasa.gov/get-involved/] Get Involved
+[https://www.nasa.gov/contact-nasa/] Contact
+[https://science.nasa.gov/es/]
+NASA en Español
+[https://ciencia.nasa.gov/] Ciencia
+[https://www.nasa.gov/espanol/aeronautica-en-espanol/] Aeronáutica
+[https://ciencia.nasa.gov/tierra] Ciencias Terrestres
+[https://ciencia.nasa.gov/sistema-solar] Sistema Solar
+[https://ciencia.nasa.gov/universo] Universo
+[https://science.nasa.gov/news/]
+News & Events
+[https://www.nasa.gov/news/recently-published/] Recently Published
+[https://www.nasa.gov/plus/] Video Series on NASA+
+[https://www.nasa.gov/podcasts-and-audio/] Podcasts & Audio
+[https://www.nasa.gov/nasa-blogs/] Blogs
+[https://www.nasa.gov/newsletters/] Newsletters
+[https://www.nasa.gov/socialmedia/] Social Media
+[https://www.nasa.gov/news/nasa-media-contacts/] Media Resources
+[https://science.nasa.gov/multimedia/]
+Multimedia
+[https://plus.nasa.gov/] NASA+
+[https://www.nasa.gov/images/] Images
+[https://www.nasa.gov/live] NASA Live
+[https://www.nasa.gov/apps/] NASA Apps
+[https://www.nasa.gov/podcasts/] Podcasts
+[https://www.nasa.gov/image-of-the-day/] Image of the Day
+[https://www.nasa.gov/ebooks/] e-Books
+[https://science.nasa.gov/3d-resources/] 3D Resources
+[https://www.nasa.gov/nasa-interactive-features/] Interactives
+[https://www.nasa.gov/learning-resources/search/?terms=8058%2C8059%2C8061%2C8062%2C8068] STEM Multimedia
+[https://www.nasa.gov/nasa-brand-center/] NASA Brand & Usage Guidelines
+
+Highlights
+[https://science.nasa.gov/blogs/perseverance-mars-rover/2026/10/12/nasas-perseverance-sets-off-world-record-for-total-distance-driven/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/mars2020/2026/perseverance-rover-updates/e1%20-%20PIA26812%20-%20NAVCAM%20record.png?w=1024}
+
+5 min read
+
+NASA’s Perseverance Sets Off-World Record for Total Distance Driven
+
+article
+
+19 hours ago
+
+[https://science.nasa.gov/missions/webb/webb-measures-distance-to-farthest-fast-radio-burst-suggesting-origin/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/webb/science/2026/10/STScI-01KKCJGBWX6TE4ABRTFWE9B8SQ.jpg?w=1024}
+
+5 min read
+
+Webb Measures Distance to Farthest Fast Radio Burst, Suggesting Origin
+
+article
+
+5 days ago
+
+[https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/e1-pia23684.jpg?w=150&h=150&crop=1}
+
+5 min read
+
+NASA’s SPHEREx Telescope Sees Menagerie of Brown Dwarfs
+
+article
+
+5 days ago
+
+Highlights
+[https://www.nasa.gov/help-nasa-find-practical-ways-to-monitor-astronaut-body-temperature-in-low-earth-orbit/]
+
+{img https://images-assets.nasa.gov/image/iss074e0788315/iss074e0788315~large.jpg?w=1920&h=1280&fit=clip&crop=faces%2Cfocalpoint}
+
+2 min read
+
+Help NASA Find Practical Ways to Monitor Astronaut Body Temperature in Low Earth Orbit
+
+article
+
+2 weeks ago
+
+[https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-opens-2027-human-lander-challenge-for-lunar-communications/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/09/2027-hulc-graphic-thumbnail-a-new-arrival-on-the-moon.png?w=150&h=150&crop=1}
+
+3 min read
+
+NASA Opens 2027 Human Lander Challenge for Lunar Communications
+
+article
+
+2 weeks ago
+
+[https://www.nasa.gov/researchers-help-nasa-prevent-blood-clot-formation-in-space/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/07/mcclain-kim-iss-venousstudy.png?w=150&h=150&crop=1}
+
+3 min read
+
+Researchers: Help NASA Prevent Blood Clot Formation in Space
+
+article
+
+3 weeks ago
+
+Highlights
+[https://science.nasa.gov/earth/earth-observatory/an-impact-structure-with-legs/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-impact-structure-with-legs/aus_spidercrater_oli2_20260920_th.jpg?w=1024}
+
+3 min read
+
+An Impact Structure With Legs
+
+article
+
+12 hours ago
+
+[https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/antarctic-sea-ice-grows-to-its-2026-maximum/antarctic_nsidc_20260914_th.jpg?w=1024}
+
+3 min read
+
+Antarctic Sea Ice Grows to Its 2026 Maximum
+
+article
+
+2 days ago
+
+[https://science.nasa.gov/earth/earth-observatory/floodwaters-overwhelm-thailand/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/floodwaters-overwhelm-thailand/thailandflooding_oli2_20261002_th.jpg?w=1024}
+
+2 min read
+
+Floodwaters Overwhelm Thailand
+
+article
+
+5 days ago
+
+Highlights
+[https://www.nasa.gov/missions/moon-base/nasa-jpl-testing-readies-voyager-technologies-lander-for-moon-mission/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/1-pia26708-grifffin-tvac-wings.jpeg?w=150&h=150&crop=1}
+
+4 min read
+
+NASA JPL Testing Readies Voyager Technologies Lander for Moon Mission
+
+article
+
+3 hours ago
+
+[https://science.nasa.gov/feature/artemis-ii-preliminary-lunar-science-report/]
+
+{img https://images-assets.nasa.gov/image/art002e016204/art002e016204~large.jpg}
+
+1 min read
+
+Artemis II Preliminary Lunar Science Report
+
+article
+
+6 days ago
+
+[https://www.nasa.gov/missions/mars-science-laboratory/curiosity-rover/nasas-curiosity-rover-catches-stunning-martian-dawn/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/1-pia26728-fig-a-curiosity-captures-dawn-breaking-on-wind-carved-cliffs.png?w=150&h=150&crop=1}
+
+3 min read
+
+NASA’s Curiosity Rover Catches Stunning Martian Dawn
+
+article
+
+1 week ago
+
+Highlights
+[https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/e1-pia23684.jpg?w=150&h=150&crop=1}
+
+5 min read
+
+NASA’s SPHEREx Telescope Sees Menagerie of Brown Dwarfs
+
+article
+
+5 days ago
+
+[https://science.nasa.gov/missions/webb/webb-measures-distance-to-farthest-fast-radio-burst-suggesting-origin/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/webb/science/2026/10/STScI-01KKCJGBWX6TE4ABRTFWE9B8SQ.jpg?w=1024}
+
+5 min read
+
+Webb Measures Distance to Farthest Fast Radio Burst, Suggesting Origin
+
+article
+
+5 days ago
+
+[https://science.nasa.gov/missions/lisa/nasa-advances-lisa-mission-contributions-with-new-test-telescope/]
+
+{img https://science.nasa.gov/wp-content/uploads/2024/10/gsfc-20240520-lisa-000535.jpg}
+
+3 min read
+
+NASA Advances LISA Mission Contributions With New Test Telescope
+
+article
+
+5 days ago
+
+Highlights
+[https://science.nasa.gov/earth/earth-observatory/an-impact-structure-with-legs/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-impact-structure-with-legs/aus_spidercrater_oli2_20260920_th.jpg?w=1024}
+
+3 min read
+
+An Impact Structure With Legs
+
+article
+
+12 hours ago
+
+[https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/bps/bps_investigations/wholemiBrainMicroglia_AVATAR_org1.jpg?w=1024}
+
+3 min read
+
+NASA’s SpaceX CRS-35 Mission to Launch Health Research
+
+article
+
+23 hours ago
+
+[https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/antarctic-sea-ice-grows-to-its-2026-maximum/antarctic_nsidc_20260914_th.jpg?w=1024}
+
+3 min read
+
+Antarctic Sea Ice Grows to Its 2026 Maximum
+
+article
+
+2 days ago
+
+Highlights
+[https://www.nasa.gov/centers-and-facilities/langley/nasa-model-wing-lights-up-during-first-pressure-sensitive-paint-tests/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/bscw-side-by-side-image.jpg?w=150&h=150&crop=1}
+
+2 min read
+
+NASA Model Wing Lights Up During First Pressure Sensitive Paint Tests
+
+article
+
+2 weeks ago
+
+[https://www.nasa.gov/ames/dr-natasha-schatzman-receives-vertical-flight-society-vfs-award/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/dr-natasha-schatzman-.png?w=150&h=150&crop=1}
+
+2 min read
+
+Dr. Natasha Schatzman Receives Vertical Flight Society (VFS) Award
+
+article
+
+2 weeks ago
+
+[https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-middle-school-design-challenge/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/09/dwu-x-plane-design2-16x9-ms-web.jpg?w=150&h=150&crop=1}
+
+10 min read
+
+2026-2027 DWU: Middle School Design Challenge
+
+article
+
+3 weeks ago
+
+Highlights
+[https://science.nasa.gov/earth/earth-observatory/rains-swamp-the-gandak-river/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/torrential-rains-swamp-the-gandaki-river/floodingindianepal_amo_20260929_th.jpg?w=1024}
+
+3 min read
+
+Rains Swamp the Gandak River
+
+article
+
+2 weeks ago
+
+[https://www.nasa.gov/space-nuclear/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/06/sr-1-freedom-hi-res-8-18-26.png?w=150&h=150&crop=1}
+
+1 min read
+
+Space Reactors Division
+
+article
+
+2 weeks ago
+
+[https://science.nasa.gov/earth/earth-observatory/powerful-storms-continue-to-prowl-the-pacific/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/powerful-storms-continue-to-prowl-the-pacific/polonolo_vir_20260928_th.jpg?w=1024}
+
+4 min read
+
+Powerful Storms Continue to Prowl the Pacific
+
+article
+
+2 weeks ago
+
+Highlights
+[https://www.nasa.gov/centers-and-facilities/ames/nasa-demonstrates-next-generation-heat-shield-technologies/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/iss075e0185943.jpg?w=150&h=150&crop=1}
+
+4 min read
+
+NASA Demonstrates Next-Generation Heat Shield Technologies
+
+article
+
+4 days ago
+
+[https://science.nasa.gov/learn/roses25_sciact_selections/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/cds/learn/2026/SciActROSES25Map.jpg?w=1024}
+
+8 min read
+
+NASA Selects Projects to Engage Communities Across the US with NASA Science
+
+article
+
+2 weeks ago
+
+[https://www.nasa.gov/stmd-flight-opportunities/access-flight-tests/techrise/]
+
+{img https://www.nasa.gov/wp-content/uploads/2023/02/techrise5-1080x1080-1.jpg?w=150&h=150&crop=1}
+
+3 min read
+
+TechRise (for 6–12 graders)
+
+article
+
+2 weeks ago
+
+Highlights
+[https://www.nasa.gov/news-release/nasa-energy-department-advance-new-era-of-nuclear-powered-exploration/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/nasa-doe-mou-release-smaller-image-oct-8.jpg?w=150&h=150&crop=1}
+
+4 min read
+
+NASA, Energy Department Advance New Era of Nuclear-Powered Exploration
+
+article
+
+5 days ago
+
+[https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/bps/bps_investigations/wholemiBrainMicroglia_AVATAR_org1.jpg?w=1024}
+
+3 min read
+
+NASA’s SpaceX CRS-35 Mission to Launch Health Research
+
+article
+
+23 hours ago
+
+[https://www.nasa.gov/blogs/missions/2026/10/07/nasa-releases-artemis-ii-lunar-science-data-images/]
+
+{img https://images-assets.nasa.gov/image/art002e025880/art002e025880~large.jpg?w=1920&h=1280&fit=clip&crop=faces%2Cfocalpoint}
+
+2 min read
+
+NASA Releases Artemis II Lunar Science Data, Images
+
+article
+
+6 days ago
+
+Highlights
+[https://www.nasa.gov/es/la-nasa-anuncia-la-cobertura-de-la-mision-lunar-artemis-ii/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/03/a2crew-7ff19d.jpg?w=150&h=150&crop=1}
+
+11 min read
+
+La NASA anuncia la cobertura de la misión lunar Artemis II
+
+article
+
+7 months ago
+
+[https://www.nasa.gov/es/agenda-diaria-de-la-mision-a-la-luna-de-artemis-ii-de-la-nasa/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/03/suit-patch.jpg?w=150&h=150&crop=1}
+
+15 min read
+
+Agenda diaria de la misión a la Luna de Artemis II de la NASA
+
+article
+
+7 months ago
+
+[https://www.nasa.gov/humans-in-space/astronauts/la-nasa-refuerza-artemis-anade-una-mision-y-perfecciona-su-arquitectura-general/]
+
+{img https://images-assets.nasa.gov/image/iss074e0325229/iss074e0325229~large.jpg?w=1920&h=1280&fit=clip&crop=faces%2Cfocalpoint}
+
+6 min read
+
+La NASA refuerza Artemis: añade una misión y perfecciona su arquitectura general
+
+article
+
+7 months ago
+
+Photojournal Navigation
+
+[https://science.nasa.gov/] Science
+[https://science.nasa.gov/category/photojournal/] Photojournal
+Color Maps of Mimas...
+
+[https://science.nasa.gov/photojournal/] Photojournal Home
+[https://science.nasa.gov/photojournal/search/] Photojournal Search
+[https://science.nasa.gov/photojournal/latest/] Latest Content
+[https://science.nasa.gov/photojournal/galleries/] Galleries
+[https://science.nasa.gov/photojournal/feedback/] Feedback
+[https://science.nasa.gov/photojournal/rss-feeds/] RSS
+[https://science.nasa.gov/photojournal/about-photojournal/] About
+
+2 Min Read
+
+Color Maps of Mimas – 2014
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia18/pia18437/PIA18437.jpg?w=6356&h=3178&fit=clip&crop=faces%2Cfocalpoint}
+
+PIA18437
+
+Credits:
+NASA/JPL-Caltech/Space Science Institute/Lunar and Planetary Institute
+
+Image Addition Date:11/04/2014
+Target:
+[https://science.nasa.gov/science-org-term/photojournal-target-mimas/] Mimas
+Is a satellite of:
+[https://science.nasa.gov/science-org-term/photojournal-target-saturn/] Saturn
+Mission(s):
+[https://science.nasa.gov/science-org-term/photojournal-mission-cassini/] Cassini
+[https://science.nasa.gov/science-org-term/photojournal-mission-huygens/] Huygens
+Spacecraft(s):
+[https://science.nasa.gov/science-org-term/photojournal-spacecraft-cassini-orbiter/] Cassini Orbiter
+Instrument(s):
+[https://science.nasa.gov/science-org-term/photojournal-instrument-imaging-science-subsystem/] Imaging Science Subsystem
+
+Downloads
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia18/pia18437/PIA18437.jpg?w=6356&h=3178&fit=clip&crop=faces%2Cfocalpoint}
+
+Color Maps of Mimas – 2014
+
+JPEG (1.76 MB)
+
+[https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia18/pia18437/PIA18437.jpg]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia18/pia18437/PIA18437.tif?w=150}
+
+Color Maps of Mimas – 2014
+
+TIFF (57.82 MB)
+
+[https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia18/pia18437/PIA18437.tif]
+
+Description
+
+[https://photojournal.jpl.nasa.gov/figures/PIA18437_fig1_half.jpg] {img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia18/pia18437/figures/PIA18437_fig1_thumb.jpg?w=550&h=342&fit=clip&crop=faces%2Cfocalpoint}
+
+[https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia18/pia18437/figures/PIA18437_fig1.jpg] Download the High Resolution JPEG
+
+Click on the image above for browser view
+
+[https://photojournal.jpl.nasa.gov/figures/PIA18437_fig2_half.jpg] {img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia18/pia18437/figures/PIA18437_fig2_thumb.jpg?w=345&h=224&fit=clip&crop=faces%2Cfocalpoint}
+[https://photojournal.jpl.nasa.gov/figures/PIA18437_fig3_half.jpg] {img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia18/pia18437/figures/PIA18437_fig3_thumb.jpg?w=345&h=228&fit=clip&crop=faces%2Cfocalpoint}
+[https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia18/pia18437/figures/PIA18437_fig2.jpg] Download the High Resolution JPEG
+Click on the image above for browser view [https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia18/pia18437/figures/PIA18437_fig3.jpg] Download the High Resolution JPEG
+Click on the image above for browser view
+
+This set of global, color mosaics of Saturn's moon Mimas was produced from images taken by NASA's Cassini spacecraft during its first ten years exploring the Saturn system. These are the first global color maps of these moons produced from the Cassini data.
+
+The colors shown in these global mosaics are enhanced, or broader, relative to human vision, extending into the ultraviolet and infrared range.
+
+Apart from the moon's enormous impact crater, named Herschel, a dramatic feature on these maps is the equatorial band on Mimas' leading hemisphere. Cassini found this band to be significantly brighter in the ultraviolet than surrounding terrains, and it appears somewhat bluish here. This feature, similar to one on Tethys, was found to correlate with the predicted pattern of bombardment of the moons' surfaces by high-energy electrons trapped in Saturn's magnetic field. This bombardment is thought to alter the surface ices on a crystalline scale and change their color. Later thermal observations by Cassini's Composite Infrared Spectrometer (CIRS) instrument showed that these features also form thermal anomalies on the surface, giving rise to the nickname "Pac-Man" features (see [https://photojournal.jpl.nasa.gov/catalog/PIA16198] PIA16198).
+
+Resolution on Mimas in the maps is 200 meters per pixel.
+
+Image selection, radiometric calibration, geographic registration and photometric correction, as well as mosaic selection and assembly were performed by [http://www.lpi.usra.edu/lpi/schenk/] Paul Schenk at the Lunar and Planetary Institute. Original image planning and targeting for Saturn's icy moons were performed by Tilman Denk (Frei Universitat, Berlin) and Paul Helfenstein (Cornell University, Ithaca, New York).
+
+The Cassini-Huygens mission is a cooperative project of NASA, the European Space Agency and the Italian Space Agency. NASA's Jet Propulsion Laboratory, a division of the California Institute of Technology in Pasadena, manages the mission for NASA's Science Mission Directorate, Washington. The Cassini orbiter and its two onboard cameras were designed, developed and assembled at JPL. The imaging operations center is based at the Space Science Institute in Boulder, Colo.
+
+For more information about the Cassini-Huygens mission visit [http://saturn.jpl.nasa.gov] http://saturn.jpl.nasa.gov and [http://www.nasa.gov/cassini] http://www.nasa.gov/cassini. The Cassini imaging team homepage is at [http://ciclops.org] http://ciclops.org.
+
+Keep Exploring
+
+Discover More Topics From Photojournal
+
+[https://science.nasa.gov/photojournal/]
+
+Photojournal
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia22/pia22567/PIA22567.jpg?w=5000&h=1848&fit=clip&crop=faces%2Cfocalpoint}
+
+[https://science.nasa.gov/photojournal/search/]
+
+Search Photojournal
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia25/pia25729/PIA25729.jpg?w=1014&h=1014&fit=clip&crop=faces%2Cfocalpoint}
+
+[https://science.nasa.gov/photojournal/latest/]
+
+Photojournal’s Latest Content
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia24/pia24543/PIA24543.jpg?w=21969&h=14501&fit=clip&crop=faces%2Cfocalpoint}
+
+[https://science.nasa.gov/photojournal/feedback/]
+
+Feedback
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia25/pia25691/PIA25691.jpg?w=2002&h=1125&fit=clip&crop=faces%2Cfocalpoint}
+
+{img https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png}
+
+National Aeronautics and Space Administration
+
+NASA explores the unknown in air and space, innovates for the benefit of humanity, and inspires the world through discovery.
+
+[https://www.nasa.gov/about/] About NASA's Mission
+
+[https://www.nasa.gov/get-involved/]
+Join Us
+
+[https://www.nasa.gov] Home
+
+[https://www.nasa.gov/news/] News & Events
+
+[https://www.nasa.gov/multimedia/] Multimedia
+
+[https://plus.nasa.gov/] NASA+
+
+[https://www.nasa.gov/nasa-missions/] Missions
+
+[https://www.nasa.gov/humans-in-space/] Humans in Space
+
+[https://science.nasa.gov/earth/] Earth
+
+[https://science.nasa.gov/solar-system/] The Solar System
+
+[https://science.nasa.gov/universe/] The Universe
+
+[https://science.nasa.gov/] Science
+
+[https://www.nasa.gov/aeronautics/] Aeronautics
+
+[https://www.nasa.gov/technology/] Technology
+
+[https://www.nasa.gov/learning-resources/] Learning Resources
+
+[https://www.nasa.gov/about/] About NASA
+
+[https://www.nasa.gov/es/] NASA en Español
+
+Follow NASA
+
+[https://www.facebook.com/NASA]
+
+[https://www.instagram.com/nasa/]
+
+[https://x.com/NASA]
+
+[https://www.youtube.com/@NASA]
+
+[https://www.nasa.gov/social-media/] More NASA Social Accounts
+
+[https://www.nasa.gov/nasa-newsletters/] NASA Newsletters
+
+[https://www.nasa.gov/sitemap/] Sitemap
+
+[https://www.nasa.gov/news/nasa-media-contacts/] For Media
+
+[https://www.nasa.gov/nasa-web-privacy-policy-and-important-notices/] Privacy Policy
+
+[https://www.nasa.gov/foia/] FOIA
+
+[https://www.nasa.gov/no-fear-act/] No FEAR Act
+
+[http://oig.nasa.gov/] Office of the IG
+
+[https://www.nasa.gov/budgets-plans-and-reports/] Budget & Annual Reports
+
+[https://www.nasa.gov/organizations/budget-annual-reports/agency-financial-reports/] Agency Financial Reports
+
+[https://www.nasa.gov/contact-nasa/] Contact NASA
+
+[https://www.nasa.gov/accessibility/] Accessibility
+
+Page Last Updated:
+
+Sep 23, 2025
+
+Page Editor:
+
+Rafael Alanis
+
+Responsible NASA Official for Science:
+
+Dana Bolles
+
+Δ
+
+Did you find what you were looking for?(Required)
+
+Yes
+
+No
+
+Partly
+
+What were you looking for?(Required)
+
+What were you hoping to accomplish by visiting our website?(Required)
+
+Submit
+
+×
+
+####################################################################################################
+# NASA Images and Media Usage Guidelines (excerpt, lines 480 to 500 of the saved text)
+# Address: https://www.nasa.gov/nasa-brand-center/images-and-media/
+# Fetched: 2026-10-14 01:17 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The complete text is in data-src/textures/evidence/_shared/nasa_images_and_media.txt
+####################################################################################################
+The NASA Insignia, Logotype, identifiers, and imagery are not in the public domain. The use of the Insignia, Logotype and NASA identifiers is protected by law, and imagery is made available for use consistent with [https://www.nasa.gov/nasa-brand-center/images-and-media/] Media Usage Guidelines.
+NASA Images and Media Usage Guidelines
+NASA content – images, audio, video, and media files used in the rendition of 3-dimensional models, such as texture maps and polygon data in any format – generally are not subject to copyright in the United States. You may use this material for educational or informational purposes, including photo collections, textbooks, public exhibits, computer graphical simulations and Internet Web pages. This general permission extends to personal Web pages.
+News outlets, schools, and text-book authors may use NASA content without needing explicit permission, subject to compliance with these guidelines. NASA content used in a factual manner that does not imply endorsement may be used without needing explicit permission. NASA should be acknowledged as the source of the material. NASA occasionally uses copyright-protected material of third parties with permission on its website. Those images will be marked identified as copyright protected with the name of the copyright holder. NASA’s use does not convey any rights to others to use the same material. Those wishing to use copyright protected material of third parties must contact the copyright holder directly.
+NON-COMMERCIAL USE
+For educational or informational purposes
+NASA content – images, audio, video, related media and files used in the rendition of 3-dimensional models, such as texture maps and polygon data in any format – generally are not subject to copyright in the United States. You may use this material for educational or informational purposes, including photo collections, textbooks, public exhibits, computer graphical simulations and Internet Web pages. This general permission extends to personal Web pages.
+News outlets, schools, and text-book authors
+News outlets, schools, and text-book authors may use NASA content without needing explicit permission, subject to compliance with these guidelines. NASA content used in a factual manner that does not imply endorsement may be used without needing explicit permission. NASA should be acknowledged as the source of the material. NASA occasionally uses copyright-protected material of third parties with permission on its website. Those images will be marked identified as copyright protected with the name of the copyright holder. NASA’s use does not convey any rights to others to use the same material. Those wishing to use copyright protected material of third parties must contact the copyright holder directly.
+[https://www.nasa.gov/image-article/august-1-1971-second-apollo-15-moonwalk/] {img https://www.nasa.gov/wp-content/uploads/2023/03/a15pan11845-7.jpg?w=1041}
+This mini-panorama combines two photographs taken by Apollo 15 lunar module pilot Jim Irwin, from the Apollo Lunar Surface Experiments Package (ALSEP) site, at the end of the second Apollo 15 moonwalk on August 1, 1971. Mission commander David R. Scott is leaning to his right and is putting down the Apollo Lunar Surface drill.
+COMMERCIAL USE
+For use of NASA images clearances may be necessary for images that include any NASA logos or NASA employees to be used as cover art or in promotional content. Otherwise, NASA imagery can be generally used editorially within published works that are not promotional in nature.
+If the NASA material is to be used for commercial purposes, including advertisements, it must not explicitly or implicitly convey NASA’s endorsement of commercial goods or services.
+Commercials and promotional content cannot be filmed on NASA property.
+For commercial use of NASA’s images, intellectual property, emblems, or logos on merchandise or products refer to the [https://www.nasa.gov/nasa-brand-center/merchandise-approvals/] Merchandise Guidelines and Approvals page.
+Media including Identifiable Persons
+If a NASA image, audio, video or media includes an identifiable person, using the media for commercial purposes may infringe that person’s right of privacy or publicity, and permission should be obtained from the person.
+Astronauts or employees who are currently employed by NASA cannot have their names, likenesses or other personality traits displayed or position title used on any commercial products, advertisements, promotional material or commercial product packaging.
+For guidance on commercial use on merchandise please refer to NASA’s Merchandise Guidelines.
+For more information on using NASA content for commercial purposes, please read NASA Advertising Guidelines and Merchandise Guidelines. Any questions regarding use of NASA content, or any NASA emblems, should be directed to nasa-merchandise-&-brand-team@mail.nasa.gov in NASA’s Office of Communications at NASA Headquarters in Washington.

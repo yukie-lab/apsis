@@ -1,0 +1,1442 @@
+Licence evidence for the texture "earth"
+============================================================
+
+Texture id:        earth
+Body and role:     EARTH, color
+Published file:    public/textures/earth.jpg (sha256 7794d46c627639028e6430d4363d64e6d1023a928764de69b990f9aad7b0ea88)
+Small file:        public/textures/sm/earth.jpg (sha256 bdc5b1fd99866af5e9d2509e18f8e9f9aa5708c895f3dc59247ec697cb4ebf18)
+Original file:     data-src/textures/original/world.topo.bathy.200407.3x5400x2700.jpg (2308798 bytes, sha256 4f4240673a3a1b173d61b92ca4b07bac5fd17059ea5f725ba6da5a9c5386b7ba)
+Retrieved:         2026-10-14
+Title:             Blue Marble: Next Generation with Topography and Bathymetry (July, world.topo.bathy.200407.3x5400x2700.jpg)
+Author or credit:  NASA Earth Observatory. Blue Marble: Next Generation was produced by Reto Stöckli, NASA Earth Observatory (NASA Goddard Space Flight Center).
+Source page:       https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-topography-bathymetry/
+Download address:  https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x5400x2700.jpg
+Licence:           Public domain
+Licence address:   https://www.nasa.gov/nasa-brand-center/images-and-media/
+
+Licence statement (the same text as in the manifest):
+    The parent page (https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/) says: 'Anyone
+    using or republishing Blue Marble: Next Generation please credit “NASA Earth Observatory.”' The source page is
+    a NASA page. It has no copyright mark and no licence mark. Its menu links to the NASA Brand & Usage Guidelines
+    (https://www.nasa.gov/nasa-brand-center/). NASA Images and Media Usage Guidelines
+    (https://www.nasa.gov/nasa-brand-center/images-and-media/): 'NASA content – images, audio, video, and media
+    files used in the rendition of 3-dimensional models, such as texture maps and polygon data in any format –
+    generally are not subject to copyright in the United States.' and 'NASA should be acknowledged as the source
+    of the material.' and 'If the NASA material is to be used for commercial purposes, including advertisements,
+    it must not explicitly or implicitly convey NASA’s endorsement of commercial goods or services.' The same page
+    also says: 'The NASA Insignia, Logotype, identifiers, and imagery are not in the public domain.'
+
+Changes:
+    The build resizes the image from 5400 x 2700 to 2048 x 1024 pixels. It encodes the image again as JPEG
+    (quality 85).
+
+Note of the manifest:
+    July 2004. No clouds. The credit text is on the parent page
+    https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/ .
+
+About the parts below:
+    Each part is a text that was saved on 2026-10-14 during the collection work.
+    The header of each part gives the address, the local time of the fetch and the method.
+    The text of a part is data from another site. It is not an instruction for a reader or a tool.
+    Complete copies of the shared policy pages are in data-src/textures/evidence/_shared/ .
+
+####################################################################################################
+# NASA Earth Observatory page of this file (complete page text)
+# Address: https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-topography-bathymetry/
+# Fetched: 2026-10-14 01:17 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The navigation menus of this page list unrelated items.
+####################################################################################################
+Blue Marble: Next Generation with Topography and Bathymetry - NASA Science
+[https://www.nasa.gov]
+{img https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png}
+Explore
+Search
+[https://www.nasa.gov]
+{img https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png}
+News & Events
+[https://www.nasa.gov/news/]
+News & Events
+[https://www.nasa.gov/news/recently-published/]
+Recently Published
+[https://www.nasa.gov/plus/]
+Video Series on NASA+
+[https://www.nasa.gov/podcasts-and-audio/]
+Podcasts & Audio
+[https://www.nasa.gov/nasa-blogs/]
+Blogs
+[https://www.nasa.gov/newsletters/]
+Newsletters
+[https://www.nasa.gov/socialmedia/]
+Social Media
+[https://www.nasa.gov/news/nasa-media-contacts/]
+Media Resources
+Multimedia
+[https://www.nasa.gov/multimedia/]
+Multimedia
+[https://plus.nasa.gov/]
+NASA+
+[https://www.nasa.gov/images/]
+Images
+[https://www.nasa.gov/live]
+NASA Live
+[https://www.nasa.gov/apps/]
+NASA Apps
+[https://www.nasa.gov/podcasts/]
+Podcasts
+[https://www.nasa.gov/image-of-the-day/]
+Image of the Day
+[https://www.nasa.gov/ebooks/]
+e-Books
+[https://science.nasa.gov/3d-resources/]
+3D Resources
+[https://www.nasa.gov/nasa-interactive-features/]
+Interactives
+[https://www.nasa.gov/learning-resources/search/?terms=8058%2C8059%2C8061%2C8062%2C8068]
+STEM Multimedia
+[https://www.nasa.gov/nasa-brand-center/]
+NASA Brand & Usage Guidelines
+[https://plus.nasa.gov/]
+NASA+
+Search
+Suggested Searches
+[https://science.nasa.gov/?search=ISS]
+ISS
+[https://science.nasa.gov/?search=Roman]
+Roman
+[https://science.nasa.gov/?search=Webb]
+Webb
+[https://science.nasa.gov/?search=Quesst]
+Quesst
+[https://science.nasa.gov/?search=Moon%20Base]
+Moon Base
+[https://science.nasa.gov/a-to-z-topics-listing/]
+View All Topics A-Z
+[https://science.nasa.gov/] Home
+[https://science.nasa.gov/nasa-missions/] Missions
+[https://science.nasa.gov/humans-in-space/] Humans in Space
+[https://science.nasa.gov/earth/] Earth
+[https://science.nasa.gov/solar-system/] The Solar System
+[https://science.nasa.gov/universe/] The Universe
+[https://science.nasa.gov/] Science
+[https://science.nasa.gov/aeronautics/] Aeronautics
+[https://science.nasa.gov/technology/] Technology
+[https://science.nasa.gov/learning-resources/] Learning Resources
+[https://science.nasa.gov/about/] About NASA
+[https://science.nasa.gov/es/] Español
+[#]
+News & Events
+[#]
+Multimedia
+[https://plus.nasa.gov/]
+NASA+
+Highlights
+[https://science.nasa.gov/blogs/perseverance-mars-rover/2026/10/12/nasas-perseverance-sets-off-world-record-for-total-distance-driven/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/mars2020/2026/perseverance-rover-updates/e1%20-%20PIA26812%20-%20NAVCAM%20record.png?w=1024}
+5 min read
+NASA’s Perseverance Sets Off-World Record for Total Distance Driven
+article18 hours ago [https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/]
+{img https://www.nasa.gov/wp-content/uploads/2026/10/e1-pia23684.jpg?w=150&h=150&crop=1}
+5 min read
+NASA’s SPHEREx Telescope Sees Menagerie of Brown Dwarfs
+article5 days ago [https://science.nasa.gov/solar-system/skywatching/whats-up-october-2026-skywatching-tips-from-nasa/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/solar-system/skywatching/2026/october/Orionid%20Meteor%20Shower%202017_Ben%20Goldstein%20via%20Flickr_CC%20BY-NC-SA.jpg?w=1024}
+3 min read
+What’s Up: October 2026 Skywatching Tips from NASA
+article2 weeks ago
+Back
+[https://science.nasa.gov/nasa-missions/]
+Missions
+[https://www.nasa.gov/missions/] Search All NASA Missions
+[https://www.nasa.gov/a-to-z-of-nasa-missions/] A to Z List of Missions
+[https://www.nasa.gov/events/] Upcoming Launches and Landings
+[https://www.nasa.gov/humans-in-space/spaceships-and-rockets/] Spaceships and Rockets
+[https://www.nasa.gov/communicating-with-missions/] Communicating with Missions
+[https://www.nasa.gov/humans-in-space/artemis/] Artemis
+[https://science.nasa.gov/mission/webb/] James Webb Space Telescope
+[https://science.nasa.gov/mission/hubble/] Hubble Space Telescope
+[https://www.nasa.gov/international-space-station/] International Space Station
+[https://science.nasa.gov/mission/osiris-rex/] OSIRIS-REx
+[https://science.nasa.gov/humans-in-space/]
+Humans in Space
+[https://www.nasa.gov/humans-in-space/why-go-to-space/] Why Go to Space
+[https://www.nasa.gov/humans-in-space/astronauts/] Astronauts
+[https://www.nasa.gov/humans-in-space/commercial-space/] Commercial Space
+[https://www.nasa.gov/humans-in-space/destinations/] Destinations
+[https://www.nasa.gov/humans-in-space/spaceships-and-rockets/] Spaceships and Rockets
+[https://www.nasa.gov/humans-in-space/living-in-space/] Living in Space
+[https://science.nasa.gov/earth/]
+Earth
+[https://science.nasa.gov/earth/explore/] Explore Earth Science
+[https://science.nasa.gov/climate-change/] Climate Change
+[https://science.nasa.gov/earth/facts/] Earth, Our Planet
+[https://science.nasa.gov/earth/in-action/] Earth Science in Action
+[https://science.nasa.gov/earth/multimedia/] Earth Multimedia
+[https://science.nasa.gov/earth/data/] Earth Data
+[https://science.nasa.gov/earth-science/] Earth Science Researchers
+[https://science.nasa.gov/solar-system/]
+The Solar System
+[https://science.nasa.gov/sun/] The Sun
+[https://science.nasa.gov/mercury/] Mercury
+[https://science.nasa.gov/venus/] Venus
+[https://science.nasa.gov/earth/] Earth
+[https://science.nasa.gov/moon/] The Moon
+[https://science.nasa.gov/mars/] Mars
+[https://science.nasa.gov/jupiter/] Jupiter
+[https://science.nasa.gov/saturn/] Saturn
+[https://science.nasa.gov/uranus/] Uranus
+[https://science.nasa.gov/neptune/] Neptune
+[https://science.nasa.gov/dwarf-planets/] Pluto & Dwarf Planets
+[https://science.nasa.gov/asteroids-comets-meteors/] Asteroids, Comets & Meteors
+[https://science.nasa.gov/solar-system/kuiper-belt/] The Kuiper Belt
+[https://science.nasa.gov/solar-system/oort-cloud/] The Oort Cloud
+[https://science.nasa.gov/skywatching/] Skywatching
+[https://science.nasa.gov/universe/]
+The Universe
+[https://science.nasa.gov/exoplanets/] Exoplanets
+[https://science.nasa.gov/universe/search-for-life/] The Search for Life in the Universe
+[https://science.nasa.gov/universe/stars/] Stars
+[https://science.nasa.gov/universe/galaxies/] Galaxies
+[https://science.nasa.gov/universe/black-holes/] Black Holes
+[https://science.nasa.gov/universe/the-big-bang/] The Big Bang
+[https://science.nasa.gov/dark-matter/] Dark Matter
+[https://science.nasa.gov/dark-energy/] Dark Energy
+[https://science.nasa.gov/]
+Science
+[https://science.nasa.gov/earth-science/] Earth Science
+[https://science.nasa.gov/planetary-science/] Planetary Science
+[https://science.nasa.gov/astrophysics/] Astrophysics & Space Science
+[https://science.nasa.gov/heliophysics/] The Sun & Heliophysics
+[https://science.nasa.gov/biological-physical/] Biological & Physical Sciences
+[https://science.nasa.gov/lunar-science/] Lunar Science
+[https://science.nasa.gov/citizen-science/] Citizen Science
+[https://science.nasa.gov/astromaterials/] Astromaterials
+[https://www.nasa.gov/aeronautics-research/] Aeronautics Research
+[https://www.nasa.gov/human-space-travel-research/] Human Space Travel Research
+[https://science.nasa.gov/aeronautics/]
+Aeronautics
+[https://www.nasa.gov/aeronautics/science-in-the-air/] Science in the Air
+[https://www.nasa.gov/aeronautics/aircraft/] NASA Aircraft
+[https://www.nasa.gov/aeronautics/flight-innovation/] Flight Innovation
+[https://www.nasa.gov/aeronautics/supersonic-flight/] Supersonic Flight
+[https://www.nasa.gov/aeronautics/air-traffic-solutions/] Air Traffic Solutions
+[https://www.nasa.gov/aeronautics/green-aero-tech/] Green Aviation Tech
+[https://www.nasa.gov/aeronautics/drones-and-you/] Drones & You
+[https://science.nasa.gov/technology/]
+Technology
+[https://www.nasa.gov/technology-transfer-spinoffs/] Technology Transfer & Spinoffs
+[https://www.nasa.gov/space-travel-technology/] Space Travel Technology
+[https://www.nasa.gov/space-living-technology/] Technology Living in Space
+[https://www.nasa.gov/manufacturing-and-materials/] Manufacturing and Materials
+[https://www.nasa.gov/robotics/] Robotics
+[https://www.nasa.gov/science-instruments/] Science Instruments
+[https://www.nasa.gov/computing/] Computing
+[https://science.nasa.gov/learning-resources/]
+Learning Resources
+[https://www.nasa.gov/learning-resources/for-kids-and-students/] For Kids and Students
+[https://www.nasa.gov/learning-resources/for-educators/] For Educators
+[https://www.nasa.gov/learning-resources/colleges-and-universities/] For Colleges and Universities
+[https://www.nasa.gov/learning-resources/for-professionals/] For Professionals
+[https://science.nasa.gov/for-everyone/] Science for Everyone
+[https://www.nasa.gov/learning-resources/requests-for-exhibits-artifacts-or-speakers/] Requests for Exhibits, Artifacts, or Speakers
+[https://www.nasa.gov/learning-resources/stem-engagement-at-nasa/] STEM Engagement at NASA
+[https://science.nasa.gov/about/]
+About NASA
+[https://www.nasa.gov/nasa-impacts/] NASA's Impacts
+[https://www.nasa.gov/nasa-centers-and-facilities/] Centers and Facilities
+[https://www.nasa.gov/nasa-directorates/] Directorates
+[https://www.nasa.gov/nasa-organization/] Organizations
+[https://www.nasa.gov/people-of-nasa/] People of NASA
+[https://www.nasa.gov/careers/] Careers
+[https://www.nasa.gov/learning-resources/nasa-internship-programs/] Internships
+[https://www.nasa.gov/history/] Our History
+[https://www.nasa.gov/doing-business-with-nasa/] Doing Business with NASA
+[https://www.nasa.gov/get-involved/] Get Involved
+[https://www.nasa.gov/contact-nasa/] Contact
+[https://science.nasa.gov/es/]
+NASA en Español
+[https://ciencia.nasa.gov/] Ciencia
+[https://www.nasa.gov/espanol/aeronautica-en-espanol/] Aeronáutica
+[https://ciencia.nasa.gov/tierra] Ciencias Terrestres
+[https://ciencia.nasa.gov/sistema-solar] Sistema Solar
+[https://ciencia.nasa.gov/universo] Universo
+[https://science.nasa.gov/news/]
+News & Events
+[https://www.nasa.gov/news/recently-published/] Recently Published
+[https://www.nasa.gov/plus/] Video Series on NASA+
+[https://www.nasa.gov/podcasts-and-audio/] Podcasts & Audio
+[https://www.nasa.gov/nasa-blogs/] Blogs
+[https://www.nasa.gov/newsletters/] Newsletters
+[https://www.nasa.gov/socialmedia/] Social Media
+[https://www.nasa.gov/news/nasa-media-contacts/] Media Resources
+[https://science.nasa.gov/multimedia/]
+Multimedia
+[https://plus.nasa.gov/] NASA+
+[https://www.nasa.gov/images/] Images
+[https://www.nasa.gov/live] NASA Live
+[https://www.nasa.gov/apps/] NASA Apps
+[https://www.nasa.gov/podcasts/] Podcasts
+[https://www.nasa.gov/image-of-the-day/] Image of the Day
+[https://www.nasa.gov/ebooks/] e-Books
+[https://science.nasa.gov/3d-resources/] 3D Resources
+[https://www.nasa.gov/nasa-interactive-features/] Interactives
+[https://www.nasa.gov/learning-resources/search/?terms=8058%2C8059%2C8061%2C8062%2C8068] STEM Multimedia
+[https://www.nasa.gov/nasa-brand-center/] NASA Brand & Usage Guidelines
+Highlights
+[https://science.nasa.gov/blogs/perseverance-mars-rover/2026/10/12/nasas-perseverance-sets-off-world-record-for-total-distance-driven/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/mars2020/2026/perseverance-rover-updates/e1%20-%20PIA26812%20-%20NAVCAM%20record.png?w=1024}
+5 min read
+NASA’s Perseverance Sets Off-World Record for Total Distance Driven
+article
+18 hours ago
+[https://science.nasa.gov/missions/webb/webb-measures-distance-to-farthest-fast-radio-burst-suggesting-origin/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/webb/science/2026/10/STScI-01KKCJGBWX6TE4ABRTFWE9B8SQ.jpg?w=1024}
+5 min read
+Webb Measures Distance to Farthest Fast Radio Burst, Suggesting Origin
+article
+5 days ago
+[https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/]
+{img https://www.nasa.gov/wp-content/uploads/2026/10/e1-pia23684.jpg?w=150&h=150&crop=1}
+5 min read
+NASA’s SPHEREx Telescope Sees Menagerie of Brown Dwarfs
+article
+5 days ago
+Highlights
+[https://www.nasa.gov/help-nasa-find-practical-ways-to-monitor-astronaut-body-temperature-in-low-earth-orbit/]
+{img https://images-assets.nasa.gov/image/iss074e0788315/iss074e0788315~large.jpg?w=1920&h=1280&fit=clip&crop=faces%2Cfocalpoint}
+2 min read
+Help NASA Find Practical Ways to Monitor Astronaut Body Temperature in Low Earth Orbit
+article
+2 weeks ago
+[https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-opens-2027-human-lander-challenge-for-lunar-communications/]
+{img https://www.nasa.gov/wp-content/uploads/2026/09/2027-hulc-graphic-thumbnail-a-new-arrival-on-the-moon.png?w=150&h=150&crop=1}
+3 min read
+NASA Opens 2027 Human Lander Challenge for Lunar Communications
+article
+2 weeks ago
+[https://www.nasa.gov/researchers-help-nasa-prevent-blood-clot-formation-in-space/]
+{img https://www.nasa.gov/wp-content/uploads/2026/07/mcclain-kim-iss-venousstudy.png?w=150&h=150&crop=1}
+3 min read
+Researchers: Help NASA Prevent Blood Clot Formation in Space
+article
+3 weeks ago
+Highlights
+[https://science.nasa.gov/earth/earth-observatory/an-impact-structure-with-legs/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-impact-structure-with-legs/aus_spidercrater_oli2_20260920_th.jpg?w=1024}
+3 min read
+An Impact Structure With Legs
+article
+12 hours ago
+[https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/antarctic-sea-ice-grows-to-its-2026-maximum/antarctic_nsidc_20260914_th.jpg?w=1024}
+3 min read
+Antarctic Sea Ice Grows to Its 2026 Maximum
+article
+1 day ago
+[https://science.nasa.gov/earth/earth-observatory/floodwaters-overwhelm-thailand/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/floodwaters-overwhelm-thailand/thailandflooding_oli2_20261002_th.jpg?w=1024}
+2 min read
+Floodwaters Overwhelm Thailand
+article
+4 days ago
+Highlights
+[https://www.nasa.gov/missions/moon-base/nasa-jpl-testing-readies-voyager-technologies-lander-for-moon-mission/]
+{img https://www.nasa.gov/wp-content/uploads/2026/10/1-pia26708-grifffin-tvac-wings.jpeg?w=150&h=150&crop=1}
+4 min read
+NASA JPL Testing Readies Voyager Technologies Lander for Moon Mission
+article
+3 hours ago
+[https://science.nasa.gov/feature/artemis-ii-preliminary-lunar-science-report/]
+{img https://images-assets.nasa.gov/image/art002e016204/art002e016204~large.jpg}
+1 min read
+Artemis II Preliminary Lunar Science Report
+article
+6 days ago
+[https://www.nasa.gov/missions/mars-science-laboratory/curiosity-rover/nasas-curiosity-rover-catches-stunning-martian-dawn/]
+{img https://www.nasa.gov/wp-content/uploads/2026/10/1-pia26728-fig-a-curiosity-captures-dawn-breaking-on-wind-carved-cliffs.png?w=150&h=150&crop=1}
+3 min read
+NASA’s Curiosity Rover Catches Stunning Martian Dawn
+article
+1 week ago
+Highlights
+[https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/]
+{img https://www.nasa.gov/wp-content/uploads/2026/10/e1-pia23684.jpg?w=150&h=150&crop=1}
+5 min read
+NASA’s SPHEREx Telescope Sees Menagerie of Brown Dwarfs
+article
+5 days ago
+[https://science.nasa.gov/missions/webb/webb-measures-distance-to-farthest-fast-radio-burst-suggesting-origin/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/webb/science/2026/10/STScI-01KKCJGBWX6TE4ABRTFWE9B8SQ.jpg?w=1024}
+5 min read
+Webb Measures Distance to Farthest Fast Radio Burst, Suggesting Origin
+article
+5 days ago
+[https://science.nasa.gov/missions/lisa/nasa-advances-lisa-mission-contributions-with-new-test-telescope/]
+{img https://science.nasa.gov/wp-content/uploads/2024/10/gsfc-20240520-lisa-000535.jpg}
+3 min read
+NASA Advances LISA Mission Contributions With New Test Telescope
+article
+5 days ago
+Highlights
+[https://science.nasa.gov/earth/earth-observatory/an-impact-structure-with-legs/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-impact-structure-with-legs/aus_spidercrater_oli2_20260920_th.jpg?w=1024}
+3 min read
+An Impact Structure With Legs
+article
+12 hours ago
+[https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/bps/bps_investigations/wholemiBrainMicroglia_AVATAR_org1.jpg?w=1024}
+3 min read
+NASA’s SpaceX CRS-35 Mission to Launch Health Research
+article
+22 hours ago
+[https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/antarctic-sea-ice-grows-to-its-2026-maximum/antarctic_nsidc_20260914_th.jpg?w=1024}
+3 min read
+Antarctic Sea Ice Grows to Its 2026 Maximum
+article
+1 day ago
+Highlights
+[https://www.nasa.gov/centers-and-facilities/langley/nasa-model-wing-lights-up-during-first-pressure-sensitive-paint-tests/]
+{img https://www.nasa.gov/wp-content/uploads/2026/10/bscw-side-by-side-image.jpg?w=150&h=150&crop=1}
+2 min read
+NASA Model Wing Lights Up During First Pressure Sensitive Paint Tests
+article
+2 weeks ago
+[https://www.nasa.gov/ames/dr-natasha-schatzman-receives-vertical-flight-society-vfs-award/]
+{img https://www.nasa.gov/wp-content/uploads/2026/10/dr-natasha-schatzman-.png?w=150&h=150&crop=1}
+2 min read
+Dr. Natasha Schatzman Receives Vertical Flight Society (VFS) Award
+article
+2 weeks ago
+[https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-middle-school-design-challenge/]
+{img https://www.nasa.gov/wp-content/uploads/2026/09/dwu-x-plane-design2-16x9-ms-web.jpg?w=150&h=150&crop=1}
+10 min read
+2026-2027 DWU: Middle School Design Challenge
+article
+3 weeks ago
+Highlights
+[https://science.nasa.gov/earth/earth-observatory/rains-swamp-the-gandak-river/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/torrential-rains-swamp-the-gandaki-river/floodingindianepal_amo_20260929_th.jpg?w=1024}
+3 min read
+Rains Swamp the Gandak River
+article
+2 weeks ago
+[https://www.nasa.gov/space-nuclear/]
+{img https://www.nasa.gov/wp-content/uploads/2026/06/sr-1-freedom-hi-res-8-18-26.png?w=150&h=150&crop=1}
+1 min read
+Space Reactors Division
+article
+2 weeks ago
+[https://science.nasa.gov/earth/earth-observatory/powerful-storms-continue-to-prowl-the-pacific/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/powerful-storms-continue-to-prowl-the-pacific/polonolo_vir_20260928_th.jpg?w=1024}
+4 min read
+Powerful Storms Continue to Prowl the Pacific
+article
+2 weeks ago
+Highlights
+[https://www.nasa.gov/centers-and-facilities/ames/nasa-demonstrates-next-generation-heat-shield-technologies/]
+{img https://www.nasa.gov/wp-content/uploads/2026/10/iss075e0185943.jpg?w=150&h=150&crop=1}
+4 min read
+NASA Demonstrates Next-Generation Heat Shield Technologies
+article
+4 days ago
+[https://science.nasa.gov/learn/roses25_sciact_selections/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/cds/learn/2026/SciActROSES25Map.jpg?w=1024}
+8 min read
+NASA Selects Projects to Engage Communities Across the US with NASA Science
+article
+2 weeks ago
+[https://www.nasa.gov/stmd-flight-opportunities/access-flight-tests/techrise/]
+{img https://www.nasa.gov/wp-content/uploads/2023/02/techrise5-1080x1080-1.jpg?w=150&h=150&crop=1}
+3 min read
+TechRise (for 6–12 graders)
+article
+2 weeks ago
+Highlights
+[https://www.nasa.gov/news-release/nasa-energy-department-advance-new-era-of-nuclear-powered-exploration/]
+{img https://www.nasa.gov/wp-content/uploads/2026/10/nasa-doe-mou-release-smaller-image-oct-8.jpg?w=150&h=150&crop=1}
+4 min read
+NASA, Energy Department Advance New Era of Nuclear-Powered Exploration
+article
+5 days ago
+[https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/bps/bps_investigations/wholemiBrainMicroglia_AVATAR_org1.jpg?w=1024}
+3 min read
+NASA’s SpaceX CRS-35 Mission to Launch Health Research
+article
+22 hours ago
+[https://www.nasa.gov/blogs/missions/2026/10/07/nasa-releases-artemis-ii-lunar-science-data-images/]
+{img https://images-assets.nasa.gov/image/art002e025880/art002e025880~large.jpg?w=1920&h=1280&fit=clip&crop=faces%2Cfocalpoint}
+2 min read
+NASA Releases Artemis II Lunar Science Data, Images
+article
+6 days ago
+Highlights
+[https://www.nasa.gov/es/la-nasa-anuncia-la-cobertura-de-la-mision-lunar-artemis-ii/]
+{img https://www.nasa.gov/wp-content/uploads/2026/03/a2crew-7ff19d.jpg?w=150&h=150&crop=1}
+11 min read
+La NASA anuncia la cobertura de la misión lunar Artemis II
+article
+7 months ago
+[https://www.nasa.gov/es/agenda-diaria-de-la-mision-a-la-luna-de-artemis-ii-de-la-nasa/]
+{img https://www.nasa.gov/wp-content/uploads/2026/03/suit-patch.jpg?w=150&h=150&crop=1}
+15 min read
+Agenda diaria de la misión a la Luna de Artemis II de la NASA
+article
+7 months ago
+[https://www.nasa.gov/humans-in-space/astronauts/la-nasa-refuerza-artemis-anade-una-mision-y-perfecciona-su-arquitectura-general/]
+{img https://images-assets.nasa.gov/image/iss074e0325229/iss074e0325229~large.jpg?w=1920&h=1280&fit=clip&crop=faces%2Cfocalpoint}
+6 min read
+La NASA refuerza Artemis: añade una misión y perfecciona su arquitectura general
+article
+7 months ago
+Earth Observatory
+[https://science.nasa.gov/earth/earth-observatory/] …
+[https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/] Blue Marble: Next Generation
+Blue Marble: Next Generation...
+[https://science.nasa.gov/earth] Earth
+[https://science.nasa.gov/earth/earth-observatory] Earth Observatory
+[https://science.nasa.gov/earth/earth-observatory/image-of-the-day/] Image of the Day
+[https://science.nasa.gov/earth/earth-observatory/explorer/] EO Explorer
+Topics
+[https://science.nasa.gov/earth/earth-observatory/topics/] All Topics
+[https://science.nasa.gov/earth/earth-observatory/topics/atmosphere/] Atmosphere
+[https://science.nasa.gov/earth/earth-observatory/topics/land/] Land
+[https://science.nasa.gov/earth/earth-observatory/topics/heat-radiation/] Heat & Radiation
+[https://science.nasa.gov/earth/earth-observatory/topics/life-on-earth/] Life on Earth
+[https://science.nasa.gov/earth/earth-observatory/topics/human-dimensions/] Human Dimensions
+[https://science.nasa.gov/earth/earth-observatory/topics/natural-events/] Natural Events
+[https://science.nasa.gov/earth/earth-observatory/topics/oceans/] Oceans
+[https://science.nasa.gov/earth/earth-observatory/topics/remote-sensing-technology/] Remote Sensing Technology
+[https://science.nasa.gov/earth/earth-observatory/topics/snow-and-ice/] Snow & Ice
+[https://science.nasa.gov/earth/earth-observatory/topics/water/] Water
+More Content
+[https://science.nasa.gov/earth/earth-observatory/collections/] Collections
+[https://science.nasa.gov/earth/earth-observatory/global-maps/] Global Maps
+[https://science.nasa.gov/earth/earth-observatory/world-of-change/] World of Change
+[https://science.nasa.gov/earth/earth-observatory/feature-articles/] Articles
+[https://science.nasa.gov/blogs/earth-matters/] Earth Matters Blog
+[https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/] Blue Marble: Next Generation
+[https://science.nasa.gov/kids/earth/eo-kids/] EO Kids
+[https://science.nasa.gov/kids/earth/mission-biomes/] Mission: Biomes
+About
+[https://science.nasa.gov/earth/earth-observatory/about-the-eo/] About Us
+[https://science.nasa.gov/earth/earth-observatory/subscribe] Subscribe
+[https://science.nasa.gov/earth/earth-observatory/subscribe/feeds/] 🛜 RSS
+[https://science.nasa.gov/earth/earth-observatory/contact-the-eo/] Contact Us
+[https://science.nasa.gov/earth/earth-observatory/search/] Search
+Blue Marble: Next Generation
+Base Map with Topography and Bathymetry
+Blue Marble: Next Generation offers a years worth of monthly composites at a spatial resolution of 500 meters. These monthly images reveal seasonal changes to the land surface: the green-up and dying-back of vegetation in temperate regions such as North America and Europe, dry and wet seasons in the tropics, and advancing and retreating Northern Hemisphere snow cover.
+This version of the maps includes shading for topography and bathymetry.
+[#january]
+January
+[#february]
+February
+[#march]
+March
+[#april]
+April
+[#may]
+May
+[#june]
+June
+[#july]
+July
+[#august]
+August
+[#september]
+September
+[#october]
+October
+[#november]
+November
+[#december]
+December
+[https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/]
+Learn more about the Blue Marble maps
+January
+[https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint] {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint}
+Global
+5400x2700 (8km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x5400x2700.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x5400x2700_geo.tif] GeoTIFF
+21600x10800 (2km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x10800.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x10800_geo.tif] GeoTIFF
+Full Resolution (500m), tiled
+A1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.A1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.A1_geo.tif] GeoTIFF)B1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.B1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.B1_geo.tif] GeoTIFF)C1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.C1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.C1_geo.tif] GeoTIFF)D1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.D1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.D1_geo.tif] GeoTIFF)
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.A1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.B1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.C1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.D1.jpg}
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.A2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.B2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.C2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.D2.jpg}
+A2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.A2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.A2_geo.tif] GeoTIFF)B2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.B2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.B2_geo.tif] GeoTIFF)C2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.C2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.C2_geo.tif] GeoTIFF)D2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.D2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x21600x21600.D2_geo.tif] GeoTIFF)
+February
+[https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint] {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint}
+Global
+5400x2700 (8km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x5400x2700.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x5400x2700_geo.tif] GeoTIFF
+21600x10800 (2km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x10800.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x10800_geo.tif] GeoTIFF
+Full Resolution (500m), tiled
+A1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.A1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.A1_geo.tif] GeoTIFF)B1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.B1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.B1_geo.tif] GeoTIFF)C1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.C1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.C1_geo.tif] GeoTIFF)D1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.D1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.D1_geo.tif] GeoTIFF)
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.A1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.B1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.C1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.D1.jpg}
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.A2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.B2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.C2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.D2.jpg}
+A2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.A2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.A2_geo.tif] GeoTIFF)B2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.B2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.B2_geo.tif] GeoTIFF)C2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.C2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.C2_geo.tif] GeoTIFF)D2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.D2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/february/world.topo.bathy.200402.3x21600x21600.D2_geo.tif] GeoTIFF)
+March
+[https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint] {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint}
+Global
+5400x2700 (8km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x5400x2700.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x5400x2700_geo.tif] GeoTIFF
+21600x10800 (2km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x10800.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x10800_geo.tif] GeoTIFF
+Full Resolution (500m), tiled
+A1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.A1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.A1_geo.tif] GeoTIFF)B1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.B1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.B1_geo.tif] GeoTIFF)C1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.C1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.C1_geo.tif] GeoTIFF)D1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.D1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.D1_geo.tif] GeoTIFF)
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.A1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.B1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.C1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.D1.jpg}
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.A2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.B2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.C2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.D2.jpg}
+A2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.A2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.A2_geo.tif] GeoTIFF)B2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.B2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.B2_geo.tif] GeoTIFF)C2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.C2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.C2_geo.tif] GeoTIFF)D2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.D2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/march/world.topo.bathy.200403.3x21600x21600.D2_geo.tif] GeoTIFF)
+April
+[https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint] {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint}
+Global
+5400x2700 (8km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x5400x2700.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x5400x2700_geo.tif] GeoTIFF
+21600x10800 (2km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x10800.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x10800_geo.tif] GeoTIFF
+Full Resolution (500m), tiled
+A1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.A1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.A1_geo.tif] GeoTIFF)B1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.B1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.B1_geo.tif] GeoTIFF)C1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.C1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.C1_geo.tif] GeoTIFF)D1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.D1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.D1_geo.tif] GeoTIFF)
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.A1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.B1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.C1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.D1.jpg}
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.A2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.B2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.C2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.D2.jpg}
+A2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.A2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.A2_geo.tif] GeoTIFF)B2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.B2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.B2_geo.tif] GeoTIFF)C2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.C2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.C2_geo.tif] GeoTIFF)D2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.D2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/april/world.topo.bathy.200404.3x21600x21600.D2_geo.tif] GeoTIFF)
+May
+[https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint] {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint}
+Global
+5400x2700 (8km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x5400x2700.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x5400x2700_geo.tif] GeoTIFF
+21600x10800 (2km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x10800.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x10800_geo.tif] GeoTIFF
+Full Resolution (500m), tiled
+A1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.A1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.A1_geo.tif] GeoTIFF)B1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.B1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.B1_geo.tif] GeoTIFF)C1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.C1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.C1_geo.tif] GeoTIFF)D1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.D1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.D1_geo.tif] GeoTIFF)
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.A1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.B1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.C1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.D1.jpg}
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.A2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.B2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.C2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.D2.jpg}
+A2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.A2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.A2_geo.tif] GeoTIFF)B2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.B2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.B2_geo.tif] GeoTIFF)C2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.C2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.C2_geo.tif] GeoTIFF)D2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.D2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/may/world.topo.bathy.200405.3x21600x21600.D2_geo.tif] GeoTIFF)
+June
+[https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint] {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint}
+Global
+5400x2700 (8km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x5400x2700.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x5400x2700_geo.tif] GeoTIFF
+21600x10800 (2km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x10800.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x10800_geo.tif] GeoTIFF
+Full Resolution (500m), tiled
+A1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.A1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.A1_geo.tif] GeoTIFF)B1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.B1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.B1_geo.tif] GeoTIFF)C1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.C1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.C1_geo.tif] GeoTIFF)D1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.D1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.D1_geo.tif] GeoTIFF)
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.A1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.B1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.C1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.D1.jpg}
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.A2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.B2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.C2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.D2.jpg}
+A2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.A2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.A2_geo.tif] GeoTIFF)B2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.B2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.B2_geo.tif] GeoTIFF)C2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.C2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.C2_geo.tif] GeoTIFF)D2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.D2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/june/world.topo.bathy.200406.3x21600x21600.D2_geo.tif] GeoTIFF)
+July
+[https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint] {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint}
+Global
+5400x2700 (8km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x5400x2700.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x5400x2700_geo.tif] GeoTIFF
+21600x10800 (2km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x10800.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x10800_geo.tif] GeoTIFF
+Full Resolution (500m), tiled
+A1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.A1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.A1_geo.tif] GeoTIFF)B1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.B1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.B1_geo.tif] GeoTIFF)C1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.C1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.C1_geo.tif] GeoTIFF)D1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.D1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.D1_geo.tif] GeoTIFF)
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.A1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.B1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.C1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.D1.jpg}
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.A2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.B2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.C2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.D2.jpg}
+A2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.A2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.A2_geo.tif] GeoTIFF)B2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.B2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.B2_geo.tif] GeoTIFF)C2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.C2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.C2_geo.tif] GeoTIFF)D2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.D2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x21600x21600.D2_geo.tif] GeoTIFF)
+August
+[https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint] {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint}
+Global
+5400x2700 (8km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x5400x2700.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x5400x2700_geo.tif] GeoTIFF
+21600x10800 (2km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x10800.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x10800_geo.tif] GeoTIFF
+Full Resolution (500m), tiled
+A1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.A1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.A1_geo.tif] GeoTIFF)B1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.B1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.B1_geo.tif] GeoTIFF)C1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.C1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.C1_geo.tif] GeoTIFF)D1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.D1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.D1_geo.tif] GeoTIFF)
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.A1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.B1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.C1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.D1.jpg}
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.A2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.B2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.C2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.D2.jpg}
+A2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.A2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.A2_geo.tif] GeoTIFF)B2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.B2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.B2_geo.tif] GeoTIFF)C2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.C2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.C2_geo.tif] GeoTIFF)D2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.D2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x21600x21600.D2_geo.tif] GeoTIFF)
+September
+[https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint] {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint}
+Global
+5400x2700 (8km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x5400x2700.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x5400x2700_geo.tif] GeoTIFF
+21600x10800 (2km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x10800.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x10800_geo.tif] GeoTIFF
+Full Resolution (500m), tiled
+A1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.A1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.A1_geo.tif] GeoTIFF)B1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.B1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.B1_geo.tif] GeoTIFF)C1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.C1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.C1_geo.tif] GeoTIFF)D1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.D1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.D1_geo.tif] GeoTIFF)
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.A1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.B1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.C1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.D1.jpg}
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.A2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.B2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.C2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.D2.jpg}
+A2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.A2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.A2_geo.tif] GeoTIFF)B2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.B2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.B2_geo.tif] GeoTIFF)C2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.C2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.C2_geo.tif] GeoTIFF)D2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.D2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/september/world.topo.bathy.200409.3x21600x21600.D2_geo.tif] GeoTIFF)
+October
+[https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint] {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint}
+Global
+5400x2700 (8km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x5400x2700.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x5400x2700_geo.tif] GeoTIFF
+21600x10800 (2km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x10800.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x10800_geo.tif] GeoTIFF
+Full Resolution (500m), tiled
+A1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.A1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.A1_geo.tif] GeoTIFF)B1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.B1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.B1_geo.tif] GeoTIFF)C1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.C1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.C1_geo.tif] GeoTIFF)D1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.D1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.D1_geo.tif] GeoTIFF)
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.A1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.B1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.C1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.D1.jpg}
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.A2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.B2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.C2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.D2.jpg}
+A2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.A2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.A2_geo.tif] GeoTIFF)B2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.B2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.B2_geo.tif] GeoTIFF)C2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.C2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.C2_geo.tif] GeoTIFF)D2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.D2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/october/world.topo.bathy.200410.3x21600x21600.D2_geo.tif] GeoTIFF)
+November
+[https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint] {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint}
+Global
+5400x2700 (8km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x5400x2700.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x5400x2700_geo.tif] GeoTIFF
+21600x10800 (2km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x10800.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x10800_geo.tif] GeoTIFF
+Full Resolution (500m), tiled
+A1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.A1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.A1_geo.tif] GeoTIFF)B1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.B1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.B1_geo.tif] GeoTIFF)C1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.C1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.C1_geo.tif] GeoTIFF)D1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.D1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.D1_geo.tif] GeoTIFF)
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.A1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.B1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.C1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.D1.jpg}
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.A2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.B2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.C2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.D2.jpg}
+A2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.A2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.A2_geo.tif] GeoTIFF)B2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.B2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.B2_geo.tif] GeoTIFF)C2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.C2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.C2_geo.tif] GeoTIFF)D2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.D2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/november/world.topo.bathy.200411.3x21600x21600.D2_geo.tif] GeoTIFF)
+December
+[https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint] {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint}
+Global
+5400x2700 (8km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x5400x2700.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x5400x2700_geo.tif] GeoTIFF
+21600x10800 (2km/pixel) [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x10800.jpg] JPEG [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x10800_geo.tif] GeoTIFF
+Full Resolution (500m), tiled
+A1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.A1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.A1_geo.tif] GeoTIFF)B1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.B1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.B1_geo.tif] GeoTIFF)C1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.C1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.C1_geo.tif] GeoTIFF)D1 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.D1.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.D1_geo.tif] GeoTIFF)
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.A1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.B1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.C1.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.D1.jpg}
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.A2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.B2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.C2.jpg} {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.D2.jpg}
+A2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.A2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.A2_geo.tif] GeoTIFF)B2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.B2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.B2_geo.tif] GeoTIFF)C2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.C2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.C2_geo.tif] GeoTIFF)D2 ( [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.D2.jpg] JPEG | [https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x21600.D2_geo.tif] GeoTIFF)
+Keep Exploring
+Discover More From NASA Earth Science
+[https://science.nasa.gov/earth/earth-observatory/subscribe/]
+Subscribe to Earth Observatory Newsletters
+Subscribe to the Earth Observatory and get the Earth in your inbox.
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/about/NASA-EO-Logo-mediumBlue2016-stacked-mark.png?w=585&h=425&fit=clip&crop=faces%2Cfocalpoint}
+[https://science.nasa.gov/earth/earth-observatory/image-of-the-day/]
+Earth Observatory Image of the Day
+NASA's Earth Observatory brings you the Earth, every day, with in-depth stories and stunning imagery.
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/iotd-banner.jpg?w=2500&h=1407&fit=clip&crop=faces%2Cfocalpoint}
+[https://science.nasa.gov/earth/explore/]
+Explore Earth Science
+{img https://images-assets.nasa.gov/image/NHQ202212160009/NHQ202212160009~large.jpg?w=1920&h=1920&fit=clip&crop=faces%2Cfocalpoint}
+[https://science.nasa.gov/earth-science/earth-science-at-work/]
+Earth Science at Work
+NASA Earth Science helps Americans respond to challenges and societal needs — such as wildland fires, hurricanes, and water supplies…
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/earth-science-division/earth-science-to-action/cindyschmidt_lrg.jpg?w=1222&h=1094&fit=clip&crop=faces%2Cfocalpoint}
+{img https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png}
+National Aeronautics and Space Administration
+NASA explores the unknown in air and space, innovates for the benefit of humanity, and inspires the world through discovery.
+[https://www.nasa.gov/about/] About NASA's Mission
+[https://www.nasa.gov/get-involved/]
+Join Us
+[https://www.nasa.gov] Home
+[https://www.nasa.gov/news/] News & Events
+[https://www.nasa.gov/multimedia/] Multimedia
+[https://plus.nasa.gov/] NASA+
+[https://www.nasa.gov/nasa-missions/] Missions
+[https://www.nasa.gov/humans-in-space/] Humans in Space
+[https://science.nasa.gov/earth/] Earth
+[https://science.nasa.gov/solar-system/] The Solar System
+[https://science.nasa.gov/universe/] The Universe
+[https://science.nasa.gov/] Science
+[https://www.nasa.gov/aeronautics/] Aeronautics
+[https://www.nasa.gov/technology/] Technology
+[https://www.nasa.gov/learning-resources/] Learning Resources
+[https://www.nasa.gov/about/] About NASA
+[https://www.nasa.gov/es/] NASA en Español
+Follow NASA
+[https://www.facebook.com/NASA]
+[https://www.instagram.com/nasa/]
+[https://x.com/NASA]
+[https://www.youtube.com/@NASA]
+[https://www.nasa.gov/social-media/] More NASA Social Accounts
+[https://www.nasa.gov/nasa-newsletters/] NASA Newsletters
+[https://www.nasa.gov/sitemap/] Sitemap
+[https://www.nasa.gov/news/nasa-media-contacts/] For Media
+[https://www.nasa.gov/nasa-web-privacy-policy-and-important-notices/] Privacy Policy
+[https://www.nasa.gov/foia/] FOIA
+[https://www.nasa.gov/no-fear-act/] No FEAR Act
+[http://oig.nasa.gov/] Office of the IG
+[https://www.nasa.gov/budgets-plans-and-reports/] Budget & Annual Reports
+[https://www.nasa.gov/organizations/budget-annual-reports/agency-financial-reports/] Agency Financial Reports
+[https://www.nasa.gov/contact-nasa/] Contact NASA
+[https://www.nasa.gov/accessibility/] Accessibility
+Page Last Updated:
+Dec 19, 2025
+Page Editor:
+Kevin Ward
+Responsible NASA Official for Science:
+Dana Bolles
+Δ
+Did you find what you were looking for?(Required)
+Yes
+No
+Partly
+What were you looking for?(Required)
+What were you hoping to accomplish by visiting our website?(Required)
+Submit
+×
+
+####################################################################################################
+# NASA Earth Observatory parent page "Blue Marble: Next Generation" (complete page text; it has the credit text)
+# Address: https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/
+# Fetched: 2026-10-14 01:17 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+####################################################################################################
+Blue Marble: Next Generation - NASA Science
+[https://www.nasa.gov]
+{img https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png}
+Explore
+Search
+[https://www.nasa.gov]
+{img https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png}
+News & Events
+[https://www.nasa.gov/news/]
+News & Events
+[https://www.nasa.gov/news/recently-published/]
+Recently Published
+[https://www.nasa.gov/plus/]
+Video Series on NASA+
+[https://www.nasa.gov/podcasts-and-audio/]
+Podcasts & Audio
+[https://www.nasa.gov/nasa-blogs/]
+Blogs
+[https://www.nasa.gov/newsletters/]
+Newsletters
+[https://www.nasa.gov/socialmedia/]
+Social Media
+[https://www.nasa.gov/news/nasa-media-contacts/]
+Media Resources
+Multimedia
+[https://www.nasa.gov/multimedia/]
+Multimedia
+[https://plus.nasa.gov/]
+NASA+
+[https://www.nasa.gov/images/]
+Images
+[https://www.nasa.gov/live]
+NASA Live
+[https://www.nasa.gov/apps/]
+NASA Apps
+[https://www.nasa.gov/podcasts/]
+Podcasts
+[https://www.nasa.gov/image-of-the-day/]
+Image of the Day
+[https://www.nasa.gov/ebooks/]
+e-Books
+[https://science.nasa.gov/3d-resources/]
+3D Resources
+[https://www.nasa.gov/nasa-interactive-features/]
+Interactives
+[https://www.nasa.gov/learning-resources/search/?terms=8058%2C8059%2C8061%2C8062%2C8068]
+STEM Multimedia
+[https://www.nasa.gov/nasa-brand-center/]
+NASA Brand & Usage Guidelines
+[https://plus.nasa.gov/]
+NASA+
+Search
+Suggested Searches
+[https://science.nasa.gov/?search=ISS]
+ISS
+[https://science.nasa.gov/?search=Roman]
+Roman
+[https://science.nasa.gov/?search=Webb]
+Webb
+[https://science.nasa.gov/?search=Quesst]
+Quesst
+[https://science.nasa.gov/?search=Moon%20Base]
+Moon Base
+[https://science.nasa.gov/a-to-z-topics-listing/]
+View All Topics A-Z
+[https://science.nasa.gov/] Home
+[https://science.nasa.gov/nasa-missions/] Missions
+[https://science.nasa.gov/humans-in-space/] Humans in Space
+[https://science.nasa.gov/earth/] Earth
+[https://science.nasa.gov/solar-system/] The Solar System
+[https://science.nasa.gov/universe/] The Universe
+[https://science.nasa.gov/] Science
+[https://science.nasa.gov/aeronautics/] Aeronautics
+[https://science.nasa.gov/technology/] Technology
+[https://science.nasa.gov/learning-resources/] Learning Resources
+[https://science.nasa.gov/about/] About NASA
+[https://science.nasa.gov/es/] Español
+[#]
+News & Events
+[#]
+Multimedia
+[https://plus.nasa.gov/]
+NASA+
+Highlights
+[https://science.nasa.gov/blogs/perseverance-mars-rover/2026/10/12/nasas-perseverance-sets-off-world-record-for-total-distance-driven/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/mars2020/2026/perseverance-rover-updates/e1%20-%20PIA26812%20-%20NAVCAM%20record.png?w=1024}
+5 min read
+NASA’s Perseverance Sets Off-World Record for Total Distance Driven
+article19 hours ago [https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/]
+{img https://www.nasa.gov/wp-content/uploads/2026/10/e1-pia23684.jpg?w=150&h=150&crop=1}
+5 min read
+NASA’s SPHEREx Telescope Sees Menagerie of Brown Dwarfs
+article5 days ago [https://science.nasa.gov/solar-system/skywatching/whats-up-october-2026-skywatching-tips-from-nasa/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/solar-system/skywatching/2026/october/Orionid%20Meteor%20Shower%202017_Ben%20Goldstein%20via%20Flickr_CC%20BY-NC-SA.jpg?w=1024}
+3 min read
+What’s Up: October 2026 Skywatching Tips from NASA
+article2 weeks ago
+Back
+[https://science.nasa.gov/nasa-missions/]
+Missions
+[https://www.nasa.gov/missions/] Search All NASA Missions
+[https://www.nasa.gov/a-to-z-of-nasa-missions/] A to Z List of Missions
+[https://www.nasa.gov/events/] Upcoming Launches and Landings
+[https://www.nasa.gov/humans-in-space/spaceships-and-rockets/] Spaceships and Rockets
+[https://www.nasa.gov/communicating-with-missions/] Communicating with Missions
+[https://www.nasa.gov/humans-in-space/artemis/] Artemis
+[https://science.nasa.gov/mission/webb/] James Webb Space Telescope
+[https://science.nasa.gov/mission/hubble/] Hubble Space Telescope
+[https://www.nasa.gov/international-space-station/] International Space Station
+[https://science.nasa.gov/mission/osiris-rex/] OSIRIS-REx
+[https://science.nasa.gov/humans-in-space/]
+Humans in Space
+[https://www.nasa.gov/humans-in-space/why-go-to-space/] Why Go to Space
+[https://www.nasa.gov/humans-in-space/astronauts/] Astronauts
+[https://www.nasa.gov/humans-in-space/commercial-space/] Commercial Space
+[https://www.nasa.gov/humans-in-space/destinations/] Destinations
+[https://www.nasa.gov/humans-in-space/spaceships-and-rockets/] Spaceships and Rockets
+[https://www.nasa.gov/humans-in-space/living-in-space/] Living in Space
+[https://science.nasa.gov/earth/]
+Earth
+[https://science.nasa.gov/earth/explore/] Explore Earth Science
+[https://science.nasa.gov/climate-change/] Climate Change
+[https://science.nasa.gov/earth/facts/] Earth, Our Planet
+[https://science.nasa.gov/earth/in-action/] Earth Science in Action
+[https://science.nasa.gov/earth/multimedia/] Earth Multimedia
+[https://science.nasa.gov/earth/data/] Earth Data
+[https://science.nasa.gov/earth-science/] Earth Science Researchers
+[https://science.nasa.gov/solar-system/]
+The Solar System
+[https://science.nasa.gov/sun/] The Sun
+[https://science.nasa.gov/mercury/] Mercury
+[https://science.nasa.gov/venus/] Venus
+[https://science.nasa.gov/earth/] Earth
+[https://science.nasa.gov/moon/] The Moon
+[https://science.nasa.gov/mars/] Mars
+[https://science.nasa.gov/jupiter/] Jupiter
+[https://science.nasa.gov/saturn/] Saturn
+[https://science.nasa.gov/uranus/] Uranus
+[https://science.nasa.gov/neptune/] Neptune
+[https://science.nasa.gov/dwarf-planets/] Pluto & Dwarf Planets
+[https://science.nasa.gov/asteroids-comets-meteors/] Asteroids, Comets & Meteors
+[https://science.nasa.gov/solar-system/kuiper-belt/] The Kuiper Belt
+[https://science.nasa.gov/solar-system/oort-cloud/] The Oort Cloud
+[https://science.nasa.gov/skywatching/] Skywatching
+[https://science.nasa.gov/universe/]
+The Universe
+[https://science.nasa.gov/exoplanets/] Exoplanets
+[https://science.nasa.gov/universe/search-for-life/] The Search for Life in the Universe
+[https://science.nasa.gov/universe/stars/] Stars
+[https://science.nasa.gov/universe/galaxies/] Galaxies
+[https://science.nasa.gov/universe/black-holes/] Black Holes
+[https://science.nasa.gov/universe/the-big-bang/] The Big Bang
+[https://science.nasa.gov/dark-matter/] Dark Matter
+[https://science.nasa.gov/dark-energy/] Dark Energy
+[https://science.nasa.gov/]
+Science
+[https://science.nasa.gov/earth-science/] Earth Science
+[https://science.nasa.gov/planetary-science/] Planetary Science
+[https://science.nasa.gov/astrophysics/] Astrophysics & Space Science
+[https://science.nasa.gov/heliophysics/] The Sun & Heliophysics
+[https://science.nasa.gov/biological-physical/] Biological & Physical Sciences
+[https://science.nasa.gov/lunar-science/] Lunar Science
+[https://science.nasa.gov/citizen-science/] Citizen Science
+[https://science.nasa.gov/astromaterials/] Astromaterials
+[https://www.nasa.gov/aeronautics-research/] Aeronautics Research
+[https://www.nasa.gov/human-space-travel-research/] Human Space Travel Research
+[https://science.nasa.gov/aeronautics/]
+Aeronautics
+[https://www.nasa.gov/aeronautics/science-in-the-air/] Science in the Air
+[https://www.nasa.gov/aeronautics/aircraft/] NASA Aircraft
+[https://www.nasa.gov/aeronautics/flight-innovation/] Flight Innovation
+[https://www.nasa.gov/aeronautics/supersonic-flight/] Supersonic Flight
+[https://www.nasa.gov/aeronautics/air-traffic-solutions/] Air Traffic Solutions
+[https://www.nasa.gov/aeronautics/green-aero-tech/] Green Aviation Tech
+[https://www.nasa.gov/aeronautics/drones-and-you/] Drones & You
+[https://science.nasa.gov/technology/]
+Technology
+[https://www.nasa.gov/technology-transfer-spinoffs/] Technology Transfer & Spinoffs
+[https://www.nasa.gov/space-travel-technology/] Space Travel Technology
+[https://www.nasa.gov/space-living-technology/] Technology Living in Space
+[https://www.nasa.gov/manufacturing-and-materials/] Manufacturing and Materials
+[https://www.nasa.gov/robotics/] Robotics
+[https://www.nasa.gov/science-instruments/] Science Instruments
+[https://www.nasa.gov/computing/] Computing
+[https://science.nasa.gov/learning-resources/]
+Learning Resources
+[https://www.nasa.gov/learning-resources/for-kids-and-students/] For Kids and Students
+[https://www.nasa.gov/learning-resources/for-educators/] For Educators
+[https://www.nasa.gov/learning-resources/colleges-and-universities/] For Colleges and Universities
+[https://www.nasa.gov/learning-resources/for-professionals/] For Professionals
+[https://science.nasa.gov/for-everyone/] Science for Everyone
+[https://www.nasa.gov/learning-resources/requests-for-exhibits-artifacts-or-speakers/] Requests for Exhibits, Artifacts, or Speakers
+[https://www.nasa.gov/learning-resources/stem-engagement-at-nasa/] STEM Engagement at NASA
+[https://science.nasa.gov/about/]
+About NASA
+[https://www.nasa.gov/nasa-impacts/] NASA's Impacts
+[https://www.nasa.gov/nasa-centers-and-facilities/] Centers and Facilities
+[https://www.nasa.gov/nasa-directorates/] Directorates
+[https://www.nasa.gov/nasa-organization/] Organizations
+[https://www.nasa.gov/people-of-nasa/] People of NASA
+[https://www.nasa.gov/careers/] Careers
+[https://www.nasa.gov/learning-resources/nasa-internship-programs/] Internships
+[https://www.nasa.gov/history/] Our History
+[https://www.nasa.gov/doing-business-with-nasa/] Doing Business with NASA
+[https://www.nasa.gov/get-involved/] Get Involved
+[https://www.nasa.gov/contact-nasa/] Contact
+[https://science.nasa.gov/es/]
+NASA en Español
+[https://ciencia.nasa.gov/] Ciencia
+[https://www.nasa.gov/espanol/aeronautica-en-espanol/] Aeronáutica
+[https://ciencia.nasa.gov/tierra] Ciencias Terrestres
+[https://ciencia.nasa.gov/sistema-solar] Sistema Solar
+[https://ciencia.nasa.gov/universo] Universo
+[https://science.nasa.gov/news/]
+News & Events
+[https://www.nasa.gov/news/recently-published/] Recently Published
+[https://www.nasa.gov/plus/] Video Series on NASA+
+[https://www.nasa.gov/podcasts-and-audio/] Podcasts & Audio
+[https://www.nasa.gov/nasa-blogs/] Blogs
+[https://www.nasa.gov/newsletters/] Newsletters
+[https://www.nasa.gov/socialmedia/] Social Media
+[https://www.nasa.gov/news/nasa-media-contacts/] Media Resources
+[https://science.nasa.gov/multimedia/]
+Multimedia
+[https://plus.nasa.gov/] NASA+
+[https://www.nasa.gov/images/] Images
+[https://www.nasa.gov/live] NASA Live
+[https://www.nasa.gov/apps/] NASA Apps
+[https://www.nasa.gov/podcasts/] Podcasts
+[https://www.nasa.gov/image-of-the-day/] Image of the Day
+[https://www.nasa.gov/ebooks/] e-Books
+[https://science.nasa.gov/3d-resources/] 3D Resources
+[https://www.nasa.gov/nasa-interactive-features/] Interactives
+[https://www.nasa.gov/learning-resources/search/?terms=8058%2C8059%2C8061%2C8062%2C8068] STEM Multimedia
+[https://www.nasa.gov/nasa-brand-center/] NASA Brand & Usage Guidelines
+Highlights
+[https://science.nasa.gov/blogs/perseverance-mars-rover/2026/10/12/nasas-perseverance-sets-off-world-record-for-total-distance-driven/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/mars2020/2026/perseverance-rover-updates/e1%20-%20PIA26812%20-%20NAVCAM%20record.png?w=1024}
+5 min read
+NASA’s Perseverance Sets Off-World Record for Total Distance Driven
+article
+19 hours ago
+[https://science.nasa.gov/missions/webb/webb-measures-distance-to-farthest-fast-radio-burst-suggesting-origin/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/webb/science/2026/10/STScI-01KKCJGBWX6TE4ABRTFWE9B8SQ.jpg?w=1024}
+5 min read
+Webb Measures Distance to Farthest Fast Radio Burst, Suggesting Origin
+article
+5 days ago
+[https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/]
+{img https://www.nasa.gov/wp-content/uploads/2026/10/e1-pia23684.jpg?w=150&h=150&crop=1}
+5 min read
+NASA’s SPHEREx Telescope Sees Menagerie of Brown Dwarfs
+article
+5 days ago
+Highlights
+[https://www.nasa.gov/help-nasa-find-practical-ways-to-monitor-astronaut-body-temperature-in-low-earth-orbit/]
+{img https://images-assets.nasa.gov/image/iss074e0788315/iss074e0788315~large.jpg?w=1920&h=1280&fit=clip&crop=faces%2Cfocalpoint}
+2 min read
+Help NASA Find Practical Ways to Monitor Astronaut Body Temperature in Low Earth Orbit
+article
+2 weeks ago
+[https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-opens-2027-human-lander-challenge-for-lunar-communications/]
+{img https://www.nasa.gov/wp-content/uploads/2026/09/2027-hulc-graphic-thumbnail-a-new-arrival-on-the-moon.png?w=150&h=150&crop=1}
+3 min read
+NASA Opens 2027 Human Lander Challenge for Lunar Communications
+article
+2 weeks ago
+[https://www.nasa.gov/researchers-help-nasa-prevent-blood-clot-formation-in-space/]
+{img https://www.nasa.gov/wp-content/uploads/2026/07/mcclain-kim-iss-venousstudy.png?w=150&h=150&crop=1}
+3 min read
+Researchers: Help NASA Prevent Blood Clot Formation in Space
+article
+3 weeks ago
+Highlights
+[https://science.nasa.gov/earth/earth-observatory/an-impact-structure-with-legs/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-impact-structure-with-legs/aus_spidercrater_oli2_20260920_th.jpg?w=1024}
+3 min read
+An Impact Structure With Legs
+article
+12 hours ago
+[https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/antarctic-sea-ice-grows-to-its-2026-maximum/antarctic_nsidc_20260914_th.jpg?w=1024}
+3 min read
+Antarctic Sea Ice Grows to Its 2026 Maximum
+article
+2 days ago
+[https://science.nasa.gov/earth/earth-observatory/floodwaters-overwhelm-thailand/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/floodwaters-overwhelm-thailand/thailandflooding_oli2_20261002_th.jpg?w=1024}
+2 min read
+Floodwaters Overwhelm Thailand
+article
+5 days ago
+Highlights
+[https://www.nasa.gov/missions/moon-base/nasa-jpl-testing-readies-voyager-technologies-lander-for-moon-mission/]
+{img https://www.nasa.gov/wp-content/uploads/2026/10/1-pia26708-grifffin-tvac-wings.jpeg?w=150&h=150&crop=1}
+4 min read
+NASA JPL Testing Readies Voyager Technologies Lander for Moon Mission
+article
+3 hours ago
+[https://science.nasa.gov/feature/artemis-ii-preliminary-lunar-science-report/]
+{img https://images-assets.nasa.gov/image/art002e016204/art002e016204~large.jpg}
+1 min read
+Artemis II Preliminary Lunar Science Report
+article
+6 days ago
+[https://www.nasa.gov/missions/mars-science-laboratory/curiosity-rover/nasas-curiosity-rover-catches-stunning-martian-dawn/]
+{img https://www.nasa.gov/wp-content/uploads/2026/10/1-pia26728-fig-a-curiosity-captures-dawn-breaking-on-wind-carved-cliffs.png?w=150&h=150&crop=1}
+3 min read
+NASA’s Curiosity Rover Catches Stunning Martian Dawn
+article
+1 week ago
+Highlights
+[https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/]
+{img https://www.nasa.gov/wp-content/uploads/2026/10/e1-pia23684.jpg?w=150&h=150&crop=1}
+5 min read
+NASA’s SPHEREx Telescope Sees Menagerie of Brown Dwarfs
+article
+5 days ago
+[https://science.nasa.gov/missions/webb/webb-measures-distance-to-farthest-fast-radio-burst-suggesting-origin/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/webb/science/2026/10/STScI-01KKCJGBWX6TE4ABRTFWE9B8SQ.jpg?w=1024}
+5 min read
+Webb Measures Distance to Farthest Fast Radio Burst, Suggesting Origin
+article
+5 days ago
+[https://science.nasa.gov/missions/lisa/nasa-advances-lisa-mission-contributions-with-new-test-telescope/]
+{img https://science.nasa.gov/wp-content/uploads/2024/10/gsfc-20240520-lisa-000535.jpg}
+3 min read
+NASA Advances LISA Mission Contributions With New Test Telescope
+article
+5 days ago
+Highlights
+[https://science.nasa.gov/earth/earth-observatory/an-impact-structure-with-legs/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-impact-structure-with-legs/aus_spidercrater_oli2_20260920_th.jpg?w=1024}
+3 min read
+An Impact Structure With Legs
+article
+12 hours ago
+[https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/bps/bps_investigations/wholemiBrainMicroglia_AVATAR_org1.jpg?w=1024}
+3 min read
+NASA’s SpaceX CRS-35 Mission to Launch Health Research
+article
+22 hours ago
+[https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/antarctic-sea-ice-grows-to-its-2026-maximum/antarctic_nsidc_20260914_th.jpg?w=1024}
+3 min read
+Antarctic Sea Ice Grows to Its 2026 Maximum
+article
+2 days ago
+Highlights
+[https://www.nasa.gov/centers-and-facilities/langley/nasa-model-wing-lights-up-during-first-pressure-sensitive-paint-tests/]
+{img https://www.nasa.gov/wp-content/uploads/2026/10/bscw-side-by-side-image.jpg?w=150&h=150&crop=1}
+2 min read
+NASA Model Wing Lights Up During First Pressure Sensitive Paint Tests
+article
+2 weeks ago
+[https://www.nasa.gov/ames/dr-natasha-schatzman-receives-vertical-flight-society-vfs-award/]
+{img https://www.nasa.gov/wp-content/uploads/2026/10/dr-natasha-schatzman-.png?w=150&h=150&crop=1}
+2 min read
+Dr. Natasha Schatzman Receives Vertical Flight Society (VFS) Award
+article
+2 weeks ago
+[https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-middle-school-design-challenge/]
+{img https://www.nasa.gov/wp-content/uploads/2026/09/dwu-x-plane-design2-16x9-ms-web.jpg?w=150&h=150&crop=1}
+10 min read
+2026-2027 DWU: Middle School Design Challenge
+article
+3 weeks ago
+Highlights
+[https://science.nasa.gov/earth/earth-observatory/rains-swamp-the-gandak-river/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/torrential-rains-swamp-the-gandaki-river/floodingindianepal_amo_20260929_th.jpg?w=1024}
+3 min read
+Rains Swamp the Gandak River
+article
+2 weeks ago
+[https://www.nasa.gov/space-nuclear/]
+{img https://www.nasa.gov/wp-content/uploads/2026/06/sr-1-freedom-hi-res-8-18-26.png?w=150&h=150&crop=1}
+1 min read
+Space Reactors Division
+article
+2 weeks ago
+[https://science.nasa.gov/earth/earth-observatory/powerful-storms-continue-to-prowl-the-pacific/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/powerful-storms-continue-to-prowl-the-pacific/polonolo_vir_20260928_th.jpg?w=1024}
+4 min read
+Powerful Storms Continue to Prowl the Pacific
+article
+2 weeks ago
+Highlights
+[https://www.nasa.gov/centers-and-facilities/ames/nasa-demonstrates-next-generation-heat-shield-technologies/]
+{img https://www.nasa.gov/wp-content/uploads/2026/10/iss075e0185943.jpg?w=150&h=150&crop=1}
+4 min read
+NASA Demonstrates Next-Generation Heat Shield Technologies
+article
+4 days ago
+[https://science.nasa.gov/learn/roses25_sciact_selections/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/cds/learn/2026/SciActROSES25Map.jpg?w=1024}
+8 min read
+NASA Selects Projects to Engage Communities Across the US with NASA Science
+article
+2 weeks ago
+[https://www.nasa.gov/stmd-flight-opportunities/access-flight-tests/techrise/]
+{img https://www.nasa.gov/wp-content/uploads/2023/02/techrise5-1080x1080-1.jpg?w=150&h=150&crop=1}
+3 min read
+TechRise (for 6–12 graders)
+article
+2 weeks ago
+Highlights
+[https://www.nasa.gov/news-release/nasa-energy-department-advance-new-era-of-nuclear-powered-exploration/]
+{img https://www.nasa.gov/wp-content/uploads/2026/10/nasa-doe-mou-release-smaller-image-oct-8.jpg?w=150&h=150&crop=1}
+4 min read
+NASA, Energy Department Advance New Era of Nuclear-Powered Exploration
+article
+5 days ago
+[https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/bps/bps_investigations/wholemiBrainMicroglia_AVATAR_org1.jpg?w=1024}
+3 min read
+NASA’s SpaceX CRS-35 Mission to Launch Health Research
+article
+22 hours ago
+[https://www.nasa.gov/blogs/missions/2026/10/07/nasa-releases-artemis-ii-lunar-science-data-images/]
+{img https://images-assets.nasa.gov/image/art002e025880/art002e025880~large.jpg?w=1920&h=1280&fit=clip&crop=faces%2Cfocalpoint}
+2 min read
+NASA Releases Artemis II Lunar Science Data, Images
+article
+6 days ago
+Highlights
+[https://www.nasa.gov/es/la-nasa-anuncia-la-cobertura-de-la-mision-lunar-artemis-ii/]
+{img https://www.nasa.gov/wp-content/uploads/2026/03/a2crew-7ff19d.jpg?w=150&h=150&crop=1}
+11 min read
+La NASA anuncia la cobertura de la misión lunar Artemis II
+article
+7 months ago
+[https://www.nasa.gov/es/agenda-diaria-de-la-mision-a-la-luna-de-artemis-ii-de-la-nasa/]
+{img https://www.nasa.gov/wp-content/uploads/2026/03/suit-patch.jpg?w=150&h=150&crop=1}
+15 min read
+Agenda diaria de la misión a la Luna de Artemis II de la NASA
+article
+7 months ago
+[https://www.nasa.gov/humans-in-space/astronauts/la-nasa-refuerza-artemis-anade-una-mision-y-perfecciona-su-arquitectura-general/]
+{img https://images-assets.nasa.gov/image/iss074e0325229/iss074e0325229~large.jpg?w=1920&h=1280&fit=clip&crop=faces%2Cfocalpoint}
+6 min read
+La NASA refuerza Artemis: añade una misión y perfecciona su arquitectura general
+article
+7 months ago
+Earth Observatory
+[https://science.nasa.gov/earth] Earth
+[https://science.nasa.gov/earth/earth-observatory] Earth Observatory
+[https://science.nasa.gov/earth/earth-observatory/image-of-the-day/] Image of the Day
+[https://science.nasa.gov/earth/earth-observatory/explorer/] EO Explorer
+Topics
+[https://science.nasa.gov/earth/earth-observatory/topics/] All Topics
+[https://science.nasa.gov/earth/earth-observatory/topics/atmosphere/] Atmosphere
+[https://science.nasa.gov/earth/earth-observatory/topics/land/] Land
+[https://science.nasa.gov/earth/earth-observatory/topics/heat-radiation/] Heat & Radiation
+[https://science.nasa.gov/earth/earth-observatory/topics/life-on-earth/] Life on Earth
+[https://science.nasa.gov/earth/earth-observatory/topics/human-dimensions/] Human Dimensions
+[https://science.nasa.gov/earth/earth-observatory/topics/natural-events/] Natural Events
+[https://science.nasa.gov/earth/earth-observatory/topics/oceans/] Oceans
+[https://science.nasa.gov/earth/earth-observatory/topics/remote-sensing-technology/] Remote Sensing Technology
+[https://science.nasa.gov/earth/earth-observatory/topics/snow-and-ice/] Snow & Ice
+[https://science.nasa.gov/earth/earth-observatory/topics/water/] Water
+More Content
+[https://science.nasa.gov/earth/earth-observatory/collections/] Collections
+[https://science.nasa.gov/earth/earth-observatory/global-maps/] Global Maps
+[https://science.nasa.gov/earth/earth-observatory/world-of-change/] World of Change
+[https://science.nasa.gov/earth/earth-observatory/feature-articles/] Articles
+[https://science.nasa.gov/blogs/earth-matters/] Earth Matters Blog
+[https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/] Blue Marble: Next Generation
+[https://science.nasa.gov/kids/earth/eo-kids/] EO Kids
+[https://science.nasa.gov/kids/earth/mission-biomes/] Mission: Biomes
+About
+[https://science.nasa.gov/earth/earth-observatory/about-the-eo/] About Us
+[https://science.nasa.gov/earth/earth-observatory/subscribe] Subscribe
+[https://science.nasa.gov/earth/earth-observatory/subscribe/feeds/] 🛜 RSS
+[https://science.nasa.gov/earth/earth-observatory/contact-the-eo/] Contact Us
+[https://science.nasa.gov/earth/earth-observatory/search/] Search
+Blue Marble: Next Generation
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint}
+Blue Marble Maps
+[https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-map/] Base Map
+[https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-topography/] Base Map + Topography
+[https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-topography-bathymetry/] Base Map + Topography + Bathymetry
+[https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/topography-bathymetry-maps/] Topography and Bathymetry Maps
+Everyone knows that NASA studies space; fewer people know that NASA also studies Earth. Since the agency’s creation almost 50 years ago, NASA has been a world leader in space-based studies of our home planet. Our mission has always been to explore, to discover, and to understand the world in which we live from the unique vantage point of space, and to share our newly gained perspectives with the public. That spirit of sharing remains true today as NASA operates 18 of the most advanced Earth-observing satellites ever built, helping scientists make some of the most detailed observations ever made of our world.
+[https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/content-feature/bluemarble/images/BlueMarble_2005_SAm_09_4096.png?w=4096&h=4096&fit=clip&crop=faces%2Cfocalpoint] {img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/content-feature/bluemarble/images/BlueMarble_2005_SAm_09_4096.png?w=4096&h=4096&fit=clip&crop=faces%2Cfocalpoint}
+The Blue Marble: Next Generation is a series of images that show the color of the Earth’s surface for each month of 2004 at very high resolution (500 meters/pixel) at a global scale. This image shows South America from September 2004. (NASA image courtesy Reto Stöckli and Robert Simmon)
+In celebration of the deployment of its Earth Observing System, NASA is pleased to share the newest in its series of stunning Earth images, affectionately named the “Blue Marble.” This new Earth imagery enhances the Blue Marble legacy by providing a detailed look at an entire year in the life of our planet. In sharing these Blue Marble images, NASA hopes the public will join with the agency in its continuing exploration of our world from the unique perspective of space.
+To learn more about the development of NASA’s imagery of the Earth as a whole, read the [https://science.nasa.gov/earth/earth-observatory/history-of-the-blue-marble/] History of the Blue Marble.
+Enhancements
+Blue Marble: Next Generation offers greater spatial detail of the surface and spans a longer data collection period than the original. The original Blue Marble was a composite of four months of MODIS observations with a spatial resolution (level of detail) of 1 square kilometer per pixel. Blue Marble: Next Generation offers a year’s worth of monthly composites at a spatial resolution of 500 meters. These monthly images reveal seasonal changes to the land surface: the green-up and dying-back of vegetation in temperate regions such as North America and Europe, dry and wet seasons in the tropics, and advancing and retreating Northern Hemisphere snow cover. From a computer processing standpoint, the major improvement is the development of a new technique for allowing the computer to automatically recognize and remove cloud-contaminated or otherwise bad data—a process that was previously done manually.
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/content-feature/bluemarble/images/alps_01_lrg.jpg}
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/content-feature/bluemarble/images/alps_07_lrg.jpg}
+January 2004
+July 2004
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/content-feature/bluemarble/images/alps_01_lrg.jpg?w=1285&h=965&fit=clip&crop=faces%2Cfocalpoint}
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/content-feature/bluemarble/images/alps_07_lrg.jpg?w=1285&h=965&fit=clip&crop=faces%2Cfocalpoint}
+January 2004July 2004
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/content-feature/bluemarble/images/alps_01_lrg.jpg?w=1285&h=965&fit=clip&crop=faces%2Cfocalpoint}
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/content-feature/bluemarble/images/alps_07_lrg.jpg?w=1285&h=965&fit=clip&crop=faces%2Cfocalpoint}
+January 2004
+July 2004
+CurtainToggle2-Up
+Monthly imagery shows seasonable variability, like the change in Alpine snow-cover from January to July. (NASA images by Reto Stöckli)
+Blue Marble: Next Generation improves the techniques for turning satellite data into digital images. Among the key improvements is greater detail in areas that usually appear very dark to the satellite (because a large amount of sunlight is being absorbed), for example in dense tropical forests. The ability to create a digital image that provides great detail in darker regions without “washing out” brighter regions, like glaciers, snow-covered areas, and deserts is one of the great challenges of visualizing satellite data. The new version also improves image clarity, and gives highly reflective land surfaces, such as salt flats, a more realistic appearance.
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/content-feature/bluemarble/images/etosha_01_lrg.jpg}
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/content-feature/bluemarble/images/etosha_07_lrg.jpg}
+January 2004
+July 2004
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/content-feature/bluemarble/images/etosha_01_lrg.jpg?w=840&h=720&fit=clip&crop=faces%2Cfocalpoint}
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/content-feature/bluemarble/images/etosha_07_lrg.jpg?w=840&h=720&fit=clip&crop=faces%2Cfocalpoint}
+January 2004July 2004
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/content-feature/bluemarble/images/etosha_01_lrg.jpg?w=840&h=720&fit=clip&crop=faces%2Cfocalpoint}
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/content-feature/bluemarble/images/etosha_07_lrg.jpg?w=840&h=720&fit=clip&crop=faces%2Cfocalpoint}
+January 2004
+July 2004
+CurtainToggle2-Up
+Improvements to the data-processing algorithms resulted in relatively noise-free images with few artifacts. Dry salt flats, such as the Etosha Pan in Namibia, rendered as water in the original Blue Marble, but are now accurately colored. (NASA images by Reto Stöckli)
+Limitations
+Those who intend to use the Blue Marble: Next Generation in their own publications or projects should be aware of areas that still require improvement. Areas of open water still show some “noise.” In tropical lowlands, cloud cover during the rainy season can be so extensive that obtaining a cloud-free view of every pixel of the area for a given month may not be possible. Deep oceans are not included in the source data; the creator of the Blue Marble uses a uniform blue color for deep ocean regions, and this value has not been completely blended with observations of shallow water in coastal areas. The lack of blending may, in some cases, make the transition between shallow coastal water and deep ocean appear unnatural. Finally, the data do not completely distinguish between snow and cloud cover in areas with short-term snow cover (less than three or four months). This problem may be resolved in the future through the use of a more sophisticated snow mask.
+Download Blue Marble maps
+[https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-map/]
+Blue Marble: Next Generation, Base Map
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-base/january/world.200401.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint} [https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-topography/]
+Blue Marble: Next Generation with Topography
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography/january/world.topo.200401.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint} [https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-topography-bathymetry/]
+Blue Marble: Next Generation with Topography and Bathymetry
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/bmng-topography-bathymetry/january/world.topo.bathy.200401.3x5400x2700.jpg?w=5400&h=2700&fit=clip&crop=faces%2Cfocalpoint} [https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/topography-bathymetry-maps/]
+Blue Marble: Next Generation Topography and Bathymetry Maps
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/bmng/gebco_08_elev-bath_th.jpg?w=3600&h=1800&fit=clip&crop=faces%2Cfocalpoint}
+Animations
+[https://svs.gsfc.nasa.gov/3269/] Seasonal Landcover Change over Western Asia in 2004
+[https://svs.gsfc.nasa.gov/3270/] Seasonal Landcover Change over the Alps
+[https://svs.gsfc.nasa.gov/3271/] Seasonal Landcover Change over the Eastern United States
+[https://svs.gsfc.nasa.gov/3272/] Global Seasonal Landcover in 2004
+Interactive viewers
+[https://gigapan.com/gigapans/118858] GigaPan
+[https://worldwind.earth/explorer/] NASA World Wind
+Credits
+Blue Marble: Next Generation was produced by Reto Stöckli, NASA Earth Observatory (NASA Goddard Space Flight Center). See [https://assets.science.nasa.gov/content/dam/science/esd/eo/content-feature/bluemarble/bmng.pdf] The Blue Marble Next Generation—A true color Earth dataset including seasonal dynamics from MODIS (880 kB PDF) for acknowledgments. Anyone using or republishing Blue Marble: Next Generation please credit “NASA Earth Observatory.”
+References
+Justice C.O., 1 Townshend J.R.G., Vermote E. F., Masuoka E., Wolfe R.E., El Saleous N., Roy D.P. and Morisette. J.T. , 2002. An overview of MODIS Land data processing and product status. Remote Sensing of Environment, 83, 1-2, 3-15.
+Los, S.O., Collatz, G.J., Sellers, P.J., Malmström, C.M., Pollack, N.H., DeFries, R.S., Bounoua, L., Parris, M.T., Tucker, C.J., and Dazlich, D.A. (2000) A global 9-year biophysical land-surface data set from NOAA AVHRR data. J Hydrometeor., 1, 183-199.
+Sellers, P.J., Los, S.O., Tucker, C.J., Justice, C.O., Dazlich, D.A., Collatz, G.J., and Randall, D.A. (1996) A revised land surface parameterization (SiB-2) for atmospheric GCMs. Part 2: The generation of global fields of terrestrial biophysical parameters from satellite data. Journal of Climate, 9, 706-737.
+Stöckli, R, and Vidale, P.L. (2004) European plant phenology and climate as seen in a 20 year AVHRR land-surface parameter dataset. Internat. J. Remote Sens., 25 (17), 3303-3330.
+NASA Earth Observatory story by Reto Stöckli.
+Share
+[https://x.com/intent/tweet?via=NASA&text=Blue%20Marble%3A%20Next%20Generation&url=https%3A%2F%2Fscience.nasa.gov%2Fearth%2Fearth-observatory%2Fblue-marble-next-generation%2F]
+[https://www.facebook.com/sharer.php?u=https%3A%2F%2Fscience.nasa.gov%2Fearth%2Fearth-observatory%2Fblue-marble-next-generation%2F]
+[https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fscience.nasa.gov%2Fearth%2Fearth-observatory%2Fblue-marble-next-generation%2F]
+[/feed/]
+Details
+Last Updated
+Dec 19, 2025
+Related Terms
+[https://science.nasa.gov/earth/earth-observatory] Earth Observatory
+[https://science.nasa.gov/category/earth/earth-visualization-mapping/] Earth Visualization & Mapping
+[https://science.nasa.gov/category/technology/science-instruments/modis/] Moderate Resolution Imaging Spectroradiometer (MODIS)
+You might also be interested in
+[https://science.nasa.gov/earth/earth-observatory/arctic-sea-ice-shrinks-to-its-2026-minimum/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/arctic-sea-ice-shrinks-to-its-2026-minimum/arctic_nsidc_20260912_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300}
+[https://science.nasa.gov/earth/earth-observatory/arctic-sea-ice-shrinks-to-its-2026-minimum/]
+Arctic Sea Ice Shrinks to Its 2026 Minimum
+4 min read
+Satellite records show Arctic sea ice covering less of the ocean in both winter and summer.
+Article
+[https://science.nasa.gov/earth/earth-observatory/uncovering-the-valleys-hidden-below-greenlands-ice/]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/uncovering-the-valleys-hidden-below-greenland’s-ice/greenlandvalleynet_ifpa_2026_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300}
+[https://science.nasa.gov/earth/earth-observatory/uncovering-the-valleys-hidden-below-greenlands-ice/]
+Uncovering the Valleys Hidden Below Greenland’s Ice
+4 min read
+A new map of the terrain beneath the Greenland Ice Sheet links hundreds of valleys that previous maps missed or…
+Article
+[https://www.nasa.gov/earth/earth-visualization-mapping/building-foresight-for-earth-science-featuring-lindsey-jacobson/]
+{img https://www.nasa.gov/wp-content/uploads/2026/08/0202795orig.jpg}
+[https://www.nasa.gov/earth/earth-visualization-mapping/building-foresight-for-earth-science-featuring-lindsey-jacobson/]
+Building Foresight for Earth Science, featuring Lindsey Jacobson
+5 min read
+NASA’s Earth-observing satellite missions track dozens of features of a changing planet — aerosols, sea levels, land cover, cloud cover…
+Article
+1
+[#]
+2
+[#]
+3
+…
+[#]
+25
+[#] Next
+Keep Exploring
+Discover More From NASA Earth Science
+[https://science.nasa.gov/earth/earth-observatory/subscribe/]
+Subscribe to Earth Observatory Newsletters
+Subscribe to the Earth Observatory and get the Earth in your inbox.
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/about/NASA-EO-Logo-mediumBlue2016-stacked-mark.png?w=585&h=425&fit=clip&crop=faces%2Cfocalpoint}
+[https://science.nasa.gov/earth/earth-observatory/image-of-the-day/]
+Earth Observatory Image of the Day
+NASA's Earth Observatory brings you the Earth, every day, with in-depth stories and stunning imagery.
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/iotd-banner.jpg?w=2500&h=1407&fit=clip&crop=faces%2Cfocalpoint}
+[https://science.nasa.gov/earth/explore/]
+Explore Earth Science
+{img https://images-assets.nasa.gov/image/NHQ202212160009/NHQ202212160009~large.jpg?w=1920&h=1920&fit=clip&crop=faces%2Cfocalpoint}
+[https://science.nasa.gov/earth-science/earth-science-at-work/]
+Earth Science at Work
+NASA Earth Science helps Americans respond to challenges and societal needs — such as wildland fires, hurricanes, and water supplies…
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/earth-science-division/earth-science-to-action/cindyschmidt_lrg.jpg?w=1222&h=1094&fit=clip&crop=faces%2Cfocalpoint}
+{img https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png}
+National Aeronautics and Space Administration
+NASA explores the unknown in air and space, innovates for the benefit of humanity, and inspires the world through discovery.
+[https://www.nasa.gov/about/] About NASA's Mission
+[https://www.nasa.gov/get-involved/]
+Join Us
+[https://www.nasa.gov] Home
+[https://www.nasa.gov/news/] News & Events
+[https://www.nasa.gov/multimedia/] Multimedia
+[https://plus.nasa.gov/] NASA+
+[https://www.nasa.gov/nasa-missions/] Missions
+[https://www.nasa.gov/humans-in-space/] Humans in Space
+[https://science.nasa.gov/earth/] Earth
+[https://science.nasa.gov/solar-system/] The Solar System
+[https://science.nasa.gov/universe/] The Universe
+[https://science.nasa.gov/] Science
+[https://www.nasa.gov/aeronautics/] Aeronautics
+[https://www.nasa.gov/technology/] Technology
+[https://www.nasa.gov/learning-resources/] Learning Resources
+[https://www.nasa.gov/about/] About NASA
+[https://www.nasa.gov/es/] NASA en Español
+Follow NASA
+[https://www.facebook.com/NASA]
+[https://www.instagram.com/nasa/]
+[https://x.com/NASA]
+[https://www.youtube.com/@NASA]
+[https://www.nasa.gov/social-media/] More NASA Social Accounts
+[https://www.nasa.gov/nasa-newsletters/] NASA Newsletters
+[https://www.nasa.gov/sitemap/] Sitemap
+[https://www.nasa.gov/news/nasa-media-contacts/] For Media
+[https://www.nasa.gov/nasa-web-privacy-policy-and-important-notices/] Privacy Policy
+[https://www.nasa.gov/foia/] FOIA
+[https://www.nasa.gov/no-fear-act/] No FEAR Act
+[http://oig.nasa.gov/] Office of the IG
+[https://www.nasa.gov/budgets-plans-and-reports/] Budget & Annual Reports
+[https://www.nasa.gov/organizations/budget-annual-reports/agency-financial-reports/] Agency Financial Reports
+[https://www.nasa.gov/contact-nasa/] Contact NASA
+[https://www.nasa.gov/accessibility/] Accessibility
+Page Last Updated:
+Dec 19, 2025
+Page Editor:
+Kevin Ward
+Responsible NASA Official for Science:
+Dana Bolles
+Δ
+Did you find what you were looking for?(Required)
+Yes
+No
+Partly
+What were you looking for?(Required)
+What were you hoping to accomplish by visiting our website?(Required)
+Submit
+×
+
+####################################################################################################
+# NASA Images and Media Usage Guidelines (excerpt, lines 480 to 500 of the saved text)
+# Address: https://www.nasa.gov/nasa-brand-center/images-and-media/
+# Fetched: 2026-10-14 01:17 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The complete text is in data-src/textures/evidence/_shared/nasa_images_and_media.txt
+####################################################################################################
+The NASA Insignia, Logotype, identifiers, and imagery are not in the public domain. The use of the Insignia, Logotype and NASA identifiers is protected by law, and imagery is made available for use consistent with [https://www.nasa.gov/nasa-brand-center/images-and-media/] Media Usage Guidelines.
+NASA Images and Media Usage Guidelines
+NASA content – images, audio, video, and media files used in the rendition of 3-dimensional models, such as texture maps and polygon data in any format – generally are not subject to copyright in the United States. You may use this material for educational or informational purposes, including photo collections, textbooks, public exhibits, computer graphical simulations and Internet Web pages. This general permission extends to personal Web pages.
+News outlets, schools, and text-book authors may use NASA content without needing explicit permission, subject to compliance with these guidelines. NASA content used in a factual manner that does not imply endorsement may be used without needing explicit permission. NASA should be acknowledged as the source of the material. NASA occasionally uses copyright-protected material of third parties with permission on its website. Those images will be marked identified as copyright protected with the name of the copyright holder. NASA’s use does not convey any rights to others to use the same material. Those wishing to use copyright protected material of third parties must contact the copyright holder directly.
+NON-COMMERCIAL USE
+For educational or informational purposes
+NASA content – images, audio, video, related media and files used in the rendition of 3-dimensional models, such as texture maps and polygon data in any format – generally are not subject to copyright in the United States. You may use this material for educational or informational purposes, including photo collections, textbooks, public exhibits, computer graphical simulations and Internet Web pages. This general permission extends to personal Web pages.
+News outlets, schools, and text-book authors
+News outlets, schools, and text-book authors may use NASA content without needing explicit permission, subject to compliance with these guidelines. NASA content used in a factual manner that does not imply endorsement may be used without needing explicit permission. NASA should be acknowledged as the source of the material. NASA occasionally uses copyright-protected material of third parties with permission on its website. Those images will be marked identified as copyright protected with the name of the copyright holder. NASA’s use does not convey any rights to others to use the same material. Those wishing to use copyright protected material of third parties must contact the copyright holder directly.
+[https://www.nasa.gov/image-article/august-1-1971-second-apollo-15-moonwalk/] {img https://www.nasa.gov/wp-content/uploads/2023/03/a15pan11845-7.jpg?w=1041}
+This mini-panorama combines two photographs taken by Apollo 15 lunar module pilot Jim Irwin, from the Apollo Lunar Surface Experiments Package (ALSEP) site, at the end of the second Apollo 15 moonwalk on August 1, 1971. Mission commander David R. Scott is leaning to his right and is putting down the Apollo Lunar Surface drill.
+COMMERCIAL USE
+For use of NASA images clearances may be necessary for images that include any NASA logos or NASA employees to be used as cover art or in promotional content. Otherwise, NASA imagery can be generally used editorially within published works that are not promotional in nature.
+If the NASA material is to be used for commercial purposes, including advertisements, it must not explicitly or implicitly convey NASA’s endorsement of commercial goods or services.
+Commercials and promotional content cannot be filmed on NASA property.
+For commercial use of NASA’s images, intellectual property, emblems, or logos on merchandise or products refer to the [https://www.nasa.gov/nasa-brand-center/merchandise-approvals/] Merchandise Guidelines and Approvals page.
+Media including Identifiable Persons
+If a NASA image, audio, video or media includes an identifiable person, using the media for commercial purposes may infringe that person’s right of privacy or publicity, and permission should be obtained from the person.
+Astronauts or employees who are currently employed by NASA cannot have their names, likenesses or other personality traits displayed or position title used on any commercial products, advertisements, promotional material or commercial product packaging.
+For guidance on commercial use on merchandise please refer to NASA’s Merchandise Guidelines.
+For more information on using NASA content for commercial purposes, please read NASA Advertising Guidelines and Merchandise Guidelines. Any questions regarding use of NASA content, or any NASA emblems, should be directed to nasa-merchandise-&-brand-team@mail.nasa.gov in NASA’s Office of Communications at NASA Headquarters in Washington.

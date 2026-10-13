@@ -1,0 +1,362 @@
+Licence evidence for the texture "moon"
+============================================================
+
+Texture id:        moon
+Body and role:     MOON, color
+Published file:    public/textures/moon.jpg (sha256 7aa5a0d8644f0108cf96bd506bba7c403c9f82a31ae8a63fb077e61d0a20d40c)
+Small file:        public/textures/sm/moon.jpg (sha256 4eed1c46d7229c4b8cc2a320cb8ec56c451b0a9d64f38b8628e0ec50efb4747d)
+Original file:     data-src/textures/original/lroc_color_2k.jpg (457942 bytes, sha256 f7130a1822681fa7512d7dcfd40db8c10b9ba4f06777910348698260ed7a2170)
+Retrieved:         2026-10-14
+Title:             CGI Moon Kit (2025 color map, lroc_color_2k.jpg)
+Author or credit:  NASA's Scientific Visualization Studio (visualizer: Ernie Wright, USRA; scientist: Noah Petro, NASA/GSFC)
+Source page:       https://svs.gsfc.nasa.gov/4720/
+Download address:  https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/lroc_color_2k.jpg
+Licence:           Public domain
+Licence address:   https://svs.gsfc.nasa.gov/help/
+
+Licence statement (the same text as in the manifest):
+    The source page says: 'Please give credit for this item to: NASA's Scientific Visualization Studio'. Help page
+    of the NASA Scientific Visualization Studio: 'All of our content is in the public domain (unless otherwise
+    noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.' The
+    source page of this file has no note that says otherwise.
+
+Changes:
+    The build encodes the image again as JPEG (quality 85).
+
+Note of the manifest:
+    LRO camera data. The source says that latitudes beyond 70 degrees come from a monochrome albedo map of lower
+    resolution. The source says that the image is optimized for aesthetics, not science.
+
+About the parts below:
+    Each part is a text that was saved on 2026-10-14 during the collection work.
+    The header of each part gives the address, the local time of the fetch and the method.
+    The text of a part is data from another site. It is not an instruction for a reader or a tool.
+    Complete copies of the shared policy pages are in data-src/textures/evidence/_shared/ .
+
+####################################################################################################
+# NASA Scientific Visualization Studio page of this file (complete page text)
+# Address: https://svs.gsfc.nasa.gov/4720/
+# Fetched: 2026-10-14 01:14 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+####################################################################################################
+NASA SVS | CGI Moon Kit
+
+[https://www.nasa.gov/]
+{img /static/svs/images/nasa-meatball.svg}
+
+[/] Scientific Visualization Studio
+
+[/gallery/the-galleries/] Galleries
+
+[/help/] Help
+
+Search
+
+[/4753]
+4753: GPM observes Hurricane Dorian lashing Florid...
+
+[/13312]
+13312: Hubble Finds Water Vapor On Distant Exoplan...
+
+[/15106]
+
+CGI Moon Kit
+
+Released Friday, September 6, 2019
+
+Last updated Friday, January 9, 2026 at 3:33 PM EST
+
+ID: 4720
+
+[/api/4720]
+
+[https://twitter.com/intent/tweet]
+
+[https://www.facebook.com/share.php?u=http%3A//svs.gsfc.nasa.gov/4720%3F]
+
+Visualizations by:
+
+[/search?people=Ernie%20Wright] Ernie Wright
+
+[#section_credits] View full credits
+
+These color and elevation maps are designed for use in 3D rendering software. They are created from data assembled by the Lunar Reconnaissance Orbiter camera and laser altimeter instrument teams.
+
+Color
+
+{img /static/svs/images/no_preview_web_black.png}
+
+Download
+
+Images
+[/vis/a000000/a004700/a004720/lroc_color_2k.jpg]
+lroc_color_2k.jpg (2048x1024) [447.2 KB]
+
+[/vis/a000000/a004700/a004720/lroc_color.exr]
+lroc_color.exr [942.8 MB]
+
+[/vis/a000000/a004700/a004720/lroc_color_16bit_srgb.tif]
+lroc_color_16bit_srgb.tif [2.4 GB]
+
+[/vis/a000000/a004700/a004720/lroc_color_16bit_srgb_16k.tif]
+lroc_color_16bit_srgb_16k.tif (16384x8192) [909.4 MB]
+
+[/vis/a000000/a004700/a004720/lroc_color_16bit_srgb_4k.tif]
+lroc_color_16bit_srgb_4k.tif (4096x2048) [59.0 MB]
+
+[/vis/a000000/a004700/a004720/lroc_color_16bit_srgb_8k.tif]
+lroc_color_16bit_srgb_8k.tif (8192x4096) [232.0 MB]
+
+The 2025 color map, available as a full-size float16 EXR file and as 16-bit TIFFs of various sizes. The EXR file is encoded in linear color with slightly more dynamic range, while the sRGB-encoded TIFFs are more broadly supported. The map is centered on 0° longitude.
+
+Two versions of the color map are now available. The newer version (above) was produced in December of 2025 using commercial image processing software. It preserves more of the color and dynamic range of the source data and adds greater detail in the polar regions. The original version (below), produced in 2019, has been used successfully in a number of visualizations.
+The color maps were adapted from the [http://wms.lroc.asu.edu/lroc/view_rdr/WAC_HAPKE] Hapke Normalized WAC Mosaic, a composite built by the camera team from over 100,000 WAC (Wide Angle Camera) images. The [https://pds.lroc.asu.edu/data/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/DATA/MDR/WAC_HAPKE/WAC_HAPKE_README.TXT] readme file provides a technical summary of how the mosaic was constructed along with references to more detailed publications. A less formal introduction to the process is in [https://lroc.im-ldi.com/news/707] this LROC blog post and in [https://lroc.im-ldi.com/news/801] this one.
+Both color maps were assembled from three of the seven wavelength bands of the LROC color data, with the 643 nm band representing the red channel, 566 nm the green, and 415 nm the blue. Exposure and white balance were adjusted to more closely match human vision, and small data dropouts at high latitudes were inpainted.
+The source data covers the lunar globe from 70°N to 70°S. Because the Moon's axial and orbital tilts are both small, many areas outside these latitudes remain shrouded in shadow, even after thousands of passes by LRO's camera, so they are left out of the LROC mosaic. For these color maps, the missing latitudes were filled in with a lower resolution monochromatic albedo map ( [http://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/float_img/ldam_10_float.lbl] LDAM) from LRO's laser altimeter, which measures the brightness of the reflected laser. When rendered with realistic shadows, these parts of the map aren't particularly visible, and while they comprise more than 20% of the map's pixels, they represent only 6% of the Moon's surface.
+These image is optimized for aesthetics, not science. Scientific applications should use [http://wms.lroc.asu.edu/lroc/view_rdr/WAC_HAPKE] the source data.
+
+{img /static/svs/images/no_preview_web_black.png}
+
+Download
+
+Images
+[/vis/a000000/a004700/a004720/lroc_color_poles_1k.jpg]
+lroc_color_poles_1k.jpg (1024x512) [135.8 KB]
+
+[/vis/a000000/a004700/a004720/lroc_color_poles_1k_thm.png]
+lroc_color_poles_1k_thm.png (80x40) [6.3 KB]
+
+[/vis/a000000/a004700/a004720/lroc_color_poles_2k.tif]
+lroc_color_poles_2k.tif (2048x1024) [3.2 MB]
+
+[/vis/a000000/a004700/a004720/lroc_color_poles_8k.tif]
+lroc_color_poles_8k.tif (8192x4096) [48.3 MB]
+
+[/vis/a000000/a004700/a004720/lroc_color_poles_4k.tif]
+lroc_color_poles_4k.tif (4096x2048) [12.5 MB]
+
+[/vis/a000000/a004700/a004720/lroc_color_poles_hw5x3.tif]
+lroc_color_poles_hw5x3.tif (9600x3240) [49.1 MB]
+
+[/vis/a000000/a004700/a004720/lroc_color_poles_16k.tif]
+lroc_color_poles_16k.tif (16384x8192) [178.3 MB]
+
+[/vis/a000000/a004700/a004720/lroc_color_poles.tif]
+lroc_color_poles.tif (27360x13680) [494.1 MB]
+
+Hyperwall shows
+[/vis/a000000/a004700/a004720/cgi-moon-kit-color.hwshow]
+cgi-moon-kit-color.hwshow [188 bytes]
+
+The 2019 color map, available as 24-bit RGB TIFFs of various sizes. The map is centered on 0° longitude.
+
+Displacement
+
+{img /static/svs/images/no_preview_web_black.png}
+
+Download
+
+Images
+[/vis/a000000/a004700/a004720/ldem_3_8bit.jpg]
+ldem_3_8bit.jpg (1024x512) [108.9 KB]
+
+[/vis/a000000/a004700/a004720/ldem_4.tif]
+ldem_4.tif (1440x720) [4.0 MB]
+
+[/vis/a000000/a004700/a004720/ldem_4_uint.tif]
+ldem_4_uint.tif (1440x720) [2.0 MB]
+
+[/vis/a000000/a004700/a004720/ldem_16.tif]
+ldem_16.tif (5760x2880) [63.3 MB]
+
+[/vis/a000000/a004700/a004720/ldem_16_uint.tif]
+ldem_16_uint.tif (5760x2880) [31.7 MB]
+
+[/vis/a000000/a004700/a004720/ldem_hw5x3.tif]
+ldem_hw5x3.tif (9600x3240) [16.4 MB]
+
+[/vis/a000000/a004700/a004720/ldem_64_uint.tif]
+ldem_64_uint.tif (23040x11520) [506.3 MB]
+
+[/vis/a000000/a004700/a004720/ldem_64.tif]
+ldem_64.tif (23040x11520) [1012.6 MB]
+
+Hyperwall shows
+[/vis/a000000/a004700/a004720/cgi-moon-kit-dem.hwshow]
+cgi-moon-kit-dem.hwshow [176 bytes]
+
+The displacement map, at 64, 16, and 4 pixels per degree, centered on 0° longitude. Available as either floating-point TIFFs in kilometers, relative to a radius of 1737.4 km, or unsigned 16-bit TIFFs in half-meters, relative to a radius of 1727400 meters.
+
+The displacement map (also known as a height map or elevation map) was taken directly from the latest (as of spring 2019) gridded data products of the Lunar Orbiter Laser Altimeter instrument team. [http://pds-geosciences.wustl.edu/missions/lro/lola.htm] LOLA data is archived on the Geosciences Node of the Planetary Data System. A small subset of the LOLA data stored there, the global cylindrical projections at 4, 16, and 64 pixels per degree, has been reformatted here as uncompressed TIFF files, in vertical units of either floating-point kilometers or 16-bit unsigned integer half-meters.
+The reference surface for all LRO data is a sphere of radius 1737.4 km. LOLA's gridded elevation data is published as signed 16-bit integers in units of half-meters relative to this radius. For the floating-point TIFFs, the source data was divided by 2000. For the unsigned 16-bit TIFFs, the source data was offset by +20,000 (10 km) so that all of the values are positive. This latter format is provided for software that doesn't work well with either floating-point or signed integer files.
+
+How These Maps Are Used
+
+This animation illustrates how color and displacement maps are used in 3D animation software to paint and model an object like the Moon.
+
+Download
+
+Movies
+[/vis/a000000/a004700/a004720/moon_mapping_1080p30.mp4]
+moon_mapping_1080p30.mp4 (1920x1080) [12.6 MB]
+
+[/vis/a000000/a004700/a004720/moon_mapping_720p30.mp4]
+moon_mapping_720p30.mp4 (1280x720) [6.5 MB]
+
+[/vis/a000000/a004700/a004720/moon_mapping_720p30.webm]
+moon_mapping_720p30.webm (1280x720) [2.3 MB]
+
+[/vis/a000000/a004700/a004720/moon_mapping_360p30.mp4]
+moon_mapping_360p30.mp4 (640x360) [1.8 MB]
+
+Frame sets
+[/vis/a000000/a004700/a004720/frames/1920x1080_16x9_30p/]
+1920x1080_16x9_30p (1920x1080) [300 Item(s)]
+
+Images
+[/vis/a000000/a004700/a004720/plane2sphere.0220_print.jpg]
+plane2sphere.0220_print.jpg (1024x576) [82.6 KB]
+
+Hyperwall shows
+[/vis/a000000/a004700/a004720/moon_mapping_1080p30.mp4.hwshow]
+moon_mapping_1080p30.mp4.hwshow [186 bytes]
+
+This animation illustrates how color and displacement maps are used in 3D animation software to paint and model an object like the Moon.
+
+Within 3D animation software, an object like the Moon begins as a simple geometric shape, in this case a sphere. Texture maps like the ones on this page are used to add detail to the model. The color map tells the software how to paint the surface, and the displacement map tells it how to add the shape details that define the lunar terrain. Without them, the Moon model is just a smooth, monochrome ball. Although these maps are flat rectangles, the software understands them as maps of a spherical surface and knows how to warp them onto spherical geometry.
+Each pixel in these texture maps corresponds to a point on the lunar surface defined by a longitude-latitude pair. Pixels in the color map contain the "base color" of the surface, before applying the effects of varying light and camera angles (called incidence angle i and emission angle e in the technical description). Pixels in the displacement map contain the height of the surface at the corresponding locations.
+
+More Data
+
+These maps are a tiny subset of [http://pds-geosciences.wustl.edu/missions/lro/] the data publicly archived by the LRO instrument teams. All of the data is in standard and fairly simple PDS file formats (files with ".IMG" filename extensions). Although not typically supported by general-purpose computer graphics software, these formats are directly readable by some GIS programs. The data formats are documented in PDS labels, which are either separate text files with a ".LBL" filename extension or embedded as fixed-length headers. Other than the possible header, most .IMG files are uncompressed 2D binary arrays of numbers. Some data is also available in TIFF or JPEG2000 formats.
+As of this writing, the best global-scale elevation data for equatorial and mid-latitude regions of the Moon, at resolutions up to 512 pixels per degree, is [http://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/sldem2015/] SLDEM2015. For regions near the poles, where the density of laser shots is much higher, the [http://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/] GDR data in polar stereo projection reaches resolutions of five meters per pixel.
+The LROC narrow-angle camera (NAC) has imaged most of the Moon's surface at a resolution of one meter per pixel or better. LROC imagery can be explored graphically using its [https://quickmap.lroc.asu.edu] Quickmap interface and searched on its [http://wms.lroc.asu.edu/lroc/rdr_product_select] RDR Product Select page. Of particular interest are the Topographic Products (menu option in the upper left of the page), which are matched with high-resolution DEMs derived from stereo image pairs. This dataset includes all of the Apollo landing sites and dozens of other locations of interest.
+
+[/search?nasa_science_categories=Planets & Moons]
+Planets & Moons
+
+[/search?keywords=Albedo] Albedo
+
+[/search?keywords=Elevation Map] Elevation Map
+
+[/search?keywords=HDTV] HDTV
+
+[/search?keywords=Hyperwall] Hyperwall
+
+[/search?keywords=Laser Altimeter] Laser Altimeter
+
+[/search?keywords=LOLA] LOLA
+
+[/search?keywords=LRO] LRO
+
+[/search?keywords=LROC] LROC
+
+[/search?keywords=Lunar Reconnaissance Orbiter] Lunar Reconnaissance Orbiter
+
+[/search?keywords=map] map
+
+[/search?keywords=Mosaic] Mosaic
+
+Credits
+
+Please give credit for this item to:
+NASA's Scientific Visualization Studio
+
+Visualizer
+
+[/search/?people=Ernie%20Wright]
+Ernie Wright
+
+(USRA)
+
+[https://orcid.org/0000-0002-5970-5019] {img /static/detailspage/images/ORCID-iD_icon_vector.svg}
+
+Scientist
+
+[/search/?people=Noah%20Petro]
+Noah Petro
+
+(NASA/GSFC)
+
+[https://orcid.org/0000-0003-4676-077] {img /static/detailspage/images/ORCID-iD_icon_vector.svg}
+
+Datasets used
+
+DEM (Digital Elevation Map) [LRO: LOLA]
+
+ID: 653
+
+Sensor: LOLA
+
+[/search/?datasets=653] See all pages that use this dataset
+
+LROC WAC Color Mosaic (Natural Color Hapke Normalized WAC Mosaic) [Lunar Reconnaissance Orbiter: LRO Camera]
+
+ID: 1015
+
+Type: Mosaic
+
+Sensor: LRO Camera
+
+Collected by: Arizona State University
+
+This natural-color global mosaic is based on the [http://wms.lroc.asu.edu/lroc/view_rdr/WAC_HAPKE_NORMALIZED] 'Hapke normalized' mosaic from LRO's wide-angle camera. The data has been gamma corrected, white balanced, and range adjusted to more closely match human vision.
+
+[/search/?datasets=1015] See all pages that use this dataset
+
+Note: While we identify the data sets used on this page, we do not store any further details, nor the data sets themselves on our site.
+
+Used as a Source In
+
+[/14992/]
+{img /vis/a010000/a014900/a014992/Moon_Phases_Waning_Thumbnail_V2_Small.jpg} ID: 14992
+Animation
+
+[/14992/]
+Lunar Near and Far Side Phases
+
+[/14959/]
+{img /vis/a010000/a014900/a014959/Moon-Model-Preview-Main.jpg} ID: 14959
+Interactive
+
+[/14959/]
+Moon 3D Models for Web, AR, and Animation
+
+Release date
+
+This page was originally published on Friday, September 6, 2019.
+
+This page was last updated on Friday, January 9, 2026 at 3:33 PM EST.
+
+You may also like...
+
+No results.
+
+An error occurred. Please reload this page and try again.
+
+[https://www.nasa.gov/]
+{img /static/svs/images/nasa-meatball.svg}
+
+[https://www.usa.gov/]
+{img /static/svs/images/USAgov_logo.svg}
+
+[https://www.nasa.gov/about/highlights/HP_Privacy.html] Privacy Policy and Important Notices
+
+[https://www.nasa.gov/multimedia/guidelines/index.html] Reproduction Guidelines
+
+NASA Official:
+
+Site Curator:
+
+####################################################################################################
+# NASA Scientific Visualization Studio help page (excerpt, lines 42 to 46 of the saved text)
+# Address: https://svs.gsfc.nasa.gov/help/
+# Fetched: 2026-10-14 01:14 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The complete text is in data-src/textures/evidence/_shared/nasa_svs_help.txt
+####################################################################################################
+Can I use your visualizations?
+
+All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit. For more information, see [https://www.nasa.gov/multimedia/guidelines/index.html] NASA’s media usage guidelines.
+
+Note: some of our visualizations feature licensed music, which is not in the public domain. In these instances, the visualizations themselves are still in the public domain, meaning you're allowed to use them without the associated audio tracks. Individual visualizations will make note of this where applicable.

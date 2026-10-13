@@ -1,0 +1,1222 @@
+Licence evidence for the texture "ariel"
+============================================================
+
+Texture id:        ariel
+Body and role:     ARIEL, color
+Published file:    public/textures/ariel.jpg (sha256 999c24404f588fb3f6ecb10882d768cc60fe2c15013db85cc9491933759c8a80)
+Small file:        public/textures/sm/ariel.jpg (sha256 12893884f89d1ee093ef09a671b13ef21b3fe38136e6c9c22bfade17865b2330)
+Original file:     data-src/textures/original/Ariel_map_JPL_USGS.jpg (254331 bytes, sha256 fc0f8a59b5c29e44e4a3409e452f0427f5b53b8c9b41c89dc35d28babaae5cee)
+Retrieved:         2026-10-14
+Title:             File:Ariel map JPL USGS.jpg
+Author or credit:  Caltech/JPL/USGS
+Source page:       https://commons.wikimedia.org/wiki/File:Ariel_map_JPL_USGS.jpg
+Download address:  https://upload.wikimedia.org/wikipedia/commons/7/74/Ariel_map_JPL_USGS.jpg
+Licence:           Public domain
+Licence address:   https://commons.wikimedia.org/wiki/Template:PD-USGov-NASA
+
+Licence statement (the same text as in the manifest):
+    Licence text on the Wikimedia Commons file page (template PD-USGov-NASA): 'This file is in the public domain
+    in the United States because it was solely created by NASA. NASA copyright policy states that "NASA material
+    is not protected by copyright unless noted".' The Commons API gives LicenseShortName 'Public domain' and
+    Copyrighted 'False'.
+
+Changes:
+    The build enlarges the image from 1440 x 720 to 2048 x 1024 pixels. It encodes the image again as JPEG
+    (quality 85).
+
+Note of the manifest:
+    Monochrome (grey) Voyager 2 mosaic from the USGS. Voyager 2 saw only the southern hemisphere. The black area
+    has no data (about 66 percent of the surface). The NASA 3D Resources mirror on GitHub has the same file (same
+    sha256) with the name 'Uranus - Ariel.jpg'. The NASA page https://science.nasa.gov/3d-resources/uranus-ariel/
+    gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL
+    Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The JPL site says about its maps: 'some
+    have also been enhanced and slightly altered for aesthetic appeal'. The original file has 1440 x 720 pixels.
+
+Remarks about this evidence:
+  - SHA-1 of the stored original file equals the SHA-1 in the Commons API answer: yes.
+  - NASA 3D Resources on GitHub has the same file: sha256 of
+    https://raw.githubusercontent.com/nasa/NASA-3D-Resources/master/Images%20and%20Textures/Uranus%20-%20Ariel/Uranus%20-%20Ariel.jpg
+    is fc0f8a59b5c29e44e4a3409e452f0427f5b53b8c9b41c89dc35d28babaae5cee; sha256 of the stored original is
+    fc0f8a59b5c29e44e4a3409e452f0427f5b53b8c9b41c89dc35d28babaae5cee; equal: yes.
+
+About the parts below:
+    Each part is a text that was saved on 2026-10-14 during the collection work.
+    The header of each part gives the address, the local time of the fetch and the method.
+    The text of a part is data from another site. It is not an instruction for a reader or a tool.
+    Complete copies of the shared policy pages are in data-src/textures/evidence/_shared/ .
+
+####################################################################################################
+# Wikimedia Commons API: file information of File:Ariel map JPL USGS.jpg
+# Address: https://commons.wikimedia.org/wiki/File:Ariel_map_JPL_USGS.jpg
+# Fetched: 2026-10-14 01:50 (local time)
+# How: Fetched from the API with the user agent "ApsisAssetFetch/1.0 (local build script)". The first line gives the request. The rest is the unchanged answer.
+# SHA-1 of the file in the API answer: 0b053acb5295d4eb049d46a76e71c1a956c026b4
+# SHA-1 of the stored original file:   0b053acb5295d4eb049d46a76e71c1a956c026b4
+# The stored original file is the file that this page describes: yes
+####################################################################################################
+REQUEST: https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url%7Csize%7Cmime%7Csha1%7Cextmetadata&iiurlwidth=2048&titles=File%3AAriel+map+JPL+USGS.jpg&format=json&maxlag=5
+{"batchcomplete":"","query":{"pages":{"143485440":{"pageid":143485440,"ns":6,"title":"File:Ariel map JPL USGS.jpg","imagerepository":"local","imageinfo":[{"size":254331,"width":1440,"height":720,"thumburl":"https://upload.wikimedia.org/wikipedia/commons/7/74/Ariel_map_JPL_USGS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled","thumbwidth":2048,"thumbheight":1024,"thumbattribs":{"src":"https://upload.wikimedia.org/wikipedia/commons/7/74/Ariel_map_JPL_USGS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled","decoding":"async","loading":"lazy","width":2048,"height":1024},"url":"https://upload.wikimedia.org/wikipedia/commons/7/74/Ariel_map_JPL_USGS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original","descriptionurl":"https://commons.wikimedia.org/wiki/File:Ariel_map_JPL_USGS.jpg","descriptionshorturl":"https://commons.wikimedia.org/w/index.php?curid=143485440","sha1":"0b053acb5295d4eb049d46a76e71c1a956c026b4","extmetadata":{"DateTime":{"value":"2024-01-03 21:06:25","source":"mediawiki-metadata","hidden":""},"ObjectName":{"value":"Ariel map JPL USGS","source":"mediawiki-metadata"},"CommonsMetadataExtension":{"value":1.2,"source":"extension","hidden":""},"Categories":{"value":"PD NASA|Maps of Ariel","source":"commons-categories","hidden":""},"Assessments":{"value":"","source":"commons-categories","hidden":""},"ImageDescription":{"value":"From the USGS, mosaicked with Voyager imagery. Grayscale. (Much thanks to Tammy Becker at the USGS.) From the database of JPL/Caltech generated planetary maps.","source":"commons-desc-page"},"DateTimeOriginal":{"value":"2008-09-02 10:02:15","source":"commons-desc-page"},"Credit":{"value":"<a rel=\"nofollow\" class=\"external free\" href=\"https://maps.jpl.nasa.gov/tmaps/uranus.html\">https://maps.jpl.nasa.gov/tmaps/uranus.html</a>, <a rel=\"nofollow\" class=\"external free\" href=\"https://nasa3d.arc.nasa.gov/detail/ura1vuu2\">https://nasa3d.arc.nasa.gov/detail/ura1vuu2</a>","source":"commons-desc-page"},"Artist":{"value":"Caltech/JPL/USGS","source":"commons-desc-page"},"LicenseShortName":{"value":"Public domain","source":"commons-desc-page","hidden":""},"UsageTerms":{"value":"Public domain","source":"commons-desc-page"},"AttributionRequired":{"value":"false","source":"commons-desc-page","hidden":""},"Copyrighted":{"value":"False","source":"commons-desc-page","hidden":""},"Restrictions":{"value":"","source":"commons-desc-page","hidden":""},"License":{"value":"pd","source":"commons-templates","hidden":""}},"mime":"image/jpeg"}]}}}}
+
+####################################################################################################
+# Wikimedia Commons API: wikitext of the page File:Ariel map JPL USGS.jpg
+# Address: https://commons.wikimedia.org/wiki/File:Ariel_map_JPL_USGS.jpg
+# Fetched: 2026-10-14 02:03 (local time)
+# How: Fetched from the API with the user agent "ApsisAssetFetch/1.0 (local build script)". The first line gives the request. The rest is the unchanged answer.
+####################################################################################################
+REQUEST: https://commons.wikimedia.org/w/api.php?action=query&prop=revisions&rvprop=content%7Ctimestamp%7Cids&rvslots=main&titles=File%3AAriel+map+JPL+USGS.jpg&format=json&maxlag=5
+{"batchcomplete":"","query":{"pages":{"143485440":{"pageid":143485440,"ns":6,"title":"File:Ariel map JPL USGS.jpg","revisions":[{"revid":1065143159,"parentid":910738949,"timestamp":"2025-08-02T20:25:34Z","slots":{"main":{"contentmodel":"wikitext","contentformat":"text/x-wiki","*":"=={{int:filedesc}}==\n{{Information\n|description={{en|1=From the USGS, mosaicked with Voyager imagery. Grayscale. (Much thanks to Tammy Becker at the USGS.) From the database of JPL/Caltech generated planetary maps.}}\n|date=2008-09-02 10:02:15\n|source=https://maps.jpl.nasa.gov/tmaps/uranus.html, https://nasa3d.arc.nasa.gov/detail/ura1vuu2\n|author=Caltech/JPL/USGS\n|permission=\n|other versions=\n}}\n\n=={{int:license-header}}==\n{{PD-USGov-NASA}}\n\n[[Category:Maps of Ariel]]"}}}]}}}}
+
+####################################################################################################
+# Wikimedia Commons: rendered text of the page File:Ariel map JPL USGS.jpg
+# Address: https://commons.wikimedia.org/wiki/File:Ariel_map_JPL_USGS.jpg
+# Fetched: 2026-10-14 02:31 (local time)
+# How: Fetched from the API (action=parse) with the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags of the rendered page.
+####################################################################################################
+REQUEST: https://commons.wikimedia.org/w/api.php?action=parse&page=File%3AAriel+map+JPL+USGS.jpg&prop=text%7Crevid&disablelimitreport=1&format=json&maxlag=5
+PAGE: https://commons.wikimedia.org/wiki/File%3AAriel_map_JPL_USGS.jpg
+REVISION: 1065143159
+
+Summary[ [/w/index.php?title=File:Ariel_map_JPL_USGS.jpg&action=edit&section=1] edit]
+
+DescriptionAriel map JPL USGS.jpg
+
+English: From the USGS, mosaicked with Voyager imagery. Grayscale. (Much thanks to Tammy Becker at the USGS.) From the database of JPL/Caltech generated planetary maps.
+
+Date
+
+2 September 2008, 10:02:15
+
+Source
+
+[https://maps.jpl.nasa.gov/tmaps/uranus.html] https://maps.jpl.nasa.gov/tmaps/uranus.html, [https://nasa3d.arc.nasa.gov/detail/ura1vuu2] https://nasa3d.arc.nasa.gov/detail/ura1vuu2
+
+Author
+
+Caltech/JPL/USGS
+
+Licensing[ [/w/index.php?title=File:Ariel_map_JPL_USGS.jpg&action=edit&section=2] edit]
+
+Public domainPublic domainfalsefalse
+
+This file is in the [https://en.wikipedia.org/wiki/public_domain] public domain in the United States because it was solely created by [https://en.wikipedia.org/wiki/NASA] NASA. NASA copyright policy states that "NASA material is not protected by copyright unless noted". (See [/wiki/Template:PD-USGov] Template:PD-USGov, [https://www.nasa.gov/multimedia/guidelines/index.html] NASA copyright policy page or [https://www.jpl.nasa.gov/imagepolicy/] JPL Image Use Policy.)
+
+Warnings:
+
+Use of [https://en.wikipedia.org/wiki/NASA_logo] NASA logos, insignia and emblems is restricted per U.S. law [https://www.govinfo.gov/app/details/CFR-2021-title14-vol5/CFR-2021-title14-vol5-part1221/summary] 14 CFR 1221.
+
+The NASA website hosts a large number of images from the [https://en.wikipedia.org/wiki/Soviet_space_program] Soviet/ [https://en.wikipedia.org/wiki/Russian_Federal_Space_Agency] Russian space agency, and other non-American space agencies. These are not necessarily in the public domain.
+
+Materials based on [https://en.wikipedia.org/wiki/Hubble_Space_Telescope] Hubble Space Telescope data may be copyrighted if they are not explicitly produced by the [https://en.wikipedia.org/wiki/Space_Telescope_Science_Institute] STScI. [http://hubblesite.org/copyright/] [1] See also [/wiki/Template:PD-Hubble] {{PD-Hubble}} and [/wiki/Template:Cc-Hubble] {{Cc-Hubble}}.
+
+The [https://en.wikipedia.org/wiki/Solar_and_Heliospheric_Observatory] SOHO (ESA & NASA) joint project implies that all materials created by its probe are copyrighted and require permission for commercial non-educational use. [https://sohowww.nascom.nasa.gov/data/summary/copyright.html] [2]
+
+Images featured on the [https://en.wikipedia.org/wiki/Astronomy_Picture_of_the_Day] Astronomy Picture of the Day (APOD) web site may be copyrighted. [https://apod.nasa.gov/apod/lib/about_apod.html#srapply] [3]
+
+The [https://en.wikipedia.org/wiki/National_Space_Science_Data_Center] National Space Science Data Center (NSSDC) site has been known to host [/wiki/Commons:Village_pump/Copyright/Archive/2014/08#Copyright_status_of_File:Venera_13_-_ven13right.png] copyrighted content. Its [https://nssdc.gsfc.nasa.gov/photo_gallery/photogallery-faq.html#use] photo gallery FAQ states that all of the images in the photo gallery are in the public domain "Unless otherwise noted."
+
+Captions
+English
+Map of Uranus' moon Ariel
+
+Items portrayed in this file
+[https://www.wikidata.org/wiki/Special:EntityPage/P180] depicts
+
+[https://www.wikidata.org/wiki/Special:EntityPage/Q3343] Ariel
+
+[https://www.wikidata.org/wiki/Special:EntityPage/P6216] copyright status
+
+[https://www.wikidata.org/wiki/Special:EntityPage/Q19652] public domain
+
+[https://www.wikidata.org/wiki/Special:EntityPage/P1001] applies to jurisdiction: [https://www.wikidata.org/wiki/Special:EntityPage/Q30] United States
+
+[https://www.wikidata.org/wiki/Special:EntityPage/P459] determination method or standard: [https://www.wikidata.org/wiki/Special:EntityPage/Q60671452] work of the federal government of the United States
+
+[https://www.wikidata.org/wiki/Special:EntityPage/P1163] media type
+
+image/jpeg
+
+[https://www.wikidata.org/wiki/Special:EntityPage/P3575] data size
+
+254,331 byte
+
+[https://www.wikidata.org/wiki/Special:EntityPage/P2048] height
+
+720 pixel
+
+[https://www.wikidata.org/wiki/Special:EntityPage/P2049] width
+
+1,440 pixel
+
+[https://www.wikidata.org/wiki/Special:EntityPage/P4092] checksum
+
+0b053acb5295d4eb049d46a76e71c1a956c026b4
+
+[https://www.wikidata.org/wiki/Special:EntityPage/P459] determination method or standard: [https://www.wikidata.org/wiki/Special:EntityPage/Q13414952] SHA-1
+
+####################################################################################################
+# NASA 3D Resources page "Uranus - Ariel" (complete page text; second source for the same map)
+# Address: https://science.nasa.gov/3d-resources/uranus-ariel/
+# Fetched: 2026-10-14 02:21 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The navigation menus of this page list unrelated items.
+####################################################################################################
+Uranus - Ariel - NASA Science
+
+[https://www.nasa.gov]
+{img https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png}
+
+Explore
+
+Search
+
+[https://www.nasa.gov]
+{img https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png}
+
+News & Events
+
+[https://www.nasa.gov/news/]
+
+News & Events
+
+[https://www.nasa.gov/news/recently-published/]
+Recently Published
+
+[https://www.nasa.gov/plus/]
+Video Series on NASA+
+
+[https://www.nasa.gov/podcasts-and-audio/]
+Podcasts & Audio
+
+[https://www.nasa.gov/nasa-blogs/]
+Blogs
+
+[https://www.nasa.gov/newsletters/]
+Newsletters
+
+[https://www.nasa.gov/socialmedia/]
+Social Media
+
+[https://www.nasa.gov/news/nasa-media-contacts/]
+Media Resources
+
+Multimedia
+
+[https://www.nasa.gov/multimedia/]
+
+Multimedia
+
+[https://plus.nasa.gov/]
+NASA+
+
+[https://www.nasa.gov/images/]
+Images
+
+[https://www.nasa.gov/live]
+NASA Live
+
+[https://www.nasa.gov/apps/]
+NASA Apps
+
+[https://www.nasa.gov/podcasts/]
+Podcasts
+
+[https://www.nasa.gov/image-of-the-day/]
+Image of the Day
+
+[https://www.nasa.gov/ebooks/]
+e-Books
+
+[https://science.nasa.gov/3d-resources/]
+3D Resources
+
+[https://www.nasa.gov/nasa-interactive-features/]
+Interactives
+
+[https://www.nasa.gov/learning-resources/search/?terms=8058%2C8059%2C8061%2C8062%2C8068]
+STEM Multimedia
+
+[https://www.nasa.gov/nasa-brand-center/]
+NASA Brand & Usage Guidelines
+
+[https://plus.nasa.gov/]
+NASA+
+
+Search
+
+Suggested Searches
+
+[https://science.nasa.gov/?search=ISS]
+
+ISS
+
+[https://science.nasa.gov/?search=Roman]
+
+Roman
+
+[https://science.nasa.gov/?search=Webb]
+
+Webb
+
+[https://science.nasa.gov/?search=Quesst]
+
+Quesst
+
+[https://science.nasa.gov/?search=Moon%20Base]
+
+Moon Base
+
+[https://science.nasa.gov/a-to-z-topics-listing/]
+View All Topics A-Z
+
+[https://science.nasa.gov/] Home
+[https://science.nasa.gov/nasa-missions/] Missions
+[https://science.nasa.gov/humans-in-space/] Humans in Space
+[https://science.nasa.gov/earth/] Earth
+[https://science.nasa.gov/solar-system/] The Solar System
+[https://science.nasa.gov/universe/] The Universe
+[https://science.nasa.gov/] Science
+[https://science.nasa.gov/aeronautics/] Aeronautics
+[https://science.nasa.gov/technology/] Technology
+[https://science.nasa.gov/learning-resources/] Learning Resources
+[https://science.nasa.gov/about/] About NASA
+[https://science.nasa.gov/es/] Español
+
+[#]
+News & Events
+
+[#]
+Multimedia
+
+[https://plus.nasa.gov/]
+NASA+
+
+Highlights
+[https://science.nasa.gov/blogs/perseverance-mars-rover/2026/10/12/nasas-perseverance-sets-off-world-record-for-total-distance-driven/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/mars2020/2026/perseverance-rover-updates/e1%20-%20PIA26812%20-%20NAVCAM%20record.png?w=1024}
+
+5 min read
+
+NASA’s Perseverance Sets Off-World Record for Total Distance Driven
+article20 hours ago [https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/e1-pia23684.jpg?w=150&h=150&crop=1}
+
+5 min read
+
+NASA’s SPHEREx Telescope Sees Menagerie of Brown Dwarfs
+article5 days ago [https://science.nasa.gov/solar-system/skywatching/whats-up-october-2026-skywatching-tips-from-nasa/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/solar-system/skywatching/2026/october/Orionid%20Meteor%20Shower%202017_Ben%20Goldstein%20via%20Flickr_CC%20BY-NC-SA.jpg?w=1024}
+
+3 min read
+
+What’s Up: October 2026 Skywatching Tips from NASA
+article2 weeks ago
+
+Back
+
+[https://science.nasa.gov/nasa-missions/]
+Missions
+[https://www.nasa.gov/missions/] Search All NASA Missions
+[https://www.nasa.gov/a-to-z-of-nasa-missions/] A to Z List of Missions
+[https://www.nasa.gov/events/] Upcoming Launches and Landings
+[https://www.nasa.gov/humans-in-space/spaceships-and-rockets/] Spaceships and Rockets
+[https://www.nasa.gov/communicating-with-missions/] Communicating with Missions
+[https://www.nasa.gov/humans-in-space/artemis/] Artemis
+[https://science.nasa.gov/mission/webb/] James Webb Space Telescope
+[https://science.nasa.gov/mission/hubble/] Hubble Space Telescope
+[https://www.nasa.gov/international-space-station/] International Space Station
+[https://science.nasa.gov/mission/osiris-rex/] OSIRIS-REx
+[https://science.nasa.gov/humans-in-space/]
+Humans in Space
+[https://www.nasa.gov/humans-in-space/why-go-to-space/] Why Go to Space
+[https://www.nasa.gov/humans-in-space/astronauts/] Astronauts
+[https://www.nasa.gov/humans-in-space/commercial-space/] Commercial Space
+[https://www.nasa.gov/humans-in-space/destinations/] Destinations
+[https://www.nasa.gov/humans-in-space/spaceships-and-rockets/] Spaceships and Rockets
+[https://www.nasa.gov/humans-in-space/living-in-space/] Living in Space
+[https://science.nasa.gov/earth/]
+Earth
+[https://science.nasa.gov/earth/explore/] Explore Earth Science
+[https://science.nasa.gov/climate-change/] Climate Change
+[https://science.nasa.gov/earth/facts/] Earth, Our Planet
+[https://science.nasa.gov/earth/in-action/] Earth Science in Action
+[https://science.nasa.gov/earth/multimedia/] Earth Multimedia
+[https://science.nasa.gov/earth/data/] Earth Data
+[https://science.nasa.gov/earth-science/] Earth Science Researchers
+[https://science.nasa.gov/solar-system/]
+The Solar System
+[https://science.nasa.gov/sun/] The Sun
+[https://science.nasa.gov/mercury/] Mercury
+[https://science.nasa.gov/venus/] Venus
+[https://science.nasa.gov/earth/] Earth
+[https://science.nasa.gov/moon/] The Moon
+[https://science.nasa.gov/mars/] Mars
+[https://science.nasa.gov/jupiter/] Jupiter
+[https://science.nasa.gov/saturn/] Saturn
+[https://science.nasa.gov/uranus/] Uranus
+[https://science.nasa.gov/neptune/] Neptune
+[https://science.nasa.gov/dwarf-planets/] Pluto & Dwarf Planets
+[https://science.nasa.gov/asteroids-comets-meteors/] Asteroids, Comets & Meteors
+[https://science.nasa.gov/solar-system/kuiper-belt/] The Kuiper Belt
+[https://science.nasa.gov/solar-system/oort-cloud/] The Oort Cloud
+[https://science.nasa.gov/skywatching/] Skywatching
+[https://science.nasa.gov/universe/]
+The Universe
+[https://science.nasa.gov/exoplanets/] Exoplanets
+[https://science.nasa.gov/universe/search-for-life/] The Search for Life in the Universe
+[https://science.nasa.gov/universe/stars/] Stars
+[https://science.nasa.gov/universe/galaxies/] Galaxies
+[https://science.nasa.gov/universe/black-holes/] Black Holes
+[https://science.nasa.gov/universe/the-big-bang/] The Big Bang
+[https://science.nasa.gov/dark-matter/] Dark Matter
+[https://science.nasa.gov/dark-energy/] Dark Energy
+[https://science.nasa.gov/]
+Science
+[https://science.nasa.gov/earth-science/] Earth Science
+[https://science.nasa.gov/planetary-science/] Planetary Science
+[https://science.nasa.gov/astrophysics/] Astrophysics & Space Science
+[https://science.nasa.gov/heliophysics/] The Sun & Heliophysics
+[https://science.nasa.gov/biological-physical/] Biological & Physical Sciences
+[https://science.nasa.gov/lunar-science/] Lunar Science
+[https://science.nasa.gov/citizen-science/] Citizen Science
+[https://science.nasa.gov/astromaterials/] Astromaterials
+[https://www.nasa.gov/aeronautics-research/] Aeronautics Research
+[https://www.nasa.gov/human-space-travel-research/] Human Space Travel Research
+[https://science.nasa.gov/aeronautics/]
+Aeronautics
+[https://www.nasa.gov/aeronautics/science-in-the-air/] Science in the Air
+[https://www.nasa.gov/aeronautics/aircraft/] NASA Aircraft
+[https://www.nasa.gov/aeronautics/flight-innovation/] Flight Innovation
+[https://www.nasa.gov/aeronautics/supersonic-flight/] Supersonic Flight
+[https://www.nasa.gov/aeronautics/air-traffic-solutions/] Air Traffic Solutions
+[https://www.nasa.gov/aeronautics/green-aero-tech/] Green Aviation Tech
+[https://www.nasa.gov/aeronautics/drones-and-you/] Drones & You
+[https://science.nasa.gov/technology/]
+Technology
+[https://www.nasa.gov/technology-transfer-spinoffs/] Technology Transfer & Spinoffs
+[https://www.nasa.gov/space-travel-technology/] Space Travel Technology
+[https://www.nasa.gov/space-living-technology/] Technology Living in Space
+[https://www.nasa.gov/manufacturing-and-materials/] Manufacturing and Materials
+[https://www.nasa.gov/robotics/] Robotics
+[https://www.nasa.gov/science-instruments/] Science Instruments
+[https://www.nasa.gov/computing/] Computing
+[https://science.nasa.gov/learning-resources/]
+Learning Resources
+[https://www.nasa.gov/learning-resources/for-kids-and-students/] For Kids and Students
+[https://www.nasa.gov/learning-resources/for-educators/] For Educators
+[https://www.nasa.gov/learning-resources/colleges-and-universities/] For Colleges and Universities
+[https://www.nasa.gov/learning-resources/for-professionals/] For Professionals
+[https://science.nasa.gov/for-everyone/] Science for Everyone
+[https://www.nasa.gov/learning-resources/requests-for-exhibits-artifacts-or-speakers/] Requests for Exhibits, Artifacts, or Speakers
+[https://www.nasa.gov/learning-resources/stem-engagement-at-nasa/] STEM Engagement at NASA
+[https://science.nasa.gov/about/]
+About NASA
+[https://www.nasa.gov/nasa-impacts/] NASA's Impacts
+[https://www.nasa.gov/nasa-centers-and-facilities/] Centers and Facilities
+[https://www.nasa.gov/nasa-directorates/] Directorates
+[https://www.nasa.gov/nasa-organization/] Organizations
+[https://www.nasa.gov/people-of-nasa/] People of NASA
+[https://www.nasa.gov/careers/] Careers
+[https://www.nasa.gov/learning-resources/nasa-internship-programs/] Internships
+[https://www.nasa.gov/history/] Our History
+[https://www.nasa.gov/doing-business-with-nasa/] Doing Business with NASA
+[https://www.nasa.gov/get-involved/] Get Involved
+[https://www.nasa.gov/contact-nasa/] Contact
+[https://science.nasa.gov/es/]
+NASA en Español
+[https://ciencia.nasa.gov/] Ciencia
+[https://www.nasa.gov/espanol/aeronautica-en-espanol/] Aeronáutica
+[https://ciencia.nasa.gov/tierra] Ciencias Terrestres
+[https://ciencia.nasa.gov/sistema-solar] Sistema Solar
+[https://ciencia.nasa.gov/universo] Universo
+[https://science.nasa.gov/news/]
+News & Events
+[https://www.nasa.gov/news/recently-published/] Recently Published
+[https://www.nasa.gov/plus/] Video Series on NASA+
+[https://www.nasa.gov/podcasts-and-audio/] Podcasts & Audio
+[https://www.nasa.gov/nasa-blogs/] Blogs
+[https://www.nasa.gov/newsletters/] Newsletters
+[https://www.nasa.gov/socialmedia/] Social Media
+[https://www.nasa.gov/news/nasa-media-contacts/] Media Resources
+[https://science.nasa.gov/multimedia/]
+Multimedia
+[https://plus.nasa.gov/] NASA+
+[https://www.nasa.gov/images/] Images
+[https://www.nasa.gov/live] NASA Live
+[https://www.nasa.gov/apps/] NASA Apps
+[https://www.nasa.gov/podcasts/] Podcasts
+[https://www.nasa.gov/image-of-the-day/] Image of the Day
+[https://www.nasa.gov/ebooks/] e-Books
+[https://science.nasa.gov/3d-resources/] 3D Resources
+[https://www.nasa.gov/nasa-interactive-features/] Interactives
+[https://www.nasa.gov/learning-resources/search/?terms=8058%2C8059%2C8061%2C8062%2C8068] STEM Multimedia
+[https://www.nasa.gov/nasa-brand-center/] NASA Brand & Usage Guidelines
+
+Highlights
+[https://science.nasa.gov/blogs/perseverance-mars-rover/2026/10/12/nasas-perseverance-sets-off-world-record-for-total-distance-driven/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/mars2020/2026/perseverance-rover-updates/e1%20-%20PIA26812%20-%20NAVCAM%20record.png?w=1024}
+
+5 min read
+
+NASA’s Perseverance Sets Off-World Record for Total Distance Driven
+
+article
+
+20 hours ago
+
+[https://science.nasa.gov/missions/webb/webb-measures-distance-to-farthest-fast-radio-burst-suggesting-origin/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/webb/science/2026/10/STScI-01KKCJGBWX6TE4ABRTFWE9B8SQ.jpg?w=1024}
+
+5 min read
+
+Webb Measures Distance to Farthest Fast Radio Burst, Suggesting Origin
+
+article
+
+5 days ago
+
+[https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/e1-pia23684.jpg?w=150&h=150&crop=1}
+
+5 min read
+
+NASA’s SPHEREx Telescope Sees Menagerie of Brown Dwarfs
+
+article
+
+5 days ago
+
+Highlights
+[https://www.nasa.gov/help-nasa-find-practical-ways-to-monitor-astronaut-body-temperature-in-low-earth-orbit/]
+
+{img https://images-assets.nasa.gov/image/iss074e0788315/iss074e0788315~large.jpg?w=1920&h=1280&fit=clip&crop=faces%2Cfocalpoint}
+
+2 min read
+
+Help NASA Find Practical Ways to Monitor Astronaut Body Temperature in Low Earth Orbit
+
+article
+
+2 weeks ago
+
+[https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-opens-2027-human-lander-challenge-for-lunar-communications/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/09/2027-hulc-graphic-thumbnail-a-new-arrival-on-the-moon.png?w=150&h=150&crop=1}
+
+3 min read
+
+NASA Opens 2027 Human Lander Challenge for Lunar Communications
+
+article
+
+2 weeks ago
+
+[https://www.nasa.gov/researchers-help-nasa-prevent-blood-clot-formation-in-space/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/07/mcclain-kim-iss-venousstudy.png?w=150&h=150&crop=1}
+
+3 min read
+
+Researchers: Help NASA Prevent Blood Clot Formation in Space
+
+article
+
+3 weeks ago
+
+Highlights
+[https://science.nasa.gov/earth/earth-observatory/an-impact-structure-with-legs/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-impact-structure-with-legs/aus_spidercrater_oli2_20260920_th.jpg?w=1024}
+
+3 min read
+
+An Impact Structure With Legs
+
+article
+
+13 hours ago
+
+[https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/antarctic-sea-ice-grows-to-its-2026-maximum/antarctic_nsidc_20260914_th.jpg?w=1024}
+
+3 min read
+
+Antarctic Sea Ice Grows to Its 2026 Maximum
+
+article
+
+2 days ago
+
+[https://science.nasa.gov/earth/earth-observatory/floodwaters-overwhelm-thailand/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/floodwaters-overwhelm-thailand/thailandflooding_oli2_20261002_th.jpg?w=1024}
+
+2 min read
+
+Floodwaters Overwhelm Thailand
+
+article
+
+5 days ago
+
+Highlights
+[https://www.nasa.gov/missions/moon-base/nasa-jpl-testing-readies-voyager-technologies-lander-for-moon-mission/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/1-pia26708-grifffin-tvac-wings.jpeg?w=150&h=150&crop=1}
+
+4 min read
+
+NASA JPL Testing Readies Voyager Technologies Lander for Moon Mission
+
+article
+
+4 hours ago
+
+[https://science.nasa.gov/feature/artemis-ii-preliminary-lunar-science-report/]
+
+{img https://images-assets.nasa.gov/image/art002e016204/art002e016204~large.jpg}
+
+1 min read
+
+Artemis II Preliminary Lunar Science Report
+
+article
+
+6 days ago
+
+[https://www.nasa.gov/missions/mars-science-laboratory/curiosity-rover/nasas-curiosity-rover-catches-stunning-martian-dawn/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/1-pia26728-fig-a-curiosity-captures-dawn-breaking-on-wind-carved-cliffs.png?w=150&h=150&crop=1}
+
+3 min read
+
+NASA’s Curiosity Rover Catches Stunning Martian Dawn
+
+article
+
+1 week ago
+
+Highlights
+[https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/e1-pia23684.jpg?w=150&h=150&crop=1}
+
+5 min read
+
+NASA’s SPHEREx Telescope Sees Menagerie of Brown Dwarfs
+
+article
+
+5 days ago
+
+[https://science.nasa.gov/missions/webb/webb-measures-distance-to-farthest-fast-radio-burst-suggesting-origin/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/missions/webb/science/2026/10/STScI-01KKCJGBWX6TE4ABRTFWE9B8SQ.jpg?w=1024}
+
+5 min read
+
+Webb Measures Distance to Farthest Fast Radio Burst, Suggesting Origin
+
+article
+
+5 days ago
+
+[https://science.nasa.gov/missions/lisa/nasa-advances-lisa-mission-contributions-with-new-test-telescope/]
+
+{img https://science.nasa.gov/wp-content/uploads/2024/10/gsfc-20240520-lisa-000535.jpg}
+
+3 min read
+
+NASA Advances LISA Mission Contributions With New Test Telescope
+
+article
+
+5 days ago
+
+Highlights
+[https://science.nasa.gov/earth/earth-observatory/an-impact-structure-with-legs/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-impact-structure-with-legs/aus_spidercrater_oli2_20260920_th.jpg?w=1024}
+
+3 min read
+
+An Impact Structure With Legs
+
+article
+
+13 hours ago
+
+[https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/bps/bps_investigations/wholemiBrainMicroglia_AVATAR_org1.jpg?w=1024}
+
+3 min read
+
+NASA’s SpaceX CRS-35 Mission to Launch Health Research
+
+article
+
+24 hours ago
+
+[https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/antarctic-sea-ice-grows-to-its-2026-maximum/antarctic_nsidc_20260914_th.jpg?w=1024}
+
+3 min read
+
+Antarctic Sea Ice Grows to Its 2026 Maximum
+
+article
+
+2 days ago
+
+Highlights
+[https://www.nasa.gov/centers-and-facilities/langley/nasa-model-wing-lights-up-during-first-pressure-sensitive-paint-tests/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/bscw-side-by-side-image.jpg?w=150&h=150&crop=1}
+
+2 min read
+
+NASA Model Wing Lights Up During First Pressure Sensitive Paint Tests
+
+article
+
+2 weeks ago
+
+[https://www.nasa.gov/ames/dr-natasha-schatzman-receives-vertical-flight-society-vfs-award/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/dr-natasha-schatzman-.png?w=150&h=150&crop=1}
+
+2 min read
+
+Dr. Natasha Schatzman Receives Vertical Flight Society (VFS) Award
+
+article
+
+2 weeks ago
+
+[https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-middle-school-design-challenge/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/09/dwu-x-plane-design2-16x9-ms-web.jpg?w=150&h=150&crop=1}
+
+10 min read
+
+2026-2027 DWU: Middle School Design Challenge
+
+article
+
+3 weeks ago
+
+Highlights
+[https://science.nasa.gov/earth/earth-observatory/rains-swamp-the-gandak-river/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/torrential-rains-swamp-the-gandaki-river/floodingindianepal_amo_20260929_th.jpg?w=1024}
+
+3 min read
+
+Rains Swamp the Gandak River
+
+article
+
+2 weeks ago
+
+[https://www.nasa.gov/space-nuclear/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/06/sr-1-freedom-hi-res-8-18-26.png?w=150&h=150&crop=1}
+
+1 min read
+
+Space Reactors Division
+
+article
+
+2 weeks ago
+
+[https://science.nasa.gov/earth/earth-observatory/powerful-storms-continue-to-prowl-the-pacific/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/powerful-storms-continue-to-prowl-the-pacific/polonolo_vir_20260928_th.jpg?w=1024}
+
+4 min read
+
+Powerful Storms Continue to Prowl the Pacific
+
+article
+
+2 weeks ago
+
+Highlights
+[https://www.nasa.gov/centers-and-facilities/ames/nasa-demonstrates-next-generation-heat-shield-technologies/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/iss075e0185943.jpg?w=150&h=150&crop=1}
+
+4 min read
+
+NASA Demonstrates Next-Generation Heat Shield Technologies
+
+article
+
+4 days ago
+
+[https://science.nasa.gov/learn/roses25_sciact_selections/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/cds/learn/2026/SciActROSES25Map.jpg?w=1024}
+
+8 min read
+
+NASA Selects Projects to Engage Communities Across the US with NASA Science
+
+article
+
+2 weeks ago
+
+[https://www.nasa.gov/stmd-flight-opportunities/access-flight-tests/techrise/]
+
+{img https://www.nasa.gov/wp-content/uploads/2023/02/techrise5-1080x1080-1.jpg?w=150&h=150&crop=1}
+
+3 min read
+
+TechRise (for 6–12 graders)
+
+article
+
+2 weeks ago
+
+Highlights
+[https://www.nasa.gov/news-release/nasa-energy-department-advance-new-era-of-nuclear-powered-exploration/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/10/nasa-doe-mou-release-smaller-image-oct-8.jpg?w=150&h=150&crop=1}
+
+4 min read
+
+NASA, Energy Department Advance New Era of Nuclear-Powered Exploration
+
+article
+
+5 days ago
+
+[https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/]
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/bps/bps_investigations/wholemiBrainMicroglia_AVATAR_org1.jpg?w=1024}
+
+3 min read
+
+NASA’s SpaceX CRS-35 Mission to Launch Health Research
+
+article
+
+24 hours ago
+
+[https://www.nasa.gov/blogs/missions/2026/10/07/nasa-releases-artemis-ii-lunar-science-data-images/]
+
+{img https://images-assets.nasa.gov/image/art002e025880/art002e025880~large.jpg?w=1920&h=1280&fit=clip&crop=faces%2Cfocalpoint}
+
+2 min read
+
+NASA Releases Artemis II Lunar Science Data, Images
+
+article
+
+6 days ago
+
+Highlights
+[https://www.nasa.gov/es/la-nasa-anuncia-la-cobertura-de-la-mision-lunar-artemis-ii/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/03/a2crew-7ff19d.jpg?w=150&h=150&crop=1}
+
+11 min read
+
+La NASA anuncia la cobertura de la misión lunar Artemis II
+
+article
+
+7 months ago
+
+[https://www.nasa.gov/es/agenda-diaria-de-la-mision-a-la-luna-de-artemis-ii-de-la-nasa/]
+
+{img https://www.nasa.gov/wp-content/uploads/2026/03/suit-patch.jpg?w=150&h=150&crop=1}
+
+15 min read
+
+Agenda diaria de la misión a la Luna de Artemis II de la NASA
+
+article
+
+7 months ago
+
+[https://www.nasa.gov/humans-in-space/astronauts/la-nasa-refuerza-artemis-anade-una-mision-y-perfecciona-su-arquitectura-general/]
+
+{img https://images-assets.nasa.gov/image/iss074e0325229/iss074e0325229~large.jpg?w=1920&h=1280&fit=clip&crop=faces%2Cfocalpoint}
+
+6 min read
+
+La NASA refuerza Artemis: añade una misión y perfecciona su arquitectura general
+
+article
+
+7 months ago
+
+Uranus – Ariel
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/cds/3d/resources/image/uranus---ariel/preview.webp?w=2048}
+
+Image texture for 3D models.
+
+From the USGS; a mosaic using Voyager imagery. From the JPL database of generated planetary maps.
+
+Credit: USGS/Tammy Becker & JPL/Caltech
+
+Uranus - Ariel.jpg
+
+May 30, 2025
+
+JPEG (248.37 KB)
+
+[https://assets.science.nasa.gov/content/dam/science/cds/3d/resources/image/uranus---ariel/Uranus%20-%20Ariel.jpg]
+
+Uranus - Ariel.tif
+
+May 14, 2025
+
+TIFF (2.99 MB)
+
+[https://assets.science.nasa.gov/content/dam/science/cds/3d/resources/image/ariel/Ariel.tif]
+
+[https://science.nasa.gov/3d-resources/]
+Back to the 3D Resources catalog
+
+{img https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png}
+
+National Aeronautics and Space Administration
+
+NASA explores the unknown in air and space, innovates for the benefit of humanity, and inspires the world through discovery.
+
+[https://www.nasa.gov/about/] About NASA's Mission
+
+[https://www.nasa.gov/get-involved/]
+Join Us
+
+[https://www.nasa.gov] Home
+
+[https://www.nasa.gov/news/] News & Events
+
+[https://www.nasa.gov/multimedia/] Multimedia
+
+[https://plus.nasa.gov/] NASA+
+
+[https://www.nasa.gov/nasa-missions/] Missions
+
+[https://www.nasa.gov/humans-in-space/] Humans in Space
+
+[https://science.nasa.gov/earth/] Earth
+
+[https://science.nasa.gov/solar-system/] The Solar System
+
+[https://science.nasa.gov/universe/] The Universe
+
+[https://science.nasa.gov/] Science
+
+[https://www.nasa.gov/aeronautics/] Aeronautics
+
+[https://www.nasa.gov/technology/] Technology
+
+[https://www.nasa.gov/learning-resources/] Learning Resources
+
+[https://www.nasa.gov/about/] About NASA
+
+[https://www.nasa.gov/es/] NASA en Español
+
+Follow NASA
+
+[https://www.facebook.com/NASA]
+
+[https://www.instagram.com/nasa/]
+
+[https://x.com/NASA]
+
+[https://www.youtube.com/@NASA]
+
+[https://www.nasa.gov/social-media/] More NASA Social Accounts
+
+[https://www.nasa.gov/nasa-newsletters/] NASA Newsletters
+
+[https://www.nasa.gov/sitemap/] Sitemap
+
+[https://www.nasa.gov/news/nasa-media-contacts/] For Media
+
+[https://www.nasa.gov/nasa-web-privacy-policy-and-important-notices/] Privacy Policy
+
+[https://www.nasa.gov/foia/] FOIA
+
+[https://www.nasa.gov/no-fear-act/] No FEAR Act
+
+[http://oig.nasa.gov/] Office of the IG
+
+[https://www.nasa.gov/budgets-plans-and-reports/] Budget & Annual Reports
+
+[https://www.nasa.gov/organizations/budget-annual-reports/agency-financial-reports/] Agency Financial Reports
+
+[https://www.nasa.gov/contact-nasa/] Contact NASA
+
+[https://www.nasa.gov/accessibility/] Accessibility
+
+Page Last Updated:
+
+May 30, 2025
+
+Page Editor:
+
+Matthew Sanders
+
+Responsible NASA Official for Science:
+
+Dana Bolles
+
+Δ
+
+Did you find what you were looking for?(Required)
+
+Yes
+
+No
+
+Partly
+
+What were you looking for?(Required)
+
+What were you hoping to accomplish by visiting our website?(Required)
+
+Submit
+
+×
+
+####################################################################################################
+# NASA 3D Resources page (excerpt, lines 704 to 710 of the saved text)
+# Address: https://science.nasa.gov/3d-resources/ (requested as https://nasa3d.arc.nasa.gov/detail/ura5vuu2, which redirects)
+# Fetched: 2026-10-14 01:51 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The complete text is in data-src/textures/evidence/_shared/nasa_3d_resources.txt
+####################################################################################################
+A repository of 3D models, 3D printable models, and textures.
+
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/cds/3d/web/images/3d-portal-top-background.png?w=1280&h=720&fit=clip&crop=faces%2Cfocalpoint}
+
+Welcome!
+
+The 3D Resources hub stores 3D models related to NASA's various missions. Some of these models are 3D printable! All of these assets are free to download and use. They are also mirrored on [https://github.com/nasa/NASA-3D-Resources] GitHub. Refer to the [https://www.nasa.gov/nasa-brand-center/images-and-media/] NASA Images and Media Usage Guidelines.
+
+####################################################################################################
+# README of NASA 3D Resources on GitHub (complete text)
+# Address: https://raw.githubusercontent.com/nasa/NASA-3D-Resources/master/README.md
+# Fetched: 2026-10-14 01:52 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". The text is unchanged.
+####################################################################################################
+NASA-3D-Resources
+=================
+
+Welcome to the 3D Resources github site. This is a growing collection of 3D models, textures, and images from inside NASA. Our goal is to provide a comprehensive repository for 3D models, images, textures, and visualizations. These assets are free and without copyright.
+
+Please read the [usage guidelines][usage]. NASA [intranet interface][webinterface] for these resources.
+
+We welcome feedback and comments. Tell us how you're using our models and let us know what you think: arc-special-proj@lists.nasa.gov
+
+## Contributors
+
+We thank the many authors who have contributed to the 3D Resources collections.
+
+| Contributor                                             | Organization        |
+| ------------------------------------------------------- | ------------------- |
+| NASA Ames Research Center                               | NASA ARC            |
+| NASA Goddard Space Flight Center                        | NASA GSFC           |
+| NASA Jet Propulsion Laboratory                          | NASA JPL            |
+| NASA Jet Propulsion Laboratory - Solar System Simulator | NASA JPL            |
+| NASA Johnson Space Center                               | NASA JSC            |
+| NASA Johnson Space Center - Space Educators' Handbook   | NASA JSC            |
+| Ball Aerospace                                          |                     |
+| DigitalSpace Corporation                                |                     |
+| Eyes on the Solar System                                | NASA/JPL-Caltech    |
+| Berry, Dana                                             | NASA/Kepler Mission |
+| Carbajal, Michael                                       | NASA Headquarters   |
+| Conti, Carlo                                            |                     |
+| Ellison, Doug                                           | NASA JPL            |
+| Garcia, Christopher M.                                  | NASA/JPL-Caltech    |
+| Kumanchik, Brian                                        | NASA/JPL-Caltech    |
+| Lane, Kevin                                             | NASA/JPL-Caltech    |
+| Lopez, Christian A.                                     | NASA/JPL-Caltech    |
+| Meaney, Chris                                           | NASA GSFC           |
+
+[usage]: https://www.nasa.gov/nasa-brand-center/images-and-media
+[webinterface]: https://nasa3d.arc.nasa.gov
+
+####################################################################################################
+# JPL Solar System Simulator: texture maps of the Uranus system (complete page text)
+# Address: https://maps.jpl.nasa.gov/tmaps/uranus.html
+# Fetched: 2026-10-14 01:31 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+####################################################################################################
+Solar System Simulator
+[http://www.nasa.gov/] NASA
+[http://www.jpl.nasa.gov/] JPL Home
+{img /logo_nasa_trio_black.png}
+Solar System Simulator
+Thumbnail
+Body
+Click to download
+Data Source
+Creator
+Owner
+Horiz. Size
+Vert. Size
+Resol. (pix/deg)
+{img textures/ura0fss.jpg}
+0/Uranus
+[pix/ura0fss1.tif] 7k tif
+[pix/ura0fss1.jpg] 5k jpg
+fictional
+Seal
+JPL/Caltech
+720
+360
+2
+Plain solid blue texture. (It's just a solid color,
+really! It's hex #0087d5, RGB 0,135,213 and HSB 201,100,83.)
+{img textures/ura1vuu.jpg}
+1/Ariel
+[pix/ura1vuu2.tif] 260k tif
+[pix/ura1vuu2.jpg] 50k jpg
+Voyager
+Caltech/JPL/USGS
+Caltech/JPL/USGS
+1440
+720
+4
+From the USGS, mosaicked with Voyager imagery. Grayscale. (Much
+thanks to Tammy Becker at the USGS.)
+{img textures/ura2vuu.jpg}
+2/Umbriel
+[pix/ura2vuu2.tif] 210k tif
+[pix/ura2vuu2.jpg] 40k jpg
+Voyager
+Caltech/JPL/USGS
+Caltech/JPL/USGS
+1440
+720
+4
+From the USGS, mosaicked with Voyager imagery. Grayscale. (Much
+thanks to Tammy Becker at the USGS.)
+{img textures/ura3vuu.jpg}
+3/Titania
+[pix/ura3vuu2.tif] 325k tif
+[pix/ura3vuu2.jpg] 65k jpg
+Voyager
+Caltech/JPL/USGS
+Caltech/JPL/USGS
+1440
+720
+4
+From the USGS, mosaicked with Voyager imagery. Grayscale. (Much
+thanks to Tammy Becker at the USGS.)
+{img textures/ura4vuu.jpg}
+4/Oberon
+[pix/ura4vuu2.tif] 330k tif
+[pix/ura4vuu2.jpg] 50k jpg
+Voyager
+Caltech/JPL/USGS
+Caltech/JPL/USGS
+1440
+720
+4
+From the USGS, mosaicked with Voyager imagery. Grayscale. (Much
+thanks to Tammy Becker at the USGS.)
+{img textures/ura5vuu.jpg}
+5/Miranda
+[pix/ura5vuu2.tif] 385k tif
+[pix/ura5vuu2.jpg] 75k jpg
+Voyager
+Caltech/JPL/USGS
+Caltech/JPL/USGS
+1440
+720
+4
+From the USGS, mosaicked with Voyager imagery. Grayscale. (Much
+thanks to Tammy Becker at the USGS.)
+[/] Simulator | [/art] Artwork | [/tmaps] Texture Maps | [/faq.html] FAQ
+Author and Site Manager: David Seal - seal (at) jpl.nasa.gov CL#: 22-6756
+
+####################################################################################################
+# JPL Solar System Simulator: texture maps index with the disclaimer (complete page text)
+# Address: https://maps.jpl.nasa.gov/tmaps/
+# Fetched: 2026-10-14 01:31 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+####################################################################################################
+Solar System Simulator
+[http://www.nasa.gov/] NASA
+[http://www.jpl.nasa.gov/] JPL Home
+{img /logo_nasa_trio_black.png}
+Solar System Simulator
+This is a database of JPL/Caltech generated planetary maps. Select your planetary system of choice!
+[mercury.html] {img pix/mercury.jpg}
+Mercury
+[venus.html] {img pix/venus.jpg}
+Venus
+[earth.html] {img pix/earth.jpg}
+Earth
+[mars.html] {img pix/mars.jpg}
+Mars
+[jupiter.html] {img pix/jupiter.jpg}
+Jupiter
+[saturn.html] {img pix/saturn.jpg}
+Saturn
+[uranus.html] {img pix/uranus.jpg}
+Uranus
+[neptune.html] {img pix/neptune.jpg}
+Neptune
+[pluto.html] {img pix/pluto.jpg}
+Pluto...
+[stars.html] {img pix/stars.jpg}
+Star maps
+Disclaimer: though many of these textures have been stitched together
+directly from multispectral images taken by NASA spacecraft, they should not be used for
+scientific analysis. Many of these images have blank spots where no
+images have been taken; some have also been enhanced and slightly altered
+for aesthetic appeal. For some bodies, no global maps are available at this
+site yet; some we just haven't explored enough to get any reasonably high
+resolution images (like Pluto). Maps of the gas giants (Jupiter, Saturn,
+Neptune, and Uranus) and Titan are merely meant to be representative;
+atmospheric dynamics will change the body's appearance daily.
+[/] Simulator | [/art] Artwork | [/tmaps] Texture Maps | [/faq.html] FAQ
+Author and Site Manager: David Seal - seal (at) jpl.nasa.gov CL#: 22-6756
+
+####################################################################################################
+# NASA Images and Media Usage Guidelines (excerpt, lines 480 to 500 of the saved text)
+# Address: https://www.nasa.gov/nasa-brand-center/images-and-media/
+# Fetched: 2026-10-14 01:17 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The complete text is in data-src/textures/evidence/_shared/nasa_images_and_media.txt
+####################################################################################################
+The NASA Insignia, Logotype, identifiers, and imagery are not in the public domain. The use of the Insignia, Logotype and NASA identifiers is protected by law, and imagery is made available for use consistent with [https://www.nasa.gov/nasa-brand-center/images-and-media/] Media Usage Guidelines.
+NASA Images and Media Usage Guidelines
+NASA content – images, audio, video, and media files used in the rendition of 3-dimensional models, such as texture maps and polygon data in any format – generally are not subject to copyright in the United States. You may use this material for educational or informational purposes, including photo collections, textbooks, public exhibits, computer graphical simulations and Internet Web pages. This general permission extends to personal Web pages.
+News outlets, schools, and text-book authors may use NASA content without needing explicit permission, subject to compliance with these guidelines. NASA content used in a factual manner that does not imply endorsement may be used without needing explicit permission. NASA should be acknowledged as the source of the material. NASA occasionally uses copyright-protected material of third parties with permission on its website. Those images will be marked identified as copyright protected with the name of the copyright holder. NASA’s use does not convey any rights to others to use the same material. Those wishing to use copyright protected material of third parties must contact the copyright holder directly.
+NON-COMMERCIAL USE
+For educational or informational purposes
+NASA content – images, audio, video, related media and files used in the rendition of 3-dimensional models, such as texture maps and polygon data in any format – generally are not subject to copyright in the United States. You may use this material for educational or informational purposes, including photo collections, textbooks, public exhibits, computer graphical simulations and Internet Web pages. This general permission extends to personal Web pages.
+News outlets, schools, and text-book authors
+News outlets, schools, and text-book authors may use NASA content without needing explicit permission, subject to compliance with these guidelines. NASA content used in a factual manner that does not imply endorsement may be used without needing explicit permission. NASA should be acknowledged as the source of the material. NASA occasionally uses copyright-protected material of third parties with permission on its website. Those images will be marked identified as copyright protected with the name of the copyright holder. NASA’s use does not convey any rights to others to use the same material. Those wishing to use copyright protected material of third parties must contact the copyright holder directly.
+[https://www.nasa.gov/image-article/august-1-1971-second-apollo-15-moonwalk/] {img https://www.nasa.gov/wp-content/uploads/2023/03/a15pan11845-7.jpg?w=1041}
+This mini-panorama combines two photographs taken by Apollo 15 lunar module pilot Jim Irwin, from the Apollo Lunar Surface Experiments Package (ALSEP) site, at the end of the second Apollo 15 moonwalk on August 1, 1971. Mission commander David R. Scott is leaning to his right and is putting down the Apollo Lunar Surface drill.
+COMMERCIAL USE
+For use of NASA images clearances may be necessary for images that include any NASA logos or NASA employees to be used as cover art or in promotional content. Otherwise, NASA imagery can be generally used editorially within published works that are not promotional in nature.
+If the NASA material is to be used for commercial purposes, including advertisements, it must not explicitly or implicitly convey NASA’s endorsement of commercial goods or services.
+Commercials and promotional content cannot be filmed on NASA property.
+For commercial use of NASA’s images, intellectual property, emblems, or logos on merchandise or products refer to the [https://www.nasa.gov/nasa-brand-center/merchandise-approvals/] Merchandise Guidelines and Approvals page.
+Media including Identifiable Persons
+If a NASA image, audio, video or media includes an identifiable person, using the media for commercial purposes may infringe that person’s right of privacy or publicity, and permission should be obtained from the person.
+Astronauts or employees who are currently employed by NASA cannot have their names, likenesses or other personality traits displayed or position title used on any commercial products, advertisements, promotional material or commercial product packaging.
+For guidance on commercial use on merchandise please refer to NASA’s Merchandise Guidelines.
+For more information on using NASA content for commercial purposes, please read NASA Advertising Guidelines and Merchandise Guidelines. Any questions regarding use of NASA content, or any NASA emblems, should be directed to nasa-merchandise-&-brand-team@mail.nasa.gov in NASA’s Office of Communications at NASA Headquarters in Washington.

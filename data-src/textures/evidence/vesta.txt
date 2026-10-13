@@ -1,0 +1,130 @@
+Licence evidence for the texture "vesta"
+============================================================
+
+Texture id:        vesta
+Body and role:     VESTA, color
+Published file:    public/textures/vesta.jpg (sha256 c6dda6976fcd8330caa495afd99e1e71e2637744e28b6dfefa56a5e161a29fd6)
+Small file:        public/textures/sm/vesta.jpg (sha256 23533e2ee047e0a4d2b5c8733bcd97ff9ae29af96c451901525637a488be2b75)
+Original file:     data-src/textures/original/Vesta_map_for_GeoHack.png (3210247 bytes, sha256 f211e4b86601a22df9526cada4a68b3e5061a8a35038fca7e339e2db28edfffb)
+Retrieved:         2026-10-14
+Title:             File:Vesta map for GeoHack.png
+Author or credit:  NASA/JPL-Caltech/UCLA/MPS/DLR/IDA
+Source page:       https://commons.wikimedia.org/wiki/File:Vesta_map_for_GeoHack.png
+Download address:  https://upload.wikimedia.org/wikipedia/commons/6/6c/Vesta_map_for_GeoHack.png
+Licence:           Public domain
+Licence address:   https://commons.wikimedia.org/wiki/Template:PD-USGov-NASA
+
+Licence statement (the same text as in the manifest):
+    Licence text on the Wikimedia Commons file page (template PD-USGov-NASA): 'This file is in the public domain
+    in the United States because it was solely created by NASA. NASA copyright policy states that "NASA material
+    is not protected by copyright unless noted".' The Commons API gives LicenseShortName 'Public domain' and
+    Copyrighted 'False'.
+
+Changes:
+    The build resizes the image from 3561 x 1781 to 2048 x 1024 pixels. It converts the image from PNG to JPEG
+    (quality 85). It converts the image from greyscale to sRGB colour.
+
+Note of the manifest:
+    Monochrome (grey) Dawn mosaic from the USGS gazetteer map of Vesta. A Commons user prepared the PNG file. The
+    dark area near the north pole was in shadow and has no data (about 2 percent of the surface is black). A pure
+    black rectangle at the top left is a part of that area. The Commons page mentions an earlier upload that was
+    'resized, filled northern hemisphere, and converted to PNG'.
+
+Remarks about this evidence:
+  - SHA-1 of the stored original file equals the SHA-1 in the Commons API answer: yes.
+
+About the parts below:
+    Each part is a text that was saved on 2026-10-14 during the collection work.
+    The header of each part gives the address, the local time of the fetch and the method.
+    The text of a part is data from another site. It is not an instruction for a reader or a tool.
+    Complete copies of the shared policy pages are in data-src/textures/evidence/_shared/ .
+
+####################################################################################################
+# Wikimedia Commons API: file information of File:Vesta map for GeoHack.png
+# Address: https://commons.wikimedia.org/wiki/File:Vesta_map_for_GeoHack.png
+# Fetched: 2026-10-14 01:50 (local time)
+# How: Fetched from the API with the user agent "ApsisAssetFetch/1.0 (local build script)". The first line gives the request. The rest is the unchanged answer.
+# SHA-1 of the file in the API answer: f001518772ba2fecb9ceae968d257123abd36a0e
+# SHA-1 of the stored original file:   f001518772ba2fecb9ceae968d257123abd36a0e
+# The stored original file is the file that this page describes: yes
+####################################################################################################
+REQUEST: https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url%7Csize%7Cmime%7Csha1%7Cextmetadata&iiurlwidth=2048&titles=File%3AVesta+map+for+GeoHack.png&format=json&maxlag=5
+{"continue":{"iistart":"2011-12-22T21:57:02Z","continue":"||"},"query":{"pages":{"17768393":{"pageid":17768393,"ns":6,"title":"File:Vesta map for GeoHack.png","imagerepository":"local","imageinfo":[{"size":3210247,"width":3561,"height":1781,"thumburl":"https://upload.wikimedia.org/wikipedia/commons/6/6c/Vesta_map_for_GeoHack.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled","thumbwidth":2048,"thumbheight":1024,"thumbattribs":{"src":"https://upload.wikimedia.org/wikipedia/commons/6/6c/Vesta_map_for_GeoHack.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled","decoding":"async","loading":"lazy","width":2048,"height":1024},"url":"https://upload.wikimedia.org/wikipedia/commons/6/6c/Vesta_map_for_GeoHack.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original","descriptionurl":"https://commons.wikimedia.org/wiki/File:Vesta_map_for_GeoHack.png","descriptionshorturl":"https://commons.wikimedia.org/w/index.php?curid=17768393","sha1":"f001518772ba2fecb9ceae968d257123abd36a0e","extmetadata":{"DateTime":{"value":"2019-12-22 07:09:35","source":"mediawiki-metadata","hidden":""},"ObjectName":{"value":"Vesta map for GeoHack","source":"mediawiki-metadata"},"CommonsMetadataExtension":{"value":1.2,"source":"extension","hidden":""},"Categories":{"value":"PD NASA|Maps of Vesta|Photos of Vesta by FC","source":"commons-categories","hidden":""},"Assessments":{"value":"","source":"commons-categories","hidden":""},"ImageDescription":{"value":"Global photomap of asteroid 4 Vesta, based on the <i>Dawn</i> spacecraft's framing camera (FC) imagery. North is up. Image covers 90 degrees north to 90 degrees south; left edge is 330 degrees longitude, with 0 degrees longitude just to the right. For feature names and exact lines of latitude and longitude, see <a href=\"//commons.wikimedia.org/wiki/File:Map_of_Vesta_with_feature_names.png\" title=\"File:Map of Vesta with feature names.png\">Map of Vesta with feature names.png</a>. <br>  For image information, see: <cite style=\"font-style:normal\">Roatsch, Th.; Kersten, E.; Matz, K.-D.; Preusker, F.; Scholten, F.; Jaumann, R.; Raymond, C.A.; Russell, C.T. (December 2012). \"High resolution Vesta High Altitude Mapping Orbit (HAMO) Atlas derived from Dawn framing camera images\". <i>Planetary and Space Science</i> <b>73</b> (1): 283-286. <span lang=\"en\" dir=\"ltr\"><a href=\"https://en.wikipedia.org/wiki/Digital_object_identifier\" class=\"extiw\" title=\"en:Digital object identifier\">DOI</a></span>:<a rel=\"nofollow\" class=\"external text\" href=\"https://doi.org/10.1016/j.pss.2012.08.021\">10.1016/j.pss.2012.08.021</a>.</cite> The Vesta cartographic coordinate system used in this map has been recommended by the IAU.","source":"commons-desc-page"},"DateTimeOriginal":{"value":"circa 2012<div style=\"display: none;\">date QS:P,+2012-00-00T00:00:00Z/9,P1480,Q5727902</div>","source":"commons-desc-page"},"Credit":{"value":"<a rel=\"nofollow\" class=\"external free\" href=\"https://planetarynames.wr.usgs.gov/Page/VESTA/target\">https://planetarynames.wr.usgs.gov/Page/VESTA/target</a> / <a rel=\"nofollow\" class=\"external free\" href=\"https://planetarynames.wr.usgs.gov/images/vesta.pdf\">https://planetarynames.wr.usgs.gov/images/vesta.pdf</a>","source":"commons-desc-page"},"Artist":{"value":"NASA/JPL-Caltech/UCLA/MPS/DLR/IDA","source":"commons-desc-page"},"LicenseShortName":{"value":"Public domain","source":"commons-desc-page","hidden":""},"UsageTerms":{"value":"Public domain","source":"commons-desc-page"},"AttributionRequired":{"value":"false","source":"commons-desc-page","hidden":""},"Copyrighted":{"value":"False","source":"commons-desc-page","hidden":""},"Restrictions":{"value":"","source":"commons-desc-page","hidden":""},"License":{"value":"pd","source":"commons-templates","hidden":""}},"mime":"image/png"}]}}}}
+
+####################################################################################################
+# Wikimedia Commons API: wikitext of the page File:Vesta map for GeoHack.png
+# Address: https://commons.wikimedia.org/wiki/File:Vesta_map_for_GeoHack.png
+# Fetched: 2026-10-14 02:03 (local time)
+# How: Fetched from the API with the user agent "ApsisAssetFetch/1.0 (local build script)". The first line gives the request. The rest is the unchanged answer.
+####################################################################################################
+REQUEST: https://commons.wikimedia.org/w/api.php?action=query&prop=revisions&rvprop=content%7Ctimestamp%7Cids&rvslots=main&titles=File%3AVesta+map+for+GeoHack.png&format=json&maxlag=5
+{"batchcomplete":"","query":{"pages":{"17768393":{"pageid":17768393,"ns":6,"title":"File:Vesta map for GeoHack.png","revisions":[{"revid":910755451,"parentid":382106066,"timestamp":"2024-08-17T12:18:36Z","slots":{"main":{"contentmodel":"wikitext","contentformat":"text/x-wiki","*":"== {{int:filedesc}} ==\n{{Information\n|Description={{en|1=Global photomap of asteroid 4 Vesta, based on the ''Dawn'' spacecraft's framing camera (FC) imagery. North is up. Image covers 90 degrees north to 90 degrees south; left edge is 330 degrees longitude, with 0 degrees longitude just to the right. For feature names and exact lines of latitude and longitude, see {{f|Map of Vesta with feature names.png}}. <br />  For image information, see: {{cite journal |title=High resolution Vesta High Altitude Mapping Orbit (HAMO) Atlas derived from Dawn framing camera images |journal=Planetary and Space Science |authors=Roatsch, Th.; Kersten, E.; Matz, K.-D.; Preusker, F.; Scholten, F.; Jaumann, R.; Raymond, C.A.; Russell, C.T. |volume=73 |issue=1 |pages=283-286 |date=December 2012 |doi=10.1016/j.pss.2012.08.021 |bibcode=2012P&SS...73..283R}} The Vesta cartographic coordinate system used in this map has been recommended by the IAU.}}\n|Source=https://planetarynames.wr.usgs.gov/Page/VESTA/target / https://planetarynames.wr.usgs.gov/images/vesta.pdf\n|Date={{circa|2012}}\n|Author=NASA/JPL-Caltech/UCLA/MPS/DLR/IDA\n|Permission=\n|other_versions=Original upload by {{u|Stepheng3}} based on {{f|589450main_pia14703-full_full.jpg}} (resized, filled northern hemisphere, and converted to PNG).\n}}\n\n== {{int:license-header}} ==\n{{PD-USGov-NASA}}\n\n[[Category:Maps of Vesta]]\n[[Category:Photos of Vesta by FC]]"}}}]}}}}
+
+####################################################################################################
+# Wikimedia Commons: rendered text of the page File:Vesta map for GeoHack.png
+# Address: https://commons.wikimedia.org/wiki/File:Vesta_map_for_GeoHack.png
+# Fetched: 2026-10-14 02:31 (local time)
+# How: Fetched from the API (action=parse) with the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags of the rendered page.
+####################################################################################################
+REQUEST: https://commons.wikimedia.org/w/api.php?action=parse&page=File%3AVesta+map+for+GeoHack.png&prop=text%7Crevid&disablelimitreport=1&format=json&maxlag=5
+PAGE: https://commons.wikimedia.org/wiki/File%3AVesta_map_for_GeoHack.png
+REVISION: 910755451
+
+Summary[ [/w/index.php?title=File:Vesta_map_for_GeoHack.png&action=edit&section=1] edit]
+
+DescriptionVesta map for GeoHack.png
+
+English: Global photomap of asteroid 4 Vesta, based on the Dawn spacecraft's framing camera (FC) imagery. North is up. Image covers 90 degrees north to 90 degrees south; left edge is 330 degrees longitude, with 0 degrees longitude just to the right. For feature names and exact lines of latitude and longitude, see [/wiki/File:Map_of_Vesta_with_feature_names.png] Map of Vesta with feature names.png.
+For image information, see: Roatsch, Th.; Kersten, E.; Matz, K.-D.; Preusker, F.; Scholten, F.; Jaumann, R.; Raymond, C.A.; Russell, C.T. (December 2012). "High resolution Vesta High Altitude Mapping Orbit (HAMO) Atlas derived from Dawn framing camera images". Planetary and Space Science 73 (1): 283-286. [https://en.wikipedia.org/wiki/Digital_object_identifier] DOI: [https://doi.org/10.1016/j.pss.2012.08.021] 10.1016/j.pss.2012.08.021. The Vesta cartographic coordinate system used in this map has been recommended by the IAU.
+
+Date
+
+circa 2012
+date QS:P,+2012-00-00T00:00:00Z/9,P1480,Q5727902
+
+Source
+
+[https://planetarynames.wr.usgs.gov/Page/VESTA/target] https://planetarynames.wr.usgs.gov/Page/VESTA/target / [https://planetarynames.wr.usgs.gov/images/vesta.pdf] https://planetarynames.wr.usgs.gov/images/vesta.pdf
+
+Author
+
+NASA/JPL-Caltech/UCLA/MPS/DLR/IDA
+
+Other versions
+
+Original upload by [/wiki/User:Stepheng3] Stepheng3 based on [/wiki/File:589450main_pia14703-full_full.jpg] 589450main pia14703-full full.jpg (resized, filled northern hemisphere, and converted to PNG).
+
+Licensing[ [/w/index.php?title=File:Vesta_map_for_GeoHack.png&action=edit&section=2] edit]
+
+Public domainPublic domainfalsefalse
+
+This file is in the [https://en.wikipedia.org/wiki/public_domain] public domain in the United States because it was solely created by [https://en.wikipedia.org/wiki/NASA] NASA. NASA copyright policy states that "NASA material is not protected by copyright unless noted". (See [/wiki/Template:PD-USGov] Template:PD-USGov, [https://www.nasa.gov/multimedia/guidelines/index.html] NASA copyright policy page or [https://www.jpl.nasa.gov/imagepolicy/] JPL Image Use Policy.)
+
+Warnings:
+
+Use of [https://en.wikipedia.org/wiki/NASA_logo] NASA logos, insignia and emblems is restricted per U.S. law [https://www.govinfo.gov/app/details/CFR-2021-title14-vol5/CFR-2021-title14-vol5-part1221/summary] 14 CFR 1221.
+
+The NASA website hosts a large number of images from the [https://en.wikipedia.org/wiki/Soviet_space_program] Soviet/ [https://en.wikipedia.org/wiki/Russian_Federal_Space_Agency] Russian space agency, and other non-American space agencies. These are not necessarily in the public domain.
+
+Materials based on [https://en.wikipedia.org/wiki/Hubble_Space_Telescope] Hubble Space Telescope data may be copyrighted if they are not explicitly produced by the [https://en.wikipedia.org/wiki/Space_Telescope_Science_Institute] STScI. [http://hubblesite.org/copyright/] [1] See also [/wiki/Template:PD-Hubble] {{PD-Hubble}} and [/wiki/Template:Cc-Hubble] {{Cc-Hubble}}.
+
+The [https://en.wikipedia.org/wiki/Solar_and_Heliospheric_Observatory] SOHO (ESA & NASA) joint project implies that all materials created by its probe are copyrighted and require permission for commercial non-educational use. [https://sohowww.nascom.nasa.gov/data/summary/copyright.html] [2]
+
+Images featured on the [https://en.wikipedia.org/wiki/Astronomy_Picture_of_the_Day] Astronomy Picture of the Day (APOD) web site may be copyrighted. [https://apod.nasa.gov/apod/lib/about_apod.html#srapply] [3]
+
+The [https://en.wikipedia.org/wiki/National_Space_Science_Data_Center] National Space Science Data Center (NSSDC) site has been known to host [/wiki/Commons:Village_pump/Copyright/Archive/2014/08#Copyright_status_of_File:Venera_13_-_ven13right.png] copyrighted content. Its [https://nssdc.gsfc.nasa.gov/photo_gallery/photogallery-faq.html#use] photo gallery FAQ states that all of the images in the photo gallery are in the public domain "Unless otherwise noted."
+
+Captions
+English
+Add a one-line explanation of what this file represents
+
+Items portrayed in this file
+[https://www.wikidata.org/wiki/Special:EntityPage/P180] depicts
+
+[https://www.wikidata.org/wiki/Special:EntityPage/P6216] copyright status
+
+[https://www.wikidata.org/wiki/Special:EntityPage/Q19652] public domain
+
+[https://www.wikidata.org/wiki/Special:EntityPage/P1001] applies to jurisdiction: [https://www.wikidata.org/wiki/Special:EntityPage/Q30] United States
+
+[https://www.wikidata.org/wiki/Special:EntityPage/P459] determination method or standard: [https://www.wikidata.org/wiki/Special:EntityPage/Q60671452] work of the federal government of the United States

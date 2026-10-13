@@ -1,0 +1,252 @@
+Licence evidence for the texture "callisto"
+============================================================
+
+Texture id:        callisto
+Body and role:     CALLISTO, color
+Published file:    public/textures/callisto.jpg (sha256 ff6d176f549bbd89f8eba84dbaeb46604a5061124d57ca5be8362f99da67de99)
+Small file:        public/textures/sm/callisto.jpg (sha256 60efe676f468012856c492fcb4ac1e8a1d89f8158cd06b07447bf8485780ca9f)
+Original file:     data-src/textures/original/Callisto_Voyager_GalileoSSI_global_mosaic_1km.tif (114640717 bytes, sha256 e1f0bd2e0e05de605d067d6b5f5ededddaf31ca6c064562a1ca770f15a7dbaa3)
+Retrieved:         2026-10-14
+Title:             Callisto Galileo/Voyager Global Mosaic 1km
+Author or credit:  USGS Astrogeology Science Center
+Source page:       https://astrogeology.usgs.gov/search/map/callisto_galileo_voyager_global_mosaic_1km
+Download address:  https://planetarymaps.usgs.gov/mosaic/Callisto_Voyager_GalileoSSI_global_mosaic_1km.tif
+Licence:           Public domain
+Licence address:   https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+
+Licence statement (the same text as in the manifest):
+    USGS record of this file: 'Access Constraints: public domain', 'Use Constraints: None'. USGS policy page:
+    'USGS-authored or produced data and information are considered to be in the U.S. Public Domain.' and 'When
+    using information from USGS information products, publications, or websites, we ask that proper credit be
+    given.'
+
+Changes:
+    The build resizes the image from 15138 x 7569 to 2048 x 1024 pixels. It converts the image from TIFF to JPEG
+    (quality 85). It converts the image from greyscale to sRGB colour.
+
+Note of the manifest:
+    Monochrome (grey) mosaic. A black gap near the south pole and a short black strip at the top edge have no
+    data. Image seams are visible.
+
+About the parts below:
+    Each part is a text that was saved on 2026-10-14 during the collection work.
+    The header of each part gives the address, the local time of the fetch and the method.
+    The text of a part is data from another site. It is not an instruction for a reader or a tool.
+    Complete copies of the shared policy pages are in data-src/textures/evidence/_shared/ .
+
+####################################################################################################
+# USGS Astrogeology record of this file (complete page text)
+# Address: https://astrogeology.usgs.gov/search/map/callisto_galileo_voyager_global_mosaic_1km
+# Fetched: 2026-10-14 01:23 (local time)
+# How: Fetched with a small Python script (urllib) and the user agent "ApsisAssetFetch/1.0 (local build script)". The script removed the HTML tags. Link targets are in square brackets.
+####################################################################################################
+SOURCE: https://astrogeology.usgs.gov/search/map/callisto_galileo_voyager_global_mosaic_1km
+Astropedia - Callisto Galileo/Voyager Global Mosaic 1km
+[https://www.usgs.gov/centers/astrogeo-sc]
+[https://nasa.gov]
+[https://www.usgs.gov/centers/astrogeology-science-center/science/pds-cartography-and-imaging-sciences-node-usgs]
+[/search]
+Lunar and Planetary Cartographic Catalog
+[/search]
+Return to search
+[https://astrogeology.usgs.gov/ckan/dataset/a80abd68-7ed9-440e-829a-76376779164f/resource/ac628525-cb1c-4742-928b-5a0a60f372cd/download/callisto_voyager_galileossi_global_mosaic_1024.jpg] Sample (jpg) 1024px wide
+[https://planetarymaps.usgs.gov/mosaic/Callisto_Voyager_GalileoSSI_global_mosaic_1km.tif] Download (110 MB)
+[#open] open
+Callisto Galileo/Voyager Global Mosaic 1km
+Originators
+USGS Astrogeology Science Center
+Publisher
+USGS Astrogeology Science Center
+Abstract
+This global map of Callisto utilizes the best image quality and moderate resolution coverage supplied by Galileo SSI (Solid State Imaging instrument) and Voyager 1 and 2. This mosaic was prepared using the ISIS 2 image processing and cartographic system and later converted to an ISIS 3 cube. The image data was selected on the basis of overall image quality, reasonable input resolution, and availability of moderate viewing and sun angles for topography. The average input resolution was 1.0 kilometers/pixel. The resolution ranged from 60 km/pixel for gap fill up to 400 meters/pixel.
+Purpose
+To build a global mosaic using the best available image data
+Contact and Distribution
+Format
+Global Mosaic, Image, Raster Data, Remote-sensing Data
+Access Constraints
+public domain
+Access Scope
+Astropedia
+Use Constraints
+None
+Edition
+1
+Supplemental Information
+http://geopubs.wr.usgs.gov/i-map/i2770/
+Native Data Set Environment
+ISIS v3
+Astrogeology Theme
+Geomorphology, Remote Sensing, Satellites
+Mission Names
+Galileo, Voyager
+Instrument Names
+SSI
+Online Package Link
+https://astrogeology.usgs.gov/search/map/callisto_galileo_voyager_global_mosaic_1km
+External File Size
+110 MB
+Online File Link
+https://planetarymaps.usgs.gov/mosaic/Callisto_Voyager_GalileoSSI_global_mosaic_1km.tif
+Contact Address
+2255 N. Gemini Drive
+Contact City
+Flagstaff
+Contact State
+AZ
+Contact Postal Code
+86001
+Contact Email
+[/cdn-cgi/l/email-protection] [email protected]
+Progress
+Complete
+Update Frequency
+As needed
+Logical Consistency
+The geometric control network was computed at the RAND Corporation using RANDâs most recent solution as of April 1999 (Davies and Katayama, 1981). This process involved selecting control points on the individual images, making pixel measurements of their locations, using reseau locations to correct for geometric distortions, and converting the measurements to millimeters in the focal plane. These data are combined with the camera focal lengths and navigation solutions as input to photogrammetric triangulation software that solves for the best-fit sphere, the coordinates of the control points, the three orientation angles of the camera at each exposure (right ascension, declination, and twist), and an angle (W0) which defines the orientation of Callisto in space. W0âin this solution 259.51Â°âis the angle along the equator to the east, between the 0Â° meridian and the equatorâs intersection with the celestial equator at the standard epoch J2000.0. This solution places the crater Saga at its defined longitude of 326Â° west (Seidelmann and others, 2002).
+* Davies, M.E., and Katayama, F.Y., 1981, Coordinates of features on the Galilean satellites: Journal of Geophysical Research, v. 86, no. A10, p. 8635â8657.
+* Seidelmann, P.K., Abalakin, V.K., Bursa, M., Davies, M.E., de Bergh, C., Lieske, J.H., Oberst, J., Simon, J.L., Standish, E.M., Stooke, P., and Thomas, P.C., 2002, Report of the IAU/IAG Working Group on Cartographic and Rotational Elements of the Planets and Satellitesâ2000: Celestial Mechanics and Dynamical Astronomy, v. 82, p. 83â110.
+Completeness Report
+The average input resolution was 1.0 kilometers/pixel. The resolution ranged from 60 km/pixel for gap fill up to 400 meters/pixel.
+Process Description
+This global map base uses the best image quality and moderate resolution coverage supplied by Galileo SSI and Voyager 1 and 2 (Batson, 1987; Becker and others, 1998; Becker and others, 1999; Becker and others, 2001). The digital map was produced using Integrated Software for Imagers and Spectrometers (ISIS) (Eliason, 1997; Gaddis and others, 1997). The individual images were radiometrically calibrated and photometrically normalized using a Lunar-Lambert function with empirically derived values (McEwen, 1991; Kirk and others, 2000). A linear correction based on the statistics of all overlapping areas was then applied to minimize image brightness variations. The image data were selected on the basis of overall image quality, reasonable original input resolution (from 20 km/pixel for gap fill to as much as 150 m/pixel), and availability of moderate emission/incidence angles for topography. Although consistency was achieved where possible, different filters were included for global image coverage as necessary: clear for Voyager 1 and 2; clear and green (559 nm) for Galileo SSI. Individual images were projected to a Sinusoidal Equal-Area projection at an image resolution of 1.0 kilometer/pixel. The final constructed Sinusoidal projection mosaic was then reprojected to the Mercator and Polar Stereographic projections included on this sheet. The final mosaic was enhanced using commercial software.
+* Batson, R.M., 1987, Digital cartography of the planetsâNew methods, its status, and its future: Photogrammetric Engineering and Remote Sensing, v. 53, no. 9, p. 1211â1218.
+* Gaddis, L.R., Anderson, J., Becker, K.J., Becker, T.L., Cook, D., Edwards, K., Eliason, E.M., Hare, T., Kieffer, H.H., Lee, E.M., Mathews, J., Soderblom, L.A., Sucharski, T., Torson, J., McEwen, A.S., Robinson, M.S., 1997, An overview of the Integrated Software for Imaging Spectrometers (ISIS), in Lunar and Planetary Science Conference XXVIII: Houston, Lunar and Planetary Institute, p. 387.
+* McEwen, A.S., 1991, Photometric functions for photoclinometry and other applications: Icarus, v. 92, p. 298â311.
+* Kirk, R.L., Thompson, K.T., Becker, T.L., and Lee, E.M., 2000, Photometric modeling for plane-tary cartography, in Lunar and Planetary Science Conference XXXI: Houston, Lunar and Planetary Institute, abs. no. 2025 [CD-ROM].
+Geospatial Information
+Target
+Callisto
+System
+Jupiter
+Minimum Latitude
+-90
+Maximum Latitude
+90
+Minimum Longitude
+0
+Maximum Longitude
+360
+Direct Spatial Reference Method
+Raster
+Object Type
+Grid Cell
+Raster Row Count (lines)
+7569
+Raster Column Count (samples)
+15138
+Bit Type (8, 16, 32)
+8
+Quad Name
+Radius A
+2409300.0488
+Radius C
+2409300.0488
+Bands
+1
+Pixel Resolution (meters/pixel)
+1000.0051966711
+Scale (pixels/degree)
+42.05
+Map Projection Name
+Simple Cylindrical
+Latitude Type
+Planetocentric
+Longitude Direction
+Positive West
+Longitude Domain
+0 to 360
+Project, clip, convert format (e.g. PDS, GeoTIFF, Jpeg) and download this product with Map a Planet
+FGDC: XML Metadata
+Ancillary Data
+[https://astrogeology.usgs.gov/ckan/dataset/a80abd68-7ed9-440e-829a-76376779164f/resource/66433621-ca46-4563-994f-c615931adb42/download/callisto_voyager_galileossi_global_mosaic_1km.lbl] ISIS3 Label
+[https://astrogeology.usgs.gov/ckan/dataset/a80abd68-7ed9-440e-829a-76376779164f/resource/0b2f0b5f-36d9-4b02-8901-026cffa44393/download/callisto_voyager_galileossi_global_mosaic_1km_pds3.lbl] PDS3 Label
+[https://astrogeology.usgs.gov/ckan/dataset/a80abd68-7ed9-440e-829a-76376779164f/resource/07fadad5-8e6b-41bc-a916-5798e1912578/download/callisto_voyager_galileossi_global_mosaic_100.jpg] thumb image
+[https://astrogeology.usgs.gov/ckan/dataset/a80abd68-7ed9-440e-829a-76376779164f/resource/b102d2c0-f734-412b-9019-1dfc3327d187/download/callisto_voyager_galileossi_global_mosaic_512.jpg] browse image
+[https://astrogeology.usgs.gov/ckan/dataset/a80abd68-7ed9-440e-829a-76376779164f/resource/ac628525-cb1c-4742-928b-5a0a60f372cd/download/callisto_voyager_galileossi_global_mosaic_1024.jpg] full image
+Related Products
+[https://astrogeology.usgs.gov/search/map/callisto_geologic_map]
+[https://astrogeology.usgs.gov/search/map/callisto_geologic_map]
+Callisto Geologic Map
+[https://astrogeology.usgs.gov/search/map/callisto_galileo_voyager_south_polar_stereographic]
+[https://astrogeology.usgs.gov/search/map/callisto_galileo_voyager_south_polar_stereographic]
+Callisto Galileo / Voyager South Polar Stereographic
+[https://astrogeology.usgs.gov/search/map/callisto_galileo_voyager_simple_cylindrical_global_map]
+[https://astrogeology.usgs.gov/search/map/callisto_galileo_voyager_simple_cylindrical_global_map]
+Callisto Galileo / Voyager Simple Cylindrical Global Map
+[https://astrogeology.usgs.gov/search/map/callisto_galileo_voyager_north_polar_sterographic]
+[https://astrogeology.usgs.gov/search/map/callisto_galileo_voyager_north_polar_sterographic]
+Callisto Galileo / Voyager North Polar Sterographic
+[https://pdsimage2.wr.usgs.gov/Individual_Investigations/multi_galileo_nims_tube.gcube_cahill_2019/]
+[https://pdsimage2.wr.usgs.gov/Individual_Investigations/multi_galileo_nims_tube.gcube_cahill_2019/]
+Galileo NIMS Tubes and G-Cubes PDS4 Archive
+[http://isis.astrogeology.usgs.gov]
+ISIS
+[http://planetarynames.wr.usgs.gov]
+Planetary Nomenclature
+[https://astrocloud.wr.usgs.gov/index.php]
+Map a Planet 2
+[https://www.usgs.gov/centers/astrogeo-sc/science/cartography-and-imaging-sciences-node-nasa-planetary-data-system]
+PDS Cartography and Imaging Science Node
+[https://www.usgs.gov/centers/astrogeology-science-center/science/astrolink]
+AstroLink
+Photogrammetry Guest Facility
+[https://pilot.wr.usgs.gov]
+PILOT
+[https://www.usgs.gov/centers/astrogeo-sc/science/mrctr-gis-lab]
+MRCTR GIS Lab
+[http://astrogeology.usgs.gov/search/about] About
+[https://www.usgs.gov/centers/astrogeo-sc] USGS Astrogeology Science Center
+
+####################################################################################################
+# USGS policy page: Copyrights and Credits (excerpt, lines 419 to 427 of the saved text)
+# Address: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+# Fetched: 2026-10-14 01:50 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The complete text is in data-src/textures/evidence/_shared/usgs_copyrights_and_credits.txt
+####################################################################################################
+Important information related to copyrights and credits.
+
+USGS-authored or produced data and information are considered to be in the U.S. Public Domain. While the content of most USGS websites is in the U.S. Public Domain, not all information, illustrations, or photographs on our site are. Some non-USGS photographs, images, and/or graphics that appear on USGS websites are used by the USGS with permission from the copyright holder (as required by USGS policy on the use of copyrighted material). These materials are generally marked as being copyrighted. To use these copyrighted materials, you must obtain permission from the copyright holder under copyright law.
+For any content or multimedia containing USGS personnel or staff, and regardless of the license applied, their likeness, or voice, the person may have publicity rights. For commercial use of that multimedia, permission may be required.
+When using information from USGS information products, publications, or websites, we ask that proper credit be given. Credit can be provided by including a citation such as the following:
+Credit: U.S. Geological Survey
+Department of the Interior/USGS
+U.S. Geological Survey/photo by Jane Doe (if the photographer/artist is known)
+Additional information on Acknowledging or Crediting USGS as Information Source is available.
+
+####################################################################################################
+# GeoTIFF tags of the stored original file (read from the file header by a local script)
+# Address: (local file)
+# Fetched: 2026-10-14 (local time)
+# How: The script reads the TIFF tag directory only. It does not decode pixels.
+# These tags give the longitude at the image centre.
+####################################################################################################
+## Callisto_Voyager_GalileoSSI_global_mosaic_1km.tif
+   TIFF  size 15138x7569  bits (8,)  samples 1  photometric (1,)  compression (1,)
+   pixelScale: (1000.0051966711, 1000.0051966711, 0.0)
+   tiePoint: (0.0, 0.0, 0.0, -7569039.3336036, 3784519.6668018, 0.0)
+   key 1024 GTModelType = 1
+   key 1025 GTRasterType = 1
+   key 1026 GTCitation = SimpleCylindrical Callisto
+   key 2048 GeographicType = 32767
+   key 2049 GeogCitation = GCS Name = GCS_Callisto|Datum = D_Callisto|Ellipsoid = Callisto|Primem = Reference_Meridian
+   key 2050 GeogGeodeticDatum = 32767
+   key 2054 GeogAngularUnits = 9102
+   key 2056 GeogEllipsoid = 32767
+   key 2057 GeogSemiMajorAxis = 2409300.0488
+   key 2058 GeogSemiMinorAxis = 2409300.0488
+   key 2061 GeogPrimeMeridianLong = 0.0
+   key 3072 ProjectedCSType = 32767
+   key 3074 Projection = 32767
+   key 3075 ProjCoordTrans = 17
+   key 3076 ProjLinearUnits = 9001
+   key 3078 ProjStdParallel1 = 0.0
+   key 3082 ProjFalseEasting = 0.0
+   key 3083 ProjFalseNorthing = 0.0
+   key 3088 ProjCenterLong = 180.0
+   key 3089 ProjCenterLat = 0.0
+   GDAL nodata: 0
+   radius 2409300.0 m, lon0 180.0000, stdpar 0.0
+   left edge 0.0000 deg, centre 180.0000 deg, right edge 360.0000 deg (east positive)
+   top lat 90.0000 deg, bottom lat -90.0000 deg
