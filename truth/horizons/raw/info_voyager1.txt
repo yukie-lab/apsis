@@ -1,0 +1,65 @@
+# REQUEST https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%27-31%27&OBJ_DATA=%27YES%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27VECTORS%27&CENTER=%27500%4010%27&START_TIME=%271900-01-01%27&STOP_TIME=%271900-01-02%27&STEP_SIZE=%271d%27
+# RETRIEVED 2026-10-13T15:22:00Z
+API VERSION: 1.2
+API SOURCE: NASA/JPL Horizons API
+
+*******************************************************************************
+ Revised: Aug 19, 2022   Voyager 1 Spacecraft (interplanetary) / (Sun)     -31
+                        http://www.jpl.nasa.gov/missions/voyager-1/
+
+ BACKGROUND
+   See the web-page above for information on the Voyager Mission
+
+ TIMELINE
+   1977-Sep-06  Launch from Kennedy Space Center @ 12:56 UTC
+   1979-Mar-05  Jupiter closest-approach, Io imaging
+   1980-Nov-12  Saturn encounter, Titan
+   1990-Jan-01  Interstellar mission begins
+   1990-Feb-14  Final Voyager image return
+   1992-Apr-24  Final two-way tracking measurements
+   1998-Feb-17  Exceeds Pioneer 10 distance (most distant man-made object)
+   2004-Dec-15  Crosses solar system "bow shock" boundary
+   2012-Aug-25  Passes heliopause and termination shock boundary
+
+ SPACECRAFT TRAJECTORY:
+   This trajectory is composed of two merged sections:
+
+     #1) 1977-Sep-5 to 1981-Jan-1:
+          A patched conic mission-design type trajectory in which the conics 
+          were constructed to approximately match specific events, such as
+          satellite encounters, providing a rough accuracy. 
+
+     #2) 1981-Jan-1 to 2100-Jan-1 
+          Refit of tracking data spanning 1981-1992 (end of two-way coherent 
+          transponder data). Done in 2022 by R. Jacobson (former Voyager
+          navigation) using DE440 to generate a new solution and prediction. 
+
+   The reconstruction done in 2022 estimated:
+      - Epoch state vector
+      - Constant and stochastic non-gravitational accelerations 
+         (to account for the activity of three-axis attitude control system)
+      - Thermal radiation from RTG power sources
+      - Mismodelling of solar pressure  
+      - 96 impulsive maneuvers through Feb 1992
+
+   Note there has been no new tracking data possible since 1992. This is a
+   different issue from on-board telemetry, which continued beyond that date. 
+
+   The 2022 update refit the existing old tracking data using modern approaches
+   and standards to allow consistent extrapolation to 2100.
+
+   Formal predicted geocentric pointing uncertainty on 2030-Jan-1:
+     RA +/- 1.701 arcseconds, DEC +/- 1.535 arcseconds
+
+   This uncertainty is consistent with the new solution's difference with 
+   the A54206 prediction made in 1990. 
+ 
+   Tracking data used in 2022 solution:
+     Points Type       First point            Last point       residual rms
+       2366   F2   01-JAN-1981 05:14:00  15-APR-1989 08:09:00  0.133 mm/s
+       2084   F3   07-JAN-1981 12:15:00  24-APR-1992 14:04:00  0.153 mm/s
+       5191  PRA   01-JAN-1981 03:52:18  20-JAN-1989 14:13:59  228 m
+         67  SRA   04-MAR-1989 10:58:56  13-OCT-1991 04:49:30  227 m
+*******************************************************************************
+
+No ephemeris for target "Voyager 1 (spacecraft)" prior to A.D. 1977-SEP-05 13:59:24.3830 TDB

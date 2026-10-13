@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.cache/
+tools/.venv/
+data-src/kernels/
+shots/
+*.log
+.DS_Store
+scratch/
+
+data-src/textures/original/

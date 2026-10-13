@@ -1,0 +1,70 @@
+# REQUEST https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%27-32%27&OBJ_DATA=%27YES%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27VECTORS%27&CENTER=%27500%4010%27&START_TIME=%271900-01-01%27&STOP_TIME=%271900-01-02%27&STEP_SIZE=%271d%27
+# RETRIEVED 2026-10-13T15:21:59Z
+API VERSION: 1.2
+API SOURCE: NASA/JPL Horizons API
+
+*******************************************************************************
+ Revised: Aug 19, 2022   Voyager 2 Spacecraft (interplanetary) / (Sun)     -32
+                        http://www.jpl.nasa.gov/missions/voyager-2/
+
+ BACKGROUND
+   See the web-page above for information on the Voyager Mission
+
+ TIMELINE
+   1977-Aug-20  Launch from Kennedy Space Center @ 14:29 UTC
+   1978-Jun     Primary receiver failed, rest of mission on backup
+   1979-Jul-09  Jupiter closest-approach
+   1981-Aug-25  Saturn encounter
+   1986-Jan-24  First Uranus encounter
+   1987         Observes Supernova 1987A
+   1989-Aug-25  First Neptune encounter; begins trip outside solar system
+                 below ecliptic plane
+   1992-Jul-17  Last transponder tracking data
+   2007-Sep-05  Crosses solar system "bow shock" boundary
+   2012-Aug-13  Becomes longest operating spacecraft
+   2018-Nov-15  Crossed heliopause, entered interstellar space
+
+ SPACECRAFT TRAJECTORY:
+   This trajectory is composed of two merged sections:
+
+     #1) 1977-Aug-20 to 1989-Aug-29:
+          A patched conic mission-design type trajectory in which the conics 
+          were constructed to approximately match specific events (such 
+          satellite encounters), providing a rough accuracy. 
+
+     #2) 1989-Aug-29 to 2100-Jan-1 
+          Refit of tracking data spanning 1989-1992 (from Neptune encounter to 
+          the end of two-way coherent transponder data). Produced in 2022 by 
+          R. Jacobson (former Voyager navigation) using DE440 to generate a new
+          solution and long-term prediction. 
+
+   The reconstruction done in 2022 estimated:
+      - Epoch state vector
+      - Constant and stochastic non-gravitational accelerations 
+         (to account for the activity of three-axis attitude control system)
+      - Thermal radiation from RTG power sources
+      - Mismodelling of solar pressure  
+      - 24 impulsive maneuvers
+
+   Note there has been no new tracking data possible since 1992. This is a
+   different issue from on-board telemetry, which continued beyond that date. 
+   DSS-43 (Canberra) is the only DSN site still equipped to communicate with
+   Voyager 2.
+
+   The 2022 update refit the existing old tracking data using modern approaches
+   and standards to allow consistent extrapolation to 2100.
+
+   Formal predicted geocentric pointing uncertainty on 2030-Jan-1:
+     RA +/- 4.718 arcseconds, DEC +/- 3.715 arcseconds
+
+   This uncertainty is consistent with the new solution's difference with 
+   the M05016 prediction made in 1990. 
+ 
+   Tracking data used in 2022 solution:
+     Points Type       First point            Last point       residual rms
+        170   F2   31-Aug-1989 12:57:30  17-Jul-1992 20:17:00  0.137 mm/s
+       1098   F3   30-Aug-1989 01:13:30  30-Oct-1992 18:05:00  0.120 mm/s
+         67  SRA   31-Aug-1989 12:50:01  21-Jul-1991 19:38:58  229 m
+*******************************************************************************
+
+No ephemeris for target "Voyager 2 (spacecraft)" prior to A.D. 1977-AUG-20 15:32:32.1830 TDB

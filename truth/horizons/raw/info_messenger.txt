@@ -1,0 +1,48 @@
+# REQUEST https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%27-236%27&OBJ_DATA=%27YES%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27VECTORS%27&CENTER=%27500%4010%27&START_TIME=%271900-01-01%27&STOP_TIME=%271900-01-02%27&STEP_SIZE=%271d%27
+# RETRIEVED 2026-10-13T15:22:10Z
+API VERSION: 1.2
+API SOURCE: NASA/JPL Horizons API
+
+*******************************************************************************
+ Revised: Apr 03, 2015           MESSENGER Spacecraft                      -236
+                            http://messenger.jhuapl.edu/
+
+ BACKGROUND:
+  MESSENGER was launched from Cape Canaveral Air Force Station, Fla., on 
+  August 3, 2004. It returned to Earth for a gravity boost 2005-Aug-2, 
+  (2,347 kilometers over central Mongolia at 3:13 p.m. EDT), then flew past 
+  Venus twice, on October 24, 2006 and June 2007. Mercury orbit insertion  
+  occurred March 18, 2011.
+
+  Three Mercury flybys, each followed about two months later by a course 
+  correction maneuver, put MESSENGER in position to enter Mercury orbit in 
+  March 2011. During the flybys - set for January 14, 2008 (19:05 UTC, 
+  200.6 km altitude), October 2008, and September 29, 2009 (21:56 UTC, 228 km
+  altitude) - MESSENGER will map nearly the entire planet in color, image 
+  most of the areas unseen by Mariner 10, and measure the composition of the 
+  surface, atmosphere and magnetosphere. 
+
+  MESSENGER's 12-month orbit covers two Mercury solar days; one Mercury solar 
+  day, from sunrise to sunrise, is equal to 176 Earth days. The first solar 
+  day is focused on obtaining global map products from the different 
+  instruments, and the second focuses on targeted science investigations.
+
+ MESSENGER SPACECRAFT:
+  http://messenger.jhuapl.edu/the_mission/spacecraft_design.html
+
+ SPACECRAFT TRAJECTORY:
+  A switch from DE405 to DE423 occurs at 2009-Dec-07 23:59:00 UTC
+
+  CAUTION: Osculating elements (only) may not be suitable for high precision 
+  applications like reduction of spacecraft measurements because Horizons uses
+  mass parameters (GM) from DE431 to determine osculating elements. This issue
+  does NOT affect Horizons vector or observer tables over the spacecraft 
+  mission interval.
+
+  Trajectory provided by JHU/APL on Apr 02, 2015:
+  File/Model                            Start         Stop
+  --------------------------------      -----------   -----------
+  msgr_20040803_20150501_od423sc_0      2004 AUG 03   2015 May 01 
+*******************************************************************************
+
+No ephemeris for target "MESSENGER (spacecraft)" prior to A.D. 2004-AUG-03 07:14:39.3932 TDB

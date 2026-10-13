@@ -1,0 +1,80 @@
+# REQUEST https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%27-37%27&OBJ_DATA=%27YES%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27VECTORS%27&CENTER=%27500%4010%27&START_TIME=%271900-01-01%27&STOP_TIME=%271900-01-02%27&STEP_SIZE=%271d%27
+# RETRIEVED 2026-10-13T15:22:13Z
+API VERSION: 1.2
+API SOURCE: NASA/JPL Horizons API
+
+*******************************************************************************
+ Revised: Sep 30, 2026       Hayabusa 2 Spacecraft / (Sun)                  -37
+                   http://b612.jspec.jaxa.jp/hayabusa2/e/index_e.html
+
+ NOTE (2022-Jul-13):
+  The Earth return/encounter trajectory over 2020-Dec-05 to Dec 10 was updated
+  to a more accurate reconstruction provided by JAXA.
+
+ BACKGROUND
+  Hayabusa 2 is an asteroid sample return mission designed and operated by
+  the Japanese space agency (JAXA). It was launched December 03, 2014 @ 04:22 
+  UTC from the Tanegashima LA-Y site (Japan) using a H-IIA launch vehicle.
+
+  After arrival at the target asteroid, 162173 Ryugu (1999 JU3), a separate 
+  copper projectile impacted the surface at 2 km/s and created a 10 m wide
+  crater, exposing the sub-surface material which was sampled and returned 
+  to Earth.
+
+ MISSION TIMELINE
+  Launch     : December 03, 2014 @ 04:22 UTC
+  Earth flyby: 2015-Dec-3 @ 10:08 UTC, 
+               9520 km from Earth center
+               189.847 deg. East, 18.691 deg. North (~1000 km W of Hawaii)
+            
+		Dec 03  04:46   Phase angle < 120 degrees
+		        09:17   Phase angle <  90 degrees
+		        09:39   Most northerly, DEC = +70 degrees
+		        09:58   Enter Earth's shadow
+		        10:08   Closest approach over mid-Pacific
+		        10:13   Crosses equatorial declination heading south
+		        10:19   Exit Earth's shadow
+		        10:57   Phase angle >  90 degrees
+		        14:47   Phase angle > 120 degrees, DEC ~ -60 deg
+
+  Arrived                : June  27, 2018
+  Departed               : November, 2019 (18 month survey)
+  Return/flyby           : December 5, 2020 (sample recovered)
+
+ Extended mission ("Hayabusa2#" or "Hayabusa2 SHARP"):
+  Cruise                 : through July 2021
+  (98943) 2001 CC21 flyby: July 5, 2026 @ 09:29:59.5 UTC (~ 4.2 km)
+  Earth flyby #3         : December 2027
+  Earth flyby #4         : June 2028
+  Rendevous (1998 KY26)  : July 2031
+ 
+ SPACECRAFT
+  Mass: 590 kg (1300 lb)
+  Dimensions: 2 x 1.6 x 1.25 meters ( 6.6 x 5.2 x 4.1 ft) 
+  Ka-band communication
+
+ INSTRUMENTS
+  Lander: 
+   * Mobile Asteroid Surface Scout (MASCOT, Germany & France)   
+   * Carries infrared spectrometer, magnetometer, radiometer, camera.
+   * Can lift-off and reposition
+  Impactor: 
+   * Small Carry-on Impactor (SCI); a small drop-off explosively formed 
+     penetrator, consisting of a 2.5 kilogram (5.5 lb) copper projectile 
+     and a 4.5 kilogram (10 lb) shaped charge composed of plasticized HMX.
+  Camera
+   * Deployable camera (DCAM3). Deployed to observe SCI explosion and impact.
+
+ SPACECRAFT TRAJECTORY: 
+  Tag-up predict fit to tracking data through 2026-Sep-29, prediction 
+  thereafter. Trajectory data from JAXA navigation.
+
+  File name                                  Begins                 Ends 
+  -----------------------------------------  ------------------ --------------
+  trj_141203-150120_ICV1c.bsp_V0.1           2014-Dec-03 inject  2014-Dec-05 
+  hyb2_141205_150210_dsn_v1.V0.1             2014-Dec-05         2014-Dec-09
+  hyb2_141209_180605_dsn_v1.V0.1             2014-Dec-09         2015-Jul-02
+  20[1-2][0-9]*-20[1-2][0-9]*-HYB2.OEM.V0.*  2015-Jul-02         2027-Jan-01
+*******************************************************************************
+
+No ephemeris for target "Hayabusa 2 (spacecraft)" prior to A.D. 2014-DEC-03 06:14:53.1831 TDB

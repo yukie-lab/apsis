@@ -1,0 +1,55 @@
+{
+ "note": "Values copied from primary documents. The HTML files in this directory are the pages as retrieved on 2026-10-13.",
+ "voyager2": {
+  "source": "NASA Science, Voyager 2 mission page, https://science.nasa.gov/mission/voyager/voyager-2/ (file nasa_voyager2.html)",
+  "launchUtc": "1977-08-20 14:29:44",
+  "jupiter": {
+   "utc": "1979-07-09 22:29",
+   "rangeKm": 645000
+  },
+  "saturn": {
+   "date": "1981-08-26",
+   "rangeKm": 101000
+  },
+  "uranus": {
+   "utc": "1986-01-24 17:59",
+   "rangeKm": 81500
+  },
+  "neptune": {
+   "utc": "1989-08-25 03:56",
+   "rangeAboveCloudTopsKm": 4800
+  },
+  "remark": "The page gives each distance as a range from the planet (cloud tops). It also states that a course correction occurred two hours after the closest approach to Jupiter."
+ },
+ "cassini": {
+  "source": "NASA Science, Cassini timeline, https://science.nasa.gov/mission/cassini/the-journey/timeline/ (file nasa_cassini_timeline.html)",
+  "venus1": {
+   "date": "1998-04-25",
+   "altitudeKm": 284
+  },
+  "jupiter": {
+   "date": "2000-12-30",
+   "rangeKm": 10000000
+  },
+  "venus2": {
+   "date": "1999-06-24",
+   "altitudeKm": 600
+  },
+  "earth": {
+   "date": "1999-08-17",
+   "altitudeKm": 1100,
+   "remark": "The page date is the local date in California. The UTC date is 1999-08-18."
+  },
+  "saturnOrbitInsertionUtc": "2004-07-01 21:12",
+  "remark": "The page gives each distance with the word \"about\". Venus and Earth: distance from the surface. Jupiter: distance from the planet."
+ },
+ "mars2020": {
+  "source": "JPL, Mars 2020 Perseverance Launch Press Kit, https://www.jpl.nasa.gov/news/press_kits/mars_2020/launch/mission/ (file jpl_mars2020_presskit.html)",
+  "launchPeriod": [
+   "2020-07-20",
+   "2020-08-11"
+  ],
+  "landing": "2021-02-18",
+  "cruiseDaysFromFirstDay": 213
+ }
+}

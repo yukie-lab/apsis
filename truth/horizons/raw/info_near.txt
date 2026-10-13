@@ -1,0 +1,77 @@
+# REQUEST https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%27-93%27&OBJ_DATA=%27YES%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27VECTORS%27&CENTER=%27500%4010%27&START_TIME=%271900-01-01%27&STOP_TIME=%271900-01-02%27&STEP_SIZE=%271d%27
+# RETRIEVED 2026-10-13T15:22:17Z
+API VERSION: 1.2
+API SOURCE: NASA/JPL Horizons API
+
+*******************************************************************************
+ Revised : May 05, 2020           NEAR Spacecraft  / (Sun)                  -93
+ Web-site: Feb 10, 2013     http://near.jhuapl.edu/sci-eng.html
+
+ BACKGROUND
+  The NEAR-Shoemaker spacecraft studied the near-Earth asteroid 433 Eros from 
+  orbit over one year. 230 orbits were completed before the spacecraft was set 
+  down in the north pole saddle region.
+
+  Mission objectives at Eros were to assess bulk properties: shape, composition,
+  mineralogy, internal mass distribution (gravity field), and magnetic field. 
+  Other studies included regolith properties, interactions with solar wind, 
+  spin state, and any ongoing processes indicated by dust or gas.
+
+  While en-route to Eros, the spacecraft flew past the asteroid 253 Mathilde at
+  a distance of 1211 km, imaging 60% of its surface and determining the mass 
+  parameter (GM).
+
+  The first attempt at Eros orbit insertion failed, requiring the spacecraft
+  orbit the Sun for another year before making a second, successful attempt.
+
+  Upon completion of this first in NASA's Discovery-class series, 
+  NEAR-Shoemaker became the first spacecraft to land on an asteroid, 
+  where it was left.
+
+ DATES
+  Launched       : 1996-Feb-17 20:43:17 UTC Delta II 7925-8, Cape Canaveral
+  Mathilde flyby : 1997-Jun-27 12:55:55 UTC @ 1210.7 km from center
+  Earth flyby    : 1998-Jan-23 07:22:57 UTC @ 6910.7 km from center, 533 km alt
+                     (over 47.1856 E, 33.0926 N; Iran, ~280 km east of Baghdad)
+  Eros orbit insertion 
+   First attempt : 1998-Dec-20 22:00 UTC (aborted)
+   Rendevous burn: 2000-Feb-03 17:00 UTC
+   Eros insertion: 2000-Feb-14 15:33 UTC 
+  Touchdown      : 2001-Feb-12 19:44:16 UTC (bounced)
+  Landing        : 2001-Feb-12 20:01:52 UTC
+  Last radio comm: 2001-Feb-28~00:00 UTC
+
+ SPACECRAFT
+  Size           : octagonal, 1.7 m per side
+  Launch mass    : 800 kg
+  Dry mass       : 487 kg
+  Power          :  400 watts @ 2.2 au (max. distance from Sun)
+                   1800 watts @ 1 au
+  Communications : 1.5 m X-band antenna
+  Propulsion     : 450 Newton main thruster
+                   Four 21 N & seven 3.5 N hyradizne thrusters
+                   1450 m/s total delta-V (209 kg hydrazine 109 kg NTO oxidizer)
+
+ TRAJECTORY
+  Concatenation of JPL navigation solutions. Includes all modeling of the time;
+  solar pressure, maneuver reconstruction, and Eros gravity w/spin-state soln.
+
+  Merged solutions from JPL navigation:
+
+  File                                 Start              Stop
+  -----------------------------------  -----------------  -----------------
+  p_tcm2_n0a                           1996-Feb-19 02:00  1996-Apr-02 00:00
+  p_tcm2_n1d                           1996-Apr-02 00:00  1996-May-31 00:00 
+  near_cruise_nav_v1                   1996-May-31 00:00  2000-Jan-01 01:00
+  near_erosorbit_nav_v1                2000-Jan-01 00:00  2001-Feb-12 19:45
+
+  Usage notes: 
+   To produce output relative to 433 Eros or 253 Mathilde flight-project 
+   target trajectories, specify coordinate center "@2000433" or "@2000253". 
+
+   The mission-consistent DE403 target-body trajectory solutions used are
+   "eros80" (which includes 75 30-m 1-sigma delay measurements of Eros 
+   synthesized from spacecraft tracking) and "math9749".
+*******************************************************************************
+
+No ephemeris for target "NEAR Shoemaker (spacecraft)" prior to A.D. 1996-FEB-19 02:00:00.0000 TDB

@@ -1,0 +1,46 @@
+# REQUEST https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%27-55%27&OBJ_DATA=%27YES%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27VECTORS%27&CENTER=%27500%4010%27&START_TIME=%271900-01-01%27&STOP_TIME=%271900-01-02%27&STEP_SIZE=%271d%27
+# RETRIEVED 2026-10-13T15:22:05Z
+API VERSION: 1.2
+API SOURCE: NASA/JPL Horizons API
+
+*******************************************************************************
+ Revised: Aug 13, 2009   Ulysses Spacecraft (interplanetary) / (Sun)        -55
+                             http://ulysses.jpl.nasa.gov/ 
+            http://ulysses-ops.jpl.esa.int/ulsfct/rgpCafe/solsys/solsys.html
+
+ MISSION ENDED: June 30, 2009. Last tracking data: 2009-Jun-29.
+  The Ulysses Radioisotope Thermoelectric Generators (RTGs) have been steadily 
+  losing power over the years and can no longer run all the communications, 
+  scientific equipment, and heating simultaneously. Soon the spacecraft will 
+  become so cold that its hydrazine fuel lines will freeze and it will become 
+  impossible to maneuver. 
+
+  A five year mission was planned, but for more than 17 years, the spacecraft 
+  has studied the Sun, magnetic fields, the solar wind, x-rays and particles 
+  from solar flares, and more. 
+ 
+ BACKGROUND
+   Launched : Oct 6, 1990                   Jupiter gravity assist: Feb 8, 1992
+   Deployed from shuttle Discovery (STS-41) 160 nm above Earth
+
+   Objective: Study the Sun from high solar latitudes.
+   Ulysses is a joint mission between NASA and the European Space Agency (ESA).
+
+   To reach high solar latitudes, the spacecraft was directed past Jupiter to 
+   obtain a gravity-assist, accelerating Ulysses out of the ecliptic plane.
+
+   With an orbital period of 6 years, observations have/will be obtained at 
+   both the minimum and maximum of the 11 year solar cycle.
+
+   See the web-page above for extensive information on the Ulysses Mission.
+
+ SPACECRAFT TRAJECTORY:
+  ... concatenated of trajectories provided Navigation Team (Mark Ryne/JPL). 
+
+  File name              Span
+  ---------------------  --------------------------------------------------
+  pfile_ulysses_history  1990-Oct-6 (injection) to 2050-Jan-1. 
+                         Trajectory after 2009-Jun-29 is predicted.
+*******************************************************************************
+
+No ephemeris for target "Ulysses (spacecraft)" prior to A.D. 1990-OCT-06 19:05:00.0000 TDB

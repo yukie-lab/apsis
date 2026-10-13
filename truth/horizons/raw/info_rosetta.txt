@@ -1,0 +1,81 @@
+# REQUEST https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%27-226%27&OBJ_DATA=%27YES%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27VECTORS%27&CENTER=%27500%4010%27&START_TIME=%271900-01-01%27&STOP_TIME=%271900-01-02%27&STEP_SIZE=%271d%27
+# RETRIEVED 2026-10-13T15:22:11Z
+API VERSION: 1.2
+API SOURCE: NASA/JPL Horizons API
+
+*******************************************************************************
+ Revised: Oct 24, 2016           Rosetta Spacecraft                        -226
+                       http://www.esa.int/export/SPECIALS/Rosetta/
+
+ NOTE: To generate an ephemeris of Rosetta with respect to comet 67P, set the 
+       coordinate center to "@1000012". Such relative data is available only 
+       over 2014-Mar-3 to 2016-Oct-05, currently based on a merge of mission
+       comet solutions CORB_DV_117_02_00186, CORB_DV_180_01_00255, and 
+       CORB_DV_257_02___T19_00344.
+
+       Due to the spacecraft's close proximity to the comet and the comet's 
+       irregular shape, some quantities such as sub-solar/center latitude and 
+       longitude (cartographic coordinates) may not be meaningful.
+ 
+ BACKGROUND:
+  After entering orbit around Comet 67P/Churyumov-Gerasimenko on 2014-Aug-6 
+  at 09:06 UTC, Rosetta released a small lander (Philae) onto the icy nucleus
+  on November 12 @ 13:04 UTC, with landing four hours later. It then spent the 
+  next two years and 55 days orbiting the comet as it move closer in toward 
+  the Sun. 
+
+  On 2016-September-30 @ 10:39:28 UTC, the Rosetta spacecraft ended its mission
+  by landing on the comet in the Ma'at region.
+
+  On the way to the comet, Rosetta received gravity assists from Earth and 
+  Mars, and encountered main belt asteroids 2867 Steins and 21 Lutetia.
+
+ ROSETTA SPACECRAFT:
+  Launch (Ariane-5G)= Mar 2, 2004 07:17:51 UTC
+  Size (orbiter)    = 2.8 x 2.1 x 2.0 meters, two 14m solar panels (64 m^2)
+  Communications    = 2.2 m diameter dish (steerable high-gain)
+  Mass              = 3000 kg (fully fuelled; 1670 kg propellant) 
+                        165 kg of science payload for the orbiter 
+                        100 kg of science payload for the lander 
+
+  Flybys:       
+   Earth: 2005-Mar-04 22:10 UTC (8340 km from center, ~1962 km altitude)
+   Mars : 2007-Feb-25           (250 km altitude)
+   Earth: 2007-Nov-13 20:57 UTC (11,678 km (center), alt=0.83 Earth-radii)
+   2867 Steins: 2008-Sep-05 18:37 UTC (800 km, 8.6 km/s)
+   Earth: 2009-Nov-13 07:45:40 UTC (alt~2490 km, lat=-8.2 deg, long.=109.0 deg)
+   21 Lutetia: 2010-Jul-10 15:44:45 UTC (event time, 3235 km, 15 km/s)
+
+ SCIENCE INSTRUMENTS:
+
+    * ALICE   Ultraviolet Imaging Spectrometer
+    * CONSERT Comet Nucleus Sounding
+    * COSIMA  Cometary Secondary Ion Mass Analyser
+    * GIADA   Grain Impact Analyser and Dust Accumulator
+    * MIDAS   Micro-Imaging Analysis System
+    * MIRO    Microwave Instrument for the Rosetta Orbiter
+    * OSIRIS  Rosetta Orbiter Imaging System
+    * ROSINA  Rosetta Orbiter Spectrometer for Ion and Neutral Analysis
+    * RPC     Rosetta Plasma Consortium
+    * RSI     Radio Science Investigation
+    * VIRTIS  Visible and Infrared Mapping Spectrometer
+
+ SPACECRAFT TRAJECTORY (merged trajectory, mission completed)
+    Trajectory name (ESA)           Start        Stop
+    ----------------------------    -----------  -----------
+    REPM_050201OAS_PREDICT__0001    2004-MAR-02  2005-FEB-25
+    REPM_050301OAS_PREDICT__0001    2005-FEB-25  2005-MAR-15 (for Earth flyby)
+    REPM_050201OAS_PREDICT__0001    2005-MAR-15  2007-OCT-01
+    ROEM_071015OAS_PREDICT__0001    2007-OCT-01  2009-MAY-19
+    ROEM_091020OAS_PREDICT__0001    2009-MAY-19  2009-NOV-18
+    ROEM_091119OAS_PREDICT__0001    2009-NOV-18  2010-MAR-15 
+    ROEM_100518OAS_PREDICT__0001    2010-MAR-15  2010-JUN-13
+    ROEM_100615OAS_PREDICT__0001    2010-JUN-13  2014-MAY-23 (for Lutetia flyby)
+    ROEM_110627OAS_PREDICT__0001    2010-DEC-29  2011-JUN-08
+    ROEM_130830OAS_SCHED____0001    2011-JUN-08  2014-JAN-01 
+    RORB_DV_117_02_______00186      2014-JAN-01  2015-MAR-01
+    RORB_DV_180_01_______00255      2015-MAR-01  2015-DEC-31
+    RORB_DV_257_02___T19_00344      2015-DEC-31  2016-OCT-05
+*******************************************************************************
+
+No ephemeris for target "Rosetta (spacecraft)" prior to A.D. 2004-MAR-02 09:27:00.0000 TDB

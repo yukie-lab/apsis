@@ -1,0 +1,109 @@
+# REQUEST https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%27299%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27ELEMENTS%27&CENTER=%27500%4010%27&REF_PLANE=%27ECLIPTIC%27&REF_SYSTEM=%27ICRF%27&OUT_UNITS=%27KM-S%27&CSV_FORMAT=%27YES%27&TIME_TYPE=%27TDB%27&TLIST=%272433300.5%2C2440000.5%2C2451545.0%2C2459000.5%2C2470000.5%2C2488000.5%27&TLIST_TYPE=%27JD%27
+# RETRIEVED 2026-10-13T16:13:45Z
+API VERSION: 1.2
+API SOURCE: NASA/JPL Horizons API
+
+
+
+*******************************************************************************
+Ephemeris / API_USER Tue Oct 13 09:13:45 2026 Pasadena, USA      / Horizons
+*******************************************************************************
+Target body name: Venus (299)                     {source: DE441}
+Center body name: Sun (10)                        {source: DE441}
+Center-site name: BODY CENTER
+*******************************************************************************
+Start time      : A.D. 1950-Jan-19 00:00:00.0000 TDB
+Stop  time      : A.D. 2099-Oct-24 00:00:00.0000 TDB
+Step-size       : DISCRETE TIME-LIST
+*******************************************************************************
+Center geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}
+Center cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}
+Center radii    : 695700.0, 695700.0, 695700.0 km {Equator_a, b, pole_c}
+Keplerian GM    : 1.3271276489987138E+11 km^3/s^2
+Output units    : KM-S, deg, Julian Day Number (Tp)
+Calendar mode   : Mixed Julian/Gregorian
+Output type     : GEOMETRIC osculating elements
+Output format   : 10
+Reference frame : Ecliptic of J2000.0
+*******************************************************************************
+            JDTDB,            Calendar Date (TDB),                     EC,                     QR,                     IN,                     OM,                      W,                     Tp,                      N,                     MA,                     TA,                      A,                     AD,                     PR,
+**************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+$$SOE
+2433300.500000000, A.D. 1950-Jan-19 00:00:00.0000,  6.817995962852659E-03,  1.074731799592380E+08,  3.395042729969941E+00,  7.682219941229977E+01,  5.478351987394046E+01,  2.433312791955015E+06,  1.854266255413254E-05,  3.403072304093009E+02,  3.400418278703766E+02,  1.082109618603382E+08,  1.089487437614383E+08,  1.941468755897561E+07,
+2440000.500000000, A.D. 1968-May-24 00:00:00.0000,  6.757541007175833E-03,  1.074771177559866E+08,  3.394798924050550E+00,  7.676708888534655E+01,  5.501012392904321E+01,  2.440053924376224E+06,  1.854333647099372E-05,  2.744064416966888E+02,  2.736338954806636E+02,  1.082083400512011E+08,  1.089395623464155E+08,  1.941398197477176E+07,
+2451545.000000000, A.D. 2000-Jan-01 12:00:00.0000,  6.755786251885615E-03,  1.074771369160582E+08,  3.394589649080540E+00,  7.667837411646899E+01,  5.518596702940252E+01,  2.451513720262355E+06,  1.854338065298620E-05,  5.011477187404461E+01,  5.071202823960058E+01,  1.082081681709291E+08,  1.089391994258000E+08,  1.941393571845952E+07,
+2459000.500000000, A.D. 2020-May-31 00:00:00.0000,  6.752072897873471E-03,  1.074797745667060E+08,  3.394594478185315E+00,  7.662392322763554E+01,  5.501075245095908E+01,  2.458928699865048E+06,  1.854280203624163E-05,  1.150308594945597E+02,  1.157294090318631E+02,  1.082104192054909E+08,  1.089410638442758E+08,  1.941454151839541E+07,
+2470000.500000000, A.D. 2050-Jul-13 00:00:00.0000,  6.768831199642549E-03,  1.074754330975619E+08,  3.394133181432393E+00,  7.654006336506714E+01,  5.482835345938204E+01,  2.469938875663170E+06,  1.854345628814041E-05,  9.873171616058329E+01,  9.949737097777513E+01,  1.082078739306709E+08,  1.089403147637798E+08,  1.941385653278889E+07,
+2488000.500000000, A.D. 2099-Oct-24 00:00:00.0000,  6.699283251054952E-03,  1.074829817723792E+08,  3.393734148389620E+00,  7.640059312209745E+01,  5.513794726618234E+01,  2.487915047399091E+06,  1.854345032590751E-05,  1.369082356001715E+02,  1.374294958786004E+02,  1.082078971252220E+08,  1.089328124780649E+08,  1.941386277488150E+07,
+$$EOE
+**************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+ 
+TIME
+
+  Barycentric Dynamical Time ("TDB" or T_eph) output was requested. This
+continuous coordinate time is equivalent to the relativistic proper time
+of a clock at rest in a reference frame co-moving with the solar system
+barycenter but outside the system's gravity well. It is the independent
+variable in the solar system relativistic equations of motion.
+
+  TDB runs at a uniform rate of one SI second per second and is independent
+of irregularities in Earth's rotation.
+ 
+CALENDAR SYSTEM
+
+  Mixed calendar mode was active such that calendar dates after AD 1582-Oct-15
+(if any) are in the modern Gregorian system. Dates prior to 1582-Oct-5 (if any)
+are in the Julian calendar system, which is automatically extended for dates
+prior to its adoption on 45-Jan-1 BC.  The Julian calendar is useful for
+matching historical dates. The Gregorian calendar more accurately corresponds
+to the Earth's orbital motion and seasons. A "Gregorian-only" calendar mode is
+available if such physical events are the primary interest.
+
+REFERENCE FRAME AND COORDINATES
+
+  Ecliptic at the standard reference epoch
+
+    Reference epoch: J2000.0
+    X-Y plane: adopted Earth orbital plane at the reference epoch
+               Note: IAU76 obliquity of 84381.448 arcseconds wrt ICRF X-Y plane
+    X-axis   : ICRF
+    Z-axis   : perpendicular to the X-Y plane in the directional (+ or -) sense
+               of Earth's north pole at the reference epoch.
+
+  Symbol meaning:
+
+    JDTDB    Julian Day Number, Barycentric Dynamical Time
+      EC     Eccentricity, e
+      QR     Periapsis distance, q (km)
+      IN     Inclination w.r.t X-Y plane, i (degrees)
+      OM     Longitude of Ascending Node, OMEGA, (degrees)
+      W      Argument of Perifocus, w (degrees)
+      Tp     Time of periapsis (Julian Day Number)
+      N      Mean motion, n (degrees/sec)
+      MA     Mean anomaly, M (degrees)
+      TA     True anomaly, nu (degrees)
+      A      Semi-major axis, a (km)
+      AD     Apoapsis distance (km)
+      PR     Sidereal orbit period (sec)
+
+ABERRATIONS AND CORRECTIONS
+
+ Geometric osculating elements have NO corrections or aberrations applied.
+
+Computations by ...
+
+    Solar System Dynamics Group, Horizons On-Line Ephemeris System
+    4800 Oak Grove Drive, Jet Propulsion Laboratory
+    Pasadena, CA  91109   USA
+
+    General site: https://ssd.jpl.nasa.gov/
+    Mailing list: https://ssd.jpl.nasa.gov/email_list.html
+    System news : https://ssd.jpl.nasa.gov/horizons/news.html
+    User Guide  : https://ssd.jpl.nasa.gov/horizons/manual.html
+    Connect     : browser        https://ssd.jpl.nasa.gov/horizons/app.html#/x
+                  API            https://ssd-api.jpl.nasa.gov/doc/horizons.html
+                  command-line   telnet ssd.jpl.nasa.gov 6775
+                  e-mail/batch   https://ssd.jpl.nasa.gov/ftp/ssd/horizons_batch.txt
+                  scripts        https://ssd.jpl.nasa.gov/ftp/ssd/SCRIPTS
+    Inquiries   : Jon.D.Giorgini@jpl.nasa.gov
+*******************************************************************************

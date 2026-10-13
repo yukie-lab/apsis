@@ -1,0 +1,63 @@
+# REQUEST https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%27-98%27&OBJ_DATA=%27YES%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27VECTORS%27&CENTER=%27500%4010%27&START_TIME=%271900-01-01%27&STOP_TIME=%271900-01-02%27&STEP_SIZE=%271d%27
+# RETRIEVED 2026-10-13T15:22:02Z
+API VERSION: 1.2
+API SOURCE: NASA/JPL Horizons API
+
+*******************************************************************************
+ Revised: Sep 01, 2026        New Horizons Spacecraft                      -98
+                          http://pluto.jhuapl.edu/index.php
+
+ NOTE:
+  The trajectory here now uses the plu060 post-encounter Pluto system 
+  reconstruction (Brozovic & Jacobson, "Post-new-horizons Orbits and Masses 
+  for the Satellites of Pluto", AJ, 2024).
+
+  When objects -98 (spacecraft) or 2486958 (TNO target) are used as target  
+  or coordinate centers, the trajectories listed below are used to derive 
+  relative positions.
+
+ Schedule overview:
+  2006-Jan-19 ... launch (Atlas V551 1st stage, Centaur 2nd, STAR 48B 3rd
+  2006-Jun-13 ... Approaches 2002 JF56 to within 102,000 km at 04:06 CT
+  2007-Feb-28 ... Jupiter gravity assist (05:43 UTC, 2.3045(10)^6 km)
+  2015-Jul-14 ... Pluto Charon encounter @ 11:49:57 UTC
+  2016+       ... Kuiper Belt Object targeting 
+  2019-Jan-1  ... Arrokoth (2014 MU69) flyby @ 05:33 UTC, 3500 km from center)
+  
+ Mission Objectives:
+  * Map surface composition of Pluto and Charon
+  * Characterize geology and morphology of Pluto and Charon
+  * Characterize the neutral atmosphere of Pluto and its escape rate
+  * Search for an atmosphere around Charon
+  * Map surface temperatures on Pluto and Charon
+  * Search for rings and additional satellites around Pluto
+  * Conduct similar investigations of one or more Kuiper Belt Objects
+
+ Spacecraft:
+  1025 lbs (465 kg), 8 feet wide (2.5 m), RTG powered
+
+ Concatenated spacecraft trajectory (from NH navigation, KinetX, tracking
+ data cut-off July 20, 2026 19:11:55 TDB).
+
+ USAGE NOTES:
+
+  1) To produce Horizons output relative to the Arrokoth (2014 MU69) 
+     flight-project target trajectory, specify coordinate center 
+     "@ 2486958" or "@ Arrokoth".
+  2) The reconstructed post Arrokoth-flyby target-body trajectory solution 
+     used is from "NavSBE_2014MU69_od159"
+
+ File                                     Start (TDB)        Stop (TDB)
+ ---------------------------------------- -----------------  -----------------
+ nh_pred_20060119_20070101_od021          2006-Jan-19 19:52  2006-Dec-31 23:58
+ nh_ref_20060119_20150925_v04             2007-Dec-31 23:58  2007-Mar-19 00:00
+ 98_pred_20070319_20150101_od070          2007-Mar-19 00:00  2012-May-01 13:47
+ 98_pred_20120501_20160913_od117          2012-May-01 13:47  2014-Dec-08 05:13
+ nh_recon_pluto_od122_v01                 2014-Dec-08 05:13  2015-Sep-27 06:13
+ nh_recon_arrokoth_od147_v01              2015-Sep-27 06:13  2019-Feb-07 00:00
+ nh_pred_alleph_od151                     2019-Feb-07 00:00  2021-Oct-01 00:00
+ 98_pred_20211001_20500101_od165_v2       2021-Oct-01 00:00  2024-Jun-05 05:58
+ 98_pred_20240605_20500101_od166          2024-Jun-05 05:58  2050-Jan-01 00:00
+*******************************************************************************
+
+No ephemeris for target "New Horizons (spacecraft)" prior to A.D. 2006-JAN-19 19:51:18.3305 TDB

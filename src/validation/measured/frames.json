@@ -1,0 +1,39 @@
+[
+ {
+  "id": "frames.ecliptic",
+  "group": "frames",
+  "value": 9.193715319008412e-8,
+  "unit": "km",
+  "limit": 0.01,
+  "truth": "JPL Horizons vectors of the same body in the ICRF and in the ecliptic of J2000",
+  "detail": {
+   "maxRelativeError": 4.379496866175819e-16
+  }
+ },
+ {
+  "id": "frames.heliocentric",
+  "group": "frames",
+  "value": 0.0015692667472167168,
+  "unit": "km",
+  "limit": 0.02,
+  "truth": "JPL Horizons heliocentric ecliptic vectors of Venus, the Earth, Mars and the Jupiter barycentre, 1950 to 2099"
+ },
+ {
+  "id": "frames.elements",
+  "group": "frames",
+  "value": 4.077038733497574e-9,
+  "unit": "relative",
+  "limit": 1e-8,
+  "truth": "JPL Horizons osculating elements (heliocentric, ecliptic of J2000) of Venus, the Earth, Mars and the Jupiter barycentre",
+  "detail": {
+   "maxEccentricityError": 4.43896349539008e-9,
+   "maxPeriapsisRelativeError": 8.589723948578785e-9,
+   "maxPeriodRelativeError": 6.115558160033575e-9,
+   "maxInclinationErrorRad": 3.7440625152519154e-10,
+   "maxNodeErrorTimesSinIRad": 5.916645709619201e-10,
+   "maxPeriapsisLongitudeErrorTimesERad": 2.5159025282349e-9,
+   "maxTrueLongitudeErrorRad": 9.86152188308076e-12,
+   "maxMeanLongitudeErrorRad": 6.003706427677374e-9
+  }
+ }
+]

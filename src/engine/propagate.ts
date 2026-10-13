@@ -1,0 +1,397 @@
+/**
+ * Numerical propagation of a spacecraft in the solar system (Cowell method).
+ * Integration frame: ICRF, origin at the solar system barycentre. Units: km, km/s, s. Time: TDB (et).
+ *
+ * Force model (each part can be set on or off):
+ *   - point-mass gravity of the Sun, the planets, the Moon and Pluto (positions from the DE440 fit)
+ *   - point-mass gravity of Ceres, Vesta and Psyche (only in the time range of the small-body data, 1980 to 2060)
+ *   - optional: large moons of Jupiter, Saturn, Uranus, Neptune and Pluto as separate point masses (analytic model)
+ *   - J2 oblateness of the planets (applied inside 300 planet radii)
+ *   - relativistic correction of the Sun (Schwarzschild term)
+ *   - solar radiation pressure (cannonball model)
+ * Not modelled: thrust arcs of finite duration, attitude-dependent forces, atmospheric drag, higher gravity harmonics.
+ */
+import { Rkf78 } from './integrator';
+import { type State, type Vec3, dot, norm } from './vec';
+import { BODIES, MOON_MODELS, C_LIGHT, AU, SOLAR_IRRADIANCE, type Body } from './bodies';
+import { type SolarSystem, moonState } from './system';
+import { poleVector, type LocalFrame, localToIcrf } from './frames';
+import { DAY } from './time';
+
+export interface ForceModel {
+  /** Bodies with point-mass gravity. */
+  bodies: string[];
+  /** Large moons as separate masses. */
+  moons: boolean;
+  j2: boolean;
+  relativity: boolean;
+  /** Solar radiation pressure: area-to-mass ratio (m^2/kg) and reflectivity coefficient. null = off. */
+  srp: { areaToMass: number; cr: number } | null;
+}
+
+export const PLANET_GRAVITY_BODIES = ['SUN', 'MERCURY', 'VENUS', 'EARTH', 'MOON', 'MARS', 'JUPITER', 'SATURN', 'URANUS', 'NEPTUNE', 'PLUTO'];
+/** Asteroids with a mass that changes a trajectory by a measurable quantity (GM from the JPL Small-Body Database). */
+export const ASTEROID_GRAVITY_BODIES = ['CERES', 'VESTA', 'PSYCHE'];
+export const ALL_GRAVITY_BODIES = [...PLANET_GRAVITY_BODIES, ...ASTEROID_GRAVITY_BODIES];
+export const FULL_MODEL: ForceModel = { bodies: ALL_GRAVITY_BODIES, moons: false, j2: true, relativity: true, srp: null };
+export const SUN_ONLY_MODEL: ForceModel = { bodies: ['SUN'], moons: false, j2: false, relativity: false, srp: null };
+
+export interface Maneuver {
+  id: string;
+  /** Time of the impulse, et. */
+  et: number;
+  /** Components of the velocity change in `frame`, km/s. */
+  dv: Vec3;
+  frame: LocalFrame;
+  /** Reference body of the local frame (VNB and RTN use the state relative to this body). */
+  refBody: string;
+  label?: string;
+}
+
+export interface TrajectoryEvent {
+  type: 'periapsis' | 'impact' | 'maneuver' | 'start' | 'end';
+  et: number;
+  body?: string;
+  /** Distance from the body centre, km. */
+  radius?: number;
+  /** Altitude above the equatorial radius, km. */
+  altitude?: number;
+  /** Speed relative to the body, km/s. */
+  speed?: number;
+  /** State relative to the SSB at the event. */
+  state: State;
+  maneuverId?: string;
+  /** Velocity change in ICRF (maneuver events), km/s. */
+  dvIcrf?: Vec3;
+}
+
+export interface PropagationRequest {
+  et0: number;
+  /** Start state relative to the SSB, ICRF. */
+  state0: State;
+  etEnd: number;
+  maneuvers?: Maneuver[];
+  model: ForceModel;
+  /** Relative tolerance (default 1e-11). */
+  rtol?: number;
+  /** Maximum step, s (default 4 days). */
+  hMax?: number;
+  /** Times where a step must end exactly. */
+  stops?: number[];
+  /** If true, closest approaches are not searched (faster). */
+  noEvents?: boolean;
+  /** Bodies that are not in the force model for which closest approaches are also searched. */
+  watch?: string[];
+}
+
+/** Sphere of influence radius (km) of a body at its current distance from its parent. */
+export function soiRadius(sys: SolarSystem, id: string, et: number): number {
+  const b = BODIES[id];
+  if (!b.parent) return Infinity;
+  if (b.gmSystem <= 0) return 0;
+  const d = norm(sys.stateRel(id, b.parent, et).r);
+  return d * Math.pow(b.gmSystem / BODIES[b.parent].gmSystem, 0.4);
+}
+
+export class Trajectory {
+  /** Segment start indices (a new segment starts after each maneuver). */
+  readonly segStarts: number[] = [0];
+  events: TrajectoryEvent[] = [];
+  private tt: number[] = [];
+  private yy: number[] = [];
+  private dd: number[] = [];
+  t!: Float64Array;
+  y!: Float64Array;
+  d!: Float64Array;
+  /** Derivative evaluations used. */
+  evals = 0;
+
+  push(t: number, y: Float64Array, d: Float64Array): void {
+    this.tt.push(t);
+    for (let i = 0; i < 6; i++) { this.yy.push(y[i]); this.dd.push(d[i]); }
+  }
+  get count(): number { return this.tt.length; }
+  markSegment(): void { this.segStarts.push(this.tt.length); }
+  finish(): void {
+    this.t = Float64Array.from(this.tt);
+    this.y = Float64Array.from(this.yy);
+    this.d = Float64Array.from(this.dd);
+    this.tt = []; this.yy = []; this.dd = [];
+  }
+  get et0(): number { return this.t[0]; }
+  get et1(): number { return this.t[this.t.length - 1]; }
+  get forward(): boolean { return this.et1 >= this.et0; }
+
+  /** Index i such that et is between sample i and i+1 (same segment). */
+  private locate(et: number): number {
+    const t = this.t;
+    const n = t.length;
+    const fwd = this.forward;
+    let lo = 0, hi = n - 1;
+    while (hi - lo > 1) {
+      const mid = (lo + hi) >> 1;
+      if (fwd ? t[mid] <= et : t[mid] >= et) lo = mid; else hi = mid;
+    }
+    // At a maneuver two samples have the same time: use the sample after the maneuver.
+    while (lo < n - 2 && t[lo + 1] === t[lo]) lo++;
+    return Math.min(lo, n - 2);
+  }
+
+  /** State relative to the SSB at et (quintic Hermite interpolation between steps). */
+  stateAt(et: number): State {
+    const n = this.t.length;
+    if (n === 1) return { r: [this.y[0], this.y[1], this.y[2]], v: [this.y[3], this.y[4], this.y[5]] };
+    const i = this.locate(et);
+    const t0 = this.t[i], t1 = this.t[i + 1];
+    const h = t1 - t0;
+    const a = 6 * i, b = 6 * (i + 1);
+    const y = this.y, d = this.d;
+    if (h === 0) return { r: [y[b], y[b + 1], y[b + 2]], v: [y[b + 3], y[b + 4], y[b + 5]] };
+    const s = Math.max(0, Math.min(1, (et - t0) / h));
+    const s2 = s * s, s3 = s2 * s, s4 = s3 * s, s5 = s4 * s;
+    // quintic Hermite basis (position, velocity, acceleration at both ends)
+    const h00 = 1 - 10 * s3 + 15 * s4 - 6 * s5;
+    const h10 = s - 6 * s3 + 8 * s4 - 3 * s5;
+    const h20 = 0.5 * s2 - 1.5 * s3 + 1.5 * s4 - 0.5 * s5;
+    const h01 = 10 * s3 - 15 * s4 + 6 * s5;
+    const h11 = -4 * s3 + 7 * s4 - 3 * s5;
+    const h21 = 0.5 * s3 - s4 + 0.5 * s5;
+    const g00 = -30 * s2 + 60 * s3 - 30 * s4;
+    const g10 = 1 - 18 * s2 + 32 * s3 - 15 * s4;
+    const g20 = s - 4.5 * s2 + 6 * s3 - 2.5 * s4;
+    const g01 = -g00;
+    const g11 = -12 * s2 + 28 * s3 - 15 * s4;
+    const g21 = 1.5 * s2 - 4 * s3 + 2.5 * s4;
+    const r: Vec3 = [0, 0, 0], v: Vec3 = [0, 0, 0];
+    for (let k = 0; k < 3; k++) {
+      const p0 = y[a + k], v0 = y[a + 3 + k], a0 = d[a + 3 + k];
+      const p1 = y[b + k], v1 = y[b + 3 + k], a1 = d[b + 3 + k];
+      r[k] = h00 * p0 + h10 * h * v0 + h20 * h * h * a0 + h01 * p1 + h11 * h * v1 + h21 * h * h * a1;
+      v[k] = (g00 * p0 + g01 * p1) / h + g10 * v0 + g11 * v1 + h * (g20 * a0 + g21 * a1);
+    }
+    return { r, v };
+  }
+}
+
+interface Perturber {
+  id: string; gm: number; j2: number; radius: number; body: Body; pos: Vec3; moonOf?: string;
+  /** Small body: position from the small-body file, used only inside the time range of that file. */
+  small?: boolean; active: boolean;
+}
+interface EventBody { id: string; radius: number; moonOf?: string; watch: boolean }
+
+export class Propagator {
+  private readonly pert: Perturber[] = [];
+  private readonly emb: Vec3 = [0, 0, 0];
+  private readonly mgeo: Vec3 = [0, 0, 0];
+  private readonly earthFactor = BODIES.MOON.gm / (BODIES.EARTH.gm + BODIES.MOON.gm);
+  private readonly sunIndex: number;
+  private readonly srpAccel: number;
+
+  constructor(readonly sys: SolarSystem, readonly model: ForceModel) {
+    for (const id of model.bodies) {
+      const b = BODIES[id];
+      const small = sys.small?.has(id) ?? false;
+      if (!b || (!small && !PLANET_GRAVITY_BODIES.includes(id))) continue;
+      const moonIds = model.moons ? Object.keys(MOON_MODELS).filter((mid) => BODIES[mid].parent === id && BODIES[mid].gm > 1) : [];
+      const hasMoons = moonIds.length > 0;
+      this.pert.push({ id, gm: hasMoons || id === 'EARTH' ? b.gm : b.gmSystem, j2: model.j2 ? b.j2 : 0, radius: b.radius, body: b, pos: [0, 0, 0], small, active: true });
+      for (const mid of moonIds) this.pert.push({ id: mid, gm: BODIES[mid].gm, j2: 0, radius: BODIES[mid].radius, body: BODIES[mid], pos: [0, 0, 0], moonOf: id, active: true });
+    }
+    this.sunIndex = this.pert.findIndex((p) => p.id === 'SUN');
+    // SRP acceleration at 1 au, km/s^2
+    this.srpAccel = model.srp ? ((SOLAR_IRRADIANCE / (C_LIGHT * 1000)) * model.srp.cr * model.srp.areaToMass) / 1000 : 0;
+  }
+
+  /** Ids of the bodies of the force model (moons included when the option is on). */
+  get bodyIds(): string[] { return this.pert.map((p) => p.id); }
+
+  /** Update the positions of all perturbers at time t. */
+  private updateBodies(t: number): void {
+    const sys = this.sys;
+    let haveEm = false;
+    for (const p of this.pert) {
+      if (p.id === 'EARTH' || p.id === 'MOON') {
+        if (!haveEm) {
+          sys.planets.position('EMB', t, this.emb);
+          sys.planets.position('MOON_GEO', t, this.mgeo);
+          haveEm = true;
+        }
+        const k = p.id === 'EARTH' ? -this.earthFactor : 1 - this.earthFactor;
+        p.pos[0] = this.emb[0] + k * this.mgeo[0];
+        p.pos[1] = this.emb[1] + k * this.mgeo[1];
+        p.pos[2] = this.emb[2] + k * this.mgeo[2];
+      } else if (p.moonOf) {
+        const parent = this.pert.find((q) => q.id === p.moonOf)!;
+        const m = moonState(p.id, t).r;
+        p.pos[0] = parent.pos[0] + m[0]; p.pos[1] = parent.pos[1] + m[1]; p.pos[2] = parent.pos[2] + m[2];
+      } else if (this.model.moons && this.pert.some((q) => q.moonOf === p.id)) {
+        const s = sys.state(p.id, t).r; // planet centre
+        p.pos[0] = s[0]; p.pos[1] = s[1]; p.pos[2] = s[2];
+      } else if (p.small) {
+        p.active = sys.small!.covers(t);
+        if (p.active) sys.small!.position(p.id, t, p.pos);
+      } else {
+        // barycentre of the planet system for the outer planets
+        sys.planets.position(p.id, t, p.pos);
+      }
+    }
+  }
+
+  /** Derivative function for the integrator. y = [r, v]. */
+  readonly deriv = (t: number, y: Float64Array, d: Float64Array): void => {
+    this.updateBodies(t);
+    let ax = 0, ay = 0, az = 0;
+    const x = y[0], yy = y[1], z = y[2];
+    for (const p of this.pert) {
+      if (!p.active) continue;
+      const dx = x - p.pos[0], dy = yy - p.pos[1], dz = z - p.pos[2];
+      const r2 = dx * dx + dy * dy + dz * dz;
+      const r = Math.sqrt(r2);
+      const k = -p.gm / (r2 * r);
+      ax += k * dx; ay += k * dy; az += k * dz;
+      if (p.j2 !== 0 && r < 300 * p.radius) {
+        const pole = poleVector(p.body, t);
+        const zz = dx * pole[0] + dy * pole[1] + dz * pole[2];
+        const f = (-1.5 * p.j2 * p.gm * p.radius * p.radius) / (r2 * r2 * r);
+        const c = 1 - (5 * zz * zz) / r2;
+        ax += f * (c * dx + 2 * zz * pole[0]);
+        ay += f * (c * dy + 2 * zz * pole[1]);
+        az += f * (c * dz + 2 * zz * pole[2]);
+      }
+    }
+    if (this.sunIndex >= 0 && (this.model.relativity || this.srpAccel !== 0)) {
+      const s = this.pert[this.sunIndex];
+      const dx = x - s.pos[0], dy = yy - s.pos[1], dz = z - s.pos[2];
+      const r = Math.sqrt(dx * dx + dy * dy + dz * dz);
+      if (this.model.relativity) {
+        // Velocity relative to the Sun is approximated by the barycentric velocity (difference below 16 m/s).
+        const vx = y[3], vy = y[4], vz = y[5];
+        const v2 = vx * vx + vy * vy + vz * vz;
+        const rv = dx * vx + dy * vy + dz * vz;
+        const k = s.gm / (C_LIGHT * C_LIGHT * r * r * r);
+        const c1 = (4 * s.gm) / r - v2;
+        ax += k * (c1 * dx + 4 * rv * vx);
+        ay += k * (c1 * dy + 4 * rv * vy);
+        az += k * (c1 * dz + 4 * rv * vz);
+      }
+      if (this.srpAccel !== 0) {
+        const k = (this.srpAccel * AU * AU) / (r * r * r);
+        ax += k * dx; ay += k * dy; az += k * dz;
+      }
+    }
+    d[0] = y[3]; d[1] = y[4]; d[2] = y[5];
+    d[3] = ax; d[4] = ay; d[5] = az;
+  };
+
+  propagate(req: PropagationRequest): Trajectory {
+    const traj = new Trajectory();
+    const dir = req.etEnd >= req.et0 ? 1 : -1;
+    const y = new Float64Array([...req.state0.r, ...req.state0.v]);
+    const dTmp = new Float64Array(6);
+    const rk = new Rkf78(this.deriv, 6);
+    const atol = new Float64Array([1e-6, 1e-6, 1e-6, 1e-12, 1e-12, 1e-12]);
+    const ctl = { rtol: req.rtol ?? 1e-11, atol, h0: 60, hMax: req.hMax ?? 4 * DAY, hMin: 1e-3 };
+    const mans = (req.maneuvers ?? []).filter((m) => (m.et - req.et0) * dir >= 0 && (req.etEnd - m.et) * dir >= 0).sort((a, b) => (a.et - b.et) * dir);
+    // break points: maneuvers and requested stops
+    const breaks: { t: number; man?: Maneuver }[] = [
+      ...mans.map((m) => ({ t: m.et, man: m })),
+      ...(req.stops ?? []).filter((s) => (s - req.et0) * dir > 0 && (req.etEnd - s) * dir > 0).map((t) => ({ t })),
+      { t: req.etEnd },
+    ];
+    breaks.sort((a, b) => (a.t - b.t) * dir || (a.man ? 1 : -1));
+
+    const eventBodies: EventBody[] = req.noEvents ? [] : [
+      ...this.pert.filter((p) => p.id !== 'SUN').map((p) => ({ id: p.id, radius: p.radius, moonOf: p.moonOf, watch: false })),
+      ...(req.watch ?? []).filter((id) => id !== 'SUN' && this.sys.hasBody(id) && !this.pert.some((p) => p.id === id))
+        .map((id) => ({ id, radius: BODIES[id]?.radius ?? 0, moonOf: BODIES[id]?.kind === 'moon' ? BODIES[id].parent! : undefined, watch: true })),
+    ];
+    const rdot = (p: EventBody, t: number, yy: Float64Array | number[]): number => {
+      const cov = this.sys.coverage(p.id);
+      if (t < cov[0] || t > cov[1]) return NaN;
+      const s = this.sys.state(p.id, t);
+      return (yy[0] - s.r[0]) * (yy[3] - s.v[0]) + (yy[1] - s.r[1]) * (yy[4] - s.v[1]) + (yy[2] - s.r[2]) * (yy[5] - s.v[2]);
+    };
+    const prevRdot = new Float64Array(eventBodies.length);
+    const initRdot = (t: number) => { for (let i = 0; i < eventBodies.length; i++) prevRdot[i] = rdot(eventBodies[i], t, y); };
+
+    let t = req.et0;
+    this.deriv(t, y, dTmp);
+    traj.push(t, y, dTmp);
+    traj.events.push({ type: 'start', et: t, state: toState(y) });
+    initRdot(t);
+    let h = ctl.h0;
+    for (const br of breaks) {
+      if ((br.t - t) * dir > 0) {
+        const res = rk.integrate(t, y, br.t, { ...ctl, h0: h }, (tn, yn, tp, yp) => {
+          this.deriv(tn, yn, dTmp);
+          traj.push(tn, yn, dTmp);
+          for (let i = 0; i < eventBodies.length; i++) {
+            const rd = rdot(eventBodies[i], tn, yn);
+            if (prevRdot[i] * dir < 0 && rd * dir >= 0) this.refinePeriapsis(traj, eventBodies[i], tp, yp, tn, dir, ctl);
+            prevRdot[i] = rd;
+          }
+        });
+        h = Math.max(res.h, 1);
+        t = br.t;
+      }
+      if (br.man) {
+        const m = br.man;
+        const ref = this.sys.state(m.refBody, t);
+        const rel: State = { r: [y[0] - ref.r[0], y[1] - ref.r[1], y[2] - ref.r[2]], v: [y[3] - ref.v[0], y[4] - ref.v[1], y[5] - ref.v[2]] };
+        const dv = localToIcrf(m.frame, rel, m.dv);
+        // A backward propagation removes the impulse.
+        y[3] += dir * dv[0]; y[4] += dir * dv[1]; y[5] += dir * dv[2];
+        traj.markSegment();
+        this.deriv(t, y, dTmp);
+        traj.push(t, y, dTmp);
+        traj.events.push({ type: 'maneuver', et: t, state: toState(y), maneuverId: m.id, dvIcrf: dv });
+        initRdot(t);
+        h = 60;
+      }
+    }
+    traj.events.push({ type: 'end', et: t, state: toState(y) });
+    traj.events.sort((a, b) => (a.et - b.et) * dir);
+    traj.evals = rk.evals;
+    traj.finish();
+    return traj;
+  }
+
+  /** Find the exact time of closest approach to a body between two steps and record the event. */
+  private refinePeriapsis(traj: Trajectory, p: EventBody, t0: number, y0: Float64Array, t1: number, dir: number, ctl: { rtol: number; atol: Float64Array; hMax: number; hMin: number }): void {
+    // Only close passes are events: inside 3 radii of the sphere of influence (moons: 50 radii of the moon).
+    // A body with almost no mass has almost no sphere of influence: the limit is then 2 million km.
+    const limit = p.moonOf ? 50 * p.radius : Math.max(3 * soiRadius(this.sys, p.id, t1), p.watch || p.radius < 600 ? 2e6 : 0);
+    const yA = new Float64Array(y0);
+    let ta = t0;
+    const yB = new Float64Array(6);
+    const rk = new Rkf78(this.deriv, 6);
+    let tb = t1;
+    const f = (tt: number, yy: Float64Array): number => {
+      const s = this.sys.state(p.id, tt);
+      return ((yy[0] - s.r[0]) * (yy[3] - s.v[0]) + (yy[1] - s.r[1]) * (yy[4] - s.v[1]) + (yy[2] - s.r[2]) * (yy[5] - s.v[2])) * dir;
+    };
+    // bisection with exact re-integration from the left point (the interval is one step: cheap)
+    for (let it = 0; it < 60 && Math.abs(tb - ta) > 1e-3; it++) {
+      const tm = 0.5 * (ta + tb);
+      yB.set(yA);
+      rk.integrate(ta, yB, tm, { ...ctl, h0: Math.abs(tm - ta) });
+      if (f(tm, yB) < 0) { ta = tm; yA.set(yB); } else { tb = tm; }
+    }
+    const s = this.sys.state(p.id, ta);
+    const rel: State = { r: [yA[0] - s.r[0], yA[1] - s.r[1], yA[2] - s.r[2]], v: [yA[3] - s.v[0], yA[4] - s.v[1], yA[5] - s.v[2]] };
+    const radius = norm(rel.r);
+    if (radius > limit) return;
+    traj.events.push({
+      type: radius < p.radius ? 'impact' : 'periapsis', et: ta, body: p.id, radius, altitude: radius - p.radius,
+      speed: norm(rel.v), state: toState(yA),
+    });
+  }
+}
+
+function toState(y: Float64Array): State { return { r: [y[0], y[1], y[2]], v: [y[3], y[4], y[5]] }; }
+
+/** Energy-like check value: two-body specific energy relative to a body (km^2/s^2). */
+export function specificEnergy(rel: State, mu: number): number {
+  return dot(rel.v, rel.v) / 2 - mu / norm(rel.r);
+}

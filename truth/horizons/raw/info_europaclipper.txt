@@ -1,0 +1,80 @@
+# REQUEST https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%27-159%27&OBJ_DATA=%27YES%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27VECTORS%27&CENTER=%27500%4010%27&START_TIME=%271900-01-01%27&STOP_TIME=%271900-01-02%27&STEP_SIZE=%271d%27
+# RETRIEVED 2026-10-13T15:22:15Z
+API VERSION: 1.2
+API SOURCE: NASA/JPL Horizons API
+
+*******************************************************************************
+ Revised: Sep 30, 2026    Europa Clipper (Spacecraft) / (Sun, Jupiter)     -159
+                       https://science.nasa.gov/mission/europa-clipper/
+                               https://europa.nasa.gov/
+
+ BACKGROUND:
+  NASA's Europa Clipper spacecraft carries a suite of science instruments to 
+  assess habitability of Jupiter's ice-covered moon Europa (502) while 
+  confirming the existence and nature of an expected sub-surface ocean.
+
+  Launched            : 2024-Oct-14 16:06 UTC (SpaceX Falcon Heavy, KSC LC-39A)
+  Mars gravity assist : 2025-Mar-01
+  Earth gravity assist: 2026-Dec-03
+         Arrival      : 2030-Apr-11 (5.50 year time-of-flight)
+  Mission length      : 4.12 years (prime mission, JOI to E49)
+  End-of-mission      : 2034-Sep   (directed to Ganymede impact ~30d after E49)
+
+  The spacecraft is expected to orbit Jupiter 75 times and conduct 49 flybys 
+  of Europa at altitudes as low as 25 km. This will reduce exposure to the high
+  levels of radiation Europa moves within.
+
+  Gravity-assists from Europa (49), Ganymede (7), and Callisto (9) will be used
+  to target different Europa close approach points on each flyby.
+
+ SPACECRAFT:
+  Considering solar arrays and radar antennas, Europa Clipper will be the
+  largest spacecraft NASA has developed to-date for an interplanetary mission. 
+  When arrays are deployed, the spacecraft will span 30.5 meters.
+
+  Main body (bus): 3 x 4.7 x 4 meters
+  Dry mass (no propellant): 3241 kg
+  Propellant: 2750 kg
+  Solar power arrays: 2 x 14.2 x 4.1 meters
+
+ SCIENCE INSTRUMENTS
+  Europa Imaging System (EIS)
+  Europa Thermal Emission Imaging System (E-THEMIS)
+  Europa Ultraviolet Spectrograph (Europa-UVS)
+  Mapping Imaging Spectrometer for Europa (MISE)
+  Europa Clipper Magnetometer (ECM)
+  Plasma Instrument for Magnetic Sounding (PIMS)
+  Gravity/Radio Science
+  Radar for Europa Assessment and Sounding: Ocean to Near-surface (REASON)
+  MAss Spectrometer for Planetary EXploration/Europa (MASPEX)
+  SUrface Dust Analyzer (SUDA)
+
+ SPACECRAFT TRAJECTORY (from JPL navigation):
+  Segments marked by '*' below are pre-launch predictions. Then based on 
+  tracking data through 2026-Sep-22. Trajectory thereafter is predicted:
+
+ Trajectory files (JPL mission design/nav)                Start         End
+ ----------------------------------------------------  -----------  -----------
+*21F31_MEGA_L241014_A300411_LP05_V7  (16:13 - 17:08)   2024-Oct-14  2024-Oct-14
+ trj_241014-241103-dco2410142047-postLaunch-OD001-v1   2024-Oct-14  2024-Oct-18
+ trj_241018-250130-dco2411082133-cru002-fin-OD018-v14  2024-Oct-18  2024-Nov-23
+ trj_241123-250315-dco2412031638-cru003-fin-OD020-v1   2024-Nov-23  2024-Dec-04
+ trj_241204-250311-dco2501221611-MGATRGa-OD034-v1      2024-Dec-04  2025-Jan-04 
+ trj_250104-250614-dco2502250958-cru005-fin-OD042-v1   2025-Jan-04  2025-Feb-15
+ trj_250215-250726-dco2504160749-cruise006-final-OD055 2025-Feb-15  2025-Mar-18
+ trj_250318-260101-dco2507142059-EGATRG1-PRELIM-OD068  2025-Mar-18  2025-May-15
+ trj_250515-250626-dco2507090443-cruise006-reco-OD067  2025-May-15  2025-Jun-26
+ trj_250626-250807-dco2508190634-cruise007-reco-OD071  2025-Jun-26  2025-Aug-07
+ trj_250807-250918-dco2509300424-cruise008-reco-OD073  2025-Aug-07  2026-Sep-18
+ trj_250918-251030-dco2511110259-cruise009-reco-OD075  2025-Sep-18  2025-Oct-30
+ trj_251030-251211-dco2512180748-cruise010-reco-OD077  2025-Oct-30  2025-Dec-11
+ trj_251211-260122-dco2602031544-cruise011-reco-OD079  2025-Dec-11  2026-Jan-22
+ trj_260122-260305-dco2603192035-cruise012-reco-OD081  2026-Jan-22  2026-Mar-05
+ trj_260305-260416-dco2604280459-cruise013-reco-OD083  2026-Mar-05  2026-Apr-16
+ trj_260416-260528-dco2606090943-cruise014-reco-OD085  2026-Apr-16  2026-May-28
+ trj_260528-260709-dco2607211149-cruise015-reco-OD087  2026-May-28  2026-Aug-08
+ trj_260808-270123-dco2609230549-cruise019-pred-OD092  2026-Aug-08  2027-Jan-23
+ ref_241014_340903_21F31_MEGA_L241014_A300411_LP05_V7  2027-Jan-23  2034-Sep-03
+*******************************************************************************
+
+No ephemeris for target "Europa Clipper (spacecraft)" prior to A.D. 2024-OCT-14 16:15:03.7124 TDB

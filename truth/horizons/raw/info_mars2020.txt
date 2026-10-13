@@ -1,0 +1,77 @@
+# REQUEST https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%27-168%27&OBJ_DATA=%27YES%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27VECTORS%27&CENTER=%27500%4010%27&START_TIME=%271900-01-01%27&STOP_TIME=%271900-01-02%27&STEP_SIZE=%271d%27
+# RETRIEVED 2026-10-13T15:22:08Z
+API VERSION: 1.2
+API SOURCE: NASA/JPL Horizons API
+
+*******************************************************************************
+ Revised: Feb 18, 2021      Mars 2020 (Perseverance & Ingenuity)           -168
+              https://mars.nasa.gov/files/mars2020/Mars2020_Fact_Sheet.pdf
+     https://mars.nasa.gov/files/mars2020/MarsHelicopterIngenuity_FactSheet.pdf 
+
+ MISSION LAUNCH DATE:                                           MARS LANDING:
+  Jul 30, 2020 11:50 UTC (in flight)                            Feb 18, 2021
+
+ LAUNCH VEHICLE:
+  Atlas V-541 from Cape Canaveral Air Force Station, Florida, USA
+
+ BACKGROUND:
+  This mission carries the Perseverance rover and Ingenuity Mars Helicopter
+
+  Landing site is an ancient river delta for a lake that once filled Jezero 
+  Crater (but is now dry).
+
+  Sky-crane descent system.
+ 
+ PERSEVERANCE ROVER
+  Dimensions:  3 m long, 2.7 m wide, 2.2 m tall (similar to Curiosity)
+  Mass      : 2015 kg (126 kg heavier than Curiosity)
+  Power     : MMRTG (thermoelectic generator)
+  Navigation: New Terrain Relative Navigation system
+    
+  Science Objectives
+   * Look for habitability: 
+       Identify past environments capable of supporting microbial life
+   * Seek biosignatures:
+       Seek signs of possible past microbial life in those habitable 
+       environments, particularly vertain types of rocks known to preserve 
+       signs of life over time
+   * Cache samples:
+       Collect core rock and "soil" samples and store them on the Martian 
+        surface
+   * Prepare for humans:
+       Test oxygen production from the Martian atmosphere
+
+ INGENUITY (MARS HELICOPTER)
+  This experimental autonomous aircraft, carried to Mars attached to the 
+  belly of the Perseverance rover,  will test powered flight in the thin
+  Martian atmosphere, which is about 1% as thick as Earth's, or comparable
+  to an altitude of 100,000 feet on Earth. 
+ 
+  Counter-rotating blades spin at 2400 rpm. Equipped with computers, 
+  navigation sensors, internal heaters, and two cameras (color and 
+  black-and-white), this engineering test aircraft will provide information 
+  to inform decisions on small helicopters for future Mars missions.
+
+   Dimensions: 0.49 meters (~19 inches)
+   Rotor span: 1.2 meters (~4 feet)
+   Mass      : 1.8 kg
+   Power     : solar, self-recharging
+
+  After receiving commands from Earth, relayed by Perseverance rover, the
+  test flight(s) are performed without further real-time input.
+
+ SPACECRAFT TRAJECTORY: 
+  Post-launch fit to tracking data. Trajectory starts about an hour after
+  launch, after probe separation. 
+
+  Trajectory files (from JPL Navigation)       Start                End 
+  --------------------------------------  -----------------  -----------------
+  m2020_traj_ops_od002v1.V0.1             2020-Jul-30 12:53  2020-Jul-31 19:01
+  m2020_traj_ops_od018v1.V0.1             2020-Jul-31 19:01  2020-Aug-15 17:00
+  m2020_traj_ops_od038v1.V0.1             2020-Aug-15 17:00  2020-Sep-30 22:01
+  m2020_traj_ops_od071v1.V0.1             2020-Sep-30 22:01  2020-Dec-18 21:01
+  m2020_traj_ops_od089v1.V0.1             2020-Dec-18 21:01  2021-Feb-17 20:37
+  edl-landed.v0.1                         2021-Feb-17 20:37  2026-Feb-19 00:00
+*******************************************************************************
+
+No ephemeris for target "Mars2020 (spacecraft)" prior to A.D. 2020-JUL-30 12:52:43.6433 TDB

@@ -1,0 +1,88 @@
+# REQUEST https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%27-203%27&OBJ_DATA=%27YES%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27VECTORS%27&CENTER=%27500%4010%27&START_TIME=%271900-01-01%27&STOP_TIME=%271900-01-02%27&STEP_SIZE=%271d%27
+# RETRIEVED 2026-10-13T15:22:16Z
+API VERSION: 1.2
+API SOURCE: NASA/JPL Horizons API
+
+*******************************************************************************
+ Revised: Jan 03, 2019      Dawn Spacecraft (interplanetary) / (Sun)       -203
+                                http://dawn.jpl.nasa.gov/  
+
+ END OF MISSION:
+  The Dawn mission was completed when scheduled communication with the DSN did
+  not occur on Oct 31 and Nov 01 of 2018. 
+
+  It is believed that after 11 years and 6.9 billion km, the spacecraft ran out
+  of hydrazine fuel as expected and is no longer able to control pointing of 
+  the solar panels toward the Sun or antenna toward the Earth. 
+
+  It is expected to remain in orbit around Ceres for the next 20 years, with
+  a 99% chance of remaining for 50 years, but no further tracking from Earth 
+  is possible.
+
+  The trajectory here includes a prediction for Dawn's orbit extending 25 years
+  after End-of-Mission (EOM). However, this prediction does not reflect delta-V
+  perturbations caused by any EOM safing events. No credible models of thruster
+  firings were recovered, nor was sufficient tracking data available to 
+  reconstruct the EOM event.
+
+ NOTE: To obtain an ephemeris of Dawn with respect to Vesta or Ceres, set the 
+       coordinate center to @2000004 or @2000001 respectively.
+
+ MISSION DESCRIPTION:
+ Dawn's goal is to characterize the conditions and processes of the solar 
+ system's earliest epoch by investigating in detail Ceres and Vesta, two of 
+ the largest protoplanets remaining intact since formation. 
+
+ KEY EVENTS (nominal pre-launch plan):
+  Launch:                 Sep 27, 2007 7:34 a.m. EDT (14 min. into window)
+  Mars gravity assist:	   Feb 18, 2009 00:28:00 UTC  (3945.4 km from center) 
+  Vesta arrival:          Jul 16, 2011 (Earth->Vesta= 2.8 billion km)
+  Vesta departure:        Sep  5, 2012
+  Ceres arrival:          Mar  5, 2015 (Vesta->Ceres= 1.6 billion km)
+                                       (Earth->Ceres= 4.9 billion km)
+  End of primary mission: ~Jul 2015 
+  End of Mission        : Oct 31, 2018 
+
+ Launch: 
+  Delta II Heavy 2925H-9.5, including Star 48 upper stage
+  Cape Canaveral Air Force Station, Florida 
+  Launch Complex 17-B 
+  Launch window: One per day, 19 to 44 minutes each.
+
+ SPACECRAFT
+  Dimensions   : 1.64 m long, 1.27 m wide, 1.77 m high
+  Weight       : 1217.7 kg (total for launch). Breakdown:
+                  747.1 kg (spacecraft), 
+                  425   kg (xenon propellant),
+                   45.6 kg (hydrazine propellant),
+  Solar array  : Two 8.3 x 2.3 m panels (63 kg each)
+                 10 kw combined output (depending on distance from Sun) 
+                 20 m long, tip-to-tip when deployed
+  Power storage: 35 amp-hour nickel hydrogen battery
+
+ SPACECRAFT INSTRUMENTS:
+  1. Framing Camera                    : visual imaging
+  2. Visual and Infrared Spectrometer  : spectral imaging
+  3. Gamma Ray and Neutron Spectrometer: measure surface elemental abundances
+
+ PROPULSION
+  Dawn uses 3 ion thrusters to reach Vesta once separated from the Delta II. 
+  It will use the thrusters to spiral to lower altitudes on Vesta, leave 
+  Vesta, cruise to Ceres, and spiral to a low altitude orbit at Ceres.
+
+  Weight           : 8.9 kg each
+  Dimensions       : 33 cm long, 41 cm diameter
+  Specific impulse : 3100 s
+  Thrust           : 19-91 mN
+  Acceleration     : 0-60 mph in 4 days
+  Operational time : 2000 days of thrust (entire mission)
+
+ SPACECRAFT TRAJECTORY (begins ~4 minutes after 3rd stage separation): 
+
+  Trajectories from JPL Navigation Team:              Start        End 
+  -----------------------------------------        -----------  -----------
+  Final reconstruction from tracking data          2007-Sep-27  2018-Oct-31
+  Prediction                                       2018-Oct-31  2043-Oct-29
+*****************************************************************************
+
+No ephemeris for target "Dawn (spacecraft)" prior to A.D. 2007-SEP-27 12:40:49.8324 TDB

@@ -1,0 +1,115 @@
+{
+ "source": "JPL Small-Body Database API (sbdb.api, phys-par)",
+ "bodies": [
+  {
+   "id": "CERES",
+   "naif": 20000001,
+   "kind": "dwarf",
+   "designation": "1 Ceres (A801 AA)",
+   "radiusKm": 469.7,
+   "gm": 62.6284,
+   "color": "#b8b2a8",
+   "radiusSource": "Nature vol. 537, pp515-517 (22 September 2016)"
+  },
+  {
+   "id": "VESTA",
+   "naif": 20000004,
+   "kind": "asteroid",
+   "designation": "4 Vesta (A807 FA)",
+   "radiusKm": 261.385,
+   "gm": 17.2882844,
+   "color": "#c9c0b3",
+   "radiusSource": "Park, R.S. et al. 2025, Nat Astron, DOI: 10.1038/s41550-025-02533-7"
+  },
+  {
+   "id": "PSYCHE",
+   "naif": 20000016,
+   "kind": "asteroid",
+   "designation": "16 Psyche (A852 FA)",
+   "radiusKm": 111.0,
+   "gm": 1.601,
+   "color": "#a9a39b",
+   "radiusSource": "Shepard et al. (2021), The Planetary Science Journal 2, 125"
+  },
+  {
+   "id": "EROS",
+   "naif": 20000433,
+   "kind": "asteroid",
+   "designation": "433 Eros (A898 PA)",
+   "radiusKm": 8.42,
+   "gm": 0.0004463,
+   "color": "#b89f84",
+   "radiusSource": "Yeomans et al. (2000) Science v.289,pp.2085-2088"
+  },
+  {
+   "id": "ITOKAWA",
+   "naif": 20025143,
+   "kind": "asteroid",
+   "designation": "25143 Itokawa (1998 SF36)",
+   "radiusKm": 0.165,
+   "gm": 2.1e-09,
+   "color": "#a89c8e",
+   "radiusSource": "Science 312:1330-1334"
+  },
+  {
+   "id": "RYUGU",
+   "naif": 20162173,
+   "kind": "asteroid",
+   "designation": "162173 Ryugu (1999 JU3)",
+   "radiusKm": 0.448,
+   "gm": 3e-08,
+   "color": "#6f6a66",
+   "radiusSource": "Watanabe, S.; Hirabayashi, M.; Hirata, N.; Hirata, Na.; et al. (2019) Science 364, 267-272."
+  },
+  {
+   "id": "BENNU",
+   "naif": 20101955,
+   "kind": "asteroid",
+   "designation": "101955 Bennu (1999 RQ36)",
+   "radiusKm": 0.24222,
+   "gm": 4.8904e-09,
+   "color": "#5f5c5a",
+   "radiusSource": "Daly, M.G., et al., Sci. Adv. 6, eabd3649 (2020)"
+  },
+  {
+   "id": "DIDYMOS",
+   "naif": 20065803,
+   "kind": "asteroid",
+   "designation": "65803 Didymos (1996 GT)",
+   "radiusKm": 0.39,
+   "gm": 0.0,
+   "color": "#9c948b",
+   "radiusSource": "Naidu, S. P.; Benner, L. A. M.; Brozovic, M.; et al. (2020) Icarus 348, 113777"
+  },
+  {
+   "id": "ARROKOTH",
+   "naif": 20486958,
+   "kind": "asteroid",
+   "designation": "486958 Arrokoth (2014 MU69)",
+   "radiusKm": null,
+   "gm": 0.0,
+   "color": "#b5745a",
+   "radiusSource": null
+  },
+  {
+   "id": "HALLEY",
+   "naif": 1000036,
+   "kind": "comet",
+   "designation": "1P/Halley",
+   "radiusKm": 5.5,
+   "gm": 0.0,
+   "color": "#cfe6f2",
+   "radiusSource": "Lamy,P.L.;Toth,I.;Fernandez,Y.R.;Weaver,H.A. (2004) Comets II, pp. 223-264"
+  },
+  {
+   "id": "CHURYUMOV_GERASIMENKO",
+   "naif": 1000012,
+   "kind": "comet",
+   "designation": "67P/Churyumov-Gerasimenko",
+   "radiusKm": 1.7,
+   "gm": 6.622e-07,
+   "color": "#cfe6f2",
+   "radiusSource": "Sierks et al., Science 347, aaa1044 (2015)"
+  }
+ ]
+}

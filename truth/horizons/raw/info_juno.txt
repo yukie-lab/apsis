@@ -1,0 +1,85 @@
+# REQUEST https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%27-61%27&OBJ_DATA=%27YES%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27VECTORS%27&CENTER=%27500%4010%27&START_TIME=%271900-01-01%27&STOP_TIME=%271900-01-02%27&STEP_SIZE=%271d%27
+# RETRIEVED 2026-10-13T15:22:04Z
+API VERSION: 1.2
+API SOURCE: NASA/JPL Horizons API
+
+*******************************************************************************
+ Revised: Sep 30, 2026          Juno Spacecraft  / (Sun, Jupiter)           -61 
+                     http://www.nasa.gov/mission_pages/juno/main/index.html
+                             http://missionjuno.swri.edu/#/mission
+ 
+ NOTE: Post-launch trajectory begins at Centaur separation.
+
+ 2016-Oct-24: A slow-responding helium check-valve issue is being analyzed, 
+  resulting in delay of the main-engine burn to reduce orbit period from 53.4 
+  to 14 days. The next opportunity for the burn is December 11, 2016.
+
+ BACKGROUND:
+ The Juno spacecraft (New Frontiers mission-class) will investigate Jupiter's 
+ origins, interior structure, deep atmosphere and magnetosphere, from a highly 
+ elliptical polar orbit with a close perijove (PJ=1.06 Jupiter-radii, AJ= 39 
+ Jupiter-radii), using a suite of seven science instruments.
+
+ The Juno spacecraft launched aboard an Atlas V-551 rocket from Cape Canaveral, 
+ Fla., on Aug. 2011 at 16:25 UTC. It reached Jupiter in July 2016.  
+ 
+ The spacecraft will orbit Jupiter 76 times during its mission (now extended
+ into 2025 from its original pre-launch 19-month, 34-orbit plan), coming within
+ 3,100 miles (5,000 kilometers) of the planet's cloud tops.
+
+ MAJOR EVENTS 
+  Launch        : Aug 5,  2011 16:25 UTC 
+  Separation    : Aug 5,  2011 17:24:56.12  UTC
+  DSM-1         : Aug 30, 2012 22:29        UTC (344.95 m/s)
+  DSM-2         : Sep 3,  2012 22:29        UTC (387.77 m/s)
+  Shadow entry  : Oct 9,  2013 19:19:36     UTC (alt.= 7069 km, umbral)
+  Earth Flyby   : Oct 9,  2013 19:21:25     UTC (alt.= 558.848) 
+                   (lat=-34.170 deg,E.long= 34.008 deg
+  Shadow exit   : Oct 9,  2013 19:39:01     UTC (alt.= 14896 km, umbral)
+  Arrive Jupiter: Jul 5,  2016 02:30 UTC    (JOI to 53.5-day capture orbit, 
+                                             delta-v= 541.7 m/s)
+  Period Reduction Maneuver:
+                  Oct 19, 2016 (CANCELLED)  (Target 14-day orbit period,
+                                             delta-v= 395.2 m/s)
+  Ganymede flyby: Jun 07, 2021 (PJ34)       (1038 km from surface, per. 53->43 d) 
+  Europa flyby  : Sep 29, 2022 (PJ45)       Period from 43->38 days
+  Io flybys     : Dec 30, 2023 (PJ57)
+                  Feb  3, 2024 (PJ58)       Period reduced to 33 days
+  End of mission: Sep   , 2025 (PJ76)       Jupiter impact, 700 km below
+                                             1-bar atmospheric pressure level)
+
+ SPACECRAFT PHYSICAL  CHARACTERISTICS:
+  * Solar-powered, spin-stablized spacecraft 
+  * 1 rpm in interplanetary cruise, 2 rpm in Jupiter orbit
+  * Three 2x9 m solar panels equally spaced around hexagonal bus (20 m span)
+  * High-gain antenna
+
+ INSTRUMENTS: Juno's scientific payload includes:
+  * A gravity/radio science system
+  * A six-wavelength microwave radiometer for atmospheric sounding 
+     and composition
+  * A vector magnetometer
+  * Plasma and energetic particle detectors
+  * A radio/plasma wave experiment
+  * An ultraviolet imager/spectrometer
+  * An infrared imager/spectrometer
+
+ PROPULSION:
+  * Bipropellant engine: Leros 1B, thrust= 635 N,  Isp= 316.2 s min.
+  * RCS thrusters
+  * Orbit trim maneuvers (OTMs) occur on each orbit at perijove +4 hrs, 
+     beginning at PJ3. Target desired longitude at descending node after 
+     perijove.
+  * Total delta-V budget: 2107 m/s (~1852 m/s on bi-prop; remainder on RCS)
+
+ SPACECRAFT TRAJECTORY (from JPL navigation team)
+   The trajectory after 2026-Sep-23 is a planning prediction.
+
+   Trajectory name                         Start (TDB)         Stop (TDB)
+   ------------------------------        -----------------   -----------------
+   spk_rec_110805_*_260824               2011-Aug-05 17:19   2026-Aug-24 23:03 
+   juno_pred_orbit                       2026-Aug-24 23:03   2026-Dec-19 07:13
+   spk_ref_260808_280902_260926          2026-Dec-19 07:13   2028-Sep-30 23:55
+*******************************************************************************
+
+No ephemeris for target "Juno (spacecraft)" prior to A.D. 2011-AUG-05 17:19:12.1832 TDB
