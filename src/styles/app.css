@@ -236,3 +236,14 @@ table.inputs .with-unit.date .input { flex: 1 1 10.5em; min-width: 10.5em; }
 /* ---------- question window */
 .scrim { position: fixed; inset: 0; z-index: 90; background: rgba(0, 0, 0, 0.6); display: flex; align-items: center; justify-content: center; padding: 16px; }
 .dialog { background: #0a0f1c; border: 1px solid var(--line-2); border-radius: 10px; padding: 18px; max-width: 440px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 16px 60px rgba(0, 0, 0, 0.7); }
+
+/* ---------- files screen */
+.droparea.over { border-color: var(--blue); background: var(--panel-2); }
+.filetext {
+  font-family: var(--mono); font-size: 12px; line-height: 1.45; white-space: pre; overflow: auto; margin: 0; max-height: 380px;
+  background: #080c15; border: 1px solid var(--line-2); border-radius: 6px; padding: 8px 10px; color: var(--text);
+}
+textarea.filetext { width: 100%; resize: vertical; min-height: 120px; }
+.fileline { white-space: pre-wrap; word-break: break-all; }
+ul.list { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; }
+h3 > button.src, h2 > button.src { margin-left: 8px; }

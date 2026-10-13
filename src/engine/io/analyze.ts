@@ -4,7 +4,7 @@
  */
 import type { SolarSystem } from '../system';
 import { type ForceModel, type Trajectory, FULL_MODEL, Propagator, soiRadius } from '../propagate';
-import { type State, type Vec3, sub, norm } from '../vec';
+import { type State, type Vec3, sub, norm, dot } from '../vec';
 import { BODIES } from '../bodies';
 import { type EphemerisTable, segmentRanges } from './types';
 import { tableToCenterFrame } from './sample';
@@ -41,7 +41,7 @@ export interface TableApproach {
   speed: number;
   /**
    * true: the values come from a propagation between the samples before and after the closest approach.
-   * false: the values are those of the nearest sample of the table.
+   * false: the values are those of the nearest sample of the table (the propagation found no closest approach).
    */
   refined: boolean;
   /**
@@ -55,10 +55,11 @@ export interface TableApproach {
 /**
  * Closest approaches of a table to the bodies of a force model (not the Sun).
  * The samples of a file are frequently far apart at a flyby, thus an interpolation in the table is not accurate
- * there. The function finds the sample with the smallest distance to a body (inside 3 radii of the sphere of
- * influence), and propagates the state of the sample before it to the sample after it in the force model: the
- * closest approach of this short propagation is the result. If the path of the file has a maneuver between these
- * two samples, the result does not include it.
+ * there. The function finds each interval in which the distance to a body stops to decrease and starts to increase
+ * (the range rate goes from negative to positive). It propagates the state of the sample at the start of the
+ * interval to the sample at its end in the force model: the closest approach of this short propagation (inside
+ * 3 radii of the sphere of influence) is the result. If the path of the file has a maneuver in the interval, the
+ * result does not include it: `missKm` then is large.
  * Not more than `limit` closest approaches (the first ones in time).
  */
 export function tableApproaches(sys: SolarSystem, table: EphemerisTable, model: ForceModel = FULL_MODEL, limit = 200): TableApproach[] {
@@ -75,25 +76,28 @@ export function tableApproaches(sys: SolarSystem, table: EphemerisTable, model: 
       return { r: sub(abs.states[i].r, b.r), v: sub(abs.states[i].v, b.v) };
     };
     for (const [a, b] of segmentRanges(abs)) {
-      let before = rel(a), here = a + 1 <= b ? rel(a + 1) : null;
-      for (let i = a + 1; i < b; i++) {
-        const after = rel(i + 1);
-        if (before && here && after) {
-          const d = norm(here.r);
-          if (d <= norm(before.r) && d < norm(after.r) && d < 3 * soiRadius(sys, id, t[i])) {
-            let out: TableApproach = { body: id, et: t[i], radius: d, altitude: d - BODIES[id].radius, speed: norm(here.v), refined: false, missKm: NaN };
-            const arc = prop.propagate({ et0: t[i - 1], state0: abs.states[i - 1], etEnd: t[i + 1], model, stopAtImpact: false });
-            const missKm = arc.et1 === t[i + 1] ? norm(sub(arc.stateAt(t[i + 1]).r, abs.states[i + 1].r)) : NaN;
-            let best = Infinity;
-            for (const e of arc.events) {
-              if (e.type !== 'periapsis' || e.body !== id || e.radius === undefined || !(e.radius < best)) continue;
-              best = e.radius;
-              out = { body: id, et: e.et, radius: e.radius, altitude: e.altitude ?? e.radius - BODIES[id].radius, speed: e.speed ?? NaN, refined: true, missKm };
-            }
-            found.push(out);
-          }
+      let s0 = rel(a);
+      for (let i = a; i < b; i++) {
+        const s1 = rel(i + 1);
+        const before = s0;
+        s0 = s1;
+        if (!before || !s1 || !(dot(before.r, before.v) < 0) || !(dot(s1.r, s1.v) >= 0)) continue;
+        const near = 3 * soiRadius(sys, id, t[i]);
+        const d0 = norm(before.r), d1 = norm(s1.r);
+        // The spacecraft cannot go nearer than this in the interval (2: margin for the speed that the body adds).
+        if (Math.min(d0, d1) - 2 * Math.max(norm(before.v), norm(s1.v)) * (t[i + 1] - t[i]) > near) continue;
+        const arc = prop.propagate({ et0: t[i], state0: abs.states[i], etEnd: t[i + 1], model, stopAtImpact: false });
+        const missKm = arc.et1 === t[i + 1] ? norm(sub(arc.stateAt(t[i + 1]).r, abs.states[i + 1].r)) : NaN;
+        let out: TableApproach | null = null;
+        for (const e of arc.events) {
+          if (e.type !== 'periapsis' || e.body !== id || e.radius === undefined || !(e.radius < near) || (out && !(e.radius < out.radius))) continue;
+          out = { body: id, et: e.et, radius: e.radius, altitude: e.altitude ?? e.radius - BODIES[id].radius, speed: e.speed ?? NaN, refined: true, missKm };
         }
-        before = here; here = after;
+        if (!out && Math.min(d0, d1) < near) {
+          const k = d0 <= d1 ? i : i + 1, s = d0 <= d1 ? before : s1;
+          out = { body: id, et: t[k], radius: norm(s.r), altitude: norm(s.r) - BODIES[id].radius, speed: norm(s.v), refined: false, missKm: NaN };
+        }
+        if (out) found.push(out);
       }
     }
   }

@@ -28,7 +28,7 @@ export const MEASUREMENTS: Measurement[] = Object.keys(files).sort().flatMap((k)
 const BY_ID = new Map(MEASUREMENTS.map((m) => [m.id, m]));
 
 export type BasisKind =
-  | 'time' | 'frame' | 'const' | 'input' | 'file'
+  | 'time' | 'frame' | 'const' | 'input' | 'file' | 'file.read' | 'file.approach' | 'file.check' | 'file.difference'
   | 'ephem.state' | 'ephem.elements' | 'ephem.derived'
   | 'twobody' | 'plan.c3' | 'plan.vinf' | 'plan.flyby' | 'plan.dv' | 'plan.time'
   | 'flight.state' | 'flight.encounter' | 'flight.dv' | 'flight.event' | 'flight.real' | 'flight.target' | 'flight.elements' | 'flight.force'
@@ -75,6 +75,10 @@ function build(kind: BasisKind, ctx: BasisContext): { list: Measurement[]; statu
     case 'const': return { list: [], status: 'constant' };
     case 'input': return { list: [], status: 'input' };
     case 'file': return { list: [], status: 'input' };
+    case 'file.read': return { list: pick('io.horizonsVectors', 'io.horizonsTime', 'io.oemPosition', 'io.stkPosition', 'io.opmState', 'io.csvTime', 'io.horizonsUnits', 'io.oemTime', 'io.stkTime'), status: 'input' };
+    case 'file.approach': return { list: [...pick('io.approachDaily', 'io.approachHourly'), ...startsWith('propagation.flyby.').sort(byMargin)], status: 'horizons' };
+    case 'file.check': return { list: pick('io.stepsTable', 'io.hermiteCircle'), status: 'analytic' };
+    case 'file.difference': return { list: startsWith('propagation.spacecraft.').sort(byMargin), status: 'model' };
     case 'ephem.state': return ephemEvidence(ctx.body);
     case 'ephem.derived': return ephemEvidence(ctx.body);
     case 'ephem.elements': { const e = ephemEvidence(ctx.body); return { ...e, list: [...pick('frames.elements'), ...e.list] }; }

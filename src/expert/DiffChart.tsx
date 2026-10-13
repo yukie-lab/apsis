@@ -13,8 +13,8 @@ function power(n: number): string {
   return '10' + [...String(n)].map((c) => SUPER[c] ?? c).join('');
 }
 
-export function DiffChart({ times, series, marks, markEt }: {
-  times: Float64Array; series: DiffSeries[]; marks: { et: number; text: string }[]; markEt?: number;
+export function DiffChart({ times, series, marks, markEt, label }: {
+  times: Float64Array; series: DiffSeries[]; marks: { et: number; text: string }[]; markEt?: number; label?: string;
 }) {
   const ref = useCanvas(({ ctx, w, h }) => {
     const M = { l: 58, r: 14, t: 20, b: 38 };
@@ -90,7 +90,7 @@ export function DiffChart({ times, series, marks, markEt }: {
   }, [times, series, marks, markEt]);
   return (
     <figure className="plot">
-      <canvas ref={ref} className="wide" role="img" aria-label={t('plot.diff.label')} />
+      <canvas ref={ref} className="wide" role="img" aria-label={label ?? t('plot.diff.label')} />
       <figcaption className="note">{t('plot.diff.axisY')}</figcaption>
     </figure>
   );

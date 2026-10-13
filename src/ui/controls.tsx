@@ -16,6 +16,16 @@ export function Field({ label, children, hint }: { label: string; children: Reac
   );
 }
 
+/** A label for a group of buttons or for a text. (A Field is a label element: it is for one input only.) */
+export function Group({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <div className="field" role="group" aria-label={label}>
+      <span className="label">{label}</span>
+      {children}
+    </div>
+  );
+}
+
 /**
  * Number input. The value goes to the caller when the user leaves the field or pushes the Enter key.
  * The field can show fewer digits than the value has: if the user does not change the text, the value stays.

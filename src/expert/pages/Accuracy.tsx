@@ -11,7 +11,7 @@ import { Panel, Seg } from '../../ui/controls';
 import { PageHead } from '../common';
 
 const UNVERIFIED = ['outerCenters', 'rotation', 'otherTools', 'ste', 'masses', 'insertionBurns', 'models3d', 'browsers'];
-const LIMITS = ['impulses', 'forces', 'moons', 'launch', 'entry', 'interpolation', 'range'];
+const LIMITS = ['impulses', 'forces', 'moons', 'launch', 'entry', 'interpolation', 'range', 'tables', 'horizonsCenter'];
 const SELF_MISSION = 'voyager2';
 const CRAFT = FAMOUS.find((f) => f.id === SELF_MISSION)!.name;
 

@@ -2117,19 +2117,27 @@ describe('analysis of the text and of the table of a file', () => {
     expect(tableBoundaries(sys, { ...table, segmentStarts: undefined })).toEqual([]);
   });
 
+  /**
+   * Closest approach of an encounter of the truth file: parabola through the three 1-minute samples of r^2 that
+   * are nearest to the minimum. (The smallest sample itself can be 30 s from the closest approach: for the flyby
+   * of the Earth by Cassini it is 18 km above it.)
+   */
+  const closestOfTruth = (e: { fine: { jd: number[]; state: number[][] } }): { radius: number; et: number } => {
+    const jd = e.fine.jd;
+    const r2 = e.fine.state.map((s) => s[0] ** 2 + s[1] ** 2 + s[2] ** 2);
+    const m = r2.indexOf(Math.min(...r2));
+    expect(m > 0 && m < r2.length - 1).toBe(true);
+    expect(Math.abs((jd[m + 1] - jd[m]) * DAY - 60)).toBeLessThan(1e-3);
+    const den = r2[m - 1] - 2 * r2[m] + r2[m + 1];
+    const x = (0.5 * (r2[m - 1] - r2[m + 1])) / den;
+    return { radius: Math.sqrt(r2[m] - 0.25 * (r2[m - 1] - r2[m + 1]) * x), et: (jd[m] - 2451545) * DAY + x * 60 };
+  };
+
   it('closest approach of Cassini to Venus from JPL Horizons tables with one sample each hour and each day (truth: the 1-minute table)', () => {
     if (!existsSync('truth/horizons/raw/enc_cassini_299_0_hour.txt')) return;
     const e = truth('encounters').missions.cassini.encounters[0];
     expect(e.planet).toBe('299');
-    // Truth: parabola through the three 1-minute samples of r^2 that are nearest to the minimum.
-    const jd: number[] = e.fine.jd;
-    const r2: number[] = e.fine.state.map((s: number[]) => s[0] ** 2 + s[1] ** 2 + s[2] ** 2);
-    const m = r2.indexOf(Math.min(...r2));
-    expect(m > 0 && m < r2.length - 1).toBe(true);
-    const den = r2[m - 1] - 2 * r2[m] + r2[m + 1];
-    const x = (0.5 * (r2[m - 1] - r2[m + 1])) / den;
-    const rpTruth = Math.sqrt(r2[m] - 0.25 * (r2[m - 1] - r2[m + 1]) * x);
-    const etTruth = (jd[m] - 2451545) * DAY + x * 60;
+    const { radius: rpTruth, et: etTruth } = closestOfTruth(e);
     const out: Record<string, { radius: number; time: number }> = {};
     for (const [key, file] of [['hour', 'enc_cassini_299_0_hour'], ['day', 'enc_cassini_299_coarse']] as const) {
       const table = parseHorizonsVectors(readFileSync(`truth/horizons/raw/${file}.txt`, 'utf8'));
@@ -2161,8 +2169,8 @@ describe('analysis of the text and of the table of a file', () => {
     expect(found.map((a) => a.body)).toEqual(enc.map((e: { planet: string }) => P[e.planet]));
     // The function propagates from the sample before the closest approach to the sample after it, without a
     // maneuver, and gives the distance from that sample (missKm). At Saturn the table does not agree with a path
-    // without a maneuver: the miss is more than 100 times that of each other flyby (measured: 141 620 km against
-    // 228 km or less). The closest approach to Saturn is in the same 1-day interval as the arrival in orbit about
+    // without a maneuver: the miss is more than 100 times that of each other flyby (measured: 144 327 km against
+    // 30.4 km or less). The closest approach to Saturn is in the same 1-day interval as the arrival in orbit about
     // Saturn, where the speed relative to Saturn must change.
     const last = found[found.length - 1];
     const others = found.slice(0, -1);
@@ -2172,5 +2180,49 @@ describe('analysis of the text and of the table of a file', () => {
     // Times: the minimum of the 1-minute samples of the truth file is within 1 minute of the closest approach.
     // This is correct only where the table agrees with a path without a maneuver, thus not for Saturn.
     others.forEach((a, k) => expect(Math.abs(a.et - (enc[k].jdClosest - 2451545) * DAY), a.body).toBeLessThan(90));
+  });
+
+  it('a table with 10-day samples relative to the Sun gives all the flybys of Cassini before Saturn', () => {
+    if (!existsSync('truth/horizons/raw/enc_cassini_helio_10d.txt')) return;
+    const P: Record<string, string> = { '299': 'VENUS', '399': 'EARTH', '599': 'JUPITER', '699': 'SATURN' };
+    const enc = truth('encounters').missions.cassini.encounters.slice(0, 4);
+    const table = parseHorizonsVectors(readFileSync('truth/horizons/raw/enc_cassini_helio_10d.txt', 'utf8'));
+    expect(table.center).toBe('SUN');
+    // No sample of this table is inside the sphere of influence of Venus or of the Earth: the function finds the
+    // interval from the sign of the range rate.
+    const found = tableApproaches(sys, table).filter((a) => a.body !== 'MOON');
+    expect(found.map((a) => a.body)).toEqual(enc.map((e: { planet: string }) => P[e.planet]));
+    // Truth: the closest approach from the 1-minute samples of each encounter (parabola, error below 0.5 km).
+    // A propagation of 10 days through a low flyby makes a small force difference large: the limit is 5 km and
+    // 5 s for the three low flybys. The flyby of Jupiter is at 137 radii: there the radius changes by 1 km for
+    // 0.1 s, and the limit is 60 km and 60 s.
+    const worst = { radius: 0, time: 0 };
+    found.forEach((a, k) => {
+      const truthOf = closestOfTruth(enc[k]);
+      const far = a.body === 'JUPITER';
+      expect(a.refined, a.body).toBe(true);
+      expect(Math.abs(a.radius - truthOf.radius), a.body).toBeLessThan(far ? 60 : 5);
+      expect(Math.abs(a.et - truthOf.et), a.body).toBeLessThan(far ? 60 : 5);
+      if (!far) { worst.radius = Math.max(worst.radius, Math.abs(a.radius - truthOf.radius)); worst.time = Math.max(worst.time, Math.abs(a.et - truthOf.et)); }
+    });
+    rec.add({ id: 'io.approachTenDays', group: 'interchange', value: worst.radius, unit: 'km', limit: 5, truth: 'JPL Horizons trajectory of Cassini at Venus (2 flybys) and at the Earth, 1-minute samples: closest approaches from the table with 10-day samples relative to the Sun', detail: { timeDifferenceS: worst.time } });
+  });
+
+  it('JPL Horizons table of Cassini relative to the barycentre: the closest approach to the Earth is not that of the table relative to the Earth', () => {
+    if (!existsSync('truth/horizons/raw/arc_cassini_earth_flyby.txt')) return;
+    const ssb = parseHorizonsVectors(readFileSync('truth/horizons/raw/arc_cassini_earth_flyby.txt', 'utf8'));
+    const geo = parseHorizonsVectors(readFileSync('truth/horizons/raw/enc_cassini_399_0_hour.txt', 'utf8'));
+    expect([ssb.center, geo.center]).toEqual(['SSB', 'EARTH']);
+    const a = tableApproaches(sys, ssb).filter((x) => x.body === 'EARTH')[0];
+    const b = tableApproaches(sys, geo).filter((x) => x.body === 'EARTH')[0];
+    // The two tables are 118 km apart at this flyby (test of the propagation). The result: the altitude from the
+    // table relative to the barycentre is 86 km lower. The text page.files.ssbNote gives this value: if new
+    // reference data change it, this test fails and the text must change.
+    expect(b.radius - a.radius).toBeGreaterThan(85);
+    expect(b.radius - a.radius).toBeLessThan(87);
+    // The table relative to the Earth agrees with the 1-minute table of the truth file (the same Horizons data).
+    const e = truth('encounters').missions.cassini.encounters[2];
+    expect(e.planet).toBe('399');
+    expect(Math.abs(b.radius - closestOfTruth(e).radius)).toBeLessThan(1);
   });
 });

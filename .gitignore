@@ -3,10 +3,10 @@ dist/
 .cache/
 tools/.venv/
 data-src/kernels/
-shots/
+/shots/
 *.log
 .DS_Store
-scratch/
+/scratch/
 
 data-src/textures/original/
 __pycache__/

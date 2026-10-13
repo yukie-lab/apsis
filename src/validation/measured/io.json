@@ -160,5 +160,16 @@
    "timeDifferenceS": 0.0031696856021881104,
    "truthRadiusKm": 6335.553191163145
   }
+ },
+ {
+  "id": "io.approachTenDays",
+  "group": "interchange",
+  "value": 3.710463274067479,
+  "unit": "km",
+  "limit": 5,
+  "truth": "JPL Horizons trajectory of Cassini at Venus (2 flybys) and at the Earth, 1-minute samples: closest approaches from the table with 10-day samples relative to the Sun",
+  "detail": {
+   "timeDifferenceS": 0.1633112970739603
+  }
  }
 ]
