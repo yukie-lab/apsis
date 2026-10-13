@@ -118,6 +118,17 @@ export function soiRadius(sys: SolarSystem, id: string, et: number): number {
   return d * Math.pow(b.gmSystem / BODIES[b.parent].gmSystem, 0.4);
 }
 
+/** Plain data of a trajectory (for a message between a worker and the page, or for a file). */
+export interface TrajectoryData {
+  t: Float64Array;
+  y: Float64Array;
+  d: Float64Array;
+  segStarts: number[];
+  events: TrajectoryEvent[];
+  failure: Trajectory['failure'];
+  evals: number;
+}
+
 export class Trajectory {
   /** Segment start indices (a new segment starts after each maneuver). */
   readonly segStarts: number[] = [0];
@@ -157,6 +168,19 @@ export class Trajectory {
     this.y = Float64Array.from(this.yy);
     this.d = Float64Array.from(this.dd);
     this.tt = []; this.yy = []; this.dd = [];
+  }
+  toData(): TrajectoryData {
+    return { t: this.t, y: this.y, d: this.d, segStarts: this.segStarts.slice(), events: this.events, failure: this.failure, evals: this.evals };
+  }
+  static fromData(data: TrajectoryData): Trajectory {
+    const tr = new Trajectory();
+    tr.t = data.t; tr.y = data.y; tr.d = data.d;
+    tr.segStarts.length = 0;
+    tr.segStarts.push(...data.segStarts);
+    tr.events = data.events;
+    tr.failure = data.failure;
+    tr.evals = data.evals;
+    return tr;
   }
   get et0(): number { return this.t[0]; }
   get et1(): number { return this.t[this.t.length - 1]; }

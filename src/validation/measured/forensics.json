@@ -1,0 +1,39 @@
+[
+ {
+  "id": "forensics.cassini.dsm.size",
+  "group": "propagation",
+  "value": 0.00029835381031200874,
+  "unit": "%",
+  "limit": 1,
+  "truth": "Velocity jump in the JPL Horizons trajectory of Cassini (6 h samples) on 1998-12-03",
+  "detail": {
+   "foundMS": 450.23761508908063,
+   "truthMS": 450.2362717920083,
+   "gapKm": 0.4506440153921353,
+   "noiseFloorMS": 0.0026354378933371994
+  }
+ },
+ {
+  "id": "forensics.cassini.dsm.time",
+  "group": "propagation",
+  "value": 0.09297524733632734,
+  "unit": "d",
+  "limit": 0.25,
+  "truth": "Time of the velocity jump in the JPL Horizons trajectory of Cassini (6 h samples)",
+  "detail": {
+   "intervalDays": 10
+  }
+ },
+ {
+  "id": "forensics.synthetic.size",
+  "group": "propagation",
+  "value": 0.000014035097436628194,
+  "unit": "mm/s",
+  "limit": 1,
+  "truth": "Exact: the impulse is an input of the test trajectory (25 m/s)",
+  "detail": {
+   "timeErrorS": 0.1476923655718565,
+   "gapKm": 0.003699716623161426
+  }
+ }
+]

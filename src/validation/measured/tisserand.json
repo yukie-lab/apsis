@@ -1,0 +1,18 @@
+[
+ {
+  "id": "tisserand.parameter",
+  "group": "analytic",
+  "value": 2.509104035652854e-13,
+  "unit": "",
+  "limit": 1e-9,
+  "truth": "Analytic: T = 3 - (vinf / V)^2 for a circular planet orbit"
+ },
+ {
+  "id": "tisserand.hohmann",
+  "group": "analytic",
+  "value": 3.9224053185706573e-16,
+  "unit": "",
+  "limit": 1e-12,
+  "truth": "Analytic: Hohmann transfer between circular orbits"
+ }
+]
