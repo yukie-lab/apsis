@@ -168,7 +168,8 @@ export function buildApsis(b: Builder): ModelSpec {
   const prop = b.assembly('propulsion').ctx().move(0, 0, -ZB).rotX(Math.PI); // local +Z = model -Z
   flange(prop, 0.58, 0.63, 0.1, m.aluminium, 48);
   prop.add(lathe([[0.58, 0.1], [0.58, 0.0]], 48), m.aluminium);
-  prop.move(0, 0, 0.006).add(flatPolygon(polygon(32, 0.58)), m.foilGold, { tint: 0xd8b078, uv: [2, 2] });
+  // Gold closeout blanket inside the ring. It lies above the black blankets of the lower deck.
+  prop.move(0, 0, 0.03).add(flatPolygon(polygon(32, 0.58)), m.foilGold, { tint: 0xd8b078, uv: [2, 2] });
   // Gimbal ring and three actuators.
   prop.add(lathe([[0.3, 0.1], [0.34, 0.1, 1], [0.34, 0.14, 1], [0.3, 0.14, 1], [0.3, 0.1]], 32), m.titanium);
   for (let k = 0; k < 3; k++) {

@@ -146,8 +146,8 @@ export function buildPioneer(b: Builder): ModelSpec {
         finSpan: 0.94,
         finTaper: 0.06,
         body: m.paintGrey,
-        finMat: m.paintWhite,
-        finTint: 0xc4c4c0,
+        finMat: m.aluminium,
+        finTint: 0xd6d6d2,
       });
     }
     cable(gen, [polar(AP, deg * DEG, 0), vscale(dir, 1.4), gc.point([0, 0.02, -0.05])], 0.008, m.cable);
