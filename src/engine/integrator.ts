@@ -36,6 +36,15 @@ export interface StepControl {
   h0?: number;
   hMin?: number;
   hMax?: number;
+  /** Maximum number of accepted steps for one call (default 5 million). */
+  maxSteps?: number;
+}
+
+/** The integration cannot continue: the state is not finite, or the step limit was reached. */
+export class IntegrationError extends Error {
+  constructor(readonly reason: 'not-finite' | 'step-limit', readonly t: number) {
+    super('integration stopped: ' + reason);
+  }
 }
 
 export class Rkf78 {
@@ -46,6 +55,8 @@ export class Rkf78 {
   evals = 0;
   /** Number of rejected steps. */
   rejected = 0;
+  /** Number of steps accepted at the minimum step size with an error above the tolerance. */
+  forced = 0;
 
   constructor(private readonly f: Derivative, n: number) {
     this.n = n;
@@ -103,12 +114,24 @@ export class Rkf78 {
     const yNew = new Float64Array(this.n);
     const yPrev = new Float64Array(this.n);
     const dPrev = new Float64Array(this.n);
+    const maxSteps = ctl.maxSteps ?? 5e6;
     let steps = 0;
     let k0Ready = false;
     while ((t1 - t) * dir > 1e-12 * Math.max(1, Math.abs(t1))) {
       let last = false;
       if (h >= Math.abs(t1 - t)) { h = Math.abs(t1 - t); last = true; }
       const err = this.trial(t, y, dir * h, yNew, ctl, k0Ready);
+      if (!(err >= 0)) {
+        // The error is not a number: the state or the derivative is not finite. A smaller step can help only if
+        // the start state of the step is finite.
+        if (h <= hMin || !Number.isFinite(y[0])) throw new IntegrationError('not-finite', t);
+        this.rejected++;
+        k0Ready = true;
+        h = Math.max(hMin, h * 0.2);
+        continue;
+      }
+      if (steps >= maxSteps) throw new IntegrationError('step-limit', t);
+      if (err > 1 && h <= hMin) this.forced++;
       if (err <= 1 || h <= hMin) {
         yPrev.set(y);
         dPrev.set(this.k[0]);

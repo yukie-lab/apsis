@@ -224,49 +224,49 @@
   "detail": {
    "periapsisRadiusKm": 721660.7097791865,
    "truthPeriapsisRadiusKm": 721375.4634300872,
-   "positionErrorKmAfter4Days": 4002.449803464396,
+   "positionErrorKmAfter4Days": 4002.449803515575,
    "moonsInModel": "yes"
   }
  },
  {
   "id": "propagation.flyby.voyager2.1.SATURN",
   "group": "flyby",
-  "value": 60.40307727790787,
+  "value": 60.40307758175186,
   "unit": "km",
   "limit": 500,
   "truth": "JPL Horizons trajectory of voyager2 relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 160630.85443263754,
+   "periapsisRadiusKm": 160630.8544323337,
    "truthPeriapsisRadiusKm": 160691.25750991545,
-   "positionErrorKmAfter4Days": 5018.61196951946,
+   "positionErrorKmAfter4Days": 5018.611973518078,
    "moonsInModel": "yes"
   }
  },
  {
   "id": "propagation.flyby.voyager2.2.URANUS",
   "group": "flyby",
-  "value": 0.07999971629760694,
+  "value": 0.07999973952246364,
   "unit": "km",
   "limit": 100,
   "truth": "JPL Horizons trajectory of voyager2 relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 107154.2691639222,
+   "periapsisRadiusKm": 107154.26916394543,
    "truthPeriapsisRadiusKm": 107154.1891642059,
-   "positionErrorKmAfter4Days": 11.678866432255468,
+   "positionErrorKmAfter4Days": 11.678865726024855,
    "moonsInModel": "yes"
   }
  },
  {
   "id": "propagation.flyby.voyager2.3.NEPTUNE",
   "group": "flyby",
-  "value": 0.09258135482741636,
+  "value": 0.09258119767400785,
   "unit": "km",
   "limit": 100,
   "truth": "JPL Horizons trajectory of voyager2 relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 29236.12524100885,
+   "periapsisRadiusKm": 29236.125240851696,
    "truthPeriapsisRadiusKm": 29236.03265965402,
-   "positionErrorKmAfter4Days": 95.85664539308696,
+   "positionErrorKmAfter4Days": 95.8544179928679,
    "moonsInModel": "yes"
   }
  },
@@ -322,7 +322,7 @@
   "detail": {
    "periapsisRadiusKm": 9794457.237050053,
    "truthPeriapsisRadiusKm": 9794457.016752765,
-   "positionErrorKmAfter4Days": 0.4739959878560497,
+   "positionErrorKmAfter4Days": 0.4739960583479771,
    "moonsInModel": "yes"
   }
  },
@@ -385,14 +385,14 @@
  {
   "id": "propagation.flyby.newhorizons.1.PLUTO",
   "group": "flyby",
-  "value": 13.49510213155554,
+  "value": 13.494523120149097,
   "unit": "km",
   "limit": 50,
   "truth": "JPL Horizons trajectory of newhorizons relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 13689.701899368883,
+   "periapsisRadiusKm": 13689.701320357477,
    "truthPeriapsisRadiusKm": 13676.206797237328,
-   "positionErrorKmAfter4Days": 34.98202765497546,
+   "positionErrorKmAfter4Days": 34.97996713218246,
    "moonsInModel": "yes"
   }
  },
@@ -420,7 +420,7 @@
   "detail": {
    "periapsisRadiusKm": 450444.3595997322,
    "truthPeriapsisRadiusKm": 450442.8759915021,
-   "positionErrorKmAfter4Days": 13.313175367570864,
+   "positionErrorKmAfter4Days": 13.313175267615122,
    "moonsInModel": "yes"
   }
  },

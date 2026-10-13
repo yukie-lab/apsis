@@ -50,6 +50,22 @@
    "2020-08-11"
   ],
   "landing": "2021-02-18",
-  "cruiseDaysFromFirstDay": 213
+  "cruiseDaysFromFirstDay": 213,
+  "launchUtc": "2020-07-30 11:50",
+  "landingEarthReceivedUtc": "2021-02-18 20:55",
+  "source2": "NASA NSSDCA Master Catalog, Mars 2020, https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2020-052A (file nssdc_mars2020.html): launch and landing times"
+ },
+ "newhorizons": {
+  "source": "NASA NSSDCA Master Catalog, New Horizons, https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2006-001A (file nssdc_newhorizons.html)",
+  "launchUtc": "2006-01-19 19:00",
+  "jupiter": {
+   "date": "2007-02-28",
+   "rangeJupiterRadii": 32
+  },
+  "pluto": {
+   "utc": "2015-07-14 11:48:45",
+   "rangeKm": 12500
+  },
+  "remark": "The page says: \"within about 32 Jovian radii of Jupiter\" and \"within 12500 km of Pluto\"."
  }
 }

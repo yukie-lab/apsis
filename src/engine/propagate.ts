@@ -11,7 +11,7 @@
  *   - solar radiation pressure (cannonball model)
  * Not modelled: thrust arcs of finite duration, attitude-dependent forces, atmospheric drag, higher gravity harmonics.
  */
-import { Rkf78 } from './integrator';
+import { Rkf78, IntegrationError } from './integrator';
 import { type State, type Vec3, dot, norm } from './vec';
 import { BODIES, MOON_MODELS, C_LIGHT, AU, SOLAR_IRRADIANCE, type Body } from './bodies';
 import { type SolarSystem, moonState } from './system';
@@ -82,6 +82,8 @@ export interface PropagationRequest {
   noEvents?: boolean;
   /** Bodies that are not in the force model for which closest approaches are also searched. */
   watch?: string[];
+  /** If false, the propagation continues after the path goes below the surface of a body (default true: stop). */
+  stopAtImpact?: boolean;
 }
 
 /** Sphere of influence radius (km) of a body at its current distance from its parent. */
@@ -105,12 +107,27 @@ export class Trajectory {
   d!: Float64Array;
   /** Derivative evaluations used. */
   evals = 0;
+  /**
+   * Not null if the propagation stopped before the requested end time for a numerical reason:
+   * 'inside-body' = the path went to less than 0.1 radius from the centre of a body (the point-mass model has no
+   * physical meaning there), 'not-finite' = the state became not finite, 'step-limit' = too many steps.
+   * An impact that the event search finds is not a failure (see the 'impact' event).
+   */
+  failure: { reason: 'inside-body' | 'not-finite' | 'step-limit'; et: number; body?: string } | null = null;
 
   push(t: number, y: Float64Array, d: Float64Array): void {
     this.tt.push(t);
     for (let i = 0; i < 6; i++) { this.yy.push(y[i]); this.dd.push(d[i]); }
   }
+  /** Replace the newest sample (used when the trajectory ends before the end of a step). */
+  replaceLast(t: number, y: Float64Array, d: Float64Array): void {
+    this.tt.pop();
+    this.yy.length -= 6; this.dd.length -= 6;
+    this.push(t, y, d);
+  }
   get count(): number { return this.tt.length; }
+  /** Newest sample while the trajectory is not finished. */
+  lastState(): number[] { return this.yy.slice(this.yy.length - 6); }
   markSegment(): void { this.segStarts.push(this.tt.length); }
   finish(): void {
     this.t = Float64Array.from(this.tt);
@@ -177,16 +194,28 @@ interface Perturber {
   id: string; gm: number; j2: number; radius: number; body: Body; pos: Vec3; moonOf?: string;
   /** Small body: position from the small-body file, used only inside the time range of that file. */
   small?: boolean; active: boolean;
+  /** GM in use at this moment (planet alone when its moons are separate masses, else the planet system). */
+  gmNow: number;
+  /** Square of 0.1 radius: a path nearer to the centre than this stops the propagation. */
+  deep2: number;
 }
-interface EventBody { id: string; radius: number; moonOf?: string; watch: boolean }
+/**
+ * Planet with moons as separate masses. Far from the planet (more than `range`) the system is one point mass at
+ * its barycentre: the difference is below 1e-14 km/s^2 and the computation is much faster.
+ */
+interface MoonGroup { planet: Perturber; moons: Perturber[]; ratios: number[]; gmSystem: number; range2: number; near: boolean; rel: Vec3[] }
+interface EventBody { id: string; radius: number; moonOf?: string; watch: boolean; pert?: Perturber }
 
 export class Propagator {
   private readonly pert: Perturber[] = [];
+  private readonly groups: MoonGroup[] = [];
   private readonly emb: Vec3 = [0, 0, 0];
   private readonly mgeo: Vec3 = [0, 0, 0];
   private readonly earthFactor = BODIES.MOON.gm / (BODIES.EARTH.gm + BODIES.MOON.gm);
   private readonly sunIndex: number;
   private readonly srpAccel: number;
+  /** Body whose centre is nearer than 0.1 radius at the last derivative evaluation, or null. */
+  private deep: Perturber | null = null;
 
   constructor(readonly sys: SolarSystem, readonly model: ForceModel) {
     for (const id of model.bodies) {
@@ -195,8 +224,15 @@ export class Propagator {
       if (!b || (!small && !PLANET_GRAVITY_BODIES.includes(id))) continue;
       const moonIds = model.moons ? Object.keys(MOON_MODELS).filter((mid) => BODIES[mid].parent === id && BODIES[mid].gm > 1) : [];
       const hasMoons = moonIds.length > 0;
-      this.pert.push({ id, gm: hasMoons || id === 'EARTH' ? b.gm : b.gmSystem, j2: model.j2 ? b.j2 : 0, radius: b.radius, body: b, pos: [0, 0, 0], small, active: true });
-      for (const mid of moonIds) this.pert.push({ id: mid, gm: BODIES[mid].gm, j2: 0, radius: BODIES[mid].radius, body: BODIES[mid], pos: [0, 0, 0], moonOf: id, active: true });
+      const gm = hasMoons || id === 'EARTH' ? b.gm : b.gmSystem;
+      const planet: Perturber = { id, gm, gmNow: gm, j2: model.j2 ? b.j2 : 0, radius: b.radius, body: b, pos: [0, 0, 0], small, active: true, deep2: (0.1 * b.radius) ** 2 };
+      this.pert.push(planet);
+      if (hasMoons) {
+        const moons = moonIds.map((mid): Perturber => ({ id: mid, gm: BODIES[mid].gm, gmNow: BODIES[mid].gm, j2: 0, radius: BODIES[mid].radius, body: BODIES[mid], pos: [0, 0, 0], moonOf: id, active: true, deep2: (0.1 * BODIES[mid].radius) ** 2 }));
+        this.pert.push(...moons);
+        const range = 20 * Math.max(...moonIds.map((mid) => MOON_MODELS[mid].a));
+        this.groups.push({ planet, moons, ratios: moons.map((m) => m.gm / b.gmSystem), gmSystem: b.gmSystem, range2: range * range, near: true, rel: moons.map(() => [0, 0, 0] as Vec3) });
+      }
     }
     this.sunIndex = this.pert.findIndex((p) => p.id === 'SUN');
     // SRP acceleration at 1 au, km/s^2
@@ -206,8 +242,8 @@ export class Propagator {
   /** Ids of the bodies of the force model (moons included when the option is on). */
   get bodyIds(): string[] { return this.pert.map((p) => p.id); }
 
-  /** Update the positions of all perturbers at time t. */
-  private updateBodies(t: number): void {
+  /** Update the positions of all perturbers at time t. (x, y, z): position of the spacecraft. */
+  private updateBodies(t: number, x: number, y: number, z: number): void {
     const sys = this.sys;
     let haveEm = false;
     for (const p of this.pert) {
@@ -222,12 +258,7 @@ export class Propagator {
         p.pos[1] = this.emb[1] + k * this.mgeo[1];
         p.pos[2] = this.emb[2] + k * this.mgeo[2];
       } else if (p.moonOf) {
-        const parent = this.pert.find((q) => q.id === p.moonOf)!;
-        const m = moonState(p.id, t).r;
-        p.pos[0] = parent.pos[0] + m[0]; p.pos[1] = parent.pos[1] + m[1]; p.pos[2] = parent.pos[2] + m[2];
-      } else if (this.model.moons && this.pert.some((q) => q.moonOf === p.id)) {
-        const s = sys.state(p.id, t).r; // planet centre
-        p.pos[0] = s[0]; p.pos[1] = s[1]; p.pos[2] = s[2];
+        // set with its planet below
       } else if (p.small) {
         p.active = sys.small!.covers(t);
         if (p.active) sys.small!.position(p.id, t, p.pos);
@@ -236,24 +267,48 @@ export class Propagator {
         sys.planets.position(p.id, t, p.pos);
       }
     }
+    for (const g of this.groups) {
+      const c = g.planet.pos; // barycentre at this point
+      const dx = x - c[0], dy = y - c[1], dz = z - c[2];
+      g.near = dx * dx + dy * dy + dz * dz < g.range2;
+      if (!g.near) {
+        g.planet.gmNow = g.gmSystem;
+        for (const m of g.moons) m.active = false;
+        continue;
+      }
+      g.planet.gmNow = g.planet.gm;
+      let ox = 0, oy = 0, oz = 0;
+      for (let k = 0; k < g.moons.length; k++) {
+        const r = moonState(g.moons[k].id, t).r;
+        g.rel[k] = r;
+        ox += g.ratios[k] * r[0]; oy += g.ratios[k] * r[1]; oz += g.ratios[k] * r[2];
+      }
+      c[0] -= ox; c[1] -= oy; c[2] -= oz; // planet centre
+      for (let k = 0; k < g.moons.length; k++) {
+        const m = g.moons[k];
+        m.active = true;
+        m.pos[0] = c[0] + g.rel[k][0]; m.pos[1] = c[1] + g.rel[k][1]; m.pos[2] = c[2] + g.rel[k][2];
+      }
+    }
   }
 
   /** Derivative function for the integrator. y = [r, v]. */
   readonly deriv = (t: number, y: Float64Array, d: Float64Array): void => {
-    this.updateBodies(t);
-    let ax = 0, ay = 0, az = 0;
     const x = y[0], yy = y[1], z = y[2];
+    this.updateBodies(t, x, yy, z);
+    let ax = 0, ay = 0, az = 0;
     for (const p of this.pert) {
       if (!p.active) continue;
       const dx = x - p.pos[0], dy = yy - p.pos[1], dz = z - p.pos[2];
       const r2 = dx * dx + dy * dy + dz * dz;
+      if (r2 < p.deep2) this.deep = p;
       const r = Math.sqrt(r2);
-      const k = -p.gm / (r2 * r);
+      const k = -p.gmNow / (r2 * r);
       ax += k * dx; ay += k * dy; az += k * dz;
       if (p.j2 !== 0 && r < 300 * p.radius) {
         const pole = poleVector(p.body, t);
         const zz = dx * pole[0] + dy * pole[1] + dz * pole[2];
-        const f = (-1.5 * p.j2 * p.gm * p.radius * p.radius) / (r2 * r2 * r);
+        const f = (-1.5 * p.j2 * p.gmNow * p.radius * p.radius) / (r2 * r2 * r);
         const c = 1 - (5 * zz * zz) / r2;
         ax += f * (c * dx + 2 * zz * pole[0]);
         ay += f * (c * dy + 2 * zz * pole[1]);
@@ -302,11 +357,13 @@ export class Propagator {
     breaks.sort((a, b) => (a.t - b.t) * dir || (a.man ? 1 : -1));
 
     const eventBodies: EventBody[] = req.noEvents ? [] : [
-      ...this.pert.filter((p) => p.id !== 'SUN').map((p) => ({ id: p.id, radius: p.radius, moonOf: p.moonOf, watch: false })),
+      ...this.pert.filter((p) => p.id !== 'SUN').map((p) => ({ id: p.id, radius: p.radius, moonOf: p.moonOf, watch: false, pert: p })),
       ...(req.watch ?? []).filter((id) => id !== 'SUN' && this.sys.hasBody(id) && !this.pert.some((p) => p.id === id))
         .map((id) => ({ id, radius: BODIES[id]?.radius ?? 0, moonOf: BODIES[id]?.kind === 'moon' ? BODIES[id].parent! : undefined, watch: true })),
     ];
     const rdot = (p: EventBody, t: number, yy: Float64Array | number[]): number => {
+      // A moon far from the spacecraft is not active in the force model: no event search for it.
+      if (p.pert && !p.pert.active) return NaN;
       const cov = this.sys.coverage(p.id);
       if (t < cov[0] || t > cov[1]) return NaN;
       const s = this.sys.state(p.id, t);
@@ -314,26 +371,83 @@ export class Propagator {
     };
     const prevRdot = new Float64Array(eventBodies.length);
     const initRdot = (t: number) => { for (let i = 0; i < eventBodies.length; i++) prevRdot[i] = rdot(eventBodies[i], t, y); };
+    // Height above the equatorial radius (km); NaN out of the time range of the body data.
+    const height = (p: EventBody, t: number, yy: Float64Array): number => {
+      if (p.pert && !p.pert.active) return NaN;
+      const cov = this.sys.coverage(p.id);
+      if (t < cov[0] || t > cov[1]) return NaN;
+      const s = this.sys.state(p.id, t).r;
+      return Math.hypot(yy[0] - s[0], yy[1] - s[1], yy[2] - s[2]) - p.radius;
+    };
+    const stopAtImpact = req.stopAtImpact !== false && !req.noEvents;
+    // A start point below a surface (departure from a small body) does not count as an impact.
+    const armed = eventBodies.map((p) => !(height(p, req.et0, y) <= 0));
+    let impact = false;
 
     let t = req.et0;
+    let tEndReal = req.etEnd;
     this.deriv(t, y, dTmp);
     traj.push(t, y, dTmp);
     traj.events.push({ type: 'start', et: t, state: toState(y) });
     initRdot(t);
+    // A start at a periapsis (departure from a parking orbit) is not a periapsis event.
+    for (let i = 0; i < eventBodies.length; i++) {
+      if (!(prevRdot[i] * dir < 0)) continue;
+      const s = this.sys.state(eventBodies[i].id, t);
+      const d = Math.hypot(y[0] - s.r[0], y[1] - s.r[1], y[2] - s.r[2]), sp = Math.hypot(y[3] - s.v[0], y[4] - s.v[1], y[5] - s.v[2]);
+      if (Math.abs(prevRdot[i]) < 1e-6 * d * sp) prevRdot[i] = 0;
+    }
     let h = ctl.h0;
+    let tNow = t;
     for (const br of breaks) {
       if ((br.t - t) * dir > 0) {
-        const res = rk.integrate(t, y, br.t, { ...ctl, h0: h }, (tn, yn, tp, yp) => {
-          this.deriv(tn, yn, dTmp);
-          traj.push(tn, yn, dTmp);
-          for (let i = 0; i < eventBodies.length; i++) {
-            const rd = rdot(eventBodies[i], tn, yn);
-            if (prevRdot[i] * dir < 0 && rd * dir >= 0) this.refinePeriapsis(traj, eventBodies[i], tp, yp, tn, dir, ctl);
-            prevRdot[i] = rd;
-          }
-        });
+        let res: { t: number; h: number; steps: number };
+        try {
+          res = rk.integrate(t, y, br.t, { ...ctl, h0: h }, (tn, yn, tp, yp) => {
+            this.deep = null;
+            this.deriv(tn, yn, dTmp);
+            const deep = this.deep as Perturber | null;
+            traj.push(tn, yn, dTmp);
+            tNow = tn;
+            for (let i = 0; i < eventBodies.length; i++) {
+              const p = eventBodies[i];
+              if (stopAtImpact) {
+                const hgt = height(p, tn, yn);
+                if (!armed[i]) { if (hgt > 0) armed[i] = true; } else if (hgt <= 0) {
+                  // The path is below the surface: find the crossing, end the trajectory there.
+                  const hit = this.findCrossing(p, tp, yp, tn, ctl, height);
+                  traj.replaceLast(hit.t, hit.y, this.derivOf(hit.t, hit.y, dTmp));
+                  const s = this.sys.state(p.id, hit.t);
+                  traj.events.push({ type: 'impact', et: hit.t, body: p.id, radius: p.radius, altitude: 0, speed: Math.hypot(hit.y[3] - s.v[0], hit.y[4] - s.v[1], hit.y[5] - s.v[2]), state: toState(hit.y) });
+                  yn.set(hit.y);
+                  tEndReal = hit.t;
+                  impact = true;
+                  return true;
+                }
+              }
+              const rd = rdot(p, tn, yn);
+              if (prevRdot[i] * dir < 0 && rd * dir >= 0) this.refinePeriapsis(traj, p, tp, yp, tn, dir, ctl);
+              prevRdot[i] = rd;
+            }
+            if (deep) {
+              traj.failure = { reason: 'inside-body', et: tn, body: deep.id };
+              return true;
+            }
+            return false;
+          });
+        } catch (e) {
+          if (!(e instanceof IntegrationError)) throw e;
+          // The samples up to the last accepted step are kept.
+          traj.failure = { reason: e.reason, et: tNow };
+          y.set(traj.lastState());
+          t = tNow;
+          break;
+        }
+        if (traj.failure) { t = tNow; break; }
+        if (impact) { t = tEndReal; break; }
         h = Math.max(res.h, 1);
         t = br.t;
+        tNow = t;
       }
       if (br.man) {
         const m = br.man;
@@ -355,6 +469,26 @@ export class Propagator {
     traj.evals = rk.evals;
     traj.finish();
     return traj;
+  }
+
+  private derivOf(t: number, y: Float64Array, d: Float64Array): Float64Array {
+    this.deriv(t, y, d);
+    return d;
+  }
+
+  /** Time and state where the height above a body becomes zero between two steps (bisection, re-integration). */
+  private findCrossing(p: EventBody, t0: number, y0: Float64Array, t1: number, ctl: { rtol: number; atol: Float64Array; hMax: number; hMin: number }, height: (p: EventBody, t: number, y: Float64Array) => number): { t: number; y: Float64Array } {
+    const yA = new Float64Array(y0);
+    const yB = new Float64Array(6);
+    const rk = new Rkf78(this.deriv, 6);
+    let ta = t0, tb = t1;
+    for (let it = 0; it < 60 && Math.abs(tb - ta) > 1e-3; it++) {
+      const tm = 0.5 * (ta + tb);
+      yB.set(yA);
+      rk.integrate(ta, yB, tm, { ...ctl, h0: Math.abs(tm - ta) });
+      if (height(p, tm, yB) > 0) { ta = tm; yA.set(yB); } else { tb = tm; }
+    }
+    return { t: ta, y: yA };
   }
 
   /** Find the exact time of closest approach to a body between two steps and record the event. */

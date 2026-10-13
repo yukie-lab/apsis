@@ -1,0 +1,239 @@
+{
+ "note": "Facts of real missions from JPL Horizons trajectories. Times: Julian date, TDB. Aim points: B-plane, T = S x (ecliptic north pole), km.",
+ "missions": {
+  "voyager2": {
+   "startTdb": "1977-08-20 15:32:32.1830",
+   "encounters": [
+    {
+     "body": "JUPITER",
+     "jdTdb": 2444064.4374015112,
+     "radiusKm": 721375.4634300874,
+     "vinfKmS": 7.6110437682573755
+    },
+    {
+     "body": "SATURN",
+     "jdTdb": 2444842.64232373,
+     "radiusKm": 160691.25750991545,
+     "vinfKmS": 10.667141494676669
+    },
+    {
+     "body": "URANUS",
+     "jdTdb": 2446455.2498441413,
+     "radiusKm": 107154.18916420592,
+     "vinfKmS": 14.732281781399102
+    },
+    {
+     "body": "NEPTUNE",
+     "jdTdb": 2447763.6643086416,
+     "radiusKm": 29236.032659654018,
+     "vinfKmS": 16.708520316023517,
+     "aim": {
+      "BdotT": -20953.39175608092,
+      "BdotR": -42983.52746339313
+     }
+    }
+   ],
+   "arrival": "flyby",
+   "source": "JPL Horizons trajectory -32"
+  },
+  "voyager1": {
+   "startTdb": "1977-09-05 13:59:24.3830",
+   "encounters": [
+    {
+     "body": "JUPITER",
+     "jdTdb": 2443938.003768281,
+     "radiusKm": 348435.26999158994,
+     "vinfKmS": 10.762006405413215
+    },
+    {
+     "body": "SATURN",
+     "jdTdb": 2444556.490610694,
+     "radiusKm": 184030.0118778242,
+     "vinfKmS": 15.105719603890163,
+     "aim": {
+      "BdotT": 126089.19655239624,
+      "BdotR": 281366.17882935965
+     }
+    }
+   ],
+   "arrival": "flyby",
+   "source": "JPL Horizons trajectory -31"
+  },
+  "newhorizons": {
+   "startTdb": "2006-01-19 19:51:18.3305",
+   "encounters": [
+    {
+     "body": "JUPITER",
+     "jdTdb": 2454159.7394153695,
+     "radiusKm": 2304504.761776893,
+     "vinfKmS": 18.447103588674345
+    },
+    {
+     "body": "PLUTO",
+     "jdTdb": 2457217.992790721,
+     "radiusKm": 13676.20679723733,
+     "vinfKmS": 13.773316524392179,
+     "aim": {
+      "BdotT": -12198.258219080937,
+      "BdotR": 6195.302710677145
+     }
+    }
+   ],
+   "arrival": "flyby",
+   "source": "JPL Horizons trajectory -98"
+  },
+  "ulysses": {
+   "startTdb": "1990-10-06 19:05:00.0000",
+   "encounters": [
+    {
+     "body": "JUPITER",
+     "jdTdb": 2448661.0017652414,
+     "radiusKm": 450442.87599150214,
+     "vinfKmS": 13.682469886417843,
+     "aim": {
+      "BdotT": -712393.6233517653,
+      "BdotR": -552410.2895961017
+     }
+    }
+   ],
+   "arrival": "flyby",
+   "source": "JPL Horizons trajectory -55"
+  },
+  "pioneer11": {
+   "startTdb": "1973-04-06 02:25:44.1857",
+   "encounters": [
+    {
+     "body": "JUPITER",
+     "jdTdb": 2442384.723784539,
+     "radiusKm": 113512.89239191284,
+     "vinfKmS": 9.07163891266414
+    },
+    {
+     "body": "SATURN",
+     "jdTdb": 2444118.1877751714,
+     "radiusKm": 80859.41837075022,
+     "vinfKmS": 8.56092756966017,
+     "aim": {
+      "BdotT": 258768.4571322122,
+      "BdotR": 152630.11407452286
+     }
+    }
+   ],
+   "arrival": "flyby",
+   "source": "JPL Horizons trajectory -24"
+  },
+  "cassini": {
+   "startTdb": "1997-10-15 09:27:11.5724",
+   "encounters": [
+    {
+     "body": "VENUS",
+     "jdTdb": 2450930.0734295123,
+     "radiusKm": 6335.553191163145,
+     "vinfKmS": 6.029805178769497
+    },
+    {
+     "body": "VENUS",
+     "jdTdb": 2451354.3548504245,
+     "radiusKm": 6654.3985119611425,
+     "vinfKmS": 9.409724425442684
+    },
+    {
+     "body": "EARTH",
+     "jdTdb": 2451408.645483755,
+     "radiusKm": 7549.639874578976,
+     "vinfKmS": 16.01284104868349
+    },
+    {
+     "body": "JUPITER",
+     "jdTdb": 2451908.9204404764,
+     "radiusKm": 9794457.016752765,
+     "vinfKmS": 10.42618495868651
+    },
+    {
+     "body": "SATURN",
+     "jdTdb": 2453187.6095680725,
+     "radiusKm": 80996.3597492956,
+     "vinfKmS": 5.1996014387028975,
+     "aim": {
+      "BdotT": 440143.3009463407,
+      "BdotR": -200413.75870269243
+     },
+     "note": "Periapsis of the approach hyperbola 12 hours before the closest approach (before the insertion burn). Closest approach in the data: JD 2453187.610769 TDB, 80228 km."
+    }
+   ],
+   "arrival": "orbit",
+   "source": "JPL Horizons trajectory -82",
+   "dsm": [
+    {
+     "jdTdb": 2451150.875,
+     "dvKmS": 0.4502362717920083,
+     "note": "Velocity jump between two samples 6 hours apart (gravity of the Sun removed)."
+    }
+   ],
+   "orbitAfterArrival": {
+    "periapsisRadiusKm": 80227.67741461209,
+    "apoapsisRadiusKm": 9127867.926477304,
+    "note": "Osculating orbit about Saturn 2 days after the insertion burn"
+   }
+  },
+  "juno": {
+   "startTdb": "2011-08-05 17:19:12.1832",
+   "encounters": [
+    {
+     "body": "EARTH",
+     "jdTdb": 2456575.3073152406,
+     "radiusKm": 6932.500578017294,
+     "vinfKmS": 10.389408888771205
+    },
+    {
+     "body": "JUPITER",
+     "jdTdb": 2457574.617038393,
+     "radiusKm": 75460.39667748549,
+     "vinfKmS": 5.372169354930632,
+     "aim": {
+      "BdotT": -8996.062706216157,
+      "BdotR": -817460.5525586526
+     },
+     "note": "Periapsis of the approach hyperbola 12 hours before the closest approach (before the insertion burn). Closest approach in the data: JD 2457574.617130 TDB, 75974 km."
+    }
+   ],
+   "arrival": "orbit",
+   "source": "JPL Horizons trajectory -61",
+   "dsm": [
+    {
+     "jdTdb": 2456170.375,
+     "dvKmS": 0.34426410264285007,
+     "note": "Velocity jump between two samples 6 hours apart (gravity of the Sun removed)."
+    },
+    {
+     "jdTdb": 2456185.375,
+     "dvKmS": 0.38792716997562476,
+     "note": "Velocity jump between two samples 6 hours apart (gravity of the Sun removed)."
+    }
+   ],
+   "orbitAfterArrival": {
+    "periapsisRadiusKm": 75974.20821272035,
+    "apoapsisRadiusKm": 8105637.555692755,
+    "note": "Osculating orbit about Jupiter 2 days after the insertion burn"
+   }
+  },
+  "mars2020": {
+   "startTdb": "2020-07-30 12:52:43.6433",
+   "arrival": "entry",
+   "source": "JPL Horizons trajectory -168",
+   "encounters": [
+    {
+     "body": "MARS",
+     "jdTdb": 2459264.3628672203,
+     "radiusKm": 3313.738203750758,
+     "vinfKmS": 2.5509908562579735,
+     "aim": {
+      "BdotT": 7272.847813929269,
+      "BdotR": -1305.4379570684102
+     },
+     "note": "Vacuum periapsis of the approach hyperbola (below the surface: the spacecraft enters the atmosphere). End of the data: JD 2459264.929167 TDB."
+    }
+   ]
+  }
+ }
+}

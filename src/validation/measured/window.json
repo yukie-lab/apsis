@@ -1,0 +1,156 @@
+[
+ {
+  "id": "window.c3.voyager2",
+  "group": "window",
+  "value": 0.3446126815359827,
+  "unit": "%",
+  "limit": 4,
+  "truth": "JPL Horizons trajectory of voyager2: geocentric energy after launch",
+  "detail": {
+   "c3": 102.93037272974571,
+   "truthC3": 102.57687979365286,
+   "arrivalBody": "JUPITER",
+   "declinationOfLaunchAsymptoteDeg": 39.81461340733619
+  }
+ },
+ {
+  "id": "window.c3.voyager1",
+  "group": "window",
+  "value": 1.1318001463690346,
+  "unit": "%",
+  "limit": 4,
+  "truth": "JPL Horizons trajectory of voyager1: geocentric energy after launch",
+  "detail": {
+   "c3": 106.44883762103215,
+   "truthC3": 105.25753271173629,
+   "arrivalBody": "JUPITER",
+   "declinationOfLaunchAsymptoteDeg": 25.808415645950518
+  }
+ },
+ {
+  "id": "window.c3.cassini",
+  "group": "window",
+  "value": 1.6035424057592944,
+  "unit": "%",
+  "limit": 4,
+  "truth": "JPL Horizons trajectory of cassini: geocentric energy after launch",
+  "detail": {
+   "c3": 16.364392300460278,
+   "truthC3": 16.631078699949164,
+   "arrivalBody": "VENUS",
+   "declinationOfLaunchAsymptoteDeg": -2.5482772704345042
+  }
+ },
+ {
+  "id": "window.c3.newhorizons",
+  "group": "window",
+  "value": 0.6506160204372646,
+  "unit": "%",
+  "limit": 4,
+  "truth": "JPL Horizons trajectory of newhorizons: geocentric energy after launch",
+  "detail": {
+   "c3": 158.7750352127299,
+   "truthC3": 157.7486969185468,
+   "arrivalBody": "JUPITER",
+   "declinationOfLaunchAsymptoteDeg": -8.918351707074185
+  }
+ },
+ {
+  "id": "window.c3.galileo",
+  "group": "window",
+  "value": 0.42589607265567975,
+  "unit": "%",
+  "limit": 4,
+  "truth": "JPL Horizons trajectory of galileo: geocentric energy after launch",
+  "detail": {
+   "c3": 15.356431681471118,
+   "truthC3": 15.422113858715877,
+   "arrivalBody": "VENUS",
+   "declinationOfLaunchAsymptoteDeg": 12.490713767423127
+  }
+ },
+ {
+  "id": "window.c3.ulysses",
+  "group": "window",
+  "value": 1.1172495824831215,
+  "unit": "%",
+  "limit": 4,
+  "truth": "JPL Horizons trajectory of ulysses: geocentric energy after launch",
+  "detail": {
+   "c3": 129.62682939096956,
+   "truthC3": 128.194576025558,
+   "arrivalBody": "JUPITER",
+   "declinationOfLaunchAsymptoteDeg": 27.976276747440313
+  }
+ },
+ {
+  "id": "window.c3.pioneer10",
+  "group": "window",
+  "value": 1.008250346131773,
+  "unit": "%",
+  "limit": 4,
+  "truth": "JPL Horizons trajectory of pioneer10: geocentric energy after launch",
+  "detail": {
+   "c3": 84.92353703039008,
+   "truthC3": 84.07584206178889,
+   "arrivalBody": "JUPITER",
+   "declinationOfLaunchAsymptoteDeg": -30.337273463200845
+  }
+ },
+ {
+  "id": "window.c3.pioneer11",
+  "group": "window",
+  "value": 1.4813563129694167,
+  "unit": "%",
+  "limit": 4,
+  "truth": "JPL Horizons trajectory of pioneer11: geocentric energy after launch",
+  "detail": {
+   "c3": 88.92565350885494,
+   "truthC3": 87.62757686703301,
+   "arrivalBody": "JUPITER",
+   "declinationOfLaunchAsymptoteDeg": -34.092419104479006
+  }
+ },
+ {
+  "id": "window.c3.mars2020",
+  "group": "window",
+  "value": 0.9300283312248213,
+  "unit": "%",
+  "limit": 4,
+  "truth": "JPL Horizons trajectory of mars2020: geocentric energy after launch",
+  "detail": {
+   "c3": 14.593634813210352,
+   "truthC3": 14.459160523880984,
+   "arrivalBody": "MARS",
+   "declinationOfLaunchAsymptoteDeg": 23.426475615823946
+  }
+ },
+ {
+  "id": "window.mars2020.period",
+  "group": "window",
+  "value": 0,
+  "unit": "d",
+  "limit": 0.5,
+  "truth": "JPL Mars 2020 launch press kit: launch period 2020-07-20 to 2020-08-11, landing 2021-02-18",
+  "detail": {
+   "optimumLaunchDayAfterFirstDay": 3,
+   "minimumC3": 13.830598556826951,
+   "c3MinInPeriod": 13.830598556826951,
+   "c3MaxInPeriod": 18.54036023213823
+  }
+ },
+ {
+  "id": "window.mars2020.porkchop",
+  "group": "window",
+  "value": 1.1137216149232276,
+  "unit": "ratio",
+  "limit": 1.15,
+  "truth": "Real launch and arrival dates of Mars 2020 (NSSDCA Master Catalog)",
+  "detail": {
+   "c3AtRealDates": 14.578801056798888,
+   "minimumC3OfTheMap": 13.090166215193598,
+   "minimumDeparture": "2020-07-19",
+   "minimumArrival": "2021-01-27"
+  }
+ }
+]

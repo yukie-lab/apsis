@@ -188,10 +188,13 @@ def frames():
                     'note': 'ecliptic = ecliptic and mean equinox of J2000 (Horizons REF_PLANE=ECLIPTIC); elements: km, km/s, deg', 'bodies': out})
 
 def dsm():
-    """Cassini heliocentric states at 6 h steps around the deep-space maneuver of 1998-12-03."""
+    """Heliocentric states at 6 h steps around the deep-space maneuvers of Cassini (1998-12) and Juno (2012-08, 2012-09)."""
     rows = H.vectors('cassini_dsm_search', '-82', '500@10', '1998-11-20', '1998-12-20', '6h')
     dump('cassini_dsm', {'center': 'SUN', 'frame': 'ICRF', 'timeScale': 'TDB', 'source': 'JPL Horizons, Cassini trajectory (-82)',
                          'jd': [r[0] for r in rows], 'state': [r[1] for r in rows]})
+    rows = H.vectors('juno_dsm_search', '-61', '500@10', '2012-08-01', '2012-10-15', '6h')
+    dump('juno_dsm', {'center': 'SUN', 'frame': 'ICRF', 'timeScale': 'TDB', 'source': 'JPL Horizons, Juno trajectory (-61)',
+                      'jd': [r[0] for r in rows], 'state': [r[1] for r in rows]})
 
 if __name__ == '__main__':
     which = sys.argv[1:] or ['planets', 'encounters', 'arcs', 'moons', 'small_check', 'frames', 'dsm']

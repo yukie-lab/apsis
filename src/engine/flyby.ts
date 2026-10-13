@@ -119,16 +119,47 @@ export function bPlane(rel: State, mu: number, pole: Vec3 = [0, 0, 1]): BPlane |
   const Rv = cross(S, T);
   // time to periapsis from the hyperbolic anomaly
   const rp = -a * (e - 1);
-  const cosNu = Math.max(-1, Math.min(1, dot(ev, r) / (e * R0)));
-  let nu = Math.acos(cosNu);
-  if (dot(r, v) < 0) nu = -nu;
-  const F = 2 * Math.atanh(Math.sqrt((e - 1) / (e + 1)) * Math.tan(nu / 2));
+  // r.v = sqrt(mu |a|) e sinh F. This form has no singular point (the true anomaly form fails near the asymptote).
+  const eSinhF = dot(r, v) / Math.sqrt(mu * -a);
+  const F = Math.asinh(eSinhF / e);
   const n = Math.sqrt(mu / (-a * a * a));
-  const tSince = (e * Math.sinh(F) - F) / n;
+  const tSince = (eSinhF - F) / n;
   return {
     S, T, R: Rv, B, BdotT: dot(B, T), BdotR: dot(B, Rv), vinf, rp, e,
     vinfIn: scale(S, vinf), vinfOut: scale(Sout, vinf), timeToPeriapsis: -tSince,
   };
+}
+
+/**
+ * State relative to a body on the hyperbola with the incoming v-infinity vector `vinfIn` and the aim point
+ * (B.T, B.R), at the time `timeToPeriapsis` before the periapsis (negative: after the periapsis).
+ * This is the inverse of bPlane(). T = S x pole / |S x pole|, R = S x T.
+ */
+export function stateFromBPlane(mu: number, vinfIn: Vec3, BdotT: number, BdotR: number, timeToPeriapsis: number, pole: Vec3 = [0, 0, 1]): State {
+  const vinf = norm(vinfIn);
+  const S = unit(vinfIn);
+  const T = unit(cross(S, pole));
+  const R = cross(S, T);
+  const B = lincomb(T, BdotT, R, BdotR);
+  const b = norm(B);
+  const a = mu / (vinf * vinf);
+  const k = b / a;
+  const e = Math.sqrt(1 + k * k);
+  const Bh = b > 0 ? scale(B, 1 / b) : T;
+  // S = P / e + Q k / e and B/b = P k / e - Q / e (see bPlane)
+  const P = lincomb(S, 1 / e, Bh, k / e);
+  const Q = lincomb(S, k / e, Bh, -1 / e);
+  // hyperbolic Kepler equation: e sinh F - F = M, where M = -n * timeToPeriapsis
+  const M = -Math.sqrt(mu / (a * a * a)) * timeToPeriapsis;
+  let F = Math.asinh(M / e);
+  for (let it = 0; it < 80; it++) {
+    const d = (e * Math.sinh(F) - F - M) / (e * Math.cosh(F) - 1);
+    F -= d;
+    if (Math.abs(d) < 1e-15 * Math.max(1, Math.abs(F))) break;
+  }
+  const ch = Math.cosh(F), sh = Math.sinh(F);
+  const f = Math.sqrt(mu / a) / (e * ch - 1);
+  return { r: lincomb(P, a * (e - ch), Q, a * k * sh), v: lincomb(P, -f * sh, Q, f * k * ch) };
 }
 
 /**
