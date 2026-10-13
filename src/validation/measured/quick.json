@@ -11,8 +11,8 @@
    "solved": 352,
    "worstAimErrorKm": 0.0659952085261466,
    "worstAimCase": "URANUS orbit efficient 2038-01-10",
-   "meanSeconds": 0.28485152756250015,
-   "slowestSeconds": 3.5792141249999987,
+   "meanSeconds": 0.32431188340909084,
+   "slowestSeconds": 3.957084499999997,
    "slowestCase": "URANUS orbit efficient 2038-01-10"
   }
  }

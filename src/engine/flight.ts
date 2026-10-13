@@ -783,6 +783,6 @@ function nearestPeriapsis(events: TrajectoryEvent[], body: string, et: number): 
 }
 
 /** Propagate a flight and return the trajectory. */
-export function flyFlight(sys: SolarSystem, f: Flight, stops?: number[], watch?: string[]): Trajectory {
-  return new Propagator(sys, f.model).propagate({ et0: f.et0, state0: f.state0, etEnd: f.etEnd, maneuvers: f.maneuvers, model: f.model, stops, watch });
+export function flyFlight(sys: SolarSystem, f: Flight, stops?: number[], watch?: string[], options: { rtol?: number; restartAtAnchors?: boolean } = {}): Trajectory {
+  return new Propagator(sys, f.model).propagate({ et0: f.et0, state0: f.state0, etEnd: f.etEnd, maneuvers: f.maneuvers, model: f.model, stops, watch, ...options });
 }

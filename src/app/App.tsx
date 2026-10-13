@@ -71,6 +71,8 @@ function TopBar() {
 function stageText(stage: string): string {
   if (stage === 'window') return t('busy.window');
   if (stage === 'plan') return t('busy.plan');
+  const miss = /^miss:(.+)$/.exec(stage);
+  if (miss) return t('busy.miss', { value: miss[1] });
   const best = /^best:(.+)$/.exec(stage);
   if (best) return t('busy.best', { value: best[1] + ' km/s' });
   const m = /^(\w+): (\w)$/.exec(stage);

@@ -7,6 +7,7 @@
  *  gmat     : GMAT script (write only)
  *  csv      : table of comma-separated values
  *  horizons : JPL Horizons vector table (read only)
+ *  analyze  : format of a text, closest approaches and maneuvers of a table, distance between a table and a flight
  * The formats, their limits and what was verified are in docs/IO_FORMATS.md.
  */
 export * from './types';
@@ -17,3 +18,4 @@ export * from './stk';
 export * from './gmat';
 export * from './csv';
 export * from './horizons';
+export * from './analyze';

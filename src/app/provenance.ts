@@ -8,7 +8,7 @@
  */
 import { BODIES, MOON_MODELS } from '../engine/bodies';
 import { FAMOUS } from '../engine/mission';
-import { t, hasText, bodyName } from '../i18n';
+import { t, hasText, bodyName, bodyIn } from '../i18n';
 import { auto } from './format';
 import { system } from './system';
 
@@ -31,7 +31,7 @@ export type BasisKind =
   | 'time' | 'frame' | 'const' | 'input' | 'file'
   | 'ephem.state' | 'ephem.elements' | 'ephem.derived'
   | 'twobody' | 'plan.c3' | 'plan.vinf' | 'plan.flyby' | 'plan.dv' | 'plan.time'
-  | 'flight.state' | 'flight.encounter' | 'flight.dv' | 'flight.event' | 'flight.real'
+  | 'flight.state' | 'flight.encounter' | 'flight.dv' | 'flight.event' | 'flight.real' | 'flight.target' | 'flight.elements' | 'flight.force'
   | 'mass' | 'forensics' | 'tisserand' | 'optimizer';
 
 /**
@@ -97,6 +97,9 @@ function build(kind: BasisKind, ctx: BasisContext): { list: Measurement[]; statu
       const all = [...startsWith('famous.corrections.', 'famous.dsm.', 'famous.capture.'), ...pick('famous.cassini.realCorrections', 'quick.solved')];
       return { list: [...mine, ...all.filter((m) => !mine.includes(m))], status: 'model' };
     }
+    case 'flight.target': return { list: pick('target.closure', 'target.closureDistant', 'target.closureInsertion', 'target.bplane'), status: 'model' };
+    case 'flight.elements': return { list: pick('frames.elements'), status: 'model' };
+    case 'flight.force': return { list: [...startsWith('propagation.asteroid.').sort(byMargin).slice(0, 2), ...startsWith('propagation.spacecraft.').sort(byMargin)], status: 'model' };
     case 'flight.real': return { list: startsWith('famous.').filter((m) => !ctx.famousId || m.id.split('.').includes(ctx.famousId)).sort(byMargin), status: 'horizons' };
     case 'mass': return { list: [], status: 'model' };
     case 'forensics': return { list: startsWith('forensics.'), status: 'horizons' };
@@ -129,27 +132,27 @@ const PATTERNS: [RegExp, string, (m: RegExpExecArray) => Vars][] = [
   [/^ephemeris\.(\w+)$/, 'ephemeris', (m) => ({ body: bodyName(m[1]) })],
   [/^moon\.(\w+)$/, 'moon', (m) => ({ body: bodyName(m[1]), parent: bodyName(BODIES[m[1]]?.parent ?? '') })],
   [/^small\.(\w+)$/, 'small', (m) => ({ body: bodyName(m[1]) })],
-  [/^famous\.vinf\.(\w+)\.(\d+)\.(\w+)$/, 'flightVinf', (m) => ({ craft: craftName(m[1]), n: nth(m[2]), body: bodyName(m[3]) })],
-  [/^famous\.periapsis\.(\w+)\.(\d+)\.(\w+)$/, 'flightPeriapsis', (m) => ({ craft: craftName(m[1]), n: nth(m[2]), body: bodyName(m[3]) })],
+  [/^famous\.vinf\.(\w+)\.(\d+)\.(\w+)$/, 'flightVinf', (m) => ({ craft: craftName(m[1]), n: nth(m[2]), body: bodyIn(m[3]) })],
+  [/^famous\.periapsis\.(\w+)\.(\d+)\.(\w+)$/, 'flightPeriapsis', (m) => ({ craft: craftName(m[1]), n: nth(m[2]), body: bodyIn(m[3]) })],
   [/^famous\.corrections\.(\w+)$/, 'corrections', (m) => ({ craft: craftName(m[1]) })],
   [/^missions\.(\w+)\.nbody\.corrections$/, 'corrections', (m) => ({ craft: craftName(m[1]) })],
   [/^famous\.dsm\.(\w+)$/, 'dsm', (m) => ({ craft: craftName(m[1]) })],
   [/^missions\.(\w+)\.nbody\.dsm$/, 'dsmNbody', (m) => ({ craft: craftName(m[1]) })],
   [/^missions\.(\w+)\.conic\.dsm$/, 'dsmConic', (m) => ({ craft: craftName(m[1]) })],
   [/^famous\.capture\.(\w+)$/, 'capture', (m) => ({ craft: craftName(m[1]) })],
-  [/^missions\.(\w+)\.time\.(\w+)$/, 'encounterTime', (m) => ({ craft: craftName(m[1]), body: bodyName(m[2]) })],
-  [/^missions\.(\w+)\.conic\.mismatch\.(?:(\d+)\.)?(\w+)$/, 'conicMismatch', (m) => ({ craft: craftName(m[1]), body: bodyName(m[3]) })],
-  [/^missions\.(\w+)\.conic\.vinf\.(?:(\d+)\.)?(\w+)$/, 'conicVinf', (m) => ({ craft: craftName(m[1]), body: bodyName(m[3]) })],
-  [/^missions\.(\w+)\.conic\.periapsis\.(?:(\d+)\.)?(\w+)$/, 'conicPeriapsis', (m) => ({ craft: craftName(m[1]), body: bodyName(m[3]) })],
-  [/^missions\.(\w+)\.nbody\.vinf\.(?:(\d+)\.)?(\w+)$/, 'nbodyVinf', (m) => ({ craft: craftName(m[1]), body: bodyName(m[3]) })],
-  [/^missions\.(\w+)\.nbody\.periapsis\.(?:(\d+)\.)?(\w+)$/, 'nbodyPeriapsis', (m) => ({ craft: craftName(m[1]), body: bodyName(m[3]) })],
-  [/^missions\.(\w+)\.nbody\.published\.(?:(\d+)\.)?(\w+)$/, 'nbodyPublished', (m) => ({ craft: craftName(m[1]), body: bodyName(m[3]) })],
+  [/^missions\.(\w+)\.time\.(\w+)$/, 'encounterTime', (m) => ({ craft: craftName(m[1]), body: bodyIn(m[2]) })],
+  [/^missions\.(\w+)\.conic\.mismatch\.(?:(\d+)\.)?(\w+)$/, 'conicMismatch', (m) => ({ craft: craftName(m[1]), body: bodyIn(m[3]) })],
+  [/^missions\.(\w+)\.conic\.vinf\.(?:(\d+)\.)?(\w+)$/, 'conicVinf', (m) => ({ craft: craftName(m[1]), body: bodyIn(m[3]) })],
+  [/^missions\.(\w+)\.conic\.periapsis\.(?:(\d+)\.)?(\w+)$/, 'conicPeriapsis', (m) => ({ craft: craftName(m[1]), body: bodyIn(m[3]) })],
+  [/^missions\.(\w+)\.nbody\.vinf\.(?:(\d+)\.)?(\w+)$/, 'nbodyVinf', (m) => ({ craft: craftName(m[1]), body: bodyIn(m[3]) })],
+  [/^missions\.(\w+)\.nbody\.periapsis\.(?:(\d+)\.)?(\w+)$/, 'nbodyPeriapsis', (m) => ({ craft: craftName(m[1]), body: bodyIn(m[3]) })],
+  [/^missions\.(\w+)\.nbody\.published\.(?:(\d+)\.)?(\w+)$/, 'nbodyPublished', (m) => ({ craft: craftName(m[1]), body: bodyIn(m[3]) })],
   [/^propagation\.asteroid\.(\w+)$/, 'propAsteroid', (m) => ({ body: bodyName(m[1]) })],
   [/^propagation\.spacecraft\.([a-z0-9]+?)_(\d{4})_(\d{4})$/, 'propSpacecraft', (m) => ({ craft: craftName(m[1]), from: m[2], to: m[3] })],
   [/^propagation\.spacecraft\.([a-z0-9]+?)_cruise$/, 'propSpacecraftCruise', (m) => ({ craft: craftName(m[1]) })],
-  [/^propagation\.flyby\.(\w+)\.(\d+)\.(\w+)$/, 'propFlyby', (m) => ({ craft: craftName(m[1]), body: bodyName(m[3]) })],
+  [/^propagation\.flyby\.(\w+)\.(\d+)\.(\w+)$/, 'propFlyby', (m) => ({ craft: craftName(m[1]), body: bodyIn(m[3]) })],
   [/^window\.c3\.(\w+)$/, 'windowC3', (m) => ({ craft: craftName(m[1]) })],
-  [/^famous\.newhorizons\.published\.(\w+)$/, 'publishedDistance', (m) => ({ craft: craftName('newhorizons'), body: bodyName(m[1]) })],
+  [/^famous\.newhorizons\.published\.(\w+)$/, 'publishedDistance', (m) => ({ craft: craftName('newhorizons'), body: bodyIn(m[1]) })],
 ];
 
 /** Description of a measurement in the language of the user. */

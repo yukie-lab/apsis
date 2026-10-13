@@ -1,6 +1,6 @@
 /** Accuracy screen: the measured errors of the automatic tests, checks on this computer, and what is not verified. */
 import { useMemo, useState } from 'react';
-import { t, bodyName } from '../../i18n';
+import { t, bodyIn } from '../../i18n';
 import { MEASUREMENTS, describeMeasurement, truthSource, measuredText } from '../../app/provenance';
 import { runFastChecks, flightChecks, type CheckResult } from '../../validation/selfcheck';
 import { system } from '../../app/system';
@@ -16,7 +16,7 @@ const SELF_MISSION = 'voyager2';
 const CRAFT = FAMOUS.find((f) => f.id === SELF_MISSION)!.name;
 
 function checkText(c: CheckResult): string {
-  return t('validation.self.' + c.id, { body: c.body ? bodyName(c.body) : '', craft: CRAFT });
+  return t('validation.self.' + c.id, { body: c.body ? bodyIn(c.body) : '', craft: CRAFT });
 }
 
 function SelfCheck() {

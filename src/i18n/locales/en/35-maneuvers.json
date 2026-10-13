@@ -1,0 +1,116 @@
+{
+ "text": {
+  "busy": {
+   "target": "Calculation of the maneuver",
+   "study": "Propagation with each force model",
+   "miss": "Distance from the aim point: {value} km"
+  },
+  "error": {
+   "target:maneuver": "The maneuver is not in the flight. Make sure that its date is between the start and the end of the flight.",
+   "target:encounter": "The flight has no hyperbolic approach to this body after the maneuver.",
+   "target:path": "The propagation to the maneuver stopped. Examine the flight on the Mission screen.",
+   "target:order": "The closest approach must be after the maneuver and after all maneuvers that follow it.",
+   "target:converge": "The targeter did not find a solution. Set an aim point nearer to the aim point of the flight, or use an earlier maneuver."
+  },
+  "basis": {
+   "flight.target": {
+    "title": "Maneuver from the targeter",
+    "method": "The targeter propagates the flight from the maneuver to the approach of the body. It changes the three components of the maneuver with a damped Newton method until the approach hyperbola has the aim point. If the time is free, each step is the smallest change of the maneuver.",
+    "limit": "The calculation stops when the error of the aim point is less than 20 m or 1 × 10⁻⁶ of the body radius. If numerical noise stops the progress, it accepts 20 times this value. The application then propagates the flight again: the Effect table shows the aim of that flight. The maneuver is an impulse."
+   },
+   "flight.elements": {
+    "title": "Osculating orbit of the spacecraft",
+    "method": "The engine converts the position and the velocity of the spacecraft relative to the body to two-body elements. The gravitational parameter is the value of the body and its moons.",
+    "limit": "Osculating elements are exact for the state at that time. They change with time because other bodies pull the spacecraft."
+   },
+   "flight.force": {
+    "title": "Effect of a force on the flight",
+    "method": "The application propagates the flight again with one change of the force model: it removes a force that the model has, or it adds a force that the model does not have. The value is the distance between the two paths at the same time.",
+    "limit": "The value shows the size of the effect of that force for this flight. It is not an error of the flight. The engine has no model for some forces: the Propagation screen gives the list."
+   }
+  },
+  "validation": {
+   "item": {
+    "target_bplane": "B-plane distance and periapsis radius of an exact hyperbola",
+    "target_closure": "Targeter: distance from the aim point after a new propagation",
+    "target_closureInsertion": "Targeter, encounter with an orbit insertion: distance from the aim point after a new propagation",
+    "target_closureDistant": "Targeter, flyby of Jupiter at 137 radii (Cassini): distance from the aim point after a new propagation"
+   }
+  },
+  "page": {
+   "maneuvers": {
+    "title": "Maneuvers",
+    "intro": "This screen shows the maneuvers of the flight. You can change them, add a maneuver, and aim a maneuver at an encounter.",
+    "noMission": "No mission is open. Open a mission, or make a flight from a state vector.",
+    "toMission": "Go to the Mission screen",
+    "toPropagation": "Go to the Propagation screen",
+    "noFlight": "This mission has no flight. Calculate the flight first.",
+    "kindUser": "Your maneuver",
+    "table": "Maneuvers of the flight",
+    "refBody": "Reference body",
+    "components": "Components of the velocity change (m/s)",
+    "none": "The flight has no maneuvers.",
+    "select": "Show the orbit before and after this maneuver",
+    "dateOf": "Date of maneuver {n}",
+    "frameOf": "Frame of maneuver {n}",
+    "refBodyOf": "Reference body of maneuver {n}",
+    "componentOf": "Component {axis} of maneuver {n}",
+    "removeOf": "Remove maneuver {n}",
+    "add": "Add a maneuver at the time of the view",
+    "dirty": "Changes: not in the flight",
+    "discard": "Discard the changes",
+    "apply": "Apply the changes",
+    "tableNote": "Each maneuver is an impulse. V, N, B: along the velocity, along the orbit normal, and V × N. R, T, N: along the position, N × R, and along the orbit normal. X, Y, Z: the axes of the frame. A local frame uses the state relative to the reference body. If you change the frame, the application converts the components: the velocity change stays the same.",
+    "manualNote": "You changed the maneuvers of this flight. A new flight calculation from the plan replaces your changes.",
+    "noPropellant": "The maneuvers use {need} kg of propellant. The spacecraft has {have} kg.",
+    "orbit": "Orbit about {body} before and after maneuver {n}",
+    "orbitTitle": "Orbit before and after a maneuver",
+    "orbitSelect": "Select the number of a maneuver in the table.",
+    "orbitNone": "The time of this maneuver is not in the flight on the screen. Apply the changes first.",
+    "before": "Before",
+    "after": "After",
+    "change": "Change",
+    "period": "Period",
+    "vinf": "Speed at infinity",
+    "speed": "Speed relative to the body",
+    "distance": "Distance from the center of the body",
+    "orbitNote": "Two-body elements of the state relative to the reference body. Frame of the inclination: {frame}. The values use the flight on the screen and the components in the table.",
+    "propellant": "Propellant",
+    "massBefore": "Mass before",
+    "propellantUsed": "Propellant",
+    "massAfter": "Mass after",
+    "propellantNote": "Rocket equation with a specific impulse of {isp} s. Mass with no propellant: {dry} kg. Propellant mass: {prop} kg. You can change these values on the Mission screen.",
+    "target": "Aim a maneuver at an encounter",
+    "targetNote": "The targeter changes the three components of one maneuver. The flight then goes through the aim point that you set in the B-plane of the encounter.",
+    "targetManeuver": "Maneuver to change",
+    "maneuverN": "Maneuver {n} · {date}",
+    "targetEncounter": "Encounter",
+    "encounterN": "{body} · {date}",
+    "targetNoEncounter": "The flight has no closest approach after this maneuver.",
+    "targetNoManeuver": "The flight has no maneuver. Add a maneuver first.",
+    "targetTime": "Time of the closest approach",
+    "timeFree": "Free",
+    "timeSet": "Set",
+    "timeFreeCell": "Free: smallest change of the maneuver",
+    "targetNotHyperbola": "The approach orbit at this encounter is not a hyperbola. The B-plane has no meaning for it.",
+    "bAngle": "B-plane angle",
+    "altitudeTwoBody": "Periapsis altitude (two-body)",
+    "closest": "Closest approach",
+    "now": "Flight on the screen",
+    "wanted": "Aim",
+    "result": "Result",
+    "targetBelow": "This aim point gives a path below the surface of the body.",
+    "targetAxes": "B-plane axes: S is the direction of the incoming asymptote, T = S × (north pole of the ecliptic), R = S × T. The angle and the altitude are a different form of B·T and B·R.",
+    "targetRun": "Calculate maneuver {n} and apply it",
+    "effect": "Effect of the last change",
+    "targetDone": "The targeter changed maneuver {n} from {before} to {after} in {iterations} iterations. Distance from the aim point at {body}: {miss} km.",
+    "targetDoneTime": "Time difference: {time} s.",
+    "timeChange": "Change of the time",
+    "newEncounter": "New",
+    "effectNone": "The flight has no closest approach.",
+    "effectNote": "Each change is the value of the flight on the screen minus the value of the flight before the last change. Click a row to set the time of the view.",
+    "effectEnd": "The position at the end of the flight moved by {value} km."
+   }
+  }
+ }
+}

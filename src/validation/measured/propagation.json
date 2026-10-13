@@ -100,118 +100,127 @@
  {
   "id": "propagation.spacecraft.newhorizons_2008_2009",
   "group": "propagation",
-  "value": 670.786040677922,
+  "value": 670.7916411564456,
   "unit": "km",
   "limit": 1500,
-  "truth": "JPL Horizons trajectory of the spacecraft (New Horizons, cruise in hibernation, 364 days)",
+  "truth": "JPL Horizons trajectory of the spacecraft relative to the Sun (New Horizons, cruise in hibernation, 364 days)",
   "detail": {
    "days": 364,
-   "errorKmAfter30Days": 4.001783375481214,
-   "equivalentAccelerationMS2": 1.3563874399739276e-9
+   "errorKmAfter30Days": 4.003306890593471,
+   "equivalentAccelerationMS2": 1.3563987646263004e-9,
+   "offsetOfTheHorizonsBarycentreTableKm": 0.0021336750932926464
   }
  },
  {
   "id": "propagation.spacecraft.newhorizons_2012_2014",
   "group": "propagation",
-  "value": 7902.580817201468,
+  "value": 7902.5807807628025,
   "unit": "km",
   "limit": 16000,
-  "truth": "JPL Horizons trajectory of the spacecraft (New Horizons, cruise, 730 days)",
+  "truth": "JPL Horizons trajectory of the spacecraft relative to the Sun (New Horizons, cruise, 730 days)",
   "detail": {
    "days": 730,
-   "errorKmAfter30Days": 3.984789741912684,
-   "equivalentAccelerationMS2": 3.97306560515517e-9
+   "errorKmAfter30Days": 3.9847795929205536,
+   "equivalentAccelerationMS2": 3.973065586835433e-9,
+   "offsetOfTheHorizonsBarycentreTableKm": 0.001942219880709566
   }
  },
  {
   "id": "propagation.spacecraft.voyager2_1990_1992",
   "group": "propagation",
-  "value": 7442.923792631527,
+  "value": 7442.71772254855,
   "unit": "km",
   "limit": 15000,
-  "truth": "JPL Horizons trajectory of the spacecraft (Voyager 2, after Neptune, 730 days)",
+  "truth": "JPL Horizons trajectory of the spacecraft relative to the Sun (Voyager 2, after Neptune, 730 days)",
   "detail": {
    "days": 730,
-   "errorKmAfter30Days": 10.550978875524748,
-   "equivalentAccelerationMS2": 3.7419705291628284e-9
+   "errorKmAfter30Days": 10.543721161169394,
+   "equivalentAccelerationMS2": 3.741866926304741e-9,
+   "offsetOfTheHorizonsBarycentreTableKm": 0.002006697571301553
   }
  },
  {
   "id": "propagation.spacecraft.voyager1_1995_2000",
   "group": "propagation",
-  "value": 45648.53804168644,
+  "value": 45647.855512754206,
   "unit": "km",
   "limit": 90000,
-  "truth": "JPL Horizons trajectory of the spacecraft (Voyager 1, 1820 days)",
+  "truth": "JPL Horizons trajectory of the spacecraft relative to the Sun (Voyager 1, 1820 days)",
   "detail": {
    "days": 1820,
-   "errorKmAfter30Days": 12.407467489725253,
-   "equivalentAccelerationMS2": 3.6922118170699996e-9
+   "errorKmAfter30Days": 12.395984235715225,
+   "equivalentAccelerationMS2": 3.692156611766671e-9,
+   "offsetOfTheHorizonsBarycentreTableKm": 0.002203103780782982
   }
  },
  {
   "id": "propagation.spacecraft.pioneer10_1980_1985",
   "group": "propagation",
-  "value": 152609.5482110193,
+  "value": 152561.92020745992,
   "unit": "km",
   "limit": 300000,
-  "truth": "JPL Horizons trajectory of the spacecraft (Pioneer 10, 1820 days)",
+  "truth": "JPL Horizons trajectory of the spacecraft relative to the Sun (Pioneer 10, 1820 days)",
   "detail": {
    "days": 1820,
-   "errorKmAfter30Days": 1.3965839849408221,
-   "equivalentAccelerationMS2": 1.2343588677207558e-8
+   "errorKmAfter30Days": 1.4223595086242968,
+   "equivalentAccelerationMS2": 1.2339736359365423e-8,
+   "offsetOfTheHorizonsBarycentreTableKm": 977.0694176086141
   }
  },
  {
   "id": "propagation.spacecraft.cassini_2001_2002",
   "group": "propagation",
-  "value": 9233.414975612726,
+  "value": 9233.41416632614,
   "unit": "km",
   "limit": 18000,
-  "truth": "JPL Horizons trajectory of the spacecraft (Cassini, cruise after Jupiter, 364 days)",
+  "truth": "JPL Horizons trajectory of the spacecraft relative to the Sun (Cassini, cruise after Jupiter, 364 days)",
   "detail": {
    "days": 364,
-   "errorKmAfter30Days": 8.069460641736686,
-   "equivalentAccelerationMS2": 1.8670764359274603e-8
+   "errorKmAfter30Days": 8.068820507352001,
+   "equivalentAccelerationMS2": 1.867076272282707e-8,
+   "offsetOfTheHorizonsBarycentreTableKm": 0.0020397134099039457
   }
  },
  {
   "id": "propagation.spacecraft.juno_2014_2015",
   "group": "propagation",
-  "value": 8725.804689541206,
+  "value": 8623.814406053129,
   "unit": "km",
   "limit": 17000,
-  "truth": "JPL Horizons trajectory of the spacecraft (Juno, cruise after the Earth flyby, 364 days)",
+  "truth": "JPL Horizons trajectory of the spacecraft relative to the Sun (Juno, cruise after the Earth flyby, 364 days)",
   "detail": {
    "days": 364,
-   "errorKmAfter30Days": 152.67653613858562,
-   "equivalentAccelerationMS2": 1.7644332420212273e-8
+   "errorKmAfter30Days": 154.5683616633227,
+   "equivalentAccelerationMS2": 1.7438099238342838e-8,
+   "offsetOfTheHorizonsBarycentreTableKm": 116.97538216996684
   }
  },
  {
   "id": "propagation.spacecraft.ulysses_1993_1994",
   "group": "propagation",
-  "value": 12716.107493135169,
+  "value": 12810.143977770353,
   "unit": "km",
   "limit": 25000,
-  "truth": "JPL Horizons trajectory of the spacecraft (Ulysses, 364 days)",
+  "truth": "JPL Horizons trajectory of the spacecraft relative to the Sun (Ulysses, 364 days)",
   "detail": {
    "days": 364,
-   "errorKmAfter30Days": 70.934532426172,
-   "equivalentAccelerationMS2": 2.5713070104463467e-8
+   "errorKmAfter30Days": 71.48419778548718,
+   "equivalentAccelerationMS2": 2.5903220016542075e-8,
+   "offsetOfTheHorizonsBarycentreTableKm": 324.11900755682325
   }
  },
  {
   "id": "propagation.spacecraft.mars2020_cruise",
   "group": "propagation",
-  "value": 5962.076877475476,
+  "value": 6454.825288144673,
   "unit": "km",
   "limit": 12000,
-  "truth": "JPL Horizons trajectory of the spacecraft (Mars 2020, cruise with correction maneuvers, 174 days)",
+  "truth": "JPL Horizons trajectory of the spacecraft relative to the Sun (Mars 2020, cruise with correction maneuvers, 174 days)",
   "detail": {
    "days": 174,
-   "errorKmAfter30Days": 65.00976878583253,
-   "equivalentAccelerationMS2": 5.275961112642196e-8
+   "errorKmAfter30Days": 82.75000718878742,
+   "equivalentAccelerationMS2": 5.712004039701488e-8,
+   "offsetOfTheHorizonsBarycentreTableKm": 116.17448330617943
   }
  },
  {

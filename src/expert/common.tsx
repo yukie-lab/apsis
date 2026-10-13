@@ -8,6 +8,8 @@ import type { BasisKind, BasisContext } from '../app/provenance';
 import type { ExpertPage } from '../app/router';
 import type { State } from '../engine/vec';
 import { system } from '../app/system';
+import { clock, useClock } from '../app/clock';
+import { DateInput } from '../ui/controls';
 import { BODIES } from '../engine/bodies';
 
 export function PageHead({ id, children }: { id: ExpertPage; children?: ReactNode }) {
@@ -38,6 +40,19 @@ export function scRel(s: State, center: string, et: number): State {
 }
 /** GM of a centre for two-body elements (planet system for a planet with moons), km^3/s^2. 0 for the barycentre. */
 export const centerGm = (center: string): number => (center === 'SSB' ? 0 : BODIES[center]?.gmSystem ?? 0);
+
+/** Slider and date field for the time of the view, between the start and the end of a flight. */
+export function ViewTime({ et0, et1 }: { et0: number; et1: number }) {
+  const { et } = useClock(100);
+  const span = et1 - et0;
+  const x = span > 0 ? Math.round(1000 * Math.min(1, Math.max(0, (et - et0) / span))) : 0;
+  return (
+    <div className="viewtime">
+      <input type="range" min={0} max={1000} value={x} aria-label={t('common.viewSlider')} onChange={(e) => clock.set(et0 + (Number(e.target.value) / 1000) * span)} />
+      <DateInput et={Math.min(et1, Math.max(et0, et))} compact min={et0} max={et1} label={t('context.viewTime')} onChange={(v) => clock.set(v)} />
+    </div>
+  );
+}
 
 /** Empty state of a screen: a short text and one or more actions. */
 export function Empty({ text, children }: { text: string; children?: ReactNode }) {

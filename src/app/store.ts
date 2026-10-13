@@ -28,7 +28,7 @@ export interface Settings {
   distUnit: DistanceUnit;
 }
 export interface Busy {
-  task: 'solve' | 'quick' | 'optimize' | 'porkchop' | 'fly' | 'search';
+  task: 'solve' | 'quick' | 'optimize' | 'porkchop' | 'fly' | 'search' | 'target' | 'study';
   /** Machine text of the stage (for example 'JUPITER: A'), or empty. */
   stage: string;
   fraction: number | null;

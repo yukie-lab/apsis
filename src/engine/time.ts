@@ -98,10 +98,10 @@ export function taiToEt(tai: number): number { return ttToEt(tai + DELTA_T_A); }
 
 /** UTC calendar date to et. A value of 60 for the second is permitted on a leap-second day. */
 export function utcToEt(c: Calendar): number {
-  const sec = Math.min(c.second, 59.999999999);
-  const extra = c.second - sec;
-  const utc = calendarToSeconds({ ...c, second: sec });
-  return taiToEt(utc + taiMinusUtcAtUtc(utc) + extra);
+  // Count from the start of the minute, with the TAI - UTC of that minute: a leap second (label 60) is the 61st
+  // second of its minute. TAI - UTC changes only at the start of a minute.
+  const minute = calendarToSeconds({ ...c, second: 0 });
+  return taiToEt(minute + taiMinusUtcAtUtc(minute) + c.second);
 }
 
 /** et to a UTC calendar date. During a leap second the result has second >= 60. */

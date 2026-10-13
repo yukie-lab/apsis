@@ -107,6 +107,12 @@ export interface PropagationRequest {
   stopAtImpact?: boolean;
   /** Maximum number of steps between two break points (default 5 million). More: failure 'step-limit'. */
   maxSteps?: number;
+  /**
+   * If true, the propagation always continues from the anchor of a maneuver, also when the computed state is far
+   * from it. A comparison flight (a different force model or tolerance) then starts each arc from the state of the
+   * flight that the anchors come from: the `anchorMiss` of each maneuver event is its difference at the end of the arc.
+   */
+  restartAtAnchors?: boolean;
 }
 
 /** Sphere of influence radius (km) of a body at its current distance from its parent. */
@@ -511,7 +517,7 @@ export class Propagator {
           const a = m.anchor;
           const dr = Math.sqrt((y[0] - a.r[0]) ** 2 + (y[1] - a.r[1]) ** 2 + (y[2] - a.r[2]) ** 2);
           const dvel = Math.sqrt((y[3] - a.v[0]) ** 2 + (y[4] - a.v[1]) ** 2 + (y[5] - a.v[2]) ** 2);
-          const used = dr <= ANCHOR_LIMIT.r && dvel <= ANCHOR_LIMIT.v;
+          const used = !!req.restartAtAnchors || (dr <= ANCHOR_LIMIT.r && dvel <= ANCHOR_LIMIT.v);
           anchorMiss = { r: dr, v: dvel, used };
           if (used) {
             y[0] = a.r[0]; y[1] = a.r[1]; y[2] = a.r[2]; y[3] = a.v[0]; y[4] = a.v[1]; y[5] = a.v[2];

@@ -106,11 +106,14 @@ class EngineClient {
   optimize(plan: Methods['optimize']['args']['plan'], options: Methods['optimize']['args']['options'], progress?: Progress): Promise<Methods['optimize']['result']> {
     return this.call('optimize', { plan, options, custom: customList() }, progress);
   }
-  async fly(flight: Methods['fly']['args']['flight'], watch: string[]): Promise<Trajectory> {
-    return Trajectory.fromData(await this.call('fly', { flight, watch, custom: customList() }));
+  async fly(flight: Methods['fly']['args']['flight'], watch: string[], options: { rtol?: number; restartAtAnchors?: boolean } = {}): Promise<Trajectory> {
+    return Trajectory.fromData(await this.call('fly', { flight, watch, custom: customList(), ...options }));
   }
   findManeuvers(args: Omit<Methods['findManeuvers']['args'], 'custom'>, progress?: Progress): Promise<Methods['findManeuvers']['result']> {
     return this.call('findManeuvers', { ...args, custom: customList() }, progress);
+  }
+  target(request: Methods['target']['args']['request'], progress?: Progress): Promise<Methods['target']['result']> {
+    return this.call('target', { request, custom: customList() }, progress);
   }
 }
 

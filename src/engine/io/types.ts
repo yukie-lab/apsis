@@ -180,8 +180,8 @@ export function checkedCalendarToEt(c: Calendar, scale: TimeScale): number | nul
   if (c.second >= 60) {
     // A second of 60 is correct only in UTC and only if this minute has a leap second.
     if (scale !== 'UTC') return null;
-    // The time is counted on the TAI scale from second 59 of the same minute. (utcToEt is not used for a second
-    // of 60: the engine function gives a time that is one second late for such a reading.)
+    // The time is counted on the TAI scale from second 59 of the same minute. This also examines that the
+    // minute has a leap second (utcToEt accepts a second of 60 in all minutes).
     const utc59 = calendarToSeconds({ ...c, second: 59 });
     const tai59 = utc59 + taiMinusUtcAtUtc(utc59);
     // The minute has a leap second if the instant 1.5 s after second 59 has the reading 60.5.
@@ -292,18 +292,22 @@ export function ccsdsTimeScale(value: string): TimeScale | null {
 /** Longest line of a CCSDS message, characters (CCSDS 502.0-B-2, 6.3.2). */
 export const CCSDS_LINE_LIMIT = 254;
 
-/** COMMENT lines for caller text. A line break starts a new line. A line that is too long continues on the next line. */
+/**
+ * COMMENT lines for caller text. A line break starts a new line. A line that is too long continues on the next line.
+ * A line with no text gives no COMMENT line: the keyword must have a blank and a value after it (CCSDS 502.0-B-2, 6.7.4).
+ */
 export function kvnComments(comments: readonly string[] | undefined): string[] {
   const out: string[] = [];
   const room = CCSDS_LINE_LIMIT - 'COMMENT '.length;
   for (const c of comments ?? []) {
     for (const part of c.split(/\r\n|\n|\r/)) {
       let rest = asciiText(part).trimEnd();
-      if (rest === '') { out.push('COMMENT'); continue; }
+      if (rest === '') continue;
       while (rest.length > room) {
         let cut = rest.lastIndexOf(' ', room);
         if (cut <= 0) cut = room;
-        out.push('COMMENT ' + rest.slice(0, cut).trimEnd());
+        const piece = rest.slice(0, cut).trimEnd();
+        if (piece !== '') out.push('COMMENT ' + piece);
         rest = rest.slice(cut).trimStart();
       }
       if (rest !== '') out.push('COMMENT ' + rest);

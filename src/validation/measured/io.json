@@ -17,7 +17,7 @@
   "group": "interchange",
   "value": 0.000020265579223632812,
   "unit": "s",
-  "limit": 0.000025,
+  "limit": 0.000021,
   "truth": "Julian dates of the same raw outputs as one 64-bit number (step 40 microseconds) in truth/horizons/*.json",
   "detail": {
    "rows": 22055
@@ -32,7 +32,7 @@
   "truth": "JPL Horizons: tables of Mars and Venus in au and days and of the Earth in km and days against the tables of the same bodies in km and s (truth/horizons/frames.json)",
   "detail": {
    "maxVelocityDifferenceKmS": 1.0658141036401503e-14,
-   "velocityLimitKmS": 2e-14
+   "velocityLimitKmS": 3e-14
   }
  },
  {
@@ -44,6 +44,7 @@
   "truth": "Round trip of a flight table (Voyager 2, 4515 samples, 4 segments) through an OEM file: the same table read back from the file; limit from the digits of the file (16 digits)",
   "detail": {
    "samples": 4515,
+   "segments": 4,
    "largestCoordinateKm": 4145904877.6380053
   }
  },
@@ -52,7 +53,7 @@
   "group": "interchange",
   "value": 7.105427357601002e-15,
   "unit": "km/s",
-  "limit": 1.3e-14,
+  "limit": 1e-14,
   "truth": "Round trip through an OEM file: the same table read back from the file; limit from the digits of the file (16 digits)",
   "detail": {
    "largestComponentKmS": 33.59289333983786
@@ -63,7 +64,7 @@
   "group": "interchange",
   "value": 3.5762786865234375e-7,
   "unit": "s",
-  "limit": 0.0000015,
+  "limit": 0.000001,
   "truth": "Round trip through an OEM file with UTC times: the same table read back from the file; limit from the digits of the file (6 decimals of the second)"
  },
  {
@@ -79,7 +80,7 @@
   "group": "interchange",
   "value": 7.105427357601002e-15,
   "unit": "km/s",
-  "limit": 1.3e-14,
+  "limit": 1e-14,
   "truth": "Round trip through an STK ephemeris file: the same table read back from the file; limit from the digits of the file (16 digits)"
  },
  {
@@ -87,7 +88,7 @@
   "group": "interchange",
   "value": 3.5762786865234375e-7,
   "unit": "s",
-  "limit": 0.0000015,
+  "limit": 0.000001,
   "truth": "Round trip through an STK ephemeris file: the same table read back from the file; limit from the digits of the file (seconds after the epoch with 6 decimals)"
  },
  {
@@ -95,11 +96,11 @@
   "group": "interchange",
   "value": 3.5762786865234375e-7,
   "unit": "s",
-  "limit": 0.0000015,
+  "limit": 0.000001,
   "truth": "Round trip through a CSV file with calendar times: the same table read back from the file; limit from the digits of the file (6 decimals of the second; positions and velocities have 17 digits and come back with no change)",
   "detail": {
    "julianDateColumnS": 5.960464477539063e-8,
-   "julianDateLimitS": 0.000001
+   "julianDateLimitS": 3e-7
   }
  },
  {
@@ -122,5 +123,42 @@
   "unit": "km",
   "limit": 3.906250000000002e-7,
   "truth": "Analytic circular orbit (radius 7000 km, 0.2 rad between samples), interpolation in the middle between samples; limit: remainder of the Hermite formula of degree 7"
+ },
+ {
+  "id": "io.stepsTable",
+  "group": "interchange",
+  "value": 0.05842135918512554,
+  "unit": "km",
+  "limit": 1,
+  "truth": "Flight of Voyager 2 (12 years, 4 flybys): Hermite interpolation of degree 7 in the table of integrator steps against a new integration to the middle of each interval (consistency check, regression limit)",
+  "detail": {
+   "samples": 1569,
+   "samplesOfTheDailyTable": 4515,
+   "errorOfTheDailyTableKm": 149038.16230853644
+  }
+ },
+ {
+  "id": "io.approachHourly",
+  "group": "interchange",
+  "value": 0.019005441224180686,
+  "unit": "km",
+  "limit": 1,
+  "truth": "JPL Horizons trajectory of Cassini at Venus (1998-04-26), 1-minute samples: closest approach from the table with 1-hour samples",
+  "detail": {
+   "timeDifferenceS": 0.006423972547054291,
+   "truthRadiusKm": 6335.553191163145
+  }
+ },
+ {
+  "id": "io.approachDaily",
+  "group": "interchange",
+  "value": 0.007644622172847448,
+  "unit": "km",
+  "limit": 1,
+  "truth": "JPL Horizons trajectory of Cassini at Venus (1998-04-26), 1-minute samples: closest approach from the table with 1-day samples",
+  "detail": {
+   "timeDifferenceS": 0.0031696856021881104,
+   "truthRadiusKm": 6335.553191163145
+  }
  }
 ]

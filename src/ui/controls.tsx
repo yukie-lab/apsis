@@ -16,7 +16,10 @@ export function Field({ label, children, hint }: { label: string; children: Reac
   );
 }
 
-/** Number input. The value goes to the caller when the user leaves the field or pushes the Enter key. */
+/**
+ * Number input. The value goes to the caller when the user leaves the field or pushes the Enter key.
+ * The field can show fewer digits than the value has: if the user does not change the text, the value stays.
+ */
 export function NumberInput({ value, onChange, unit, min, max, digits, disabled, label }: {
   value: number; onChange: (v: number) => void; unit?: string; min?: number; max?: number; digits?: number; disabled?: boolean; label?: string;
 }) {
@@ -25,6 +28,7 @@ export function NumberInput({ value, onChange, unit, min, max, digits, disabled,
   const [bad, setBad] = useState(false);
   useEffect(() => { setText(show(value)); setBad(false); }, [value, digits]); // eslint-disable-line react-hooks/exhaustive-deps
   const commit = () => {
+    if (text === show(value)) { setBad(false); return; }
     const v = Number(text.replace(/\s/g, '').replace(',', '.'));
     if (text.trim() === '' || !Number.isFinite(v) || (min !== undefined && v < min) || (max !== undefined && v > max)) { setBad(true); return; }
     setBad(false);
@@ -52,6 +56,8 @@ export function DateInput({ et, onChange, scale, nudge, compact, min, max, label
   useEffect(() => { setText(formatEt(et, sc, 'second')); setBad(false); }, [et, sc]);
   const lo = min ?? system().etStart, hi = max ?? system().etEnd;
   const commit = () => {
+    // The field shows whole seconds: if the user does not change the text, the time stays.
+    if (text === formatEt(et, sc, 'second')) { setBad(false); return; }
     const v = parseToEt(text, sc);
     if (v === null || !(v >= lo) || !(v <= hi)) { setBad(true); return; }
     setBad(false);

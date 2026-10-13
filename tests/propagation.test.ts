@@ -65,7 +65,12 @@ describe('N-body propagation of asteroids against JPL Horizons (gravity only: no
 });
 
 describe('propagation from the state of a real spacecraft against its JPL Horizons trajectory', () => {
-  const arcs = truth('arcs').arcs;
+  // The Horizons tables are relative to the Sun. A Horizons table of a spacecraft relative to the solar system
+  // barycentre is not used as the reference: it is offset from the table relative to the Sun of the same
+  // spacecraft (the test at the end of this block measures the offset; docs/VALIDATION.md has the cause).
+  const arcs = truth('arcs_sun').arcs;
+  const ssbArcs = truth('arcs').arcs;
+  const fromSun = (row: number[], et: number) => { const sun = sys.state('SUN', et), s = S(row); return { r: add(sun.r, s.r), v: add(sun.v, s.v) }; };
   // Regression limits (km). The spacecraft trajectories include forces that this product cannot know: thruster
   // firings, thermal recoil of the radioisotope generators, radiation pressure on the real shape. The measured
   // difference is published; it is not an error of the gravity model (see the asteroid tests above).
@@ -84,20 +89,57 @@ describe('propagation from the state of a real spacecraft against its JPL Horizo
     it(label, () => {
       const a = arcs[name];
       const et: number[] = a.jd.map(jdTdbToEt);
-      const traj = new Propagator(sys, FULL_MODEL).propagate({ et0: et[0], state0: S(a.state[0]), etEnd: et[et.length - 1], model: FULL_MODEL, stops: et.slice(1, -1), noEvents: true });
+      const traj = new Propagator(sys, FULL_MODEL).propagate({ et0: et[0], state0: fromSun(a.state[0], et[0]), etEnd: et[et.length - 1], model: FULL_MODEL, stops: et.slice(1, -1), noEvents: true });
       let max = 0, at30 = 0;
       for (let k = 1; k < et.length; k++) {
-        const e = dist(traj.stateAt(et[k]).r, S(a.state[k]).r);
+        const e = dist(traj.stateAt(et[k]).r, fromSun(a.state[k], et[k]).r);
         max = Math.max(max, e);
         if (et[k] - et[0] <= 30.5 * 86400) at30 = e;
       }
       const days = (et[et.length - 1] - et[0]) / 86400;
       // constant acceleration that explains the final difference
       const accel = (2 * max * 1000) / (days * 86400) ** 2;
-      rec.add({ id: 'propagation.spacecraft.' + name, group: 'propagation', value: max, unit: 'km', limit, truth: `JPL Horizons trajectory of the spacecraft (${label})`, detail: { days, errorKmAfter30Days: at30, equivalentAccelerationMS2: accel } });
+      // Offset of the Horizons table of the same spacecraft relative to the barycentre (same times, same request).
+      const b = ssbArcs[name];
+      let offset = 0;
+      for (let k = 0; k < et.length; k++) if (b.jd[k] === a.jd[k]) offset = Math.max(offset, dist(S(b.state[k]).r, fromSun(a.state[k], et[k]).r));
+      rec.add({ id: 'propagation.spacecraft.' + name, group: 'propagation', value: max, unit: 'km', limit, truth: `JPL Horizons trajectory of the spacecraft relative to the Sun (${label})`, detail: { days, errorKmAfter30Days: at30, equivalentAccelerationMS2: accel, offsetOfTheHorizonsBarycentreTableKm: offset } });
       expect(max).toBeLessThan(limit);
     });
   }
+
+  it('JPL Horizons tables of one spacecraft relative to the barycentre, to the Sun and to the Earth do not agree', () => {
+    // Three Horizons tables of Cassini at the Earth flyby of 1999, at equal times: relative to the solar system
+    // barycentre (arcs), relative to the Sun and relative to the Earth (encounters). With the positions of the Sun
+    // and of the Earth from the ephemeris (which agree with Horizons to 0.004 km, see the ephemeris tests), the
+    // table relative to the Sun and the table relative to the Earth give the same point to some kilometres. The
+    // table relative to the barycentre is more than 100 km away. This is a property of the reference data, not a
+    // result of Apsis: the value is recorded so that the user can see it.
+    const enc = truth('encounters').missions;
+    const out: Record<string, number> = {};
+    for (const [mission, arc, k] of [['cassini', 'cassini_earth_flyby', 2], ['juno', 'juno_earth_flyby', 0]] as const) {
+      const e = enc[mission].encounters[k];
+      expect(e.planet).toBe('399');
+      const ssb = ssbArcs[arc];
+      let worst = 0, n = 0;
+      for (let j = 0; j < e.hourly.jd.length; j++) {
+        const i = ssb.jd.indexOf(e.hourly.jd[j]);
+        if (i < 0) continue;
+        const et = jdTdbToEt(e.hourly.jd[j]);
+        const earth = sys.state('EARTH', et);
+        worst = Math.max(worst, dist(S(ssb.state[i]).r, add(earth.r, S(e.hourly.state[j]).r)));
+        n++;
+      }
+      expect(n).toBeGreaterThan(20);
+      out[mission] = worst;
+    }
+    // The texts of the product (validation.limits.horizonsCenter, page.files.ssbNote) give these two values as
+    // 118 km and 117 km. If new reference data change them, this test fails and the texts must change.
+    expect(out.cassini).toBeGreaterThan(117.5);
+    expect(out.cassini).toBeLessThan(118.5);
+    expect(out.juno).toBeGreaterThan(116.5);
+    expect(out.juno).toBeLessThan(117.5);
+  });
 });
 
 describe('propagation through real flybys (start 2 days before, end 2 days after) against JPL Horizons', () => {

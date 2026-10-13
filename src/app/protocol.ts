@@ -7,6 +7,7 @@ import type { TrajectoryData, ForceModel } from '../engine/propagate';
 import type { CustomBody } from '../engine/system';
 import type { State } from '../engine/vec';
 import type { ManeuverCandidate } from '../engine/forensics';
+import type { TargetRequest, TargetResult } from '../engine/target';
 import type { SystemData } from './system';
 
 export interface SolvedData { mission: Mission; result: PlanResult; report: RefineReport; trajectory: TrajectoryData }
@@ -20,8 +21,11 @@ export interface Methods {
   quick: { args: { request: QuickRequest; name: string; spacecraft: SpacecraftSpec; custom: CustomList }; result: { solved: SolvedData; window: QuickWindow } };
   porkchop: { args: { request: PorkchopRequest; custom: CustomList }; result: PorkchopData };
   optimize: { args: { plan: Plan; options: Omit<PlanOptOptions, 'onProgress'>; custom: CustomList }; result: { plan: Plan; result: PlanResult; cost: number } };
-  fly: { args: { flight: Flight; watch: string[]; custom: CustomList }; result: TrajectoryData };
+  /** rtol: relative tolerance of the integration (default: the tolerance of the engine). restartAtAnchors: see PropagationRequest. */
+  fly: { args: { flight: Flight; watch: string[]; custom: CustomList; rtol?: number; restartAtAnchors?: boolean }; result: TrajectoryData };
   findManeuvers: { args: { et: number[]; states: State[]; model: ForceModel; threshold: number; custom: CustomList }; result: { candidates: ManeuverCandidate[]; mismatch: Float64Array; noiseFloor: number } };
+  /** Change one maneuver to get an aim point at an encounter. */
+  target: { args: { request: TargetRequest; custom: CustomList }; result: TargetResult };
 }
 export type MethodName = keyof Methods;
 

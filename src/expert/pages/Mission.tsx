@@ -4,7 +4,7 @@ import { useApp, missionFileText } from '../../app/store';
 import { clock, useClock } from '../../app/clock';
 import { system } from '../../app/system';
 import { engine, EngineError } from '../../app/engine';
-import { t, bodyName } from '../../i18n';
+import { t, bodyName, bodyIn } from '../../i18n';
 import { FAMOUS, famousFacts, newMission, missionFromJson, dvCapacity, propellantFor, type Mission as MissionT, type SpacecraftSpec } from '../../engine/mission';
 import type { RefineReport } from '../../engine/flight';
 import type { Trajectory, TrajectoryEvent } from '../../engine/propagate';
@@ -17,6 +17,7 @@ import { confirm } from '../../ui/Confirm';
 import { PageHead, Dt } from '../common';
 import { BudgetTable, simplePlan } from '../planParts';
 import { OrbitPlot } from '../OrbitPlot';
+import { FlightPlot } from '../FlightPlot';
 import { compareWithFacts } from '../../validation/selfcheck';
 import { SPACECRAFT_KINDS } from '../../app/spacecraftKinds';
 
@@ -286,7 +287,7 @@ function ActualCompare({ id, report, trajectory }: { id: string; report: RefineR
 function eventRow(e: TrajectoryEvent): { label: string; detail: React.ReactNode } {
   if (e.type === 'maneuver') return { label: t('page.mission.event.maneuver'), detail: e.dvIcrf ? <Val q={deltaV(norm(e.dvIcrf))} /> : null };
   if (e.type === 'periapsis' || e.type === 'impact') {
-    return { label: t('page.mission.event.' + e.type, { body: bodyName(e.body ?? '') }), detail: <><Val q={distance(e.altitude ?? NaN, 'km', 0)} /> <span className="dim">·</span> <Val q={speed(e.speed ?? NaN)} /></> };
+    return { label: t('page.mission.event.' + e.type, { body: bodyIn(e.body ?? '') }), detail: <><Val q={distance(e.altitude ?? NaN, 'km', 0)} /> <span className="dim">·</span> <Val q={speed(e.speed ?? NaN)} /></> };
   }
   return { label: t('page.mission.event.' + e.type), detail: null };
 }
@@ -382,6 +383,9 @@ function MissionView() {
   const mission = useApp((s) => s.mission);
   const result = useApp((s) => s.planResult);
   const { et } = useClock(250);
-  if (!mission?.plan || !result) return null;
-  return <Panel title={t('page.transfer.plot')}><OrbitPlot plan={mission.plan} result={result} markEt={et} /></Panel>;
+  const trajectory = useApp((s) => s.trajectory);
+  const reference = useApp((s) => s.reference);
+  if (mission?.plan && result) return <Panel title={t('page.transfer.plot')}><OrbitPlot plan={mission.plan} result={result} markEt={et} /></Panel>;
+  if (trajectory) return <Panel title={t('page.propagation.plot')}><FlightPlot trajectory={trajectory} markEt={et} reference={reference} /></Panel>;
+  return null;
 }

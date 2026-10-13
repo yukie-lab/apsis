@@ -25,7 +25,8 @@ import { fromIcrf } from '../src/engine/frames';
 import {
   type EphemerisTable, IoError, formatReal, parseReal, parseCcsdsTime, parseJulianDate, formatJulianDate, centerFromName, centerToName,
   centerFromNaif, kvnComments, asciiText, checkTable, segmentRanges, ccsdsFrame,
-  tableFromTrajectory, tableToCenterFrame, interpolateTable,
+  tableFromTrajectory, tableFromTrajectorySteps, checkTableInterpolation, tableToCenterFrame, interpolateTable,
+  detectFormat, tableApproaches, tableBoundaries, tableDifference,
   writeOem, parseOem, writeOpm, parseOpm, opmFromFlight, flightFromOpm, type Opm,
   writeStkEphemeris, parseStkEphemeris, writeCsv, parseCsv, parseHorizonsVectors, writeGmatScript, gmatDifferences,
 } from '../src/engine/io';
@@ -172,6 +173,9 @@ describe('text tools of the interchange module (hand values)', () => {
       expect(l.startsWith('COMMENT ')).toBe(true);
     }
     expect(lines.map((l) => l.slice(8)).join(' ')).toBe(long + ' two lines caf? bar');
+    // The keyword COMMENT must have a blank and a value after it (6.7.4): a line with no text gives no comment line.
+    expect(kvnComments(['a\n\n  \nb', ''])).toEqual(['COMMENT a', 'COMMENT b']);
+    expect(kvnComments(undefined)).toEqual([]);
     expect(asciiText(String.fromCharCode(0x65e5, 0x672c) + ' a' + String.fromCharCode(0) + 'b')).toBe('?? a?b');
   });
 
@@ -1225,7 +1229,8 @@ describe('JPL Horizons vector tables: real outputs', () => {
     const refused: Record<string, number> = {};
     for (const f of readdirSync(RAW).filter((x) => x.endsWith('.txt'))) {
       const text = raw(f);
-      const isVectors = /^Output type\s*:\s*GEOMETRIC cartesian states\s*$/m.test(text) && text.includes('$$SOE');
+      const hasTable = text.includes('$$SOE');
+      const isVectors = /^Output type\s*:\s*GEOMETRIC cartesian states\s*$/m.test(text) && hasTable;
       if (isVectors) {
         const t = parseHorizonsVectors(text);
         // Each line between $$SOE and $$EOE of these files is one record.
@@ -1235,12 +1240,16 @@ describe('JPL Horizons vector tables: real outputs', () => {
       } else {
         let code = '';
         try { parseHorizonsVectors(text); } catch (e) { code = e instanceof IoError ? e.code : 'other'; }
+        // The other tables of this directory are tables of osculating elements. An output with no table has object data only.
+        expect(code, f).toBe(hasTable ? 'horizons.type' : 'horizons.soe');
         refused[code] = (refused[code] ?? 0) + 1;
       }
     }
-    expect(vectors).toBe(268);
-    // 4 tables of osculating elements, 30 outputs with object data and no table.
-    expect(refused).toEqual({ 'horizons.type': 4, 'horizons.soe': 30 });
+    // Numbers of files on 2026-10-14: 268 vector tables, 4 tables of elements, 30 outputs with no table.
+    // The limits are minimum values: a new file of one of these three types in the directory must not fail this test.
+    expect(vectors).toBeGreaterThanOrEqual(268);
+    expect(refused['horizons.type']).toBeGreaterThanOrEqual(4);
+    expect(refused['horizons.soe']).toBeGreaterThanOrEqual(30);
   });
 
   it('header of a spacecraft table: target, centre, frame', () => {
@@ -1287,7 +1296,8 @@ describe('JPL Horizons vector tables: real outputs', () => {
       const d = truth(name);
       compare(`${name}_search.txt`, d.jd, d.state, 'SUN', 'ICRF');
     }
-    expect(stats.files).toBe(166);
+    // 166 files on 2026-10-14. The truth files give the list: a new entry in a truth file adds to this number.
+    expect(stats.files).toBeGreaterThanOrEqual(166);
     // The numbers of the two parsers come from the same decimal text: they must be the same 64-bit numbers.
     expect(stats.pos).toBe(0);
     expect(stats.vel).toBe(0);
@@ -1296,14 +1306,15 @@ describe('JPL Horizons vector tables: real outputs', () => {
       truth: `JPL Horizons vector tables: ${stats.files} raw outputs against the numbers of truth/horizons/*.json (an independent parser); the same decimal text gives the same number, thus the correct value is 0`,
       detail: { files: stats.files, rows: stats.rows, maxVelocityDifferenceKmS: stats.vel },
     });
-    // The truth files have the Julian date in one 64-bit number: its step at 2.4 million days is 40 microseconds.
-    // The reader uses the text: integer part and fraction. Limit: half of that step, plus 4 microseconds.
+    // The truth files have the Julian date in one 64-bit number: its step at 2.4 million days is 2^-31 day =
+    // 40.2 microseconds. The reader uses the text (integer part and fraction). Limit: half of that step
+    // (20.1 microseconds) plus the rounding of the two results in seconds (0.12 microsecond each): 21 microseconds.
     rec.add({
-      id: 'io.horizonsTime', group: 'interchange', value: stats.time, unit: 's', limit: 2.5e-5,
+      id: 'io.horizonsTime', group: 'interchange', value: stats.time, unit: 's', limit: 2.1e-5,
       truth: 'Julian dates of the same raw outputs as one 64-bit number (step 40 microseconds) in truth/horizons/*.json',
       detail: { rows: stats.rows },
     });
-    expect(stats.time).toBeLessThan(2.5e-5);
+    expect(stats.time).toBeLessThanOrEqual(2.1e-5);
   });
 
   it('labelled form, form with no labels, CSV form; km-s, km-d and au-d; ICRF and ecliptic (parts of real outputs)', () => {
@@ -1328,16 +1339,19 @@ describe('JPL Horizons vector tables: real outputs', () => {
     check(HZ_KMD, 'EARTH', 'icrf', true);
     check(HZ_MARS_AUD, 'MARS', 'ecliptic', true);
     check(HZ_VENUS_CSV, 'VENUS', 'ecliptic', true);
-    // Limit for the tables in au and days. Position: half of the last of 16 digits of a value below 10 au is
-    // 5e-16 au = 7.5e-8 km; the truth in km has 16 digits (5e-8 km at 2.5e8 km); the product with the au rounds by
-    // 3e-8 km: sum 1.6e-7 km. Velocity: 5e-18 au/d = 9e-15 km/s, truth 5e-15 km/s, rounding 4e-15 km/s.
+    // Limits for the tables in other units (the two tables of Horizons have 16 digits each).
+    // Position (Mars, 1.7 au = 2.5e8 km): half of the last digit of the au value is 5e-16 au = 7.5e-8 km; half of the
+    // last digit of the km value is 5e-8 km; four roundings of 64-bit numbers of 1.5e-8 to 1.7e-8 km (two texts to
+    // numbers, the product with the au, the division in Horizons): sum 1.9e-7 km, limit 2e-7 km.
+    // Velocity (Venus, 35 km/s = 0.02 au/d): 5e-18 au/d = 8.7e-15 km/s, 5e-15 km/s, four roundings of 3.6e-15 km/s:
+    // sum 2.8e-14 km/s, limit 3e-14 km/s.
     rec.add({
       id: 'io.horizonsUnits', group: 'interchange', value: unitPos, unit: 'km', limit: 2e-7,
       truth: 'JPL Horizons: tables of Mars and Venus in au and days and of the Earth in km and days against the tables of the same bodies in km and s (truth/horizons/frames.json)',
-      detail: { maxVelocityDifferenceKmS: unitVel, velocityLimitKmS: 2e-14 },
+      detail: { maxVelocityDifferenceKmS: unitVel, velocityLimitKmS: 3e-14 },
     });
-    expect(unitPos).toBeLessThan(2e-7);
-    expect(unitVel).toBeLessThan(2e-14);
+    expect(unitPos).toBeLessThanOrEqual(2e-7);
+    expect(unitVel).toBeLessThanOrEqual(3e-14);
   });
 
   it('UT tables: the difference TDB - UT of each record gives the time (truth: the motion of the Earth between the two tables)', () => {
@@ -1565,7 +1579,7 @@ describe('tables from a real flight (Voyager 2, solved by the engine)', () => {
     // Read back (consistency check): the same instants.
     for (const back of [parseOem(oem), parseCsv(csv, { center: 'SUN', frame: 'ICRF' }), parseStkEphemeris(stk.join('\n'))]) {
       expect(back.timeScale).toBe('UTC');
-      expect(maxAbs(back.et, et)).toBeLessThan(1.5e-6);
+      expect(maxAbs(back.et, et)).toBeLessThanOrEqual(1e-6); // 6 decimals of the second
     }
   });
 
@@ -1573,10 +1587,11 @@ describe('tables from a real flight (Voyager 2, solved by the engine)', () => {
     const t = sample('SUN', 'ICRF', 'UTC');
     const biggest = Math.max(...t.states.map((s) => Math.max(...s.r.map(Math.abs))));
     const fastest = Math.max(...t.states.map((s) => Math.max(...s.v.map(Math.abs))));
-    // The limits below are for positions below 8.6e9 km, velocities below 128 km/s and times inside 1e9 s of J2000.
-    expect(biggest).toBeLessThan(8.6e9);
-    expect(fastest).toBeLessThan(128);
-    expect(Math.max(Math.abs(t.et[0]), Math.abs(t.et[t.et.length - 1]))).toBeLessThan(1e9);
+    // The limits below are for coordinates below 1e10 km, velocity components below 100 km/s and times nearer
+    // than 2^30 s (34 years) to J2000.
+    expect(biggest).toBeLessThan(1e10);
+    expect(fastest).toBeLessThan(100);
+    expect(Math.max(Math.abs(t.et[0]), Math.abs(t.et[t.et.length - 1]))).toBeLessThan(2 ** 30);
     const diff = (back: EphemerisTable): { pos: number; vel: number; time: number } => {
       expect(back.et.length).toBe(t.et.length);
       expect(back.segmentStarts).toEqual(t.segmentStarts);
@@ -1589,19 +1604,20 @@ describe('tables from a real flight (Voyager 2, solved by the engine)', () => {
       }
       return { pos, vel, time };
     };
-    // 16 significant digits. Position: half of the last digit is 5e-7 km for a value from 1e9 to 1e10 km, and the
-    // reader rounds to a 64-bit number (half step 4.8e-7 km below 8.6e9 km): limit 1e-6 km.
-    // Velocity: 5e-15 km/s for a value from 10 to 100 km/s, half step 7.1e-15 km/s below 128 km/s: limit 1.3e-14 km/s.
-    // Time: 6 decimals of the second, half of the last digit is 0.5 microsecond. The conversions between the time
-    // scales and the calendar round some times by 0.12 microsecond (the step of a 64-bit number at 1e9 s): limit 1.5 microseconds.
-    const POS = 1e-6, VEL = 1.3e-14, TIME = 1.5e-6;
+    // 16 significant digits. The text differs from the number by half of the last digit at most. The reader gives
+    // the 64-bit number that is nearest to the text, and that number is not farther from the text than the number
+    // that was written. Thus the limit is one unit of the last digit:
+    //   position: 1e-6 km for a coordinate from 1e9 to 1e10 km; velocity: 1e-14 km/s for a component from 10 to 100 km/s.
+    // Time: 6 decimals of the second. Half of the last digit is 0.5 microsecond. The conversions between et, TAI and
+    // the calendar reading round 64-bit numbers by 0.06 microsecond each (eight times at most): limit 1 microsecond.
+    const POS = 1e-6, VEL = 1e-14, TIME = 1e-6;
     const digits = 'the same table read back from the file; limit from the digits of the file';
     const oemText = writeOem(t, { originator: 'Apsis test', creationEt: 0 });
     const oem = diff(parseOem(oemText));
     expect(parseOem(oemText).objectName).toBe('VOYAGER 2');
     expect(parseOem(oemText).objectId).toBe('1977-076A');
     expect(parseOem(oemText).comments).toEqual(t.comments);
-    rec.add({ id: 'io.oemPosition', group: 'interchange', value: oem.pos, unit: 'km', limit: POS, truth: `Round trip of a flight table (Voyager 2, ${t.et.length} samples, 4 segments) through an OEM file: ${digits} (16 digits)`, detail: { samples: t.et.length, largestCoordinateKm: biggest } });
+    rec.add({ id: 'io.oemPosition', group: 'interchange', value: oem.pos, unit: 'km', limit: POS, truth: `Round trip of a flight table (Voyager 2, ${t.et.length} samples, ${t.segmentStarts!.length} segments) through an OEM file: ${digits} (16 digits)`, detail: { samples: t.et.length, segments: t.segmentStarts!.length, largestCoordinateKm: biggest } });
     rec.add({ id: 'io.oemVelocity', group: 'interchange', value: oem.vel, unit: 'km/s', limit: VEL, truth: `Round trip through an OEM file: ${digits} (16 digits)`, detail: { largestComponentKmS: fastest } });
     rec.add({ id: 'io.oemTime', group: 'interchange', value: oem.time, unit: 's', limit: TIME, truth: `Round trip through an OEM file with UTC times: ${digits} (6 decimals of the second)` });
     expect(oem.pos).toBeLessThanOrEqual(POS);
@@ -1617,7 +1633,7 @@ describe('tables from a real flight (Voyager 2, solved by the engine)', () => {
     expect(stk.time).toBeLessThanOrEqual(TIME);
 
     // CSV: 17 digits give the same 64-bit numbers. Julian date with 12 decimals: half of the last digit is
-    // 0.04 microsecond, the conversions add the rounding of the calendar time: limit 1 microsecond.
+    // 0.043 microsecond; with four roundings of 0.06 microsecond the limit is 0.3 microsecond.
     const csv = diff(parseCsv(writeCsv(t), { center: 'SUN', frame: 'ICRF' }));
     expect(csv.pos).toBe(0);
     expect(csv.vel).toBe(0);
@@ -1625,8 +1641,8 @@ describe('tables from a real flight (Voyager 2, solved by the engine)', () => {
     const tdb = sample('SUN', 'ICRF', 'TDB');
     const back = parseCsv(writeCsv(tdb, { time: 'jd' }), { center: 'SUN', frame: 'ICRF' });
     const jd = Math.max(...tdb.et.map((x, i) => Math.abs(back.et[i] - x)));
-    rec.add({ id: 'io.csvTime', group: 'interchange', value: csv.time, unit: 's', limit: TIME, truth: `Round trip through a CSV file with calendar times: ${digits} (6 decimals of the second; positions and velocities have 17 digits and come back with no change)`, detail: { julianDateColumnS: jd, julianDateLimitS: 1e-6 } });
-    expect(jd).toBeLessThanOrEqual(1e-6);
+    rec.add({ id: 'io.csvTime', group: 'interchange', value: csv.time, unit: 's', limit: TIME, truth: `Round trip through a CSV file with calendar times: ${digits} (6 decimals of the second; positions and velocities have 17 digits and come back with no change)`, detail: { julianDateColumnS: jd, julianDateLimitS: 3e-7 } });
+    expect(jd).toBeLessThanOrEqual(3e-7);
   });
 
   it('change of centre and frame of a table', () => {
@@ -1650,6 +1666,35 @@ describe('tables from a real flight (Voyager 2, solved by the engine)', () => {
     expectIoError(() => tableToCenterFrame(sys, zero, 'VULCAN', 'ICRF'), 'table.center', undefined, 'VULCAN');
   });
 
+  it('a trajectory that was propagated backward gives a table with times that increase', () => {
+    // Hand flight: start 50000 km from the Earth, backward for 10000 s, one maneuver 4000 s before the start.
+    const earth = sys.state('EARTH', ET_2030);
+    const dv: Vec3 = [0.01, -0.02, 0.03];
+    const flight: Flight = {
+      et0: ET_2030, state0: S(add(earth.r, [50000, 0, 0]), add(earth.v, [0, 3, 0])), etEnd: ET_2030 - 10000,
+      maneuvers: [{ id: 'm', et: ET_2030 - 4000, dv, frame: 'ICRF', refBody: 'SUN' }], model: EARTH_ONLY,
+    };
+    const traj = flyFlight(sys, flight);
+    expect(traj.forward).toBe(false);
+    const t = tableFromTrajectory(sys, traj, { center: 'SSB', frame: 'ICRF', timeScale: 'TDB', stepS: 1500, objectName: 'Back', objectId: 'UNKNOWN' });
+    // The grid starts at the first time of the propagation (the latest time): 0, -1500, -3000, ... s. The ends of
+    // the two segments (-4000 s and -10000 s) are not on the grid. By hand, in the order of time:
+    expect(t.et.map((x) => x - ET_2030)).toEqual([-10000, -9000, -7500, -6000, -4500, -4000, -4000, -3000, -1500, 0]);
+    expect(t.segmentStarts).toEqual([0, 6]);
+    expect(() => checkTable(t, 'x')).not.toThrow();
+    expect(t.states[9]).toEqual(flight.state0);
+    // The state after the maneuver (the later segment) is the state before it plus the velocity change.
+    expect(t.states[6].r).toEqual(t.states[5].r);
+    expect(maxAbs(sub(t.states[6].v, t.states[5].v), dv)).toBeLessThan(1e-14);
+    expect(interpolateTable(t, ET_2030 - 4000)).toEqual(t.states[6]);
+    for (const i of [1, 4, 7]) expect(t.states[i]).toEqual(traj.stateAt(t.et[i]));
+    // The OEM file has the two blocks in the order of time.
+    const shape = oemShape(writeOem(t, { originator: 'Apsis test', creationEt: 0 }));
+    expect(shape.blocks.map((b) => [b.meta.START_TIME, b.meta.STOP_TIME])).toEqual([
+      ['2029-12-31T21:13:20.000000', '2029-12-31T22:53:20.000000'], ['2029-12-31T22:53:20.000000', '2030-01-01T00:00:00.000000'],
+    ]);
+  });
+
   it('options that are not correct', () => {
     const traj = voyager().trajectory;
     const opts = { center: 'SUN', frame: 'ICRF' as const, timeScale: 'TDB' as const, stepS: DAY, objectName: 'V', objectId: 'UNKNOWN' };
@@ -1665,19 +1710,23 @@ describe('tables from a real flight (Voyager 2, solved by the engine)', () => {
     const opm = opmFromFlight(sys, flight, { objectName: 'Voyager 2', objectId: '1977-076A', center: 'SUN', frame: 'ECLIPJ2000', timeScale: 'UTC', comments: ['Comment from the caller'], spacecraft: { massKg: 2000, ispS: 320 } });
     const text = writeOpm(opm, { originator: 'Apsis test', creationEt: 0 });
     const back = flightFromOpm(sys, parseOpm(text), flight.model, flight.etEnd);
-    // 16 digits of the heliocentric state (1.5e8 km, 40 km/s): half of the last digit is 5e-8 km and 5e-15 km/s.
-    // The rotation to the ICRF and back and the sums with the state of the Sun round by 3e-8 km each: limit 3e-7 km.
-    // The epoch has 6 decimals: the Sun moves by less than 1e-8 km in 1 microsecond.
+    // 16 digits of the heliocentric state (1.5e8 km, below 64 km/s): half of the last digit is 5e-8 km and 5e-15 km/s.
+    // Each sum or product of 64-bit numbers rounds by 1.5e-8 km (3.6e-15 km/s). Before the text: the change of
+    // centre (1 rounding) and the rotation to the ecliptic frame (3); after it: the text to a number (1), the
+    // rotation back (3, and it makes the errors before it larger by the factor 1.32 at most), the change of centre (1).
+    // The epoch has 6 decimals: the Sun moves 1.6e-8 km in 1 microsecond.
+    // Position: (1.5 + 4.5 + 5 + 1.5) e-8 * 1.32 + 6e-8 + 1.6e-8 = 2.4e-7 km, limit 3e-7 km.
+    // Velocity: (3.6 + 10.7 + 5 + 3.6) e-15 * 1.32 + 14.2e-15 = 4.4e-14 km/s, limit 5e-14 km/s.
     const pos = maxAbs(back.state0.r, flight.state0.r), vel = maxAbs(back.state0.v, flight.state0.v);
     rec.add({ id: 'io.opmState', group: 'interchange', value: pos, unit: 'km', limit: 3e-7, truth: 'Round trip of the start state of a flight (Voyager 2, heliocentric, ecliptic frame) through an OPM file: limit from the 16 digits of the file', detail: { velocityDifferenceKmS: vel, velocityLimitKmS: 5e-14, epochDifferenceS: Math.abs(back.et0 - flight.et0) } });
     expect(pos).toBeLessThanOrEqual(3e-7);
     expect(vel).toBeLessThanOrEqual(5e-14);
-    expect(Math.abs(back.et0 - flight.et0)).toBeLessThanOrEqual(1.5e-6);
+    expect(Math.abs(back.et0 - flight.et0)).toBeLessThanOrEqual(1e-6); // 6 decimals of the second
     const sorted = flight.maneuvers.slice().sort((a, b) => a.et - b.et);
     expect(back.maneuvers.length).toBe(sorted.length);
     back.maneuvers.forEach((m, k) => {
       expect(m.frame).toBe('ICRF');
-      expect(Math.abs(m.et - sorted[k].et)).toBeLessThanOrEqual(1.5e-6);
+      expect(Math.abs(m.et - sorted[k].et)).toBeLessThanOrEqual(1e-6);
       expect(maxAbs(m.dv, sorted[k].dv)).toBeLessThan(1e-17); // 16 digits of a velocity change below 0.1 km/s
       expect(m.anchor).toBeUndefined(); // the message has no anchor states
     });
@@ -1905,9 +1954,223 @@ describe('GMAT script (structure only: the script was not run in GMAT)', () => {
     expectIoError(() => writeGmatScript({ sys, flight: base, ephemerisSource: "DE'405" }), 'gmat.option', undefined, 'ephemerisSource');
     expectIoError(() => writeGmatScript({ sys, flight: base, massKg: 0 }), 'gmat.option');
     expectIoError(() => writeGmatScript({ sys, flight: { ...base, state0: S([NaN, 0, 0], [0, 30, 0]) } }), 'gmat.number');
+    // Limits of the GMAT guide for the Spacecraft fields: 0 <= Cr <= 2.0 and SRPArea > 0.
+    const withSrp = (areaToMass: number, cr: number): Flight => ({ ...base, model: { ...FULL_MODEL, srp: { areaToMass, cr } } });
+    expectIoError(() => writeGmatScript({ sys, flight: withSrp(0.01, 2.5) }), 'gmat.srpRange');
+    expectIoError(() => writeGmatScript({ sys, flight: withSrp(-0.01, 1.2) }), 'gmat.srpRange');
+    expect(writeGmatScript({ sys, flight: withSrp(0.01, 2) })).toContain('GMAT Sat.Cr = 2;');
+    // The force of the Apsis model is proportional to coefficient x area: with a zero, the script has no SRP.
+    for (const flight of [withSrp(0.01, 0), withSrp(0, 1.2)]) {
+      const text = writeGmatScript({ sys, flight });
+      expect(text).toContain('GMAT Forces.SRP = Off;');
+      expect(text).not.toContain('SRPArea');
+      expect(gmatDifferences({ sys, flight })).not.toContain('gmat.srp');
+    }
     // A name that GMAT uses for a body is not the name of the spacecraft.
     expect(writeGmatScript({ sys, flight: base, spacecraftName: 'Earth' })).toContain('Create Spacecraft Sat;');
     expect(writeGmatScript({ sys, flight: base, spacecraftName: '2fast' })).toContain('Create Spacecraft Sat;');
     expect(gmatDifferences({ sys, flight: { ...base, model: { bodies: ['SUN'], moons: true, j2: false, relativity: false, srp: null } } })).toEqual(['gmat.ephemeris', 'gmat.moons', 'gmat.reducedModel']);
+  });
+});
+
+// ================================================================================================ steps of the integrator
+
+describe('tables with the steps of the integrator (Voyager 2, solved by the engine)', () => {
+  const opts = { center: 'SUN', frame: 'ICRF' as const, timeScale: 'TDB' as const, objectName: 'Voyager 2', objectId: '1977-076A' };
+
+  it('each sample is a step of the trajectory; a maneuver is between two segments', () => {
+    const { trajectory: traj, flight } = voyager();
+    const t = tableFromTrajectorySteps(sys, traj, { ...opts, center: 'SSB' });
+    expect(() => checkTable(t, 'x')).not.toThrow();
+    expect(t.et[0]).toBe(traj.et0);
+    expect(t.et[t.et.length - 1]).toBe(traj.et1);
+    expect(t.segmentStarts!.length).toBe(flight.maneuvers.length + 1);
+    // Relative to the barycentre in the ICRF, a sample is exactly a step of the integrator (no arithmetic).
+    const steps = new Map<number, number[]>();
+    for (let i = 0; i < traj.t.length; i++) { const list = steps.get(traj.t[i]) ?? []; list.push(i); steps.set(traj.t[i], list); }
+    for (let k = 0; k < t.et.length; k++) {
+      const hits = steps.get(t.et[k]);
+      expect(hits, 'sample ' + k).toBeDefined();
+      expect(hits!.some((i) => [0, 1, 2].every((c) => traj.y[6 * i + c] === t.states[k].r[c] && traj.y[6 * i + 3 + c] === t.states[k].v[c])), 'sample ' + k).toBe(true);
+    }
+    // No step of the trajectory is left out, but steps shorter than 1 ms (there are none in a cruise).
+    expect(t.et.length).toBeGreaterThanOrEqual(traj.t.length - 2 * traj.segStarts.length);
+    expect(t.et.length).toBeLessThanOrEqual(traj.t.length);
+    // The boundaries of the segments are the maneuvers: equal times, and the velocity step of the flight.
+    const sorted = flight.maneuvers.slice().sort((a, b) => a.et - b.et);
+    const b = tableBoundaries(sys, t);
+    expect(b.map((x) => x.et)).toEqual(sorted.map((m) => m.et));
+    b.forEach((x, k) => {
+      expect(sorted[k].frame).toBe('ICRF');
+      expect(norm(sub(x.dv, sorted[k].dv))).toBeLessThanOrEqual(ANCHOR_LIMIT.v * 1.001);
+      expect(x.gapKm).toBeLessThanOrEqual(ANCHOR_LIMIT.r * 1.001);
+      expect(x.index).toBe(t.segmentStarts![k + 1]);
+    });
+  });
+
+  it('samples between the steps are at equal parts of each step', () => {
+    const traj = voyager().trajectory;
+    const a = tableFromTrajectorySteps(sys, traj, opts);
+    const b = tableFromTrajectorySteps(sys, traj, { ...opts, between: 2 });
+    const intervals = a.et.length - a.segmentStarts!.length;
+    expect(b.et.length).toBe(a.et.length + 2 * intervals);
+    // First segment: samples 0, 3, 6 of the second table are samples 0, 1, 2 of the first one.
+    for (const i of [0, 1, 2, 10]) {
+      expect(b.et[3 * i]).toBe(a.et[i]);
+      expect(b.states[3 * i]).toEqual(a.states[i]);
+      const h = a.et[i + 1] - a.et[i];
+      expect(Math.abs(b.et[3 * i + 1] - (a.et[i] + h / 3))).toBeLessThan(1e-6);
+      expect(Math.abs(b.et[3 * i + 2] - (a.et[i] + (2 * h) / 3))).toBeLessThan(1e-6);
+    }
+    expectIoError(() => tableFromTrajectorySteps(sys, traj, { ...opts, between: -1 }), 'sample.step');
+    expectIoError(() => tableFromTrajectorySteps(sys, traj, { ...opts, between: 1.5 }), 'sample.step');
+    expectIoError(() => tableFromTrajectorySteps(sys, traj, { ...opts, center: 'VULCAN' }), 'sample.center', undefined, 'VULCAN');
+  });
+
+  it('interpolation in a table against the flight: a table with a fixed step is not accurate at a flyby', () => {
+    const { trajectory: traj, flight } = voyager();
+    const steps = tableFromTrajectorySteps(sys, traj, opts);
+    const daily = tableFromTrajectory(sys, traj, { ...opts, stepS: DAY });
+    const a = checkTableInterpolation(sys, traj, flight.model, steps);
+    const b = checkTableInterpolation(sys, traj, flight.model, daily);
+    // Bookkeeping of the check: with no limit, all intervals are examined, and the result is not smaller.
+    const all = checkTableInterpolation(sys, traj, flight.model, steps, { limit: 1e9 });
+    expect(all.examined).toBe(all.intervals);
+    expect(all.intervals).toBe(steps.et.length - steps.segmentStarts!.length);
+    expect(a.examined).toBeLessThanOrEqual(400);
+    expect(all.maxKm).toBeGreaterThanOrEqual(a.maxKm);
+    // The value at the reported time, calculated here again: the flight is propagated with a stop at that time.
+    const again = (table: EphemerisTable, et: number): number => {
+      const exact = flyFlight(sys, flight, [et]).stateAt(et), sun = sys.state('SUN', et);
+      return norm(sub(interpolateTable(table, et).r, sub(exact.r, sun.r)));
+    };
+    // The two propagations do not have the same steps: their difference is below 0.01 km in this flight.
+    expect(Math.abs(again(steps, a.et) - a.maxKm)).toBeLessThan(0.01);
+    expect(Math.abs(again(daily, b.et) - b.maxKm)).toBeLessThan(0.01 + 1e-6 * b.maxKm);
+    // A step of one day is too long at a flyby (Voyager 2 goes around Neptune in some hours): the largest error
+    // of the daily table is near a closest approach, and it is more than 1000 times that of the table of steps.
+    const flybys = traj.events.filter((e) => e.type === 'periapsis').map((e) => e.et);
+    expect(Math.min(...flybys.map((t) => Math.abs(t - b.et)))).toBeLessThan(2 * DAY);
+    expect(b.maxKm).toBeGreaterThan(1000 * a.maxKm);
+    expect(steps.et.length).toBeLessThan(daily.et.length);
+    rec.add({ id: 'io.stepsTable', group: 'interchange', value: all.maxKm, unit: 'km', limit: 1, truth: 'Flight of Voyager 2 (12 years, 4 flybys): Hermite interpolation of degree 7 in the table of integrator steps against a new integration to the middle of each interval (consistency check, regression limit)', detail: { samples: steps.et.length, samplesOfTheDailyTable: daily.et.length, errorOfTheDailyTableKm: b.maxKm } });
+    expect(all.maxKm).toBeLessThan(1);
+  });
+
+  it('distance between a trajectory and a table at the sample times (hand offsets)', () => {
+    const traj = voyager().trajectory;
+    const t = tableFromTrajectorySteps(sys, traj, { ...opts, center: 'SSB' });
+    const same = tableDifference(sys, traj, t, 1e9)!;
+    expect(same.et.length).toBe(t.et.length);
+    // A sample is a step of the trajectory, and the trajectory gives its steps back with no arithmetic.
+    // (At a maneuver the trajectory gives the state after it: the sample before it is then different.)
+    const boundary = new Set(t.segmentStarts!.slice(1).map((s) => s - 1));
+    same.km.forEach((d, k) => { if (!boundary.has(k)) expect(d, 'sample ' + k).toBe(0); });
+    const moved: EphemerisTable = { ...t, states: t.states.map((s, k) => (k === 100 ? S([s.r[0] + 3, s.r[1] + 4, s.r[2]], s.v) : s)) };
+    const d = tableDifference(sys, traj, moved, 1e9)!;
+    expect(Math.abs(d.maxKm - 5)).toBeLessThan(1e-6); // 3-4-5 triangle
+    expect(d.maxEt).toBe(t.et[100]);
+    // With a limit, the samples are at equal steps of the index, and the last sample is always there.
+    const few = tableDifference(sys, traj, t, 50)!;
+    expect(few.et.length).toBeLessThanOrEqual(51);
+    expect(few.et[few.et.length - 1]).toBe(t.et[t.et.length - 1]);
+    // No sample in the time of the trajectory.
+    const later: EphemerisTable = { ...t, et: t.et.map((x) => x + 20 * 365.25 * DAY) };
+    expect(tableDifference(sys, traj, later)).toBeNull();
+  });
+});
+
+// ================================================================================================ analysis of a file
+
+describe('analysis of the text and of the table of a file', () => {
+  it('format of a text from its first lines (hand texts)', () => {
+    expect(detectFormat('CCSDS_OEM_VERS = 2.0\nCREATION_DATE = 2030-01-01T00:00:00\n')).toBe('oem');
+    expect(detectFormat('﻿  CCSDS_OPM_VERS=2.0\n')).toBe('opm');
+    expect(detectFormat('# comment\nstk.v.11.0\nBEGIN Ephemeris\n')).toBe('stk');
+    expect(detectFormat('Target body name: X\n$$SOE\n$$EOE\n')).toBe('horizons');
+    expect(detectFormat('# made by a spreadsheet\ntime_utc,x_km,y_km,z_km,vx_km_s,vy_km_s,vz_km_s\n')).toBe('csv');
+    expect(detectFormat('JD;X;Y;Z;VX;VY;VZ\n')).toBe('csv');
+    expect(detectFormat('  {"format":"apsis-mission"}')).toBe('mission');
+    expect(detectFormat('Hello, this is a letter.\n')).toBeNull();
+    expect(detectFormat('')).toBeNull();
+  });
+
+  it('maneuvers of a table: two samples with the same time (hand values)', () => {
+    const table: EphemerisTable = {
+      objectName: 'X', objectId: 'UNKNOWN', center: 'SSB', frame: 'ECLIPJ2000', timeScale: 'TDB',
+      et: [0, 100, 200, 200, 300, 400, 500, 600],
+      states: [
+        S([1e8, 0, 0], [0, 20, 0]), S([1e8, 2000, 0], [0, 20, 0]), S([1e8, 4000, 0], [0, 20, 0]),
+        S([1e8, 4000, 0], [0, 20.3, 0.4]), S([1e8, 6030, 40], [0, 20.3, 0.4]), S([1e8, 8060, 80], [0, 20.3, 0.4]),
+        S([1e8, 9000, 0], [0, 21, 0]), S([1e8, 11100, 0], [0, 21, 0]),
+      ],
+      segmentStarts: [0, 3, 6],
+    };
+    const b = tableBoundaries(sys, table);
+    // One maneuver at 200 s: 0.3 and 0.4 km/s in the ecliptic frame, thus 0.5 km/s. The segment that starts at
+    // 500 s is not at the time of the sample before it (400 s): it is a gap of the data, not a maneuver.
+    expect(b.length).toBe(1);
+    expect([b[0].index, b[0].et, b[0].gapKm]).toEqual([3, 200, 0]);
+    expect(Math.abs(b[0].dvMag - 0.5)).toBeLessThan(1e-12);
+    // In the ICRF: y' = y cos e - z sin e, z' = y sin e + z cos e.
+    expect(maxAbs(b[0].dv, [0, 0.3 * Math.cos(EPS) - 0.4 * Math.sin(EPS), 0.3 * Math.sin(EPS) + 0.4 * Math.cos(EPS)])).toBeLessThan(1e-12);
+    expect(tableBoundaries(sys, { ...table, segmentStarts: undefined })).toEqual([]);
+  });
+
+  it('closest approach of Cassini to Venus from JPL Horizons tables with one sample each hour and each day (truth: the 1-minute table)', () => {
+    if (!existsSync('truth/horizons/raw/enc_cassini_299_0_hour.txt')) return;
+    const e = truth('encounters').missions.cassini.encounters[0];
+    expect(e.planet).toBe('299');
+    // Truth: parabola through the three 1-minute samples of r^2 that are nearest to the minimum.
+    const jd: number[] = e.fine.jd;
+    const r2: number[] = e.fine.state.map((s: number[]) => s[0] ** 2 + s[1] ** 2 + s[2] ** 2);
+    const m = r2.indexOf(Math.min(...r2));
+    expect(m > 0 && m < r2.length - 1).toBe(true);
+    const den = r2[m - 1] - 2 * r2[m] + r2[m + 1];
+    const x = (0.5 * (r2[m - 1] - r2[m + 1])) / den;
+    const rpTruth = Math.sqrt(r2[m] - 0.25 * (r2[m - 1] - r2[m + 1]) * x);
+    const etTruth = (jd[m] - 2451545) * DAY + x * 60;
+    const out: Record<string, { radius: number; time: number }> = {};
+    for (const [key, file] of [['hour', 'enc_cassini_299_0_hour'], ['day', 'enc_cassini_299_coarse']] as const) {
+      const table = parseHorizonsVectors(readFileSync(`truth/horizons/raw/${file}.txt`, 'utf8'));
+      const venus = tableApproaches(sys, table).filter((a) => a.body === 'VENUS');
+      expect(venus.length).toBeGreaterThanOrEqual(1);
+      const a = venus[0];
+      expect(a.refined).toBe(true);
+      out[key] = { radius: Math.abs(a.radius - rpTruth), time: Math.abs(a.et - etTruth) };
+      expect(Math.abs(a.altitude - (a.radius - BODIES.VENUS.radius))).toBeLessThan(1e-9);
+    }
+    // The nearest sample of the hourly table is 3700 km above the closest approach, that of the daily table is
+    // much more: the result does not come from the samples themselves.
+    // Limits: the parabola has an error below 0.5 km (the term of the fourth order in 60 s), and the propagation
+    // of a flyby from a state one day before it agrees with Horizons to 0.06 km (test of the flybys).
+    rec.add({ id: 'io.approachHourly', group: 'interchange', value: out.hour.radius, unit: 'km', limit: 1, truth: 'JPL Horizons trajectory of Cassini at Venus (1998-04-26), 1-minute samples: closest approach from the table with 1-hour samples', detail: { timeDifferenceS: out.hour.time, truthRadiusKm: rpTruth } });
+    rec.add({ id: 'io.approachDaily', group: 'interchange', value: out.day.radius, unit: 'km', limit: 1, truth: 'JPL Horizons trajectory of Cassini at Venus (1998-04-26), 1-minute samples: closest approach from the table with 1-day samples', detail: { timeDifferenceS: out.day.time, truthRadiusKm: rpTruth } });
+    expect(out.hour.radius).toBeLessThan(1);
+    expect(out.day.radius).toBeLessThan(1);
+    expect(out.hour.time).toBeLessThan(2);
+    expect(out.day.time).toBeLessThan(2);
+  });
+
+  it('all the flybys of Cassini from the table with 1-day samples: the same bodies in the same order as the encounters of the truth file', () => {
+    if (!existsSync('truth/horizons/raw/enc_cassini_299_coarse.txt')) return;
+    const P: Record<string, string> = { '299': 'VENUS', '399': 'EARTH', '599': 'JUPITER', '699': 'SATURN' };
+    const enc = truth('encounters').missions.cassini.encounters;
+    const table = parseHorizonsVectors(readFileSync('truth/horizons/raw/enc_cassini_299_coarse.txt', 'utf8'));
+    const found = tableApproaches(sys, table).filter((a) => a.body !== 'MOON');
+    expect(found.map((a) => a.body)).toEqual(enc.map((e: { planet: string }) => P[e.planet]));
+    // The function propagates from the sample before the closest approach to the sample after it, without a
+    // maneuver, and gives the distance from that sample (missKm). At Saturn the table does not agree with a path
+    // without a maneuver: the miss is more than 100 times that of each other flyby (measured: 141 620 km against
+    // 228 km or less). The closest approach to Saturn is in the same 1-day interval as the arrival in orbit about
+    // Saturn, where the speed relative to Saturn must change.
+    const last = found[found.length - 1];
+    const others = found.slice(0, -1);
+    expect(last.body).toBe('SATURN');
+    for (const a of found) expect(a.refined && Number.isFinite(a.missKm), a.body).toBe(true);
+    expect(last.missKm).toBeGreaterThan(100 * Math.max(...others.map((a) => a.missKm)));
+    // Times: the minimum of the 1-minute samples of the truth file is within 1 minute of the closest approach.
+    // This is correct only where the table agrees with a path without a maneuver, thus not for Saturn.
+    others.forEach((a, k) => expect(Math.abs(a.et - (enc[k].jdClosest - 2451545) * DAY), a.body).toBeLessThan(90));
   });
 });

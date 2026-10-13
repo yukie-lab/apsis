@@ -31,7 +31,7 @@ function MissionBox() {
     <div className="missionbox">
       <b style={{ color: 'var(--text)' }}>{mission.name}</b>
       <span className="row" style={{ gap: 4 }}>
-        <span className="tag">{t('missionBox.plan')}</span>
+        {mission.plan && <span className="tag">{t('missionBox.plan')}</span>}
         {hasFlight && <span className={'tag ' + (stale ? 'warn' : 'good')}>{t(stale ? 'missionBox.flightOld' : 'missionBox.flight')}</span>}
       </span>
       <span className="row" style={{ gap: 4 }}>

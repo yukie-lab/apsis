@@ -11,16 +11,18 @@
  *   one ImpulsiveBurn for each maneuver (components in the axes of the coordinate system),
  *   a ReportFile and an EphemerisFile, and the mission sequence (Propagate, Maneuver, ..., Propagate).
  *
- * Axes. GMAT uses the vectors of its planetary ephemeris as vectors in its axes MJ2000Eq, and its axes ICRF have
- * a small rotation relative to MJ2000Eq that changes with time. Apsis uses the vectors of the JPL ephemeris as ICRF
- * vectors. Thus the numbers of Apsis go into the GMAT axes MJ2000Eq (default). The option `axes: 'ICRF'` uses
- * the GMAT axes ICRF.
+ * Axes. The guide has two sets of inertial axes, MJ2000Eq and ICRF. It says that the rotation between them changes
+ * with time, and that the difference of a vector is less than 1 m at the surface of the Earth (an angle below
+ * 1.6e-7 rad, which is 23 km at 1 au). The guide does not say in which axes GMAT uses the vectors of its planetary
+ * ephemeris. This module assumes that GMAT uses them as MJ2000Eq vectors with no rotation. This assumption is not
+ * verified. With it, the numbers of Apsis (ICRF vectors of the JPL ephemeris) go into the GMAT axes MJ2000Eq
+ * (default). The option `axes: 'ICRF'` uses the GMAT axes ICRF.
  *
  * Parts of the Apsis force model that the script does not have are in the list of gmatDifferences().
  */
 import type { SolarSystem } from '../system';
 import { type Flight, flyFlight } from '../flight';
-import { type Maneuver, type Trajectory, Propagator, PLANET_GRAVITY_BODIES } from '../propagate';
+import { type ForceModel, type Maneuver, type Trajectory, Propagator, PLANET_GRAVITY_BODIES } from '../propagate';
 import { toIcrf } from '../frames';
 import { DAY, etToTai } from '../time';
 import { type Vec3, norm } from '../vec';
@@ -71,6 +73,11 @@ const RESERVED = new Set([
 
 const maneuverIsLocal = (m: Maneuver): boolean => m.frame === 'VNB' || m.frame === 'RTN';
 
+/** Solar radiation pressure of a force model, or null if it gives no force (off, or a coefficient or an area of zero). */
+function activeSrp(model: ForceModel): { areaToMass: number; cr: number } | null {
+  return model.srp && model.srp.cr * model.srp.areaToMass !== 0 ? model.srp : null;
+}
+
 /** Maneuvers that the propagation of the flight applies, in the order of time. */
 function usedManeuvers(flight: Flight): Maneuver[] {
   return flight.maneuvers.filter((m) => m.et >= flight.et0 && m.et <= flight.etEnd).sort((a, b) => a.et - b.et);
@@ -97,7 +104,7 @@ export function gmatDifferences(input: Pick<GmatScriptInput, 'sys' | 'flight'>):
   if (model.moons) out.push('gmat.moons');
   if (active.some((id) => !GMAT_BODY[id])) out.push('gmat.smallBodies');
   if (PLANET_GRAVITY_BODIES.some((id) => !active.includes(id))) out.push('gmat.reducedModel');
-  if (model.srp) out.push('gmat.srp');
+  if (activeSrp(model)) out.push('gmat.srp');
   if (model.relativity) out.push('gmat.relativity');
   if (usedManeuvers(flight).some((m) => m.anchor)) out.push('gmat.anchors');
   return out;
@@ -107,7 +114,8 @@ export function gmatDifferences(input: Pick<GmatScriptInput, 'sys' | 'flight'>):
  * GMAT script of a flight. The text of the comment lines comes from the caller; the script has no other sentences.
  * Errors: gmat.backward (the flight goes backward in time), gmat.epoch (a time is out of the range of GMAT),
  * gmat.model (the force model has no Sun), gmat.option, gmat.fileName, gmat.number, gmat.maneuver (no velocity
- * change is known for a maneuver in a local frame).
+ * change is known for a maneuver in a local frame), gmat.srpRange (GMAT does not accept the coefficient or the area
+ * of the solar radiation pressure).
  */
 export function writeGmatScript(input: GmatScriptInput): string {
   const { sys, flight } = input;
@@ -124,6 +132,9 @@ export function writeGmatScript(input: GmatScriptInput): string {
   const mass = input.massKg ?? 1000;
   if ((axes !== 'MJ2000Eq' && axes !== 'ICRF') || !['report', 'oem', 'both'].includes(output) || !(mass > 0) || !Number.isFinite(mass)) throw new IoError('gmat.option');
   if (input.ephemerisSource !== undefined && !/^[A-Za-z0-9_]+$/.test(input.ephemerisSource)) throw new IoError('gmat.option', undefined, 'ephemerisSource');
+  const srp = activeSrp(model);
+  // Limits of the Spacecraft fields in the guide: 0 <= Cr <= 2.0 and SRPArea > 0.
+  if (srp && (!(srp.cr > 0 && srp.cr <= 2) || !(srp.areaToMass > 0) || !Number.isFinite(srp.areaToMass * mass))) throw new IoError('gmat.srpRange');
   const fileName = (name: string): string => {
     // A file name in the script: printable ASCII with no quote and no comment character.
     if (name === '' || /[^\x20-\x7e]|['%]/.test(name)) throw new IoError('gmat.fileName', undefined, asciiText(name));
@@ -178,8 +189,8 @@ export function writeGmatScript(input: GmatScriptInput): string {
     `GMAT ${sat}.DisplayStateType = Cartesian;`,
     ...['X', 'Y', 'Z', 'VX', 'VY', 'VZ'].map((k, i) => `GMAT ${sat}.${k} = ${rel[i]};`),
   );
-  if (model.srp) {
-    out.push(`GMAT ${sat}.DryMass = ${mass};`, `GMAT ${sat}.Cr = ${model.srp.cr};`, `GMAT ${sat}.SRPArea = ${model.srp.areaToMass * mass};`);
+  if (srp) {
+    out.push(`GMAT ${sat}.DryMass = ${mass};`, `GMAT ${sat}.Cr = ${srp.cr};`, `GMAT ${sat}.SRPArea = ${srp.areaToMass * mass};`);
   }
   out.push(
     '',
@@ -187,9 +198,9 @@ export function writeGmatScript(input: GmatScriptInput): string {
     'GMAT Forces.CentralBody = Sun;',
     `GMAT Forces.PointMasses = {${bodies.map((id) => GMAT_BODY[id]).join(', ')}};`,
     `GMAT Forces.RelativisticCorrection = ${model.relativity ? 'On' : 'Off'};`,
-    `GMAT Forces.SRP = ${model.srp ? 'On' : 'Off'};`,
+    `GMAT Forces.SRP = ${srp ? 'On' : 'Off'};`,
   );
-  if (model.srp) out.push(`GMAT Forces.SRP.Flux = ${SOLAR_IRRADIANCE};`, `GMAT Forces.SRP.Nominal_Sun = ${AU};`);
+  if (srp) out.push(`GMAT Forces.SRP.Flux = ${SOLAR_IRRADIANCE};`, `GMAT Forces.SRP.Nominal_Sun = ${AU};`);
   out.push(
     'GMAT Forces.ErrorControl = RSSStep;',
     '',

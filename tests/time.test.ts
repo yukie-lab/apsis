@@ -34,6 +34,24 @@ describe('time scales', () => {
     expect(formatEt(b - 0.75, 'UTC', 'milli')).toBe('2016-12-31 23:59:60.250');
   });
 
+  it('a time in a leap second: the label 23:59:60 is 1 s after 23:59:59 and 1 s before 00:00:00 (definition, ITU-R TF.460)', () => {
+    // Days that end with a leap second in naif0012.tls.
+    for (const [y, m, d] of [[1972, 6, 30], [1998, 12, 31], [2015, 6, 30], [2016, 12, 31]]) {
+      const at = (second: number) => etToTai(utcToEt({ year: y, month: m, day: d, hour: 23, minute: 59, second }));
+      const next = etToTai(utcToEt(m === 12 ? { year: y + 1, month: 1, day: 1, hour: 0, minute: 0, second: 0 } : { year: y, month: m + 1, day: 1, hour: 0, minute: 0, second: 0 }));
+      expect(at(60) - at(59)).toBeCloseTo(1, 6);
+      expect(at(60.5) - at(59)).toBeCloseTo(1.5, 6);
+      expect(next - at(60)).toBeCloseTo(1, 6);
+      expect(next - at(59.75)).toBeCloseTo(1.25, 6);
+    }
+    expect(formatEt(parseToEt('2016-12-31 23:59:60', 'UTC')!, 'UTC')).toBe('2016-12-31 23:59:60');
+    expect(formatIso(parseToEt('2016-12-31T23:59:60.500', 'UTC')!, 'UTC', 3)).toBe('2016-12-31T23:59:60.500');
+    // A day with no leap second: the second after 23:59:59 is 00:00:00.
+    const a = utcToEt({ year: 2016, month: 12, day: 30, hour: 23, minute: 59, second: 59 });
+    const b = utcToEt({ year: 2016, month: 12, day: 31, hour: 0, minute: 0, second: 0 });
+    expect(etToTai(b) - etToTai(a)).toBeCloseTo(1, 6);
+  });
+
   it('TDB - TT has an amplitude of about 1.66 ms', () => {
     let max = 0;
     for (let d = 0; d < 366; d++) max = Math.max(max, Math.abs(tdbMinusTt(d * 86400)));

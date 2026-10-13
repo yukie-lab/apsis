@@ -1,0 +1,48 @@
+[
+ {
+  "id": "target.bplane",
+  "group": "analytic",
+  "value": 2.3314683517128287e-14,
+  "unit": "relative",
+  "limit": 1e-11,
+  "truth": "Exact two-body hyperbola from its elements: b = a sqrt(e^2 - 1)."
+ },
+ {
+  "id": "target.closure",
+  "group": "solver",
+  "value": 0.0008948374105858312,
+  "unit": "km",
+  "limit": 0.5,
+  "truth": "The aim point is an input: the flight that the targeter gives is propagated again and its aim is measured.",
+  "detail": {
+   "cases": 6,
+   "worstTimeS": 0.1835263967514038,
+   "worstIterations": 3
+  }
+ },
+ {
+  "id": "target.closureDistant",
+  "group": "solver",
+  "value": 0.3011669646837255,
+  "unit": "km",
+  "limit": 2,
+  "truth": "The aim point is an input: the flight that the targeter gives is propagated again and its aim is measured.",
+  "detail": {
+   "iterations": 3,
+   "flybyRadiusKm": 9802147.457415614,
+   "dvBeforeMS": 33.58571489631004,
+   "dvAfterMS": 30.900326160186086
+  }
+ },
+ {
+  "id": "target.closureInsertion",
+  "group": "solver",
+  "value": 0.010452413794671553,
+  "unit": "km",
+  "limit": 0.5,
+  "truth": "The aim point is an input: the flight that the targeter gives is propagated again and its aim is measured.",
+  "detail": {
+   "iterations": 2
+  }
+ }
+]

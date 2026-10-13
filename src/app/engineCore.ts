@@ -5,6 +5,7 @@ import { solveMission, quickMission, famousMission, QuickError, type SolvedMissi
 import { optimizePlan, computePorkchop } from '../engine/planopt';
 import { flyFlight } from '../engine/flight';
 import { findManeuvers } from '../engine/forensics';
+import { targetManeuver } from '../engine/target';
 import type { Methods, MethodName, SolvedData, CustomList } from './protocol';
 
 export type Progress = (p: { text?: string; fraction?: number; best?: number }) => void;
@@ -37,7 +38,7 @@ export class EngineCore {
       if (err instanceof EngineError) throw err;
       if (err instanceof QuickError) throw new EngineError('quick:' + err.code);
       const text = err instanceof Error ? err.message : String(err);
-      throw new EngineError(text === 'plan' ? 'plan' : 'internal', text);
+      throw new EngineError(text === 'plan' || text.startsWith('target:') ? text : 'internal', text);
     }
   }
 
@@ -75,11 +76,15 @@ export class EngineCore {
       }
       case 'fly': {
         const args = a as Methods['fly']['args'];
-        return flyFlight(this.system(args.custom), args.flight, undefined, args.watch).toData();
+        return flyFlight(this.system(args.custom), args.flight, undefined, args.watch, { rtol: args.rtol, restartAtAnchors: args.restartAtAnchors }).toData();
       }
       case 'findManeuvers': {
         const args = a as Methods['findManeuvers']['args'];
         return findManeuvers(this.system(args.custom), { et: args.et, states: args.states }, { model: args.model, threshold: args.threshold, onProgress: (fraction) => { progress({ fraction }); } });
+      }
+      case 'target': {
+        const args = a as Methods['target']['args'];
+        return targetManeuver(this.system(args.custom), args.request, (text) => progress({ text }));
       }
     }
   }

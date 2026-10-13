@@ -4,7 +4,7 @@ import { useApp } from '../../app/store';
 import { clock, useClock } from '../../app/clock';
 import { system } from '../../app/system';
 import { nowEt } from '../../app/store';
-import { t, bodyName } from '../../i18n';
+import { t, bodyName, bodyIn } from '../../i18n';
 import { BODIES, AU, C_LIGHT, MOON_MODELS } from '../../engine/bodies';
 import { stateFromIcrf } from '../../engine/frames';
 import { elementsFromState, period, apsides, meanFromTrue } from '../../engine/kepler';
@@ -158,10 +158,10 @@ export default function Ephemeris() {
           <CustomBodies />
         </div>
         <div className="stack">
-          {!inRange && <div className="banner warn">{t('page.ephemeris.noData', { body: bodyName(id) })}</div>}
+          {!inRange && <div className="banner warn">{t('page.ephemeris.noData', { body: bodyIn(id) })}</div>}
           {same && <div className="banner">{t('page.ephemeris.same')}</div>}
           {st && !same && (
-            <Panel title={t('page.ephemeris.state', { body: bodyName(id), center: bodyName(s.center) })} actions={<Src kind={kind} body={id} />}>
+            <Panel title={t('page.ephemeris.state', { body: bodyIn(id), center: bodyIn(s.center) })} actions={<Src kind={kind} body={id} />}>
               <table className="data">
                 <thead><tr><th /><th className="r">{t('common.x')}</th><th className="r">{t('common.y')}</th><th className="r">{t('common.z')}</th><th className="r">{t('page.ephemeris.magnitude')}</th></tr></thead>
                 <tbody>
@@ -177,7 +177,7 @@ export default function Ephemeris() {
             </Panel>
           )}
           {el && (
-            <Panel title={t('page.ephemeris.elements', { center: bodyName(s.center) })} actions={<Src kind="ephem.elements" body={id} />}>
+            <Panel title={t('page.ephemeris.elements', { center: bodyIn(s.center) })} actions={<Src kind="ephem.elements" body={id} />}>
               <dl className="kv">
                 <dt>{t('el.a')}</dt><dd><Val q={pos(el.a)} /></dd>
                 <dt>{t('el.e')}</dt><dd><Val q={num(fixed(el.e, 9))} /></dd>

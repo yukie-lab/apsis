@@ -104,6 +104,10 @@ export function registerBodyName(id: string, name: string | null): void {
 export function bodyName(id: string): string {
   return hasText(`body.${id}`) ? t(`body.${id}`) : customNames.get(id) ?? id;
 }
+/** Name of a body in a sentence. A language with articles gives the article in the "bodyIn" texts ("the Sun"). */
+export function bodyIn(id: string): string {
+  return hasText(`bodyIn.${id}`) ? t(`bodyIn.${id}`) : bodyName(id);
+}
 export function glossary(): { id: string; term: string; definition: string }[] {
   const g = (table.get(current) ?? table.get(FALLBACK))!.glossary;
   return Object.entries(g).map(([id, v]) => ({ id, ...v })).sort((a, b) => a.term.localeCompare(b.term));

@@ -292,7 +292,7 @@
   "detail": {
    "maneuvers": 3,
    "launchVinfChangeMS": 296.57430657592283,
-   "solveTimeS": 1.486598334
+   "solveTimeS": 2.4788056660000004
   }
  },
  {
@@ -537,7 +537,7 @@
   "detail": {
    "maneuvers": 4,
    "launchVinfChangeMS": 41.78020059832749,
-   "solveTimeS": 6.363175333999999
+   "solveTimeS": 9.424509458000001
   }
  }
 ]

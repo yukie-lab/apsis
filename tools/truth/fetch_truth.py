@@ -131,6 +131,20 @@ def arcs():
         out[name] = {'horizonsId': sid, 'jd': [r[0] for r in rows], 'state': [r[1] for r in rows]}
     dump('arcs', {'center': 'SSB', 'frame': 'ICRF', 'timeScale': 'TDB', 'source': 'JPL Horizons spacecraft trajectories', 'arcs': out})
 
+# The same cruise arcs relative to the Sun. Horizons tables of a spacecraft relative to the solar system barycentre
+# are offset from its tables relative to the Sun or to a planet (measured: 118 km for Cassini in 1999, 117 km for
+# Juno in 2013, see docs/VALIDATION.md). The propagation tests use the tables relative to the Sun.
+SUN_ARCS = ['voyager2_1990_1992', 'voyager1_1995_2000', 'pioneer10_1980_1985', 'newhorizons_2008_2009', 'newhorizons_2012_2014',
+            'cassini_2001_2002', 'juno_2014_2015', 'mars2020_cruise', 'ulysses_1993_1994']
+
+def arcs_sun():
+    out = {}
+    for name in SUN_ARCS:
+        sid, start, stop, step = ARCS[name]
+        rows = H.vectors('arcsun_' + name, sid, '500@10', start, stop, step)
+        out[name] = {'horizonsId': sid, 'jd': [r[0] for r in rows], 'state': [r[1] for r in rows]}
+    dump('arcs_sun', {'center': 'SUN', 'frame': 'ICRF', 'timeScale': 'TDB', 'source': 'JPL Horizons spacecraft trajectories', 'arcs': out})
+
 # ---------------------------------------------------------------- 4. moons (fit set and check set)
 MOONS = {'PHOBOS': ('401', '499'), 'DEIMOS': ('402', '499'),
          'IO': ('501', '599'), 'EUROPA': ('502', '599'), 'GANYMEDE': ('503', '599'), 'CALLISTO': ('504', '599'),
@@ -197,6 +211,6 @@ def dsm():
                       'jd': [r[0] for r in rows], 'state': [r[1] for r in rows]})
 
 if __name__ == '__main__':
-    which = sys.argv[1:] or ['planets', 'encounters', 'arcs', 'moons', 'small_check', 'frames', 'dsm']
+    which = sys.argv[1:] or ['planets', 'encounters', 'arcs', 'arcs_sun', 'moons', 'small_check', 'frames', 'dsm']
     for w in which:
         globals()[w]()
