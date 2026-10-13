@@ -1,0 +1,19 @@
+[
+ {
+  "id": "quick.solved",
+  "group": "solver",
+  "value": 0,
+  "unit": "missions",
+  "limit": 0,
+  "truth": "The target of each solution is an input: this is a test of the solvers.",
+  "detail": {
+   "cases": 352,
+   "solved": 352,
+   "worstAimErrorKm": 0.0659952085261466,
+   "worstAimCase": "URANUS orbit efficient 2038-01-10",
+   "meanSeconds": 0.28485152756250015,
+   "slowestSeconds": 3.5792141249999987,
+   "slowestCase": "URANUS orbit efficient 2038-01-10"
+  }
+ }
+]

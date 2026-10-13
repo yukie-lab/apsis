@@ -63,13 +63,18 @@ export class ChebyshevEphemeris {
   bodyHeader(name: string): EphemBodyHeader | undefined { return this.segs.get(name)?.h; }
   covers(et: number): boolean { return et >= this.etStart && et <= this.etEnd; }
 
-  /** Position only (km). `out` receives the result. Time is clamped to the limits of the data. */
-  position(name: string, et: number, out: Vec3): Vec3 {
+  /**
+   * Position only (km). `out` receives the result. Time is clamped to the limits of the data.
+   * The time is et + dEt. A caller that knows the time more accurately than one 64-bit number gives the small
+   * part in dEt: the difference between et and the start of the interval is exact, thus the sum keeps the small
+   * part (a 64-bit time near the year 2030 has a step of 1.2e-7 s, which is 4 mm of the motion of the Earth).
+   */
+  position(name: string, et: number, out: Vec3, dEt = 0): Vec3 {
     const s = this.segs.get(name)!;
     const n = s.h.nCoef;
-    let i = Math.floor((et - s.et0) / s.dt);
+    let i = Math.floor((et - s.et0 + dEt) / s.dt);
     if (i < 0) i = 0; else if (i >= s.h.nIntervals) i = s.h.nIntervals - 1;
-    const x = (2 * (et - (s.et0 + i * s.dt))) / s.dt - 1;
+    const x = (2 * (et - (s.et0 + i * s.dt) + dEt)) / s.dt - 1;
     const x2 = 2 * x;
     const c = s.coef;
     let base = i * 3 * n;
@@ -85,13 +90,13 @@ export class ChebyshevEphemeris {
     return out;
   }
 
-  /** Position (km) and velocity (km/s). */
-  state(name: string, et: number): State {
+  /** Position (km) and velocity (km/s) at the time et + dEt (see `position`). */
+  state(name: string, et: number, dEt = 0): State {
     const s = this.segs.get(name)!;
     const n = s.h.nCoef;
-    let i = Math.floor((et - s.et0) / s.dt);
+    let i = Math.floor((et - s.et0 + dEt) / s.dt);
     if (i < 0) i = 0; else if (i >= s.h.nIntervals) i = s.h.nIntervals - 1;
-    const x = (2 * (et - (s.et0 + i * s.dt))) / s.dt - 1;
+    const x = (2 * (et - (s.et0 + i * s.dt) + dEt)) / s.dt - 1;
     const c = s.coef;
     const r: Vec3 = [0, 0, 0];
     const v: Vec3 = [0, 0, 0];

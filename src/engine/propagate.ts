@@ -46,7 +46,19 @@ export interface Maneuver {
   /** Reference body of the local frame (VNB and RTN use the state relative to this body). */
   refBody: string;
   label?: string;
+  /**
+   * State immediately after the impulse (relative to the SSB, ICRF) from the solver that computed the maneuver.
+   * A path through some flybys is very sensitive: a difference in the last bit of a number before the first flyby
+   * can become thousands of kilometres after the third one, and different JavaScript engines do not round all
+   * functions equally. With an anchor, the propagation continues from the stored state if the state that it
+   * computed is nearer than ANCHOR_LIMIT (the difference is in the maneuver event). The result is then the same on
+   * all computers. A change to the flight before this maneuver makes the anchor incorrect: remove it.
+   */
+  anchor?: State;
 }
+
+/** Largest difference between a computed state and an anchor for which the anchor is used: 1 km and 1 mm/s. */
+export const ANCHOR_LIMIT = { r: 1, v: 1e-6 };
 
 export interface TrajectoryEvent {
   type: 'periapsis' | 'impact' | 'maneuver' | 'start' | 'end';
@@ -63,6 +75,11 @@ export interface TrajectoryEvent {
   maneuverId?: string;
   /** Velocity change in ICRF (maneuver events), km/s. */
   dvIcrf?: Vec3;
+  /**
+   * Maneuver with an anchor: distance (km) and velocity difference (km/s) between the computed state and the anchor.
+   * `used` is false if the difference was above ANCHOR_LIMIT: the propagation then continued from the computed state.
+   */
+  anchorMiss?: { r: number; v: number; used: boolean };
 }
 
 export interface PropagationRequest {
@@ -72,7 +89,11 @@ export interface PropagationRequest {
   etEnd: number;
   maneuvers?: Maneuver[];
   model: ForceModel;
-  /** Relative tolerance (default 1e-11). */
+  /**
+   * Relative tolerance (default 1e-13). Measured for a flight of 8 years from a parking orbit of the Earth: the end
+   * position is 5 km from the converged result with 1e-11, 0.15 km with 1e-13. The number of steps is almost the
+   * same (the maximum step is the limit in the cruise), thus the small tolerance costs less than 10 % of the time.
+   */
   rtol?: number;
   /** Maximum step, s (default 4 days). */
   hMax?: number;
@@ -84,6 +105,8 @@ export interface PropagationRequest {
   watch?: string[];
   /** If false, the propagation continues after the path goes below the surface of a body (default true: stop). */
   stopAtImpact?: boolean;
+  /** Maximum number of steps between two break points (default 5 million). More: failure 'step-limit'. */
+  maxSteps?: number;
 }
 
 /** Sphere of influence radius (km) of a body at its current distance from its parent. */
@@ -244,15 +267,15 @@ export class Propagator {
   /** GM of a body in the force model, km^3/s^2 (planet system if its moons are not separate masses). 0: not in the model. */
   gmOf(id: string): number { return this.pert.find((p) => p.id === id)?.gm ?? 0; }
 
-  /** Update the positions of all perturbers at time t. (x, y, z): position of the spacecraft. */
-  private updateBodies(t: number, x: number, y: number, z: number): void {
+  /** Update the positions of all perturbers at time t + dt. (x, y, z): position of the spacecraft. */
+  private updateBodies(t: number, dt: number, x: number, y: number, z: number): void {
     const sys = this.sys;
     let haveEm = false;
     for (const p of this.pert) {
       if (p.id === 'EARTH' || p.id === 'MOON') {
         if (!haveEm) {
-          sys.planets.position('EMB', t, this.emb);
-          sys.planets.position('MOON_GEO', t, this.mgeo);
+          sys.planets.position('EMB', t, this.emb, dt);
+          sys.planets.position('MOON_GEO', t, this.mgeo, dt);
           haveEm = true;
         }
         const k = p.id === 'EARTH' ? -this.earthFactor : 1 - this.earthFactor;
@@ -262,11 +285,11 @@ export class Propagator {
       } else if (p.moonOf) {
         // set with its planet below
       } else if (p.small) {
-        p.active = sys.small!.covers(t);
-        if (p.active) sys.small!.position(p.id, t, p.pos);
+        p.active = sys.small!.covers(t + dt);
+        if (p.active) sys.small!.position(p.id, t, p.pos, dt);
       } else {
         // barycentre of the planet system for the outer planets
-        sys.planets.position(p.id, t, p.pos);
+        sys.planets.position(p.id, t, p.pos, dt);
       }
     }
     for (const g of this.groups) {
@@ -281,7 +304,7 @@ export class Propagator {
       g.planet.gmNow = g.planet.gm;
       let ox = 0, oy = 0, oz = 0;
       for (let k = 0; k < g.moons.length; k++) {
-        const r = moonState(g.moons[k].id, t).r;
+        const r = moonState(g.moons[k].id, t + dt).r;
         g.rel[k] = r;
         ox += g.ratios[k] * r[0]; oy += g.ratios[k] * r[1]; oz += g.ratios[k] * r[2];
       }
@@ -294,10 +317,10 @@ export class Propagator {
     }
   }
 
-  /** Derivative function for the integrator. y = [r, v]. */
-  readonly deriv = (t: number, y: Float64Array, d: Float64Array): void => {
+  /** Derivative function for the integrator at the time t + dt. y = [r, v]. */
+  readonly deriv = (t: number, y: Float64Array, d: Float64Array, dt = 0): void => {
     const x = y[0], yy = y[1], z = y[2];
-    this.updateBodies(t, x, yy, z);
+    this.updateBodies(t, dt, x, yy, z);
     let ax = 0, ay = 0, az = 0;
     for (const p of this.pert) {
       if (!p.active) continue;
@@ -308,7 +331,7 @@ export class Propagator {
       const k = -p.gmNow / (r2 * r);
       ax += k * dx; ay += k * dy; az += k * dz;
       if (p.j2 !== 0 && r < 300 * p.radius) {
-        const pole = poleVector(p.body, t);
+        const pole = poleVector(p.body, t + dt);
         const zz = dx * pole[0] + dy * pole[1] + dz * pole[2];
         const f = (-1.5 * p.j2 * p.gmNow * p.radius * p.radius) / (r2 * r2 * r);
         const c = 1 - (5 * zz * zz) / r2;
@@ -348,7 +371,7 @@ export class Propagator {
     const dTmp = new Float64Array(6);
     const rk = new Rkf78(this.deriv, 6);
     const atol = new Float64Array([1e-6, 1e-6, 1e-6, 1e-12, 1e-12, 1e-12]);
-    const ctl = { rtol: req.rtol ?? 1e-11, atol, h0: 60, hMax: req.hMax ?? 4 * DAY, hMin: 1e-3 };
+    const ctl = { rtol: req.rtol ?? 1e-13, atol, h0: 60, hMax: req.hMax ?? 4 * DAY, hMin: 1e-3, maxSteps: req.maxSteps };
     const mans = (req.maneuvers ?? []).filter((m) => (m.et - req.et0) * dir >= 0 && (req.etEnd - m.et) * dir >= 0).sort((a, b) => (a.et - b.et) * dir);
     // break points: maneuvers and requested stops
     const breaks: { t: number; man?: Maneuver }[] = [
@@ -401,6 +424,7 @@ export class Propagator {
     }
     let h = ctl.h0;
     let tNow = t;
+    let anchored = true;
     for (const br of breaks) {
       if ((br.t - t) * dir > 0) {
         let res: { t: number; h: number; steps: number };
@@ -458,10 +482,25 @@ export class Propagator {
         const dv = localToIcrf(m.frame, rel, m.dv);
         // A backward propagation removes the impulse.
         y[3] += dir * dv[0]; y[4] += dir * dv[1]; y[5] += dir * dv[2];
+        let anchorMiss: TrajectoryEvent['anchorMiss'];
+        if (m.anchor && dir > 0 && anchored) {
+          const a = m.anchor;
+          const dr = Math.sqrt((y[0] - a.r[0]) ** 2 + (y[1] - a.r[1]) ** 2 + (y[2] - a.r[2]) ** 2);
+          const dvel = Math.sqrt((y[3] - a.v[0]) ** 2 + (y[4] - a.v[1]) ** 2 + (y[5] - a.v[2]) ** 2);
+          const used = dr <= ANCHOR_LIMIT.r && dvel <= ANCHOR_LIMIT.v;
+          anchorMiss = { r: dr, v: dvel, used };
+          if (used) {
+            y[0] = a.r[0]; y[1] = a.r[1]; y[2] = a.r[2]; y[3] = a.v[0]; y[4] = a.v[1]; y[5] = a.v[2];
+            rk.resetCompensation();
+          } else {
+            // The flight is not the flight of the anchors: the anchors after this one are not used.
+            anchored = false;
+          }
+        }
         traj.markSegment();
         this.deriv(t, y, dTmp);
         traj.push(t, y, dTmp);
-        traj.events.push({ type: 'maneuver', et: t, state: toState(y), maneuverId: m.id, dvIcrf: dv });
+        traj.events.push({ type: 'maneuver', et: t, state: toState(y), maneuverId: m.id, dvIcrf: dv, anchorMiss });
         initRdot(t);
         h = 60;
       }

@@ -21,7 +21,7 @@ export interface Measurement {
   /** Identifier, also the key of the description text in the locale file (validation.items.<id>). */
   id: string;
   /** Group for the report. */
-  group: 'ephemeris' | 'time' | 'analytic' | 'lambert' | 'window' | 'flyby' | 'propagation' | 'interchange' | 'frames';
+  group: 'ephemeris' | 'time' | 'analytic' | 'lambert' | 'window' | 'flyby' | 'propagation' | 'interchange' | 'frames' | 'solver';
   /** Measured value. */
   value: number;
   unit: string;

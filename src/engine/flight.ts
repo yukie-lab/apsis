@@ -672,7 +672,8 @@ export function refinePlan(sys: SolarSystem, plan: Plan, result: PlanResult, opt
   for (let i = 1; i < n; i++) {
     const c = ctl[i];
     if (c.kind === 'launch') continue;
-    maneuvers.push({ id: (c.kind === 'dsm' ? 'dsm' : 'tcm') + i, et: c.et, dv: [c.x[0], c.x[1], c.x[2]], frame: 'ICRF', refBody: 'SUN', label: c.kind === 'dsm' ? 'DSM' : 'TCM' });
+    // The anchor is the start state of the next arc of the solution (see Maneuver.anchor).
+    maneuvers.push({ id: (c.kind === 'dsm' ? 'dsm' : 'tcm') + i, et: c.et, dv: [c.x[0], c.x[1], c.x[2]], frame: 'ICRF', refBody: 'SUN', label: c.kind === 'dsm' ? 'DSM' : 'TCM', anchor: after(i, c.x).state });
   }
   const watch = plan.nodes.map((nd) => nd.body);
   const last = plan.nodes[n - 1];
@@ -700,7 +701,9 @@ export function refinePlan(sys: SolarSystem, plan: Plan, result: PlanResult, opt
         // (secant method) so that the first apoapsis of the propagated orbit has the planned radius.
         const vhat = unit(rel.v);
         const apoapsis = (dv: number): number | null => {
-          const tr = prop.propagate({ et0: last.et, state0: { r: arr.r, v: add(arr.v, scale(vhat, dv)) }, etEnd: last.et + Math.min(0.75 * period, 400 * DAY), model, noEvents: true });
+          // An orbit that a large moon changes much (Charon) can become a low orbit with thousands of revolutions
+          // in this time: the step limit stops such a trial, and the two-body value of the burn is kept.
+          const tr = prop.propagate({ et0: last.et, state0: { r: arr.r, v: add(arr.v, scale(vhat, dv)) }, etEnd: last.et + Math.min(0.75 * period, 400 * DAY), model, noEvents: true, maxSteps: 20000 });
           if (tr.failure) return null;
           const dist = (t: number): number => norm(relTo(sys, last.body, t, tr.stateAt(t)).r);
           let k = 0, best = -1;

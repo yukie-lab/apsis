@@ -26,19 +26,19 @@
  {
   "id": "integrator.order",
   "group": "analytic",
-  "value": 8.100700674963617,
+  "value": 8.100968939362705,
   "unit": "order",
   "limit": 7.5,
   "truth": "Analytic two-body solution; error ratio for step h and h/2",
   "detail": {
-   "errorKmCoarse": 0.21318498683607692,
-   "errorKmFine": 0.0007766095521365659
+   "errorKmCoarse": 0.21318522164363696,
+   "errorKmFine": 0.000776466012788379
   }
  },
  {
   "id": "integrator.kepler10",
   "group": "analytic",
-  "value": 0.011258597130365072,
+  "value": 0.01136068868147466,
   "unit": "km",
   "limit": 1,
   "truth": "Analytic two-body solution after 10 revolutions (a = 1.3 au, e = 0.5)",

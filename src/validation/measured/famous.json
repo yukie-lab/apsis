@@ -2,360 +2,360 @@
  {
   "id": "famous.vinf.voyager2.0.JUPITER",
   "group": "flyby",
-  "value": 0.44802495164041833,
+  "value": 0.44802785075088414,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -32: speed at infinity, two-body orbit of the state at the closest approach",
   "detail": {
-   "vinfKmS": 7.645143143419442,
+   "vinfKmS": 7.645143364072008,
    "truthVinfKmS": 7.6110437682573755,
-   "approachVinfKmS": 7.638950357405345
+   "approachVinfKmS": 7.638950579635005
   }
  },
  {
   "id": "famous.periapsis.voyager2.0.JUPITER",
   "group": "flyby",
-  "value": 1.0148237353919456,
+  "value": 1.0150217890981204,
   "unit": "%",
   "limit": 3,
   "truth": "JPL Horizons trajectory -32: radius of the closest approach",
   "detail": {
-   "periapsisRadiusKm": 714054.7740059053,
+   "periapsisRadiusKm": 714053.3452950645,
    "truthPeriapsisRadiusKm": 721375.4634300874,
-   "timeDifferenceS": -8.52202558517456
+   "timeDifferenceS": -8.467137098312378
   }
  },
  {
   "id": "famous.vinf.voyager2.1.SATURN",
   "group": "flyby",
-  "value": 0.030664103652347653,
+  "value": 0.0306668320635086,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -32: speed at infinity, two-body orbit of the state at the closest approach",
   "detail": {
-   "vinfKmS": 10.663870511351998,
+   "vinfKmS": 10.66387022030852,
    "truthVinfKmS": 10.667141494676669,
-   "approachVinfKmS": 10.670535802987867
+   "approachVinfKmS": 10.670535900191746
   }
  },
  {
   "id": "famous.periapsis.voyager2.1.SATURN",
   "group": "flyby",
-  "value": 0.18453836122585784,
+  "value": 0.18452878448469395,
   "unit": "%",
   "limit": 3,
   "truth": "JPL Horizons trajectory -32: radius of the closest approach",
   "detail": {
-   "periapsisRadiusKm": 160987.79452315747,
+   "periapsisRadiusKm": 160987.77913417167,
    "truthPeriapsisRadiusKm": 160691.25750991545,
-   "timeDifferenceS": -4.379062175750732
+   "timeDifferenceS": -4.378874063491821
   }
  },
  {
   "id": "famous.vinf.voyager2.2.URANUS",
   "group": "flyby",
-  "value": 0.0006603081213793069,
+  "value": 0.0006602735469163058,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -32: speed at infinity, two-body orbit of the state at the closest approach",
   "detail": {
-   "vinfKmS": 14.73237905985217,
+   "vinfKmS": 14.732379054758562,
    "truthVinfKmS": 14.732281781399102,
-   "approachVinfKmS": 14.731330874980625
+   "approachVinfKmS": 14.731332233919083
   }
  },
  {
   "id": "famous.periapsis.voyager2.2.URANUS",
   "group": "flyby",
-  "value": 0.24372164385588457,
+  "value": 0.24372168411802714,
   "unit": "%",
   "limit": 3,
   "truth": "JPL Horizons trajectory -32: radius of the closest approach",
   "detail": {
-   "periapsisRadiusKm": 107415.34711549737,
+   "periapsisRadiusKm": 107415.34715863994,
    "truthPeriapsisRadiusKm": 107154.18916420592,
-   "timeDifferenceS": 0.039818406105041504
+   "timeDifferenceS": 0.03968310356140137
   }
  },
  {
   "id": "famous.vinf.voyager2.3.NEPTUNE",
   "group": "flyby",
-  "value": 0.08145815385713835,
+  "value": 0.08145825575833027,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -32: speed at infinity, two-body orbit of the state at the closest approach",
   "detail": {
-   "vinfKmS": 16.69490986383724,
+   "vinfKmS": 16.694909846811058,
    "truthVinfKmS": 16.708520316023517,
-   "approachVinfKmS": 16.739662094245062
+   "approachVinfKmS": 16.739660277965392
   }
  },
  {
   "id": "famous.corrections.voyager2",
   "group": "flyby",
-  "value": 103.81951575429825,
+  "value": 103.819780896955,
   "unit": "m/s",
   "limit": 200,
   "truth": "A ballistic tour needs only small correction maneuvers between the flybys.",
   "detail": {
    "maneuvers": 3,
-   "launchChangeMS": 82.6916211949868,
+   "launchChangeMS": 82.69300378219441,
    "deepSpaceManeuverMS": 0,
    "arrivalBurnMS": 0,
-   "solveSeconds": 1.8
+   "solveSeconds": 2.03
   }
  },
  {
   "id": "famous.vinf.cassini.0.VENUS",
   "group": "flyby",
-  "value": 0.01232582800633649,
+  "value": 0.012325843189478563,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -82: speed at infinity, two-body orbit of the state at the closest approach",
   "detail": {
-   "vinfKmS": 6.030548402184949,
+   "vinfKmS": 6.030548403100463,
    "truthVinfKmS": 6.029805178769497,
-   "approachVinfKmS": 6.030894224375801
+   "approachVinfKmS": 6.030894736822688
   }
  },
  {
   "id": "famous.periapsis.cassini.0.VENUS",
   "group": "flyby",
-  "value": 0.3252874188535422,
+  "value": 0.3250887072144897,
   "unit": "%",
   "limit": 3,
   "truth": "JPL Horizons trajectory -82: radius of the closest approach",
   "detail": {
-   "periapsisRadiusKm": 6314.944433717517,
+   "periapsisRadiusKm": 6314.9570231991065,
    "truthPeriapsisRadiusKm": 6335.553191163145,
-   "timeDifferenceS": 0.4783107042312622
+   "timeDifferenceS": 0.4804077371954918
   }
  },
  {
   "id": "famous.vinf.cassini.1.VENUS",
   "group": "flyby",
-  "value": 0.14101552046441382,
+  "value": 0.14094925681722625,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -82: speed at infinity, two-body orbit of the state at the closest approach",
   "detail": {
-   "vinfKmS": 9.42299359731549,
+   "vinfKmS": 9.422987362088895,
    "truthVinfKmS": 9.409724425442684,
-   "approachVinfKmS": 9.423171454955712
+   "approachVinfKmS": 9.423163951729578
   }
  },
  {
   "id": "famous.periapsis.cassini.1.VENUS",
   "group": "flyby",
-  "value": 0.9204451388429651,
+  "value": 0.9201849626905061,
   "unit": "%",
   "limit": 3,
   "truth": "JPL Horizons trajectory -82: radius of the closest approach",
   "detail": {
-   "periapsisRadiusKm": 6593.148424338558,
+   "periapsisRadiusKm": 6593.165737496575,
    "truthPeriapsisRadiusKm": 6654.3985119611425,
-   "timeDifferenceS": 0.13117768242955208
+   "timeDifferenceS": 0.1310000978410244
   }
  },
  {
   "id": "famous.vinf.cassini.2.EARTH",
   "group": "flyby",
-  "value": 0.011917291109978453,
+  "value": 0.011915965003803158,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -82: speed at infinity, two-body orbit of the state at the closest approach",
   "detail": {
-   "vinfKmS": 16.01093275180074,
+   "vinfKmS": 16.010932964148015,
    "truthVinfKmS": 16.01284104868349,
-   "approachVinfKmS": 16.010282147248727
+   "approachVinfKmS": 16.010282637792347
   }
  },
  {
   "id": "famous.periapsis.cassini.2.EARTH",
   "group": "flyby",
-  "value": 0.09195108134915,
+  "value": 0.09195175015577887,
   "unit": "%",
   "limit": 3,
   "truth": "JPL Horizons trajectory -82: radius of the closest approach",
   "detail": {
-   "periapsisRadiusKm": 7556.581850081618,
+   "periapsisRadiusKm": 7556.58190057411,
    "truthPeriapsisRadiusKm": 7549.639874578976,
-   "timeDifferenceS": 0.019236154854297638
+   "timeDifferenceS": 0.019457098096609116
   }
  },
  {
   "id": "famous.vinf.cassini.3.JUPITER",
   "group": "flyby",
-  "value": 0.0005766480652523542,
+  "value": 0.000576610870949089,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -82: speed at infinity, two-body orbit of the state at the closest approach",
   "detail": {
-   "vinfKmS": 10.426245081080355,
+   "vinfKmS": 10.426245077202408,
    "truthVinfKmS": 10.42618495868651,
-   "approachVinfKmS": 10.4394016629723
+   "approachVinfKmS": 10.439401423285485
   }
  },
  {
   "id": "famous.periapsis.cassini.3.JUPITER",
   "group": "flyby",
-  "value": 0.07851682946685225,
+  "value": 0.07851829508971972,
   "unit": "%",
   "limit": 3,
   "truth": "JPL Horizons trajectory -82: radius of the closest approach",
   "detail": {
-   "periapsisRadiusKm": 9802147.313865812,
+   "periapsisRadiusKm": 9802147.457415614,
    "truthPeriapsisRadiusKm": 9794457.016752765,
-   "timeDifferenceS": 798.8071493878961
+   "timeDifferenceS": 798.8070216998458
   }
  },
  {
   "id": "famous.vinf.cassini.4.SATURN",
   "group": "flyby",
-  "value": 0.47997530002002964,
+  "value": 0.47999451852579333,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -82: speed at infinity, two-body orbit of the state 11.6 h before the periapsis (approach hyperbola)",
   "detail": {
-   "vinfKmS": 5.2245582413081575,
+   "vinfKmS": 5.22455924059386,
    "truthVinfKmS": 5.1996014387028975,
-   "approachVinfKmS": 5.226387980881152
+   "approachVinfKmS": 5.226388620787911
   }
  },
  {
   "id": "famous.corrections.cassini",
   "group": "flyby",
-  "value": 34.04466960452682,
+  "value": 34.0501908702168,
   "unit": "m/s",
   "limit": 200,
   "truth": "A ballistic tour needs only small correction maneuvers between the flybys.",
   "detail": {
    "maneuvers": 3,
-   "launchChangeMS": 24.06829407015414,
-   "deepSpaceManeuverMS": 454.0478029483647,
-   "arrivalBurnMS": 577.8358894719978,
-   "solveSeconds": 5.13
+   "launchChangeMS": 24.06829369262388,
+   "deepSpaceManeuverMS": 454.04688748314595,
+   "arrivalBurnMS": 577.8358893017095,
+   "solveSeconds": 5.64
   }
  },
  {
   "id": "famous.vinf.newhorizons.0.JUPITER",
   "group": "flyby",
-  "value": 0.0004872364713136198,
+  "value": 0.00048709617921879883,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -98: speed at infinity, two-body orbit of the state at the closest approach",
   "detail": {
-   "vinfKmS": 18.44719346969093,
+   "vinfKmS": 18.447193443811102,
    "truthVinfKmS": 18.447103588674345,
-   "approachVinfKmS": 18.4490795610968
+   "approachVinfKmS": 18.449079784070822
   }
  },
  {
   "id": "famous.periapsis.newhorizons.0.JUPITER",
   "group": "flyby",
-  "value": 0.03359357781967591,
+  "value": 0.03358226452371615,
   "unit": "%",
   "limit": 3,
   "truth": "JPL Horizons trajectory -98: radius of the closest approach",
   "detail": {
-   "periapsisRadiusKm": 2305278.9273773986,
+   "periapsisRadiusKm": 2305278.6666619545,
    "truthPeriapsisRadiusKm": 2304504.761776893,
-   "timeDifferenceS": -7.93180787563324
+   "timeDifferenceS": -7.899685323238373
   }
  },
  {
   "id": "famous.vinf.newhorizons.1.PLUTO",
   "group": "flyby",
-  "value": 0.006804364048551118,
+  "value": 0.006748229551026115,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -98: speed at infinity, two-body orbit of the state at the closest approach",
   "detail": {
-   "vinfKmS": 13.774253710990058,
+   "vinfKmS": 13.774245979408034,
    "truthVinfKmS": 13.773316524392179,
-   "approachVinfKmS": 13.775111709068996
+   "approachVinfKmS": 13.775105726683055
   }
  },
  {
   "id": "famous.corrections.newhorizons",
   "group": "flyby",
-  "value": 0.21896350031951503,
+  "value": 0.21899586785606617,
   "unit": "m/s",
   "limit": 200,
   "truth": "A ballistic tour needs only small correction maneuvers between the flybys.",
   "detail": {
    "maneuvers": 1,
-   "launchChangeMS": 105.76047571355305,
+   "launchChangeMS": 105.7604800173813,
    "deepSpaceManeuverMS": 0,
    "arrivalBurnMS": 0,
-   "solveSeconds": 1.11
+   "solveSeconds": 1.13
   }
  },
  {
   "id": "famous.vinf.voyager1.0.JUPITER",
   "group": "flyby",
-  "value": 0.1431493505287641,
+  "value": 0.14315003337872687,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -31: speed at infinity, two-body orbit of the state at the closest approach",
   "detail": {
-   "vinfKmS": 10.777412147686428,
+   "vinfKmS": 10.777412221174785,
    "truthVinfKmS": 10.762006405413215,
-   "approachVinfKmS": 10.761791185175987
+   "approachVinfKmS": 10.761790480336693
   }
  },
  {
   "id": "famous.periapsis.voyager1.0.JUPITER",
   "group": "flyby",
-  "value": 0.24829351469857697,
+  "value": 0.24827596750289907,
   "unit": "%",
   "limit": 3,
   "truth": "JPL Horizons trajectory -31: radius of the closest approach",
   "detail": {
-   "periapsisRadiusKm": 349300.41216990154,
+   "periapsisRadiusKm": 349300.3510292829,
    "truthPeriapsisRadiusKm": 348435.26999158994,
-   "timeDifferenceS": 7.6105440855026245
+   "timeDifferenceS": 7.64073920249939
   }
  },
  {
   "id": "famous.vinf.voyager1.1.SATURN",
   "group": "flyby",
-  "value": 0.38629721044450643,
+  "value": 0.3862966289164426,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -31: speed at infinity, two-body orbit of the state at the closest approach",
   "detail": {
-   "vinfKmS": 15.16407257733756,
+   "vinfKmS": 15.164072489493561,
    "truthVinfKmS": 15.105719603890163,
-   "approachVinfKmS": 15.166838483652363
+   "approachVinfKmS": 15.166840617056234
   }
  },
  {
   "id": "famous.corrections.voyager1",
   "group": "flyby",
-  "value": 72.99553323551636,
+  "value": 72.99555127239056,
   "unit": "m/s",
   "limit": 200,
   "truth": "A ballistic tour needs only small correction maneuvers between the flybys.",
   "detail": {
    "maneuvers": 1,
-   "launchChangeMS": 58.25413599716142,
+   "launchChangeMS": 58.25423602857804,
    "deepSpaceManeuverMS": 0,
    "arrivalBurnMS": 0,
-   "solveSeconds": 0.42
+   "solveSeconds": 0.43
   }
  },
  {
   "id": "famous.vinf.mars2020.0.MARS",
   "group": "flyby",
-  "value": 0.01832830864008741,
+  "value": 0.018347164290598565,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -168: speed at infinity, two-body orbit of the state 5.7 h before the periapsis (approach hyperbola)",
   "detail": {
-   "vinfKmS": 2.551458409735489,
+   "vinfKmS": 2.5514588907414093,
    "truthVinfKmS": 2.5509908562579735,
-   "approachVinfKmS": 2.5514506773848256
+   "approachVinfKmS": 2.5514502179658436
   }
  },
  {
@@ -367,77 +367,77 @@
   "truth": "A ballistic tour needs only small correction maneuvers between the flybys.",
   "detail": {
    "maneuvers": 0,
-   "launchChangeMS": 12.608696796584546,
+   "launchChangeMS": 12.608696857332367,
    "deepSpaceManeuverMS": 0,
    "arrivalBurnMS": 0,
-   "solveSeconds": 0.14
+   "solveSeconds": 0.1
   }
  },
  {
   "id": "famous.vinf.juno.0.EARTH",
   "group": "flyby",
-  "value": 0.42414487279305624,
+  "value": 0.42414478636330105,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -61: speed at infinity, two-body orbit of the state at the closest approach",
   "detail": {
-   "vinfKmS": 10.345342743655976,
+   "vinfKmS": 10.345342752635517,
    "truthVinfKmS": 10.389408888771205,
-   "approachVinfKmS": 10.345405314633307
+   "approachVinfKmS": 10.345405243294296
   }
  },
  {
   "id": "famous.periapsis.juno.0.EARTH",
   "group": "flyby",
-  "value": 1.4226531996973566,
+  "value": 1.4226517914456647,
   "unit": "%",
   "limit": 3,
   "truth": "JPL Horizons trajectory -61: radius of the closest approach",
   "detail": {
-   "periapsisRadiusKm": 7031.126019309495,
+   "periapsisRadiusKm": 7031.125921682438,
    "truthPeriapsisRadiusKm": 6932.500578017294,
-   "timeDifferenceS": 0.28304779529571533
+   "timeDifferenceS": 0.2833179235458374
   }
  },
  {
   "id": "famous.vinf.juno.1.JUPITER",
   "group": "flyby",
-  "value": 0.03294305718233695,
+  "value": 0.03292132043039891,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -61: speed at infinity, two-body orbit of the state 11.8 h before the periapsis (approach hyperbola)",
   "detail": {
-   "vinfKmS": 5.370399598108105,
+   "vinfKmS": 5.370400765843232,
    "truthVinfKmS": 5.372169354930632,
-   "approachVinfKmS": 5.371279089159846
+   "approachVinfKmS": 5.37127873193004
   }
  },
  {
   "id": "famous.corrections.juno",
   "group": "flyby",
-  "value": 45.52151162150795,
+  "value": 45.52150126798982,
   "unit": "m/s",
   "limit": 200,
   "truth": "A ballistic tour needs only small correction maneuvers between the flybys.",
   "detail": {
    "maneuvers": 1,
    "launchChangeMS": 0,
-   "deepSpaceManeuverMS": 777.0324449103774,
-   "arrivalBurnMS": 514.3945422585159,
-   "solveSeconds": 0.83
+   "deepSpaceManeuverMS": 777.0324427704168,
+   "arrivalBurnMS": 514.3945433037381,
+   "solveSeconds": 0.87
   }
  },
  {
   "id": "famous.vinf.ulysses.0.JUPITER",
   "group": "flyby",
-  "value": 0.051295898707508676,
+  "value": 0.051295950856773506,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -55: speed at infinity, two-body orbit of the state at the closest approach",
   "detail": {
-   "vinfKmS": 13.689488432311466,
+   "vinfKmS": 13.689488439446773,
    "truthVinfKmS": 13.682469886417843,
-   "approachVinfKmS": 13.685088224701076
+   "approachVinfKmS": 13.685088065517425
   }
  },
  {
@@ -449,128 +449,128 @@
   "truth": "A ballistic tour needs only small correction maneuvers between the flybys.",
   "detail": {
    "maneuvers": 0,
-   "launchChangeMS": 53.25058304444129,
+   "launchChangeMS": 53.25058285037617,
    "deepSpaceManeuverMS": 0,
    "arrivalBurnMS": 0,
-   "solveSeconds": 0.24
+   "solveSeconds": 0.21
   }
  },
  {
   "id": "famous.vinf.pioneer11.0.JUPITER",
   "group": "flyby",
-  "value": 0.0016734088524389835,
+  "value": 0.0017099299515553668,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -24: speed at infinity, two-body orbit of the state at the closest approach",
   "detail": {
-   "vinfKmS": 9.071487107055514,
+   "vinfKmS": 9.071483793993275,
    "truthVinfKmS": 9.07163891266414,
-   "approachVinfKmS": 8.910327819812439
+   "approachVinfKmS": 8.910328741691774
   }
  },
  {
   "id": "famous.periapsis.pioneer11.0.JUPITER",
   "group": "flyby",
-  "value": 2.423504757562866,
+  "value": 2.423674578527277,
   "unit": "%",
   "limit": 3,
   "truth": "JPL Horizons trajectory -24: radius of the closest approach",
   "detail": {
-   "periapsisRadiusKm": 110761.90204434762,
+   "periapsisRadiusKm": 110761.70927565903,
    "truthPeriapsisRadiusKm": 113512.89239191284,
-   "timeDifferenceS": -4.096810221672058
+   "timeDifferenceS": -4.092691779136658
   }
  },
  {
   "id": "famous.vinf.pioneer11.1.SATURN",
   "group": "flyby",
-  "value": 0.3844864298851768,
+  "value": 0.3845209976263446,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -24: speed at infinity, two-body orbit of the state at the closest approach",
   "detail": {
-   "vinfKmS": 8.528011964882527,
+   "vinfKmS": 8.528009005563243,
    "truthVinfKmS": 8.56092756966017,
-   "approachVinfKmS": 8.315478541248192
+   "approachVinfKmS": 8.315476683887406
   }
  },
  {
   "id": "famous.corrections.pioneer11",
   "group": "flyby",
-  "value": 35.62233191818385,
+  "value": 35.62234463702055,
   "unit": "m/s",
   "limit": 200,
   "truth": "A ballistic tour needs only small correction maneuvers between the flybys.",
   "detail": {
    "maneuvers": 1,
-   "launchChangeMS": 73.24622639678725,
+   "launchChangeMS": 73.24615163003561,
    "deepSpaceManeuverMS": 0,
    "arrivalBurnMS": 0,
-   "solveSeconds": 0.79
+   "solveSeconds": 0.69
   }
  },
  {
   "id": "famous.dsm.cassini",
   "group": "flyby",
-  "value": 0.8465624373589187,
+  "value": 0.846359107401729,
   "unit": "%",
   "limit": 3,
   "truth": "Velocity jump in the JPL Horizons trajectory of Cassini on 1998-12-03 (6 h samples)",
   "detail": {
-   "dsmMS": 454.0478029483647,
+   "dsmMS": 454.04688748314595,
    "truthDsmMS": 450.2362717920083
   }
  },
  {
   "id": "famous.dsm.juno",
   "group": "flyby",
-  "value": 6.124242936076086,
+  "value": 6.124242643808104,
   "unit": "%",
   "limit": 10,
   "truth": "Sum of the two velocity jumps in the JPL Horizons trajectory of Juno (2012-08-30 and 2012-09-14, 6 h samples)",
   "detail": {
-   "dsmMS": 777.0324449103774,
+   "dsmMS": 777.0324427704168,
    "truthDsmMS": 732.1912726184748
   }
  },
  {
   "id": "famous.capture.cassini",
   "group": "flyby",
-  "value": 0.000013110594785084428,
+  "value": 0.000013031252667129646,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -82: apoapsis radius of the osculating orbit 2 days after the insertion burn",
   "detail": {
-   "apoapsisRadiusKm": 9127869.12319508,
+   "apoapsisRadiusKm": 9127869.115952836,
    "truthApoapsisRadiusKm": 9127867.926477304,
-   "periodDays": 116.62016347149387,
-   "impulsiveBurnMS": 577.8358894719978
+   "periodDays": 116.62016332904084,
+   "impulsiveBurnMS": 577.8358893017095
   }
  },
  {
   "id": "famous.capture.juno",
   "group": "flyby",
-  "value": 4.259688356191154e-8,
+  "value": 9.774448020752792e-8,
   "unit": "%",
   "limit": 1,
   "truth": "JPL Horizons trajectory -61: apoapsis radius of the osculating orbit 2 days after the insertion burn",
   "detail": {
-   "apoapsisRadiusKm": 8105637.559145504,
+   "apoapsisRadiusKm": 8105637.547769941,
    "truthApoapsisRadiusKm": 8105637.555692755,
-   "periodDays": 53.424156728833914,
-   "impulsiveBurnMS": 514.3945422585159
+   "periodDays": 53.42415653486564,
+   "impulsiveBurnMS": 514.3945433037381
   }
  },
  {
   "id": "famous.mars2020.arrival",
   "group": "flyby",
-  "value": 304.24476170539856,
+  "value": 304.22442972660065,
   "unit": "s",
   "limit": 480,
   "truth": "JPL Mars 2020 launch press kit and NASA NSSDCA: landing signal on the Earth at 2021-02-18 20:55 UTC",
   "detail": {
-   "lightTimeS": 682.2282817157152,
-   "entrySpeedKmS": 5.6346658676858485
+   "lightTimeS": 682.2282828673946,
+   "entrySpeedKmS": 5.63466586810149
   }
  },
  {
@@ -587,35 +587,35 @@
  {
   "id": "famous.newhorizons.published.PLUTO",
   "group": "flyby",
-  "value": 0.0967463634411979,
+  "value": 0.09674577245526597,
   "unit": "%",
   "limit": 2,
   "truth": "NASA NSSDCA: \"within 12500 km of Pluto\"",
   "detail": {
-   "altitudeKm": 12487.90670456985
+   "altitudeKm": 12487.906778443092
   }
  },
  {
   "id": "famous.newhorizons.published.JUPITER",
   "group": "flyby",
-  "value": 0.7664724452298266,
+  "value": 0.766461049048961,
   "unit": "%",
   "limit": 3,
   "truth": "NASA NSSDCA: \"within about 32 Jovian radii of Jupiter\"",
   "detail": {
-   "rangeJupiterRadii": 32.245271182473545
+   "rangeJupiterRadii": 32.24526753569567
   }
  },
  {
   "id": "famous.cassini.realCorrections",
   "group": "flyby",
-  "value": 96.93876335204813,
+  "value": 96.93875904405829,
   "unit": "m/s",
   "limit": 200,
   "truth": "Velocity jumps in the JPL Horizons trajectory of Cassini between 1999-06-27 and 1999-08-16 (10-day samples, propagated with this engine)",
   "detail": {
    "intervalsWithManeuver": 4,
-   "correctionsOfTheReproductionMS": 34.04466960452682
+   "correctionsOfTheReproductionMS": 34.0501908702168
   }
  }
 ]

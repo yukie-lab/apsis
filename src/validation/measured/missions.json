@@ -161,138 +161,138 @@
  {
   "id": "missions.voyager2.nbody.vinf.JUPITER",
   "group": "flyby",
-  "value": 0.3673079891161898,
+  "value": 0.3673075212388821,
   "unit": "%",
   "limit": 1,
   "truth": "Speed at infinity of the JPL Horizons trajectory of Voyager 2",
   "detail": {
-   "vinfKmS": 7.638999740073311,
+   "vinfKmS": 7.6389997044629645,
    "truthVinfKmS": 7.611043768257372,
-   "closestApproachTimeDifferenceS": 0.4172043800354004
+   "closestApproachTimeDifferenceS": 0.46149563789367676
   }
  },
  {
   "id": "missions.voyager2.nbody.periapsis.JUPITER",
   "group": "flyby",
-  "value": 1.0166741403294977,
+  "value": 1.0165660831780219,
   "unit": "%",
   "limit": 2,
   "truth": "Periapsis radius of the JPL Horizons trajectory of Voyager 2",
   "detail": {
-   "periapsisRadiusKm": 714041.4256387114,
+   "periapsisRadiusKm": 714042.2051364887,
    "truthPeriapsisRadiusKm": 721375.4634300872
   }
  },
  {
   "id": "missions.voyager2.nbody.published.JUPITER",
   "group": "flyby",
-  "value": 0.3420239669512808,
+  "value": 0.34191517330428567,
   "unit": "%",
   "limit": 2,
   "truth": "NASA Science Voyager 2 page: closest approach about 645000 km from the planet",
   "detail": {
-   "distanceFromCloudTopsKm": 642549.4256387114,
+   "distanceFromCloudTopsKm": 642550.2051364887,
    "publishedKm": 645000
   }
  },
  {
   "id": "missions.voyager2.nbody.vinf.SATURN",
   "group": "flyby",
-  "value": 0.03186063553844526,
+  "value": 0.03186270344949403,
   "unit": "%",
   "limit": 1,
   "truth": "Speed at infinity of the JPL Horizons trajectory of Voyager 2",
   "detail": {
-   "vinfKmS": 10.670540113750658,
+   "vinfKmS": 10.670540334337655,
    "truthVinfKmS": 10.667141494676669,
-   "closestApproachTimeDifferenceS": 1.1137232780456543
+   "closestApproachTimeDifferenceS": 1.1136560440063477
   }
  },
  {
   "id": "missions.voyager2.nbody.periapsis.SATURN",
   "group": "flyby",
-  "value": 0.1845571487043462,
+  "value": 0.1845612737246566,
   "unit": "%",
   "limit": 2,
   "truth": "Periapsis radius of the JPL Horizons trajectory of Voyager 2",
   "detail": {
-   "periapsisRadiusKm": 160987.8247129929,
+   "periapsisRadiusKm": 160987.83134153992,
    "truthPeriapsisRadiusKm": 160691.25750991545
   }
  },
  {
   "id": "missions.voyager2.nbody.published.SATURN",
   "group": "flyby",
-  "value": 0.17373272255319858,
+  "value": 0.1737286122851917,
   "unit": "%",
   "limit": 2,
   "truth": "NASA Science Voyager 2 page: closest approach about 101000 km from the planet",
   "detail": {
-   "distanceFromCloudTopsKm": 100719.82471299291,
+   "distanceFromCloudTopsKm": 100719.83134153992,
    "publishedKm": 101000
   }
  },
  {
   "id": "missions.voyager2.nbody.vinf.URANUS",
   "group": "flyby",
-  "value": 0.006463068624541012,
+  "value": 0.00645410554523854,
   "unit": "%",
   "limit": 1,
   "truth": "Speed at infinity of the JPL Horizons trajectory of Voyager 2",
   "detail": {
-   "vinfKmS": 14.731329623917608,
+   "vinfKmS": 14.731330944383707,
    "truthVinfKmS": 14.7322817813991,
-   "closestApproachTimeDifferenceS": 13.503717720508575
+   "closestApproachTimeDifferenceS": 13.503977119922638
   }
  },
  {
   "id": "missions.voyager2.nbody.periapsis.URANUS",
   "group": "flyby",
-  "value": 0.24358835033383403,
+  "value": 0.24358854904776636,
   "unit": "%",
   "limit": 2,
   "truth": "Periapsis radius of the JPL Horizons trajectory of Voyager 2",
   "detail": {
-   "periapsisRadiusKm": 107415.20428590459,
+   "periapsisRadiusKm": 107415.2044988349,
    "truthPeriapsisRadiusKm": 107154.1891642059
   }
  },
  {
   "id": "missions.voyager2.nbody.published.URANUS",
   "group": "flyby",
-  "value": 0.33271774059592424,
+  "value": 0.3327179394865387,
   "unit": "%",
   "limit": 2,
   "truth": "NASA Science Voyager 2 page: closest approach about 81500 km from the planet",
   "detail": {
-   "distanceFromCloudTopsKm": 81856.20428590459,
+   "distanceFromCloudTopsKm": 81856.2044988349,
    "publishedKm": 81500
   }
  },
  {
   "id": "missions.voyager2.nbody.vinf.NEPTUNE",
   "group": "flyby",
-  "value": 0.18637194587491998,
+  "value": 0.18636112165814284,
   "unit": "%",
   "limit": 1,
   "truth": "Speed at infinity of the JPL Horizons trajectory of Voyager 2",
   "detail": {
-   "vinfKmS": 16.739660310463396,
+   "vinfKmS": 16.739658501896937,
    "truthVinfKmS": 16.708520316023517,
-   "closestApproachTimeDifferenceS": 23.983571529388428
+   "closestApproachTimeDifferenceS": 23.983253717422485
   }
  },
  {
   "id": "missions.voyager2.nbody.corrections",
   "group": "flyby",
-  "value": 103.81701545290584,
+  "value": 103.81686992042204,
   "unit": "m/s",
   "limit": 200,
   "truth": "A ballistic tour needs only small correction maneuvers between the flybys.",
   "detail": {
    "maneuvers": 3,
-   "launchVinfChangeMS": 296.57579594222625,
-   "solveTimeS": 1.249195459
+   "launchVinfChangeMS": 296.57430657592283,
+   "solveTimeS": 1.486598334
   }
  },
  {
@@ -374,170 +374,170 @@
  {
   "id": "missions.cassini.nbody.vinf.0.VENUS",
   "group": "flyby",
-  "value": 0.01831072213411058,
+  "value": 0.018319700037770958,
   "unit": "%",
   "limit": 1,
   "truth": "Speed at infinity of the JPL Horizons trajectory of Cassini",
   "detail": {
-   "vinfKmS": 6.030909279641009,
+   "vinfKmS": 6.030909820991109,
    "truthVinfKmS": 6.029805178769497
   }
  },
  {
   "id": "missions.cassini.nbody.periapsis.0.VENUS",
   "group": "flyby",
-  "value": 0.17041159242567994,
+  "value": 0.17059798286616093,
   "unit": "%",
   "limit": 2,
   "truth": "Periapsis radius of the JPL Horizons trajectory of Cassini",
   "detail": {
-   "periapsisRadiusKm": 6346.349708245182,
+   "periapsisRadiusKm": 6346.361517110682,
    "truthPeriapsisRadiusKm": 6335.553191163145
   }
  },
  {
   "id": "missions.cassini.nbody.published.0.VENUS",
   "group": "flyby",
-  "value": 0.1665094896490111,
+  "value": 0.16669587282871873,
   "unit": "%",
   "limit": 2,
   "truth": "NASA Science Cassini timeline: distance of closest approach (\"about\")",
   "detail": {
-   "radiusKm": 6346.349708245182,
+   "radiusKm": 6346.361517110682,
    "publishedRadiusKm": 6335.8
   }
  },
  {
   "id": "missions.cassini.nbody.vinf.1.VENUS",
   "group": "flyby",
-  "value": 0.1473252625021843,
+  "value": 0.14725066299107523,
   "unit": "%",
   "limit": 1,
   "truth": "Speed at infinity of the JPL Horizons trajectory of Cassini",
   "detail": {
-   "vinfKmS": 9.4235873266532,
+   "vinfKmS": 9.423580307044782,
    "truthVinfKmS": 9.409724425442684
   }
  },
  {
   "id": "missions.cassini.nbody.periapsis.1.VENUS",
   "group": "flyby",
-  "value": 0.9708415257191181,
+  "value": 0.9706032666973995,
   "unit": "%",
   "limit": 2,
   "truth": "Periapsis radius of the JPL Horizons trajectory of Cassini",
   "detail": {
-   "periapsisRadiusKm": 6589.794847920189,
+   "periapsisRadiusKm": 6589.8107026249845,
    "truthPeriapsisRadiusKm": 6654.3985119611425
   }
  },
  {
   "id": "missions.cassini.nbody.published.1.VENUS",
   "group": "flyby",
-  "value": 0.9321559890527605,
+  "value": 0.9319176369556461,
   "unit": "%",
   "limit": 2,
   "truth": "NASA Science Cassini timeline: distance of closest approach (\"about\")",
   "detail": {
-   "radiusKm": 6589.794847920189,
+   "radiusKm": 6589.8107026249845,
    "publishedRadiusKm": 6651.8
   }
  },
  {
   "id": "missions.cassini.nbody.vinf.2.EARTH",
   "group": "flyby",
-  "value": 0.015146184719385836,
+  "value": 0.015143179410803655,
   "unit": "%",
   "limit": 1,
   "truth": "Speed at infinity of the JPL Horizons trajectory of Cassini",
   "detail": {
-   "vinfKmS": 16.010415714199436,
+   "vinfKmS": 16.010416195434722,
    "truthVinfKmS": 16.01284104868349
   }
  },
  {
   "id": "missions.cassini.nbody.periapsis.2.EARTH",
   "group": "flyby",
-  "value": 0.09119043326855604,
+  "value": 0.09119209820111554,
   "unit": "%",
   "limit": 2,
   "truth": "Periapsis radius of the JPL Horizons trajectory of Cassini",
   "detail": {
-   "periapsisRadiusKm": 7556.52442389082,
+   "periapsisRadiusKm": 7556.524549587232,
    "truthPeriapsisRadiusKm": 7549.639874578976
   }
  },
  {
   "id": "missions.cassini.nbody.published.2.EARTH",
   "group": "flyby",
-  "value": 1.0482266918047483,
+  "value": 1.048228372656799,
   "unit": "%",
   "limit": 2,
   "truth": "NASA Science Cassini timeline: distance of closest approach (\"about\")",
   "detail": {
-   "radiusKm": 7556.52442389082,
+   "radiusKm": 7556.524549587232,
    "publishedRadiusKm": 7478.1366
   }
  },
  {
   "id": "missions.cassini.nbody.vinf.3.JUPITER",
   "group": "flyby",
-  "value": 0.12651341983623224,
+  "value": 0.12651099498665883,
   "unit": "%",
   "limit": 1,
   "truth": "Speed at infinity of the JPL Horizons trajectory of Cassini",
   "detail": {
-   "vinfKmS": 10.439375481836196,
+   "vinfKmS": 10.439375229016894,
    "truthVinfKmS": 10.42618495868651
   }
  },
  {
   "id": "missions.cassini.nbody.periapsis.3.JUPITER",
   "group": "flyby",
-  "value": 0.09235848610668206,
+  "value": 0.09235880281957241,
   "unit": "%",
   "limit": 2,
   "truth": "Periapsis radius of the JPL Horizons trajectory of Cassini",
   "detail": {
-   "periapsisRadiusKm": 9803503.028975807,
+   "periapsisRadiusKm": 9803503.059996115,
    "truthPeriapsisRadiusKm": 9794457.016752765
   }
  },
  {
   "id": "missions.cassini.nbody.published.3.JUPITER",
   "group": "flyby",
-  "value": 1.9649697102419288,
+  "value": 1.9649694000388496,
   "unit": "%",
   "limit": 5,
   "truth": "NASA Science Cassini timeline: distance of closest approach (\"about\")",
   "detail": {
-   "radiusKm": 9803503.028975807,
+   "radiusKm": 9803503.059996115,
    "publishedRadiusKm": 10000000
   }
  },
  {
   "id": "missions.cassini.nbody.dsm",
   "group": "flyby",
-  "value": 1.0322106461188996,
+  "value": 1.032036094562573,
   "unit": "%",
   "limit": 3,
   "truth": "Velocity jump in the JPL Horizons trajectory of Cassini on 1998-12-03",
   "detail": {
-   "dsmMS": 454.8834083763083,
+   "dsmMS": 454.8826224823209,
    "truthDsmMS": 450.2360242018345
   }
  },
  {
   "id": "missions.cassini.nbody.corrections",
   "group": "flyby",
-  "value": 34.05890238956218,
+  "value": 34.05431877036047,
   "unit": "m/s",
   "limit": 200,
   "truth": "A ballistic tour needs only small correction maneuvers between the flybys.",
   "detail": {
    "maneuvers": 4,
-   "launchVinfChangeMS": 41.78020118466042,
-   "solveTimeS": 5.455811708
+   "launchVinfChangeMS": 41.78020059832749,
+   "solveTimeS": 6.363175333999999
   }
  }
 ]

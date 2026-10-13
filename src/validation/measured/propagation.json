@@ -2,453 +2,453 @@
  {
   "id": "propagation.asteroid.EROS",
   "group": "propagation",
-  "value": 0.045038760395004596,
+  "value": 0.04503877559898413,
   "unit": "km",
   "limit": 1,
   "truth": "JPL Horizons vectors of the asteroid; 5 arcs of 168 days",
   "detail": {
-   "maxErrorKmAfter1010Days": 0.8748829568423298,
-   "maxErrorKmNoAsteroidMass168Days": 0.07989283248476733,
-   "maxErrorKmNoAsteroidMass1010Days": 5.330284379218693,
-   "maxErrorKmNoRelativity168Days": 12.41545527106102
+   "maxErrorKmAfter1010Days": 0.8748864037405462,
+   "maxErrorKmNoAsteroidMass168Days": 0.07989239904779524,
+   "maxErrorKmNoAsteroidMass1010Days": 5.330283214289735,
+   "maxErrorKmNoRelativity168Days": 12.415455328271065
   }
  },
  {
   "id": "propagation.asteroid.CERES",
   "group": "propagation",
-  "value": 0.05932303554755564,
+  "value": 0.05932309533341411,
   "unit": "km",
   "limit": 1,
   "truth": "JPL Horizons vectors of the asteroid; 5 arcs of 168 days",
   "detail": {
-   "maxErrorKmAfter1010Days": 3.7275285931668396,
-   "maxErrorKmNoAsteroidMass168Days": 0.2903717067428806,
-   "maxErrorKmNoAsteroidMass1010Days": 38.11067093198242,
-   "maxErrorKmNoRelativity168Days": 0.9536274885739409
+   "maxErrorKmAfter1010Days": 3.7275299369682497,
+   "maxErrorKmNoAsteroidMass168Days": 0.29037173785413556,
+   "maxErrorKmNoAsteroidMass1010Days": 38.11066869908137,
+   "maxErrorKmNoRelativity168Days": 0.9536276029157296
   }
  },
  {
   "id": "propagation.asteroid.VESTA",
   "group": "propagation",
-  "value": 0.08660616867981723,
+  "value": 0.08660599905480806,
   "unit": "km",
   "limit": 1,
   "truth": "JPL Horizons vectors of the asteroid; 5 arcs of 168 days",
   "detail": {
-   "maxErrorKmAfter1010Days": 2.318561408554047,
-   "maxErrorKmNoAsteroidMass168Days": 1.1501144281005293,
-   "maxErrorKmNoAsteroidMass1010Days": 162.18293963643302,
-   "maxErrorKmNoRelativity168Days": 1.9979676775626074
+   "maxErrorKmAfter1010Days": 2.3185588812211577,
+   "maxErrorKmNoAsteroidMass168Days": 1.150114482861891,
+   "maxErrorKmNoAsteroidMass1010Days": 162.182941570331,
+   "maxErrorKmNoRelativity168Days": 1.9979677011676962
   }
  },
  {
   "id": "propagation.asteroid.PSYCHE",
   "group": "propagation",
-  "value": 0.17220398133127027,
+  "value": 0.17220415191182012,
   "unit": "km",
   "limit": 1,
   "truth": "JPL Horizons vectors of the asteroid; 5 arcs of 168 days",
   "detail": {
-   "maxErrorKmAfter1010Days": 3.433403460346428,
-   "maxErrorKmNoAsteroidMass168Days": 0.1425480946451721,
-   "maxErrorKmNoAsteroidMass1010Days": 10.161926854483319,
-   "maxErrorKmNoRelativity168Days": 1.18198851793335
+   "maxErrorKmAfter1010Days": 3.433405906921073,
+   "maxErrorKmNoAsteroidMass168Days": 0.14254819170905628,
+   "maxErrorKmNoAsteroidMass1010Days": 10.16192372576601,
+   "maxErrorKmNoRelativity168Days": 1.1819886365480727
   }
  },
  {
   "id": "propagation.asteroid.ARROKOTH",
   "group": "propagation",
-  "value": 0.0017263352483943447,
+  "value": 0.001725682832788993,
   "unit": "km",
   "limit": 1,
   "truth": "JPL Horizons vectors of the asteroid; 5 arcs of 168 days",
   "detail": {
-   "maxErrorKmAfter1010Days": 0.0390839670129545,
-   "maxErrorKmNoAsteroidMass168Days": 0.0018305212762911335,
-   "maxErrorKmNoAsteroidMass1010Days": 0.035173705262345395,
-   "maxErrorKmNoRelativity168Days": 0.0016542096125189314
+   "maxErrorKmAfter1010Days": 0.03908972409446731,
+   "maxErrorKmNoAsteroidMass168Days": 0.0018325151057449517,
+   "maxErrorKmNoAsteroidMass1010Days": 0.035175740733334904,
+   "maxErrorKmNoRelativity168Days": 0.001654072743771036
   }
  },
  {
   "id": "propagation.asteroid.DIDYMOS",
   "group": "propagation",
-  "value": 0.023306126425065146,
+  "value": 0.023305694465113602,
   "unit": "km",
   "limit": 1,
   "truth": "JPL Horizons vectors of the asteroid; 5 arcs of 168 days",
   "detail": {
-   "maxErrorKmAfter1010Days": 0.49018268599223486,
-   "maxErrorKmNoAsteroidMass168Days": 0.1302887927981889,
-   "maxErrorKmNoAsteroidMass1010Days": 11.720983222946067,
-   "maxErrorKmNoRelativity168Days": 12.769618503214602
+   "maxErrorKmAfter1010Days": 0.49018469838391904,
+   "maxErrorKmNoAsteroidMass168Days": 0.13028868361000234,
+   "maxErrorKmNoAsteroidMass1010Days": 11.720976828124947,
+   "maxErrorKmNoRelativity168Days": 12.769618430574369
   }
  },
  {
   "id": "propagation.asteroid.RYUGU",
   "group": "propagation",
-  "value": 0.06478652460149018,
+  "value": 0.06478678770051673,
   "unit": "km",
   "limit": 1,
   "truth": "JPL Horizons vectors of the asteroid; 5 arcs of 168 days",
   "detail": {
-   "maxErrorKmAfter1010Days": 4.737838159268189,
-   "maxErrorKmNoAsteroidMass168Days": 0.11386141066334694,
-   "maxErrorKmNoAsteroidMass1010Days": 5.32398160069132,
-   "maxErrorKmNoRelativity168Days": 22.478521406603143
+   "maxErrorKmAfter1010Days": 4.737833514047893,
+   "maxErrorKmNoAsteroidMass168Days": 0.11386172409318321,
+   "maxErrorKmNoAsteroidMass1010Days": 5.323987507422793,
+   "maxErrorKmNoRelativity168Days": 22.478521625446586
   }
  },
  {
   "id": "propagation.spacecraft.newhorizons_2008_2009",
   "group": "propagation",
-  "value": 670.7860403094805,
+  "value": 670.786040677922,
   "unit": "km",
   "limit": 1500,
   "truth": "JPL Horizons trajectory of the spacecraft (New Horizons, cruise in hibernation, 364 days)",
   "detail": {
    "days": 364,
-   "errorKmAfter30Days": 4.001783344196885,
-   "equivalentAccelerationMS2": 1.356387439228907e-9
+   "errorKmAfter30Days": 4.001783375481214,
+   "equivalentAccelerationMS2": 1.3563874399739276e-9
   }
  },
  {
   "id": "propagation.spacecraft.newhorizons_2012_2014",
   "group": "propagation",
-  "value": 7902.580813350879,
+  "value": 7902.580817201468,
   "unit": "km",
   "limit": 16000,
   "truth": "JPL Horizons trajectory of the spacecraft (New Horizons, cruise, 730 days)",
   "detail": {
    "days": 730,
-   "errorKmAfter30Days": 3.98478887026633,
-   "equivalentAccelerationMS2": 3.973065603219266e-9
+   "errorKmAfter30Days": 3.984789741912684,
+   "equivalentAccelerationMS2": 3.97306560515517e-9
   }
  },
  {
   "id": "propagation.spacecraft.voyager2_1990_1992",
   "group": "propagation",
-  "value": 7442.923792283069,
+  "value": 7442.923792631527,
   "unit": "km",
   "limit": 15000,
   "truth": "JPL Horizons trajectory of the spacecraft (Voyager 2, after Neptune, 730 days)",
   "detail": {
    "days": 730,
-   "errorKmAfter30Days": 10.55097888300065,
-   "equivalentAccelerationMS2": 3.741970528987639e-9
+   "errorKmAfter30Days": 10.550978875524748,
+   "equivalentAccelerationMS2": 3.7419705291628284e-9
   }
  },
  {
   "id": "propagation.spacecraft.voyager1_1995_2000",
   "group": "propagation",
-  "value": 45648.53804393697,
+  "value": 45648.53804168644,
   "unit": "km",
   "limit": 90000,
   "truth": "JPL Horizons trajectory of the spacecraft (Voyager 1, 1820 days)",
   "detail": {
    "days": 1820,
-   "errorKmAfter30Days": 12.407467252012557,
-   "equivalentAccelerationMS2": 3.6922118172520298e-9
+   "errorKmAfter30Days": 12.407467489725253,
+   "equivalentAccelerationMS2": 3.6922118170699996e-9
   }
  },
  {
   "id": "propagation.spacecraft.pioneer10_1980_1985",
   "group": "propagation",
-  "value": 152609.54820801702,
+  "value": 152609.5482110193,
   "unit": "km",
   "limit": 300000,
   "truth": "JPL Horizons trajectory of the spacecraft (Pioneer 10, 1820 days)",
   "detail": {
    "days": 1820,
-   "errorKmAfter30Days": 1.396584836795545,
-   "equivalentAccelerationMS2": 1.2343588676964723e-8
+   "errorKmAfter30Days": 1.3965839849408221,
+   "equivalentAccelerationMS2": 1.2343588677207558e-8
   }
  },
  {
   "id": "propagation.spacecraft.cassini_2001_2002",
   "group": "propagation",
-  "value": 9233.414976279364,
+  "value": 9233.414975612726,
   "unit": "km",
   "limit": 18000,
   "truth": "JPL Horizons trajectory of the spacecraft (Cassini, cruise after Jupiter, 364 days)",
   "detail": {
    "days": 364,
-   "errorKmAfter30Days": 8.069460624540271,
-   "equivalentAccelerationMS2": 1.8670764360622606e-8
+   "errorKmAfter30Days": 8.069460641736686,
+   "equivalentAccelerationMS2": 1.8670764359274603e-8
   }
  },
  {
   "id": "propagation.spacecraft.juno_2014_2015",
   "group": "propagation",
-  "value": 8725.804689431052,
+  "value": 8725.804689541206,
   "unit": "km",
   "limit": 17000,
   "truth": "JPL Horizons trajectory of the spacecraft (Juno, cruise after the Earth flyby, 364 days)",
   "detail": {
    "days": 364,
-   "errorKmAfter30Days": 152.6765361211117,
-   "equivalentAccelerationMS2": 1.7644332419989537e-8
+   "errorKmAfter30Days": 152.67653613858562,
+   "equivalentAccelerationMS2": 1.7644332420212273e-8
   }
  },
  {
   "id": "propagation.spacecraft.ulysses_1993_1994",
   "group": "propagation",
-  "value": 12716.107492704868,
+  "value": 12716.107493135169,
   "unit": "km",
   "limit": 25000,
   "truth": "JPL Horizons trajectory of the spacecraft (Ulysses, 364 days)",
   "detail": {
    "days": 364,
-   "errorKmAfter30Days": 70.93453233286583,
-   "equivalentAccelerationMS2": 2.571307010359336e-8
+   "errorKmAfter30Days": 70.934532426172,
+   "equivalentAccelerationMS2": 2.5713070104463467e-8
   }
  },
  {
   "id": "propagation.spacecraft.mars2020_cruise",
   "group": "propagation",
-  "value": 5962.076877561593,
+  "value": 5962.076877475476,
   "unit": "km",
   "limit": 12000,
   "truth": "JPL Horizons trajectory of the spacecraft (Mars 2020, cruise with correction maneuvers, 174 days)",
   "detail": {
    "days": 174,
-   "errorKmAfter30Days": 65.00976873294375,
-   "equivalentAccelerationMS2": 5.275961112718403e-8
+   "errorKmAfter30Days": 65.00976878583253,
+   "equivalentAccelerationMS2": 5.275961112642196e-8
   }
  },
  {
   "id": "propagation.flyby.voyager2.0.JUPITER",
   "group": "flyby",
-  "value": 285.246349099325,
+  "value": 285.24634890118614,
   "unit": "km",
   "limit": 2000,
   "truth": "JPL Horizons trajectory of voyager2 relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 721660.7097791865,
+   "periapsisRadiusKm": 721660.7097789884,
    "truthPeriapsisRadiusKm": 721375.4634300872,
-   "positionErrorKmAfter4Days": 4002.449803515575,
+   "positionErrorKmAfter4Days": 4002.4498022858215,
    "moonsInModel": "yes"
   }
  },
  {
   "id": "propagation.flyby.voyager2.1.SATURN",
   "group": "flyby",
-  "value": 60.40307758175186,
+  "value": 60.40651760221226,
   "unit": "km",
   "limit": 500,
   "truth": "JPL Horizons trajectory of voyager2 relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 160630.8544323337,
+   "periapsisRadiusKm": 160630.85099231324,
    "truthPeriapsisRadiusKm": 160691.25750991545,
-   "positionErrorKmAfter4Days": 5018.611973518078,
+   "positionErrorKmAfter4Days": 5018.612036784574,
    "moonsInModel": "yes"
   }
  },
  {
   "id": "propagation.flyby.voyager2.2.URANUS",
   "group": "flyby",
-  "value": 0.07999973952246364,
+  "value": 0.08000123618694488,
   "unit": "km",
   "limit": 100,
   "truth": "JPL Horizons trajectory of voyager2 relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 107154.26916394543,
+   "periapsisRadiusKm": 107154.26916544209,
    "truthPeriapsisRadiusKm": 107154.1891642059,
-   "positionErrorKmAfter4Days": 11.678865726024855,
+   "positionErrorKmAfter4Days": 11.678837619966954,
    "moonsInModel": "yes"
   }
  },
  {
   "id": "propagation.flyby.voyager2.3.NEPTUNE",
   "group": "flyby",
-  "value": 0.09258119767400785,
+  "value": 0.09258101347586489,
   "unit": "km",
   "limit": 100,
   "truth": "JPL Horizons trajectory of voyager2 relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 29236.125240851696,
+   "periapsisRadiusKm": 29236.125240667498,
    "truthPeriapsisRadiusKm": 29236.03265965402,
-   "positionErrorKmAfter4Days": 95.8544179928679,
+   "positionErrorKmAfter4Days": 95.85418911035995,
    "moonsInModel": "yes"
   }
  },
  {
   "id": "propagation.flyby.cassini.0.VENUS",
   "group": "flyby",
-  "value": 0.05742786566315772,
+  "value": 0.05742734507111891,
   "unit": "km",
   "limit": 10,
   "truth": "JPL Horizons trajectory of cassini relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 6335.495763297482,
+   "periapsisRadiusKm": 6335.495763818074,
    "truthPeriapsisRadiusKm": 6335.553191163145,
-   "positionErrorKmAfter4Days": 9.13929987619015,
+   "positionErrorKmAfter4Days": 9.139286820479049,
    "moonsInModel": "no"
   }
  },
  {
   "id": "propagation.flyby.cassini.1.VENUS",
   "group": "flyby",
-  "value": 2.211279513923728,
+  "value": 2.2112793487585805,
   "unit": "km",
   "limit": 10,
   "truth": "JPL Horizons trajectory of cassini relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 6656.609791475066,
+   "periapsisRadiusKm": 6656.609791309901,
    "truthPeriapsisRadiusKm": 6654.3985119611425,
-   "positionErrorKmAfter4Days": 428.86619063209383,
+   "positionErrorKmAfter4Days": 428.86612872264266,
    "moonsInModel": "no"
   }
  },
  {
   "id": "propagation.flyby.cassini.2.EARTH",
   "group": "flyby",
-  "value": 0.2785310772660523,
+  "value": 0.27853153935302544,
   "unit": "km",
   "limit": 10,
   "truth": "JPL Horizons trajectory of cassini relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 7549.918405656242,
+   "periapsisRadiusKm": 7549.918406118329,
    "truthPeriapsisRadiusKm": 7549.639874578976,
-   "positionErrorKmAfter4Days": 224.51908481633745,
+   "positionErrorKmAfter4Days": 224.5190858144245,
    "moonsInModel": "no"
   }
  },
  {
   "id": "propagation.flyby.cassini.3.JUPITER",
   "group": "flyby",
-  "value": 0.22029728814959526,
+  "value": 0.22029702737927437,
   "unit": "km",
   "limit": 50,
   "truth": "JPL Horizons trajectory of cassini relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 9794457.237050053,
+   "periapsisRadiusKm": 9794457.237049792,
    "truthPeriapsisRadiusKm": 9794457.016752765,
-   "positionErrorKmAfter4Days": 0.4739960583479771,
+   "positionErrorKmAfter4Days": 0.4739960428175396,
    "moonsInModel": "yes"
   }
  },
  {
   "id": "propagation.flyby.galileo.0.VENUS",
   "group": "flyby",
-  "value": 0.03875525003968505,
+  "value": 0.03875490009886562,
   "unit": "km",
   "limit": 10,
   "truth": "JPL Horizons trajectory of galileo relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 22175.142222755567,
+   "periapsisRadiusKm": 22175.142222405626,
    "truthPeriapsisRadiusKm": 22175.103467505527,
-   "positionErrorKmAfter4Days": 14.230772475028115,
+   "positionErrorKmAfter4Days": 14.230750954608515,
    "moonsInModel": "no"
   }
  },
  {
   "id": "propagation.flyby.galileo.1.EARTH",
   "group": "flyby",
-  "value": 0.17942152588875615,
+  "value": 0.17942330770256376,
   "unit": "km",
   "limit": 10,
   "truth": "JPL Horizons trajectory of galileo relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 7334.013708364795,
+   "periapsisRadiusKm": 7334.013706582981,
    "truthPeriapsisRadiusKm": 7334.193129890684,
-   "positionErrorKmAfter4Days": 22.633812363826923,
+   "positionErrorKmAfter4Days": 22.634011431094375,
    "moonsInModel": "no"
   }
  },
  {
   "id": "propagation.flyby.galileo.2.EARTH",
   "group": "flyby",
-  "value": 0.20903401074792782,
+  "value": 0.20903272034047404,
   "unit": "km",
   "limit": 10,
   "truth": "JPL Horizons trajectory of galileo relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 6674.837405733979,
+   "periapsisRadiusKm": 6674.837404443571,
    "truthPeriapsisRadiusKm": 6674.628371723231,
-   "positionErrorKmAfter4Days": 40.35985690228748,
+   "positionErrorKmAfter4Days": 40.35964295050694,
    "moonsInModel": "no"
   }
  },
  {
   "id": "propagation.flyby.newhorizons.0.JUPITER",
   "group": "flyby",
-  "value": 3.1640714230015874,
+  "value": 3.1640715673565865,
   "unit": "km",
   "limit": 50,
   "truth": "JPL Horizons trajectory of newhorizons relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 2304501.59770547,
+   "periapsisRadiusKm": 2304501.5977053256,
    "truthPeriapsisRadiusKm": 2304504.761776893,
-   "positionErrorKmAfter4Days": 11.895860254269603,
+   "positionErrorKmAfter4Days": 11.895860582475745,
    "moonsInModel": "yes"
   }
  },
  {
   "id": "propagation.flyby.newhorizons.1.PLUTO",
   "group": "flyby",
-  "value": 13.494523120149097,
+  "value": 13.494448379135065,
   "unit": "km",
   "limit": 50,
   "truth": "JPL Horizons trajectory of newhorizons relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 13689.701320357477,
+   "periapsisRadiusKm": 13689.701245616463,
    "truthPeriapsisRadiusKm": 13676.206797237328,
-   "positionErrorKmAfter4Days": 34.97996713218246,
+   "positionErrorKmAfter4Days": 34.90269830112595,
    "moonsInModel": "yes"
   }
  },
  {
   "id": "propagation.flyby.juno.0.EARTH",
   "group": "flyby",
-  "value": 0.5805129247892182,
+  "value": 0.5805116359751992,
   "unit": "km",
   "limit": 10,
   "truth": "JPL Horizons trajectory of juno relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 6931.920065092506,
+   "periapsisRadiusKm": 6931.92006638132,
    "truthPeriapsisRadiusKm": 6932.500578017295,
-   "positionErrorKmAfter4Days": 99.48990134099076,
+   "positionErrorKmAfter4Days": 99.48965186055553,
    "moonsInModel": "no"
   }
  },
  {
   "id": "propagation.flyby.ulysses.0.JUPITER",
   "group": "flyby",
-  "value": 1.483608230133541,
+  "value": 1.4836084635462612,
   "unit": "km",
   "limit": 50,
   "truth": "JPL Horizons trajectory of ulysses relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 450444.3595997322,
+   "periapsisRadiusKm": 450444.3595999656,
    "truthPeriapsisRadiusKm": 450442.8759915021,
-   "positionErrorKmAfter4Days": 13.313175267615122,
+   "positionErrorKmAfter4Days": 13.313166826400275,
    "moonsInModel": "yes"
   }
  },
  {
   "id": "propagation.flyby.messenger.0.EARTH",
   "group": "flyby",
-  "value": 0.10645322200980445,
+  "value": 0.10645246818057785,
   "unit": "km",
   "limit": 10,
   "truth": "JPL Horizons trajectory of messenger relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 8714.301585175475,
+   "periapsisRadiusKm": 8714.301584421646,
    "truthPeriapsisRadiusKm": 8714.195131953466,
-   "positionErrorKmAfter4Days": 28.363609909237944,
+   "positionErrorKmAfter4Days": 28.363613144411694,
    "moonsInModel": "no"
   }
  },
  {
   "id": "propagation.flyby.rosetta.0.EARTH",
   "group": "flyby",
-  "value": 0.05362835476444161,
+  "value": 0.05362951787174097,
   "unit": "km",
   "limit": 10,
   "truth": "JPL Horizons trajectory of rosetta relative to the planet centre, 1-minute samples",
   "detail": {
-   "periapsisRadiusKm": 8332.385874840567,
+   "periapsisRadiusKm": 8332.38587367746,
    "truthPeriapsisRadiusKm": 8332.439503195332,
-   "positionErrorKmAfter4Days": 6.462458844264188,
+   "positionErrorKmAfter4Days": 6.462339041613371,
    "moonsInModel": "no"
   }
  }

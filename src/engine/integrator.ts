@@ -2,7 +2,11 @@
  * Runge-Kutta-Fehlberg 7(8) integrator with adaptive step size.
  * Coefficients: E. Fehlberg, NASA TR R-287 (1968). The 8th-order solution is propagated.
  */
-export type Derivative = (t: number, y: Float64Array, dydt: Float64Array) => void;
+/**
+ * Derivative at the time t + dt. The integrator gives the start of the step in t and the offset in the step in dt.
+ * A function of large time arguments (an ephemeris) can use the two parts to keep the full accuracy of the time.
+ */
+export type Derivative = (t: number, y: Float64Array, dydt: Float64Array, dt: number) => void;
 
 const C = [0, 2 / 27, 1 / 9, 1 / 6, 5 / 12, 1 / 2, 5 / 6, 1 / 6, 2 / 3, 1 / 3, 1, 0, 1];
 const A: number[][] = [
@@ -26,6 +30,14 @@ const B8 = [0, 0, 0, 0, 0, 34 / 105, 9 / 35, 9 / 35, 9 / 280, 9 / 280, 0, 41 / 8
 const ERR_W = 41 / 840;
 
 export const RKF78_TABLEAU = { C, A, B8 };
+
+/**
+ * x^(1/8) from three square roots. The square root has one correct result in all JavaScript engines; Math.pow does
+ * not, and a step size that is different in the last bit gives a different sequence of steps.
+ */
+function root8(x: number): number {
+  return Math.sqrt(Math.sqrt(Math.sqrt(x)));
+}
 
 export interface StepControl {
   /** Relative tolerance. */
@@ -51,6 +63,12 @@ export class Rkf78 {
   private readonly n: number;
   private readonly k: Float64Array[];
   private readonly tmp: Float64Array;
+  /**
+   * Rounding error of the state sums that is not yet added (compensated summation). Without it, a position of
+   * 1.5e8 km loses 1.5e-8 km at each step, and a close pass of a planet multiplies this error by 1e4 to 1e5.
+   */
+  private readonly comp: Float64Array;
+  private readonly compNew: Float64Array;
   /** Number of derivative evaluations. */
   evals = 0;
   /** Number of rejected steps. */
@@ -62,12 +80,17 @@ export class Rkf78 {
     this.n = n;
     this.k = Array.from({ length: 13 }, () => new Float64Array(n));
     this.tmp = new Float64Array(n);
+    this.comp = new Float64Array(n);
+    this.compNew = new Float64Array(n);
   }
+
+  /** Discard the rounding error that is not yet added (the caller replaced the state by a new one). */
+  resetCompensation(): void { this.comp.fill(0); }
 
   /** One trial step of size h from (t, y). Writes the new state in yOut. Returns the scaled error norm. */
   private trial(t: number, y: Float64Array, h: number, yOut: Float64Array, ctl: StepControl, k0Ready: boolean): number {
-    const { n, k, tmp, f } = this;
-    if (!k0Ready) { f(t, y, k[0]); this.evals++; }
+    const { n, k, tmp, f, comp, compNew } = this;
+    if (!k0Ready) { f(t, y, k[0], 0); this.evals++; }
     for (let s = 1; s < 13; s++) {
       const a = A[s];
       for (let i = 0; i < n; i++) {
@@ -75,14 +98,18 @@ export class Rkf78 {
         for (let j = 0; j < s; j++) { const aj = a[j]; if (aj !== 0) acc += aj * k[j][i]; }
         tmp[i] = y[i] + h * acc;
       }
-      f(t + C[s] * h, tmp, k[s]);
+      f(t, tmp, k[s], C[s] * h);
       this.evals++;
     }
     let err = 0;
     for (let i = 0; i < n; i++) {
       let acc = 0;
       for (let j = 5; j < 13; j++) acc += B8[j] * k[j][i];
-      const yn = y[i] + h * acc;
+      // y + (h * acc + comp), and the part of the sum that the rounding removed (two-sum)
+      const a = y[i], b = h * acc + comp[i];
+      const yn = a + b;
+      const bb = yn - a;
+      compNew[i] = (a - (yn - bb)) + (b - bb);
       yOut[i] = yn;
       const e = ERR_W * h * (k[0][i] + k[10][i] - k[11][i] - k[12][i]);
       const at = typeof ctl.atol === 'number' ? ctl.atol : ctl.atol[i];
@@ -120,7 +147,10 @@ export class Rkf78 {
     while ((t1 - t) * dir > 1e-12 * Math.max(1, Math.abs(t1))) {
       let last = false;
       if (h >= Math.abs(t1 - t)) { h = Math.abs(t1 - t); last = true; }
-      const err = this.trial(t, y, dir * h, yNew, ctl, k0Ready);
+      // The step ends at a time that a 64-bit number can hold, and its length is the exact difference. If not, each
+      // step moves the time label by as much as 6e-8 s from the time of the state (2 mm of motion at 35 km/s).
+      const tNext = last ? t1 : t + dir * h;
+      const err = this.trial(t, y, tNext - t, yNew, ctl, k0Ready);
       if (!(err >= 0)) {
         // The error is not a number: the state or the derivative is not finite. A smaller step can help only if
         // the start state of the step is finite.
@@ -136,18 +166,19 @@ export class Rkf78 {
         yPrev.set(y);
         dPrev.set(this.k[0]);
         const tPrev = t;
-        t = last ? t1 : t + dir * h;
+        t = tNext;
         y.set(yNew);
+        this.comp.set(this.compNew);
         steps++;
         k0Ready = false;
-        const fac = err > 0 ? Math.min(4, Math.max(0.2, 0.9 * Math.pow(err, -1 / 8))) : 4;
+        const fac = err > 0 ? Math.min(4, Math.max(0.2, 0.9 / root8(err))) : 4;
         const hNext = Math.min(hMax, Math.max(hMin, h * fac));
         if (onStep && onStep(t, y, tPrev, yPrev, dPrev) === true) return { t, h: hNext, steps };
         if (!last || fac < 1) h = hNext;
       } else {
         this.rejected++;
         k0Ready = true;
-        h = Math.max(hMin, h * Math.max(0.2, 0.9 * Math.pow(err, -1 / 8)));
+        h = Math.max(hMin, h * Math.max(0.2, 0.9 / root8(err)));
       }
     }
     return { t, h, steps };
