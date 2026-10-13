@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="Using STK|Data Management|Create &amp; Import External Files" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="Aviator meta tags" content="aircraft,Aviator,stk" /><title> External Files - Ephemeris File Format (*.e)</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Print.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/agiWebStyle.css" rel="stylesheet" type="text/css" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.collapse-nav-button
+{
+	-pie-background: linear-gradient(transparent, transparent);
+}
+
+.button.separator-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.needs-pie
+{
+	behavior: url('../../Resources/Scripts/PIE-no-motw.htc');
+}
+
+</style>
+        <style>/*&lt;meta /&gt;*/
+
+.button.expand-all-button
+{
+	-pie-background: linear-gradient(transparent, transparent);
+}
+
+.button.separator-button
+{
+	-pie-background: linear-gradient(transparent, transparent);
+}
+
+.button.print-button
+{
+	-pie-background: url('../../Skins/Default/Stylesheets/Images/Print_7.png') no-repeat center center, linear-gradient(transparent, transparent);
+}
+
+.button.remove-highlight-button
+{
+	-pie-background: url('../../Skins/Default/Stylesheets/Images/RemoveHighlights_3.png') no-repeat center center, linear-gradient(transparent, transparent);
+}
+
+.button.separator-button
+{
+	-pie-background: linear-gradient(transparent, transparent);
+}
+
+.button.previous-topic-button
+{
+	-pie-background: url('../../Skins/Default/Stylesheets/Images/NavigatePrevious_3.png') no-repeat center center, linear-gradient(transparent, transparent);
+}
+
+.button.next-topic-button
+{
+	-pie-background: url('../../Skins/Default/Stylesheets/Images/NavigateNext_3.png') no-repeat center center, linear-gradient(transparent, transparent);
+}
+
+.button.collapse-all-button
+{
+	-pie-background: linear-gradient(transparent, transparent);
+}
+
+.needs-pie
+{
+	behavior: url('../../Resources/Scripts/PIE-no-motw.htc');
+}
+
+</style>
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+        <script type="text/javascript" src="../Resources/Scripts/reload.js">
+        </script>
+        <script type="text/javascript" src="../../Skins/Default/Scripts/agiHelpToolbarRight.js">
+        </script>
+    </head>
+    <body>
+        <div id="allBits">
+            <div id="upperBits">
+                <div class="buttons popup-container clearfix topicToolbarProxy topicToolbarProxyleft _Skins_agiHelpToolbarLeft mc-component nocontent" style="mc-topic-toolbar-items: ;">
+                    <div class="button-group-container-left">
+                        <button class="button needs-pie collapse-nav-button" title="Collapse the Table of Contents">
+                            <div>
+                                <div role="img" class="button-icon-wrapper">
+                                    <div class="button-icon"> </div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="button-separator">
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons popup-container clearfix topicToolbarProxy topicToolbarProxyright _Skins_agiHelpToolbarRight mc-component nocontent" style="mc-topic-toolbar-items: ;">
+                    <div class="button-group-container-left">
+                        <button class="button needs-pie expand-all-button" data-state1-class="expand-all-button" data-state2-class="collapse-all-button" data-state2-title="Collapse all" title="Expand all" data-state1-title="Expand all">
+                            <div>
+                                <div role="img" class="button-icon-wrapper" aria-label="Expand all">
+                                    <div class="button-icon"> </div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="button-separator">
+                        </div>
+                        <button class="button needs-pie print-button" title="Print">
+                            <div>
+                                <div role="img" class="button-icon-wrapper" aria-label="Print">
+                                    <div class="button-icon"> </div>
+                                </div>
+                            </div>
+                        </button>
+                        <button class="button needs-pie remove-highlight-button" title="Remove Highlights">
+                            <div>
+                                <div role="img" class="button-icon-wrapper" aria-label="Remove Highlights">
+                                    <div class="button-icon"> </div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="button-separator">
+                        </div>
+                        <button class="button needs-pie previous-topic-button" title="Navigate previous" disabled="true">
+                            <div>
+                                <div role="img" class="button-icon-wrapper" aria-label="Navigate previous">
+                                    <div class="button-icon"> </div>
+                                </div>
+                            </div>
+                        </button>
+                        <button class="button needs-pie next-topic-button" title="Navigate next" disabled="true">
+                            <div>
+                                <div role="img" class="button-icon-wrapper" aria-label="Navigate next">
+                                    <div class="button-icon"> </div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="middleBits">
+                <main>
+                    <div role="main" id="mc-main-content">
+                        <p class="style1"><a href="#keywords">Keywords</a> | <a href="#formats">Ephemeris Formats</a></p>
+                        <h1>Ephemeris File Format (*.e)</h1>
+                        <p>An ephemeris file is an ASCII text file formatted for compatibility with STK that ends in a <code>.e</code> extension. Ephemeris files can be useful when you need to provide STK with position and velocity data for a vehicle to model certain unique circumstances. Vehicle ephemeris is a Basic property of all vehicles in STK. If you have ephemeris data, organized in a properly formatted table, in any ephemeris file, you can import it into STK using the <a href="veh_propagator_external.htm">STK External propagator</a>.</p>
+                        <p>STK uses ephemeris data to generate the position and velocity of a vehicle at whatever time values needed to support analysis and animation. When necessary, STK will interpolate between points to do, in the same coordinate frame (inertial or fixed) as the data frame.</p><a name="refFrame"></a>
+                        <p>STK ephemeris files adhere to the following conventions:</p>
+                        <ul>
+                            <li>The reference coordinate frame is specified using the <a href="#cb"><code>CentralBody</code></a>, <a href="#coordSys"><code>CoordinateSystem</code></a>, and <a href="#coordSysEp"><code>CoordinateSystemEpoch</code></a> keywords.</li>
+                            <li>In Julian Dates format, you can enter dates in scientific notation.</li>
+                            <li>STK-imported ephemeris files for orbiting objects are expected to have at least 90 points per complete revolution around the central body.</li>
+                        </ul>
+                        <p>The first step in creating an external ephemeris file is to understand what type of ephemeris data you need. Before starting to create a file, you should ask yourself the following questions:</p>
+                        <ul>
+                            <li>How is the data formatted?</li>
+                            <li>Is it in Cartesian X, Y, Z coordinates; geodetic latitude, longitude, and altitude; or geocentric latitude, longitude, and radius?</li>
+                            <li>What coordinate system is the data in? Is it in an inertial frame? If so, which inertial frame is it? Is it a fixed frame?</li>
+                        </ul>
+                        <p>Once you know the answers to these questions, you can use keywords recognized by STK to create a table that describes the position and velocity of the vehicle.</p><a name="keywords"></a>
+                        <h2>Keywords</h2>
+                        <p>Each ephemeris table, regardless of the type of ephemeris data in the table, contains some common elements called keywords. Keywords and their associated values must precede the specification of the <a href="#formats">ephemeris format</a> and the actual data points.</p>
+                        <p class="note">The keywords used in ephemeris tables are <i>not</i> case sensitive and do not have to conform to the case scheme utilized here.</p>
+                        <table>
+                            <tr>
+                                <th>Keyword</th>
+                                <th>Required</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td class="listing"><a name="version"></a>stk.v.&lt;major release number&gt;.&lt;minor release number&gt;</td>
+                                <td class="centered">Yes</td>
+                                <td>
+                                    <p>This is the version of STK software associated with the file formatting. You can create files in this format and import them into any STK software version at this level or higher. </p>
+                                    <p>The version stamp must be the first line in the file.</p>
+                                    <p><em>Example:</em>
+                                    </p>
+                                    <blockquote class="listing">stk.v.11.0</blockquote>
+                                    <p>
+
+A file created in and stamped with this version could be imported into STK software version 11.0 through the most recent version.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing">MessageLevel</td>
+                                <td class="centered">No </td>
+                                <td>
+                                    <p>You can set this value to determine the level of message(s) you receive from STK as it attempts to read the file. The value options are:</p>
+                                    <ul>
+                                        <li><b>Errors</b> - You only receive the reported error messages.</li>
+                                        <li><b>Warnings</b> - You receive error messages plus reporting on other information (e.g., unrecognized keywords).</li>
+                                        <li><b>Verbose</b> - You receive all that is in <b>Warnings</b> plus a success message if STK reads and accepts the complete file. </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing"><a name="beginEnd"></a>BEGIN&#160;Ephemeris<br />END&#160;Ephemeris</td>
+                                <td class="centered">Yes</td>
+                                <td>These set off the beginning and end of the ephemeris table, including all other keyword phrases and data point specification (except the version stamp). Refer to any of the sample files included in the <a href="#formats">Ephemeris Format</a> section for examples.</td>
+                            </tr>
+                            <tr>
+                                <td class="listing"><a name="scenEpoch"></a>ScenarioEpoch</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>This is the reference epoch time for the time values of the ephemeris data in the table, where the times are represented as seconds since it's a reference epoch. Specify the scenario epoch using Gregorian UTC time (<code>dd mmm yyyy hh:mm:ss.s</code>). There is no relationship between the scenario epoch specified in the ephemeris table and the actual scenario epoch in your STK scenario. See also <a href="#TimeFormat">TimeForma</a>t.</p>
+                                    <p>The default is the actual scenario epoch in the STK scenario.</p>
+                                    <p><em>Example:</em>
+                                        <br />ScenarioEpoch&#160;1&#160;Jan&#160;2003&#160;00:00:00.0</p>
+                                    <p>
+In this case, a time of <code>5.5</code> for a particular ephemeris point would correspond to a time of <code>1&#160;Jan&#160;2003&#160;00:00:05.5</code>.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing"><a name="cb"></a>CentralBody</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>This is the central body that the ephemeris points are relative to. The keyword value that completes the phrase can be the name of any registered central body. You can find registered central bodies in the 
+			<code>STKData\CentralBodies</code> directory.</p>
+                                    <p>The default is the central body for the vehicle, and that default is Earth.</p>
+                                    <p><em>Example:</em>
+                                    </p>
+                                    <ul class="listing">CentralBody Moon
+			  </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing"><a name="smoothData"></a>SmoothData</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>Including this declares that the files contain smooth data.</p>
+                                    <p> Smoothness of data impacts sampling characteristics of STK calculations such as Access, calculation components, lighting times, etc. Non-smooth data is sampled judiciously around each time at which sharp changes may occur.</p>
+                                    <p>Without a <a href="#TrendingControl">TrendingControl</a> section or SmoothData keyword, STK determines smoothness of ephemeris data based on vehicle and propagator types. STK assumes that ground vehicle, ship, and aircraft objects, as well as any object with a file that declares interpolation to be based on a great arc type, have non-smooth data. Otherwise, it assumes the data to be smooth.</p>
+                                    <p>Use the SmoothData keyword  only if the TrendingControl Section does not specify a time listing. If no TrendingControl section is specified, the Smooth Data setting specifies the smoothness of the data. </p>
+                                    <p>Valid values are Yes, No, True, False, On, and Off. The default is No.</p>
+                                    <p><b>Keyword History</b>
+                                    </p>
+                                    <p>The SmoothData keyword, with Yes and No values, was introduced in STK 10.1.0.</p>
+                                    <p> Additional values (True, On ,False, and Off) for this keyword were introduced in STK 11.2.0.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing">
+                                    <p><a name="TrendingControl"></a>Begin TrendingControl</p>
+                                    <p>End TrendingControl</p>
+                                </td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>These keywords mark the beginning and end of the TrendingControl section. STK will sample the data in this section when determining trends for event detection. For example, a drastic change in motion may indicate an event (especially if the change is brief).</p>
+                                    <p>The TrendingControl section can include either the <a href="#TrendingControlTimes">TrendingControlTimes</a> subsection or the <a href="#TrendingControlStep">TrendingControlStep</a>.</p>
+                                    <p><b>Keyword History</b>
+                                    </p>
+                                    <p>The TrendingControl keywords were introduced in STK 11.6.0.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing">
+                                    <p><a name="TrendingControlTimes"></a>Begin TrendingControlTimes</p>
+                                    <p>End TrendingControlTimes</p>
+                                </td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>You can include a TrendingControlTimes section in the file if you do not use the TrendingControlStep keyword.</p>
+                                    <p>This section contains a list of times (one time per line) that should be sampled for determining trends for event detection. </p>
+                                    <p>If a TimeFormat keyword precedes this section, then this section must adhere to the format. Otherwise, the times are in seconds since the ScenarioEpoch is specified in the file.</p>
+                                    <p><b>Keyword History</b>
+                                    </p>
+                                    <p>The TrendingControlTimes keywords were introduced in STK 11.6.0.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing"><a name="TrendingControlStep"></a>TrendingControlStep</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>You can include the TrendingControlStep keyword in the file if the  TrendingControlTimes section is not used.</p>
+                                    <p>The keyword specifies the step size, in seconds, that STK will use when sampling times in the file. STK will select samples as far apart as possible without exceeding the step size. Controlling the step size is most useful when the sample times in a file are dense. STK will sample at a lower density than the file's data, but the points will still be close enough to detect drastic changes in motion.</p>
+                                    <p><b>Keyword History</b>
+                                    </p>
+                                    <p>The TrendingControlStep keyword was introduced in STK 11.6.0.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing"><a name="coordSys"></a>CoordinateSystem</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>AGI recommends specifying this; is the coordinate system in which the ephemeris points reside. Normally, the coordinate system is the name of a valid coordinate system for the central body specified above (see  <a href="AstroComps.htm">Central Body Coordinate Systems</a>). Typically, each central body supports Fixed, J2000, ICRF, Inertial, TrueOfDate, and MeanOfDate, though certain bodies support additional systems.</p>
+                                    <p>You can also define a new system using the  
+<a href="vgTool.htm">Vector Geometry Tool</a> (VGT). You can then specify the name of your new system and the name of the STK object to which it corresponds.The VGT-created system must use the keyword  <b> CoordinateSystem AWB</b>.</p>
+                                    <br />
+                                    <p class="note"><b>CoordinateSystem AWB</b> replaces  <b>CoordinateSystem Custom</b> as the required keyword for VGT-created systems. STK still supports the CoordinateSystem Custom keyword  for backward compatibility.</p>
+                                    <br />
+                                    <p>The default is Fixed.</p> <br /><p><em>Examples:</em><br />CoordinateSystem&#160;TrueOfEpoch
+					<br />CoordinateSystem&#160;AWB&#160;TopoCentric&#160;Facility/MyLaunchSite </p><div class="notes"><ul class="loose"><li>The name of the STK object is optional if the object that is importing the ephemeris is the object to which the coordinate system corresponds.</li><li>If you specify a coordinate system that is unknown to STK, the default fixed coordinate system will be used.</li></ul></div><p><b>Keyword History</b></p><p>The CoordinateSystem Custom keyword was replaced with the CoordinateSystem AWB keyword in 11.5.0.</p><p>
+						The CoordinateSystem AWB keyword was introduced in 11.5.0.
+</p></td>
+                            </tr>
+                            <tr>
+                                <td class="listing">ComputeVelocity</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>The manner in which Cartesian velocity is computed from the Cartesian position generated from the position data in the file if rate information is not provided directly by the file. The default value is DerivativeOfInterpolatingPolynominal. Other values are:&#160;</p>
+                                    <ul>
+                                        <li>
+                                            <p>ForwardDifference</p>
+                                        </li>
+                                        <li>
+                                            <p>BackwardDifference</p>
+                                        </li>
+                                        <li>
+                                            <p>CentralDifference</p>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing"><a name="coordSysEp"></a>CoordinateSystemEpoch</td>
+                                <td class="centered">See Note</td>
+                                <td>This is the epoch time for the coordinate system in Gregorian UTC time (<code>dd mmm yyyy hh:mm:ss.s</code>).<p>It is required with coordinate systems that reference an Epoch:<ul class="listing"><li>MeanOfEpoch</li><li>TrueOfEpoch</li><li>TEMEOfEpoch</li><li>AlignmentAtEpoch</li></ul></p><p><em>Example:</em></p><p>CoordinateSystemEpoch&#160;1&#160;Jun&#160;2003&#160;12:00:00.0</p></td>
+                            </tr>
+                            <tr>
+                                <td class="listing"><a name="dstUnit"></a>DistanceUnit</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>Set the distance unit for all distance measurements in the ephemeris table. By default, STK assumes that all distance measurements in an ephemeris table are in meters and velocities are in meters/second. You can override this by setting the distance unit to be any valid STK distance unit.</p>
+                                    <p>To see a list of all available units of measure, open the Units page of the Scenario's Basic properties by double-clicking the scenario in the Object Browser and selecting the Units page.</p>
+                                    <p>The default for velocity is meters per second.</p>
+                                    <p>The default for the ephemeris table is meters.</p>
+                                    <p><em>Example:</em>
+                                        <br />DistanceUnit Kilometers</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing">BlockingFactor</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>This specifies how much memory (in terms of sets of ephemeris points) STK will allocate at a time while reading an ephemeris file. When reading large files, this can speed up the loading process by avoiding  re-allocating small chunks of memory. </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing">InterpolationMethod</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>The method by which STK interpolates between ephemeris points. Valid values are:</p>
+                                    <ul>
+                                        <li><code>Lagrange</code>
+                                        </li>
+                                        <li><code>Hermite</code> - Select this to take advantage of velocity information, if available, in order to achieve smoother ephemeris interpolation. It is especially useful when using tables containing very irregularly spaced data points or data that can be susceptible to ringing and aliasing effects if derivative information is not considered during interpolation. Hermitian interpolation assumes that the velocity component of the ephemeris is the derivative of the position. Do not use Hermitian interpolation  when velocity data is not available as part of the ephemeris table.</li>
+                                        <li><code>LagrangeVOP</code> - When using this method, be sure to set the required mu value (see example below) </li>
+                                        <li><code>GreatArc</code> - This is a Fixed reference frame method, with interpolation as a great arc vehicle on WGS84. </li>
+                                        <li><code>GreatArcTerrain</code> - This is a Fixed reference frame method, with interpolation as a great arc vehicle using Terrain.</li>
+                                        <li><code>GreatArcMSL</code> - This is a Fixed reference frame method, with interpolation as a great arc vehicle using MSL.</li>
+                                    </ul>
+                                    <p>The default is Lagrange.</p>
+                                    <p><em>Examples:</em>
+                                        <br />InterpolationMethod Hermite<br />						InterpolationMethod LagrangeVOP 3.98600441500e+14</p>
+                                    <p><b>Keyword History</b>
+                                    </p>
+                                    <p class="note">The TwoBodyBlending, J2Blending, J4Blending, and Aviator values for this keyword were introduced in 11.0. However, these four methods do not produce valid results, so AGI strongly recommends not using them.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing"><a name="intOrder"></a>InterpolationOrder</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>This keyword has been deprecated and replaced with InterpolationSamplesM1; it has the same format and function as its replacement.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing">InterpolationSamplesM1</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>This is one less than the number of points used in the interpolation. For the Lagrange interpolation method, this is also the interpolation order. For the Hermitian interpolation method, the interpolation order is: <br />(2 x InterpolationSamplesM1) + 1.</p>
+                                    <p>The default is 5.</p>
+                                    <p><em>Example:</em>
+                                        <br />InterpolationSamplesM1 5</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing"><a name="numPts"></a>NumberOfEphemerisPoints</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>AGI recommends specifying this to indicate the maximum number of ephemeris points to read from the file.
+						When not specified, STK will use	all  ephemeris points in the file.			
+					</p>
+                                    <p class="note">Prior to STK 11.5, this keyword was required.</p>
+                                    <p><em>Example:</em>
+                                    </p>
+					If you enter
+			
+					<ul class="listing">NumberOfEphemerisPoints 1000
+				</ul><p>STK will read up to 1000 ephemeris points.</p></td>
+                            </tr>
+                            <tr>
+                                <td class="listing">NumberOfCovariancePoints</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>AGI recommends specifying this to indicate the maximum number of covariance points to read from the file. When not specified, STK will read all covariance points in the file. </p>
+                                    <p><em>Example:</em>
+                                        <br />If you enter</p>
+                                    <ul class="listing">NumberOfCovariancePoints 1000</ul>
+                                    <p>STK will read up to 1000 covariance points.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing">CovarianceInterpolationMethod</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>You can specify the method for interpolating covariance that contains both position and velocity terms. </p>
+                                    <p>Valid values are None and TwoBodyQuadraticArithmeticBlending.</p>
+                                    <p>The default is TwoBodyQuadraticArithmeticBlending for Satellites and None for other vehicles. </p>
+                                    <p>TwoBodyQuadraticArithmeticBlending refers to the weighted average (with weights based on a quadratic in time polynomial) of the covariance matrices computed using two-body covariance propagation from the previous and next time samples. This is only appropriate for objects with motion dominated by two-body motion (i.e., satellites orbiting a central body).</p>
+                                    <p><b>Keyword History</b>
+                                    </p>
+                                    <p>The CovarianceInterpolationMethod keyword was introduced in STK version 11.0.0.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing"><a name="covarianceFormat"></a>CovarianceFormat</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>This specifies the portion of the covariance matrix that will appear in the <code>CovarianceTimePos</code> or <code>CovarianceTimePosVel</code> sections of the file. Valid values are:</p>
+                                    <ul class="listing">
+                                        <li>LowerTriangular</li>
+                                        <li>LT</li>
+                                        <li>UpperTriangular</li>
+                                        <li>UT</li>
+                                    </ul>
+                                    <p>If you specify <code>LowerTriangular</code> or <code>LT</code>, STK assumes the order of entries to be:</p>
+                                    <p><code>C[0][0]<br />C[1][0]&#160;C[1][1]<br />C[2][0]&#160;C[2][1]&#160;C[2][2]<br />&#160;&#160;&#160;.<br />&#160;&#160;&#160;.<br />&#160;&#160;&#160;.</code>
+                                    </p>
+                                    <p>If you specify <code>UpperTriangular</code> or <code>UT</code>, STK assumes the order of entries to be:</p>
+                                    <p><code>C[0][0]&#160;C[0][1]&#160;C[0][2] . . .<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;C[1][1]&#160;C[1][2] . . .<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;C[2][2] . . .<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.</code>
+                                    </p>
+                                    <p>The default for CovarianceTimePos is UpperTriangular; the default for CovarianceTimePosVel is LowerTriangular.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing">StateErrorTransitionReferenceEpoch</td>
+                                <td class="centered">
+                                    <p>Not&#160;Required</p>
+                                    <p>Default is ScenarioEpoch</p>
+                                </td>
+                                <td>
+                                    <p>State-error transition matrices provide a linear mapping of state deviations from this time to the time of the data point.</p>
+                                    <p><b>Example</b>: </p>
+                                    <p>StateErrorTransitionReferenceEpoch 1 Jan 2003 00:00:00.0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing">CovarianceCoordinateSystem</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>When you specify this keyword, STK interprets the covariance as being in either  a special ephemeris-based local frame (indicated below) or the axes of the specified CoordinateSystem.</p>
+                                    <p>When not specified, STK interprets the covariance as being in the same frame as the ephemeris (i.e., expressed in the axes associated with the CoordinateSystem). </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing">CovarianceCoordinateSystemEpoch</td>
+                                <td class="centered">No</td>
+                                <td>The epoch time for the covariance coordinate system in Gregorian UTC time (dd mm yyy hh:mm:ss.s). <p>You must specify this with coordinate systems that reference an Epoch:<ul class="listing"><li>MeanOfEpoch</li><li>TrueOfEpoch</li><li>TEMEOfEpoch</li><li>AlignmentAtEpoch</li></ul></p><p><em>Example:</em></p><p>CovarianceCoordinateSystemEpoch 1 Jun 2020 12:00:00.0</p></td>
+                            </tr>
+                            <tr>
+                                <td class="listing">CovarianceProjRefCoordinateSystem</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>This specifies the reference frame that observed the covariance matrix before its transformation into the frame specified by CovarianceCoordinateSystem, where the transformation ignored the effects of the angular velocity of CovarianceCoordinateSystem. Valid values are Inertial or Fixed.</p>
+                                    <p>This keyword is only needed when velocity components of the covariance matrix are present and the values were created in their frame without fully accounting for the angular velocity of the frame. For example, the value should be set to Fixed when the covariance was computed in the Fixed frame. The value appears in the file using Body frame components (as specified by CovarianceCoordinateSystem) where the transformation from Fixed to Body ignored the angular velocity of the Body frame.</p>
+                                    <p><em>Example</em>
+                                    </p>
+                                    <p>CovarianceProjRefCoordinateSystem Fixed</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing">CovarianceIncludeAngleVelInVelCovXfm</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>This specifies whether the angular velocity of the frame should be included in the transformation of the covariance matrix's velocity components. Only use this when velocity components of the covariance matrix are present and CovarianceCoordinateSystem is not a local frame nor a VGT frame.</p>
+                                    <p>Valid values:&#160;Yes, True, On, No, False, Off</p>
+                                    <p>Default Value:&#160;Yes</p>
+                                    <p class="note">This setting is rarely needed. It supports situations in which the ephemeris is provided in an Inertial frame, but the covariance is provided in the Fixed frame. The angular velocity of the Fixed frame should be ignored in the Inertial-to-Fixed transformation.</p>
+                                </td>
+                            </tr><a name="segBoundary"></a>
+                            <tr>
+                                <td class="listing">BEGIN&#160;SegmentBoundaryTimes<br />END&#160;SegmentBoundaryTimes</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>This sets off the beginning and end of a list of time values (relative to the time specified using the 
+<a href="#scenEpoch"><code>ScenarioEpoch</code></a> keyword) in ascending order. During interpolation of the ephemeris, the interpolator will not choose reference points that span across a time listed between the <code>BEGIN&#160;SegmentBoundaryTimes</code> and <code>END&#160;SegmentBoundaryTimes</code> keywords. For this reason, the ephemeris table is permitted to contain more than one ephemeris point at the same time as long as it is listed as a time in the <code>SegmentBoundaryTimes</code> section. This mechanism is especially convenient when modeling the pre and post instantaneous maneuver ephemeris states. This is the only time when duplicate time values are allowed when specifying ephemeris points. By convention, a blank line is left between duplicate points to make them easier to visually discern.</p>
+                                    <p><em>Example:</em>
+                                    </p>
+                                    <p>BEGIN SegmentBoundaryTimes</p>
+                                    <p class="indented">2.90998893289423e+003</p>
+                                    <p class="indented">7.61935679863377e+003</p>
+                                    <p>END SegmentBoundaryTimes</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing"><a name="TimeFormat"></a>TimeFormat</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>This defines the date format of time tags. If specified, each line of data in the file begins with a time in that date format; the rest of the data follows this date. </p>
+                                    <p>Spaces are valid if the format allows (e.g., 1 Jan 2007 12:00:00.000).</p>
+                                    <p>Quotes around time strings are invalid.</p>
+                                    <p>The <b>TimeFormat</b> keyword is the time format abbreviation. For example, use EpSec for the Epoch Seconds format or JDate for the Julian Date format. For time format abbreviations, see <a href="sc-03.htm#timestandards">DateTime Formats</a>.</p>
+                                    <p><em>Examples:</em>
+                                    </p>
+                                    <p>TimeFormat DD/MM/YYYY</p>
+                                    <p>TimeFormat GPSZ</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="listing">TimeScale</td>
+                                <td class="centered">No</td>
+                                <td>
+                                    <p>This indicates to STK that the times contained in the ephemeris and covariance sections should be interpreted as being in the TDB time scale, not TAI.</p>
+                                    <p>If you use it, the value is TDB.</p>
+                                    <p><b>Keyword History</b>
+                                    </p>
+                                    <p>The TimeScale keyword  was introduced in STK version 8.1.0.</p>
+                                </td>
+                            </tr>
+                        </table>
+                        <h2>Local Frames</h2>
+                        <table>
+                            <tr>
+                                <th>Local Frame</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>RIC</td>
+                                <td>Radial Intrack Crosstrack frame with: 
+				<ul><li>X along Radial</li><li>Y along Intrack</li><li>Z along CrossTrack</li></ul>
+				The names RSW, RTN, and UVW are also supported and indicate this frame.</td>
+                            </tr>
+                            <tr>
+                                <td>NTC</td>
+                                <td>Normal Tangential CrossTrack frame with: 
+					<ul><li>Y along velocity direction (Tangential)</li><li>Z along CrossTrack</li><li>X along Normal direction</li></ul>
+			The normal direction is outward like the Radial direction.</td>
+                            </tr>
+                            <tr>
+                                <td>TNW</td>
+                                <td>
+                                    <p>Tangential Normal CrossTrack frame with:</p>
+                                    <ul>
+                                        <li>X&#160;along the velocity direction (Tangential)</li>
+                                        <li>Z along CrossTrack</li>
+                                        <li>Y along the Normal direction.</li>
+                                    </ul>
+             The Normal direction is inward, opposite to the Normal defined in NTC.</td>
+                            </tr>
+                            <tr>
+                                <td>VNC</td>
+                                <td>Velocity Normal CoNormal frame with: 
+					<ul><li>X along velocity direction (Velocity)</li><li>Y along CrossTrack (Normal)</li><li>Z along CoNormal direction</li></ul>
+		This is a rotation of the NTC frame.</td>
+                            </tr>
+                        </table>
+                        <p>When you use a local frame, you can specify the optional value <b>IgnoreAngVel</b>, indicating that the transformation from the ephmeris coordinate system's axes to the local frame should be performed without accounting for the angular velocity of the local frame itself. This is the appropriate setting if the covariance was determined in the same frame as the ephemeris, but then transformed into a local frame without accounting for the effect of the rotation of the local frame on the velocity components of the covariance matrix. If the covariance matrix only contains position components, the IgnoreAngVel setting has no effect.</p>
+                        <p>Other options for specifying CovarianceCoordinateSystem are the same as those for CoordinateSystem.</p>
+                        <p>When using VGT, you must specify a system, not axes, even though STK only uses the axes associated with a CoordinateSystem.</p>
+                        <p class="note">Be careful when using a VGT system (such as Body) that depends on an object's attitude, if that attitude can be modified after loading the ephemeris file. In that case, if the attitude changes, the covariance representing the uncertainty of the ephemeris will change, and it probably is not representative of the actual uncertainty of the ephemeris any longer. When using Body or other Systems that depend on attitude, AGI recommends that you set the attitude consistent with how the covariance was obtained and that you do not modify it.</p>
+                        <h3>Examples</h3>
+                        <div class="code">
+                            <p>CovarianceCoordinateSystem RIC IgnoreAngVel</p>
+                            <p>CovarianceCoordinateSystem TrueOfDate</p>
+                            <p>CovarianceCoordinateSystem AWB Body Satellite/MySatellite</p>
+                        </div><a name="formats"></a>
+                        <h2>Ephemeris Formats</h2>
+                        <p>While the sections above outline the basic format for an ephemeris table, the list below outline the formats used to specify actual data points in the ephemeris table. You must include the format keyword  in the file on its own line, after the header keywords and before the actual data point array.</p><a name="specifyPts"></a>
+                        <p>You must observe the following conventions  when specifying data points in any format:</p>
+                        <ul>
+                            <li>Each line contains only one data point.
+	</li>
+                            <li>The values on each line must be separated by at least one space.
+	</li>
+                            <li>The lines must be listed in ascending order in time but do not have to be evenly spaced in time.
+	</li>
+                            <li>You cannot have multiple points at the same time (except as described in the <a href="#segBoundary"><code>SegmentBoundaryTimes</code></a> section).
+	</li>
+                            <li>There must be at least as many points as specified by the <a href="#numPts"><code>NumberOfEphemerisPoints</code> and <code>NumberOfCovariancePoints</code></a> keywords.
+</li>
+                        </ul>
+                        <p>To view information on a particular format, click <img src="images/flareIcon.png" /> that precedes the format name.</p>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />EphemerisTimePos Format
+                    
+                </a><a name="timePos"></a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>The <code>EphemerisTimePos</code> format is designed to import cartesian position, without velocity points, in the coordinate system specified using the <a href="#cb"><code>CentralBody</code></a>, <a href="#coordSys"><code>CoordinateSystem</code></a>, and <a href="#coordSysEp"><code>CoordinateSystemEpoch</code></a> keywords.</p>
+                                <p>This format is commonly used for modeling ground, air, or other near-Earth objects when only position data is available.</p>
+                                <p>Since no velocity data is supplied, STK automatically generates velocity data by creating the Lagrange interpolation function for the position, taking the analytical derivative of the interpolation function and evaluating it each time position data is available. The resulting velocity data is then stored along with the position data in the file. Velocity data obtained this way is not as desirable as having real velocity data in the file, but is sufficient when nothing else is available.</p>
+                                <p>Individual data points following the <code>EphemerisTimePos</code> keyword look like this:</p>
+                                <p>&lt;TimeInSeconds&gt;&#160;&lt;X&gt;&#160;&lt;Y&gt;&#160;&lt;Z&gt;&#160;</p>
+                                <p>where,</p>
+                                <table class="transparent">
+                                    <tr>
+                                        <td class="linklist"><code>&lt;TimeInSeconds&gt;</code>
+                                        </td>
+                                        <td class="linklist">The time value of the point in seconds (in the format <code>xxxx.xxx</code>) relative to the epoch as defined by the <a href="#scenEpoch"><code>ScenarioEpoch</code></a> keyword</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="linklist"><code>&lt;X&gt;&#160;&lt;Y&gt;&#160;&lt;Z&gt;</code>
+                                        </td>
+                                        <td class="linklist">The vehicle position</td>
+                                    </tr>
+                                </table>
+                                <p>  You must follow certain conventions  when <a href="#specifyPts">specifying data points</a>.</p>
+                                <p>  By default, position values are in meters. Use the <a href="#dstUnit">DistanceUnit</a> keyword to change units of measure.</p>
+                                <p>An ephemeris file for a launch vehicle <i>MyLauncher</i> that had ephemeris in a topocentric coordinate system for the launch site <i>MyLaunchSite</i> would be built using a custom coordinate system. In this case, the coordinate system <i>Topocentric</i> was built on the facility <i>MyLaunchSite</i> using the <a href="vgTool.htm">Vector Geometry Tool</a> to combine the facility’s Center point and TopoCentric axes. The resulting file would look like this <a href="example_ephemeris1.htm">sample file</a>.</p>
+                                <p><b>Format History</b>: The EphemerisTimePos format was introduced in STK 5.0.4.</p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />EphemerisTimePosVel Format</a><a name="timePosVel"></a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>The <code>EphemerisTimePosVel</code> format is designed to import cartesian position and velocity points in the coordinate system specified using the <a href="#cb"><code>CentralBody</code></a>, <a href="#coordSys"><code>CoordinateSystem</code></a>, and <a href="#coordSysEp"><code>CoordinateSystemEpoch</code></a> keywords.</p>
+                                <p>Individual data points following the <code>EphemerisTimePosVel</code> keyword look like this:</p>
+                                <p>&lt;TimeInSeconds&gt;&#160;&lt;X&gt;&#160;&lt;Y&gt;&#160;&lt;Z&gt;&#160;&lt;xDot&gt;&#160;&lt;yDot&gt;&#160;&lt;zDot&gt;</p>
+                                <p>where,</p>
+                                <table class="transparent">
+                                    <tr>
+                                        <td class="linklist"><code>&lt;TimeInSeconds&gt;</code>
+                                        </td>
+                                        <td class="linklist">The time value of the point in seconds (in the format <code>xxxx.xxx</code>) relative to the epoch as defined by the <a href="#scenEpoch"><code>ScenarioEpoch</code></a> keyword</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="linklist"><code>&lt;X&gt;&#160;&lt;Y&gt;&#160;&lt;Z&gt;</code>
+                                        </td>
+                                        <td class="linklist">The vehicle position</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="linklist"><code>&lt;xDot&gt;&#160;&lt;yDot&gt;&#160;&lt;zDot&gt;</code>
+                                        </td>
+                                        <td class="linklist">The vehicle velocity</td>
+                                    </tr>
+                                </table>
+                                <p>You must follow certain conventions must be followed when <a href="#specifyPts">specifying data points</a>.</p>
+                                <p>By default, position values are in meters and velocities are in meters per second. Use the <a href="#dstUnit">DistanceUnit</a> keyword to change units of measure.</p>
+                                <p>An ephemeris file for a satellite in a Molniya type orbit about the Earth using a fifth-order <code>Lagrange</code> interpolation with the ephemeris data itself expressed in J2000 coordinates, using the <code>EphemerisTimePosVel</code> format would look like this <a href="example_ephemeris2.htm">sample file</a>. A similar satellite using True of Epoch coordinates and values in kilometers would look like this <a href="example_ephemeris3.htm">sample file</a>.</p>
+                                <p>An ephemeris file for a launch vehicle <i>MyLauncher</i> that had ephemeris in a topocentric coordinate system for the launch site <i>MyLaunchSite</i> would be built using a custom coordinate system. In this case, the coordinate system <i>Topocentric</i> was built on the facility <i>MyLaunchSite</i> using the <a href="vgTool.htm">Vector Geometry Tool</a> to combine the facility’s Center point and TopoCentric axes. The resulting file would look like this <a href="example_ephemeris4.htm">sample file</a>.</p>
+                                <p class="note">Sometimes the ephemeris that you are importing contains maneuvers or other events which are difficult to interpolate across. These times may be identified using a <a href="#segBoundary"><code>SegmentBoundaryTimes</code></a> block within the ephemeris file. For example, an ephemeris file for a satellite that performed two maneuvers, one at 2909 seconds and one at 7619 seconds would look like this <a href="example_ephemeris5.htm">sample file</a>.</p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />EphemerisTimePosVelAcc Format</a><a name="timePosVelAcc"></a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>The <code>EphemerisTimePosVelAcc</code> format is designed to import cartesian position, velocity points, and acceleration values in the coordinate system specified using the <a href="#cb"><code>CentralBody</code></a>, <a href="#coordSys"><code>CoordinateSystem</code></a>, and <a href="#coordSysEp"><code>CoordinateSystemEpoch</code></a> keywords.</p>
+                                <p>Individual data points following the <code>EphemerisTimePosVelAcc</code> keyword look like this:</p>
+                                <p>&lt;TimeInSeconds&gt;&#160;&lt;X&gt;&#160;&lt;Y&gt;&#160;&lt;Z&gt;&#160;&lt;xDot&gt;&#160;&lt;yDot&gt;&#160;&lt;zDot&gt;&#160;&lt;xDotDot&gt;&#160;&lt;yDotDot&gt;&#160;&lt;zDotDot&gt;</p>
+                                <p>where,</p>
+                                <table class="transparent">
+                                    <tr>
+                                        <td class="linklist"><code>&lt;TimeInSeconds&gt;</code>
+                                        </td>
+                                        <td class="linklist">The time value of the point in seconds (in the format <code>xxxx.xxx</code>) relative to the epoch as defined by the <a href="#scenEpoch"><code>ScenarioEpoch</code></a> keyword</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="linklist"><code>&lt;X&gt;&#160;&lt;Y&gt;&#160;&lt;Z&gt;</code>
+                                        </td>
+                                        <td class="linklist">The vehicle position</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="linklist"><code>&lt;xDot&gt;&#160;&lt;yDot&gt;&#160;&lt;zDot&gt;</code>
+                                        </td>
+                                        <td class="linklist">The vehicle velocity</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="linklist"><code>&lt;xDotDot&gt;&#160;&lt;yDotDot&gt;&#160;&lt;zDotDot&gt;</code>
+                                        </td>
+                                        <td class="linklist">The vehicle acceleration values</td>
+                                    </tr>
+                                </table>
+                                <p>You must follow certain conventions when <a href="#specifyPts">specifying data points</a>.</p>
+                                <p>By default, position values are in meters, velocities are in meters per second, and acceleration values are in meters per second per second. Use the <a href="#dstUnit">DistanceUnit</a> keyword to change units of measure.</p>
+                                <p>Here is an <a href="example_ephemeris6.htm">example</a> of a LEO satellite with its ephemeris specified using the <code>EphemerisTimePosVelAcc</code> format.</p>
+                                <p><b>Format History</b>: The EphemerisTimePosVelAcc format was introduced in STK 7.0.0.</p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />EphemerisLLATimePos Format</a><a name="llaTimePos"></a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>The <code>EphemerisLLATimePos</code> keyword is used to indicate that data points that follow are a vehicle's position in the fixed (to the central body) coordinate frame and specified using geodetic coordinates. This format is commonly used for modeling ground, air, or other near-Earth objects when only position data is available.</p>
+                                <p>Since no velocity data is supplied, STK will automatically generate velocity data by creating the Lagrange interpolation function for the position, taking the analytical derivative of the interpolation function and evaluating it each time position data is available. The resulting velocity data is then stored along with the position data in the file. Velocity data obtained this way is not as desirable as having real velocity data in the file, but is sufficient when nothing else is available.</p><a name="ringing"></a>
+                                <p>The <a href="#intOrder"><code>InterpolationOrder</code></a> keyword is often used in conjunction with this format to fine-tune the interpolator. When importing position data for an aircraft, you may want to set the interpolation order to one (resulting in linear interpolation) to avoid oscillations (often referred to as ringing) in the interpolated position when the input position data is very irregularly spaced in time. The ringing effect is most noticeable when the path of the aircraft changes direction.</p>
+                                <p>Individual data points following the <code>EphemerisLLATimePos</code> keyword look like this:</p>
+                                <p>&lt;TimeInSeconds&gt;&#160;&lt;Lat&gt;&#160;&lt;Lon&gt;&#160;&lt;Alt&gt;</p>
+                                <p>where,</p>
+                                <table class="transparent">
+                                    <tr>
+                                        <td class="linklist"><code>&lt;TimeInSeconds&gt;</code>
+                                        </td>
+                                        <td class="linklist">The time value of the point in seconds (in the format <code>xxxx.xxx</code>) relative to the epoch as defined by the <a href="#scenEpoch"><code>ScenarioEpoch</code></a> keyword</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="linklist"><code>&lt;Lat&gt;&#160;&lt;Lon&gt;&#160;&lt;Alt&gt;</code>
+                                        </td>
+                                        <td class="linklist">The vehicle position defined by its geodetic latitude, longitude, and altitude in decimal degrees and meters respectively</td>
+                                    </tr>
+                                </table>
+                                <p>You must follow certain conventions when <a href="#specifyPts">specifying data points</a>.</p>
+                                <p>An ephemeris file using the <code>EphemerisLLATimePos</code> format might look something like this <a href="example_ephemeris7.htm">sample file</a>.</p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />EphemerisLLATimePosVel Format</a><a name="llaTimePosVel"></a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>The <code>EphemerisLLATimePosVel</code> format is very similar to the <a href="#llaTimePos"><code>EphemerisLLATimePos</code></a> format, except that it also supplies the vehicle velocity. The data points that follow are a vehicle's position and velocity in the fixed (to the central body) coordinate frame specified in geodetic coordinates. This format is commonly used for modeling ground, air, or other near-Earth objects.</p>
+                                <p class="note">Irregularly spaced position data can result in <a href="#ringing">oscillations</a>.</p>
+                                <p>Individual data points following the <code>EphemerisLLATimePosVel</code> keyword look like this:</p>
+                                <p>&lt;TimeInSeconds&gt;&#160;&lt;Lat&gt;&#160;&lt;Lon&gt;&#160;&lt;Alt&gt;&#160;&lt;latDot&gt;&#160;&lt;lonDot&gt;&#160;&lt;altDot&gt;</p>
+                                <p>where</p>
+                                <table class="transparent">
+                                    <tr>
+                                        <td class="linklist"><code>&lt;TimeInSeconds&gt;</code>
+                                        </td>
+                                        <td class="linklist">The time value of the point in seconds (in the format <code>xxxx.xxx</code>) relative to the epoch as defined by the <a href="#scenEpoch"><code>ScenarioEpoch</code></a> keyword</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="linklist"><code>&lt;Lat&gt;&#160;&lt;Lon&gt;&#160;&lt;Alt&gt;</code>
+                                        </td>
+                                        <td class="linklist">The vehicle position defined by its geodetic latitude, longitude, and altitude in decimal degrees and meters respectively</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="linklist"><code>&lt;latDot&gt;&#160;&lt;lonDot&gt;&#160;&lt;altDot&gt;</code>
+                                        </td>
+                                        <td class="linklist">The vehicle velocity defined by the rate of change of the geodetic latitude, longitude, and altitude in decimal degrees/second and meters/second respectivel</td>
+                                    </tr>
+                                </table>
+                                <p>You must follow certain conventions when <a href="#specifyPts">specifying data points</a>.</p>
+                                <p>An ephemeris file using the <code>EphemerisLLATimePosVel</code> format might look something like this <a href="example_ephemeris8.htm">sample file</a>.</p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />EphemerisMSLLLATimePos Format</a><a name="lllaTimePos"></a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>The <code>EphemerisMSLLLATimePos</code> keyword is used to indicate that data points that follow are a vehicle's position in the fixed (to the central body) coordinate frame and specified using geodetic coordinates with respect to Mean Sea Level (MSL). This format is commonly used for modeling ground, air, or other near-Earth objects when only position data is available.</p>
+                                <p>Since no velocity data is supplied, STK will automatically generate velocity data by creating the Lagrange interpolation function for the position, taking the analytical derivative of the interpolation function, and evaluating it each time position data is available. The resulting velocity data is then stored along with the position data in the file. Velocity data obtained this way is not as desirable as having real velocity data in the file, but is sufficient when nothing else is available.</p><a name="ringing"></a>
+                                <p>The <a href="#intOrder"><code>InterpolationOrder</code></a> keyword is often used in conjunction with this format to fine-tune the interpolator. When importing position data for an aircraft, you may want to set the interpolation order to one (resulting in linear interpolation) to avoid oscillations (often referred to as ringing) in the interpolated position when the input position data is very irregularly spaced in time. The ringing effect is most noticeable when the path of the aircraft changes direction.</p>
+                                <p>Individual data points following the <code>EphemerisMSLLLATimePos</code> keyword look like this:</p>
+                                <p>&lt;TimeInSeconds&gt;&#160;&lt;Lat&gt;&#160;&lt;Lon&gt;&#160;&lt;Alt&gt;</p>
+                                <p>where,</p>
+                                <table class="transparent">
+                                    <tr>
+                                        <td class="linklist"><code>&lt;TimeInSeconds&gt;</code>
+                                        </td>
+                                        <td class="linklist">The time value of the point in seconds (in the format <code>xxxx.xxx</code>) relative to the epoch as defined by the <a href="#scenEpoch"><code>ScenarioEpoch</code></a> keyword</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="linklist"><code>&lt;Lat&gt;&#160;&lt;Lon&gt;&#160;&lt;Alt&gt;</code>
+                                        </td>
+                                        <td class="linklist">The vehicle position defined by its geodetic latitude, longitude, and altitude in decimal degrees and meters respectively</td>
+                                    </tr>
+                                </table>
+                                <p>You must follow certain conventions when <a href="#specifyPts">specifying data points</a>.</p>
+                                <p><b>Format History</b>: The EphemerisMslLLATimePos format was introduced in STK 10.1.0.</p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />EphemerisMSLLLATimePosVel Format </a><a name="lllaTimePosVel"></a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p class="note">Irregularly spaced position data can result in <a href="#ringing">oscillations</a>.</p>
+                                <p>The <code>EphemerisMSLLLATimePosVel</code> format is very similar to the <a href="#llaTimePos"><code>EphemerisLLATimePos</code></a> format, except that it also supplies the vehicle velocity and uses geodetic coordinates with respect to Mean Sea Level (MSL). The data points that follow are a vehicle's position and velocity in the fixed (to the central body) coordinate frame specified in geodetic coordinates. This format is commonly used for modeling ground, air, or other near-Earth objects.</p>
+                                <p>Individual data points following the <code>EphemerisLLATimePosVel</code> keyword look like this:</p>
+                                <p>&lt;TimeInSeconds&gt;&#160;&lt;Lat&gt;&#160;&lt;Lon&gt;&#160;&lt;Alt&gt;&#160;&lt;latDot&gt;&#160;&lt;lonDot&gt;&#160;&lt;altDot&gt;</p>
+                                <p>where</p>
+                                <table class="transparent">
+                                    <tr>
+                                        <td class="linklist"><code>&lt;TimeInSeconds&gt;</code>
+                                        </td>
+                                        <td class="linklist">The time value of the point in seconds (in the format <code>xxxx.xxx</code>) relative to the epoch as defined by the <a href="#scenEpoch"><code>ScenarioEpoch</code></a> keyword</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="linklist"><code>&lt;Lat&gt;&#160;&lt;Lon&gt;&#160;&lt;Alt&gt;</code>
+                                        </td>
+                                        <td class="linklist">The vehicle position defined by its geodetic latitude, longitude, and altitude in decimal degrees and meters respectively</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="linklist"><code>&lt;latDot&gt;&#160;&lt;lonDot&gt;&#160;&lt;altDot&gt;</code>
+                                        </td>
+                                        <td class="linklist">The vehicle velocity defined by the rate of change of the geodetic latitude, longitude, and altitude in decimal degrees/second and meters/second respectively</td>
+                                    </tr>
+                                </table>
+                                <p>You must follow certain conventions when <a href="#specifyPts">specifying data points</a>.</p>
+                                <p><b>Format History</b>. The EphemerisMslLLATimePosVel format was introduced in STK 10.1.0.</p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />EphemerisTerrainLLATimePos Format</a><a name="LLATTerrain"></a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>The <code>EphemerisTerrainLLATimePos</code> keyword is used to indicate that data points that follow are a vehicle's position in the fixed (to the central body) coordinate frame and specified using geodetic coordinates with respect to terrain. This format is commonly used for modeling ground, air, or other near-Earth objects when only position data is available.</p>
+                                <p>Since no velocity data is supplied, STK will automatically generate velocity data by creating the Lagrange interpolation function for the position, taking the analytical derivative of the interpolation function and evaluating it each time position data is available. The resulting velocity data is then stored along with the position data in the file. Velocity data obtained this way is not as desirable as having real velocity data in the file, but is sufficient when nothing else is available.</p><a name="ringing"></a>
+                                <p>The <a href="#intOrder"><code>InterpolationOrder</code></a> keyword is often used in conjunction with this format to fine-tune the interpolator. When importing position data for an aircraft, you may want to set the interpolation order to one (resulting in linear interpolation) to avoid oscillations (often referred to as ringing) in the interpolated position when the input position data is very irregularly spaced in time. The ringing effect is most noticeable when the path of the aircraft changes direction.</p>
+                                <p>Individual data points following the <code>EphemerisMSLLLATimePos</code> keyword look like this:</p>
+                                <p>&lt;TimeInSeconds&gt;&#160;&lt;Lat&gt;&#160;&lt;Lon&gt;&#160;&lt;Alt&gt;</p>
+                                <p>where,</p>
+                                <table class="transparent">
+                                    <tr>
+                                        <td class="linklist"><code>&lt;TimeInSeconds&gt;</code>
+                                        </td>
+                                        <td class="linklist">The time value of the point in seconds (in the format <code>xxxx.xxx</code>) relative to the epoch as defined by the <a href="#scenEpoch"><code>ScenarioEpoch</code></a> keyword</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="linklist"><code>&lt;Lat&gt;&#160;&lt;Lon&gt;&#160;&lt;Alt&gt;</code>
+                                        </td>
+                                        <td class="linklist">The vehicle position defined by its geodetic latitude, longitude, and altitude in decimal degrees and meters respectively</td>
+                                    </tr>
+                                </table>
+                                <p>You must follow certain conventions when <a href="#specifyPts">specifying data points</a>.</p>
+                                <p><b>Format History</b>: The EphemerisTerrainLLATimePos format was introduced in STK 10.1.0.</p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />EphemerisLLRTimePos Format</a><a name="llr"></a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>The <code>EphemerisLLRTimePos</code> format is similar to the <a href="#llaTimePos"><code>EphemerisLLATimePos</code></a> format, except for the following:</p>
+                                <ul>
+                                    <li>Geocentric coordinates are used instead of geodetic coordinates.
+</li>
+                                    <li>The radius values replace altitude values.
+</li>
+                                    <li>The latitude is the geocentric latitude instead of the geodetic latitude.
+</li>
+                                </ul>
+                                <p>Individual data points following the <code>EphemerisLLRTimePos</code> keyword look like this:</p>
+                                <p>&lt;TimeInSeconds&gt;&#160;&lt;Lat&gt;&#160;&lt;Lon&gt;&#160;&lt;Rad&gt;</p>
+                                <p>where,</p>
+                                <table class="transparent">
+                                    <tr>
+                                        <td class="linklist"><code>&lt;TimeInSeconds&gt;</code>
+                                        </td>
+                                        <td class="linklist">The time value of the point in seconds (in the format <code>xxxx.xxx</code>) relative to the epoch as defined by the <a href="#scenEpoch"><code>ScenarioEpoch</code></a> keyword</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="linklist"><code>&lt;Lat&gt;&#160;&lt;Lon&gt;&#160;&lt;Rad&gt;</code>
+                                        </td>
+                                        <td class="linklist">The vehicle position defined by its geocentric latitude, longitude and radius in decimal degrees and meters respectively</td>
+                                    </tr>
+                                </table>
+                                <p>You must follow certain conventions when <a href="#specifyPts">specifying data points</a>.</p>
+                                <p>An ephemeris file using the <code>EphemerisLLRTimePos</code> format would then look like this <a href="example_ephemeris12.htm">sample file</a>.</p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />EphemerisLLRTimePosVel Format</a><a name="llrVel"></a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>The <code>EphemerisLLRTimePosVel</code> format is similar to the <a href="#llaTimePosVel"><code>EphemerisLLATimePosVel</code></a> format, except for the following:
+
+				</p>
+                                <ul>
+                                    <li>Geocentric coordinates are used instead of geodetic coordinates.
+</li>
+                                    <li>The radius rate is used instead of the altitude rate.
+</li>
+                                    <li>The latitude is the geocentric latitude instead of the geodetic latitude.
+</li>
+                                </ul>
+                                <p>Individual data points following the <code>EphemerisLLRTimePosVel</code> keyword look like this:</p>
+                                <p>&lt;TimeInSeconds&gt;&#160;&lt;Lat&gt;&#160;&lt;Lon&gt;&#160;&lt;Rad&gt;&#160;&lt;latDot&gt;&#160;&lt;lonDot&gt;&#160;&lt;radDot&gt;</p>
+                                <p>where</p>
+                                <table class="transparent">
+                                    <tr>
+                                        <td class="linklist"><code>&lt;TimeInSeconds&gt;</code>
+                                        </td>
+                                        <td class="linklist">The time value of the point in seconds (in the format <code>xxxx.xxx</code>) relative to the epoch as defined by the <a href="#scenEpoch"><code>ScenarioEpoch</code></a> keyword</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="linklist"><code>&lt;Lat&gt;&#160;&lt;Lon&gt;&#160;&lt;Alt&gt;</code>
+                                        </td>
+                                        <td class="linklist">The vehicle position defined by its geocentric latitude, longitude, and altitude in decimal degrees and meters respectively</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="linklist"><code>&lt;latDot&gt;&#160;&lt;lonDot&gt;&#160;&lt;radDot&gt;</code>
+                                        </td>
+                                        <td class="linklist">The vehicle velocity defined by the rate of change of the geocentric latitude, longitude, and altitude in decimal degrees/second and meters/second respectively</td>
+                                    </tr>
+                                </table>
+                                <p>You must follow certain conventions when <a href="#specifyPts">specifying data points</a>.</p>
+                                <p>An ephemeris file using the <code>EphemerisLLRTimePosVel</code> format might look something like this <a href="example_ephemeris10.htm">sample file</a>.</p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />EphemerisGeocentricLLATimePosVel Format</a><a name="geocentricLLA"></a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>Often when you receive ephemeris data from another source, you may be unsure whether the latitude values are geodetic or geocentric. A general rule of thumb is to assume that if you have <em>altitude</em> data that the latitude is geodetic, in which case you should use the <a href="#llaTimePosVel"><code>EphemerisLLATimePosVel</code></a> format. If you have <em>radius</em> information, then assume the latitude is geocentric, so use the <a href="#llr"><code>EphemerisLLRTimePosVel</code></a> format.</p>
+                                <p>In rare cases, you may have altitude data but latitude data that is geocentric. It is for this case that the <code>EphemerisGeocentricLLATimePosVel</code> format was designed. It is identical to the <a href="#llaTimePosVel"><code>EphemerisLLATimePosVel</code></a> format, except that it treats the latitude values as geocentric latitudes, not geodetic.</p>
+                                <p><b>Format History</b>: The EphemerisGeoCentricLLATimePosVel format was introduced in STK 10.0.0.</p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />EphemerisGeocentricLLATimePos Format</a><a name="geocentricLLATimePos"></a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>Often when you receive ephemeris data from another source, you may be unsure whether the latitude values are geodetic or geocentric. A general rule of thumb is to assume that if you have <em>altitude</em> data that the latitude is geodetic, in which case you should use the <a href="#llaTimePosVel"><code>EphemerisLLATimePos</code></a> format. If you have <em>radius</em> information, then assume the latitude is geocentric, so use the <a href="#llr"><code>EphemerisLLRTimePosVel</code></a> format.</p>
+                                <p>In rare cases, you may have altitude data, but the latitude data that is geocentric. It is for this case that the <code>EphemerisGeocentricLLATimePosVel</code> format was designed. It is identical to the <a href="#llaTimePosVel"><code>EphemerisLLATimePosVel</code></a> format, except that it treats the latitude values as geocentric latitudes, not geodetic.</p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />EphemerisGeodeticLLRTimePos and EphemerisGeodeticLLRTimePosVel Format</a><a name="geodeticLLR"></a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>These two formats are identical to their counterparts <a href="#llr"><code>EphemerisLLRTimePos</code></a> and <a href="#llrVel"><code>EphemerisLLRTimePosVel</code></a> except that latitude is treated as geodetic latitude rather than geocentric latitude.</p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />CovarianceTimePos Format </a> <a name="covTimePos"></a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>The ephemeris file format enables you to supply covariance information in addition to position and velocity information. The <code>CovarianceTimePos</code> keyword is used in conjunction with one of the other ephemeris formats to indicate that data points that follow are the vehicle's position covariance in the same Cartesian coordinate system within which the ephemeris was defined. You can specify the number of covariance points using the <a href="#numPts"><code>NumberOfCovariancePoints</code></a> keyword.</p>
+                                <p>You must use this format  in conjunction with one of the other ephemeris formats.</p>
+                                <p>Typically the covariance information is obtained from an orbit determination tool as part of calculating the ephemeris for the vehicle. The position covariance matrix is a three-by-three matrix that looks like this:</p>
+                                <img src="equations/covariance.gif" />
+                                <p>Since it is diagonally symmetric, only six values are necessary to represent the matrix. You can provide the data  in either lower-triangular or upper-triangular form, and you select this via the <a href="#covarianceFormat">CovarianceFormat</a> keyword. In the absence of that keyword, STK assumes the upper triangular form,  to ensure backward compatibility. The data points following the keyword consist of a line per point where each line looks like the following if the upper triangular format is specified:</p>
+                                <p>&lt;Time in seconds&gt;&#160;&lt;CXX&gt;&#160;&lt;CXY&gt;&#160;&lt;CXZ&gt;&#160;&lt;CYY&gt;&#160;&lt;CYZ&gt;&#160;&lt;CZZ&gt;</p>
+                                <p>or like the following if the lower triangular format is specified:</p>
+                                <p>&lt;Time in seconds&gt;&#160;&lt;CXX&gt;&#160;&lt;CYX&gt;&#160;&lt;CYY&gt;&#160;&lt;CZX&gt;&#160;&lt;CZY&gt;&#160;&lt;CZZ&gt;</p>
+                                <p>where</p>
+                                <table class="transparent">
+                                    <tr>
+                                        <td><code>&lt;TimeInSeconds&gt;</code>
+                                        </td>
+                                        <td class="linklist">The time value of the point in seconds (in the format <code>xxxx.xxx</code>) relative to the epoch as defined by the <a href="#scenEpoch"><code>ScenarioEpoch</code></a> keyword</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="linklist"><code>&lt;Cxx&gt;</code>
+                                        </td>
+                                        <td class="linklist">Value (in meters squared) of the corresponding element of the covariance matrix</td>
+                                    </tr>
+                                </table>
+                                <p>You must follow certain conventions when <a href="#specifyPts">specifying data points</a>.</p>
+                                <p>An ephemeris file using the <code>CovarianceTimePos</code> format might look something like this <a href="example_ephemeris11.htm">sample file</a>.</p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />CovarianceTimePosVel Format </a><a name="covTimePosVel"></a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>This format is the same as the <a href="#covTimePos">CovarianceTimePos</a> format, except that it gives a position/velocity covariance:</p>
+                                <img src="equations/covarianceTimePosVel.gif" />
+                                <p>You must supply 21 matrix entries. The required unit for a matrix entry depends on whether it is a product of two positions (e.g., &lt;x,y&gt;), a position and a velocity (e.g., &lt;xd,y&gt;, &lt;x,yd&gt;) or two velocities (e.g., &lt;xd,yd&gt;):</p>
+                                <table>
+                                    <tr>
+                                        <th>Entry Type</th>
+                                        <th>Required Unit</th>
+                                    </tr>
+                                    <tr>
+                                        <td><code>&lt;x,y&gt;</code>
+                                        </td>
+                                        <td>meters^2</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>&lt;xd,y&gt;, &lt;x,yd&gt;</code>
+                                        </td>
+                                        <td>meters^2/sec</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>&lt;xd,yd&gt;</code>
+                                        </td>
+                                        <td>(meters/sec)^2</td>
+                                    </tr>
+                                </table>
+                                <p>If you set <a href="#covarianceFormat">CovarianceFormat</a> to <code>LowerTriangular</code>, data points appear as follows:</p>
+                                <p>&lt;Time&#160;in&#160;seconds&gt;&#160;&lt;Cx,x&gt;&#160;&lt;Cy,x&gt;&#160;&lt;Cy,y&gt;&#160;&lt;Cz,x&gt;&#160;&lt;Cz,y&gt;&#160;&lt;Cz,z&gt;&#160;&lt;Cxd,x&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Cxd,y&gt;&#160;&lt;Cxd,z&gt;&#160;&lt;Cxd,xd&gt;&#160;&lt;Cyd,x&gt;&#160;&lt;Cyd,y&gt;&#160;&lt;Cyd,z&gt;&#160;&lt;Cyd,xd&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Cyd,yd&gt;&#160;&lt;Czd,x&gt;&#160;&lt;Czd,y&gt;&#160;&lt;Czd,z&gt;&#160;&lt;Czd,xd&gt;&#160;&lt;Czd,yd&gt;&#160;&lt;Czd,zd&gt;
+</p>
+                                <p>If you set <a href="#covarianceFormat">CovarianceFormat</a> to <code>UpperTriangular</code>, data points appear as follows:</p>
+                                <p>&lt;Time&#160;in&#160;seconds&gt;&#160;&lt;Cx,x&gt;&#160;&lt;Cx,y&gt;&#160;&lt;Cx,z&gt;&#160;&lt;Cx,xd&gt;&#160;&lt;Cx,yd&gt;&#160;&lt;Cx,zd&gt;&#160;&lt;Cy,y&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Cy,z&gt;&#160;&lt;Cy,xd&gt;&#160;&lt;Cy,yd&gt;&#160;&lt;Cy,zd&gt;&#160;&lt;Cz,z&gt;&#160;&lt;Cz,xd&gt;&#160;&lt;Cz,yd&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Cz,zd&gt;&#160;&lt;Cxd,xd&gt;&#160;&lt;Cxd,yd&gt;&#160;&lt;Cxd,zd&gt;&#160;&lt;Cyd,yd&gt;&#160;&lt;Cyd,zd&gt;&#160;&lt;Czd,zd&gt;
+
+</p>
+                                <p>An ephemeris file using the <code>CovarianceTimePosVel</code> format might look something like this <a href="example_ephemeris13.htm">sample file</a>.</p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="11" width="16" alt="Closed" data-mc-alt2="Open" />StateErrorTransition Format </a> <a name="StateErrorFormat"></a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>You must use this format  in conjunction with one of the other ephemeris formats. It is possible to include an ephemeris format, a covariance format, and the state-error transition format in one file.</p>
+                                <p>The ephemeris file format enables you to supply linear state-error transition matrix data in addition to position and velocity information. Use the <code>StateErrorTransition</code> keyword in conjunction with one of the other ephemeris formats to indicate that data points that follow are the state-error transition matrices in the same Cartesian coordinate system within which the ephemeris was defined. The number of state-error transition points is restricted to being the same as the number of ephemeris points and the times associated with the state-error transition matrices should be the same as the times associated with the ephemeris information.
+				</p>
+                                <p>The state-error transition matrices are defined to provide a linear mapping of small deviations in position and velocity. They are represented from the epoch specified via the <code>StateErrorTransitionReferenceEpoch</code> keyword to the time specified with the matrix. Both input and output state deviations would be expressed in the coordinate system specified for the ephemeris data. Typically, the linear state-error transition matrix is computed through the numerical integration of the variational equations during the numerical integration of the non-linear trajectory.</p>
+                                <p>The data points following the keyword consist of a matrix per point. Each matrix looks like the following:</p>
+                                <p>&lt;Time&#160;in&#160;seconds&gt;&#160;&lt;PhiXX&gt;&#160;&lt;PhiXY&gt;&#160;&lt;PhiXZ&gt;&#160;&lt;PhiXXd&gt;&#160;&lt;PhiXYd&gt;&#160;&lt;PhiXZd&gt;&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;PhiYX&gt;&#160;&lt;PhiYY&gt;&#160;&lt;PhiYZ&gt;&#160;&#160;&lt;PhiYXd&gt;&#160;&lt;PhiYYd&gt;&#160;&lt;PhiYZd&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;PhiZX&gt;&#160;&lt;PhiZY&gt;&#160;&lt;PhiZZ&gt;&#160;&lt;PhiZXd&gt;&#160;&lt;PhiZYd&gt;&#160;&lt;PhiZZd&gt;&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;PhiXdX&gt;&#160;&lt;PhiXdY&gt;&#160;&lt;PhiXdZ&gt;&#160;&lt;PhiXdXd&gt;&#160;&lt;PhiXdYd&gt;&#160;&lt;PhiXdZd&gt;&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;PhiYdX&gt;&#160;&lt;PhiYdY&gt;&#160;&lt;PhiYdZ&gt;&#160;&lt;PhiYdXd&gt;&#160;&lt;PhiYdYd&gt;&#160;&lt;PhiYdZd&gt;&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;PhiZdX&gt;&#160;&lt;PhiZdY&gt;&#160;&lt;PhiZdZ&gt;&#160;&lt;PhiZdXd&gt;&#160;&lt;PhiZdYd&gt;&#160;&lt;PhiZdZd&gt;&#160;</p>
+                                <p>where</p>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th>Option</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>TimeInSeconds</td>
+                                            <td>The time value of the point in seconds (in the format xxxx.xxx) relative to the epoch as defined by the ScnarioEpoch keyword</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phixy</td>
+                                            <td>Entry providing mapping of deviation in y coordinate at the reference epoch to the x component at the epoch indicated by TimeInSeconds</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <div id="lowerBits"><iframe src="https://help.agi.com/agiratings/v2.htm" id="ratings" class="ratings"></iframe>
+                <div id="relations">
+                    <nav>
+                    </nav>
+                </div>
+                <footer>
+                    <p class="version"><b><span class="mc-variable productSpecificVariables.productFooterName variable">Systems Tool Kit (STK)</span></b>, v<span class="mc-variable productSpecificVariables.FooterproductVersion variable">2026 R1 (STK&#160;13.1.0)</span>; <b>Latest Help Update:</b> <span class="mc-variable productSpecificVariables.publishDate variable">September, 2026</span> - © <span class="mc-variable stkVariables.CompanyName variable">Synopsys, Inc and/or its affiliated companies. All rights reserved. Unauthorized use, distribution, or reproduction is prohibited.</span></p>
+                </footer>
+            </div>
+        </div>
+        <script type="text/javascript">/* <![CDATA[ */
+			$(document).ready(reload);
+			$(document).ready(adjustPadding);
+		/* ]]> */</script>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkBottom"><a href="../../index.htm#stk/importfiles-02.htm">Open topic with navigation</a>
+        </p>
+    </body>
+</html>

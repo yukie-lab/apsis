@@ -1,0 +1,2084 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en-us" >
+<head>
+
+  
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Space Assigned Numbers Authority (SANA)">
+    <meta name="author" content="Viagénie">
+    <link rel="shortcut icon" href="/static/sana/images/favicon.ico">
+
+    <title>Space Assigned Numbers Authority (SANA)</title>
+
+    <!--Atom feed-->
+    
+        <link rel="alternate" type="application/atom+xml" title="Feed for current page" href="/feeds/celestial_body_reference_frames/atom.xml" />
+    
+
+    
+      
+<!-- tablesaw.jquery.jsw -->
+    <link rel="stylesheet" href="/static/sana/css/tablesaw.css" />
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/static/sana/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/static/django_tables2/themes/paleblue/css/screen.css" />
+
+    <!-- JQuery UI CSS -->
+    <link rel="stylesheet" href="/static/sana/jquery-ui/jquery-ui.min.css" />
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/static/sana/css/sana.css">
+    <link rel="stylesheet" href="/static/favorite/css/favorite.css">
+
+    <!-- Fontawsome icons -->
+    <link rel="stylesheet" href="/static/sana/font-awsome/css/font-awesome.min.css">
+
+    
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+  <link href="/static/admin/css/vendor/select2/select2.min.css" media="screen" rel="stylesheet">
+<link href="/static/admin/css/autocomplete.css" media="screen" rel="stylesheet">
+<link href="/static/autocomplete_light/select2.css" media="screen" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+  
+<nav class="navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><img alt="SANA logo" src="/static/sana/images/sana.png"/></a>
+        </div>
+
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a class="btn" href="/"><span class="glyphicon glyphicon-home"></span></a>
+                </li>
+                <li>
+                    <a class="btn" data-toggle="modal" data-target="#about-modal">About</a>
+                </li>
+
+                
+
+<li class="dropdown">
+    <a class="btn dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" >
+        How-To
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+        <li class="dropdown-item">
+            <a class="btn show-tooltip" href="/howto/overview/" data-placement="bottom">
+                Overview
+            </a>
+        </li>
+        <li class="dropdown-item">
+            <a class="btn show-tooltip" href="/howto/accounts/" data-placement="bottom">
+                Accounts
+            </a>
+        </li>
+        <li class="dropdown-item">
+            <a class="btn show-tooltip" href="/howto/registries/" data-placement="bottom">
+                Registries
+            </a>
+        </li>
+        <li class="dropdown-item">
+            <a class="btn show-tooltip" href="/howto/registry_list/" data-placement="bottom">
+                SCID
+            </a>
+        </li>
+    </ul>
+</li>
+
+
+                <li class="dropdown">
+                    <a class="btn dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" >
+                        Registries
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <a class="btn show-tooltip" href="/r/?all=true" data-placement="bottom">
+                                All
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a class="btn show-tooltip" href="/r/?status=Approved" data-placement="bottom">
+                                Approved
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a class="btn show-tooltip" href="/r/?status=Candidate" data-placement="bottom">
+                                Candidate
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a class="btn" href="/login/?next=/r/celestial_body_reference_frames/"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a>
+                </li>
+                
+                <li>
+                    <a class="btn" data-toggle="modal" data-target="#feed-modal"><span class="fa fa-rss"></span></a>
+                </li>
+            </ul>
+            <form action="/search" method="get" class="navbar-form navbar-right">
+              <div class="form-group has-feedback input-search">
+                  <input type="text" class="form-control" placeholder="Search query" name="search">
+                  <span class="form-control-feedback glyphicon glyphicon-search" style="color:Black"></span>
+              </div>
+              <div class="search-submit">
+                <button type="submit" class="btn">
+                  Search
+                </button>
+              </div>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a class="btn" href="/api/"><b>API</b></a>
+              </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+
+
+
+  
+
+
+
+
+<div class="container" id="content">
+
+
+    <header class="heading">
+        <div class="heading-head">
+            <h1>
+              <a class="btn btn-success"
+                 href="/r/?status=Approved"
+                 data-toggle="tooltip" data-placement="top"
+                 title="Registry has been approved">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                &nbsp;Approved
+              </a>&nbsp;Celestial Body Reference Frames&nbsp;
+              
+            </h1>
+        </div>
+        <div class="heading-meta">
+            <span><b>Creation date</b>: 2019-02-13 20:34:25</span>
+            <span><b>Update date</b>: 2023-05-17 18:04:41</span>
+        </div>
+    </header>
+
+    
+
+    
+
+        
+            <div id="policies">
+                
+                    <p><b>Policy</b>: <a data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" tabindex="0" style="cursor:pointer" data-content="Requests to add, change or delete assignments to this registry will be approved by an Expert nominated by the CESG.">Expert Review</a></p>
+                
+            </div>
+        
+
+        
+            <p><b>Authority</b>: <a href="http://cwe.ccsds.org/moims/default.aspx#_MOIMS-NAV" target="_blank">CCSDS.MOIMS.NAV</a></p>
+        
+
+        
+            <p><b>OID</b>: 1.3.112.4.57.2</p>
+        
+
+        
+            <hr>
+        
+
+    
+
+    <div class="notes">
+        
+
+        
+    </div>
+
+    
+
+    
+
+    <h2>Contents</h2>
+
+        <p><b>39</b> records in registry</p>
+
+        
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a href="#oid-tree-panel" data-toggle="collapse"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> OID Tree</a>
+                    </h4>
+                </div>
+                <div id="oid-tree-panel" class="panel-collapse collapse ">
+                  <div class="panel-body">
+                    <div class="col-sm-12 oid-tree">
+                      <div class="row title">
+                        <div class="col-sm-6"><h4>Object Identifier</h4></div>
+                        <div class="col-sm-6"><h4>Label</h4></div>
+                      </div>
+                      <div class="row" data-oid="1.3.112.4.57.2">
+                        <div class="col-sm-6 oid oid-value tree-branch">1.3.112.4.57.2</div>
+                        <div class="col-sm-6">Celestial Body Reference Frames</div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        
+
+        <div id="registry-table" class="panel-collapse collapse in">
+            
+            
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a href="#filter" data-toggle="collapse"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Show/Hide filter(s)</a>
+                        </h4>
+                    </div>
+
+                    <div id="filter" class="panel-collapse collapse">
+                        
+
+<form  class="panel-body form-horizontal" method="get" > <div id="div_id_references" class="form-group"> <label for="id_references"  class="control-label col-lg-2">
+                References
+            </label> <div class="controls col-lg-8"> <select name="references" class="sana-filter form-control sanamodelselect2multiple" id="id_references" data-autocomplete-light-language="en" data-autocomplete-light-url="/autocomplete/references" data-autocomplete-light-function="select2" multiple>
+</select> </div> </div> <div id="div_id_status" class="form-group"> <label for="id_status"  class="control-label col-lg-2">
+                Status
+            </label> <div class="controls col-lg-8"> <select name="status" class="sana-filter form-control sanamodelselect2multiple" id="id_status" data-autocomplete-light-language="en" data-autocomplete-light-function="select2" multiple> <option value="1">Unassigned</option> <option value="2">Reserved</option> <option value="3">Provisional</option> <option value="4">Assigned</option> <option value="5">Expired</option> <option value="6">Unmanaged</option> <option value="7">TBC</option> <option value="8">Returned</option> <option value="9">Deleted</option> <option value="10">Deprecated</option>
+
+</select> </div> </div> <div id="div_id_value" class="form-group"> <label  class="control-label col-lg-2">
+                Value
+            </label> <div class="controls col-lg-8"> <textarea name="value" cols="40" rows="1" class="sana-filter form-control" id="id_value_0"></textarea><select name="value_lookup" class="sana-filter form-control" id="id_value_1"><option value="icontains">Contains</option><option value="istartswith">Starts with</option><option value="iendswith">Ends with</option><option value="iexact">Is equal to</option><option value="iregex">Regular Expression</option></select> </div> </div> <div id="div_id_description" class="form-group"> <label  class="control-label col-lg-2">
+                Description
+            </label> <div class="controls col-lg-8"> <textarea name="description" cols="40" rows="1" class="sana-filter form-control" id="id_description_0"></textarea><select name="description_lookup" class="sana-filter form-control" id="id_description_1"><option value="icontains">Contains</option><option value="istartswith">Starts with</option><option value="iendswith">Ends with</option><option value="iexact">Is equal to</option><option value="iregex">Regular Expression</option></select> </div> </div> <div id="div_id_nomenclature" class="form-group"> <label  class="control-label col-lg-2">
+                Nomenclature
+            </label> <div class="controls col-lg-8"> <textarea name="nomenclature" cols="40" rows="1" class="sana-filter form-control" id="id_nomenclature_0"></textarea><select name="nomenclature_lookup" class="sana-filter form-control" id="id_nomenclature_1"><option value="icontains">Contains</option><option value="istartswith">Starts with</option><option value="iendswith">Ends with</option><option value="iexact">Is equal to</option><option value="iregex">Regular Expression</option></select> </div> </div> <div id="div_id_others_have_referred_to_this_as" class="form-group"> <label  class="control-label col-lg-2">
+                Others Have Referred To This As
+            </label> <div class="controls col-lg-8"> <textarea name="others_have_referred_to_this_as" cols="40" rows="1" class="sana-filter form-control" id="id_others_have_referred_to_this_as_0"></textarea><select name="others_have_referred_to_this_as_lookup" class="sana-filter form-control" id="id_others_have_referred_to_this_as_1"><option value="icontains">Contains</option><option value="istartswith">Starts with</option><option value="iendswith">Ends with</option><option value="iexact">Is equal to</option><option value="iregex">Regular Expression</option></select> </div> </div> <div id="div_id_frame_type" class="form-group"> <label for="id_frame_type"  class="control-label col-lg-2">
+                Frame Type
+            </label> <div class="controls col-lg-8"> <select name="frame_type" class="sana-filter form-control sanamodelselect2multiple" id="id_frame_type" data-autocomplete-light-language="en" data-autocomplete-light-function="select2" multiple> <option value="2">Body-Fixed</option> <option value="1">Inertial</option>
+
+</select> </div> </div> <input type="hidden" name="oid" pattern="[012](\.(0|[1-9]\d*))*" placeholder="1.3.112.4.1.2" id="id_oid"> <div class="form-group"> <div class="aab controls col-lg-2"></div> <div class="controls col-lg-8"> <input type="submit"
+    name="filter"
+    value="Apply filters"
+    
+        class="btn btn-primary"
+        id="submit-id-filter"
+    
+    
+    /> <input type="reset"
+    name="reset"
+    value="Clear all filters"
+    
+        class="btn btn-inverse"
+        id="reset-id-reset"
+    
+    
+    /> </div> </div> </form>
+
+                    </div>
+                </div>
+            
+
+          
+
+        
+
+
+
+
+<div>
+    
+        
+            <div id="table_actions_top" class="table_actions pull-left">
+                <div class="dropdown items_page pull-left">
+                    Items per page
+                    <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+                            aria-hidden="true">
+                        <span class="badge">500</span>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="?per_page=10">10</a></li>
+                        <li><a href="?per_page=25">25</a></li>
+                        <li><a href="?per_page=50">50</a></li>
+                        <li><a href="?per_page=100">100</a></li>
+                        <li><a href="?per_page=500">500</a></li>
+                    </ul>
+                </div>
+
+                
+            </div>
+        
+
+        <table class="tablesaw tablesaw-columntoggle table table-bordered table-striped"
+               data-tablesaw-mode="columntoggle" id="registry-content">
+            
+                <thead>
+                <tr>
+                    
+                        
+                            <th data-tablesaw-priority="persist" class="sana-more"></th>
+                        
+                    
+                        
+                            <th data-tablesaw-priority="persist" class="sana-details">Details</th>
+                        
+                    
+                        
+                            <th data-tablesaw-priority="1" class="orderable sana-status">
+                                <a href="?per_page=500&amp;sort=status">Status</a>
+                            </th>
+                        
+                    
+                        
+                            <th data-tablesaw-priority="1" class="orderable sana-value">
+                                <a href="?per_page=500&amp;sort=value">Value</a>
+                            </th>
+                        
+                    
+                        
+                            <th data-tablesaw-priority="1" class="orderable sana-description">
+                                <a href="?per_page=500&amp;sort=description">Description</a>
+                            </th>
+                        
+                    
+                        
+                            <th data-tablesaw-priority="1" class="orderable sana-nomenclature">
+                                <a href="?per_page=500&amp;sort=nomenclature">Nomenclature</a>
+                            </th>
+                        
+                    
+                        
+                            <th data-tablesaw-priority="1" class="orderable sana-others_have_referred_to_this_as">
+                                <a href="?per_page=500&amp;sort=others_have_referred_to_this_as">Others Have Referred To This As</a>
+                            </th>
+                        
+                    
+                        
+                            <th data-tablesaw-priority="1" class="orderable sana-frame_type">
+                                <a href="?per_page=500&amp;sort=frame_type">Frame Type</a>
+                            </th>
+                        
+                    
+                        
+                            <th data-tablesaw-priority="1" class="orderable sana-references">
+                                <a href="?per_page=500&amp;sort=references">References</a>
+                            </th>
+                        
+                    
+                        
+                            <th data-tablesaw-priority="1" class="orderable sana-oid">
+                                <a href="?per_page=500&amp;sort=oid">OID</a>
+                            </th>
+                        
+                    
+                </tr>
+                </thead>
+            
+
+            
+                <tbody>
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/1"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>ALIGN_CB</p></td>
+                                
+                                    <td class="sana-description"><p><b>For all central bodies except Earth, where the central body shall be defined via an accompanying “CENTER_NAME”.</b>  An <b>inertial</b> frame obtained by evaluating the central body’s fixed (rotating) frame at some specified epoch, rather than evolving in time.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.1</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/2"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>ALIGN_EARTH</p></td>
+                                
+                                    <td class="sana-description"><p><b>For the Earth system only,</b> an <b>inertial</b> frame obtained by evaluating the Earth’s fixed (rotating) frame at some specified epoch, rather than evolving in time.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.2</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/3"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>B1950</p></td>
+                                
+                                    <td class="sana-description"><p><b>For the Earth system only,</b> these inertial axes are associated with the FK4 star catalog and its theory modeling the mean equator and mean equinox. The epoch is the beginning of the Besselian year 1950, corresponding to 31 Dec 1949 22:09:46.866 or JD 2433282.4234591. The B1950 axes are realized by a constant rotation offset from the J2000 axes, using a formula available from the Explanatory Supplement to the Astronomical Almanac.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.3</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/4"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>CIRS</p></td>
+                                
+                                    <td class="sana-description"><p><b>Celestial Intermediate Reference System.</b> Details in IERS TN32 5.11 and TN36 p. 47 and Vallado [Vallado, D., Seago, J., Seidelmann, P. (2006). Implementation Issues Surrounding the New IAU Reference Systems for Astrodynamics. 16th AAS/AIAA Space Flight Mechanics Conference]. Essentially the transformation for precession/nutation is based on the Celestial Intermediate Pole realized with the IAU2000A model rather than IAU1976/80.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.4</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/5"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>DTRFyyyy</p></td>
+                                
+                                    <td class="sana-description"><p>The DTRFyyyy is the inertial realization of the ITRS computed at DGFI-TUM (Deutsches Geodätisches Forschungsinstitut/Technische Universität München). Only two other VLBI centers compute these realizations, the others being IGN in Paris and JPL in Pasadena. The DTRF considering corrections for non-tidal atmospheric and hydrological loading, as of year “yyyy” (e.g. 2000).</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>e.g., DTRF2000</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.5</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>EFG</p></td>
+                                
+                                    <td class="sana-description"><p>Earth-Fixed Greenwich (EFG) rotating frame. Differs from the crust-fixed ITRF frame only in that the EFG frame does not incorporate polar motion.  Differences between the EFG and ITRF frames are small, on the order of 18m.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>• Pseudo-Earth Fixed<br>• TIRS<br>• True of Date Rotating (TDR)</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Body-Fixed</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.6</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/7"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>EME2000</p></td>
+                                
+                                    <td class="sana-description"><p>The <b>quasi-inertial frame</b> Earth Mean Equator and Mean Equinox of the J2000 epoch (JD 2451545.0 TDB which is 1 Jan 2000 12:00:00.000 TDB). The J2000 frame is realized by the transformational algorithm (also known as the FK5 IAU76 theory) between it and the Earth Fixed frame. The algorithm uses the 1976 IAU Theory of Precession, the 1980 Nutation model, and the Greenwich Mean apparent Sidereal Time (expressed as a function of time in UT1), updated by IERS Technical Note No. 21 to include an adjustment to the equation of the equinoxes.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>J2000</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.7</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/8"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>FIXED_CB</p></td>
+                                
+                                    <td class="sana-description"><p><b>The rotating fixed frame for all central bodies except Earth, where the central body shall be defined via an accompanying “CENTER_NAME”.</b>   The Fixed frame is the frame in which its topography is expressed.  For gaseous planets (Jupiter, Saturn, Uranus, Neptune), the Fixed frame identifies the planet’s magnetic field instead. The Earth’s Moon realizes its Fixed frame (by default) as its Mean Earth frame; all other central bodies realize their Fixed frames using the transformational algorithm and parameters contained in Report of the IAU/IAG Working Group on cartographic coordinates and rotational elements: 2009, B.A. Archinal et al., Celest. Mech Dyn Astr 109 (2), 101-135 (DOI: 10.1007/s10569-010-9320-4).</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Body-Fixed</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.8</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/39"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>FIXED_EARTH</p></td>
+                                
+                                    <td class="sana-description"><p>The Earth's rotating fixed frame, realized via the transformational algorithm and parameters of IAU 1976/1980, IAU 2000A, and/or the International Terrestrial Reference Frame solutions as of year "yyyy" (e.g. 1993, 1997, 2000).</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>• Earth-Centered Rotating (ECR)<br>• Earth-Centered Earth Fixed (ECEF)<br>• Earth-Centered Fixed (ECF)</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Body-Fixed</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.39</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/9"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>GCRFn</p></td>
+                                
+                                    <td class="sana-description"><p>The Geocentric Celestial Reference Frame is the realization of the Geocentric Celestial Reference System per IERS conventions 2003 (IERS Technical Note TN-32, ICRF1) by McCarthy and Petit and 2010 conventions (TN-36, ICRF2) by Petit and Luzum. The underlying ICRS, from which the GCRF is derived, is periodically reevaluated.  As such, each realization of the GCRF must be annotated (i.e., GCRFn, where the "n" character is an integer starting from 1).  The GCRF is the standard inertial coordinate system for the Earth, with origin at the geocenter (i.e Earth’s center of mass location).  The GCRF is the geocentric counterpart of the ICRF.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>e.g., GCRF2</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.9</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/10"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>GTOD</p></td>
+                                
+                                    <td class="sana-description"><p><b>The Greenwich True-of-Date (GTOD) rotating coordinate system</b>. This is realized as a rotating, right-handed, Cartesian system with the origin at the center of the Earth. The orientation of this system is specified with the xy plane in the Earth’s true of date Equator, the z axis directed along the Earth’s true of date rotational axis and is positive north, the positive x axis directed toward the prime meridian, and the y axis completing the right-handed system.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>• ‘True of Date Rotating’ (<b>TDR</b>)<br>• ‘Greenwich Rotating Coordinate Frame’ (<b>GRC</b>)</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Body-Fixed</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.10</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/37"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>ICRF</p></td>
+                                
+                                    <td class="sana-description"><p>Latest version of the ICRFn reference frame</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.37</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/11"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>ICRFn</p></td>
+                                
+                                    <td class="sana-description"><p>The International Celestial Reference Frame is the realization of the International Celestial Reference System per IERS conventions 2003 (IERS Technical Note TN-32, ICRF1) by McCarthy and Petit and IERS 2010 conventions (TN-36, ICRF2) by Petit and Luzum. ICRF is the standard Barycentric reference system.  The ICRF is periodically reevaluated, such that each realization must be annotated (i.e., ICRFn, where the ‘n’ character is an integer starting from 1). The ICRF axes are defined as the inertial (i.e., kinematically non-rotating) axes associated with a general relativity frame centered at the solar system barycenter (often called the BCRF). The IAU (International Astronomical Union) is the authority for the definition of the ICRF. The ICRF frame is realized by the transformational algorithm between it and the Earth Fixed frame.<br>Note that the term ‘ICRF coordinate system’ is not restricted to the system whose origin is at the solar system barycenter--- rather, the term describes a coordinate system whose origin is determined from context (i.e., for a central body, its center of mass location) whose axes are aligned with the axes of the BCRF. In fact, the IAU uses the term GCRF to refer to the system with origin at the geocenter (i.e Earth’s center of mass location) with axes parallel to the BCRF. [Note that ‘aligned’ here refers to directions in Euclidean space – not in a curved space governed by general relativity.]</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>e.g., <br>ICRF1<br>ICRF2<br>ICRF3</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.11</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/12"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>INERTIAL_CB</p></td>
+                                
+                                    <td class="sana-description"><p><b>Inertial definition for all central bodies except the Moon, Sun and Earth, where the central body shall be defined via an accompanying “CENTER_NAME”.</b>  Each central body defines its own Inertial frame computed as a constant rotation from the ICRF frame. Inertial frames for both the Earth and Sun are defined as ICRF itself (i.e., no rotation) and an additional frame named Inertial is not defined.  Due to potential vagaries in definition, the use of “Inertial_CB” is not recommended unless a more definitive frame is not available or applicable (i.e. ICRF2, J2000)</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.12</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/38"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>ITRF</p></td>
+                                
+                                    <td class="sana-description"><p>Latest version of the ITRFyyyy reference frame</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Body-Fixed</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.38</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/13"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>ITRFyyyy</p></td>
+                                
+                                    <td class="sana-description"><p>The rotating Earth-fixed frame that is a realization of the ITRS through estimation of ground station coordinates from observation data.  The ITRF is obtained by a transformation from ICRF which includes precession, nutation, and rotation effects, as well as pole wander and frame corrections.  International Terrestrial Reference Frame solution as of year “yyyy” (e.g. 1993, 1997, 2000).</p>
+
+<p>Realizations of the ITRS are produced by IERS under the name International Terrestrial Reference Frames (ITRF), which consist of lists of coordinates (and velocities) for a selection of IERS sites (tracking stations or related ground markers). Currently, ITRF-yyyy is published approximately annually by the IERS in the Technical Notes (cf. Boucher et al., 1996). The numbers (yyyy) following the designation "ITRF" specify the last year of data used in the formation of the frame. Hence ITRF1994 designates the frame of coordinates and velocities constructed in 1995 using all of the IERS data available through 1994. More recently, since 1993, other special realizations have been produced, such as solutions for IGS core stations (ITRF-Py series) (IGS, 1995). </p>
+
+<p>Note that some coordinate systems are aligned with specific ITRF solutions (e.g., GLONASS PZ-90.11 agrees with ITRF2008).</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>e.g., ITRF2000</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Body-Fixed</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.13</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/14"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>J2000</p></td>
+                                
+                                    <td class="sana-description"><p>The <b>quasi-inertial frame</b> Mean Equator and Mean Equinox of the J2000 epoch (JD 2451545.0 TDB which is 1 Jan 2000 12:00:00.000 TDB). The J2000 frame is realized by the transformational algorithm (also known as the FK5 IAU76 theory) between it and the Earth Fixed frame. The algorithm uses the 1976 IAU Theory of Precession, the 1980 Nutation model, and the Greenwich Mean apparent Sidereal Time (expressed as a function of time in UT1), updated by IERS Technical Note No. 21 to include an adjustment to the equation of the equinoxes.<br>Note that the term ‘J2000 coordinate system’ is not restricted to the system whose origin is at Earth’s center--- rather, the term describes a coordinate system whose origin is determined from context (i.e., for a central body, its center of mass location) whose axes are parallel to the axes of the J2000 system defined at the Earth.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>EME2000 in other CCSDS NAV Blue Books, eg ODM v2</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.14</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/15"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>J2000A</p></td>
+                                
+                                    <td class="sana-description"><p>The <b>quasi-inertial frame</b> Mean Equator and Mean Equinox of the J2000 epoch (JD 2451545.0 TDB which is 1 Jan 2000 12:00:00.000 TDB). The J2000 frame is the realization using the IAU 2000A by Mathews et al. (IERS TN 32 and 36).<br>Note that the term ‘J2000A coordinate system’ is not restricted to the system whose origin is at Earth’s center--- rather, the term describes a coordinate system whose origin is determined from context (i.e., for a central body, its center of mass location) whose axes are parallel to the axes of the J2000 system defined at the Earth.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.15</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/16"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>J2000_ECLIPTIC</p></td>
+                                
+                                    <td class="sana-description"><p>The <b>quasi-inertial frame</b> mean ecliptic system evaluated at the J2000 epoch. The mean ecliptic plane is defined as the rotation of the J2000 XY plane about the J2000 X axis by the mean obliquity defined using FK5 IAU76 theory.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.16</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/17"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>MOD_CB</p></td>
+                                
+                                    <td class="sana-description"><p><b>Mean of Date quasi-inertial frame definition for all central bodies except Earth and Moon, where the central body shall be defined via an accompanying “CENTER_NAME”.</b> The same computation as TOD_CB except that when the Fixed frame Z axis is computed, any oscillatory terms in the formulas for the right ascension and declination are ignored.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.17</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/18"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>MOD_EARTH</p></td>
+                                
+                                    <td class="sana-description"><p><b>Mean of Date quasi-inertial frame definition for the Earth.</b> Mean Equator and Mean Equinox of date. The transformation between J2000 and MeanOfDate is computed using a sequence of Euler rotations. Rotation angles are computed using cubic polynomials of time past the J2000 epoch in JED according to the 1976 IAU Theory of Precession angles and rates, as found in the US Naval Observatory circular No. 163. The MeanOfDate Z axis is the Earth’s mean spin axis; the MeanOfDate X axis defines the mean vernal equinox</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.18</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/19"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>MOD_MOON</p></td>
+                                
+                                    <td class="sana-description"><p><b>Mean of Date quasi-inertial frame definition for the Moon.</b> The Z axis aligns with the IAU2003 Z axis, and the X axis aligns with the vector that is the cross product of the ICRF Z axis and the IAU2003 Z axis, evaluated at each given time. However, when computing the IAU2003 Z axis, the oscillatory terms are ignored.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.19</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/20"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>MOE_CB</p></td>
+                                
+                                    <td class="sana-description"><p><b>Mean of Epoch quasi-inertial frame</b> definition for all central bodies except Earth, <b>where the central body shall be defined via an accompanying “CENTER_NAME”.</b> The MeanOfDate system evaluated at some specified epoch, rather than evolving in time. This frame does not rotate with respect to the Inertial frame.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.20</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/21"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>MOE_EARTH</p></td>
+                                
+                                    <td class="sana-description"><p><b>Mean of Epoch quasi-inertial frame definition for the Earth.</b> The Earth’s MeanOfDate system evaluated at some specified epoch, rather than at each given time. This frame does not rotate with respect to the J2000 frame.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.21</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/22"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>MOON_ME</p></td>
+                                
+                                    <td class="sana-description"><p><b>Moon Mean Earth (ME) rotating frame.</b> This is the preferred lunar frame for associating lunar topography. It is defined as a constant rotation from the Principal Axes frame associated with a particular instantiation of the Jet Propulsion Laboratory Development Ephemeris (JPL/DE).  Typically, the X axis pointed along the mean direction to the center of the Earth and the Z axis pointing to the mean direction of rotation.  The ME frame is typically used to specify the location of objects on the Moon.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Body-Fixed</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.22</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/23"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>MOON_MEIAUE</p></td>
+                                
+                                    <td class="sana-description"><p><b>Moon-Centered, Moon Mean Equator and IAU-Node of Epoch quasi-inertial frame</b> as specified in [Jet Propulsion Laboratory, “Lunar Constants and Models Document,” JPL D-32296, 23 Sept 2005, Fig. 6-2].</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.23</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/24"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>MOON_PAxxx</p></td>
+                                
+                                    <td class="sana-description"><p><b>Moon Principal Axis (PA) rotating frame.</b> This frame is aligned with the Moon’s principal inertia axes with the Z axis along the maximum inertia and the X axis along the minimum inertia. The PA frame is developed in conjunction with the development of the ephemerides for the Moon: hence, the frame depends on the source JPL DE file being used. The PAxxx frame is used as the basis for Lunar gravity models, in the numerical integration of the planetary ephemerides, and as the reference for modern moon gravity solutions. Euler angles supplied as part of the JPL DE planetary ephemerides relate the MOON_PA frame to ICRF.  In this case, ‘xxx’ shall be confined to be existing JPL DE instantiations, such as PA403, PA421 and PA430 (with ‘xxx’ = 403, 421 and 430, respectively).</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Body-Fixed</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.24</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/25"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>TEMEOFDATE</p></td>
+                                
+                                    <td class="sana-description"><p><b>For the Earth system only, specifies True Equator Mean Equinox of date quasi-inertial frame.</b> This is an intermediate quasi-inertial frame associated with the transformation from Earth’s MeanOfDate to Earth’s TrueOfDate axes through the geometric terms of the Equation of the Equinoxes. The TEMEOfDate Z axis is aligned with the TrueOfDate Z axis; the TEMEOfDate X axis is close to (but not identical to) the MeanOfDate X axis.  This is the underlying frame upon which the NORAD Two-Line Element Sets (TLEs) are based.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.25</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/26"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>TEMEOFEPOCH</p></td>
+                                
+                                    <td class="sana-description"><p><b>For the Earth system only, specifies the quasi-inertial True Equator Mean Equinox of epoch frame.</b> Earth’s TEMEOfDate frame evaluated at some specified epoch rather than evolving in time. The frame does not rotate with respect to the J2000 frame.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.26</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/27"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>TIRS</p></td>
+                                
+                                    <td class="sana-description"><p><b>Terrestrial Intermediate Reference System.</b> Details in IERS TN32 5.11 and TN36 p. 47 and Vallado [Vallado, D., Seago, J., Seidelmann, P. (2006). Implementation Issues Surrounding the New IAU Reference Systems for Astrodynamics. 16th AAS/AIAA Space Flight Mechanics Conference]. Essentially the transformation for precession/nutation is based on the Celestial Intermediate Pole realized with the IAU2000A model rather than IAU1976/80.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.27</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/28"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>TOD_CB</p></td>
+                                
+                                    <td class="sana-description"><p><b>True of Date quasi-inertial frame definition for all central bodies except Earth and Moon, where the central body shall be defined via an accompanying “CENTER_NAME”.</b> The Z axis aligns with the central body’s Fixed Z axis, and the X axis aligns with the vector that is the cross product of the ICRF Z axis and the Fixed Z axis, evaluated at each given time.  If the cross product is zero, then the Y axis aligns with the cross product of the Fixed Z axis and the ICRF X axis.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.28</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/29"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>TOD_EARTH</p></td>
+                                
+                                    <td class="sana-description"><p><b>True of Date quasi-inertial frame definition for the Earth.</b> True Equator and True Equinox of date. The transformation between Earth’s MeanOfDate to Earth’s TrueOfDate axes uses the mean obliquity, the nutation in longitude, and the nutation in obliquity, computed according to the 1980 Nutation model, and then applies the update to the equation of the equinoxes. By default, the nutation values are obtained by interpolating values contained in the JPL DE file rather than evaluating the model directly. The TrueOfDate Z axis would be the Earth’s spin axis if pole wander were ignored; the TrueOfDate X axis defines the true vernal equinox.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.29</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/30"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>TOD_MOON</p></td>
+                                
+                                    <td class="sana-description"><p><b>True of Date quasi-inertial frame definition for the Moon.</b> The Z axis aligns with the Fixed Z axis, and the X axis aligns with the vector that is the cross product of the ICRF Z axis and the Fixed Z axis, evaluated at each given time. The TrueOfDate frame is very close to the Mean Lunar Equator and IAU Node of Date (Lunar Constants and Model Document, JPL D-32296, Sept 2005). If the Moon’s Fixed frame were to be set to use the IAU2003 frame, then the two frames would be identical.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.30</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/31"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>TOE_CB</p></td>
+                                
+                                    <td class="sana-description"><p><b>True of Epoch definition for all central bodies except Earth and Moon, where the central body shall be defined via an accompanying “CENTER_NAME”.</b> The central body’s TrueOfDate system (TOD_CB) evaluated at some specified epoch, rather than evolving over time. This frame does not rotate with respect to the ICRF frame.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.31</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/32"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>TOE_EARTH</p></td>
+                                
+                                    <td class="sana-description"><p><b>True of Epoch definition for the Earth.</b> The Earth’s TrueOfDate system (TOD_EARTH) evaluated at some specified epoch, rather than evolving over time. This frame does not rotate with respect to the ICRF frame.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.32</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/33"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>TOE_MOON</p></td>
+                                
+                                    <td class="sana-description"><p><b>True of Epoch definition for the Moon.</b> The Moon’s TrueOfDate system (TOD_MOON) evaluated at some specified epoch, rather than evolving over time. This frame does not rotate with respect to the ICRF frame.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.33</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/34"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>TRUE_ECLIPTIC</p></td>
+                                
+                                    <td class="sana-description"><p><b>The true ecliptic system, evolving in time.</b> The true ecliptic plane is defined as the rotation of the J2000 XY plane about the J2000 X axis by the true obliquity defined using FK5 IAU76 theory.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.34</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned odd">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/35"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>UVW_GO_INERTIAL</p></td>
+                                
+                                    <td class="sana-description"><p><b>Launch go-inertial reference frame</b>, with U in local horizon plane along inertial launch azimuth (downrange), W along the geodetic vertical and V completing the set (cross-range).  In typical use the go-inertial epoch should be specified in an accompanying comment field.</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.35</p></td>
+                                
+                            </tr>
+                        
+                     
+                        
+                            <tr class="status-assigned even">
+                                
+                                    <td class="arrow sana-more"><p></p></td>
+                                
+                                    <td class="sana-details"><p></p>
+
+<p>    <a class="btn btn-default" data-detail-link href="/r/celestial_body_reference_frames/records/36"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</a></p>
+
+<p></p></td>
+                                
+                                    <td class="sana-status"><p><span data-toggle="tooltip" data-placement="top" title="This assignment has been approved according to the registration policy.">Assigned</span></p></td>
+                                
+                                    <td class="sana-value"><p>WGS84</p></td>
+                                
+                                    <td class="sana-description"><p>WGS 84 is an Earth-centered, Earth-fixed terrestrial reference system and geodetic datum. WGS 84 is based on a consistent set of constants and model parameters that describe the Earth's size, shape, and gravity and geomagnetic fields. WGS 84 is the standard U.S. Department of Defense definition of a global reference system for geospatial information and is the reference system for the Global Positioning System (GPS). It is compatible with the International Terrestrial Reference System (ITRS).</p></td>
+                                
+                                    <td class="sana-nomenclature"><p>—</p></td>
+                                
+                                    <td class="sana-others_have_referred_to_this_as"><p>—</p></td>
+                                
+                                    <td class="sana-frame_type"><p>Inertial</p></td>
+                                
+                                    <td class="sana-references"><p></p></td>
+                                
+                                    <td class="sana-oid"><p>1.3.112.4.57.2.36</p></td>
+                                
+                            </tr>
+                        
+                    
+                </tbody>
+            
+
+            
+                
+            
+        </table>
+    
+</div>
+
+
+    <div id="table_actions" class="table_actions pull-left">
+        <div class="dropdown items_page pull-left">
+            Items per page
+            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-hidden="true">
+                <span class="badge">500</span>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="?per_page=10">10</a></li>
+                <li><a href="?per_page=25">25</a></li>
+                <li><a href="?per_page=50">50</a></li>
+                <li><a href="?per_page=100">100</a></li>
+                <li><a href="?per_page=500">500</a></li>
+            </ul>
+        </div>
+
+        
+    </div>
+
+
+        </div>
+
+        <div class="modal fade" id="bulk-edit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="bulk-edit-title">Bulk Edit : Celestial Body Reference Frames</h3>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+</div><!-- /.container -->
+
+
+<footer>
+    <div class="partners">
+        <ul>
+          <li><a title="NASA" href="http://www.nasa.gov/" target="_blank" rel="noopener noreferrer"><img alt="NASA logo" src="/static/sana/images/logo_nasa_b.png"></a></li>
+          <li><a title="Cofomo" href="http://cofomo.com/" target="_blank" rel="noopener noreferrer"><img alt="Cofomo logo" src="/static/sana/images/logo_cofomo.png" width="242"></a></li>
+          <li><a title="CCSDS" href="http://www.ccsds.org/" target="_blank" rel="noopener noreferrer"><img alt="CCSDS logo" src="/static/sana/images/logo_ccsds.png"></a></li>
+        </ul>
+    </div>
+
+    <div class="info">
+        <small>SANA operation is provided by <a href="http://www.cofomo.com" target="_blank" rel="noopener noreferrer">Cofomo</a> under the secretariat of the <a href="http://www.ccsds.org" target="_blank" rel="noopener noreferrer">Consultative Committee for Space Data Systems (CCSDS)</a>. The project is funded by <a href="http://www.nasa.gov" target="_blank" rel="noopener noreferrer">NASA</a>.</small>
+    </div>
+
+</footer>
+
+
+
+<div class="modal fade" id="about-modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">About</h4>
+            </div>
+            <div id="about-modal-body" class="modal-body">
+                
+<h1>About SANA</h1>
+<p>
+  The Space Assigned Numbers Authority (SANA) is the registrar function for the protocol registries created under the
+  <a href="http://www.ccsds.org" target="_blank" rel="noopener noreferrer">Consultative Committee for Space Data Systems (CCSDS)</a>.
+  SANA was created by the <a href="http://cwe.ccsds.org/sea/docs/SEA-SANA/Draft%20Documents/313x0y02.pdf" target="_blank" rel="noopener noreferrer">Yellow Book 313x0y02</a>
+  under the <a href="http://cwe.ccsds.org/sea/default.aspx#_SEA-SANA" target="_blank" rel="noopener noreferrer">SANA working group</a>,
+  as part of the <a href="http://cwe.ccsds.org/sea/default.aspx" target="_blank" rel="noopener noreferrer">Systems Engineering Area(SEA)</a>.
+</p>
+
+<p>
+  The SANA operations is provided by <a href="http://www.cofomo.com" target="_blank" rel="noopener noreferrer">Cofomo</a>
+  under the secretariat of CCSDS.
+</p>
+
+  <p>
+    The SANA's roles, responsibilities and procedures are defined in the <a href="https://public.ccsds.org/Pubs/313x0y3.pdf" target="_blank" rel="noopener noreferrer">CCSDS Yellow Book 313.0-Y-3</a>.
+    The SANA implements the <a href="https://public.ccsds.org/Pubs/313x1y2.pdf" target="_blank" rel="noopener noreferrer">CCSDS Yellow Book 313.1-Y-2</a> (CCSDS SANA Registry Management Policy).
+</p>
+
+<p>To contact SANA, use <a href="mailto:info@sanaregistry.org">info@sanaregistry.org</a>.</p>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div class="modal fade" id="feed-modal">
+    <div class="modal-dialog modal-lg" style="width: 70%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Registry feed</h4>
+            </div>
+            <div id="feed-modal-body" class="modal-body">
+            
+                
+<div class="container">
+    <div class="page-header">
+        <h1 id="timeline">
+            
+                <a href="/r/celestial_body_reference_frames/">Celestial Body Reference Frames registry</a>
+            
+            
+                <a href="/feeds/celestial_body_reference_frames/atom.xml" target="_blank" type="button" class="btn btn-default atom"><span class="fa fa-rss"></span></a>
+            
+        </h1>
+    
+    </div>
+    
+    <ul class="timeline">
+    
+    
+        <li >
+        
+            <div class="timeline-badge updated"><i class="glyphicon glyphicon-edit"></i></div>
+        
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title">
+                    
+                        <a href="/r/celestial_body_reference_frames/records/6">Celestial body reference frames record with [&#x27;Keyword Value Name&#x27;]  EFG</a>
+                    
+                    </h4>
+                    
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Updated on 2021-10-01 02:38:22 by Mr Julien Bernard</small></p>
+                    
+                </div>
+                
+            </div>
+        </li>
+    
+        <li class="timeline-inverted">
+        
+            <div class="timeline-badge created"><i class="glyphicon glyphicon-star-empty"></i></div>
+        
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title">
+                    
+                        <a href="/r/celestial_body_reference_frames/records/39">Celestial body reference frames record with [&#x27;Keyword Value Name&#x27;]  FIXED_EARTH</a>
+                    
+                    </h4>
+                    
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Published on 2021-07-23 21:20:00 by Mr Julien Bernard</small></p>
+                    
+                </div>
+                
+            </div>
+        </li>
+    
+        <li >
+        
+            <div class="timeline-badge created"><i class="glyphicon glyphicon-star-empty"></i></div>
+        
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title">
+                    
+                        <a href="/r/celestial_body_reference_frames/records/38">Celestial body reference frames record with [&#x27;Keyword Value Name&#x27;]  ITRF</a>
+                    
+                    </h4>
+                    
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Published on 2019-11-20 17:27:34 by Mr Julien Bernard</small></p>
+                    
+                </div>
+                
+            </div>
+        </li>
+    
+        <li class="timeline-inverted">
+        
+            <div class="timeline-badge created"><i class="glyphicon glyphicon-star-empty"></i></div>
+        
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title">
+                    
+                        <a href="/r/celestial_body_reference_frames/records/37">Celestial body reference frames record with [&#x27;Keyword Value Name&#x27;]  ICRF</a>
+                    
+                    </h4>
+                    
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Published on 2019-11-20 17:27:04 by Mr Julien Bernard</small></p>
+                    
+                </div>
+                
+            </div>
+        </li>
+    
+        <li >
+        
+            <div class="timeline-badge updated"><i class="glyphicon glyphicon-edit"></i></div>
+        
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title">
+                    
+                        <a href="/r/celestial_body_reference_frames/records/36">Celestial body reference frames record with [&#x27;Keyword Value Name&#x27;]  WGS84</a>
+                    
+                    </h4>
+                    
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Updated on 2019-09-16 20:33:15 by Mr Julien Bernard</small></p>
+                    
+                </div>
+                
+            </div>
+        </li>
+    
+        <li class="timeline-inverted">
+        
+            <div class="timeline-badge updated"><i class="glyphicon glyphicon-edit"></i></div>
+        
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title">
+                    
+                        <a href="/r/celestial_body_reference_frames/records/35">Celestial body reference frames record with [&#x27;Keyword Value Name&#x27;]  UVW_GO_INERTIAL</a>
+                    
+                    </h4>
+                    
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Updated on 2019-09-16 20:33:11 by Mr Julien Bernard</small></p>
+                    
+                </div>
+                
+            </div>
+        </li>
+    
+        <li >
+        
+            <div class="timeline-badge updated"><i class="glyphicon glyphicon-edit"></i></div>
+        
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title">
+                    
+                        <a href="/r/celestial_body_reference_frames/records/34">Celestial body reference frames record with [&#x27;Keyword Value Name&#x27;]  TRUE_ECLIPTIC</a>
+                    
+                    </h4>
+                    
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Updated on 2019-09-16 20:33:06 by Mr Julien Bernard</small></p>
+                    
+                </div>
+                
+            </div>
+        </li>
+    
+        <li class="timeline-inverted">
+        
+            <div class="timeline-badge updated"><i class="glyphicon glyphicon-edit"></i></div>
+        
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title">
+                    
+                        <a href="/r/celestial_body_reference_frames/records/33">Celestial body reference frames record with [&#x27;Keyword Value Name&#x27;]  TOE_MOON</a>
+                    
+                    </h4>
+                    
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Updated on 2019-09-16 20:33:00 by Mr Julien Bernard</small></p>
+                    
+                </div>
+                
+            </div>
+        </li>
+    
+        <li >
+        
+            <div class="timeline-badge updated"><i class="glyphicon glyphicon-edit"></i></div>
+        
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title">
+                    
+                        <a href="/r/celestial_body_reference_frames/records/32">Celestial body reference frames record with [&#x27;Keyword Value Name&#x27;]  TOE_EARTH</a>
+                    
+                    </h4>
+                    
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Updated on 2019-09-16 20:32:56 by Mr Julien Bernard</small></p>
+                    
+                </div>
+                
+            </div>
+        </li>
+    
+        <li class="timeline-inverted">
+        
+            <div class="timeline-badge updated"><i class="glyphicon glyphicon-edit"></i></div>
+        
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title">
+                    
+                        <a href="/r/celestial_body_reference_frames/records/31">Celestial body reference frames record with [&#x27;Keyword Value Name&#x27;]  TOE_CB</a>
+                    
+                    </h4>
+                    
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Updated on 2019-09-16 20:32:51 by Mr Julien Bernard</small></p>
+                    
+                </div>
+                
+            </div>
+        </li>
+    
+    </ul>
+</div>
+
+
+            
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+    <!-- ================================ JavaScript ================================ -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/sana/js/jquery.min.js"></script>
+    <script src="/static/sana/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/static/sana/js/bootstrap.min.js"></script>
+    <script src="/static/sana/js/tablesaw.jquery.js"></script>
+    <script src="/static/sana/js/tablesaw-init.js"></script>
+
+    <script src="/static/sana/js/sana.js"></script>
+    <script src="/static/favorite/js/favorite.js"></script>
+
+<script src="/static/admin/js/vendor/select2/select2.full.js"></script>
+<script src="/static/autocomplete_light/autocomplete_light.min.js"></script>
+<script src="/static/autocomplete_light/select2.min.js"></script>
+<script src="/static/autocomplete_light/i18n/en.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-MML-AM_CHTML' async></script>
+<script src="https://cdn.datatables.net/v/dt/dt-1.10.16/fh-3.1.3/r-2.2.1/datatables.min.js"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      showMathMenu: false,
+    });
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/fh-3.1.3/r-2.2.1/datatables.min.css"/>
+  <script type="text/javascript">
+      $(document).ready(function() {
+          var table = null
+          if ($("#showTable").length < 1) {
+              table = $("#registry-content").DataTable({
+                  'fixedHeader': {
+                      headerOffset: 120
+                  },
+                  'responsive': true,
+                  'paging': false,
+                  'info': false,
+                  'searching': false,
+                  'scrollX': false,
+                  'ordering': false
+              })
+          }
+          $('#registry-table').on('shown.bs.collapse', function() {
+              if (!$.fn.dataTable.isDataTable("#registry-content")) {
+                  table = $("#registry-content").DataTable({
+                      'fixedHeader': {
+                          headerOffset: 120
+                      },
+                      'responsive': true,
+                      'paging': false,
+                      'info': false,
+                      'searching': false,
+                      'scrollX': false,
+                      'ordering': false
+                  })
+              }
+              table.fixedHeader.adjust()
+              $("#showTable").text('Hide table and options')
+          }).on('hidden.bs.collapse', function() {
+              $("#showTable").text('Show table and options')
+          })
+
+          /* Enable popover and tooltips */
+          $('[data-toggle="popover"]').popover()
+          $('[data-toggle="tooltip"]').tooltip()
+
+          /** FIXME not sure the following calls are useful */
+          $(window).scroll(function() {
+              if ($.fn.dataTable.isDataTable("#registry-content")) table.fixedHeader.adjust()
+          })
+          $( window ).resize(function() {
+              if ($.fn.dataTable.isDataTable("#registry-content")) table.fixedHeader.adjust()
+          })
+          $('a[data-toggle=collapse]').click(function() {
+              if ($.fn.dataTable.isDataTable("#registry-content")) table.fixedHeader.adjust()
+          })
+          $('#filter').on('shown.bs.collapse', function() {
+              if ($.fn.dataTable.isDataTable("#registry-content")) table.fixedHeader.adjust()
+          }).on('hidden.bs.collapse', function() {
+              if ($.fn.dataTable.isDataTable("#registry-content")) table.fixedHeader.adjust()
+          })
+
+          $("#bulk-edit-modal").on("shown.bs.modal", function (e) {
+              var modal = $(this);
+              selected = getSelectedVals();
+              $.ajax({
+                  type: "GET",
+                  url: "/r/celestial_body_reference_frames/records/update/bulk?id="+selected,
+                  success: function (data) {
+                      modal.find(".modal-body").html(data);
+                  },
+                  error: function () {
+                      alert("An error occurred while loading the content.");
+                  },
+              });
+          });
+        $("#bulk-edit-modal").on("custom-modal-closed", function (e) {
+            window.location.reload(true);
+        });
+      });
+
+      $(".display-confirm-alert").click(function () {
+          return window.confirm(
+              'This action cannot be reversed as it modifies the database in real time. Please confirm this action.');
+      })
+      $('#submit-batch').click(function() {
+          $('input[name="bulkedit_check"]').each(function(){
+              let checkbox = $('input[name="scid_' + this.value + '"]');
+              checkbox.prop('type', 'checkbox');
+              checkbox.prop('style', 'display: none;');
+              checkbox.prop('checked', this.checked);
+          })
+      })
+
+      function getSelectedVals(){
+          var tmp =[];
+          $("input[name='bulkedit_check']").each(function() {
+              if ($(this).prop('checked')) {
+                  checked = ($(this).val());
+                  tmp.push(checked);
+              }
+          });
+          var filters = tmp.join(',');
+          return filters;
+      }
+
+      function bulk_form_display() {
+          let nbr = $('input[name="bulkedit_check"]:checked').length
+          $('#nbr-selected').text(nbr + " elements selected")
+          if (nbr > 0) {
+              $('.bulk_form').show();
+          } else {
+              $('.bulk_form').hide();
+          }
+      }
+      function toggle_all() {
+          var checked = $('#bulkedit_check_header').prop('checked');
+          $('input[name="bulkedit_check"]').each(function () {
+              $(this).prop('checked', checked);
+              bulk_form_display();
+          })
+      }
+
+      $('input[name="bulkedit_check"]').click(bulk_form_display);
+      $('#bulkedit_check_header').click(toggle_all);
+
+      $('.bulk_form').hide();
+  </script>
+
+
+
+</body>
+</html>

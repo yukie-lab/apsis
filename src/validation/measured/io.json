@@ -1,0 +1,126 @@
+[
+ {
+  "id": "io.horizonsVectors",
+  "group": "interchange",
+  "value": 0,
+  "unit": "km",
+  "limit": 1e-9,
+  "truth": "JPL Horizons vector tables: 166 raw outputs against the numbers of truth/horizons/*.json (an independent parser); the same decimal text gives the same number, thus the correct value is 0",
+  "detail": {
+   "files": 166,
+   "rows": 22055,
+   "maxVelocityDifferenceKmS": 0
+  }
+ },
+ {
+  "id": "io.horizonsTime",
+  "group": "interchange",
+  "value": 0.000020265579223632812,
+  "unit": "s",
+  "limit": 0.000025,
+  "truth": "Julian dates of the same raw outputs as one 64-bit number (step 40 microseconds) in truth/horizons/*.json",
+  "detail": {
+   "rows": 22055
+  }
+ },
+ {
+  "id": "io.horizonsUnits",
+  "group": "interchange",
+  "value": 8.940696716308594e-8,
+  "unit": "km",
+  "limit": 2e-7,
+  "truth": "JPL Horizons: tables of Mars and Venus in au and days and of the Earth in km and days against the tables of the same bodies in km and s (truth/horizons/frames.json)",
+  "detail": {
+   "maxVelocityDifferenceKmS": 1.0658141036401503e-14,
+   "velocityLimitKmS": 2e-14
+  }
+ },
+ {
+  "id": "io.oemPosition",
+  "group": "interchange",
+  "value": 4.76837158203125e-7,
+  "unit": "km",
+  "limit": 0.000001,
+  "truth": "Round trip of a flight table (Voyager 2, 4515 samples, 4 segments) through an OEM file: the same table read back from the file; limit from the digits of the file (16 digits)",
+  "detail": {
+   "samples": 4515,
+   "largestCoordinateKm": 4145904877.6380053
+  }
+ },
+ {
+  "id": "io.oemVelocity",
+  "group": "interchange",
+  "value": 7.105427357601002e-15,
+  "unit": "km/s",
+  "limit": 1.3e-14,
+  "truth": "Round trip through an OEM file: the same table read back from the file; limit from the digits of the file (16 digits)",
+  "detail": {
+   "largestComponentKmS": 33.59289333983786
+  }
+ },
+ {
+  "id": "io.oemTime",
+  "group": "interchange",
+  "value": 3.5762786865234375e-7,
+  "unit": "s",
+  "limit": 0.0000015,
+  "truth": "Round trip through an OEM file with UTC times: the same table read back from the file; limit from the digits of the file (6 decimals of the second)"
+ },
+ {
+  "id": "io.stkPosition",
+  "group": "interchange",
+  "value": 4.76837158203125e-7,
+  "unit": "km",
+  "limit": 0.000001,
+  "truth": "Round trip of the same table through an STK ephemeris file: the same table read back from the file; limit from the digits of the file (16 digits)"
+ },
+ {
+  "id": "io.stkVelocity",
+  "group": "interchange",
+  "value": 7.105427357601002e-15,
+  "unit": "km/s",
+  "limit": 1.3e-14,
+  "truth": "Round trip through an STK ephemeris file: the same table read back from the file; limit from the digits of the file (16 digits)"
+ },
+ {
+  "id": "io.stkTime",
+  "group": "interchange",
+  "value": 3.5762786865234375e-7,
+  "unit": "s",
+  "limit": 0.0000015,
+  "truth": "Round trip through an STK ephemeris file: the same table read back from the file; limit from the digits of the file (seconds after the epoch with 6 decimals)"
+ },
+ {
+  "id": "io.csvTime",
+  "group": "interchange",
+  "value": 3.5762786865234375e-7,
+  "unit": "s",
+  "limit": 0.0000015,
+  "truth": "Round trip through a CSV file with calendar times: the same table read back from the file; limit from the digits of the file (6 decimals of the second; positions and velocities have 17 digits and come back with no change)",
+  "detail": {
+   "julianDateColumnS": 5.960464477539063e-8,
+   "julianDateLimitS": 0.000001
+  }
+ },
+ {
+  "id": "io.opmState",
+  "group": "interchange",
+  "value": 2.9802322387695312e-8,
+  "unit": "km",
+  "limit": 3e-7,
+  "truth": "Round trip of the start state of a flight (Voyager 2, heliocentric, ecliptic frame) through an OPM file: limit from the 16 digits of the file",
+  "detail": {
+   "velocityDifferenceKmS": 7.105427357601002e-15,
+   "velocityLimitKmS": 5e-14,
+   "epochDifferenceS": 0
+  }
+ },
+ {
+  "id": "io.hermiteCircle",
+  "group": "interchange",
+  "value": 3.7770496419398114e-7,
+  "unit": "km",
+  "limit": 3.906250000000002e-7,
+  "truth": "Analytic circular orbit (radius 7000 km, 0.2 rad between samples), interpolation in the middle between samples; limit: remainder of the Hermite formula of degree 7"
+ }
+]

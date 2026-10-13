@@ -13,10 +13,12 @@ Input:
 Output:
     public/textures/<id>.jpg            2048 x 1024 JPEG, quality 85, sRGB
     public/textures/sm/<id>.jpg         1024 x 512 JPEG
+    public/textures/saturn_ring.png     2048 x 16 PNG with transparency (radial strip)
+    public/textures/sm/saturn_ring.png  1024 x 8 PNG with transparency
     public/textures/manifest.json       source and licence of each file
     docs/ASSETS.md                      a table made from the manifest
 
-The star map is larger (4096 x 2048 and 2048 x 1024). The ring strip stays a PNG file.
+The star map is larger (4096 x 2048 and 2048 x 1024).
 
 The script uses only the Python standard library and the macOS tool `sips`.
 The original files are untrusted data. The script reads them only as images.
@@ -30,6 +32,7 @@ Options:
 
 The manifest has these fields beyond the basic list: `conventions` (top level), and per
 texture `licenceStatement` (the words of the source about the licence) and `note`.
+Some textures have more fields: see OPTIONAL_FIELDS, `zonalFill` and `ring` below.
 
 Fields of one entry of sources.json:
     id, body, role, original, sha256, title, downloadUrl, centerLongitudeDeg, longitudeNote,
@@ -44,7 +47,17 @@ Fields of one entry of sources.json:
     prepare                  name of a special preparation step (see PREPARE)
     extraChanges             one more sentence for `changes`, without its subject
                              (for example "removes scan marks at the right edge.")
+    changes                  the complete text of `changes` (replaces the sentences of the script)
     note                     free text for the manifest
+    archiveMember            the original file is this member of the ZIP archive at downloadUrl
+    latitudeType, naturalColour, filters, observed, latitudeLimitsDeg
+                             optional facts from the source; the script copies them to the manifest
+    zonalFill                for a map that covers only a band of latitudes (prepare "zonal_fill"):
+                             validRows [first, last]   rows of the original with clean data
+                             interpolateRows [[first, last], ...]   masked rows inside the band
+                             meanRows, fadeDeg         see prepare_zonal_fill
+                             The script writes `latitudeLimitsDeg` and `filledBands` to the manifest.
+    ring                     for the ring strip (role "ring"): see build_ring
 """
 import hashlib
 import json
@@ -68,8 +81,12 @@ ASSETS_MD = ROOT / "docs" / "ASSETS.md"
 CACHE = ROOT / ".cache" / "textures"
 SRGB_ICC = "/System/Library/ColorSync/Profiles/sRGB Profile.icc"
 JPEG_QUALITY = "85"
+USER_AGENT = "ApsisAssetFetch/1.0 (local build script)"
 
 FORMAT_NAMES = {".jpg": "JPEG", ".jpeg": "JPEG", ".tif": "TIFF", ".tiff": "TIFF", ".png": "PNG", ".exr": "OpenEXR"}
+
+# Optional fields that the script copies from sources.json to the manifest without change.
+OPTIONAL_FIELDS = ("latitudeLimitsDeg", "latitudeType", "naturalColour", "filters", "observed", "archiveMember")
 
 SPACECRAFT_HEADING = "## Spacecraft models"
 SPACECRAFT_DEFAULT = SPACECRAFT_HEADING + "\n\nSee the section that the spacecraft model work adds.\n"
@@ -128,61 +145,148 @@ def make_jpeg(src, dst, width, height):
 
 
 # ---------------------------------------------------------------------------
-# Special preparation steps
+# Pixel access (standard library only)
 # ---------------------------------------------------------------------------
 
-def read_plain_rgb_tiff(path):
-    """Read an uncompressed 8-bit RGB TIFF with one strip. Return (width, height, pixel bytes)."""
+def read_tiff_pixels(path):
+    """Read an uncompressed 8-bit TIFF. Return (width, height, RGB bytes).
+
+    The function reads these layouts: RGB (chunky or planar), palette and greyscale.
+    It returns None for any other layout (for example a compressed file).
+    """
     b = path.read_bytes()
     if b[:2] == b"II":
         bo = "<"
     elif b[:2] == b"MM":
         bo = ">"
     else:
-        fail("%s is not a TIFF file" % path)
+        return None
     if struct.unpack(bo + "H", b[2:4])[0] != 42:
-        fail("%s is not a classic TIFF file" % path)
+        return None
     off = struct.unpack(bo + "I", b[4:8])[0]
     n = struct.unpack(bo + "H", b[off:off + 2])[0]
     tags = {}
     for i in range(n):
         e = b[off + 2 + 12 * i: off + 14 + 12 * i]
         tag, typ, cnt = struct.unpack(bo + "HHI", e[:8])
-        if typ == 3 and cnt == 1:
-            tags[tag] = struct.unpack(bo + "H", e[8:10])[0]
-        elif typ == 4 and cnt == 1:
-            tags[tag] = struct.unpack(bo + "I", e[8:12])[0]
+        size = {1: 1, 3: 2, 4: 4}.get(typ)
+        if size is None:
+            continue
+        if size * cnt <= 4:
+            data = e[8:8 + size * cnt]
         else:
-            tags[tag] = None
-    w, h = tags.get(256), tags.get(257)
-    if tags.get(259) != 1 or tags.get(277) != 3 or tags.get(284, 1) != 1 or tags.get(262) != 2:
-        fail("%s: unexpected TIFF layout" % path)
-    start, count = tags.get(273), tags.get(279)
-    if not w or not h or start is None or count != w * h * 3:
-        fail("%s: unexpected TIFF strips" % path)
-    return w, h, bytearray(b[start:start + count])
+            pos = struct.unpack(bo + "I", e[8:12])[0]
+            data = b[pos:pos + size * cnt]
+        tags[tag] = list(struct.unpack(bo + {1: "B", 3: "H", 4: "I"}[typ] * cnt, data))
+    try:
+        w, h = tags[256][0], tags[257][0]
+        photo = tags[262][0]
+        offsets, counts = tags[273], tags[279]
+    except KeyError:
+        return None
+    if tags.get(259, [1])[0] != 1 or any(v != 8 for v in tags.get(258, [8])):
+        return None
+    spp = tags.get(277, [1])[0]
+    planar = tags.get(284, [1])[0]
+    data = b"".join(b[o:o + c] for o, c in zip(offsets, counts))
+    if photo == 2 and spp == 3 and planar == 1:
+        rgb = bytearray(data[:w * h * 3])
+    elif photo == 2 and spp == 3 and planar == 2:
+        rgb = bytearray(w * h * 3)
+        for c in range(3):
+            rgb[c::3] = data[c * w * h:(c + 1) * w * h]
+    elif photo == 3 and spp == 1 and 320 in tags:
+        cmap = tags[320]
+        k = len(cmap) // 3
+        lut = [bytes((cmap[i] >> 8, cmap[k + i] >> 8, cmap[2 * k + i] >> 8)) for i in range(k)]
+        rgb = bytearray(b"".join(lut[v] for v in data[:w * h]))
+    elif photo == 1 and spp == 1:
+        rgb = bytearray(w * h * 3)
+        for c in range(3):
+            rgb[c::3] = data[:w * h]
+    else:
+        return None
+    if len(rgb) != w * h * 3:
+        fail("%s: the TIFF file has too few pixel bytes" % path)
+    return w, h, rgb
 
 
-def write_png_rgb(path, w, h, rgb):
-    """Write 8-bit RGB pixels as a PNG file."""
-    stride = w * 3
+def read_bmp_pixels(path):
+    """Read a 24-bit or 32-bit BMP file (as sips writes it). Return (width, height, RGB bytes)."""
+    d = path.read_bytes()
+    if d[:2] != b"BM":
+        fail("%s is not a BMP file" % path)
+    off = struct.unpack("<I", d[10:14])[0]
+    w, h = struct.unpack("<ii", d[18:26])
+    bpp = struct.unpack("<H", d[28:30])[0]
+    comp = struct.unpack("<I", d[30:34])[0]
+    if bpp not in (24, 32) or comp not in (0, 3):
+        fail("%s: unexpected BMP layout (%d bits, compression %d)" % (path, bpp, comp))
+    n = bpp // 8
+    stride = (w * n + 3) & ~3
+    top_down = h < 0
+    h = abs(h)
+    rgb = bytearray(w * h * 3)
+    for y in range(h):
+        sy = y if top_down else h - 1 - y
+        row = d[off + sy * stride: off + sy * stride + w * n]
+        # BMP stores blue, green, red
+        rgb[y * w * 3 + 0:(y + 1) * w * 3:3] = row[2::n]
+        rgb[y * w * 3 + 1:(y + 1) * w * 3:3] = row[1::n]
+        rgb[y * w * 3 + 2:(y + 1) * w * 3:3] = row[0::n]
+    return w, h, rgb
+
+
+def load_pixels(src, name):
+    """Return (width, height, RGB bytes) of an original file.
+
+    The script reads a plain TIFF file itself. For any other file it asks sips for a BMP copy
+    in the cache folder and reads that copy. sips does not change the pixel values in this step.
+    """
+    if src.suffix.lower() in (".tif", ".tiff"):
+        got = read_tiff_pixels(src)
+        if got is not None:
+            return got
+    CACHE.mkdir(parents=True, exist_ok=True)
+    tmp = CACHE / (name + "_pixels.bmp")
+    sips(["-s", "format", "bmp", src, "--out", tmp])
+    return read_bmp_pixels(tmp)
+
+
+def png_bytes(w, h, pixels, channels):
+    """Encode 8-bit RGB (channels 3) or RGBA (channels 4) pixels as a PNG file."""
+    stride = w * channels
     raw = bytearray()
     for y in range(h):
         raw.append(0)
-        raw += rgb[y * stride:(y + 1) * stride]
+        raw += pixels[y * stride:(y + 1) * stride]
 
     def chunk(kind, data):
         return struct.pack(">I", len(data)) + kind + data + struct.pack(">I", zlib.crc32(kind + data) & 0xFFFFFFFF)
 
-    png = (b"\x89PNG\r\n\x1a\n"
-           + chunk(b"IHDR", struct.pack(">IIBBBBB", w, h, 8, 2, 0, 0, 0))
-           + chunk(b"IDAT", zlib.compress(bytes(raw), 6))
-           + chunk(b"IEND", b""))
+    return (b"\x89PNG\r\n\x1a\n"
+            + chunk(b"IHDR", struct.pack(">IIBBBBB", w, h, 8, 2 if channels == 3 else 6, 0, 0, 0))
+            + chunk(b"IDAT", zlib.compress(bytes(raw), 6))
+            + chunk(b"IEND", b""))
+
+
+def write_png_rgb(path, w, h, rgb):
+    """Write 8-bit RGB pixels as a PNG file."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_bytes(png)
+    path.write_bytes(png_bytes(w, h, rgb, 3))
 
 
-def prepare_deimos_scan_marks(src, dst):
+def write_png_rgba(path, w, h, rgba):
+    """Write 8-bit RGBA pixels (straight alpha) as a PNG file."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(png_bytes(w, h, rgba, 4))
+
+
+# ---------------------------------------------------------------------------
+# Special preparation steps
+# ---------------------------------------------------------------------------
+
+def prepare_deimos_scan_marks(e, src, dst):
     """Remove the scan marks of the Deimos map.
 
     The original file is a scan of a printed map. It has these marks:
@@ -192,7 +296,10 @@ def prepare_deimos_scan_marks(src, dst):
     The repair replaces each mark by a linear blend between the pixel to the left of the mark
     and the first pixel of the same row (the map wraps around at 180 degrees).
     """
-    w, h, px = read_plain_rgb_tiff(src)
+    got = read_tiff_pixels(src)
+    if got is None:
+        fail("%s: unexpected TIFF layout" % src)
+    w, h, px = got
     if (w, h) != (1440, 720):
         fail("%s: unexpected size %sx%s" % (src, w, h))
 
@@ -216,7 +323,218 @@ def prepare_deimos_scan_marks(src, dst):
     write_png_rgb(dst, w, h, px)
 
 
-PREPARE = {"deimos_scan_marks": prepare_deimos_scan_marks}
+def row_latitude(y, h):
+    """Latitude in degrees of the upper edge of row y (row 0 starts at +90)."""
+    return round(90.0 - y * 180.0 / h, 1)
+
+
+def zonal_fill_info(e, h):
+    """Return the manifest fields that describe the fill of a zonal map with h rows."""
+    p = e["zonalFill"]
+    y0, y1 = p["validRows"]
+    bands = []
+    if y0 > 0:
+        bands.append({"northDeg": 90.0, "southDeg": row_latitude(y0, h),
+                      "method": "mean colour of the nearest valid rows"})
+    for ya, yb in p.get("interpolateRows", []):
+        bands.append({"northDeg": row_latitude(ya, h), "southDeg": row_latitude(yb + 1, h),
+                      "method": "linear blend between the valid rows above and below"})
+    if y1 < h - 1:
+        bands.append({"northDeg": row_latitude(y1 + 1, h), "southDeg": -90.0,
+                      "method": "mean colour of the nearest valid rows"})
+    return {"latitudeLimitsDeg": [row_latitude(y1 + 1, h), row_latitude(y0, h)], "filledBands": bands}
+
+
+def prepare_zonal_fill(e, src, dst):
+    """Fill the rows of a zonal map (a gas planet) that have no clean data.
+
+    The entry gives `zonalFill` with:
+        validRows [first, last]     rows of the original image with clean data
+        interpolateRows [[a, b]]    masked rows inside the valid band (for example the rings)
+        meanRows                    number of valid rows for the mean colour (default 4)
+        fadeDeg                     width of the blend zone in degrees of latitude (default 5)
+    A masked band inside the valid band becomes a linear blend, column by column, between the
+    valid row above it and the valid row below it.
+    A row outside the valid band takes the mean colour of the nearest valid rows. Near the
+    limit the fill blends from the nearest valid row to that mean colour over `fadeDeg`.
+    The script paints nothing else.
+    """
+    p = e["zonalFill"]
+    w, h, px = load_pixels(src, e["id"])
+    stride = w * 3
+    y0, y1 = p["validRows"]
+    mean_rows = p.get("meanRows", 4)
+    fade_rows = max(1, int(round(p.get("fadeDeg", 5.0) * h / 180.0)))
+    if not (0 <= y0 < y1 <= h - 1):
+        fail("%s: zonalFill.validRows does not fit the image height %d" % (e["id"], h))
+
+    for ya, yb in p.get("interpolateRows", []):
+        if not (y0 < ya <= yb < y1):
+            fail("%s: zonalFill.interpolateRows is outside the valid band" % e["id"])
+        top = bytes(px[(ya - 1) * stride:ya * stride])
+        bottom = bytes(px[(yb + 1) * stride:(yb + 2) * stride])
+        span = yb - ya + 2
+        for y in range(ya, yb + 1):
+            t = (y - ya + 1) / span
+            px[y * stride:(y + 1) * stride] = bytes(int(round(a + (z - a) * t)) for a, z in zip(top, bottom))
+
+    def mean_colour(first):
+        total = [0, 0, 0]
+        for y in range(first, first + mean_rows):
+            row = px[y * stride:(y + 1) * stride]
+            for c in range(3):
+                total[c] += sum(row[c::3])
+        return [v / (mean_rows * w) for v in total]
+
+    def fill(rows, edge_row, mean):
+        edge = bytes(px[edge_row * stride:(edge_row + 1) * stride])
+        for y in rows:
+            k = max(0.0, 1.0 - abs(y - edge_row) / fade_rows)
+            if k <= 0.0:
+                line = bytes(int(round(v)) for v in mean) * w
+            else:
+                line = bytes(int(round(mean[i % 3] + (edge[i] - mean[i % 3]) * k)) for i in range(stride))
+            px[y * stride:(y + 1) * stride] = line
+
+    if y0 > 0:
+        fill(range(0, y0), y0, mean_colour(y0))
+    if y1 < h - 1:
+        fill(range(y1 + 1, h), y1, mean_colour(y1 - mean_rows + 1))
+    write_png_rgb(dst, w, h, px)
+
+
+PREPARE = {"deimos_scan_marks": prepare_deimos_scan_marks, "zonal_fill": prepare_zonal_fill}
+
+
+# ---------------------------------------------------------------------------
+# Ring strip
+# ---------------------------------------------------------------------------
+
+def fit_line(points):
+    """Least squares line y = a + b x through (x, y) points. Return (a, b)."""
+    n = len(points)
+    sx = sum(p[0] for p in points)
+    sy = sum(p[1] for p in points)
+    sxx = sum(p[0] * p[0] for p in points)
+    sxy = sum(p[0] * p[1] for p in points)
+    b = (n * sxy - sx * sy) / (n * sxx - sx * sx)
+    return (sy - b * sx) / n, b
+
+
+def ring_axis_profile(w, h, px, axis, half_rows):
+    """Mean colour of each image column along the major axis of the ring ellipses.
+
+    `axis` gives the row of the major axis at the first and at the last column. For each column
+    the function averages the rows from (axis row - half_rows) to (axis row + half_rows).
+    """
+    ya, yb = axis["rowAtFirstColumn"], axis["rowAtLastColumn"]
+    prof = []
+    for x in range(w):
+        yc = int(round(ya + (yb - ya) * x / (w - 1)))
+        total = [0, 0, 0]
+        for y in range(yc - half_rows, yc + half_rows + 1):
+            p = (y * w + x) * 3
+            total[0] += px[p]
+            total[1] += px[p + 1]
+            total[2] += px[p + 2]
+        prof.append([v / (2 * half_rows + 1) for v in total])
+    return prof
+
+
+def ring_strip(prof, r0, scale, r_in, r_out, out_w, floor):
+    """Resample the axis profile to out_w pixels between the radii r_in and r_out.
+
+    Image position x (pixel centre at a whole number) has the radius r0 + scale * x.
+    Return (list of RGBA tuples, largest brightness, number of pixels without image data).
+    Alpha is the brightness (largest colour channel) divided by the largest brightness of the
+    strip. The colour is the observed colour divided by alpha. So colour times alpha gives the
+    observed colour again. A pixel that is darker than `floor` takes the colour of the nearest
+    brighter pixel, because the hue of a very dark pixel is only noise.
+    """
+    w = len(prof)
+    obs = []
+    empty = 0
+    for i in range(out_w):
+        # edges of this output pixel in image coordinates (pixel x covers x - 0.5 .. x + 0.5)
+        ua = (r_in + (r_out - r_in) * i / out_w - r0) / scale + 0.5
+        ub = (r_in + (r_out - r_in) * (i + 1) / out_w - r0) / scale + 0.5
+        ua, ub = max(0.0, ua), min(float(w), ub)
+        if ub - ua <= 1e-9:
+            obs.append(None)
+            empty += 1
+            continue
+        total = [0.0, 0.0, 0.0]
+        for x in range(int(ua), min(w - 1, int(ub)) + 1):
+            part = min(ub, x + 1.0) - max(ua, float(x))
+            if part > 0:
+                for c in range(3):
+                    total[c] += prof[x][c] * part
+        obs.append([v / (ub - ua) for v in total])
+    vmax = max(max(c) for c in obs if c is not None)
+    good = [i for i, c in enumerate(obs) if c is not None and max(c) >= floor]
+    out = []
+    for i, c in enumerate(obs):
+        if c is None:
+            j = min(good, key=lambda g: abs(g - i))
+            hue = obs[j]
+            alpha = 0.0
+        else:
+            alpha = max(c) / vmax
+            hue = c if max(c) >= floor else obs[min(good, key=lambda g: abs(g - i))]
+        k = vmax / max(hue)
+        out.append((min(255, int(round(hue[0] * k))), min(255, int(round(hue[1] * k))),
+                    min(255, int(round(hue[2] * k))), min(255, int(round(alpha * 255)))))
+    return out, vmax, empty
+
+
+def build_ring(e, src, dst, dst_sm, do_build):
+    """Make the ring strip from an image of the rings and return the manifest fields.
+
+    The entry gives `ring` with:
+        axis            rowAtFirstColumn and rowAtLastColumn: the major axis of the ring ellipses
+                        in the image (tools/textures/measure_ring.py measures it)
+        halfRows        the strip averages 2 * halfRows + 1 rows around the axis
+        calibration     features with their position x on the axis and their radius in km from a
+                        published table; the features with "fit": true give the radius scale
+        innerRadiusKm, outerRadiusKm, radiusSource
+                        radius range of the strip (left edge and right edge)
+        alphaSource     where the alpha channel comes from
+        width, height, smallWidth, smallHeight, alphaFloor
+    """
+    p = e["ring"]
+    width, height = p.get("width", 2048), p.get("height", 16)
+    sm_w, sm_h = p.get("smallWidth", width // 2), p.get("smallHeight", height // 2)
+    cal = p["calibration"]
+    r0, scale = fit_line([(c["x"], c["radiusKm"]) for c in cal if c.get("fit")])
+    r_in, r_out = p["innerRadiusKm"], p["outerRadiusKm"]
+    info = {
+        "innerRadiusKm": r_in,
+        "outerRadiusKm": r_out,
+        "radiusSource": p["radiusSource"],
+        "kmPerPixel": round((r_out - r_in) / width, 3),
+        "alphaSource": p["alphaSource"],
+        "naturalColour": p.get("naturalColour"),
+        "radiusFit": {
+            "kmPerSourcePixel": round(scale, 4),
+            "radiusAtFirstSourceColumnKm": round(r0),
+            "features": [{"feature": c["feature"], "sourceX": c["x"], "tableRadiusKm": c["radiusKm"],
+                          "fitRadiusKm": round(r0 + scale * c["x"]),
+                          "residualKm": round(r0 + scale * c["x"] - c["radiusKm"]),
+                          "usedInFit": bool(c.get("fit"))} for c in cal],
+        },
+    }
+    if info["naturalColour"] is None:
+        del info["naturalColour"]
+    if do_build:
+        w, h, px = load_pixels(src, e["id"])
+        prof = ring_axis_profile(w, h, px, p["axis"], p["halfRows"])
+        for path, ow, oh in ((dst, width, height), (dst_sm, sm_w, sm_h)):
+            strip, vmax, empty = ring_strip(prof, r0, scale, r_in, r_out, ow, p.get("alphaFloor", 12))
+            line = b"".join(bytes(c) for c in strip)
+            write_png_rgba(path, ow, oh, line * oh)
+            print("  ring strip %s: %d x %d, largest brightness %.1f, %d pixels without image data" % (
+                path.name, ow, oh, vmax, empty))
+    return width, height, sm_w, sm_h, info
 
 
 # ---------------------------------------------------------------------------
@@ -230,6 +548,8 @@ def load_sources():
     seen = set()
     for t in data["textures"]:
         group = groups.get(t.get("group", ""), {})
+        if t.get("group") and not group:
+            fail("sources.json: entry %s names the unknown group %s" % (t.get("id"), t["group"]))
         e = dict(group)
         e.update(t)
         # the licence statement of the entry comes first, then the statement of its group
@@ -247,26 +567,103 @@ def load_sources():
     return data, entries
 
 
+def http_get(url, start=None, end=None):
+    """Return the bytes of url, or of the byte range start..end (both inclusive)."""
+    headers = {"User-Agent": USER_AGENT}
+    if start is not None:
+        headers["Range"] = "bytes=%d-%d" % (start, end)
+    req = urllib.request.Request(url, headers=headers)
+    with urllib.request.urlopen(req, timeout=600) as r:
+        if start is not None and r.status != 206:
+            fail("%s: the server does not answer with a byte range" % url)
+        return r.read()
+
+
+def fetch_archive_member(url, member, part):
+    """Download one member of a remote ZIP archive with HTTP range requests and unpack it.
+
+    The function reads the central directory of the archive, then the bytes of the member only.
+    It handles the methods "stored" and "deflate". It checks the CRC-32 of the archive.
+    """
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT}, method="HEAD")
+    with urllib.request.urlopen(req, timeout=120) as r:
+        size = int(r.headers["Content-Length"])
+    tail_len = min(size, 66000)
+    tail = http_get(url, size - tail_len, size - 1)
+    pos = tail.rfind(b"PK\x05\x06")
+    if pos < 0:
+        fail("%s: no ZIP directory" % url)
+    cd_size, cd_off = struct.unpack("<II", tail[pos + 12:pos + 20])
+    if cd_off == 0xFFFFFFFF or cd_size == 0xFFFFFFFF:
+        fail("%s: ZIP64 archives are not supported" % url)
+    cd = http_get(url, cd_off, cd_off + cd_size - 1)
+    p = 0
+    found = None
+    while p < len(cd) and cd[p:p + 4] == b"PK\x01\x02":
+        method = struct.unpack("<H", cd[p + 10:p + 12])[0]
+        crc, csize, usize = struct.unpack("<III", cd[p + 16:p + 28])
+        nlen, xlen, klen = struct.unpack("<HHH", cd[p + 28:p + 34])
+        offset = struct.unpack("<I", cd[p + 42:p + 46])[0]
+        name = cd[p + 46:p + 46 + nlen].decode("utf-8", "replace")
+        if name == member:
+            found = (method, crc, csize, usize, offset)
+            break
+        p += 46 + nlen + xlen + klen
+    if found is None:
+        fail("%s: the archive has no member %s" % (url, member))
+    method, crc, csize, usize, offset = found
+    if method not in (0, 8) or 0xFFFFFFFF in (csize, usize, offset):
+        fail("%s: member %s has an unsupported layout" % (url, member))
+    head = http_get(url, offset, offset + 29)
+    if head[:4] != b"PK\x03\x04":
+        fail("%s: bad local header of %s" % (url, member))
+    nlen, xlen = struct.unpack("<HH", head[26:30])
+    start = offset + 30 + nlen + xlen
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT,
+                                               "Range": "bytes=%d-%d" % (start, start + csize - 1)})
+    dec = zlib.decompressobj(-15) if method == 8 else None
+    got_crc = 0
+    count = 0
+    with urllib.request.urlopen(req, timeout=600) as r, open(part, "wb") as f:
+        while True:
+            block = r.read(1 << 20)
+            if not block:
+                break
+            data = dec.decompress(block) if dec else block
+            got_crc = zlib.crc32(data, got_crc)
+            count += len(data)
+            f.write(data)
+        if dec:
+            data = dec.flush()
+            got_crc = zlib.crc32(data, got_crc)
+            count += len(data)
+            f.write(data)
+    if (got_crc & 0xFFFFFFFF) != crc or count != usize:
+        fail("%s: member %s does not match the CRC-32 of the archive" % (url, member))
+
+
 def fetch_original(e, path):
     """Download one original file again and check its sha256."""
-    ua = "ApsisAssetFetch/1.0 (local build script)"
     part = path.with_name(path.name + ".part")
-    req = urllib.request.Request(e["downloadUrl"], headers={"User-Agent": ua})
     print("  download %s" % e["downloadUrl"])
-    with urllib.request.urlopen(req, timeout=600) as r, open(part, "wb") as f:
-        shutil.copyfileobj(r, f, 1 << 20)
+    if e.get("archiveMember"):
+        fetch_archive_member(e["downloadUrl"], e["archiveMember"], part)
+    else:
+        req = urllib.request.Request(e["downloadUrl"], headers={"User-Agent": USER_AGENT})
+        with urllib.request.urlopen(req, timeout=600) as r, open(part, "wb") as f:
+            shutil.copyfileobj(r, f, 1 << 20)
     got = sha256_of(part)
     if got != e["sha256"]:
         fail("%s: the downloaded file has sha256 %s, expected %s (the file stays at %s)" % (e["id"], got, e["sha256"], part))
     part.rename(path)
 
 
-def changes_text(e, orig, out_w, out_h, is_ring):
+def changes_text(e, orig, out_w, out_h):
     """Describe the changes in simple sentences (active voice, present tense)."""
+    if e.get("changes"):
+        return e["changes"]
     ext = Path(e["original"]).suffix.lower()
     fmt = FORMAT_NAMES.get(ext, ext.lstrip(".").upper())
-    if is_ring:
-        return "The build copies the original PNG file without change. The small version has half the size."
     parts = []
     ow, oh = orig["width"], orig["height"]
     if (ow, oh) != (out_w, out_h):
@@ -305,28 +702,26 @@ def build(only, fetch_missing):
             fail("%s: sha256 of %s is %s, expected %s" % (tid, src.name, digest, e["sha256"]))
         orig = image_props(src)
         is_ring = e["role"] == "ring"
+        do_build = only is None or tid in only
+        extra = {}
+        if do_build:
+            print("build %-15s from %s (%dx%d, %s, %s)" % (tid, src.name, orig["width"], orig["height"], orig["space"], orig["profile"]))
         if is_ring:
-            width, height = orig["width"], orig["height"]
-            sm_w, sm_h = width // 2, (height + 1) // 2
             name = tid + ".png"
+            dst, dst_sm = OUT / name, OUT_SM / name
+            width, height, sm_w, sm_h, extra = build_ring(e, src, dst, dst_sm, do_build)
         else:
             width, height = e.get("width", 2048), e.get("height", 1024)
             sm_w, sm_h = e.get("smallWidth", 1024), e.get("smallHeight", 512)
             name = tid + ".jpg"
-        dst, dst_sm = OUT / name, OUT_SM / name
-        do_build = only is None or tid in only
-        if do_build:
-            print("build %-15s from %s (%dx%d, %s, %s)" % (tid, src.name, orig["width"], orig["height"], orig["space"], orig["profile"]))
-            work = src
-            if e.get("prepare"):
-                work = CACHE / (tid + "_prepared.png")
-                PREPARE[e["prepare"]](src, work)
-            if is_ring:
-                if not orig["alpha"]:
-                    fail("%s: the ring file has no transparency" % tid)
-                shutil.copyfile(src, dst)
-                sips(["-z", sm_h, sm_w, src, "--out", dst_sm])
-            else:
+            dst, dst_sm = OUT / name, OUT_SM / name
+            if e.get("zonalFill"):
+                extra = zonal_fill_info(e, orig["height"])
+            if do_build:
+                work = src
+                if e.get("prepare"):
+                    work = CACHE / (tid + "_prepared.png")
+                    PREPARE[e["prepare"]](e, src, work)
                 make_jpeg(work, dst, width, height)
                 make_jpeg(work, dst_sm, sm_w, sm_h)
         for p, (w, h) in ((dst, (width, height)), (dst_sm, (sm_w, sm_h))):
@@ -361,11 +756,15 @@ def build(only, fetch_missing):
             "downloadUrl": e["downloadUrl"],
             "originalFile": "data-src/textures/original/" + e["original"],
             "sha256": digest,
-            "changes": changes_text(e, orig, width, height, is_ring),
+            "changes": changes_text(e, orig, width, height),
         })
         m["licenceStatement"] = e["licenceStatement"]
         if e.get("note"):
             m["note"] = e["note"]
+        for key in OPTIONAL_FIELDS:
+            if key in e:
+                m[key] = e[key]
+        m.update(extra)
         manifest["textures"].append(m)
     MANIFEST.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("wrote %s (%d textures, %d missing)" % (MANIFEST.relative_to(ROOT), len(manifest["textures"]), len(manifest["missing"])))
@@ -399,10 +798,12 @@ def write_assets_md():
     lines.append("The licence evidence for each file is in `data-src/textures/evidence/`.")
     lines.append("The retrieval date of all files is %s." % manifest["retrieved"])
     lines.append("")
+    lines.append("Each texture comes from the data of a space mission or of a telescope.")
+    lines.append("No texture comes from another application.")
     lines.append("A file with the licence CC BY 4.0 needs a credit.")
     lines.append("It also needs a note about each change.")
     lines.append("This table gives both.")
-    lines.append("NASA and the USGS ask for a credit for their public domain files.")
+    lines.append("NASA, JPL and the USGS ask for a credit for their files.")
     lines.append("This table gives that credit too.")
     lines.append("The manifest field `licenceStatement` quotes the licence words of each source.")
     lines.append("")

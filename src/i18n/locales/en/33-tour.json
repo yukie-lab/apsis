@@ -1,0 +1,70 @@
+{
+  "text": {
+    "error": {
+      "optimize:range": "The optimizer found no plan in the range of the ephemeris data. The plan did not change."
+    },
+    "mission": {
+      "new": "Make a new mission"
+    },
+    "plot": {
+      "tisserand": {
+        "x": "Periapsis radius of the orbit about the Sun (au)",
+        "y": "Apoapsis radius (au)",
+        "label": "Tisserand graph of the plan",
+        "caption": "Thin curves: constant v∞ at each planet (1 km/s to 15 km/s), for circular planet orbits in one plane. Thick curves: the v∞ of the plan in km/s ({speeds}). A flyby with no engine burn moves the orbit along a curve of that planet. Points: the orbit of each leg. A triangle shows an open orbit."
+      }
+    },
+    "page": {
+      "tour": {
+        "title": "Flyby tour",
+        "intro": "The plan is a sequence of bodies and dates. The application calculates each leg as a two-body orbit about the Sun and each flyby as a hyperbola about the body.",
+        "noMission": "No mission is open. Make a new mission, or open a mission on the Mission screen.",
+        "noPlan": "This mission has a flight but no plan. A flight from a file or from a state vector has no plan.",
+        "toMission": "Go to the Mission screen",
+        "sequence": "Sequence of bodies and dates, with the flybys",
+        "free": "Free",
+        "freeHint": "The optimizer can change a free date.",
+        "freeOf": "Date number {n} is free",
+        "bodyOf": "Body number {n}",
+        "dateOf": "Date number {n}",
+        "minAltitude": "Minimum flyby altitude",
+        "minAltitudeOf": "Minimum flyby altitude at body number {n}",
+        "insert": "Add a body after this body",
+        "insertAfter": "Add a body after body number {n}",
+        "removeOf": "Remove body number {n}",
+        "sequenceNote": "The first body is the departure body. The last body is the target. The bodies between them are flybys. The optimizer can change the dates that are free. A yellow altitude is at the minimum flyby altitude.",
+        "legOptions": "Legs, departure and arrival",
+        "retro": "Retrograde",
+        "dsm": "Deep-space maneuver",
+        "dsmOf": "Deep-space maneuver on leg {n}",
+        "dsmTime": "Maneuver time (part of the leg)",
+        "legNote": "A deep-space maneuver is one engine burn between two encounters. When you add one, the optimizer finds its direction and its magnitude.",
+        "soiTime": "The dates are periapsis dates (time correction for the sphere of influence)",
+        "poweredNote": "One or more flybys need an engine burn: the body cannot give the necessary turn above the minimum altitude, or the speeds before and after the flyby are different. Change the dates or use the optimizer.",
+        "moons": "Flight calculation: large moons are separate masses",
+        "optimizeDsm": "Flight calculation: optimize the flyby before each deep-space maneuver (slower)",
+        "calculate": "Calculate the flight",
+        "calculateNote": "The flight calculation converts the plan to a trajectory in the full force model. It adds small correction maneuvers that keep each flyby on its aim point.",
+        "optimizer": "Optimizer",
+        "objective": "Quantity to make as small as possible",
+        "objectives": {
+          "total": "Total Δv",
+          "afterLaunch": "Δv after the launch",
+          "c3": "Departure v∞ and Δv in flight",
+          "arrival": "Arrival v∞ and Δv before the arrival"
+        },
+        "freeDsm": "Change the deep-space maneuvers",
+        "global": "Global search (slower, finds other launch windows)",
+        "range": "Search range for each free date (±)",
+        "maxC3": "Maximum C3",
+        "maxC3Hint": "0: no limit.",
+        "lastRun": "Last result:",
+        "optimize": "Optimize the plan",
+        "optimizerNote": "The local search (Nelder-Mead method) starts from the plan that you see. The global search (differential evolution) examines many dates in the search range first.",
+        "encounterNote": "B·T and B·R are the aim point in the B-plane. The T axis is in the ecliptic plane.",
+        "tisserand": "Tisserand graph",
+        "bplane": "Aim points in the B-plane"
+      }
+    }
+  }
+}

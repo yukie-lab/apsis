@@ -1,0 +1,50 @@
+{
+ "text": {
+  "missionBox": {
+   "none": "No mission is open.", "plan": "Plan", "flight": "Flight", "flightOld": "Flight is not current", "saveAgain": "Save again"
+  },
+  "el": {
+   "a": "Semi-major axis", "e": "Eccentricity", "i": "Inclination", "raan": "Longitude of the ascending node", "argp": "Argument of periapsis",
+   "nu": "True anomaly", "M": "Mean anomaly", "M0": "Mean anomaly at the epoch", "epoch": "Epoch", "rp": "Periapsis radius", "ra": "Apoapsis radius", "period": "Period"
+  },
+  "const": {
+   "gm": "GM of the body", "gmSystem": "GM of the body and its moons", "radius": "Equatorial radius", "polarRadius": "Polar radius", "j2": "J2",
+   "rotation": "Rotation period", "soi": "Radius of the sphere of influence", "noMass": "This body has no mass in the force model."
+  },
+  "page": {
+   "ephemeris": {
+    "title": "Ephemeris",
+    "intro": "This screen gives the position and the velocity of a body at a time that you set. The values are relative to the center and in the frame that the top bar shows.",
+    "input": "Body and time",
+    "centerNote": "Center: {center}. Frame: {frame}. Change them in the top bar.",
+    "source": "Data source", "coverage": "Data range", "allDates": "All dates",
+    "sourceOf": {
+     "de440": "JPL DE440, Chebyshev fit",
+     "centre": "JPL DE440 barycenter and moon model",
+     "moon": "Analytic moon model, fit to JPL Horizons",
+     "small": "JPL Horizons vectors, Chebyshev fit",
+     "custom": "Two-body orbit from your elements"
+    },
+    "constants": "Constants of the body",
+    "state": "State of {body} relative to {center}",
+    "position": "Position", "velocity": "Velocity", "magnitude": "Magnitude",
+    "longitude": "Longitude in {frame}", "latitude": "Latitude in {frame}", "lightTime": "Light time from the center",
+    "elements": "Osculating elements about {center}",
+    "elementsNote": "The reference plane of the angles is the XY plane of the frame. {frame}.",
+    "table": "Table of states",
+    "step": "Step", "rows": "Number of rows", "csv": "Write a CSV file",
+    "tableLimit": "The screen shows the first {n} of {total} rows. The CSV file has all rows.",
+    "noData": "The application has no data for {body} at this time.",
+    "same": "The body is the center: its position and velocity are zero.",
+    "radius": "Radius",
+    "custom": {
+     "title": "Your bodies",
+     "intro": "You can add a body from its orbit elements about the Sun. You can then use it as a target in a plan.",
+     "frame": "The elements are in ECLIPJ2000. The epoch is in the time scale of the top bar. The body has no mass.",
+     "add": "Add the body",
+     "inUse": "The mission in work uses this body."
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,185 @@
+{
+ "text": {
+  "basis": {
+   "open": "Source and accuracy of this value",
+   "method": "Method", "limit": "Accuracy", "evidence": "Measured in the automatic tests",
+   "testLimit": "(test limit: {limit} {unit})",
+   "more": "The Accuracy screen shows {n} more checks.",
+   "allChecks": "All checks",
+   "status": {
+    "horizons": "Compared with JPL Horizons", "analytic": "Compared with an exact solution", "model": "Model result",
+    "input": "Input value", "constant": "Published constant"
+   },
+   "time": {
+    "title": "Time scale conversion",
+    "method": "The engine counts time in seconds of TDB after J2000. The conversion to UTC uses the leap second table of the NAIF file naif0012.tls. The conversion between TT and TDB uses the periodic formula of the same file.",
+    "limit": "The maximum difference from JPL Horizons is 0.03 ms. For dates before 1972, the engine uses TAI − UTC = 9 s. For dates after 2017-01-01, TAI − UTC stays at 37 s until a new leap second table is in the application."
+   },
+   "frame": {
+    "title": "Reference frame",
+    "method": "The engine calculates in the ICRF with the origin at the solar system barycenter. ECLIPJ2000 is a rotation of the ICRF about the X axis by 84 381.448 arcseconds, the obliquity of J2000.",
+    "limit": "The rotation has the precision of 64-bit numbers. The maximum difference from the heliocentric ecliptic positions of JPL Horizons is 0.002 km."
+   },
+   "const": {
+    "title": "Physical constant",
+    "method": "GM values come from the NAIF file gm_de440.tpc. Radii and rotation data come from the NAIF file pck00011.tpc. J2 values come from the NASA planetary fact sheets. Radii of small bodies come from the JPL Small-Body Database.",
+    "limit": "The application uses the published values with no change. Refer to each source for the accuracy of its values."
+   },
+   "input": {
+    "title": "Input value",
+    "method": "You gave this value, or it is a default value that you can change.",
+    "limit": "The application does not change the value."
+   },
+   "file": {
+    "title": "Value from a file",
+    "method": "The application read this value from the file that you gave.",
+    "limit": "The value has the accuracy of the file."
+   },
+   "ephem.state": {
+    "title": "Position and velocity of a body",
+    "method": "The data file of the application is a Chebyshev fit of the JPL ephemeris DE440 for the Sun, the planets, the Moon and the Pluto system. The engine calculates the position and the velocity from the polynomials.",
+    "limit": "The fit error is less than 0.01 km. The values below are the maximum differences from JPL Horizons for 312 dates from 1950 to 2099. The data range is 1950 to 2100.",
+    "method_centre": "DE440 gives the barycenter of the planet system. To get the center of the planet, the engine subtracts the positions of the large moons multiplied by their mass ratios. The moon positions come from an analytic model.",
+    "limit_centre": "The barycenter has the accuracy of DE440. The center of the planet has the accuracy of the moon model: see the measured values below.",
+    "method_moon": "For each moon of Mars and of the outer planets, the engine uses an ellipse with constant rates of the node and of the periapsis. The elements are a fit to JPL Horizons vectors for 2000 to 2050.",
+    "limit_moon": "This model is sufficient for the display and for the mass of the moon in the force model. It is not sufficient to plan a flyby of the moon. See the measured value below.",
+    "method_small": "The data file is a Chebyshev fit of JPL Horizons vectors of the body for 1980 to 2060.",
+    "limit_small": "The value below is the maximum difference from JPL Horizons. Before 1980 and after 2060 the application has no data for this body.",
+    "method_custom": "The engine propagates the orbit elements that you gave as a two-body orbit about the Sun.",
+    "limit_custom": "The orbit has no perturbations. Its accuracy is that of your elements, and it decreases with the time from the epoch."
+   },
+   "ephem.derived": {
+    "title": "Value calculated from positions",
+    "method": "The engine calculates distances, speeds and angles from the positions and velocities of the bodies. The light time is the distance divided by the speed of light.",
+    "limit": "The value has the accuracy of the positions. The light time has no correction for the motion of the bodies while the light moves."
+   },
+   "ephem.elements": {
+    "title": "Osculating orbit elements",
+    "method": "The engine converts the position and the velocity relative to the center to two-body elements. The gravitational parameter is the sum of the values of the center and of the body, as in JPL Horizons.",
+    "limit": "The maximum relative difference of the semi-major axis from the element tables of JPL Horizons is 4 × 10⁻⁹. Osculating elements change with time because of the perturbations."
+   },
+   "twobody": {
+    "title": "Two-body transfer",
+    "method": "The engine solves the Lambert problem with the method of Izzo (2015) for the positions of the two bodies at the two dates. The only force is the gravity of the central body.",
+    "limit": "The solution is exact for two-body motion: see the checks below. The flight in the full force model is different, because the planets pull the spacecraft."
+   },
+   "plan.c3": {
+    "title": "Launch energy (C3) of the plan",
+    "method": "C3 is the square of the speed at infinity at the launch body. The value comes from the patched-conic plan.",
+    "limit": "For 9 actual missions, the difference from the C3 of the JPL Horizons trajectory is 0.3 % to 1.6 %."
+   },
+   "plan.vinf": {
+    "title": "Speed at infinity of the plan",
+    "method": "The speed at infinity is the velocity on the two-body transfer orbit minus the velocity of the body at the encounter date.",
+    "limit": "For Voyager 2, the patched-conic model gives differences of up to 3 % from the JPL Horizons trajectory. The flight in the full force model gives better values."
+   },
+   "plan.flyby": {
+    "title": "Flyby of the plan",
+    "method": "The engine calculates the periapsis radius of the hyperbola that turns the incoming asymptote to the outgoing asymptote.",
+    "limit": "For Voyager 2, the patched-conic model gives differences of up to 3.7 % of the periapsis radius from the JPL Horizons trajectory. The flight in the full force model gives better values."
+   },
+   "plan.dv": {
+    "title": "Velocity change of the plan",
+    "method": "Launch burn: from a circular parking orbit to the escape hyperbola. Arrival burn: at the periapsis, to the orbit that you set. Flyby burn: only if a flyby with no burn cannot connect the two legs.",
+    "limit": "All burns are impulses in the patched-conic model. The launch burn does not include the flight from the ground to the parking orbit, and it has no gravity losses."
+   },
+   "plan.time": {
+    "title": "Date of the plan",
+    "method": "You set this date, or the optimizer found it.",
+    "limit": "A date of the plan is a design value. The flight gives the calculated date of the closest approach."
+   },
+   "optimizer": {
+    "title": "Result of a search",
+    "method": "The search uses a grid of launch dates and arrival dates, then a local search (Nelder-Mead method). If you select it, a global search (differential evolution) comes first.",
+    "limit": "A search finds a good solution. It cannot show that no better solution exists. A different date range can give a better solution."
+   },
+   "flight.state": {
+    "title": "Position and velocity of the spacecraft",
+    "method": "The engine integrates the equations of motion with a Runge-Kutta-Fehlberg 7(8) method. The forces are the gravity of the Sun, the planets, the Moon, Pluto and 3 asteroids, the J2 of the planets, and the relativity term of the Sun. Between steps, the engine uses a fifth-degree interpolation.",
+    "limit": "For asteroids, the difference from JPL Horizons after 168 days is less than 0.2 km. For actual spacecraft in cruise, the difference is 700 km to 150 000 km for arcs of 6 months to 5 years. The cause is forces that the model does not have: the radiation pressure, thermal forces and small maneuvers of the actual spacecraft."
+   },
+   "flight.encounter": {
+    "title": "Flyby of the flight",
+    "method": "The engine finds the closest approach in the propagated trajectory. The speed at infinity and the B-plane values come from the hyperbola of the approach.",
+    "limit": "For 8 actual missions, the calculated flights agree with JPL Horizons: speed at infinity to 0.5 %, periapsis radius to 2.5 %."
+   },
+   "flight.event": {
+    "title": "Time of an event of the flight",
+    "method": "The engine finds the time at which the distance to the body is a minimum.",
+    "limit": "The time has the accuracy of the trajectory. In the JPL trajectory of Voyager 2, the engine finds the closest approaches not more than 20 s from the published times."
+   },
+   "flight.dv": {
+    "title": "Maneuver of the flight",
+    "method": "The flight solver finds the launch velocity and small correction maneuvers. With them, the propagated trajectory goes through each aim point of the plan. All maneuvers are impulses.",
+    "limit": "The corrections are results of the solver. They are not the maneuvers of the actual mission. For 8 actual missions, the sum of the corrections is 0 m/s to 104 m/s."
+   },
+   "flight.real": {
+    "title": "Comparison with the actual flight",
+    "method": "The reference values come from the JPL Horizons trajectory of the actual spacecraft: the radius of the closest approach and the speed at infinity at each body.",
+    "limit": "The application calculates its flight from the dates of the actual mission only. The difference is the error of the calculated flight relative to the actual flight."
+   },
+   "mass": {
+    "title": "Propellant mass",
+    "method": "The engine applies the rocket equation to each maneuver in sequence, with the specific impulse that you set.",
+    "limit": "The masses and the specific impulse are example values that you can change. The model has no losses from the duration of a burn."
+   },
+   "forensics": {
+    "title": "Maneuver found in a trajectory table",
+    "method": "The engine propagates each interval of the table forward from its start and backward from its end. The time at which the two paths are nearest is the time of the maneuver. The velocity difference at that time is the maneuver.",
+    "limit": "For the deep-space maneuver of Cassini, the result agrees with the velocity change in the JPL Horizons trajectory to 0.0003 %. Forces that the model does not have give a noise floor of some mm/s for intervals of 10 days."
+   },
+   "tisserand": {
+    "title": "Tisserand graph",
+    "method": "The graph uses circular planet orbits in one plane. A flyby does not change the speed at infinity: it moves the orbit of the spacecraft along one curve.",
+    "limit": "The graph shows which sequences of flybys are possible in energy. It does not show the positions of the planets: use the plan to find the dates."
+   }
+  },
+  "validation": {
+   "unit": { "relative": "(relative)", "order": "(order)", "ratio": "(ratio)", "missions": "missions" },
+   "item": {
+    "analytic_hohmann": "Hohmann transfer from the Lambert solver: velocity change",
+    "lambert_consistency": "Lambert solutions: end position after a two-body propagation",
+    "integrator_order": "Integrator: measured order of the error",
+    "integrator_kepler10": "Integrator: position error after 10 revolutions of an eccentric orbit",
+    "ephemeris": "{body}: maximum position difference",
+    "moon": "{body}: maximum position difference relative to {parent}",
+    "small": "{body}: maximum position difference",
+    "flightVinf": "{craft}, calculated flight: speed at infinity at {body} (encounter {n})",
+    "flightPeriapsis": "{craft}, calculated flight: radius of the closest approach to {body} (encounter {n})",
+    "corrections": "{craft}, calculated flight: sum of the correction maneuvers",
+    "dsm": "{craft}, calculated flight: deep-space maneuver",
+    "dsmNbody": "{craft}, flight from the plan: deep-space maneuver",
+    "dsmConic": "{craft}, patched-conic plan: deep-space maneuver",
+    "capture": "{craft}, calculated flight: apoapsis radius after the insertion burn",
+    "encounterTime": "{craft}: time of the closest approach to {body} in the JPL trajectory",
+    "conicMismatch": "{craft}, patched-conic plan: speed difference across the flyby of {body}",
+    "conicVinf": "{craft}, patched-conic plan: speed at infinity at {body}",
+    "conicPeriapsis": "{craft}, patched-conic plan: periapsis radius at {body}",
+    "nbodyVinf": "{craft}, flight from the plan: speed at infinity at {body}",
+    "nbodyPeriapsis": "{craft}, flight from the plan: periapsis radius at {body}",
+    "nbodyPublished": "{craft}, flight from the plan: published distance of the flyby of {body}",
+    "publishedDistance": "{craft}, calculated flight: published distance of the flyby of {body}",
+    "propAsteroid": "Propagation of {body}: maximum position difference after 168 days",
+    "propSpacecraft": "Propagation of {craft}, {from} to {to}: position difference at the end",
+    "propSpacecraftCruise": "Propagation of {craft} in cruise: position difference at the end",
+    "propFlyby": "Propagation of {craft} through the flyby of {body}: periapsis radius",
+    "windowC3": "{craft}: launch C3 of the plan with the actual dates",
+    "famous_mars2020_arrival": "Mars 2020, calculated flight: arrival time",
+    "famous_newhorizons_time_PLUTO": "New Horizons: time of the closest approach to Pluto in the JPL trajectory",
+    "famous_cassini_realCorrections": "Cassini: corrections in the JPL trajectory before the flyby of the Earth",
+    "forensics_cassini_dsm_size": "Maneuver search: size of the deep-space maneuver of Cassini",
+    "forensics_cassini_dsm_time": "Maneuver search: time of the deep-space maneuver of Cassini",
+    "forensics_synthetic_size": "Maneuver search: size of a known impulse of 25 m/s",
+    "frames_ecliptic": "Rotation between the ICRF and ECLIPJ2000",
+    "frames_heliocentric": "Heliocentric ecliptic positions of 4 bodies",
+    "frames_elements": "Osculating elements: semi-major axis",
+    "quick_solved": "Flight solver: quick missions with no solution in 352 cases",
+    "time_utcTdb": "Conversion from UTC to TDB",
+    "tisserand_parameter": "Tisserand parameter along a curve of constant speed at infinity",
+    "tisserand_hohmann": "Tisserand graph: point of the Hohmann transfer",
+    "window_mars2020_period": "Mars 2020: day of the minimum C3 in the published launch period",
+    "window_mars2020_porkchop": "Mars 2020: C3 at the actual dates divided by the minimum of the map"
+   }
+  }
+ }
+}

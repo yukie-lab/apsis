@@ -9,3 +9,4 @@ shots/
 scratch/
 
 data-src/textures/original/
+__pycache__/

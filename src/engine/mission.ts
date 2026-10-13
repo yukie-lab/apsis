@@ -10,7 +10,7 @@ import { type Plan, newPlan, evaluatePlan, type PlanResult } from './plan';
 import { optimizePlan, computePorkchop, synodicPeriod, hohmannTof, type PorkchopData } from './planopt';
 import { type Flight, refinePlan, type RefineReport, type RefineOptions } from './flight';
 import { FULL_MODEL, type ForceModel, type Trajectory, soiRadius, ASTEROID_GRAVITY_BODIES } from './propagate';
-import type { SolarSystem } from './system';
+import type { SolarSystem, CustomBody } from './system';
 import { BODIES, MOON_MODELS, G0 } from './bodies';
 import { jdTdbToEt, tdb, DAY, YEAR } from './time';
 
@@ -36,15 +36,23 @@ export interface Mission {
   /** Identifier of the real mission that this mission makes again, or null. */
   famousId: string | null;
   spacecraft: SpacecraftSpec;
-  plan: Plan;
+  /** null: the mission has only a flight (read from a file, or made from a state vector). */
+  plan: Plan | null;
   /** Options of the conversion from the plan to the flight. */
   refine: { moons: boolean; optimizeDsm: boolean };
   flight: Flight | null;
   /** plan: converted from the plan. manual: edited by the user. import: read from a file. */
   flightOrigin: 'plan' | 'manual' | 'import' | null;
+  /** Report of the conversion that made the flight. null or missing: no conversion, or the flight was edited. */
+  report?: RefineReport | null;
+  /** Bodies of the user that the mission uses. A mission file thus has all the data that the mission needs. */
+  custom?: { body: CustomBody; radiusKm: number }[];
 }
+/** A mission with a plan. */
+export type PlannedMission = Mission & { plan: Plan };
 
-export const DEFAULT_SPACECRAFT: SpacecraftSpec = { kind: 'apsis', name: 'Explorer 1', dryMassKg: 1200, propellantKg: 800, ispS: 320, srpAreaM2: 12, cr: 1.3 };
+/** Example values. The name is empty: the user interface gives the default name in the language of the user. */
+export const DEFAULT_SPACECRAFT: SpacecraftSpec = { kind: 'apsis', name: '', dryMassKg: 1200, propellantKg: 800, ispS: 320, srpAreaM2: 12, cr: 1.3 };
 
 let counter = 0;
 export function newMissionId(): string {
@@ -52,13 +60,18 @@ export function newMissionId(): string {
   return 'm' + Date.now().toString(36) + counter.toString(36);
 }
 
-export function newMission(name: string, plan: Plan, spacecraft: SpacecraftSpec = DEFAULT_SPACECRAFT): Mission {
+export function newMission(name: string, plan: Plan, spacecraft: SpacecraftSpec = DEFAULT_SPACECRAFT): PlannedMission {
   return { format: 'apsis-mission', version: 1, id: newMissionId(), name, famousId: null, spacecraft: { ...spacecraft }, plan, refine: { moons: false, optimizeDsm: false }, flight: null, flightOrigin: null };
+}
+
+/** A mission that has only a flight (no plan). */
+export function newFlightMission(name: string, flight: Flight, origin: 'manual' | 'import', spacecraft: SpacecraftSpec = DEFAULT_SPACECRAFT): Mission {
+  return { format: 'apsis-mission', version: 1, id: newMissionId(), name, famousId: null, spacecraft: { ...spacecraft }, plan: null, refine: { moons: false, optimizeDsm: false }, flight, flightOrigin: origin };
 }
 
 /** Force model of the conversion for a mission. Pluto and Charon are always separate masses. */
 export function refineModel(m: Mission): ForceModel {
-  const pluto = m.plan.nodes.some((n) => n.body === 'PLUTO' || n.body === 'CHARON');
+  const pluto = !!m.plan?.nodes.some((n) => n.body === 'PLUTO' || n.body === 'CHARON');
   return { ...FULL_MODEL, moons: m.refine.moons || pluto };
 }
 
@@ -66,10 +79,11 @@ export interface SolvedMission { mission: Mission; result: PlanResult; report: R
 
 /** Convert the plan of a mission to a flight. Returns a new mission object. */
 export function solveMission(sys: SolarSystem, m: Mission, onProgress?: RefineOptions['onProgress']): SolvedMission {
+  if (!m.plan) throw new Error('plan');
   const result = evaluatePlan(sys, m.plan);
   if (!result.ok) throw new Error('plan');
   const out = refinePlan(sys, m.plan, result, { model: refineModel(m), optimizeDsm: m.refine.optimizeDsm, onProgress });
-  return { mission: { ...m, flight: out.flight, flightOrigin: 'plan' }, result, report: out.report, trajectory: out.trajectory };
+  return { mission: { ...m, flight: out.flight, flightOrigin: 'plan', report: out.report }, result, report: out.report, trajectory: out.trajectory };
 }
 
 // ------------------------------------------------------------------------------------------------ mass budget
@@ -96,9 +110,13 @@ export function missionFromJson(text: string): Mission {
   const m = o as Partial<Mission>;
   if (!m || m.format !== 'apsis-mission') throw new Error('format');
   if (m.version !== 1) throw new Error('version');
-  const p = m.plan;
-  if (!p || !Array.isArray(p.nodes) || p.nodes.length < 2 || !Array.isArray(p.legs) || p.legs.length !== p.nodes.length - 1) throw new Error('plan');
-  for (const n of p.nodes) if (typeof n.body !== 'string' || typeof n.et !== 'number' || !isFinite(n.et)) throw new Error('plan');
+  const p = m.plan ?? null;
+  // A mission with no plan must have a flight.
+  if (p === null) { if (!m.flight) throw new Error('plan'); }
+  else {
+    if (!Array.isArray(p.nodes) || p.nodes.length < 2 || !Array.isArray(p.legs) || p.legs.length !== p.nodes.length - 1) throw new Error('plan');
+    for (const n of p.nodes) if (typeof n.body !== 'string' || typeof n.et !== 'number' || !isFinite(n.et)) throw new Error('plan');
+  }
   if (!m.spacecraft || typeof m.spacecraft.kind !== 'string') throw new Error('spacecraft');
   const f = m.flight;
   if (f) {
@@ -106,12 +124,17 @@ export function missionFromJson(text: string): Mission {
     if (typeof f.et0 !== 'number' || typeof f.etEnd !== 'number' || !f.state0 || !okVec(f.state0.r) || !okVec(f.state0.v) || !Array.isArray(f.maneuvers) || !f.model) throw new Error('flight');
     for (const mv of f.maneuvers) if (typeof mv.et !== 'number' || !okVec(mv.dv)) throw new Error('flight');
   }
+  const num = (x: unknown) => typeof x === 'number' && isFinite(x);
+  const custom = (Array.isArray(m.custom) ? m.custom : []).filter((c) => c && c.body && typeof c.body.id === 'string' && /^X_[A-Z0-9_]+$/.test(c.body.id) && typeof c.body.name === 'string'
+    && [c.body.a, c.body.e, c.body.i, c.body.raan, c.body.argp, c.body.M0, c.body.epochEt, c.radiusKm].every(num) && c.body.a > 0 && c.body.e >= 0 && c.body.e < 1 && c.radiusKm > 0);
   return {
-    format: 'apsis-mission', version: 1, id: typeof m.id === 'string' ? m.id : newMissionId(), name: typeof m.name === 'string' ? m.name : 'Mission',
+    format: 'apsis-mission', version: 1, id: typeof m.id === 'string' ? m.id : newMissionId(), name: typeof m.name === 'string' ? m.name : '',
     famousId: typeof m.famousId === 'string' ? m.famousId : null,
-    spacecraft: { ...DEFAULT_SPACECRAFT, ...m.spacecraft }, plan: p as Plan,
+    spacecraft: { ...DEFAULT_SPACECRAFT, ...m.spacecraft }, plan: p,
     refine: { moons: !!m.refine?.moons, optimizeDsm: !!m.refine?.optimizeDsm },
     flight: f ?? null, flightOrigin: f ? m.flightOrigin ?? 'import' : null,
+    report: f && m.report && Array.isArray(m.report.encounters) && Array.isArray(m.report.stages) ? m.report : null,
+    ...(custom.length ? { custom } : {}),
   };
 }
 
@@ -170,7 +193,7 @@ export function famousFacts(id: string): FamousFacts {
  * Plan of a real mission from its facts. For a mission with a deep-space maneuver the parameters of the maneuver
  * leg are solved here (plan optimizer); the times stay at the real values.
  */
-export function famousMission(sys: SolarSystem, id: string): Mission {
+export function famousMission(sys: SolarSystem, id: string): PlannedMission {
   const info = FAMOUS.find((f) => f.id === id);
   if (!info) throw new Error('Unknown mission: ' + id);
   const f = famousFacts(id);
@@ -351,7 +374,7 @@ export function quickWindow(sys: SolarSystem, q: QuickRequest): QuickWindow {
 }
 
 /** Plan of a quick mission: a direct flight from the Earth to the target in the best launch window. */
-export function quickMission(sys: SolarSystem, q: QuickRequest, name: string, spacecraft: SpacecraftSpec = DEFAULT_SPACECRAFT): { mission: Mission; window: QuickWindow } {
+export function quickMission(sys: SolarSystem, q: QuickRequest, name: string, spacecraft: SpacecraftSpec = DEFAULT_SPACECRAFT): { mission: PlannedMission; window: QuickWindow } {
   const window = quickWindow(sys, q);
   const plan = newPlan(['EARTH', q.target], [window.dep, window.arr]);
   plan.soiTime = true;
