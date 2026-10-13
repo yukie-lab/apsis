@@ -16,9 +16,9 @@ import { findTexture, loadMap, makeBlankTexture, textureUrl } from './manifest';
 import type { Starfield, StarfieldOptions } from './types';
 
 /** Brightness factor of the star map for the default look. The stars stay dim so that the planets stand out. */
-const STAR_GAIN = 0.85;
+const STAR_GAIN = 0.62;
 /** Power curve of the map. A value above 1 makes the faint glow of the Milky Way darker and keeps the bright stars. */
-const STAR_CURVE = 1.25;
+const STAR_CURVE = 1.5;
 
 const VERTEX = /* glsl */ `
 #include <common>
@@ -59,8 +59,12 @@ export function createStarfield(opt: StarfieldOptions): Starfield {
   const blank = makeBlankTexture();
   const params = new THREE.Vector3(STAR_GAIN, STAR_CURVE, 0);
   const uStars: THREE.IUniform = { value: blank };
+  // The anisotropy of the star map. The shader limits the stretch of the map near the celestial poles to this value,
+  // so the stars near a pole stay sharp points (see GLSL_MAP).
+  const anisotropy = opt.quality === 'high' ? 4 : 1;
   const material = new THREE.ShaderMaterial({
     ...shaderBase('stars'),
+    defines: { MAP_ANISOTROPY: anisotropy },
     uniforms: { uStars, uStarParams: { value: params } },
     vertexShader: VERTEX,
     fragmentShader: FRAGMENT,
@@ -78,7 +82,8 @@ export function createStarfield(opt: StarfieldOptions): Starfield {
   let disposed = false;
   let cancel: (() => void) | null = null;
   if (entry) {
-    cancel = loadMap(textureUrl(entry, opt.quality, opt.baseUrl), { srgb: true, wrapU: true, anisotropy: opt.quality === 'high' ? 4 : 1 }, (loaded) => {
+    // No edge repair: the star map is large, and its edge lines are black sky.
+    cancel = loadMap(textureUrl(entry, opt.quality, opt.baseUrl), { srgb: true, wrapU: true, anisotropy, repair: false }, (loaded) => {
       if (loaded) {
         texture = loaded;
         uStars.value = loaded;

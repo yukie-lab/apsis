@@ -5,7 +5,7 @@
   "value": 0.04503877559898413,
   "unit": "km",
   "limit": 1,
-  "truth": "JPL Horizons vectors of the asteroid; 5 arcs of 168 days",
+  "truth": "JPL Horizons vectors of the asteroid, 5 arcs of 168 days",
   "detail": {
    "maxErrorKmAfter1010Days": 0.8748864037405462,
    "maxErrorKmNoAsteroidMass168Days": 0.07989239904779524,
@@ -19,7 +19,7 @@
   "value": 0.05932309533341411,
   "unit": "km",
   "limit": 1,
-  "truth": "JPL Horizons vectors of the asteroid; 5 arcs of 168 days",
+  "truth": "JPL Horizons vectors of the asteroid, 5 arcs of 168 days",
   "detail": {
    "maxErrorKmAfter1010Days": 3.7275299369682497,
    "maxErrorKmNoAsteroidMass168Days": 0.29037173785413556,
@@ -33,7 +33,7 @@
   "value": 0.08660599905480806,
   "unit": "km",
   "limit": 1,
-  "truth": "JPL Horizons vectors of the asteroid; 5 arcs of 168 days",
+  "truth": "JPL Horizons vectors of the asteroid, 5 arcs of 168 days",
   "detail": {
    "maxErrorKmAfter1010Days": 2.3185588812211577,
    "maxErrorKmNoAsteroidMass168Days": 1.150114482861891,
@@ -47,7 +47,7 @@
   "value": 0.17220415191182012,
   "unit": "km",
   "limit": 1,
-  "truth": "JPL Horizons vectors of the asteroid; 5 arcs of 168 days",
+  "truth": "JPL Horizons vectors of the asteroid, 5 arcs of 168 days",
   "detail": {
    "maxErrorKmAfter1010Days": 3.433405906921073,
    "maxErrorKmNoAsteroidMass168Days": 0.14254819170905628,
@@ -61,7 +61,7 @@
   "value": 0.001725682832788993,
   "unit": "km",
   "limit": 1,
-  "truth": "JPL Horizons vectors of the asteroid; 5 arcs of 168 days",
+  "truth": "JPL Horizons vectors of the asteroid, 5 arcs of 168 days",
   "detail": {
    "maxErrorKmAfter1010Days": 0.03908972409446731,
    "maxErrorKmNoAsteroidMass168Days": 0.0018325151057449517,
@@ -75,7 +75,7 @@
   "value": 0.023305694465113602,
   "unit": "km",
   "limit": 1,
-  "truth": "JPL Horizons vectors of the asteroid; 5 arcs of 168 days",
+  "truth": "JPL Horizons vectors of the asteroid, 5 arcs of 168 days",
   "detail": {
    "maxErrorKmAfter1010Days": 0.49018469838391904,
    "maxErrorKmNoAsteroidMass168Days": 0.13028868361000234,
@@ -89,7 +89,7 @@
   "value": 0.06478678770051673,
   "unit": "km",
   "limit": 1,
-  "truth": "JPL Horizons vectors of the asteroid; 5 arcs of 168 days",
+  "truth": "JPL Horizons vectors of the asteroid, 5 arcs of 168 days",
   "detail": {
    "maxErrorKmAfter1010Days": 4.737833514047893,
    "maxErrorKmNoAsteroidMass168Days": 0.11386172409318321,
@@ -229,7 +229,7 @@
   "value": 285.24634890118614,
   "unit": "km",
   "limit": 2000,
-  "truth": "JPL Horizons trajectory of voyager2 relative to the planet centre, 1-minute samples",
+  "truth": "JPL Horizons trajectory of Voyager 2 relative to the center of the planet, 1-minute samples",
   "detail": {
    "periapsisRadiusKm": 721660.7097789884,
    "truthPeriapsisRadiusKm": 721375.4634300872,
@@ -243,7 +243,7 @@
   "value": 60.40651760221226,
   "unit": "km",
   "limit": 500,
-  "truth": "JPL Horizons trajectory of voyager2 relative to the planet centre, 1-minute samples",
+  "truth": "JPL Horizons trajectory of Voyager 2 relative to the center of the planet, 1-minute samples",
   "detail": {
    "periapsisRadiusKm": 160630.85099231324,
    "truthPeriapsisRadiusKm": 160691.25750991545,
@@ -257,7 +257,7 @@
   "value": 0.08000123618694488,
   "unit": "km",
   "limit": 100,
-  "truth": "JPL Horizons trajectory of voyager2 relative to the planet centre, 1-minute samples",
+  "truth": "JPL Horizons trajectory of Voyager 2 relative to the center of the planet, 1-minute samples",
   "detail": {
    "periapsisRadiusKm": 107154.26916544209,
    "truthPeriapsisRadiusKm": 107154.1891642059,
@@ -271,7 +271,7 @@
   "value": 0.09258101347586489,
   "unit": "km",
   "limit": 100,
-  "truth": "JPL Horizons trajectory of voyager2 relative to the planet centre, 1-minute samples",
+  "truth": "JPL Horizons trajectory of Voyager 2 relative to the center of the planet, 1-minute samples",
   "detail": {
    "periapsisRadiusKm": 29236.125240667498,
    "truthPeriapsisRadiusKm": 29236.03265965402,
@@ -285,7 +285,7 @@
   "value": 0.05742734507111891,
   "unit": "km",
   "limit": 10,
-  "truth": "JPL Horizons trajectory of cassini relative to the planet centre, 1-minute samples",
+  "truth": "JPL Horizons trajectory of Cassini relative to the center of the planet, 1-minute samples",
   "detail": {
    "periapsisRadiusKm": 6335.495763818074,
    "truthPeriapsisRadiusKm": 6335.553191163145,
@@ -299,7 +299,7 @@
   "value": 2.2112793487585805,
   "unit": "km",
   "limit": 10,
-  "truth": "JPL Horizons trajectory of cassini relative to the planet centre, 1-minute samples",
+  "truth": "JPL Horizons trajectory of Cassini relative to the center of the planet, 1-minute samples",
   "detail": {
    "periapsisRadiusKm": 6656.609791309901,
    "truthPeriapsisRadiusKm": 6654.3985119611425,
@@ -313,7 +313,7 @@
   "value": 0.27853153935302544,
   "unit": "km",
   "limit": 10,
-  "truth": "JPL Horizons trajectory of cassini relative to the planet centre, 1-minute samples",
+  "truth": "JPL Horizons trajectory of Cassini relative to the center of the planet, 1-minute samples",
   "detail": {
    "periapsisRadiusKm": 7549.918406118329,
    "truthPeriapsisRadiusKm": 7549.639874578976,
@@ -327,7 +327,7 @@
   "value": 0.22029702737927437,
   "unit": "km",
   "limit": 50,
-  "truth": "JPL Horizons trajectory of cassini relative to the planet centre, 1-minute samples",
+  "truth": "JPL Horizons trajectory of Cassini relative to the center of the planet, 1-minute samples",
   "detail": {
    "periapsisRadiusKm": 9794457.237049792,
    "truthPeriapsisRadiusKm": 9794457.016752765,
@@ -341,7 +341,7 @@
   "value": 0.03875490009886562,
   "unit": "km",
   "limit": 10,
-  "truth": "JPL Horizons trajectory of galileo relative to the planet centre, 1-minute samples",
+  "truth": "JPL Horizons trajectory of Galileo relative to the center of the planet, 1-minute samples",
   "detail": {
    "periapsisRadiusKm": 22175.142222405626,
    "truthPeriapsisRadiusKm": 22175.103467505527,
@@ -355,7 +355,7 @@
   "value": 0.17942330770256376,
   "unit": "km",
   "limit": 10,
-  "truth": "JPL Horizons trajectory of galileo relative to the planet centre, 1-minute samples",
+  "truth": "JPL Horizons trajectory of Galileo relative to the center of the planet, 1-minute samples",
   "detail": {
    "periapsisRadiusKm": 7334.013706582981,
    "truthPeriapsisRadiusKm": 7334.193129890684,
@@ -369,7 +369,7 @@
   "value": 0.20903272034047404,
   "unit": "km",
   "limit": 10,
-  "truth": "JPL Horizons trajectory of galileo relative to the planet centre, 1-minute samples",
+  "truth": "JPL Horizons trajectory of Galileo relative to the center of the planet, 1-minute samples",
   "detail": {
    "periapsisRadiusKm": 6674.837404443571,
    "truthPeriapsisRadiusKm": 6674.628371723231,
@@ -383,7 +383,7 @@
   "value": 3.1640715673565865,
   "unit": "km",
   "limit": 50,
-  "truth": "JPL Horizons trajectory of newhorizons relative to the planet centre, 1-minute samples",
+  "truth": "JPL Horizons trajectory of New Horizons relative to the center of the planet, 1-minute samples",
   "detail": {
    "periapsisRadiusKm": 2304501.5977053256,
    "truthPeriapsisRadiusKm": 2304504.761776893,
@@ -397,7 +397,7 @@
   "value": 13.494448379135065,
   "unit": "km",
   "limit": 50,
-  "truth": "JPL Horizons trajectory of newhorizons relative to the planet centre, 1-minute samples",
+  "truth": "JPL Horizons trajectory of New Horizons relative to the center of the planet, 1-minute samples",
   "detail": {
    "periapsisRadiusKm": 13689.701245616463,
    "truthPeriapsisRadiusKm": 13676.206797237328,
@@ -411,7 +411,7 @@
   "value": 0.5805116359751992,
   "unit": "km",
   "limit": 10,
-  "truth": "JPL Horizons trajectory of juno relative to the planet centre, 1-minute samples",
+  "truth": "JPL Horizons trajectory of Juno relative to the center of the planet, 1-minute samples",
   "detail": {
    "periapsisRadiusKm": 6931.92006638132,
    "truthPeriapsisRadiusKm": 6932.500578017295,
@@ -425,7 +425,7 @@
   "value": 1.4836084635462612,
   "unit": "km",
   "limit": 50,
-  "truth": "JPL Horizons trajectory of ulysses relative to the planet centre, 1-minute samples",
+  "truth": "JPL Horizons trajectory of Ulysses relative to the center of the planet, 1-minute samples",
   "detail": {
    "periapsisRadiusKm": 450444.3595999656,
    "truthPeriapsisRadiusKm": 450442.8759915021,
@@ -439,7 +439,7 @@
   "value": 0.10645246818057785,
   "unit": "km",
   "limit": 10,
-  "truth": "JPL Horizons trajectory of messenger relative to the planet centre, 1-minute samples",
+  "truth": "JPL Horizons trajectory of MESSENGER relative to the center of the planet, 1-minute samples",
   "detail": {
    "periapsisRadiusKm": 8714.301584421646,
    "truthPeriapsisRadiusKm": 8714.195131953466,
@@ -453,7 +453,7 @@
   "value": 0.05362951787174097,
   "unit": "km",
   "limit": 10,
-  "truth": "JPL Horizons trajectory of rosetta relative to the planet centre, 1-minute samples",
+  "truth": "JPL Horizons trajectory of Rosetta relative to the center of the planet, 1-minute samples",
   "detail": {
    "periapsisRadiusKm": 8332.38587367746,
    "truthPeriapsisRadiusKm": 8332.439503195332,

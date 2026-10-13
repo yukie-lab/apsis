@@ -1,5 +1,5 @@
 import { describe, it, expect, afterAll } from 'vitest';
-import { solarSystem, truth, Recorder } from './util';
+import { solarSystem, truth, Recorder, CRAFT } from './util';
 import { jdTdbToEt } from '../src/engine/time';
 import { dist, add, sub, norm, type Vec3 } from '../src/engine/vec';
 import { Propagator, FULL_MODEL, PLANET_GRAVITY_BODIES, type ForceModel } from '../src/engine/propagate';
@@ -55,7 +55,7 @@ describe('N-body propagation of asteroids against JPL Horizons (gravity only: no
       // difference. The detail values show the result with no asteroid mass and with no relativity term.
       rec.add({
         id: 'propagation.asteroid.' + id, group: 'propagation', value: e1, unit: 'km', limit: 1,
-        truth: `JPL Horizons vectors of the asteroid; 5 arcs of ${days.toFixed(0)} days`,
+        truth: `JPL Horizons vectors of the asteroid, 5 arcs of ${days.toFixed(0)} days`,
         detail: { maxErrorKmAfter1010Days: e6, maxErrorKmNoAsteroidMass168Days: e1NoAst, maxErrorKmNoAsteroidMass1010Days: e6NoAst, maxErrorKmNoRelativity168Days: e1NoGr },
       });
       expect(e1).toBeLessThan(1);
@@ -176,7 +176,7 @@ describe('propagation through real flybys (start 2 days before, end 2 days after
       expect(ca).toBeDefined();
       const diff = Math.abs(ca.radius! - rpTruth);
       const errEnd = dist(sub(traj.stateAt(et[et.length - 1]).r, sys.state(pid, et[et.length - 1]).r), S(e.hourly.state[et.length - 1]).r);
-      rec.add({ id: `propagation.flyby.${mission}.${k}.${pid}`, group: 'flyby', value: diff, unit: 'km', limit, truth: `JPL Horizons trajectory of ${mission} relative to the planet centre, 1-minute samples`, detail: { periapsisRadiusKm: ca.radius!, truthPeriapsisRadiusKm: rpTruth, positionErrorKmAfter4Days: errEnd, moonsInModel: moons ? 'yes' : 'no' } });
+      rec.add({ id: `propagation.flyby.${mission}.${k}.${pid}`, group: 'flyby', value: diff, unit: 'km', limit, truth: `JPL Horizons trajectory of ${CRAFT[mission]} relative to the center of the planet, 1-minute samples`, detail: { periapsisRadiusKm: ca.radius!, truthPeriapsisRadiusKm: rpTruth, positionErrorKmAfter4Days: errEnd, moonsInModel: moons ? 'yes' : 'no' } });
       expect(diff).toBeLessThan(limit);
     });
   }

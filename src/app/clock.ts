@@ -45,13 +45,15 @@ class Clock {
   }
   private tick = (now: number): void => {
     if (!this.playing) return;
-    // A long frame (a hidden tab) must not make a jump of the time.
-    const dt = Math.min(0.1, (now - this.last) / 1000);
+    // A long frame (a hidden tab) must not make a jump of the time. The time of a frame can be before the time
+    // of the call that started the clock (browsers round their timers): the step is then zero, not negative.
+    const dt = Math.max(0, Math.min(0.1, (now - this.last) / 1000));
     this.last = now;
     const next = this.et + dt * this.rate;
-    if (next >= this.max) { this.et = this.max; this.playing = false; }
-    else if (next <= this.min) { this.et = this.min; this.playing = false; }
-    else this.et = next;
+    // The time stops at the limit to which it moves. At the start of a flight the time is at the other limit.
+    if (next >= this.max && this.rate > 0) { this.et = this.max; this.playing = false; }
+    else if (next <= this.min && this.rate < 0) { this.et = this.min; this.playing = false; }
+    else this.et = Math.min(this.max, Math.max(this.min, next));
     this.emit();
     if (this.playing) this.frame = requestAnimationFrame(this.tick);
   };

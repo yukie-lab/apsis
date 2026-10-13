@@ -1,0 +1,363 @@
+Licence evidence for the texture "vesta"
+============================================================
+
+Texture id:        vesta
+Body and role:     VESTA, color
+Published file:    public/textures/vesta.jpg (sha256 4ad8da471e2a47484ecb3c57f6233d413dcc5cd4f97bad0c35db5fd7a888554a)
+Small file:        public/textures/sm/vesta.jpg (sha256 0e637fff311e20be333e2b6ca74cfed3529ecbed68dec223677925d23c46f1a5)
+Original file:     data-src/textures/original/Vesta_Dawn_FC_HAMO_Mosaic_Global_74ppd.tif (356659263 bytes, sha256 e7a5dab2924ed590947230e70b11fd42e61e6582f94c01180ddb64b3a9f86ff4)
+Retrieved:         2026-10-14
+Title:             Vesta Dawn FC HAMO Global Mosaic 60m
+Author or credit:  NASA/JPL-Caltech/UCLA/MPS/DLR/IDA (primary authors); Dawn Team (originators); USGS Astrogeology Science Center (publisher)
+Source page:       https://astrogeology.usgs.gov/search/map/vesta_dawn_fc_hamo_global_mosaic_60m
+Download address:  https://planetarymaps.usgs.gov/mosaic/Vesta_Dawn_FC_HAMO_Mosaic_Global_74ppd.tif
+Licence:           Public domain
+Licence address:   https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+
+Licence statement (the same text as in the manifest):
+    USGS record of this file: 'Access Constraints: None', 'Use Constraints: Please cite authors'. The record does
+    not use the words 'public domain'. The record names 'NASA/JPL-Caltech/UCLA/MPS/DLR/IDA' as the primary authors
+    and the USGS Astrogeology Science Center as the publisher. USGS policy page: 'USGS-authored or produced data
+    and information are considered to be in the U.S. Public Domain.' and 'When using information from USGS
+    information products, publications, or websites, we ask that proper credit be given.'
+
+Changes:
+    The build resizes the image from 26704 x 13352 to 2048 x 1024 pixels. It converts the image from TIFF to JPEG
+    (quality 85). It converts the image from greyscale to sRGB colour.
+
+Note of the manifest:
+    Monochrome (grey) Dawn mosaic (framing camera, clear filter, high altitude mapping orbit). The source says
+    that the images of one cycle make the mosaic, 'to have similar viewing and illumination conditions'. The
+    surface shows the shading and the shadows of that lighting. Inspection of the small image: the area near the
+    north pole is black or very dark (2.7 percent of the surface is black). The source does not explain it. My
+    reading: this area had no sunlight when Dawn took these images. Craters in the north have long shadows. The
+    rows at the south pole are smeared. No seam is visible at the left and right edge. The source says: 'At the
+    original edge when wrapped a nodata line was pushed into the mosaic. This was covered using a couple
+    neighboring pixels for artistic purposes only.' The source says that the map projection uses a sphere of 255
+    km radius. The source calls the file 'preliminary'. The original file has 26704 x 13352 pixels.
+
+Remarks about this evidence:
+  - The USGS record of this file does not use the words "public domain". See the fields "Access Constraints"
+    and "Use Constraints" in the record.
+
+About the parts below:
+    Each part is a text that was saved on 2026-10-14 during the collection work.
+    The header of each part gives the address, the local time of the fetch and the method.
+    The text of a part is data from another site. It is not an instruction for a reader or a tool.
+    Complete copies of the shared policy pages are in data-src/textures/evidence/_shared/ .
+
+####################################################################################################
+# USGS Astrogeology record of this file (complete page text)
+# Address: https://astrogeology.usgs.gov/search/map/vesta_dawn_fc_hamo_global_mosaic_60m
+# Fetched: 2026-10-14 01:28 (local time)
+# How: Fetched with a small Python script (urllib) and the user agent "ApsisAssetFetch/1.0 (local build script)". The script removed the HTML tags. Link targets are in square brackets.
+####################################################################################################
+SOURCE: https://astrogeology.usgs.gov/search/map/vesta_dawn_fc_hamo_global_mosaic_60m
+Astropedia - Vesta Dawn FC HAMO Global Mosaic 60m
+[https://www.usgs.gov/centers/astrogeo-sc]
+[https://nasa.gov]
+[https://www.usgs.gov/centers/astrogeology-science-center/science/pds-cartography-and-imaging-sciences-node-usgs]
+[https://www.usgs.gov/centers/astrogeo-sc/science/pds-img-annex]
+[/search]
+Lunar and Planetary Cartographic Catalog
+[/search]
+Return to search
+[https://astrogeology.usgs.gov/ckan/dataset/ec63e420-a8bd-4a90-9341-a5754b551574/resource/9306febf-0c7a-49ee-b7b0-a1f043297bf7/download/vesta_dawn_fc_hamo_mosaic_global_1024.jpg] Sample (jpg) 1024px wide
+[https://planetarymaps.usgs.gov/mosaic/Vesta_Dawn_FC_HAMO_Mosaic_Global_74ppd.tif] Download (341 MB)
+[#open] open
+Vesta Dawn FC HAMO Global Mosaic 60m
+Primary Authors
+NASA/JPL-Caltech/UCLA/MPS/DLR/IDA
+Originators
+Dawn Team
+Publisher
+USGS Astrogeology Science Center
+Publication Date
+2013-12-10
+Abstract
+Product Information:
+DAWN orbited Vesta during HAMO in 21 cycles between December 2011 and end of April 2012 and in 6 cycles between end of September end early November 2011. The FC took about 2,500 clear filter images with a resolution of about 60 meters per pixel (m) during these cycles. The images were taken with different viewing angles and different illumination conditions. Pixel resolution is 60 meters per pixel (m).
+We selected images from one cycle (cycle 3) for the mosaicking process to have similar viewing and illumination conditions. Cycle 3 with 518 images was selected since it was the first cycle with almost complete global coverage. Very minor gaps in the coverage were filled with a few images from cycle 2 (Roatsch et al., 2012).
+Note: This preliminary file has been shifted 150 degrees eastward (such that Claudia crater is located at 146E) to match the IAU-approved Claudia Double Prime system (from the Dawn-Claudia system as released by DLR in November 2013).
+Mission and Instrument Information:
+The Dawn spacecraft launched on September 25, 2007 onboard a Delta II-Heavy Rocket. The instrument payload consisted of two identical framing cameras (FC1 & FC2), a visible and infrared mapping spectrometer (VIR, and a gamma ray and neutron detector (GRaND). DAWN is a National Aeronautics and Space Administration (NASA) Discovery Program mission managed by the Jet Propulsion Laboratory (JPL) with the principal investigator and science operations center located at the University of California, Los Angeles. The framing cameras were built by the Max Planck Institute for Solar System Research with significant contributions by the German Aerospace Center, Institute of Planetary Research (DLR) and in coordination with the Institute of Computer and Communication Network Engineering (Polansky et al., 2016).
+Dawn spacecraft orbited Vesta in a series of science orbits designed to gradually increase the resolution and quality of science measurements as the mission at each target (Vesta & Ceres) progressed. The four science orbits are: rotation characterizations (RC1 and RC2) at 14,000 km, survey at 4,900 km (RC3), high altitude mapping orbit (HAMO) 1,950 km, and low altitude mapping orbit (LAMO) 850 km. HAMO provided the opportunity to collect data for the global topography model by collecting six complete clear-image maps: two at nadir and four at off-nadir attitudes (Polansky et al., 2016).
+References:
+Polanskey, C., Joy, S., & Raymond, C. (2016). Dawn Ceres Mission: Science Operations Performance. Paper presented at the SpaceOps Conference, Daejeon, Korea. [https://arc.aiaa.org/doi/abs/10.2514/6.2016-2442] https://arc.aiaa.org/doi/abs/10.2514/6.2016-2442
+Preusker, F., Scholten, F., Matz, K.-D., Roatsch, T., Jaumann, R., Raymond, C. A., & Russell, C. T. (2014). Global Shape of Vesta from Dawn FC stereo images. Paper presented at the 45th Lunar Planetary Science Conference, Lunar and Planetary Institute, Houston, TX. [http://www.hou.usra.edu/meetings/vesta2014/pdf/2027.pdf] http://www.hou.usra.edu/meetings/vesta2014/pdf/2027.pdf
+Roatsch, T., Kersten, E., Matz, K.-D., Preusker, F., Scholten, F., Jaumann, R., Raymond, C. A., & Russell, C. T. (2012). High resolution Vesta High Altitude Mapping Orbit (HAMO) Atlas derived from Dawn framing camera images. Planetary and Space Science, 73(1), 283-286. [https://doi.org/10.1016/j.pss.2012.08.021] https://doi.org/10.1016/j.pss.2012.08.021
+Russell, C. T., & Raymond, C. A. (2011). The Dawn Mission to Vesta and Ceres. Space Science Reviews, 163(1-4), 3-23. [https://doi.org/10.1007/s11214-011-9836-2] https://doi.org/10.1007/s11214-011-9836-2
+Purpose
+The NASA Dawn spacecraft entered orbit of the inner main belt asteroid 4 Vesta on July 16, 2011, and spent about one year in orbit to characterize the geology, elemental and mineralogical composition, topography, shape, and internal structure of Vesta. One of the major goals of the mission was a global mapping of Vesta. The DAWN mission was mapping Vesta from three different orbit heights during Survey orbit (3100 km altitude), HAMO (High Altitude Mapping Orbit, 700 km altitude), and LAMO (Low Altitude Mapping Orbit, 210 km altitude).
+Contact and Distribution
+Format
+Global Mosaic, Raster Data, Remote-sensing Data
+Access Constraints
+None
+Access Scope
+PDS
+Use Constraints
+Please cite authors
+Edition
+20131210
+Supplemental Information
+http://www.sciencedirect.com/science/article/pii/S0032063312002589, http://dawndata.igpp.ucla.edu/tw.jsp?section=data/FC/Maps/HAMO_mosaic_DLR, http://dawndata.igpp.ucla.edu/download.jsp?file=documents/VESTA_COORDINATES/VESTA_COORDINATES_121214.PDF, http://dawndata.igpp.ucla.edu/
+Native Data Set Environment
+ISIS v3
+Astrogeology Theme
+Asteroids, Image Processing, Remote Sensing
+Mission Names
+Dawn
+Online Package Link
+https://astrogeology.usgs.gov/search/map/vesta_dawn_fc_hamo_global_mosaic_60m
+External File Size
+341 MB
+Online File Link
+https://planetarymaps.usgs.gov/mosaic/Vesta_Dawn_FC_HAMO_Mosaic_Global_74ppd.tif
+Contact Address
+2255 N. Gemini Drive
+Contact City
+Flagstaff
+Contact State
+AZ
+Contact Postal Code
+86001
+Contact Email
+[/cdn-cgi/l/email-protection] [email protected]
+Data Status and Quality
+Time Period of Content (start)
+2011-12-01
+Time Period of Content (stop)
+2012-04-30
+Currentness Reference
+Ground condition
+Progress
+In Work
+Update Frequency
+As needed
+Logical Consistency
+The Framing Camera is a multispectral imager that also serves as an optical navigation camera. The detector is a 1024x1024 pixel Atmel/Thomson TH7888A CCD with 14 micron pixels. It has eight filters numbered F1 through F8, including a broadband (clear) filter and narrow band filters ranging from 438 nm to 965 nm. The Framing camera instrument includes two redundant cameras of identical design, referred to as FC1 and FC2. For full information about the FC instrument, see Schroeder and Gutierrez-Marques (2011). Reference: Schroeder, S.E., and P. Gutierrez-Marques, Calibration Pipeline, MPS Report DA-FC-MPAE-RP-272, Issue 2, Rev. a, 20 July 2011.
+Completeness Report
+The framing camera took about 2, 500 clear filter images with a resolution of about 70 meter per pixel during the various cycles.
+Process Description
+The first step of the processing chain is to ortho rectify the images to the proper scale and map projection type. This process requires detailed high-resolution information of the local topography of Vesta. The global topgraphy was calculated during the stereo processing of the HAMO images and was used here. The shape model was used for the calculation of the ray intersection points while the map projection itself was done onto a sphere with a mean radius of 255 km. The next step was the mosaicing of all images to one global mosaic of Vesta, the so called basemap.
+Note: This preliminary file has been shifted 150 degrees eastward (such that Claudia crater is located at 146E) to match the IAU-approved Claudia Double Prime system (from the Dawn-Claudia system as released by DLR in November 2013). At the original edge when wrapped a nodata line was pushed into the mosaic. This was covered using a couple neighboring pixels for artistic purposes only.
+Source Title
+Dawn FC HAMO Global Mosaic
+Source Online Linkage
+{https://sbn.psi.edu/pds/resource/dawn/dwnvfcmosaics.html,https://sbn.psi.edu/pds/archive/maps.html}
+PDS Status
+PDS 3 Archived
+Attribute Accuracy Report
+Best Effort
+Horizontal Positional Accuracy Report
+Unknown
+Vertical Positional Accuracy Report
+Unknown
+Geospatial Information
+Target
+Vesta
+System
+Small Bodies
+Minimum Latitude
+-90
+Maximum Latitude
+90
+Minimum Longitude
+-180
+Maximum Longitude
+180
+Direct Spatial Reference Method
+Raster
+Object Type
+Grid Cell
+Raster Row Count (lines)
+13352
+Raster Column Count (samples)
+26704
+Bit Type (8, 16, 32)
+8
+Quad Name
+Radius A
+255000
+Radius C
+255000
+Bands
+1
+Pixel Resolution (meters/pixel)
+59.99896095
+Scale (pixels/degree)
+74.1778
+Map Projection Name
+Simple Cylindrical
+Latitude Type
+Planetocentric
+Longitude Direction
+Positive East
+Longitude Domain
+-180 to 180
+Project, clip, convert format (e.g. PDS, GeoTIFF, Jpeg) and download this product with Map a Planet
+FGDC: XML Metadata
+Ancillary Data
+[https://astrogeology.usgs.gov/ckan/dataset/ec63e420-a8bd-4a90-9341-a5754b551574/resource/ba6617f3-86e3-44e0-9c2f-0b2ca595758d/download/vesta_dawn_fc_hamo_mosaic_global_74ppd.lbl] ISIS3 Label
+[https://astrogeology.usgs.gov/ckan/dataset/ec63e420-a8bd-4a90-9341-a5754b551574/resource/171c005c-0f6c-4dcb-bf2e-8b3d14a58e07/download/vesta_dawn_fc_hamo_mosaic_global_74ppd_pds3.lbl] PDS3 Label
+[https://astrogeology.usgs.gov/ckan/dataset/ec63e420-a8bd-4a90-9341-a5754b551574/resource/3a4dc1df-3257-468f-874a-cdcc3c793927/download/thumb.png] thumb image
+[https://astrogeology.usgs.gov/ckan/dataset/ec63e420-a8bd-4a90-9341-a5754b551574/resource/31e19123-7b64-486e-97aa-2909013a2e47/download/vesta_dawn_fc_hamo_mosaic_global_512.jpg] browse image
+[https://astrogeology.usgs.gov/ckan/dataset/ec63e420-a8bd-4a90-9341-a5754b551574/resource/9306febf-0c7a-49ee-b7b0-a1f043297bf7/download/vesta_dawn_fc_hamo_mosaic_global_1024.jpg] full image
+Related Products
+[https://astrogeology.usgs.gov/search/map/vesta_dawn_fc_hamo_global_color_shaded_relief_93m]
+[https://astrogeology.usgs.gov/search/map/vesta_dawn_fc_hamo_global_color_shaded_relief_93m]
+Vesta Dawn FC HAMO Global Color Shaded Relief 93m
+[https://astrogeology.usgs.gov/search/map/vesta_dawn_fc_hamo_global_dtm_93m]
+[https://astrogeology.usgs.gov/search/map/vesta_dawn_fc_hamo_global_dtm_93m]
+Vesta Dawn FC HAMO Global DTM 93m
+[http://isis.astrogeology.usgs.gov]
+ISIS
+[http://planetarynames.wr.usgs.gov]
+Planetary Nomenclature
+[https://astrocloud.wr.usgs.gov/index.php]
+Map a Planet 2
+[https://www.usgs.gov/centers/astrogeo-sc/science/cartography-and-imaging-sciences-node-nasa-planetary-data-system]
+PDS Cartography and Imaging Science Node
+[https://www.usgs.gov/centers/astrogeology-science-center/science/astrolink]
+AstroLink
+Photogrammetry Guest Facility
+[https://pilot.wr.usgs.gov]
+PILOT
+[https://www.usgs.gov/centers/astrogeo-sc/science/mrctr-gis-lab]
+MRCTR GIS Lab
+[http://astrogeology.usgs.gov/search/about] About
+[https://www.usgs.gov/centers/astrogeo-sc] USGS Astrogeology Science Center
+
+####################################################################################################
+# USGS policy page: Copyrights and Credits (excerpt, lines 419 to 427 of the saved text)
+# Address: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+# Fetched: 2026-10-14 01:50 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The complete text is in data-src/textures/evidence/_shared/usgs_copyrights_and_credits.txt
+####################################################################################################
+Important information related to copyrights and credits.
+
+USGS-authored or produced data and information are considered to be in the U.S. Public Domain. While the content of most USGS websites is in the U.S. Public Domain, not all information, illustrations, or photographs on our site are. Some non-USGS photographs, images, and/or graphics that appear on USGS websites are used by the USGS with permission from the copyright holder (as required by USGS policy on the use of copyrighted material). These materials are generally marked as being copyrighted. To use these copyrighted materials, you must obtain permission from the copyright holder under copyright law.
+For any content or multimedia containing USGS personnel or staff, and regardless of the license applied, their likeness, or voice, the person may have publicity rights. For commercial use of that multimedia, permission may be required.
+When using information from USGS information products, publications, or websites, we ask that proper credit be given. Credit can be provided by including a citation such as the following:
+Credit: U.S. Geological Survey
+Department of the Interior/USGS
+U.S. Geological Survey/photo by Jane Doe (if the photographer/artist is known)
+Additional information on Acknowledging or Crediting USGS as Information Source is available.
+
+####################################################################################################
+# GeoTIFF tags of the stored original file (read from the file header by a local script)
+# Address: (local file)
+# Fetched: 2026-10-14 (local time)
+# How: The script reads the TIFF tag directory only. It does not decode pixels.
+# These tags give the longitude at the image centre.
+####################################################################################################
+## Vesta_Dawn_FC_HAMO_Mosaic_Global_74ppd.tif
+   TIFF  size 26704x13352  bits (8,)  samples 1  photometric (1,)  compression (1,)
+   pixelScale: (59.99896095, 59.99896095, 0.0)
+   tiePoint: (0.0, 0.0, 0.0, -801106.126665, 400553.063333, 0.0)
+   key 1024 GTModelType = 1
+   key 1025 GTRasterType = 1
+   key 1026 GTCitation = SimpleCylindrical Vesta
+   key 2048 GeographicType = 32767
+   key 2049 GeogCitation = GCS Name = GCS_Vesta|Datum = D_Vesta|Ellipsoid = Vesta|Primem = Reference_Meridian
+   key 2050 GeogGeodeticDatum = 32767
+   key 2054 GeogAngularUnits = 9102
+   key 2056 GeogEllipsoid = 32767
+   key 2057 GeogSemiMajorAxis = 255000.0
+   key 2058 GeogSemiMinorAxis = 255000.0
+   key 2061 GeogPrimeMeridianLong = 0.0
+   key 3072 ProjectedCSType = 32767
+   key 3074 Projection = 32767
+   key 3075 ProjCoordTrans = 17
+   key 3076 ProjLinearUnits = 9001
+   key 3078 ProjStdParallel1 = 0.0
+   key 3082 ProjFalseEasting = 0.0
+   key 3083 ProjFalseNorthing = 0.0
+   key 3088 ProjCenterLong = 0.0
+   key 3089 ProjCenterLat = 0.0
+   GDAL nodata: 0
+   radius 255000.0 m, lon0 0.0000, stdpar 0.0
+   left edge -180.0000 deg, centre -0.0000 deg, right edge 180.0000 deg (east positive)
+   top lat 90.0000 deg, bottom lat -90.0000 deg
+
+####################################################################################################
+# USGS Astrogeology catalogue: products for some moons and small bodies (check of this work)
+# Address: https://astrogeology.usgs.gov/search (one request for each body)
+# Fetched: 2026-10-14 04:44 (local time)
+# How: A small Python script (urllib, user agent "ApsisAssetFetch/1.0 (local build script)") asked the search of the USGS Astrogeology catalogue for each body. The text gives the products that the catalogue lists.
+# A copy is in data-src/textures/evidence/_shared/usgs_catalogue_listing_moons_and_small_bodies.txt
+####################################################################################################
+FETCHED: 2026-10-14 04:41 (local time)
+=== Deimos ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Miranda ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  miranda_voyager_image_control_network | Miranda Voyager Image Control Network | ['Control Network']
+  miranda_nomenclature | Miranda Nomenclature | ['Nomenclature']
+=== Ariel ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  ariel_voyager_image_control_network | Ariel Voyager Image Control Network | ['Control Network']
+  ariel_nomenclature | Ariel Nomenclature | ['Nomenclature']
+=== Umbriel ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  umbriel_voyager_image_control_network | Umbriel Voyager Image Control Network | ['Control Network']
+  umbriel_nomenclature | Umbriel Nomenclature | ['Nomenclature']
+=== Titania ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  titania_voyager_image_control_network | Titania Voyager Image Control Network | ['Control Network']
+  titania_nomenclature | Titania Nomenclature | ['Nomenclature']
+=== Oberon ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  oberon_voyager_image_control_network | Oberon Voyager Image Control Network | ['Control Network']
+  oberon_nomenclature | Oberon Nomenclature | ['Nomenclature']
+=== Itokawa ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Ryugu ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Psyche ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Didymos ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Dimorphos ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Arrokoth ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Eros ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  near_msi_albedo_mosaics | NEAR MSI Albedo Mosaics | ['Global Mosaic', 'Image', 'Raster Data', 'Remote-sensing Data']
+  near_msi_deblurred_images | NEAR MSI Deblurred Images | ['Image', 'Raster Data', 'Remote-sensing Data']
+=== Bennu ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 3
+  bennu_osiris_rex_ocams_global_pan_mosaic_5cm | Bennu OSIRIS-REx OCAMS Global PAN Mosaic 5cm | ['Global Mosaic']
+  bennu_osiris_rex_ocams_global_albedo_mosaic_6_25cm | Bennu OSIRIS-REx OCAMS Global ALBEDO Mosaic 6.25cm | ['Global Mosaic']
+  bennu-osiris-rex-ocams-photometric-mosaics-25cm | Bennu OSIRIS-REx OCAMS Photometric Mosaics 25cm | ['Global Mosaic', 'Grey Scale', 'Image', 'Raster Data', 'Remote-sensing Data']
+
+=== second check: request https://astrogeology.usgs.gov/search/results without a filter ===
+The server returns 1000 products of 1643. Products with one of these words in the title or in the name:
+--- Deimos: 0
+--- Miranda: 2
+  miranda_nomenclature | Miranda Nomenclature | Nomenclature
+  miranda_voyager_image_control_network | Miranda Voyager Image Control Network | Control Network
+--- Ariel: 2
+  ariel_nomenclature | Ariel Nomenclature | Nomenclature
+  ariel_voyager_image_control_network | Ariel Voyager Image Control Network | Control Network
+--- Umbriel: 2
+  umbriel_nomenclature | Umbriel Nomenclature | Nomenclature
+  umbriel_voyager_image_control_network | Umbriel Voyager Image Control Network | Control Network
+--- Titania: 2
+  titania_nomenclature | Titania Nomenclature | Nomenclature
+  titania_voyager_image_control_network | Titania Voyager Image Control Network | Control Network
+--- Oberon: 2
+  oberon_nomenclature | Oberon Nomenclature | Nomenclature
+  oberon_voyager_image_control_network | Oberon Voyager Image Control Network | Control Network
+--- Itokawa: 0
+--- Ryugu: 0
+--- Psyche: 0
+--- Didymos: 0
+--- Dimorphos: 0
+--- Arrokoth: 0
+--- Eros: 0
+--- Bennu: 1
+  bennu_osiris_rex_ocams_global_pan_mosaic_5cm | Bennu OSIRIS-REx OCAMS Global PAN Mosaic 5cm | Global Mosaic

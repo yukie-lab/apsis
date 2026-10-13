@@ -1,0 +1,62 @@
+{
+  "text": {
+    "scene": {
+      "label": "3D view of the solar system",
+      "title": "View of the mission",
+      "mode": "Type of view",
+      "mode3d": "3D view",
+      "modeTop": "Top view",
+      "noWebgl": "This browser cannot show the 3D view because WebGL 2 is not available. All other functions of the application operate.",
+      "lost": "The browser stopped the 3D view and removed its memory.",
+      "restart": "Start the 3D view again",
+      "trueScale": "True scale",
+      "scaleNote": "All bodies and the spacecraft have their actual size and their actual distance. A point, a diamond, a ring, a name and a line have a constant size on the screen. They show a position, not a size.",
+      "attitudeNote": "The attitude of the spacecraft is an example: the antenna points to the Earth. The trajectory calculation does not use the attitude.",
+      "perspectiveNote": "In a view from near the spacecraft, the flight path can show an angle. The angle is an effect of the perspective. It is at the point where the path and the line from the camera have the same direction. The path is a curve with no angle.",
+      "effectsNote": "The motion of the clouds and of the surface of the Sun is a display effect, not data. It stops when the time stops.",
+      "pathSsb": "Flight path: relative to the solar system barycenter.",
+      "pathBody": "Flight path near {body}: relative to {body}.",
+      "howTo": "Turn the view: move one finger, or move the mouse with the button down. Change the distance: use two fingers or the mouse wheel.",
+      "notes": "Notes about this view",
+      "view": {
+        "label": "View",
+        "craft": "Spacecraft",
+        "system": "Solar system",
+        "auto": "Automatic camera",
+        "body": "Show a body"
+      },
+      "layers": {
+        "labels": "Names",
+        "orbits": "Orbits",
+        "smallBodies": "All small bodies"
+      },
+      "legend": {
+        "past": "Flight path before this time",
+        "future": "Flight path after this time",
+        "maneuver": "Maneuver",
+        "approach": "Closest approach"
+      },
+      "play": "Start the time",
+      "pause": "Stop the time",
+      "toStart": "Go to the start of the flight",
+      "toEnd": "Go to the end of the flight",
+      "prevEvent": "Go to the event before this time",
+      "nextEvent": "Go to the next event",
+      "timeline": "Time of the view in the flight",
+      "rate": {
+        "label": "Time rate",
+        "auto": "Automatic",
+        "m10": "10 minutes each second",
+        "h1": "1 hour each second",
+        "h6": "6 hours each second",
+        "d1": "1 day each second",
+        "d10": "10 days each second",
+        "d30": "30 days each second",
+        "d100": "100 days each second",
+        "now": "{value} each second",
+        "short": "{value}/s"
+      },
+      "eventLabel": "{body} · {date} UTC"
+    }
+  }
+}

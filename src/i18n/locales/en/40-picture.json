@@ -1,0 +1,62 @@
+{
+  "text": {
+    "const": {
+      "meanRadius": "Mean radius",
+      "nominalRadius": "Nominal radius",
+      "nominalRadiusNote": "The database has no radius for this body. The application uses a radius of 10 km for the picture and for the altitudes. This value is not a measured value."
+    },
+    "picture": {
+      "title": "Picture of {body}",
+      "sources": "Sources of the maps",
+      "provenance": {
+        "map": "The surface comes from a map of images from a spacecraft or a telescope.",
+        "procedural": "The application made this picture from a calculation. It is not an image from a camera.",
+        "mixed": "The surface comes from a map of images. The application made some parts from a calculation."
+      },
+      "note": {
+        "surface-procedural": "The application made the surface from a calculation. It is not an image from a camera.",
+        "glow-procedural": "The application made the light around the Sun from a calculation.",
+        "clouds-procedural": "The application made the clouds from a calculation.",
+        "haze-procedural": "The application made the haze from a calculation.",
+        "atmosphere-procedural": "The application made the atmosphere from a calculation.",
+        "bands-procedural": "The application made the cloud bands from a calculation.",
+        "rings-procedural": "The application made the rings from the published radii of the rings.",
+        "shape-approximate": "The shape is approximate. It is not a measured shape model.",
+        "ring-width-exaggerated": "The narrow rings show wider than they are.",
+        "ring-brightness-exaggerated": "The dark rings show brighter than they are.",
+        "nucleus-only": "The picture shows only the nucleus of the comet. It shows no coma and no tail.",
+        "surface-unknown": "There are no spacecraft images of this surface.",
+        "body-unknown": "This body is not in the body table. The picture shows an example of a small body.",
+        "rings-map": "The color and the brightness of the rings come from an image.",
+        "ring-opacity-modelled": "The image of the rings has no opacity data. The application calculates the opacity from the brightness.",
+        "rings-partly-procedural": "The application made the ring parts that are not in the image.",
+        "no-data": "A large part of the map has no data. This part shows dark gray.",
+        "no-data-small": "A small part of the map has no data. This part shows dark gray.",
+        "no-data-north": "Most of the area with no data is in the north.",
+        "no-data-south": "Most of the area with no data is in the south.",
+        "map-edge-repaired": "The map file had an incorrect column of pixels at its edge. The application replaced it with the adjacent column.",
+        "map-pole-repaired": "The map file had an incorrect row of pixels at a pole. The application replaced it with the adjacent row.",
+        "colour-enhanced": "The colors of the map are stronger than the colors that a person sees.",
+        "colour-near-natural": "The map comes from filters for visible light. It is not an accurate copy of the colors that a person sees.",
+        "map-gaps-filled": "Areas of the map with no image data have a mean color. These areas do not come from images.",
+        "colour-muted": "The application shows the map with less color. The result is nearer to the colors that a person sees.",
+        "colour-synthetic": "The map has no measured colors: its colors come from a model.",
+        "monochrome": "The map is gray. No color data is available.",
+        "near-infrared": "The map shows near-infrared light, not visible light.",
+        "radar": "The map is a radar image.",
+        "surface-plain": "The map of the surface is not available. The surface shows one color.",
+        "no-night-lights": "The map of the night lights is not available.",
+        "no-clouds": "The map of the clouds is not available.",
+        "variant-unavailable": "The map of the surface below the atmosphere is not available. The picture shows the top of the atmosphere.",
+        "ring-map-without-radii": "The image of the rings has no radius data. The application made the rings from the published radii.",
+        "ring-map-unused": "The application made the rings from the published radii.",
+        "map-load-failed": "A map file did not load. The application made the surface from a calculation.",
+        "night-map-load-failed": "The map of the night lights did not load.",
+        "cloud-map-load-failed": "The map of the clouds did not load.",
+        "ring-map-load-failed": "The image of the rings did not load. The application made the rings from the published radii."
+      },
+      "earthClouds": "The clouds come from one image. They do not show the weather of the date in view.",
+      "nominalSize": "The database has no size for this body. The picture uses a radius of 10 km."
+    }
+  }
+}

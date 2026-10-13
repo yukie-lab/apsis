@@ -5,7 +5,7 @@
   "value": 1.306707501411438,
   "unit": "s",
   "limit": 90,
-  "truth": "NASA Science Voyager 2 page: closest approach 1979-07-09 22:29 UT",
+  "truth": "NASA Science, page of the Voyager 2 mission: closest approach 1979-07-09 22:29 UT",
   "detail": {
    "horizonsClosestApproachJdTdb": 2444064.4375
   }
@@ -16,7 +16,7 @@
   "value": 8.650777041912079,
   "unit": "s",
   "limit": 90,
-  "truth": "NASA Science Voyager 2 page: closest approach 1986-01-24 17:59 UT",
+  "truth": "NASA Science, page of the Voyager 2 mission: closest approach 1986-01-24 17:59 UT",
   "detail": {
    "horizonsClosestApproachJdTdb": 2446455.25
   }
@@ -27,7 +27,7 @@
   "value": 19.916095197200775,
   "unit": "s",
   "limit": 90,
-  "truth": "NASA Science Voyager 2 page: closest approach 1989-08-25 03:56 UT",
+  "truth": "NASA Science, page of the Voyager 2 mission: closest approach 1989-08-25 03:56 UT",
   "detail": {
    "horizonsClosestApproachJdTdb": 2447763.664583333
   }
@@ -38,7 +38,7 @@
   "value": 1.259194174799873,
   "unit": "%",
   "limit": 3,
-  "truth": "An unpowered flyby has equal speeds at infinity before and after (energy conservation in the planet frame).",
+  "truth": "A flyby with no engine burn has equal speeds at infinity before and after the flyby (the energy relative to the planet is constant).",
   "detail": {
    "vinfInKmS": 7.889675673275194,
    "vinfOutKmS": 7.79032933678671,
@@ -76,7 +76,7 @@
   "value": 1.179161176640898,
   "unit": "%",
   "limit": 3,
-  "truth": "An unpowered flyby has equal speeds at infinity before and after (energy conservation in the planet frame).",
+  "truth": "A flyby with no engine burn has equal speeds at infinity before and after the flyby (the energy relative to the planet is constant).",
   "detail": {
    "vinfInKmS": 10.823557506159304,
    "vinfOutKmS": 10.695930318115272,
@@ -114,7 +114,7 @@
   "value": 0.05021658466127393,
   "unit": "%",
   "limit": 3,
-  "truth": "An unpowered flyby has equal speeds at infinity before and after (energy conservation in the planet frame).",
+  "truth": "A flyby with no engine burn has equal speeds at infinity before and after the flyby (the energy relative to the planet is constant).",
   "detail": {
    "vinfInKmS": 14.763971358908575,
    "vinfOutKmS": 14.756557396731763,
@@ -189,7 +189,7 @@
   "value": 0.34191517330428567,
   "unit": "%",
   "limit": 2,
-  "truth": "NASA Science Voyager 2 page: closest approach about 645000 km from the planet",
+  "truth": "NASA Science, page of the Voyager 2 mission: closest approach at approximately 645000 km from the planet",
   "detail": {
    "distanceFromCloudTopsKm": 642550.2051364887,
    "publishedKm": 645000
@@ -226,7 +226,7 @@
   "value": 0.1737286122851917,
   "unit": "%",
   "limit": 2,
-  "truth": "NASA Science Voyager 2 page: closest approach about 101000 km from the planet",
+  "truth": "NASA Science, page of the Voyager 2 mission: closest approach at approximately 101000 km from the planet",
   "detail": {
    "distanceFromCloudTopsKm": 100719.83134153992,
    "publishedKm": 101000
@@ -263,7 +263,7 @@
   "value": 0.3327179394865387,
   "unit": "%",
   "limit": 2,
-  "truth": "NASA Science Voyager 2 page: closest approach about 81500 km from the planet",
+  "truth": "NASA Science, page of the Voyager 2 mission: closest approach at approximately 81500 km from the planet",
   "detail": {
    "distanceFromCloudTopsKm": 81856.2044988349,
    "publishedKm": 81500
@@ -288,11 +288,11 @@
   "value": 103.81686992042204,
   "unit": "m/s",
   "limit": 200,
-  "truth": "A ballistic tour needs only small correction maneuvers between the flybys.",
+  "truth": "A tour of flybys with no engine burn at the flybys has only small correction maneuvers between the flybys.",
   "detail": {
    "maneuvers": 3,
    "launchVinfChangeMS": 296.57430657592283,
-   "solveTimeS": 2.4788056660000004
+   "solveTimeS": 2.290831083
   }
  },
  {
@@ -301,7 +301,7 @@
   "value": 0,
   "unit": "%",
   "limit": 3,
-  "truth": "An unpowered flyby has equal speeds at infinity before and after.",
+  "truth": "A flyby with no engine burn has equal speeds at infinity before and after the flyby.",
   "detail": {
    "vinfInKmS": 5.9948241160944615,
    "vinfOutKmS": 5.9948241160944615,
@@ -317,7 +317,7 @@
   "value": 6.404821113516078e-13,
   "unit": "%",
   "limit": 3,
-  "truth": "An unpowered flyby has equal speeds at infinity before and after.",
+  "truth": "A flyby with no engine burn has equal speeds at infinity before and after the flyby.",
   "detail": {
    "vinfInKmS": 9.429792256360559,
    "vinfOutKmS": 9.429792256360498,
@@ -333,7 +333,7 @@
   "value": 1.1634232610959547,
   "unit": "%",
   "limit": 3,
-  "truth": "An unpowered flyby has equal speeds at infinity before and after.",
+  "truth": "A flyby with no engine burn has equal speeds at infinity before and after the flyby.",
   "detail": {
    "vinfInKmS": 16.018546432531238,
    "vinfOutKmS": 15.832182937245713,
@@ -349,7 +349,7 @@
   "value": 1.6464597188128123,
   "unit": "%",
   "limit": 3,
-  "truth": "An unpowered flyby has equal speeds at infinity before and after.",
+  "truth": "A flyby with no engine burn has equal speeds at infinity before and after the flyby.",
   "detail": {
    "vinfInKmS": 10.629503533894477,
    "vinfOutKmS": 10.45449303989912,
@@ -401,7 +401,7 @@
   "value": 0.16669587282871873,
   "unit": "%",
   "limit": 2,
-  "truth": "NASA Science Cassini timeline: distance of closest approach (\"about\")",
+  "truth": "NASA Science, page \"Timeline\" of the Cassini mission: distance of closest approach (approximate values)",
   "detail": {
    "radiusKm": 6346.361517110682,
    "publishedRadiusKm": 6335.8
@@ -437,7 +437,7 @@
   "value": 0.9319176369556461,
   "unit": "%",
   "limit": 2,
-  "truth": "NASA Science Cassini timeline: distance of closest approach (\"about\")",
+  "truth": "NASA Science, page \"Timeline\" of the Cassini mission: distance of closest approach (approximate values)",
   "detail": {
    "radiusKm": 6589.8107026249845,
    "publishedRadiusKm": 6651.8
@@ -473,7 +473,7 @@
   "value": 1.048228372656799,
   "unit": "%",
   "limit": 2,
-  "truth": "NASA Science Cassini timeline: distance of closest approach (\"about\")",
+  "truth": "NASA Science, page \"Timeline\" of the Cassini mission: distance of closest approach (approximate values)",
   "detail": {
    "radiusKm": 7556.524549587232,
    "publishedRadiusKm": 7478.1366
@@ -509,7 +509,7 @@
   "value": 1.9649694000388496,
   "unit": "%",
   "limit": 5,
-  "truth": "NASA Science Cassini timeline: distance of closest approach (\"about\")",
+  "truth": "NASA Science, page \"Timeline\" of the Cassini mission: distance of closest approach (approximate values)",
   "detail": {
    "radiusKm": 9803503.059996115,
    "publishedRadiusKm": 10000000
@@ -533,11 +533,11 @@
   "value": 34.05431877036047,
   "unit": "m/s",
   "limit": 200,
-  "truth": "A ballistic tour needs only small correction maneuvers between the flybys.",
+  "truth": "A tour of flybys with no engine burn at the flybys has only small correction maneuvers between the flybys.",
   "detail": {
    "maneuvers": 4,
    "launchVinfChangeMS": 41.78020059832749,
-   "solveTimeS": 9.424509458000001
+   "solveTimeS": 8.004843207999999
   }
  }
 ]

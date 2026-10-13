@@ -5,7 +5,7 @@ import { clock, useClock } from '../../app/clock';
 import { system } from '../../app/system';
 import { nowEt } from '../../app/store';
 import { t, bodyName, bodyIn } from '../../i18n';
-import { BODIES, AU, C_LIGHT, MOON_MODELS } from '../../engine/bodies';
+import { BODIES, AU, C_LIGHT, MOON_MODELS, MEAN_RADIUS, NOMINAL_RADIUS } from '../../engine/bodies';
 import { stateFromIcrf } from '../../engine/frames';
 import { elementsFromState, period, apsides, meanFromTrue } from '../../engine/kepler';
 import { soiRadius } from '../../engine/propagate';
@@ -147,7 +147,8 @@ export default function Ephemeris() {
             <dl className="kv">
               <dt>{t('const.gm')}</dt><dd><Val q={num(b.gm > 0 ? sig(b.gm, 12) : '0', 'km³/s²')} /></dd>
               {b.gmSystem !== b.gm && <><dt>{t('const.gmSystem')}</dt><dd><Val q={num(sig(b.gmSystem, 12), 'km³/s²')} /></dd></>}
-              <dt>{t('const.radius')}</dt><dd><Val q={num(fixed(b.radius, b.radius < 100 ? 3 : 1), 'km')} /></dd>
+              <dt>{t(NOMINAL_RADIUS.has(id) ? 'const.nominalRadius' : MEAN_RADIUS.has(id) ? 'const.meanRadius' : 'const.radius')}</dt><dd><Val q={num(fixed(b.radius, b.radius < 100 ? 3 : 1), 'km')} /></dd>
+              {NOMINAL_RADIUS.has(id) && <><dt /><dd className="note">{t('const.nominalRadiusNote')}</dd></>}
               {b.polarRadius !== b.radius && <><dt>{t('const.polarRadius')}</dt><dd><Val q={num(fixed(b.polarRadius, 1), 'km')} /></dd></>}
               {b.j2 > 0 && <><dt>{t('const.j2')}</dt><dd><Val q={num(sci(b.j2, 6))} /></dd></>}
               {rot > 0 && <><dt>{t('const.rotation')}</dt><dd><Val q={duration(rot)} /></dd></>}

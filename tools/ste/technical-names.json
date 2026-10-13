@@ -1,0 +1,206 @@
+{
+  "about": [
+    "Technical names and technical verbs of the Apsis project that are not glossary entries. The tool tools/ste/ste-lint.mjs reads this file.",
+    "THIS IS A PROJECT LIST. The official ASD-STE100 specification and its dictionary were not available.",
+    "ASD-STE100 lets a writer use a word that is not in the dictionary if the word is a technical name (rule 1.5) or a technical verb (rule 1.12). Each group below has the category that the author thinks is applicable. The category texts are from the memory of the author (ASD-STE100, issue 7). No person compared them with the specification.",
+    "The terms of orbital mechanics are not in this file. They are in the glossary (src/i18n/locales/en/90-glossary.json): the tool reads each glossary term as a technical name, and each glossary entry with a definition that starts with 'To ' as a technical verb. Most glossary terms are of the category 'science'. Some are names of organizations, of documents or of services. The definition in the glossary is the record for each term.",
+    "names: 'case' = the tool compares capital letters and small letters (symbols, units, abbreviations in which the capital letters are important). 'plural: false' = the name has no plural. 'pos: adj' = the name is an adjective. An item can be a text or an object { name, plural, see }. 'see' is the id of the glossary entry that gives the definition of a related name.",
+    "kind 'symbol': characters that are not letters. kind 'extension': the last part of a file name (the tool reads a text of the form name.ext as a file name).",
+    "patterns: regular expressions for identifiers that have a constant form (versions, document numbers, keywords of file formats).",
+    "verbs: 'forms' = third person, past, past participle. 'noun: true' = the noun has the same form (example: a search)."
+  ],
+  "categories": {
+    "vehicle": "Rule 1.5, technical names: names of vehicles or machines and locations on them",
+    "system": "Rule 1.5, technical names: names of systems, components and circuits, their functions, configurations and parts",
+    "science": "Rule 1.5, technical names: mathematical, scientific and engineering terms",
+    "navigation": "Rule 1.5, technical names: navigation and geographic terms",
+    "number": "Rule 1.5, technical names: numbers, units of measurement and time",
+    "quoted": "Rule 1.5, technical names: quoted text (text on placards, labels, signs, markings and display units)",
+    "person": "Rule 1.5, technical names: names of persons, groups or organizations",
+    "document": "Rule 1.5, technical names: names of official documents and parts of documentation",
+    "environment": "Rule 1.5, technical names: environmental and operational conditions",
+    "color": "Rule 1.5, technical names: colors",
+    "it": "Rule 1.5, technical names: information technology and telephony terms",
+    "body": "Rule 1.5, technical names: parts of the body",
+    "verb-computer": "Rule 1.12, technical verbs: computer processes and applications"
+  },
+  "names": [
+    {
+      "category": "number", "group": "Symbols of units of measurement", "case": true, "plural": false, "unit": true,
+      "items": ["km", "m", "mm", "s", "d", "h", "ms", "kg", "rad", "au", "MB", "px",
+        "km/s", "m/s", "mm/s", "km/d", "au/d", "km²/s²", "km³/s²", "km²", "km³", "s²", "m²", "m²/kg", "m/s²", "W/m²", "s/s", "km/s²", "%", "°"]
+    },
+    {
+      "category": "number", "group": "Names of units of measurement and of time",
+      "items": ["second", "minute", "hour", "day", "week", "month", "year", "century", "microsecond", "millisecond", "arcsecond",
+        "degree", "radian", "kilometer", "meter", "millimeter", "kilogram", "percent", "bit", "byte", "megabyte", "pixel", "unit"]
+    },
+    {
+      "category": "number", "group": "Names of months", "case": true, "plural": false,
+      "items": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    },
+    {
+      "category": "number", "group": "Words for numbers", "plural": false,
+      "items": ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "hundred", "thousand", "million",
+        "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "half", "double"]
+    },
+    {
+      "category": "number", "group": "Terms for time and dates",
+      "items": ["date", "calendar", "duration", "calendar date", "calendar time", "civil time", "time stamp", "day of year", "modified Julian date",
+        { "name": "leap year" }, { "name": "time zone" }]
+    },
+    {
+      "category": "number", "group": "Abbreviations for time and units", "case": true, "plural": false,
+      "items": ["JD", "MJD", "UT", "UT1", "SI", "GPS", "Universal Time", "International Atomic Time", "Terrestrial Time", "Barycentric Dynamical Time", "Coordinated Universal Time"]
+    },
+    {
+      "category": "science", "group": "Mathematical symbols", "kind": "symbol",
+      "items": ["×", "=", "±", "−", "+", "·", "∞", "/", "-", "<", ">", "≤", "≥", "≈", "*", "^", "→", "|", "√", "²", "³", "#", "&", "~"]
+    },
+    {
+      "category": "science", "group": "Symbols of quantities, vectors and axes", "case": true, "plural": false,
+      "items": ["X", "Y", "Z", "x", "y", "z", "V", "N", "B", "R", "T", "S", "W", "C", "b", "e", "e²", "i", "n", "r", "v", "t", "XY", "rp", "ra", "vx", "vy", "vz", "et",
+        { "name": "v∞", "see": "vinf" }, { "name": "B·T", "see": "bPlaneCoordinates" }, { "name": "B·R", "see": "bPlaneCoordinates" },
+        "+X", "+Y", "+Z", "-X", "-Y", "-Z", "+x", "+y", "+z", { "name": "Δv", "see": "deltaV" }, { "name": "Δt" }, "π", "μ", "Cr", "Isp", "g0"]
+    },
+    {
+      "category": "science", "group": "Mathematical terms (nouns)",
+      "items": ["accuracy", "arithmetic", "boundary", "circle", "coefficient", "component", "constant", "conversion", "coordinate", "cost", "covariance", "curve",
+        "decimal", "derivative", "diameter", "diamond", "digit", "ellipse", "equation", "evaluation", "exponent", "fit", "formula", "fraction", "graph", "grid",
+        "hyperbola", "infinity", "integer", "interval", "iteration", "magnitude", { "name": "matrix", "plural": "matrices" }, "mean", "median", "method", "model",
+        "normal", "order", "origin", "parameter", "plane", "plot", "polynomial", "precision", "product", { "name": "radius", "plural": "radii" }, "ratio", "relation",
+        "remainder", "root", "scale", "solution", "solver", "sphere", "square", "sum", "term", "triangle", "uncertainty", "variable", "vector", "binormal",
+        "contour line", "dashed line", "exact solution", "finite number", "significant digits", "statistical uncertainty", "local search", "global search",
+        "root mean square", "least squares"]
+    },
+    {
+      "category": "science", "group": "Scientific and engineering terms (nouns)",
+      "items": ["acceleration", "asteroid", "brightness", "comet", "declination", "design", "designation", "energy", "flux", "gravity", "light", "mass", "moon", "motion", "planet",
+        "resolution", "ring", "rotation", "satellite", "signal", "star", "thrust", "velocity", "volume",
+        "band", "coma", "filter", "jump", "landing", "opacity", "perspective", "radar", "tail", "telescope", "universal variable", { "name": "nucleus", "plural": "nuclei" },
+        "visible light", "infrared light", "near-infrared light",
+        "solar system", "small body", "dwarf planet", "outer planet", "inner planet", "point mass", "general relativity", "gravitational constant",
+        "physical constant", "gravity harmonics", "equatorial bulge", "right ascension", "speed of light", "International Celestial Reference Frame",
+        { "name": "oblateness", "see": "j2" }, { "name": "gravitational parameter", "see": "gm" }, { "name": "solar radiation pressure", "see": "radiationPressure" },
+        { "name": "relativistic correction", "see": "relativityTerm" }, { "name": "porkchop plot", "see": "launchWindowMap" },
+        { "name": "patched conics", "see": "patchedConic" }, { "name": "insertion", "see": "orbitInsertion" }, { "name": "optimization", "see": "optimize" },
+        { "name": "window", "see": "launchWindow" }, { "name": "anomaly", "see": "trueAnomaly" }, { "name": "node", "see": "ascendingNode" },
+        { "name": "element", "see": "orbitElements" }, { "name": "integration", "see": "integrate" }, { "name": "launch site", "see": "launch" },
+        { "name": "relativity", "see": "relativityTerm" }]
+    },
+    {
+      "category": "science", "group": "Mathematical and scientific terms (adjectives)", "pos": "adj",
+      "items": ["analytic", "atomic", "barycentric", "celestial", "circular", "eccentric", "elliptical", "equatorial", "exact", "finite", "geometric", "global", "gravitational", "hyperbolic",
+        "Keplerian", "local", "logarithmic", "negative", "numerical", "periodic", "perpendicular", "physical", "planetary", "polar", "positive", "radial", "relative",
+        "relativistic", "solar", "thermal", "transverse",
+        { "name": "impulsive", "see": "impulse" }, { "name": "osculating", "see": "osculatingElements" }, { "name": "two-body", "see": "twoBody" },
+        { "name": "patched-conic", "see": "patchedConic" }]
+    },
+    {
+      "category": "person", "group": "Names of persons in the names of methods", "case": true, "plural": false,
+      "items": ["Hohmann", "Lambert", "Tisserand", "Chebyshev", "Hermite", "Newton", "Kepler", "Schwarzschild", "Izzo", "Gauss", "Runge-Kutta-Fehlberg", "Nelder-Mead",
+        "Gauss-Newton", "Runge-Kutta"]
+    },
+    {
+      "category": "person", "group": "Names of organizations and groups", "case": true, "plural": false,
+      "items": ["NASA", "JPL", "NAIF", "SANA", "ESA", "JAXA", "USGS", "STScI", "Jet Propulsion Laboratory", "Consultative Committee for Space Data Systems", "NSSDCA", "NASA Science", "author", "user", "owner", "space agency"]
+    },
+    {
+      "category": "navigation", "group": "Names of the bodies of the solar system", "case": true, "plural": false,
+      "items": ["Sun", "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto", "Moon", "Luna", "Phobos", "Deimos", "Io", "Europa",
+        "Ganymede", "Callisto", "Mimas", "Enceladus", "Tethys", "Dione", "Rhea", "Titan", "Iapetus", "Miranda", "Ariel", "Umbriel", "Titania", "Oberon", "Triton",
+        "Charon", "Ceres", "Vesta", "Psyche", "Eros", "Itokawa", "Ryugu", "Bennu", "Didymos", "Arrokoth", "Halley", "Churyumov-Gerasimenko"]
+    },
+    {
+      "category": "navigation", "group": "Navigation and geographic terms",
+      "items": ["equator", "latitude", "longitude", "map", "north", "south", "pole", "path", "ground", "site", "north pole", "flight path", "destination", "route"]
+    },
+    {
+      "category": "vehicle", "group": "Names of spacecraft and missions", "case": true, "plural": false,
+      "items": ["Voyager", "Cassini", "New Horizons", "Juno", "Galileo", "Pioneer", "Ulysses", "Mars 2020", "MESSENGER", "Rosetta", "Perseverance"]
+    },
+    {
+      "category": "vehicle", "group": "Vehicles and their parts",
+      "items": ["orbiter", "stage", "vehicle", "engine", "antenna", "rocket", "rover"]
+    },
+    {
+      "category": "system", "group": "Systems and their functions",
+      "items": ["mode", "system", "camera", "hibernation"]
+    },
+    {
+      "category": "environment", "group": "Environmental conditions",
+      "items": ["atmosphere", "sunlight", "shadow", "space", "cloud", "haze", "weather", "night"]
+    },
+    {
+      "category": "body", "group": "Parts of the body",
+      "items": ["finger"]
+    },
+    {
+      "category": "color", "group": "Colors", "plural": false,
+      "items": ["yellow", "red", "green", "blue", "white", "black", "gray", "orange"]
+    },
+    {
+      "category": "it", "group": "Information technology terms (nouns)",
+      "items": ["application", "browser", "button", "block", "bar", "character", "code", "column", "command", "comment", "computer", "database", "default", "directory",
+        "display", "field", "file", "format", "header", "identifier", { "name": "index", "plural": "indexes" }, "input", "interface", "key", "keyword", "label", "memory",
+        "message", "metadata", "module", "option", "output", "panel", "parser", "program", "reader", "writer", "release", "request", "row", "screen", "script",
+        "server", "service", "segment", "separator", "statement", "syntax", "tab", "table", "text", "tool", "update", "version", "web", "spreadsheet", "clock",
+        "e-mail", "top bar", "arrow key", "upper case", "lower case", "file name", "web page", "web site", "machine code", "source code",
+        "address", "caller", "registry", "version stamp", "warning", "package", "placeholder", "cell", "locale file", "exit code",
+        "image", "mouse", "mouse wheel",
+        "account", { "name": "cookie", "plural": "cookies" }, "storage", "setting", "link", "software", "library", "font", "icon", "logo", "web server"]
+    },
+    {
+      "category": "it", "group": "Information technology abbreviations and names", "case": true, "plural": false,
+      "items": ["API", "URL", "XML", "JSON", "CSV", "ASCII", "KVN", "SHA-256", "ID", "3D", "telnet", "Node.js", "npm", "WebGL", "HTML", "CSS", "PDF", "PNG", "JPEG", "UTF-8", "printable ASCII", "AI", "Markdown"]
+    },
+    {
+      "category": "it", "group": "Names of programs, services and data products", "case": true, "plural": false,
+      "items": ["Apsis", "GMAT", "STK", "Horizons", "DE", "SPICE", "JPL Small-Body Database", "General Mission Analysis Tool", "NSSDCA Master Catalog"]
+    },
+    {
+      "category": "it", "group": "File name extensions", "kind": "extension",
+      "items": ["tls", "tpc", "bsp", "json", "csv", "txt", "md", "pdf", "htm", "html", "ts", "tsx", "mjs", "js", "py", "png", "jpg", "log", "oem", "opm", "xml", "script", ".e"]
+    },
+    {
+      "category": "quoted", "group": "Keywords and values of the file formats (CCSDS OEM and OPM, STK ephemeris, GMAT script, JPL Horizons)", "case": true, "plural": false,
+      "items": ["EphemerisTimePosVel", "EpSec", "ScenarioEpoch", "SegmentBoundaryTimes", "MJ2000Eq", "EME2000", "$$SOE", "$$EOE", "EQW", "NSW", "PQW", "SEZ", "NTW", "VNC",
+        "LVLH", "RSW", "TNW", "YYYY-MM-DD", "HH:MM:SS", "YYYY-NNNP", "A.1", "TDT", "TCB", "GMST", "KM-S", "KM-D", "AU-D"]
+    },
+    {
+      "category": "quoted", "group": "Text on the screen of the application: names of modes, screens and keys", "case": true, "plural": false,
+      "items": ["Expert", "Explorer", "Accuracy", "Files", "Maneuvers", "About", "Glossary", "Shift", "Effect", { "name": "Rev.", "see": "revolution" }]
+    },
+    {
+      "category": "document", "group": "Parts of documents and terms of documentation",
+      "items": ["annex", "document", "glossary", "guide", "page", "section", "sentence", "paragraph", "specification", "standard", "summary", "word", "rule", "dictionary",
+        "heading", "comma", "semicolon", "colon", "bracket", "letter", "notation", "report", "exception", "finding", "status", "presentation",
+        "capital letter", "technical name", "technical verb", "writing rule", "user guide", "help page", "fact sheet", "international designator",
+        "instruction", "description", "topic", "meaning", "vocabulary", "spelling", "question mark", "exclamation mark", "quotation mark", "note", "catalog", "credit", "license", "title",
+        { "name": "parenthesis", "plural": "parentheses" }, "brace", "dash", "hyphen"]
+    },
+    {
+      "category": "science", "group": "Terms of grammar",
+      "items": ["noun", "verb", "adjective", "article", "clause", "subject", "participle", "past participle", "passive voice", "modal verb",
+        "contraction", "prefix", "abbreviation", "part of speech", "parts of speech"]
+    },
+    {
+      "category": "document", "group": "Names of documents, standards and languages", "case": true, "plural": false,
+      "items": ["ASD-STE100", "Simplified Technical English", "STE", "English", "Orbit Data Messages", "Technical Corrigendum", "Editorial Change", "NTRS", "SANA registry", "Orbit Ephemeris Message", "Orbit Parameter Message",
+        { "name": "American", "pos": "adj" }, { "name": "Latin", "pos": "adj" }]
+    }
+  ],
+  "patterns": [
+    { "category": "document", "group": "Document numbers of CCSDS", "pattern": "^\\d{3}\\.\\d-[A-Z]-\\d(?: Cor\\. \\d)?$", "example": "502.0-B-3" },
+    { "category": "it", "group": "Versions of the JPL development ephemerides", "pattern": "^DE\\d{3}$", "example": "DE421" },
+    { "category": "it", "group": "Releases of GMAT", "pattern": "^R20\\d\\d[a-z]$", "example": "R2025a" },
+    { "category": "quoted", "group": "Keywords of file formats: capital letters with underscores", "pattern": "^[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)+$", "example": "REF_FRAME" },
+    { "category": "document", "group": "Identifiers of decisions and annexes: one capital letter and a number", "pattern": "^[A-Z]\\d{1,3}$", "example": "D23" }
+  ],
+  "verbs": [
+    {
+      "category": "verb-computer", "group": "Computer processes",
+      "items": ["click", "save", "cancel", "convert", "store", "load", { "verb": "search", "noun": true }]
+    }
+  ]
+}

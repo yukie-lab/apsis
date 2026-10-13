@@ -16,7 +16,7 @@
    "flight.target": {
     "title": "Maneuver from the targeter",
     "method": "The targeter propagates the flight from the maneuver to the approach of the body. It changes the three components of the maneuver with a damped Newton method until the approach hyperbola has the aim point. If the time is free, each step is the smallest change of the maneuver.",
-    "limit": "The calculation stops when the error of the aim point is less than 20 m or 1 × 10⁻⁶ of the body radius. If numerical noise stops the progress, it accepts 20 times this value. The application then propagates the flight again: the Effect table shows the aim of that flight. The maneuver is an impulse."
+    "limit": "The calculation stops when the error of the aim point is less than 20 m or 1 × 10⁻⁶ of the body radius. If numerical noise prevents a smaller error, the calculation accepts 20 times this value. The application then propagates the flight again: the Effect table shows the aim point of that flight. The maneuver is an impulse."
    },
    "flight.elements": {
     "title": "Osculating orbit of the spacecraft",
@@ -92,15 +92,15 @@
     "timeFree": "Free",
     "timeSet": "Set",
     "timeFreeCell": "Free: smallest change of the maneuver",
-    "targetNotHyperbola": "The approach orbit at this encounter is not a hyperbola. The B-plane has no meaning for it.",
+    "targetNotHyperbola": "The approach orbit at this encounter is not a hyperbola. The B-plane is not applicable to it.",
     "bAngle": "B-plane angle",
     "altitudeTwoBody": "Periapsis altitude (two-body)",
     "closest": "Closest approach",
     "now": "Flight on the screen",
-    "wanted": "Aim",
+    "wanted": "Aim point",
     "result": "Result",
     "targetBelow": "This aim point gives a path below the surface of the body.",
-    "targetAxes": "B-plane axes: S is the direction of the incoming asymptote, T = S × (north pole of the ecliptic), R = S × T. The angle and the altitude are a different form of B·T and B·R.",
+    "targetAxes": "B-plane axes: S is the direction of the approach asymptote, T = S × (north pole of the ecliptic), R = S × T. The angle and the altitude are a different form of B·T and B·R.",
     "targetRun": "Calculate maneuver {n} and apply it",
     "effect": "Effect of the last change",
     "targetDone": "The targeter changed maneuver {n} from {before} to {after} in {iterations} iterations. Distance from the aim point at {body}: {miss} km.",

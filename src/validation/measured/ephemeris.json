@@ -5,7 +5,7 @@
   "value": 0.0018624255229352166,
   "unit": "km",
   "limit": 0.05,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 312 epochs 1950 to 2099",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 312 epochs from 1950 to 2099",
   "detail": {
    "rmsKm": 0.000621093060325526,
    "maxVelocityErrorKmS": 7.664949467481143e-8,
@@ -18,7 +18,7 @@
   "value": 0.003955272581307786,
   "unit": "km",
   "limit": 0.05,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 312 epochs 1950 to 2099",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 312 epochs from 1950 to 2099",
   "detail": {
    "rmsKm": 0.0015753861854997206,
    "maxVelocityErrorKmS": 5.514087620605162e-8,
@@ -31,7 +31,7 @@
   "value": 0.003993164684136644,
   "unit": "km",
   "limit": 0.05,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 312 epochs 1950 to 2099",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 312 epochs from 1950 to 2099",
   "detail": {
    "rmsKm": 0.0012793071701081948,
    "maxVelocityErrorKmS": 2.5792927680268473e-8,
@@ -44,7 +44,7 @@
   "value": 0.003056704982552731,
   "unit": "km",
   "limit": 0.05,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 312 epochs 1950 to 2099",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 312 epochs from 1950 to 2099",
   "detail": {
    "rmsKm": 0.0012045659201200911,
    "maxVelocityErrorKmS": 5.7669438179422356e-8,
@@ -57,7 +57,7 @@
   "value": 0.01068374307418563,
   "unit": "km",
   "limit": 0.05,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 312 epochs 1950 to 2099",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 312 epochs from 1950 to 2099",
   "detail": {
    "rmsKm": 0.004570636461093254,
    "maxVelocityErrorKmS": 2.817345015117896e-7,
@@ -70,7 +70,7 @@
   "value": 0.003063046224505024,
   "unit": "km",
   "limit": 0.05,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 312 epochs 1950 to 2099",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 312 epochs from 1950 to 2099",
   "detail": {
    "rmsKm": 0.001203268526893592,
    "maxVelocityErrorKmS": 5.768470819464242e-8,
@@ -83,7 +83,7 @@
   "value": 0.0026389768948708583,
   "unit": "km",
   "limit": 0.05,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 312 epochs 1950 to 2099",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 312 epochs from 1950 to 2099",
   "detail": {
    "rmsKm": 0.0008563971023146372,
    "maxVelocityErrorKmS": 4.555562942037923e-8,
@@ -96,7 +96,7 @@
   "value": 0.0024504556546400312,
   "unit": "km",
   "limit": 0.05,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 312 epochs 1950 to 2099",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 312 epochs from 1950 to 2099",
   "detail": {
    "rmsKm": 0.000840424131528658,
    "maxVelocityErrorKmS": 1.0684802009565309e-8,
@@ -109,7 +109,7 @@
   "value": 0.0018602612034173736,
   "unit": "km",
   "limit": 0.05,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 312 epochs 1950 to 2099",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 312 epochs from 1950 to 2099",
   "detail": {
    "rmsKm": 0.0007395726470451441,
    "maxVelocityErrorKmS": 7.834765293705495e-9,
@@ -122,7 +122,7 @@
   "value": 0.002184030763727282,
   "unit": "km",
   "limit": 0.05,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 312 epochs 1950 to 2099",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 312 epochs from 1950 to 2099",
   "detail": {
    "rmsKm": 0.001084962814181791,
    "maxVelocityErrorKmS": 1.1338546088100619e-8,
@@ -135,7 +135,7 @@
   "value": 0.0025544805496044614,
   "unit": "km",
   "limit": 0.05,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 312 epochs 1950 to 2099",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 312 epochs from 1950 to 2099",
   "detail": {
    "rmsKm": 0.0009021995941219119,
    "maxVelocityErrorKmS": 3.9855343413262285e-9,
@@ -148,7 +148,7 @@
   "value": 0.0018135125503068363,
   "unit": "km",
   "limit": 0.05,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 312 epochs 1950 to 2099",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 312 epochs from 1950 to 2099",
   "detail": {
    "rmsKm": 0.000531675538561932,
    "maxVelocityErrorKmS": 1.7453341770411144e-9,
@@ -161,7 +161,7 @@
   "value": 0.0009446958329739629,
   "unit": "km",
   "limit": 0.05,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 312 epochs 1950 to 2099",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 312 epochs from 1950 to 2099",
   "detail": {
    "rmsKm": 0.0003137063574677111,
    "maxVelocityErrorKmS": 5.638181738063685e-10,
@@ -174,7 +174,7 @@
   "value": 4.867733158681673,
   "unit": "km",
   "limit": 10,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 312 epochs 1950 to 2099",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 312 epochs from 1950 to 2099",
   "detail": {
    "rmsKm": 1.970889091583997,
    "maxVelocityErrorKmS": 0.00005304274001010356,
@@ -187,7 +187,7 @@
   "value": 9.694899204289802,
   "unit": "km",
   "limit": 20,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 312 epochs 1950 to 2099",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 312 epochs from 1950 to 2099",
   "detail": {
    "rmsKm": 4.892736791316621,
    "maxVelocityErrorKmS": 0.00003734603253525836,
@@ -200,7 +200,7 @@
   "value": 4811.432728938058,
   "unit": "km",
   "limit": 6000,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 312 epochs 1950 to 2099",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 312 epochs from 1950 to 2099",
   "detail": {
    "rmsKm": 2876.638566527114,
    "maxVelocityErrorKmS": 0.000020019173550617368,
@@ -213,7 +213,7 @@
   "value": 2208.3571157760352,
   "unit": "km",
   "limit": 3000,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 312 epochs 1950 to 2099",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 312 epochs from 1950 to 2099",
   "detail": {
    "rmsKm": 1003.0624972201135,
    "maxVelocityErrorKmS": 0.00002556403719858739,
@@ -226,7 +226,7 @@
   "value": 79.69521336688345,
   "unit": "km",
   "limit": 150,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 312 epochs 1950 to 2099",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 312 epochs from 1950 to 2099",
   "detail": {
    "rmsKm": 50.563792411366414,
    "maxVelocityErrorKmS": 0.0009078018054668761,
@@ -239,7 +239,7 @@
   "value": 219.61531797973913,
   "unit": "km",
   "limit": 374.104411552953,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 131.81519339987688,
    "maxKm1975to2075": 527.9665809788222,
@@ -253,7 +253,7 @@
   "value": 162.37117731731888,
   "unit": "km",
   "limit": 938.1959050176575,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 62.119463228814716,
    "maxKm1975to2075": 776.5821282982881,
@@ -267,7 +267,7 @@
   "value": 1228.3228741831344,
   "unit": "km",
   "limit": 16921.13914208153,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 430.730197522107,
    "maxKm1975to2075": 8373.189766369673,
@@ -281,7 +281,7 @@
   "value": 2357.937778025558,
   "unit": "km",
   "limit": 26742.103706013426,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 978.585612300705,
    "maxKm1975to2075": 14757.254627454662,
@@ -295,7 +295,7 @@
   "value": 5050.086340498152,
   "unit": "km",
   "limit": 42799.02829709865,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 1777.7536918291366,
    "maxKm1975to2075": 25967.936039673998,
@@ -309,7 +309,7 @@
   "value": 5810.83505498249,
   "unit": "km",
   "limit": 75133.37014404623,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 1916.2190998847693,
    "maxKm1975to2075": 30659.836390165525,
@@ -323,7 +323,7 @@
   "value": 28381.33999471209,
   "unit": "km",
   "limit": 36457.50982666048,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 10110.612468113755,
    "maxKm1975to2075": 116653.57998850584,
@@ -337,7 +337,7 @@
   "value": 1614.3778153713058,
   "unit": "km",
   "limit": 9475.669147546358,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 787.4082531822371,
    "maxKm1975to2075": 3326.2641745068895,
@@ -351,7 +351,7 @@
   "value": 8732.72984442831,
   "unit": "km",
   "limit": 11785.597218317811,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 2378.3991757524177,
    "maxKm1975to2075": 25430.32773936522,
@@ -365,7 +365,7 @@
   "value": 928.1895988551001,
   "unit": "km",
   "limit": 15062.836196898314,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 308.95194092907866,
    "maxKm1975to2075": 4997.946531800377,
@@ -379,7 +379,7 @@
   "value": 1870.5133630656758,
   "unit": "km",
   "limit": 21077.865136818837,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 650.4704643422639,
    "maxKm1975to2075": 12693.603987612321,
@@ -393,7 +393,7 @@
   "value": 6028.601285883001,
   "unit": "km",
   "limit": 49637.2937829826,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 2049.137014769355,
    "maxKm1975to2075": 31549.744071756595,
@@ -407,7 +407,7 @@
   "value": 41398.04109575489,
   "unit": "km",
   "limit": 142642.29484515192,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 17750.446128378426,
    "maxKm1975to2075": 143365.18719367267,
@@ -421,7 +421,7 @@
   "value": 2145.028351452921,
   "unit": "km",
   "limit": 5197.885177342737,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 1112.141570592402,
    "maxKm1975to2075": 4115.160125726623,
@@ -435,7 +435,7 @@
   "value": 791.0268240827526,
   "unit": "km",
   "limit": 7620.372425158184,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 484.2809064954637,
    "maxKm1975to2075": 934.7992002242604,
@@ -449,7 +449,7 @@
   "value": 1385.1096819071365,
   "unit": "km",
   "limit": 10641.00796166731,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 475.0073794098105,
    "maxKm1975to2075": 8941.737337109833,
@@ -463,7 +463,7 @@
   "value": 741.1364448178994,
   "unit": "km",
   "limit": 17463.077004098526,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 464.5287018821414,
    "maxKm1975to2075": 7779.863817093018,
@@ -477,7 +477,7 @@
   "value": 2401.3248529514776,
   "unit": "km",
   "limit": 23334.63435863635,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 1042.2473697052924,
    "maxKm1975to2075": 8955.061675777022,
@@ -491,7 +491,7 @@
   "value": 1989.6342231173528,
   "unit": "km",
   "limit": 14191.814814224243,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 843.607405637051,
    "maxKm1975to2075": 6345.845964329754,
@@ -505,7 +505,7 @@
   "value": 83.18688098313017,
   "unit": "km",
   "limit": 783.9094205620777,
-  "truth": "JPL Horizons vectors relative to the planet centre, 106 epochs 2000 to 2050",
+  "truth": "JPL Horizons vectors relative to the center of the planet, 106 epochs from 2000 to 2050",
   "detail": {
    "rmsKm": 31.180585133319738,
    "maxKm1975to2075": 607.1258855729773,
@@ -519,7 +519,7 @@
   "value": 0.8590112450809941,
   "unit": "km",
   "limit": 50,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 174 epochs 1980 to 2059",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 174 epochs from 1980 to 2059",
   "detail": {
    "rmsKm": 0.3393604931706962,
    "epochs": 174
@@ -531,7 +531,7 @@
   "value": 0.6137646796203821,
   "unit": "km",
   "limit": 50,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 174 epochs 1980 to 2059",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 174 epochs from 1980 to 2059",
   "detail": {
    "rmsKm": 0.2271118959834843,
    "epochs": 174
@@ -543,7 +543,7 @@
   "value": 0.43827432653204085,
   "unit": "km",
   "limit": 50,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 174 epochs 1980 to 2059",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 174 epochs from 1980 to 2059",
   "detail": {
    "rmsKm": 0.14198174302078473,
    "epochs": 174
@@ -555,7 +555,7 @@
   "value": 1.0193165616298006,
   "unit": "km",
   "limit": 50,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 174 epochs 1980 to 2059",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 174 epochs from 1980 to 2059",
   "detail": {
    "rmsKm": 0.4265774238149844,
    "epochs": 174
@@ -567,7 +567,7 @@
   "value": 2.4616122816644372,
   "unit": "km",
   "limit": 50,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 174 epochs 1980 to 2059",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 174 epochs from 1980 to 2059",
   "detail": {
    "rmsKm": 0.6515044513043718,
    "epochs": 174
@@ -579,7 +579,7 @@
   "value": 0.13289949946808935,
   "unit": "km",
   "limit": 50,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 174 epochs 1980 to 2059",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 174 epochs from 1980 to 2059",
   "detail": {
    "rmsKm": 0.06033831321861479,
    "epochs": 174
@@ -591,7 +591,7 @@
   "value": 0.02895151205107021,
   "unit": "km",
   "limit": 50,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 174 epochs 1980 to 2059",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 174 epochs from 1980 to 2059",
   "detail": {
    "rmsKm": 0.0077408847442106575,
    "epochs": 174
@@ -603,7 +603,7 @@
   "value": 0.12085496067343822,
   "unit": "km",
   "limit": 50,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 174 epochs 1980 to 2059",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 174 epochs from 1980 to 2059",
   "detail": {
    "rmsKm": 0.04659476593404768,
    "epochs": 174
@@ -615,7 +615,7 @@
   "value": 0.07380642656632845,
   "unit": "km",
   "limit": 50,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 174 epochs 1980 to 2059",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 174 epochs from 1980 to 2059",
   "detail": {
    "rmsKm": 0.035435013105316764,
    "epochs": 174
@@ -627,7 +627,7 @@
   "value": 0.45049113497868226,
   "unit": "km",
   "limit": 50,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 174 epochs 1980 to 2059",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 174 epochs from 1980 to 2059",
   "detail": {
    "rmsKm": 0.034152352143980776,
    "epochs": 174
@@ -639,7 +639,7 @@
   "value": 0.41719557250836237,
   "unit": "km",
   "limit": 50,
-  "truth": "JPL Horizons vectors (ICRF, SSB centre), 174 epochs 1980 to 2059",
+  "truth": "JPL Horizons vectors (ICRF, relative to the solar system barycenter), 174 epochs from 1980 to 2059",
   "detail": {
    "rmsKm": 0.05996097503006125,
    "epochs": 174

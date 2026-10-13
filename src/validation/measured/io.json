@@ -5,7 +5,7 @@
   "value": 0,
   "unit": "km",
   "limit": 1e-9,
-  "truth": "JPL Horizons vector tables: 166 raw outputs against the numbers of truth/horizons/*.json (an independent parser); the same decimal text gives the same number, thus the correct value is 0",
+  "truth": "The numbers of truth/horizons/*.json for 166 output files of JPL Horizons (vector tables). An independent parser made these numbers. The same decimal text gives the same number, thus the correct value is 0.",
   "detail": {
    "files": 166,
    "rows": 22055,
@@ -18,7 +18,7 @@
   "value": 0.000020265579223632812,
   "unit": "s",
   "limit": 0.000021,
-  "truth": "Julian dates of the same raw outputs as one 64-bit number (step 40 microseconds) in truth/horizons/*.json",
+  "truth": "Julian dates of the same output files as one 64-bit number (step 40 microseconds) in truth/horizons/*.json",
   "detail": {
    "rows": 22055
   }
@@ -29,7 +29,7 @@
   "value": 8.940696716308594e-8,
   "unit": "km",
   "limit": 2e-7,
-  "truth": "JPL Horizons: tables of Mars and Venus in au and days and of the Earth in km and days against the tables of the same bodies in km and s (truth/horizons/frames.json)",
+  "truth": "JPL Horizons tables of the same bodies in km and s (truth/horizons/frames.json). The test reads tables of Mars and Venus in au and days and a table of the Earth in km and days.",
   "detail": {
    "maxVelocityDifferenceKmS": 1.0658141036401503e-14,
    "velocityLimitKmS": 3e-14
@@ -41,7 +41,7 @@
   "value": 4.76837158203125e-7,
   "unit": "km",
   "limit": 0.000001,
-  "truth": "Round trip of a flight table (Voyager 2, 4515 samples, 4 segments) through an OEM file: the same table read back from the file; limit from the digits of the file (16 digits)",
+  "truth": "The application writes a flight table (Voyager 2, 4515 samples, 4 segments) to an OEM file and reads the file. The reference is the table before the file. The limit comes from the digits of the file (16 digits).",
   "detail": {
    "samples": 4515,
    "segments": 4,
@@ -54,7 +54,7 @@
   "value": 7.105427357601002e-15,
   "unit": "km/s",
   "limit": 1e-14,
-  "truth": "Round trip through an OEM file: the same table read back from the file; limit from the digits of the file (16 digits)",
+  "truth": "The same test with an OEM file. The reference is the table before the file. The limit comes from the digits of the file (16 digits).",
   "detail": {
    "largestComponentKmS": 33.59289333983786
   }
@@ -65,7 +65,7 @@
   "value": 3.5762786865234375e-7,
   "unit": "s",
   "limit": 0.000001,
-  "truth": "Round trip through an OEM file with UTC times: the same table read back from the file; limit from the digits of the file (6 decimals of the second)"
+  "truth": "The same test with an OEM file with UTC times. The reference is the table before the file. The limit comes from the digits of the file (6 decimals of the second)."
  },
  {
   "id": "io.stkPosition",
@@ -73,7 +73,7 @@
   "value": 4.76837158203125e-7,
   "unit": "km",
   "limit": 0.000001,
-  "truth": "Round trip of the same table through an STK ephemeris file: the same table read back from the file; limit from the digits of the file (16 digits)"
+  "truth": "The same test with an STK ephemeris file. The reference is the table before the file. The limit comes from the digits of the file (16 digits)."
  },
  {
   "id": "io.stkVelocity",
@@ -81,7 +81,7 @@
   "value": 7.105427357601002e-15,
   "unit": "km/s",
   "limit": 1e-14,
-  "truth": "Round trip through an STK ephemeris file: the same table read back from the file; limit from the digits of the file (16 digits)"
+  "truth": "The same test with an STK ephemeris file. The reference is the table before the file. The limit comes from the digits of the file (16 digits)."
  },
  {
   "id": "io.stkTime",
@@ -89,7 +89,7 @@
   "value": 3.5762786865234375e-7,
   "unit": "s",
   "limit": 0.000001,
-  "truth": "Round trip through an STK ephemeris file: the same table read back from the file; limit from the digits of the file (seconds after the epoch with 6 decimals)"
+  "truth": "The same test with an STK ephemeris file. The reference is the table before the file. The limit comes from the digits of the file (seconds after the epoch with 6 decimals)."
  },
  {
   "id": "io.csvTime",
@@ -97,7 +97,7 @@
   "value": 3.5762786865234375e-7,
   "unit": "s",
   "limit": 0.000001,
-  "truth": "Round trip through a CSV file with calendar times: the same table read back from the file; limit from the digits of the file (6 decimals of the second; positions and velocities have 17 digits and come back with no change)",
+  "truth": "The same test with a CSV file with calendar times. The reference is the table before the file. The limit comes from the digits of the file (6 decimals of the second). Positions and velocities have 17 digits and do not change.",
   "detail": {
    "julianDateColumnS": 5.960464477539063e-8,
    "julianDateLimitS": 3e-7
@@ -109,7 +109,7 @@
   "value": 2.9802322387695312e-8,
   "unit": "km",
   "limit": 3e-7,
-  "truth": "Round trip of the start state of a flight (Voyager 2, heliocentric, ecliptic frame) through an OPM file: limit from the 16 digits of the file",
+  "truth": "The application writes the start state of a flight (Voyager 2, heliocentric, ecliptic frame) to an OPM file and reads the file. The reference is the state before the file. The limit comes from the 16 digits of the file.",
   "detail": {
    "velocityDifferenceKmS": 7.105427357601002e-15,
    "velocityLimitKmS": 5e-14,
@@ -122,7 +122,7 @@
   "value": 3.7770496419398114e-7,
   "unit": "km",
   "limit": 3.906250000000002e-7,
-  "truth": "Analytic circular orbit (radius 7000 km, 0.2 rad between samples), interpolation in the middle between samples; limit: remainder of the Hermite formula of degree 7"
+  "truth": "Analytic circular orbit (radius 7000 km, 0.2 rad between samples). The interpolation is at the center of each interval between samples. The limit is the remainder of the Hermite formula of degree 7."
  },
  {
   "id": "io.stepsTable",
@@ -130,7 +130,7 @@
   "value": 0.05842135918512554,
   "unit": "km",
   "limit": 1,
-  "truth": "Flight of Voyager 2 (12 years, 4 flybys): Hermite interpolation of degree 7 in the table of integrator steps against a new integration to the middle of each interval (consistency check, regression limit)",
+  "truth": "Flight of Voyager 2 (12 years, 4 flybys). The test compares the Hermite interpolation of degree 7 in the table of integrator steps with a new integration to the center of each interval. The two values come from this application: the test is not an independent check.",
   "detail": {
    "samples": 1569,
    "samplesOfTheDailyTable": 4515,

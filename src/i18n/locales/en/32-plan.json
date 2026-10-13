@@ -4,7 +4,7 @@
       "window:range": "The date ranges are incorrect. The last date of each range must be after the first date, and the last arrival date must be after the first departure date."
     },
     "mission": {
-      "replaceQuestion": "This operation closes the mission \"{name}\". Save the mission first if you want to keep your changes.",
+      "replaceQuestion": "This operation closes the mission \"{name}\". Save the mission first to keep your changes.",
       "replace": "Continue",
       "defaultName": "{from} to {to}"
     },
@@ -47,7 +47,7 @@
       "tof": "Time of flight",
       "propellant": "Propellant for the Δv after the launch",
       "capacity": "Δv that the propellant gives",
-      "noPropellant": "The plan needs {need} kg of propellant. The spacecraft has {have} kg.",
+      "noPropellant": "The plan uses {need} kg of propellant. The spacecraft has {have} kg.",
       "node": "No.",
       "vinfIn": "v∞ in",
       "vinfOut": "v∞ out",
@@ -103,7 +103,7 @@
       },
       "windows": {
         "title": "Launch windows",
-        "intro": "The map shows the launch energy and the velocity changes for each pair of a departure date and an arrival date. Bright areas need less energy.",
+        "intro": "The map shows the launch energy and the velocity changes for each pair of a departure date and an arrival date. Bright areas show transfers that use less energy.",
         "input": "Bodies and date ranges",
         "depFrom": "First departure date",
         "depTo": "Last departure date",

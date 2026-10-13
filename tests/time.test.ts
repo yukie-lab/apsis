@@ -88,7 +88,7 @@ describe('time scales', () => {
         n++;
       }
     }
-    rec.add({ id: 'time.utcTdb', group: 'time', value: worst, unit: 's', limit: 5e-5, truth: 'JPL Horizons, TDB-UT column (delta-T) of vector tables, ' + n + ' epochs from 1972 to 2099', detail: { epochs: n } });
+    rec.add({ id: 'time.utcTdb', group: 'time', value: worst, unit: 's', limit: 5e-5, truth: 'JPL Horizons, column "delta-T" (TDB − UT) of the vector tables, ' + n + ' epochs from 1972 to 2099', detail: { epochs: n } });
     // The NAIF formula for TDB - TT has a documented accuracy of about 30 microseconds.
     expect(worst).toBeLessThan(5e-5);
   });

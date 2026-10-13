@@ -1,0 +1,339 @@
+# Approved words of the Apsis project for the check with tools/ste/ste-lint.mjs.
+#
+# THIS IS A PROJECT LIST. IT IS NOT THE ASD-STE100 DICTIONARY.
+# The official ASD-STE100 dictionary was not available. The author of this list made it from general knowledge
+# of Simplified Technical English. No person compared the list with the official dictionary.
+# The list has only the general words that the texts of the product and the documents in docs/ use, and the
+# words that not-approved.json gives as alternatives. The option --unused of the tool shows the entries that no
+# text uses. A new word is a decision: add it here only if you think that ASD-STE100 approves it, with its part
+# of speech.
+#
+# Format of a line:   word   parts of speech   other forms
+#   Parts of speech: n (noun), v (verb), adj, adv, prep, conj, pron, art. STE approves a word only in the parts
+#   of speech of its dictionary entry. Example: "check" is a noun only, "close" is a verb only.
+#   Other forms: for a verb "third-person past participle" (gives gave given). If the participle is the same as
+#   the past, write two forms (finds found). For a noun: the plural. For an adjective: the comparative and the
+#   superlative. If the line gives no forms, the tool makes the regular forms: plural -s, third person -s,
+#   past -ed. "-" = the word has no other forms. The -ing form of a verb is not approved (STE rule for verbs).
+#   "?" before a word: the author is NOT SURE that the official dictionary approves this word in this part of
+#   speech. The tool counts these words. Examine them first when the official dictionary is available.
+#   Text after "#" is a comment.
+#
+# Technical names and technical verbs are not in this list: see technical-names.json and the glossary
+# (src/i18n/locales/en/90-glossary.json).
+
+a               art
+about           prep                       # "concerned with". Also "orbit about a body". Not for "approximately"
+above           prep
+?accept         v
+accurate        adj
+across          prep
+actual          adj                        # project policy: real -> actual
+add             v
+adjacent        adj
+adjust          v
+adjustment      n
+after           prep,conj
+again           adv
+agree           v
+all             adj,pron
+along           prep
+also            adv
+alternative     n,adj
+always          adv
+an              art
+and             conj
+angle           n
+applicable      adj
+apply           v
+approved        adj
+approximate     adj
+approximately   adv
+area            n
+around          prep
+as              conj,prep
+at              prep
+automatic       adj
+automatically   adv
+available       adj
+axis            n         axes
+backward        adv
+be              v         am is are was were been
+because         conj                       # also "because of"
+become          v         becomes became become
+before          prep,conj
+below           prep
+?bend           v         bends bent
+between         prep
+?bright         adj       brighter brightest
+but             conj
+by              prep
+calculate       v
+?calculation    n
+can             v         -
+cannot          v         -
+?category       n
+cause           n,v
+caution         n
+center          n                          # also a glossary term (the origin of the coordinates)
+change          n,v
+check           n                          # noun only. Verb: use "compare", "do a check", "examine"
+clear           adj       clearer clearest
+close           v                          # verb only. Adjective: use "near"
+color           n
+come            v         comes came come
+compare         v
+?comparison     n
+complete        adj,v
+condition       n
+connect         v
+constant        adj
+contain         v
+continue        v
+control         n,v       controls controlled
+copy            n         copies
+correct         adj,v
+?correction     n
+?count          v
+dark            adj       darker darkest
+data            n         -
+?decision       n
+decrease        n,v
+?definition     n
+?detail         n
+difference      n
+different       adj
+dimension       n
+direction       n
+discard         v
+distance        n
+divide          v
+do              v         does did done
+down            adv
+during          prep
+each            adj,pron
+?early          adj       earlier earliest
+easy            adj       easier easiest
+edge            n
+effect          n
+empty           adj
+end             n                          # noun only. Verb: use "stop"
+equal           adj
+equivalent      adj
+error           n
+estimate        n,v
+?event          n
+?exactly        adv
+examine         v
+example         n
+failure         n
+far             adj,adv   farther farthest
+find            v         finds found
+first           adj,adv
+flow            n
+?fly            v         flies flew flown      # a spacecraft flies: the official dictionary has the word for aircraft
+follow          v
+for             prep
+force           n
+?form           n
+forward         adv
+free            adj
+frequently      adv
+from            prep
+full            adj
+function        n
+get             v         gets got
+give            v         gives gave given
+go              v         goes went gone
+?goal           n
+good            adj       better best
+group           n
+have            v         has had
+help            n,v
+high            adj       higher highest
+hold            v         holds held
+horizontal      adj
+how             adv
+if              conj
+immediately     adv
+important       adj
+in              prep
+include         v
+incorrect       adj
+incorrectly     adv
+increase        n,v
+?independent    adj
+internal        adj
+into            prep
+it              pron
+item            n
+its             adj
+keep            v         keeps kept
+know            v         knows knew known
+?language       n
+large           adj       larger largest
+last            adj
+?late           adj       later latest
+length          n
+less            adj,adv
+let             v         lets let
+level           n
+limit           n
+line            n
+list            n
+long            adj       longer longest
+?loss           n         losses
+low             adj       lower lowest
+make            v         makes made
+manual          adj
+manually        adv
+many            adj
+material        n
+maximum         n,adj
+measure         v
+minimum         n,adj
+minus           prep
+more            adj,adv
+most            adj,adv
+move            v
+much            adj,adv
+multiply        v
+must            v         -
+name            n
+narrow          adj       narrower narrowest
+near            prep,adj  nearer nearest
+necessary       adj
+never           adv
+new             adj       newer newest
+next            adj
+no              adj
+noise           n
+?none           pron
+not             adv
+?now            adv
+number          n
+obey            v
+object          n
+occur           v         occurs occurred
+of              prep
+off             adv,adj
+?official       adj
+?old            adj       older oldest
+on              prep,adv,adj
+only            adj,adv
+onto            prep
+open            adj,v
+operate         v
+operation       n
+opposite        adj,prep
+or              conj
+other           adj,pron
+out             adv                        # "out of"
+?pair           n
+part            n
+permitted       adj
+person          n
+?picture        n
+plus            prep
+point           n,v
+position        n
+possible        adj
+prevent         v
+problem         n
+procedure       n
+?project        n                          # "project list": a list that this project made
+?publish        v
+pull            v
+put             v         puts put
+quantity        n
+quick           adj       quicker quickest
+range           n
+rate            n
+read            v         reads read
+?reason         n
+recommend       v
+record          n,v
+refer           v         refers referred
+?reference      n
+remove          v
+replace         v
+result          n
+same            adj
+sample          n
+see             v         sees saw seen
+select          v
+?selection      n
+?send           v         sends sent
+?separate       adj
+?separately     adv
+sequence        n
+set             n,v       sets set
+shape           n
+short           adj       shorter shortest
+show            v         shows showed shown
+side            n
+?size           n
+slow            adj       slower slowest
+small           adj       smaller smallest
+some            adj,pron
+source          n
+speed           n
+stable          adj
+start           n,v
+stay            v
+step            n
+stop            n,v       stops stopped
+straight        adj
+?strong         adj       stronger strongest    # "strong color": the author is not sure of the approved meaning
+subtract        v
+sufficient      adj
+sure            adj                        # only in "make sure"
+surface         n
+?symbol         n
+tell            v         tells told
+test            n                          # noun only. Verb: use "do a test"
+than            conj
+that            conj,pron,adj
+the             art
+their           adj
+them            pron
+then            adv
+there           adv
+these           adj,pron
+they            pron
+thick           adj       thicker thickest
+thin            adj       thinner thinnest
+this            adj,pron
+those           adj,pron
+through         prep
+thus            adv
+time            n
+to              prep
+too             adv
+top             n
+?total          n,adj
+turn            n,v
+type            n
+until           conj,prep
+up              adv
+use             n,v
+usual           adj
+usually         adv
+value           n
+vertical        adj
+very            adv
+view            n
+weight          n
+when            conj
+where           conj
+which           pron
+while           conj
+wide            adj       wider widest
+will            v         -
+with            prep
+?without        prep
+work            n
+write           v         writes wrote written
+?yes            adv
+you             pron
+your            adj

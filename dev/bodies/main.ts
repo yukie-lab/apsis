@@ -6,8 +6,10 @@
  *   quality=high|low       (default high)
  *   distance=<n>|fit       distance of the camera from the body centre in body radii (default fit: the body fills the view)
  *   phase=<deg>            angle Sun - body - camera (default 40). 0: the Sun is behind the camera. 180: the camera looks at the Sun.
- *   lat=<deg> lon=<deg>    point of the body below the camera, body-fixed (default 15, 0)
- *   sunlat=<deg>           latitude of the point below the Sun. Without it the Sun is to the east of the camera at the phase angle.
+ *   lat=<deg> lon=<deg>    point of the body below the camera, body-fixed (default 15, 0; a long body, a moon
+ *                          of Uranus and a body with one well-known feature have their own default, see DEFAULT_VIEW)
+ *   sunlat=<deg>           latitude of the point below the Sun. Without it the Sun is to the east of the camera at the phase angle
+ *                          (Saturn: 18 by default, see SUN_LATITUDE).
  *   aim=<0..1.2>           turn the camera from the body centre to the limb (1 = the limb is in the middle of the view)
  *   aimaz=<deg>            direction of this turn: 0 = east (right), 90 = north (up) (default 90)
  *   variant=default|surface
@@ -17,12 +19,14 @@
  *   et=<seconds>           ephemeris time for the orientation of the body (default 0 = J2000)
  *   caster=dx,dy,dist,r    a body that hides the Sun: offset from the Sun line, distance and radius, in body radii
  *   sundist=<au>           distance to the Sun for the width of the soft shadow edge (default: a typical value for the body)
+ *   fill=<0..1>            fill light for the parts with no sunlight (BodyUpdate.nightFill, default 0 = none)
  *   maps=none              use an empty manifest (all bodies are then made by code)
  *   drop=id,id             remove these texture ids from the manifest (test of the fallbacks)
+ *   fail=id,id|all         give these texture ids the address of a file that does not exist (test of a failed download)
  *   dpr=<n>                pixel ratio of the canvas (default 1)
  *
  * URL query, all bodies in a grid at the same phase:
- *   sheet=1 [quality, phase, lat, lon, variant, bg, maps, drop, labels=0]
+ *   sheet=1 [quality, phase, lat, lon, variant, bg, maps, drop, fail, fill, labels=0]
  *
  * The body has its real orientation in the ICRF axes (bodyAxes of the engine). It is far from the origin of the
  * scene, as in the application. The renderer has the settings of the application: logarithmic depth buffer,
@@ -91,6 +95,42 @@ const SUN_DISTANCE_AU: Record<string, number> = {
   PLUTO: 39.5,
 };
 
+/**
+ * Default latitude and longitude of the point below the camera, for the bodies that need their own.
+ * A body with a long shape: from (15, 0) the camera would look along the long axis and the body would look round.
+ * A moon of Uranus: its map has data in the south only, and from (15, 0) most of the view would be the area with no data.
+ * A body with one well-known feature: the feature is a little to the east of the view centre, so it is in the light
+ * at each phase angle up to 90 degrees. The places were found by a look at the map files.
+ */
+const DEFAULT_VIEW: Record<string, [number, number]> = {
+  // The great canyon and the three volcanoes in a row.
+  MARS: [-10, -85],
+  // The Great Red Spot (in this map file it is 48 degrees to the west of the image centre).
+  JUPITER: [-8, -70],
+  // The bright heart-shaped plain.
+  PLUTO: [25, 160],
+  // The large crater with the central peak.
+  MIMAS: [5, -135],
+  // The four long cracks near the south pole.
+  ENCELADUS: [-50, 0],
+  EROS: [62, 90],
+  ITOKAWA: [22, 90],
+  ARROKOTH: [68, 90],
+  HALLEY: [20, 90],
+  CHURYUMOV_GERASIMENKO: [8, 90],
+  MIRANDA: [-55, 0],
+  ARIEL: [-55, 0],
+  UMBRIEL: [-55, 0],
+  TITANIA: [-55, 0],
+  OBERON: [-55, 0],
+};
+
+/**
+ * Default latitude of the point below the Sun for a body with bright rings, degrees.
+ * A Sun to the east of the camera at a phase of 90 degrees is in the ring plane: the rings would get no sunlight.
+ */
+const SUN_LATITUDE: Record<string, number> = { SATURN: 18 };
+
 /** Where the body is in the scene, km. A large offset tests the precision of the shaders. */
 const BODY_POSITION = new THREE.Vector3(1.1e8, -0.9e8, 0.4e8);
 
@@ -135,17 +175,18 @@ interface View {
   north: THREE.Vector3;
 }
 
-function makeView(q: URLSearchParams): View {
-  const lat = num(q, 'lat', 15);
-  const lon = num(q, 'lon', 0);
+function makeView(q: URLSearchParams, id: string): View {
+  const side = DEFAULT_VIEW[id] ?? [15, 0];
+  const lat = num(q, 'lat', side[0]);
+  const lon = num(q, 'lon', side[1]);
   const phase = num(q, 'phase', 40) * DEG;
   const cam = direction(lat, lon);
   const east = new THREE.Vector3(-Math.sin(lon * DEG), Math.cos(lon * DEG), 0);
   const north = new THREE.Vector3().crossVectors(cam, east).normalize();
   let sun: THREE.Vector3;
-  if (q.has('sunlat')) {
+  const sunLat: number | undefined = q.has('sunlat') ? num(q, 'sunlat', 0) : SUN_LATITUDE[id];
+  if (sunLat !== undefined) {
     // The point below the Sun has the given latitude. Its longitude gives the phase angle, as well as the latitudes allow.
-    const sunLat = num(q, 'sunlat', 0);
     const c = (Math.cos(phase) - Math.sin(lat * DEG) * Math.sin(sunLat * DEG)) / (Math.cos(lat * DEG) * Math.cos(sunLat * DEG));
     const dLon = Math.acos(Math.min(1, Math.max(-1, c))) / DEG;
     sun = direction(sunLat, lon + dLon);
@@ -158,8 +199,18 @@ function makeView(q: URLSearchParams): View {
 function editManifest(manifest: TextureManifest, q: URLSearchParams): TextureManifest {
   if (q.get('maps') === 'none') return EMPTY_MANIFEST;
   const drop = (q.get('drop') ?? '').split(',').filter((s) => s !== '');
-  if (drop.length === 0) return manifest;
-  return { ...manifest, textures: manifest.textures.filter((e) => !drop.includes(e.id)) };
+  const fail = (q.get('fail') ?? '').split(',').filter((s) => s !== '');
+  if (drop.length === 0 && fail.length === 0) return manifest;
+  const textures = manifest.textures
+    .filter((e) => !drop.includes(e.id))
+    .map((e) => {
+      if (!fail.includes('all') && !fail.includes(e.id)) return e;
+      // The star map stays: a test of the bodies does not need a black sky.
+      if (e.role === 'stars' && !fail.includes(e.id)) return e;
+      const gone = `textures/no-such-file-${e.id}.jpg`;
+      return { ...e, file: gone, small: gone };
+    });
+  return { ...manifest, textures };
 }
 
 function makeRenderer(q: URLSearchParams): THREE.WebGLRenderer {
@@ -262,7 +313,7 @@ async function startSingle(q: URLSearchParams, manifest: TextureManifest, baseUr
   const fov = num(q, 'fov', 35);
   const aspect = window.innerWidth / window.innerHeight;
   const camera = new THREE.PerspectiveCamera(fov, aspect, 0.001, 1e11);
-  const view = makeView(q);
+  const view = makeView(q, id);
   const toWorld = (v: THREE.Vector3): THREE.Vector3 => v.clone().applyQuaternion(body.object.quaternion);
   const camDir = toWorld(view.cam);
   const sunDir = toWorld(view.sun);
@@ -307,6 +358,7 @@ async function startSingle(q: URLSearchParams, manifest: TextureManifest, baseUr
     }
   }
   const sunDistance = sunDistanceKm(id, q);
+  const nightFill = num(q, 'fill', 0);
 
   const animate = q.get('anim') === '1';
   const timeStart = num(q, 't', 0);
@@ -315,7 +367,7 @@ async function startSingle(q: URLSearchParams, manifest: TextureManifest, baseUr
   const draw = (): void => {
     const time = animate ? timeStart + (performance.now() - clock) / 1000 : timeStart;
     camRel.subVectors(camera.position, body.object.position);
-    body.update({ sunDir, cameraPos: camRel, time, shadowCasters: casters, sunDistanceKm: sunDistance });
+    body.update({ sunDir, cameraPos: camRel, time, shadowCasters: casters, sunDistanceKm: sunDistance, nightFill });
     renderer.render(scene, camera);
   };
 
@@ -374,7 +426,6 @@ async function startSheet(q: URLSearchParams, manifest: TextureManifest, baseUrl
   const cellW = Math.floor(width / columns);
   const cellH = Math.floor(height / rows);
   const fov = 30;
-  const view = makeView(q);
   const background = backgroundColor(q);
 
   let pending = ids.length;
@@ -399,6 +450,7 @@ async function startSheet(q: URLSearchParams, manifest: TextureManifest, baseUrl
     body.object.quaternion.copy(orientation(id, num(q, 'et', 0)));
     scene.add(body.object);
     const toWorld = (v: THREE.Vector3): THREE.Vector3 => v.clone().applyQuaternion(body.object.quaternion);
+    const view = makeView(q, id);
     const camera = new THREE.PerspectiveCamera(fov, cellW / cellH, 0.001, 1e11);
     const fitRadii = Math.min(body.extentKm / body.radiusKm, 2.5);
     camera.up.copy(toWorld(view.north));
@@ -425,6 +477,7 @@ async function startSheet(q: URLSearchParams, manifest: TextureManifest, baseUrl
   }
 
   const time = num(q, 't', 0);
+  const nightFill = num(q, 'fill', 0);
   let drawCalls = 0;
   const draw = (): void => {
     drawCalls = 0;
@@ -433,7 +486,7 @@ async function startSheet(q: URLSearchParams, manifest: TextureManifest, baseUrl
       const y = height - (Math.floor(k / columns) + 1) * cellH;
       renderer.setViewport(x, y, cellW, cellH);
       renderer.setScissor(x, y, cellW, cellH);
-      cell.body.update({ sunDir: cell.sunDir, cameraPos: cell.camRel, time, sunDistanceKm: cell.sunDistance });
+      cell.body.update({ sunDir: cell.sunDir, cameraPos: cell.camRel, time, sunDistanceKm: cell.sunDistance, nightFill });
       renderer.render(cell.scene, cell.camera);
       drawCalls += renderer.info.render.calls;
     });

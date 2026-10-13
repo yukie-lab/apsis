@@ -38,7 +38,7 @@ describe('B-plane distance and periapsis radius', () => {
       const bp = bPlane(s, mu)!;
       worst = Math.max(worst, Math.abs(Math.hypot(bp.BdotT, bp.BdotR) / b - 1), Math.abs(bp.vinf / vinf - 1), Math.abs(bp.rp / rp - 1));
     }
-    rec.add({ id: 'target.bplane', group: 'analytic', value: worst, unit: 'relative', limit: 1e-11, truth: 'Exact two-body hyperbola from its elements: b = a sqrt(e^2 - 1).' });
+    rec.add({ id: 'target.bplane', group: 'analytic', value: worst, unit: 'relative', limit: 1e-11, truth: 'Exact two-body hyperbola from its elements: b = a √(e² − 1).' });
     expect(worst).toBeLessThan(1e-11);
   });
 });
@@ -120,7 +120,7 @@ describe('targeter: one maneuver, aim point at Mars', () => {
   afterAll(() => {
     rec.add({
       id: 'target.closure', group: 'solver', value: worst.aimKm, unit: 'km', limit: 0.5,
-      truth: 'The aim point is an input: the flight that the targeter gives is propagated again and its aim is measured.',
+      truth: 'The aim point is an input. The test propagates the flight that the targeter gives and measures its aim point.',
       detail: { cases: 6, worstTimeS: worst.timeS, worstIterations: worst.iterations },
     });
   });
@@ -149,7 +149,7 @@ describe('targeter: distant flyby after three flybys (Cassini at Jupiter)', () =
     const miss = Math.hypot(after.BdotT - want.BdotT, after.BdotR - want.BdotR);
     rec.add({
       id: 'target.closureDistant', group: 'solver', value: miss, unit: 'km', limit: 2,
-      truth: 'The aim point is an input: the flight that the targeter gives is propagated again and its aim is measured.',
+      truth: 'The aim point is an input. The test propagates the flight that the targeter gives and measures its aim point.',
       detail: { iterations: out.iterations, flybyRadiusKm: before.radius, dvBeforeMS: out.dvBefore * 1000, dvAfterMS: out.dvAfter * 1000 },
     });
     expect(miss).toBeLessThan(2);
@@ -187,7 +187,7 @@ describe('targeter: encounter with an orbit insertion burn', () => {
     const miss = Math.hypot(after.BdotT - want.BdotT, after.BdotR - want.BdotR);
     rec.add({
       id: 'target.closureInsertion', group: 'solver', value: miss, unit: 'km', limit: 0.5,
-      truth: 'The aim point is an input: the flight that the targeter gives is propagated again and its aim is measured.',
+      truth: 'The aim point is an input. The test propagates the flight that the targeter gives and measures its aim point.',
       detail: { iterations: out.iterations },
     });
     expect(miss).toBeLessThan(0.5);

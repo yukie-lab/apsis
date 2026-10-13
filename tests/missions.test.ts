@@ -61,7 +61,7 @@ describe('Voyager 2: Earth - Jupiter - Saturn - Uranus - Neptune with the real d
       const c = parseCalendar(pub[key].utc)!;
       const diff = Math.abs(utcSeconds(tp[k].et) - calendarToSeconds(c));
       // The published time has a resolution of one minute.
-      rec.add({ id: `missions.voyager2.time.${names[k]}`, group: 'flyby', value: diff, unit: 's', limit: 90, truth: `NASA Science Voyager 2 page: closest approach ${pub[key].utc} UT`, detail: { horizonsClosestApproachJdTdb: enc[k].jdClosest } });
+      rec.add({ id: `missions.voyager2.time.${names[k]}`, group: 'flyby', value: diff, unit: 's', limit: 90, truth: `NASA Science, page of the Voyager 2 mission: closest approach ${pub[key].utc} UT`, detail: { horizonsClosestApproachJdTdb: enc[k].jdClosest } });
       expect(diff).toBeLessThan(90);
     }
   });
@@ -75,7 +75,7 @@ describe('Voyager 2: Earth - Jupiter - Saturn - Uranus - Neptune with the real d
       // an error of 1 % to 3 % in the speed at infinity (see src/engine/plan.ts), so the two speeds of the plan
       // differ by that quantity. Limit: 3 % of the speed at infinity.
       const mis = (100 * Math.abs(f.vinfOut - f.vinfIn)) / f.vinfIn;
-      rec.add({ id: `missions.voyager2.conic.mismatch.${names[k]}`, group: 'flyby', value: mis, unit: '%', limit: 3, truth: 'An unpowered flyby has equal speeds at infinity before and after (energy conservation in the planet frame).', detail: { vinfInKmS: f.vinfIn, vinfOutKmS: f.vinfOut, periapsisBurnOfThePlanMS: f.dv * 1000, turnDeg: (f.turn * 180) / Math.PI } });
+      rec.add({ id: `missions.voyager2.conic.mismatch.${names[k]}`, group: 'flyby', value: mis, unit: '%', limit: 3, truth: 'A flyby with no engine burn has equal speeds at infinity before and after the flyby (the energy relative to the planet is constant).', detail: { vinfInKmS: f.vinfIn, vinfOutKmS: f.vinfOut, periapsisBurnOfThePlanMS: f.dv * 1000, turnDeg: (f.turn * 180) / Math.PI } });
       expect(mis).toBeLessThan(3);
       expect(f.limited).toBe(false);
       expect(f.rp).toBeGreaterThan(body.radius);
@@ -119,13 +119,13 @@ describe('Voyager 2: Earth - Jupiter - Saturn - Uranus - Neptune with the real d
         // NASA gives the distance from the cloud tops: add the equatorial radius of the planet.
         const pubRadius = pubRange[k] + BODIES[names[k]].radius;
         const eP = pct(e.radius, pubRadius);
-        rec.add({ id: `missions.voyager2.nbody.published.${names[k]}`, group: 'flyby', value: eP, unit: '%', limit: 2, truth: `NASA Science Voyager 2 page: closest approach about ${pubRange[k]} km from the planet`, detail: { distanceFromCloudTopsKm: e.radius - BODIES[names[k]].radius, publishedKm: pubRange[k] } });
+        rec.add({ id: `missions.voyager2.nbody.published.${names[k]}`, group: 'flyby', value: eP, unit: '%', limit: 2, truth: `NASA Science, page of the Voyager 2 mission: closest approach at approximately ${pubRange[k]} km from the planet`, detail: { distanceFromCloudTopsKm: e.radius - BODIES[names[k]].radius, publishedKm: pubRange[k] } });
         expect(eP).toBeLessThan(2);
       }
     }
     const tcm = out.report.totalCorrection * 1000;
     // Sum of the three correction maneuvers that follow the flybys. Limit 200 m/s (1.5 % of the speed at infinity).
-    rec.add({ id: 'missions.voyager2.nbody.corrections', group: 'flyby', value: tcm, unit: 'm/s', limit: 200, truth: 'A ballistic tour needs only small correction maneuvers between the flybys.', detail: { maneuvers: out.report.corrections.length, launchVinfChangeMS: out.report.launchChange * 1000, solveTimeS: seconds } });
+    rec.add({ id: 'missions.voyager2.nbody.corrections', group: 'flyby', value: tcm, unit: 'm/s', limit: 200, truth: 'A tour of flybys with no engine burn at the flybys has only small correction maneuvers between the flybys.', detail: { maneuvers: out.report.corrections.length, launchVinfChangeMS: out.report.launchChange * 1000, solveTimeS: seconds } });
     expect(tcm).toBeLessThan(200);
   });
 });
@@ -166,7 +166,7 @@ describe('Cassini: Earth - Venus - Venus - Earth - Jupiter - Saturn with the rea
     for (let k = 0; k < 4; k++) {
       const f = o.result.nodes[k + 1].flyby!;
       const mis = (100 * Math.abs(f.vinfOut - f.vinfIn)) / f.vinfIn;
-      rec.add({ id: `missions.cassini.conic.mismatch.${k}.${names[k]}`, group: 'flyby', value: mis, unit: '%', limit: 3, truth: 'An unpowered flyby has equal speeds at infinity before and after.', detail: { vinfInKmS: f.vinfIn, vinfOutKmS: f.vinfOut, periapsisBurnOfThePlanMS: f.dv * 1000, periapsisRadiusKm: f.rp, truthPeriapsisRadiusKm: tp[k].radius, truthVinfKmS: tv[k] } });
+      rec.add({ id: `missions.cassini.conic.mismatch.${k}.${names[k]}`, group: 'flyby', value: mis, unit: '%', limit: 3, truth: 'A flyby with no engine burn has equal speeds at infinity before and after the flyby.', detail: { vinfInKmS: f.vinfIn, vinfOutKmS: f.vinfOut, periapsisBurnOfThePlanMS: f.dv * 1000, periapsisRadiusKm: f.rp, truthPeriapsisRadiusKm: tp[k].radius, truthVinfKmS: tv[k] } });
       expect(mis).toBeLessThan(3);
       expect(f.limited).toBe(false);
       expect(f.rp).toBeGreaterThan(BODIES[names[k]].radius);
@@ -198,14 +198,14 @@ describe('Cassini: Earth - Venus - Venus - Earth - Jupiter - Saturn with the rea
       rec.add({ id: `missions.cassini.nbody.periapsis.${k}.${names[k]}`, group: 'flyby', value: eR, unit: '%', limit: 2, truth: 'Periapsis radius of the JPL Horizons trajectory of Cassini', detail: { periapsisRadiusKm: e.radius, truthPeriapsisRadiusKm: tp[k].radius } });
       expect(eR).toBeLessThan(2);
       const eP = pct(e.radius, pubRadius[k]);
-      rec.add({ id: `missions.cassini.nbody.published.${k}.${names[k]}`, group: 'flyby', value: eP, unit: '%', limit: pubLimit[k], truth: 'NASA Science Cassini timeline: distance of closest approach ("about")', detail: { radiusKm: e.radius, publishedRadiusKm: pubRadius[k] } });
+      rec.add({ id: `missions.cassini.nbody.published.${k}.${names[k]}`, group: 'flyby', value: eP, unit: '%', limit: pubLimit[k], truth: 'NASA Science, page "Timeline" of the Cassini mission: distance of closest approach (approximate values)', detail: { radiusKm: e.radius, publishedRadiusKm: pubRadius[k] } });
       expect(eP).toBeLessThan(pubLimit[k]);
     }
     const eD = pct(out.report.totalDsm, dsmTruth);
     rec.add({ id: 'missions.cassini.nbody.dsm', group: 'flyby', value: eD, unit: '%', limit: 3, truth: 'Velocity jump in the JPL Horizons trajectory of Cassini on 1998-12-03', detail: { dsmMS: out.report.totalDsm * 1000, truthDsmMS: dsmTruth * 1000 } });
     expect(eD).toBeLessThan(3);
     const tcm = out.report.totalCorrection * 1000;
-    rec.add({ id: 'missions.cassini.nbody.corrections', group: 'flyby', value: tcm, unit: 'm/s', limit: 200, truth: 'A ballistic tour needs only small correction maneuvers between the flybys.', detail: { maneuvers: out.report.corrections.length, launchVinfChangeMS: out.report.launchChange * 1000, solveTimeS: seconds } });
+    rec.add({ id: 'missions.cassini.nbody.corrections', group: 'flyby', value: tcm, unit: 'm/s', limit: 200, truth: 'A tour of flybys with no engine burn at the flybys has only small correction maneuvers between the flybys.', detail: { maneuvers: out.report.corrections.length, launchVinfChangeMS: out.report.launchChange * 1000, solveTimeS: seconds } });
     expect(tcm).toBeLessThan(200);
   });
 });

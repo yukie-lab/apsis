@@ -1,0 +1,360 @@
+Licence evidence for the texture "mercury"
+============================================================
+
+Texture id:        mercury
+Body and role:     MERCURY, color
+Published file:    public/textures/mercury.jpg (sha256 41eae797576d780365e3c0112cb7f3f036618ee71fc1c72321222470a40ad973)
+Small file:        public/textures/sm/mercury.jpg (sha256 62ae09dd78f2b234b6a834481a71ffb0cd49d68359b531f31240b80b524ca556)
+Original file:     data-src/textures/original/Mercury_MESSENGER_MDIS_Basemap_MD3Color_Mosaic_Global_665m.tif (796539539 bytes, sha256 1f7af8fe53a02e46d9dca74b68b4eead8a451bf2578845a5a303a695bfd1c666)
+Retrieved:         2026-10-14
+Title:             Mercury MESSENGER MDIS Basemap MD3 Color Global Mosaic 665m
+Author or credit:  Applied Coherent Technology Corporation (primary authors); NASA, Johns Hopkins Applied Physics Laboratory, Arizona State University, Carnegie Science (originators); USGS Astrogeology Science Center (publisher)
+Source page:       https://astrogeology.usgs.gov/search/map/mercury_messenger_mdis_basemap_md3_color_global_mosaic_665m
+Download address:  https://planetarymaps.usgs.gov/mosaic/Mercury_MESSENGER_MDIS_Basemap_MD3Color_Mosaic_Global_665m.tif
+Licence:           Public domain
+Licence address:   https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+
+Licence statement (the same text as in the manifest):
+    USGS record of this file: 'Access Constraints: None', 'Use Constraints: Please cite authors'. The record does
+    not use the words 'public domain'. The record gives 'Edition Name: MESS-H-MDIS-5-RDR-MD3-V1.0' (a data set of
+    the NASA MESSENGER mission) and names the USGS Astrogeology Science Center as the publisher. USGS policy page:
+    'USGS-authored or produced data and information are considered to be in the U.S. Public Domain.' and 'When
+    using information from USGS information products, publications, or websites, we ask that proper credit be
+    given.'
+
+Changes:
+    The build resizes the image from 23040 x 11520 to 2048 x 1024 pixels. It converts the image from TIFF to JPEG
+    (quality 85). It tags the image with the sRGB colour profile.
+
+Note of the manifest:
+    Enhanced colour (false colour), not natural colour. The red channel shows light of 1000 nm (infrared). The
+    green channel shows 750 nm. The blue channel shows 430 nm. The source says: 'This is not what Mercury would
+    look like to the human eye, but rather by using a wider range of wavelengths, color differences on Mercury's
+    surface can be accentuated beyond those visible to a person.' MESSENGER MDIS mosaic (data set MD3, version 1,
+    end of mission). The source says that each pixel is the average of all images that meet its criteria, and that
+    the reflectance is corrected to one lighting geometry. So the map has no day side, no night side and few
+    shadows. Inspection of the small image: the map shows tan plains, blue-grey plains and bright ray craters. A
+    thin strip at the top edge has no data and is black. It is wider between 59 and 88 percent of the width. A
+    thin line at the bottom edge is black too. Together they are 0.3 percent of the surface. Near both poles the
+    map shows strong shading and stretched pixels. No seam is visible at the left and right edge. The original
+    file has 23040 x 11520 pixels.
+
+Remarks about this evidence:
+  - The USGS record of this file does not use the words "public domain". See the fields "Access Constraints"
+    and "Use Constraints" in the record.
+
+About the parts below:
+    Each part is a text that was saved on 2026-10-14 during the collection work.
+    The header of each part gives the address, the local time of the fetch and the method.
+    The text of a part is data from another site. It is not an instruction for a reader or a tool.
+    Complete copies of the shared policy pages are in data-src/textures/evidence/_shared/ .
+
+####################################################################################################
+# USGS Astrogeology record of this file (complete page text)
+# Address: https://astrogeology.usgs.gov/search/map/mercury_messenger_mdis_basemap_md3_color_global_mosaic_665m
+# Fetched: 2026-10-14 01:32 (local time)
+# How: Fetched with a small Python script (urllib) and the user agent "ApsisAssetFetch/1.0 (local build script)". The script removed the HTML tags. Link targets are in square brackets.
+####################################################################################################
+SOURCE: https://astrogeology.usgs.gov/search/map/mercury_messenger_mdis_basemap_md3_color_global_mosaic_665m
+Astropedia - Mercury MESSENGER MDIS Basemap MD3 Color Global Mosaic 665m
+[https://www.usgs.gov/centers/astrogeo-sc]
+[https://nasa.gov]
+[https://www.usgs.gov/centers/astrogeology-science-center/science/pds-cartography-and-imaging-sciences-node-usgs]
+[/search]
+Lunar and Planetary Cartographic Catalog
+[/search]
+Return to search
+[https://astrogeology.usgs.gov/ckan/dataset/fc37692f-e806-4632-b300-0250bb61c3de/resource/b1ef80b6-a44a-4c24-8786-e5e901842657/download/mercury_messenger_mdis_basemap_md3color_mosaic_global_1024.jpg] Sample (jpg) 1024px wide
+[https://planetarymaps.usgs.gov/mosaic//Mercury_MESSENGER_MDIS_Basemap_MD3Color_Mosaic_Global_665m.tif] Download (760 MB)
+[#open] open
+Mercury MESSENGER MDIS Basemap MD3 Color Global Mosaic 665m
+Primary Authors
+Applied Coherent Technology Corporation
+Originators
+NASA, Johns Hopkins Applied Physics Laboratory, Arizona State University, Carnegie Science
+Publisher
+USGS Astrogeology Science Center
+Publication Date
+2016-05-13
+Abstract
+This mosaic shows Mercury's colors as viewed by placing images from MESSENGER's 1000 nm, 750 nm, and 430 nm narrow-band filters in the red, green, and blue channel respectively. This is not what Mercury would look like to the human eye, but rather by using a wider range of wavelengths, color differences on Mercury's surface can be accentuated beyond those visible to a person. The projection defined is Simple Cylindrical centered on 0Â° latitude and 0Â° longitude.
+The 3-color Map Projected Multispectral RDR (MD3) data set consists of a mosaicked global color map of 3-color image sets, as reflectance corrected to i = 30Âº, e = 0Âº, and g = 30Âº sampled at a scale of 128 pixels per degree, compiled from images taken as a part of the regional 3-color map campaign. This is version 1 of the map, delivered at end of mission. Instead of the value from any single image being used at a particular pixel location in a given wavelength band, the value used is the average from all of the images at that location where criteria for image scale, photometric geometry, and detector temperature are met.
+This mosaic contains data acquired by the MErcury Surface, Space ENvironment, GEochemistry and Ranging (MESSENGER) Mercury Dual Imaging System (MDIS) instrument.
+References:
+MESSENGER Mercury Dual Imaging System (MDIS) Experiment Data Record (EDR) Software Interface Specification (SIS) document, The Johns Hopkins University, APL, V2T, Jun. 28, 2015.
+Hawkins, S.E., III, et al., The Mercury Dual Imaging System on the MESSENGER Spacecraft, Space Sci Rev 131: 247â338, DOI 10.1007/s11214-007-9266-3, 2007.
+Denevi, B.W. et al., Final calibration and multispectral map products from the Mercury Dual Imaging System Wide-Angle Camera on MESSENGER, Lunar Planet. Sci 47, abstract #1264.
+Contact and Distribution
+Format
+Global Mosaic, Raster Data, Remote-sensing Data
+Access Constraints
+None
+Access Scope
+Use Constraints
+Please cite authors
+Edition
+1
+Edition Name
+MESS-H-MDIS-5-RDR-MD3-V1.0
+Supplemental Information
+http://messenger.jhuapl.edu/Explore/Images.html#global-mosaics
+Native Data Set Environment
+ISIS v3
+Astrogeology Theme
+Geomorphology, Image Processing, Remote Sensing
+Mission Names
+MESSENGER
+Instrument Names
+MDIS, NAC, WAC
+Online Package Link
+https://astrogeology.usgs.gov/search/map/mercury_messenger_mdis_basemap_md3_color_global_mosaic_665m
+External File Size
+760 MB
+Online File Link
+https://planetarymaps.usgs.gov/mosaic//Mercury_MESSENGER_MDIS_Basemap_MD3Color_Mosaic_Global_665m.tif
+Contact Address
+2255 N. Gemini Drive
+Contact City
+Flagstaff
+Contact State
+AZ
+Contact Postal Code
+86001
+Contact Email
+[/cdn-cgi/l/email-protection] [email protected]
+Data Status and Quality
+Time Period of Content (start)
+2011-03-29
+Time Period of Content (stop)
+2015-04-30
+Currentness Reference
+Ground condition
+Progress
+Complete
+Update Frequency
+As needed
+Process Description
+A stretch of approximately 0 to 0.2 is required to map Mercury reflectance values to an 8bit range of 1 to 255.
+Lineage
+Process Date
+2016-05-06
+Source Title
+COLOR MOSAIC
+Source Online Linkage
+http://messenger.jhuapl.edu/Explore/Images.html#global-mosaics
+Source PDS Archive
+MESSENGER
+Geospatial Information
+Target
+Mercury
+Minimum Latitude
+-90
+Maximum Latitude
+90
+Minimum Longitude
+-180
+Maximum Longitude
+180
+Direct Spatial Reference Method
+Raster
+Object Type
+Grid Cell
+Raster Row Count (lines)
+11520
+Raster Column Count (samples)
+23040
+Bit Type (8, 16, 32)
+8
+Quad Name
+Radius A
+2439400
+Radius C
+2439400
+Bands
+3
+Pixel Resolution (meters/pixel)
+665.24315271
+Scale (pixels/degree)
+64
+Map Projection Name
+Simple Cylindrical
+Latitude Type
+Planetocentric
+Longitude Direction
+Positive East
+Longitude Domain
+-180 to 180
+Project, clip, convert format (e.g. PDS, GeoTIFF, Jpeg) and download this product with Map a Planet
+FGDC: XML Metadata
+Ancillary Data
+[https://astrogeology.usgs.gov/ckan/dataset/fc37692f-e806-4632-b300-0250bb61c3de/resource/9cd8043f-1a27-457c-afd8-8c74e3826545/download/mercury_messenger_mdis_basemap_md3color_mosaic_global_665m.lbl] ISIS3 Label
+[https://astrogeology.usgs.gov/ckan/dataset/fc37692f-e806-4632-b300-0250bb61c3de/resource/0313deb7-ad46-4ad9-96fd-cd7e8886443c/download/mercury_messenger_mdis_basemap_md3color_mosaic_global_665m_pds3.lbl] PDS3 Label
+[https://astrogeology.usgs.gov/ckan/dataset/fc37692f-e806-4632-b300-0250bb61c3de/resource/dd21b9ea-cded-43f4-aa85-f5355931492d/download/thumb.png] thumb image
+[https://astrogeology.usgs.gov/ckan/dataset/fc37692f-e806-4632-b300-0250bb61c3de/resource/197d0128-896e-4f63-a2a4-2ad27e930d34/download/mercury_messenger_mdis_basemap_md3color_mosaic_global_512.jpg] browse image
+[https://astrogeology.usgs.gov/ckan/dataset/fc37692f-e806-4632-b300-0250bb61c3de/resource/b1ef80b6-a44a-4c24-8786-e5e901842657/download/mercury_messenger_mdis_basemap_md3color_mosaic_global_1024.jpg] full image
+Related Products
+[https://astrogeology.usgs.gov/search/map/mercury_messenger_mdis_global_basemap_bdr_166m]
+[https://astrogeology.usgs.gov/search/map/mercury_messenger_mdis_global_basemap_bdr_166m]
+Mercury MESSENGER MDIS Global Basemap BDR 166m
+[https://astrogeology.usgs.gov/search/map/mercury_messenger_mdis_global_color_mosaic_665m]
+[https://astrogeology.usgs.gov/search/map/mercury_messenger_mdis_global_color_mosaic_665m]
+Mercury MESSENGER MDIS Global Color Mosaic 665m
+[https://astrogeology.usgs.gov/search/map/mercury_messenger_mdis_basemap_enhanced_color_global_mosaic_665m]
+[https://astrogeology.usgs.gov/search/map/mercury_messenger_mdis_basemap_enhanced_color_global_mosaic_665m]
+Mercury MESSENGER MDIS Basemap Enhanced Color Global Mosaic 665m
+[https://astrogeology.usgs.gov/search/map/mercury_messenger_mdis_basemap_loi_global_mosaic_166m]
+[https://astrogeology.usgs.gov/search/map/mercury_messenger_mdis_basemap_loi_global_mosaic_166m]
+Mercury MESSENGER MDIS Basemap LOI Global Mosaic 166m
+[https://astrogeology.usgs.gov/search/map/mercury_geologic_map_of_the_shakespeare_quadrangle]
+[https://astrogeology.usgs.gov/search/map/mercury_geologic_map_of_the_shakespeare_quadrangle]
+Mercury Geologic Map of the Shakespeare Quadrangle
+[http://isis.astrogeology.usgs.gov]
+ISIS
+[http://planetarynames.wr.usgs.gov]
+Planetary Nomenclature
+[https://astrocloud.wr.usgs.gov/index.php]
+Map a Planet 2
+[https://www.usgs.gov/centers/astrogeo-sc/science/cartography-and-imaging-sciences-node-nasa-planetary-data-system]
+PDS Cartography and Imaging Science Node
+[https://www.usgs.gov/centers/astrogeology-science-center/science/astrolink]
+AstroLink
+Photogrammetry Guest Facility
+[https://pilot.wr.usgs.gov]
+PILOT
+[https://www.usgs.gov/centers/astrogeo-sc/science/mrctr-gis-lab]
+MRCTR GIS Lab
+[http://astrogeology.usgs.gov/search/about] About
+[https://www.usgs.gov/centers/astrogeo-sc] USGS Astrogeology Science Center
+
+####################################################################################################
+# USGS policy page: Copyrights and Credits (excerpt, lines 419 to 427 of the saved text)
+# Address: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+# Fetched: 2026-10-14 01:50 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The complete text is in data-src/textures/evidence/_shared/usgs_copyrights_and_credits.txt
+####################################################################################################
+Important information related to copyrights and credits.
+
+USGS-authored or produced data and information are considered to be in the U.S. Public Domain. While the content of most USGS websites is in the U.S. Public Domain, not all information, illustrations, or photographs on our site are. Some non-USGS photographs, images, and/or graphics that appear on USGS websites are used by the USGS with permission from the copyright holder (as required by USGS policy on the use of copyrighted material). These materials are generally marked as being copyrighted. To use these copyrighted materials, you must obtain permission from the copyright holder under copyright law.
+For any content or multimedia containing USGS personnel or staff, and regardless of the license applied, their likeness, or voice, the person may have publicity rights. For commercial use of that multimedia, permission may be required.
+When using information from USGS information products, publications, or websites, we ask that proper credit be given. Credit can be provided by including a citation such as the following:
+Credit: U.S. Geological Survey
+Department of the Interior/USGS
+U.S. Geological Survey/photo by Jane Doe (if the photographer/artist is known)
+Additional information on Acknowledging or Crediting USGS as Information Source is available.
+
+####################################################################################################
+# GeoTIFF tags of the stored original file (read from the file header by a local script)
+# Address: (local file)
+# Fetched: 2026-10-14 (local time)
+# How: The script reads the TIFF tag directory only. It does not decode pixels.
+# These tags give the longitude at the image centre.
+####################################################################################################
+## Mercury_MESSENGER_MDIS_Basemap_MD3Color_Mosaic_Global_665m.tif
+   TIFF  size 23040x11520  bits (8, 8, 8)  samples 3  photometric (2,)  compression (1,)
+   pixelScale: (665.24315271, 665.24315271, 0.0)
+   tiePoint: (0.0, 0.0, 0.0, -7663601.119167, 3831800.559583, 0.0)
+   key 1024 GTModelType = 1
+   key 1025 GTRasterType = 1
+   key 1026 GTCitation = SimpleCylindrical Mercury
+   key 2048 GeographicType = 32767
+   key 2049 GeogCitation = GCS Name = GCS_Mercury|Datum = D_Mercury|Ellipsoid = Mercury|Primem = Reference_Meridian
+   key 2050 GeogGeodeticDatum = 32767
+   key 2054 GeogAngularUnits = 9102
+   key 2056 GeogEllipsoid = 32767
+   key 2057 GeogSemiMajorAxis = 2439400.0
+   key 2058 GeogSemiMinorAxis = 2439400.0
+   key 2061 GeogPrimeMeridianLong = 0.0
+   key 3072 ProjectedCSType = 32767
+   key 3074 Projection = 32767
+   key 3075 ProjCoordTrans = 17
+   key 3076 ProjLinearUnits = 9001
+   key 3078 ProjStdParallel1 = 0.0
+   key 3082 ProjFalseEasting = 0.0
+   key 3083 ProjFalseNorthing = 0.0
+   key 3088 ProjCenterLong = 0.0
+   key 3089 ProjCenterLat = 0.0
+   GDAL nodata: 0
+   radius 2439400.0 m, lon0 0.0000, stdpar 0.0
+   left edge -180.0000 deg, centre 0.0000 deg, right edge 180.0000 deg (east positive)
+   top lat 90.0000 deg, bottom lat -90.0000 deg
+
+####################################################################################################
+# USGS Astrogeology catalogue: products for some moons and small bodies (check of this work)
+# Address: https://astrogeology.usgs.gov/search (one request for each body)
+# Fetched: 2026-10-14 04:44 (local time)
+# How: A small Python script (urllib, user agent "ApsisAssetFetch/1.0 (local build script)") asked the search of the USGS Astrogeology catalogue for each body. The text gives the products that the catalogue lists.
+# A copy is in data-src/textures/evidence/_shared/usgs_catalogue_listing_moons_and_small_bodies.txt
+####################################################################################################
+FETCHED: 2026-10-14 04:41 (local time)
+=== Deimos ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Miranda ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  miranda_voyager_image_control_network | Miranda Voyager Image Control Network | ['Control Network']
+  miranda_nomenclature | Miranda Nomenclature | ['Nomenclature']
+=== Ariel ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  ariel_voyager_image_control_network | Ariel Voyager Image Control Network | ['Control Network']
+  ariel_nomenclature | Ariel Nomenclature | ['Nomenclature']
+=== Umbriel ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  umbriel_voyager_image_control_network | Umbriel Voyager Image Control Network | ['Control Network']
+  umbriel_nomenclature | Umbriel Nomenclature | ['Nomenclature']
+=== Titania ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  titania_voyager_image_control_network | Titania Voyager Image Control Network | ['Control Network']
+  titania_nomenclature | Titania Nomenclature | ['Nomenclature']
+=== Oberon ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  oberon_voyager_image_control_network | Oberon Voyager Image Control Network | ['Control Network']
+  oberon_nomenclature | Oberon Nomenclature | ['Nomenclature']
+=== Itokawa ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Ryugu ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Psyche ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Didymos ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Dimorphos ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Arrokoth ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Eros ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  near_msi_albedo_mosaics | NEAR MSI Albedo Mosaics | ['Global Mosaic', 'Image', 'Raster Data', 'Remote-sensing Data']
+  near_msi_deblurred_images | NEAR MSI Deblurred Images | ['Image', 'Raster Data', 'Remote-sensing Data']
+=== Bennu ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 3
+  bennu_osiris_rex_ocams_global_pan_mosaic_5cm | Bennu OSIRIS-REx OCAMS Global PAN Mosaic 5cm | ['Global Mosaic']
+  bennu_osiris_rex_ocams_global_albedo_mosaic_6_25cm | Bennu OSIRIS-REx OCAMS Global ALBEDO Mosaic 6.25cm | ['Global Mosaic']
+  bennu-osiris-rex-ocams-photometric-mosaics-25cm | Bennu OSIRIS-REx OCAMS Photometric Mosaics 25cm | ['Global Mosaic', 'Grey Scale', 'Image', 'Raster Data', 'Remote-sensing Data']
+
+=== second check: request https://astrogeology.usgs.gov/search/results without a filter ===
+The server returns 1000 products of 1643. Products with one of these words in the title or in the name:
+--- Deimos: 0
+--- Miranda: 2
+  miranda_nomenclature | Miranda Nomenclature | Nomenclature
+  miranda_voyager_image_control_network | Miranda Voyager Image Control Network | Control Network
+--- Ariel: 2
+  ariel_nomenclature | Ariel Nomenclature | Nomenclature
+  ariel_voyager_image_control_network | Ariel Voyager Image Control Network | Control Network
+--- Umbriel: 2
+  umbriel_nomenclature | Umbriel Nomenclature | Nomenclature
+  umbriel_voyager_image_control_network | Umbriel Voyager Image Control Network | Control Network
+--- Titania: 2
+  titania_nomenclature | Titania Nomenclature | Nomenclature
+  titania_voyager_image_control_network | Titania Voyager Image Control Network | Control Network
+--- Oberon: 2
+  oberon_nomenclature | Oberon Nomenclature | Nomenclature
+  oberon_voyager_image_control_network | Oberon Voyager Image Control Network | Control Network
+--- Itokawa: 0
+--- Ryugu: 0
+--- Psyche: 0
+--- Didymos: 0
+--- Dimorphos: 0
+--- Arrokoth: 0
+--- Eros: 0
+--- Bennu: 1
+  bennu_osiris_rex_ocams_global_pan_mosaic_5cm | Bennu OSIRIS-REx OCAMS Global PAN Mosaic 5cm | Global Mosaic

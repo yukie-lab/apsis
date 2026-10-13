@@ -11,12 +11,21 @@ Title:             Color Maps of Iapetus – 2014 (PIA18436)
 Author or credit:  NASA/JPL-Caltech/Space Science Institute/Lunar and Planetary Institute
 Source page:       https://science.nasa.gov/photojournal/color-maps-of-iapetus-2014/
 Download address:  https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia18/pia18436/PIA18436.jpg
-Licence:           Public domain
-Licence address:   https://www.nasa.gov/nasa-brand-center/images-and-media/
+Licence:           Public domain (JPL Image Use Policy)
+Licence address:   https://www.jpl.nasa.gov/jpl-image-use-policy/
 
 Licence statement (the same text as in the manifest):
-    The source page is a NASA page. It has no copyright mark and no licence mark. Its menu links to the NASA Brand
-    & Usage Guidelines (https://www.nasa.gov/nasa-brand-center/). NASA Images and Media Usage Guidelines
+    JPL Image Use Policy (https://www.jpl.nasa.gov/jpl-image-use-policy/): 'Unless otherwise noted, images and
+    video on JPL public web sites (public sites ending with a jpl.nasa.gov address) may be used for any purpose
+    without prior permission, subject to the special cases noted below.' The user agrees 'to use a credit line in
+    connection with images' and 'that the endorsement of any product or service by Caltech, JPL or NASA must not
+    be claimed or implied.' The policy also says: 'Some image and video materials on JPL public web sites are
+    owned by organizations other than JPL or NASA.' and 'Ownership of images and video by parties other than JPL
+    and NASA is noted in the caption material with each image.' The source page of this image gives a credit line.
+    It has no copyright note and no note of another owner. This image is an image of the NASA Photojournal. The
+    old Photojournal address (https://photojournal.jpl.nasa.gov/catalog/ plus the PIA number) now sends the reader
+    to the source page on science.nasa.gov (HTTP 301). The file comes from assets.science.nasa.gov, so the NASA
+    guidelines apply too. NASA Images and Media Usage Guidelines
     (https://www.nasa.gov/nasa-brand-center/images-and-media/): 'NASA content – images, audio, video, and media
     files used in the rendition of 3-dimensional models, such as texture maps and polygon data in any format –
     generally are not subject to copyright in the United States.' and 'NASA should be acknowledged as the source
@@ -29,7 +38,9 @@ Changes:
     (quality 85).
 
 Note of the manifest:
-    Cassini mosaic in enhanced colour (infrared, green and ultraviolet), not natural colour.
+    Cassini mosaic in enhanced colour, not natural colour. The source says: 'The colors shown in these global
+    mosaics are enhanced, or broader, relative to human vision, extending into the ultraviolet and infrared
+    range.'
 
 About the parts below:
     Each part is a text that was saved on 2026-10-14 during the collection work.
@@ -959,6 +970,50 @@ What were you hoping to accomplish by visiting our website?(Required)
 Submit
 
 ×
+
+####################################################################################################
+# JPL Image Use Policy (complete text of the main part of the page)
+# Address: https://www.jpl.nasa.gov/jpl-image-use-policy/
+# Fetched: 2026-10-14 03:44 (local time)
+# How: curl with the user agent "ApsisAssetFetch/1.0 (local build script)" got HTTP 403 for this page. So the built-in browser pane of the Claude desktop app opened the page, and the text of its main part was saved. The first lines give the page title and the address.
+# A copy is in data-src/textures/evidence/_shared/jpl_image_use_policy.txt
+####################################################################################################
+Title: JPL Image Use Policy | NASA Jet Propulsion Laboratory (JPL)
+URL: https://www.jpl.nasa.gov/jpl-image-use-policy/
+Source element: <main>
+---
+JPL Image Use Policy
+
+Unless otherwise noted, images and video on JPL public web sites (public sites ending with a jpl.nasa.gov address) may be used for any purpose without prior permission, subject to the special cases noted below. Publishers who wish to have authorization may print this page and retain it for their records; JPL does not issue image permissions on an image by image basis.
+
+By electing to download the material from this web site the user agrees:
+
+that Caltech makes no representations or warranties with respect to ownership of copyrights in the images, and does not represent others who may claim to be authors or owners of copyright of any of the images, and makes no warranties as to the quality of the images. Caltech shall not be responsible for any loss or expenses resulting from the use of the images, and you release and hold Caltech harmless from all liability arising from such use.
+to use a credit line in connection with images. Unless otherwise noted in the caption information for an image, the credit line should be "Courtesy NASA/JPL-Caltech."
+that the endorsement of any product or service by Caltech, JPL or NASA must not be claimed or implied.
+Special Cases:
+Prior written approval must be obtained to use the NASA insignia logo (the blue "meatball" insignia), the NASA logotype (the red "worm" logo) and the NASA seal. These images may not be used by persons who are not NASA employees or on products (including Web pages) that are not NASA sponsored. In addition, no image may be used to explicitly or implicitly suggest endorsement by NASA, JPL or Caltech of commercial goods or services. Requests to use NASA logos may be directed to agency-brand@mail.nasa.gov.
+Prior written approval must be obtained to use the JPL logo (stylized JPL letters in red or other colors). Requests to use the JPL logo may be directed to the Institutional Communications Office, email jpl-media@jpl.nasa.gov.
+If an image includes an identifiable person, using the image for commercial purposes may infringe that person's right of privacy or publicity, and permission should be obtained from the person. NASA and JPL generally do not permit likenesses of current employees to appear on commercial products. For more information, consult the NASA and JPL points of contact listed above.
+JPL/Caltech contractors and vendors who wish to use JPL images in advertising or public relation materials should direct requests to the Institutional Communications Office, email jpl-media@jpl.nasa.gov.
+Some image and video materials on JPL public web sites are owned by organizations other than JPL or NASA. These owners have agreed to make their images and video available for journalistic, educational and personal uses, but restrictions are placed on commercial uses. To obtain permission for commercial use, contact the copyright owner listed in each image caption. Ownership of images and video by parties other than JPL and NASA is noted in the caption material with each image.
+
+####################################################################################################
+# NASA Photojournal: the old addresses redirect to science.nasa.gov (check of this work)
+# Address: https://photojournal.jpl.nasa.gov/catalog/ (one request for each PIA number)
+# Fetched: 2026-10-14 04:37 (local time)
+# How: A small Python script (urllib, user agent "ApsisAssetFetch/1.0 (local build script)") requested each old address without following the redirect. The text gives the HTTP status and the new address.
+# A copy is in data-src/textures/evidence/_shared/nasa_photojournal_redirects.txt
+####################################################################################################
+https://photojournal.jpl.nasa.gov/catalog/PIA06175 -> HTTP 301 https://science.nasa.gov/photojournal/panoramic-rings
+https://photojournal.jpl.nasa.gov/catalog/PIA07782 -> HTTP 301 https://science.nasa.gov/photojournal/cassinis-best-maps-of-jupiter-cylindrical-map
+https://photojournal.jpl.nasa.gov/catalog/PIA18434 -> HTTP 301 https://science.nasa.gov/photojournal/color-maps-of-dione-2014
+https://photojournal.jpl.nasa.gov/catalog/PIA18435 -> HTTP 301 https://science.nasa.gov/photojournal/color-maps-of-enceladus-2014
+https://photojournal.jpl.nasa.gov/catalog/PIA18436 -> HTTP 301 https://science.nasa.gov/photojournal/color-maps-of-iapetus-2014
+https://photojournal.jpl.nasa.gov/catalog/PIA18437 -> HTTP 301 https://science.nasa.gov/photojournal/color-maps-of-mimas-2014
+https://photojournal.jpl.nasa.gov/catalog/PIA18438 -> HTTP 301 https://science.nasa.gov/photojournal/color-maps-of-rhea-2014
+https://photojournal.jpl.nasa.gov/catalog/PIA18439 -> HTTP 301 https://science.nasa.gov/photojournal/color-maps-of-tethys-2014
+checked 2026-10-14 04:37 (local time)
 
 ####################################################################################################
 # NASA Images and Media Usage Guidelines (excerpt, lines 480 to 500 of the saved text)

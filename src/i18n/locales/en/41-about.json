@@ -1,0 +1,82 @@
+{
+  "text": {
+    "about": {
+      "title": "About Apsis",
+      "version": "Version {version}",
+      "intro": "Apsis is a tool for the design of trajectories in the solar system. The Explorer mode shows a flight in a 3D view. The Expert mode shows the plan, the maneuvers and all numbers. The two modes use one engine and the same data.",
+      "close": "Close this page",
+      "sections": "Sections of this page",
+      "privacy": {
+        "title": "Your data",
+        "local": "This browser does all calculations. No server does calculations for the application, and the application has no user accounts.",
+        "network": "The application gets only its files from the web server. It sends no data, and it gets no data from other computers.",
+        "tracking": "The application does not record your operations. It uses no cookies.",
+        "storage": "The storage of this browser keeps your settings, your saved missions and the bodies that you added.",
+        "links": "A link on this page opens a web page of a different owner. That owner can record that you opened the page.",
+        "clear": "Remove the stored data",
+        "clearQuestion": "Remove your settings, your saved missions and your bodies from this browser? The application then starts again and the open mission closes.",
+        "clearAction": "Remove"
+      },
+      "view": {
+        "title": "The 3D view",
+        "engine": "The engine calculates each flight path on the screen. The 3D view and the tables show the same results. The application has no stored flight paths.",
+        "sunlight": "The sunlight has the same brightness at all distances from the Sun. With the actual brightness, the outer planets are too dark on a screen.",
+        "night": "The night side of a body gets a small quantity of light that is not physical. Without this light, the night side is black.",
+        "aids": "Names, orbit lines and symbols help you to find objects. They are not physical objects.",
+        "notes": "In the 3D view, the button with the letter i shows how the application made the picture of the body in view."
+      },
+      "data": {
+        "title": "Data of the engine",
+        "intro": "The application contains all the data that it uses. The data come from the sources below.",
+        "planets": "Positions of the Sun, the planets, the Moon and the Pluto system",
+        "centers": "Center of a planet that has moons",
+        "moons": "Positions of the moons",
+        "small": "Positions of the asteroids, the comets and the dwarf planets",
+        "accuracy": "The Accuracy screen shows the measured differences from JPL Horizons and from published values. It also gives the limits of the models and the items that have no check.",
+        "open": "Open the Accuracy screen"
+      },
+      "maps": {
+        "title": "Maps of the bodies",
+        "intro": "Each map comes from the data of a space mission, of a telescope or of star catalogs. The list gives the credit, the license and the source of each file, and the changes that the project made.",
+        "noMap": "A body that is not in this list has no map. The application calculates its picture.",
+        "failed": "The application cannot read the list of the maps.",
+        "body": "Body",
+        "file": "Title of the source",
+        "credit": "Credit",
+        "license": "License",
+        "source": "Source",
+        "changes": "Changes",
+        "open": "Open the source page",
+        "stars": "Stars",
+        "role": {
+          "color": "Surface",
+          "surface": "Surface below the atmosphere",
+          "night": "Night lights",
+          "clouds": "Clouds",
+          "ring": "Rings",
+          "stars": "Star map"
+        }
+      },
+      "models": {
+        "title": "Spacecraft models",
+        "original": "The project made the spacecraft models for this application. The code makes each model and each of its surfaces. The models use no file from other software.",
+        "look": "Each model shows approximately the shape of one type of spacecraft. It is not an accurate copy of an actual spacecraft. The surfaces show materials only: no symbols and no text.",
+        "apsis": "The spacecraft of your missions is a design of the project. It is not an actual spacecraft.",
+        "attitude": "The 3D view shows an example attitude. The trajectory calculation does not use the attitude or the shape of the spacecraft."
+      },
+      "software": {
+        "title": "Software",
+        "intro": "The files of the application contain these libraries.",
+        "library": "Library",
+        "version": "Version",
+        "license": "License",
+        "texts": "Show the license texts",
+        "fonts": "The application uses the fonts of your computer. It contains no font files. The project made the logo and the icons for this application."
+      },
+      "names": {
+        "title": "Names",
+        "text": "Apsis is an independent project. It has no relation with a space agency or with the owner of a different product. The names of missions, of spacecraft and of products only tell you which item the text is about."
+      }
+    }
+  }
+}

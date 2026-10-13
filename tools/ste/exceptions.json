@@ -1,0 +1,9 @@
+{
+  "about": [
+    "Findings of tools/ste/ste-lint.mjs that stay. Each exception must have a written reason.",
+    "file: the file of the text. key: the key path of a locale text (for a glossary entry: glossary.<id>.term or glossary.<id>.definition). text: for a document, a part of the text of the paragraph.",
+    "rule: the rule of the finding. word: optional, the word or the words of the finding.",
+    "The tool counts the exceptions. It stops with an error if an exception agrees with no finding (a stale exception)."
+  ],
+  "exceptions": []
+}

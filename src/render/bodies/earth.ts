@@ -14,16 +14,20 @@ import { FRAG_HEAD, FRAG_TAIL, GLSL_ATMOSPHERE, GLSL_LIGHT, GLSL_MAP, VERT_UNIT_
 import { findTexture, longitudeOffset } from './manifest';
 import { NIGHT_FILL, latitudeFactor } from './surface';
 
-/** One turn of the cloud layer relative to the ground, in seconds of display time. */
+/**
+ * One turn of the cloud layer relative to the ground, in seconds of display time.
+ * The layer turns to the east as one piece: this is the direction of the weather in the middle latitudes.
+ * The real clouds of the tropics move to the west. The drift is for the look only.
+ */
 const CLOUD_TURN_SECONDS = 5400;
 /** Altitude of the cloud layer for its shadow, as a part of the radius. It is larger than the real value so that the shadow is visible from orbit. */
 const CLOUD_SHADOW_REACH = 0.0035;
 /** Darkest cloud shadow (part of the direct sunlight that a thick cloud takes away). */
 const CLOUD_SHADOW_DEPTH = 0.55;
-/** Slope roughness of the sea (GGX alpha). A wind of about 6 m/s gives this value in the model of Cox and Munk (approximate). */
-const SEA_ROUGHNESS = 0.2;
-/** Factor of the glint. Below 1: clouds and haze that the map does not show make the real glint weaker. */
-const GLINT_STRENGTH = 0.45;
+/** Slope roughness of the sea (GGX alpha). A light wind gives about this value in the model of Cox and Munk (approximate). */
+const SEA_ROUGHNESS = 0.16;
+/** Factor of the glint. 1 is the value of the reflection model. */
+const GLINT_STRENGTH = 1.0;
 /** Dark level of the night map (moonlit land and ice, linear red, green, blue). The shader removes it so that only the lights remain. */
 const NIGHT_FLOOR: [number, number, number] = [0.026, 0.036, 0.094];
 const NIGHT_GAIN = 2.2;
@@ -39,7 +43,7 @@ uniform sampler2D uClouds;
 uniform vec4 uMapParams;      // x: u offset of the day map, y: latitude factor, z: u offset of the night map, w: u offset of the cloud map
 uniform vec3 uReady;          // 1 = the day map, the night map, the cloud map is ready
 uniform vec3 uMeanColor;
-uniform vec4 uCloud;          // x: drift (turns), y: reach of the shadow, z: depth of the shadow
+uniform vec4 uCloud;          // x: drift of the cloud map (turns, negative: the clouds move to the east), y: reach of the shadow, z: depth of the shadow
 uniform vec4 uSea;            // x: roughness, y: glint factor, z: light on the night side
 uniform vec4 uNightLights;    // xyz: dark level of the night map, w: gain
 uniform vec3 uRadii;
@@ -100,7 +104,8 @@ void main() {
   ground += water * shade * direct * glint;
 
   vec3 cloudColor = vec3(mix(0.74, 0.97, cloud)) * (direct * softCos(mu0, 0.03) + sky);
-  vec3 sun = uSunColor * casterShadow(pos, uSunDir);
+  float shadow = casterShadow(pos, uSunDir);
+  vec3 sun = uSunColor * shadow;
   vec3 color = mix(ground, cloudColor, cloud) * sun;
 
   // Lights of the cities, on the dark side only. Clouds hide a part of them.
@@ -115,6 +120,9 @@ void main() {
   vec3 trans;
   atmScatter(ro, toGround / tGround, tGround, sunW, -dot(v, uSunDir), scatter, trans);
   color = color * trans + scatter * sun;
+  // The fill light of the caller: the ground and the clouds show their day colours, with the loss of light of a point
+  // with the Sun and the camera above it. The lights of the cities stay: the fill light is added to them.
+  color += mix(day, vec3(mix(0.74, 0.97, cloud)), cloud) * atmTwoWay() * uSunColor * nightFill(shadow * softCos(mu0, 0.03));
   gl_FragColor = vec4(color, 1.0);
   ${FRAG_TAIL}
 }
@@ -152,10 +160,11 @@ export function buildEarth(ctx: BuildContext, notes: string[]): Built {
     uSunColor: ctx.frame.uSunColor,
     uCasters: ctx.frame.uCasters,
     uSunAngR: ctx.frame.uSunAngR,
+    uNightFill: ctx.frame.uNightFill,
     ...atmosphereUniforms(ATMOSPHERE_EARTH, ctx.radiusKm, ctx.polarRadiusKm),
   };
   const high = ctx.quality === 'high';
-  const defines: Record<string, number> = { ATM_SAMPLES: high ? 6 : 3 };
+  const defines: Record<string, number> = { ATM_SAMPLES: high ? 6 : 3, MAP_ANISOTROPY: ctx.maps.anisotropy };
   if (high && clouds) defines.CLOUD_SHADOW = 1;
   const material = new THREE.ShaderMaterial({
     ...shaderBase(`${ctx.id}/surface`),
@@ -167,12 +176,18 @@ export function buildEarth(ctx: BuildContext, notes: string[]): Built {
   const globe = new Globe(`${ctx.id}/surface`, material, radii, ctx.quality);
   ctx.root.add(globe.mesh);
 
-  const fail = (what: string): void => {
-    notes.push(`${what}-load-failed`);
+  // The maps that the body shows, or will show when they are ready. A file that does not load leaves the list.
+  const shown = { day: day !== null, night: night !== null, clouds: clouds !== null };
+  // A file that did not load: one note says so, and one note says what the body does not show.
+  const fail = (what: string, missing: string): void => {
+    notes.push(`${what}-load-failed`, missing);
   };
   if (day) {
     ctx.maps.load(day, { srgb: true, wrapU: true }, (t) => {
-      if (!t) return fail('map');
+      if (!t) {
+        shown.day = false;
+        return fail('map', 'surface-plain');
+      }
       uniforms.uDay.value = t;
       ready.x = 1;
     });
@@ -181,7 +196,10 @@ export function buildEarth(ctx: BuildContext, notes: string[]): Built {
   }
   if (night) {
     ctx.maps.load(night, { srgb: true, wrapU: true }, (t) => {
-      if (!t) return fail('night-map');
+      if (!t) {
+        shown.night = false;
+        return fail('night-map', 'no-night-lights');
+      }
       uniforms.uNight.value = t;
       ready.y = 1;
     });
@@ -190,7 +208,10 @@ export function buildEarth(ctx: BuildContext, notes: string[]): Built {
   }
   if (clouds) {
     ctx.maps.load(clouds, { srgb: false, wrapU: true }, (t) => {
-      if (!t) return fail('cloud-map');
+      if (!t) {
+        shown.clouds = false;
+        return fail('cloud-map', 'no-clouds');
+      }
       uniforms.uClouds.value = t;
       ready.z = 1;
     });
@@ -204,7 +225,8 @@ export function buildEarth(ctx: BuildContext, notes: string[]): Built {
 
   const drift = {
     update(): void {
-      cloud.x = (ctx.frame.uTime.value / CLOUD_TURN_SECONDS) % 1;
+      // The shader adds this value to the map position: a negative value moves the clouds to the east.
+      cloud.x = -((ctx.frame.uTime.value / CLOUD_TURN_SECONDS) % 1);
     },
     triangles: (): number => 0,
     trianglesMax: (): number => 0,
@@ -212,11 +234,17 @@ export function buildEarth(ctx: BuildContext, notes: string[]): Built {
   };
   return {
     parts: [globe, shell, drift],
-    provenance: day ? 'mixed' : 'procedural',
+    // The air and the glint are always parts of the code, so the Earth is 'mixed' while it shows a real map.
+    // The values follow the maps that did load.
+    get provenance(): Built['provenance'] {
+      return shown.day || shown.night || shown.clouds ? 'mixed' : 'procedural';
+    },
     notes,
     extentKm: atmosphereTop(ATMOSPHERE_EARTH, ctx.radiusKm),
     variant: 'default',
     codeTextures: 0,
-    samplesPerPixel: (day ? 1 : 0) + (night ? 1 : 0) + (clouds ? (high ? 2 : 1) : 0),
+    get samplesPerPixel(): number {
+      return (shown.day ? 1 : 0) + (shown.night ? 1 : 0) + (shown.clouds ? (high ? 2 : 1) : 0);
+    },
   };
 }

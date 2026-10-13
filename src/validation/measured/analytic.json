@@ -5,7 +5,7 @@
   "value": 0.00000144418876857344,
   "unit": "m/s",
   "limit": 0.05,
-  "truth": "Analytic Hohmann transfer between circular coplanar orbits (1 au to 1.523679 au)",
+  "truth": "Analytic Hohmann transfer between circular orbits in one plane (1 au to 1.523679 au)",
   "detail": {
    "dv1AnalyticKmS": 2.94468925638263,
    "dv2AnalyticKmS": 2.6488952292183217,
@@ -29,7 +29,7 @@
   "value": 8.100968939362705,
   "unit": "order",
   "limit": 7.5,
-  "truth": "Analytic two-body solution; error ratio for step h and h/2",
+  "truth": "Analytic two-body solution. Error ratio for the steps h and h/2.",
   "detail": {
    "errorKmCoarse": 0.21318522164363696,
    "errorKmFine": 0.000776466012788379

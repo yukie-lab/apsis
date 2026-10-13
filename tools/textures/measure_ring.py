@@ -17,9 +17,9 @@ The script does these steps:
      It fits x = x0 - k (y - y0)^2 to each edge. The point (x0, y0) lies on the major axis.
   2. It fits a straight line through these ten points. This line is the major axis.
   3. It makes the brightness profile along the major axis (mean of 17 rows).
-  4. It measures the position of known ring features on this profile.
-  5. It fits the radius scale with three sharp features and prints the difference for the others.
-     The radius of each feature comes from the NASA NSSDC "Saturnian Rings Fact Sheet".
+  4. It measures the position of eight ring edges on this profile.
+  5. It fits the radius scale with five sharp edges and prints the difference for the others.
+     The radius of each edge comes from the NASA NSSDC "Saturnian Rings Fact Sheet".
   6. It prints the block `axis` and `calibration` for the entry `saturn_ring` of sources.json.
 
 The script changes no file except one temporary copy of the image in .cache/textures/.
@@ -50,19 +50,22 @@ EDGES = [
     ("A ring, outer edge", 5710, 90, "fall"),
 ]
 
-# Features for step 4 and 5: name, kind, parameters, radius in km (NSSDC fact sheet), use in fit.
-#   edge:    (x guess, level, direction)   position where the profile crosses the level
-#   gap:     (first x, last x)             middle of the two outer places with half of the depth
-#   ringlet: (first x, last x)             centre of brightness above the darkest value
+# Features for step 4 and 5: name, x guess, brightness level of the edge, direction,
+# radius in km, use in the fit.
+# The radius comes from the NASA NSSDC "Saturnian Rings Fact Sheet"
+# (https://nssdc.gsfc.nasa.gov/planetary/factsheet/satringfact.html). The fact sheet says:
+# "Rings, ringlets and gaps of width less than 1000 km are listed by inner edge radius."
+# So the position of a ringlet or of a gap is the position of its inner edge.
+# The fit uses the edges that are sharp in the image and that have one clear radius.
 FEATURES = [
-    ("Titan ringlet (centre)", "ringlet", (288, 296), 77871, True),
-    ("Maxwell gap (centre)", "gap", (1150, 1195), 87491, False),
-    ("B ring inner edge", "edge", (1598, 143, "rise"), 91975, False),
-    ("B ring outer edge", "edge", (3938, 80, "fall"), 117507, True),
-    ("A ring inner edge", "edge", (4379, 149, "rise"), 122340, False),
-    ("Encke gap (inner edge)", "edge", (5402, 65, "fall"), 133410, False),
-    ("Keeler gap (centre)", "gap", (5676, 5694), 136487, False),
-    ("A ring outer edge", "edge", (5711, 90, "fall"), 136780, True),
+    ("Titan ringlet, inner edge", 292, 28, "rise", 77871, True),
+    ("Maxwell ringlet, inner edge", 1170, 39, "rise", 87491, False),   # "Maxwell gap/ringlet": not clear
+    ("B ring, inner edge", 1597, 143, "rise", 91975, False),            # gradual in the image
+    ("B ring, outer edge", 3938, 80, "fall", 117507, True),
+    ("A ring, inner edge", 4379, 149, "rise", 122340, False),           # only a small brightness step
+    ("Encke gap, inner edge", 5402, 65, "fall", 133410, True),
+    ("Keeler gap, inner edge", 5684, 85, "fall", 136487, True),
+    ("A ring, outer edge", 5711, 90, "fall", 136780, True),
 ]
 
 
@@ -128,34 +131,6 @@ def track_edge(px, w, h, x_start, level, fall):
     return a + b * t_apex + c * t_apex * t_apex, y_max + t_apex, -c, len(sel)
 
 
-def measure(kind, par, values):
-    if kind == "edge":
-        return crossing(values, par[0], par[1], par[2] == "fall")
-    xa, xb = par
-    part = values[xa:xb + 1]
-    if kind == "ringlet":
-        base = min(part)
-        weight = [v - base for v in part]
-        return xa + sum(i * wgt for i, wgt in enumerate(weight)) / sum(weight)
-    # gap: half of the depth below the lower one of the two ends.
-    # The search starts at the two ends of the range, so a ringlet inside the gap has no effect.
-    low = min(part)
-    level = (low + min(part[0], part[-1])) / 2.0
-    left = None
-    for i in range(1, len(part)):
-        if part[i - 1] >= level > part[i]:
-            left = i - 1 + (part[i - 1] - level) / (part[i - 1] - part[i])
-            break
-    right = None
-    for i in range(len(part) - 2, -1, -1):
-        if part[i] < level <= part[i + 1]:
-            right = i + (level - part[i]) / (part[i + 1] - part[i])
-            break
-    if left is None or right is None:
-        bt.fail("the gap between x = %d and x = %d has no clear edges" % (xa, xb))
-    return xa + (left + right) / 2.0
-
-
 def main():
     src = Path(sys.argv[1]) if len(sys.argv) > 1 else bt.ORIGINAL / "PIA06175.tif"
     w, h, px = bt.load_pixels(src, "saturn_ring_measure")
@@ -180,8 +155,8 @@ def main():
 
     print("step 4: features on the axis profile")
     cal = []
-    for name, kind, par, radius, fit in FEATURES:
-        x = measure(kind, par, grey)
+    for name, x_guess, level, direction, radius, fit in FEATURES:
+        x = crossing(grey, x_guess, level, direction == "fall")
         if x is None:
             bt.fail("feature %s: not found" % name)
         item = {"feature": name, "x": round(x, 2), "radiusKm": radius}

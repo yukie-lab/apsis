@@ -40,7 +40,7 @@
         "dsmTime": "Maneuver time (part of the leg)",
         "legNote": "A deep-space maneuver is one engine burn between two encounters. When you add one, the optimizer finds its direction and its magnitude.",
         "soiTime": "The dates are periapsis dates (time correction for the sphere of influence)",
-        "poweredNote": "One or more flybys need an engine burn: the body cannot give the necessary turn above the minimum altitude, or the speeds before and after the flyby are different. Change the dates or use the optimizer.",
+        "poweredNote": "An engine burn is necessary for one or more flybys: the body cannot give the necessary turn above the minimum altitude, or the speeds before and after the flyby are different. Change the dates or use the optimizer.",
         "moons": "Flight calculation: large moons are separate masses",
         "optimizeDsm": "Flight calculation: optimize the flyby before each deep-space maneuver (slower)",
         "calculate": "Calculate the flight",

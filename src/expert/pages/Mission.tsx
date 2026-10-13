@@ -1,5 +1,5 @@
 /** Mission screen: open or make a mission; the summary of the mission in work, its flight and its comparison with the actual mission. */
-import { useMemo, useRef } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { useApp, missionFileText } from '../../app/store';
 import { clock, useClock } from '../../app/clock';
 import { system } from '../../app/system';
@@ -12,7 +12,10 @@ import { norm } from '../../engine/vec';
 import { tdb, DAY } from '../../engine/time';
 import { deltaV, speed, distance, duration, fixed, mass, sig, type Quantity } from '../../app/format';
 import { Val, Src } from '../../ui/Val';
-import { Field, NumberInput, Panel, Select, downloadText } from '../../ui/controls';
+import { Field, NumberInput, Panel, Select, Seg, downloadText } from '../../ui/controls';
+import { View3D, SceneNote, SceneViews } from '../../ui/View3D';
+import { Transport, eventMarks } from '../../ui/Transport';
+import type { Scene3D } from '../../render/scene/Scene3D';
 import { confirm } from '../../ui/Confirm';
 import { PageHead, Dt } from '../common';
 import { BudgetTable, simplePlan } from '../planParts';
@@ -378,14 +381,41 @@ export default function Mission() {
   );
 }
 
-/** The picture of the mission: the top view of the plan (the 3D view of the flight is in the scene module). */
-function MissionView() {
+/** The top view of the plan (two-body arcs) or of the flight. */
+function TopView() {
   const mission = useApp((s) => s.mission);
   const result = useApp((s) => s.planResult);
   const { et } = useClock(250);
   const trajectory = useApp((s) => s.trajectory);
   const reference = useApp((s) => s.reference);
-  if (mission?.plan && result) return <Panel title={t('page.transfer.plot')}><OrbitPlot plan={mission.plan} result={result} markEt={et} /></Panel>;
-  if (trajectory) return <Panel title={t('page.propagation.plot')}><FlightPlot trajectory={trajectory} markEt={et} reference={reference} /></Panel>;
+  if (mission?.plan && result) return <OrbitPlot plan={mission.plan} result={result} markEt={et} />;
+  if (trajectory) return <FlightPlot trajectory={trajectory} markEt={et} reference={reference} />;
   return null;
+}
+
+/** The picture of the mission: the 3D view of the flight (the same scene as in the Explorer mode), or the top view. */
+function MissionView() {
+  const mission = useApp((s) => s.mission);
+  const result = useApp((s) => s.planResult);
+  const trajectory = useApp((s) => s.trajectory);
+  const [mode, setMode] = useState<'3d' | 'top'>('3d');
+  const [scene, setScene] = useState<Scene3D | null>(null);
+  const watch = useMemo(() => (mission?.plan ? [...new Set(mission.plan.nodes.map((n) => n.body))] : []), [mission?.plan]);
+  const craft = useMemo(() => ({ kind: mission?.spacecraft.kind ?? 'apsis', name: mission?.spacecraft.name || mission?.name || '' }), [mission?.spacecraft.kind, mission?.spacecraft.name, mission?.name]);
+  const marks = useMemo(() => (trajectory ? eventMarks(trajectory.events) : []), [trajectory]);
+  if (!mission || (!trajectory && !(mission.plan && result))) return null;
+  if (!trajectory) return <Panel title={t('page.transfer.plot')}><TopView /></Panel>;
+  return (
+    <Panel title={t('scene.title')} actions={<Seg value={mode} onChange={setMode} label={t('scene.mode')} options={[{ value: '3d', label: t('scene.mode3d') }, { value: 'top', label: t('scene.modeTop') }]} />}>
+      {mode === 'top' ? <TopView /> : (
+        <>
+          <SceneViews scene={scene} flight />
+          <View3D className="inpanel" trajectory={trajectory} craft={craft} watch={watch} onScene={(s) => { setScene(s); s?.viewSystem({ immediate: true, fit: true }); }}>
+            <SceneNote scene={scene} flight />
+          </View3D>
+          <Transport et0={trajectory.et0} et1={trajectory.et1} marks={marks} />
+        </>
+      )}
+    </Panel>
+  );
 }

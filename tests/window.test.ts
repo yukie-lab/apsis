@@ -4,7 +4,7 @@
  */
 import { describe, it, expect, afterAll } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { solarSystem, truth, Recorder } from './util';
+import { solarSystem, truth, Recorder, CRAFT } from './util';
 import { jdTdbToEt, tdb, utc, formatEt, DAY, parseCalendar, julianDayNumber } from '../src/engine/time';
 import { norm, type Vec3 } from '../src/engine/vec';
 import { BODIES } from '../src/engine/bodies';
@@ -36,7 +36,7 @@ describe('launch energy of real missions: Lambert arc with the real dates agains
       const c3Truth = norm(s.slice(3, 6) as Vec3) ** 2 - (2 * BODIES.EARTH.gm) / norm(s.slice(0, 3) as Vec3);
       const err = (100 * Math.abs(res.departure.c3 - c3Truth)) / c3Truth;
       // Limit 4 %: the patched-conic model has an error of 1 % to 3 % in the speed at infinity; C3 is its square.
-      rec.add({ id: 'window.c3.' + name, group: 'window', value: err, unit: '%', limit: 4, truth: `JPL Horizons trajectory of ${name}: geocentric energy after launch`, detail: { c3: res.departure.c3, truthC3: c3Truth, arrivalBody: P[e0.planet], declinationOfLaunchAsymptoteDeg: (res.departure.dla * 180) / Math.PI } });
+      rec.add({ id: 'window.c3.' + name, group: 'window', value: err, unit: '%', limit: 4, truth: `JPL Horizons trajectory of ${CRAFT[name]}: launch energy from the first state relative to the Earth`, detail: { c3: res.departure.c3, truthC3: c3Truth, arrivalBody: P[e0.planet], declinationOfLaunchAsymptoteDeg: (res.departure.dla * 180) / Math.PI } });
       expect(err).toBeLessThan(4);
     });
   }
@@ -67,7 +67,7 @@ describe('Mars 2020 launch period (JPL press kit)', () => {
     }
     // Value: distance (days) of the optimum from the published period. 0 = the optimum is in the period.
     const outside = Math.max(0, first - best.jdn, best.jdn - last);
-    rec.add({ id: 'window.mars2020.period', group: 'window', value: outside, unit: 'd', limit: 0.5, truth: `JPL Mars 2020 launch press kit: launch period ${pub.launchPeriod[0]} to ${pub.launchPeriod[1]}, landing ${pub.landing}`, detail: { optimumLaunchDayAfterFirstDay: best.jdn - first, minimumC3: best.c3, c3MinInPeriod: c3Min, c3MaxInPeriod: c3Max } });
+    rec.add({ id: 'window.mars2020.period', group: 'window', value: outside, unit: 'd', limit: 0.5, truth: `JPL document "Mars 2020 Perseverance Launch Press Kit": launch period from ${pub.launchPeriod[0]} to ${pub.launchPeriod[1]}, landing on ${pub.landing}`, detail: { optimumLaunchDayAfterFirstDay: best.jdn - first, minimumC3: best.c3, c3MinInPeriod: c3Min, c3MaxInPeriod: c3Max } });
     expect(outside).toBe(0);
     // The launch energy changes slowly in the published period and increases quickly out of it.
     expect(c3Max).toBeLessThan(1.5 * best.c3);
@@ -85,7 +85,7 @@ describe('Mars 2020 launch period (JPL press kit)', () => {
     const real = evaluatePlan(sys, newPlan(['EARTH', 'MARS'], [tdb(START.mars2020), arrival]));
     expect(pc.bestC3).not.toBeNull();
     const ratio = real.departure.c3 / pc.bestC3!.c3;
-    rec.add({ id: 'window.mars2020.porkchop', group: 'window', value: ratio, unit: 'ratio', limit: 1.15, truth: 'Real launch and arrival dates of Mars 2020 (NSSDCA Master Catalog)', detail: { c3AtRealDates: real.departure.c3, minimumC3OfTheMap: pc.bestC3!.c3, minimumDeparture: formatEt(pc.bestC3!.dep, 'UTC', 'day'), minimumArrival: formatEt(pc.bestC3!.arr, 'UTC', 'day') } });
+    rec.add({ id: 'window.mars2020.porkchop', group: 'window', value: ratio, unit: 'ratio', limit: 1.15, truth: 'Actual launch date and arrival date of Mars 2020 (NSSDCA Master Catalog)', detail: { c3AtRealDates: real.departure.c3, minimumC3OfTheMap: pc.bestC3!.c3, minimumDeparture: formatEt(pc.bestC3!.dep, 'UTC', 'day'), minimumArrival: formatEt(pc.bestC3!.arr, 'UTC', 'day') } });
     expect(ratio).toBeLessThan(1.15);
     expect(ratio).toBeGreaterThanOrEqual(1);
   });

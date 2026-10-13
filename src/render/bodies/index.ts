@@ -22,13 +22,13 @@ import { DECK_TITAN, DECK_VENUS, buildDeck } from './deck';
 import { buildEarth } from './earth';
 import { buildGiant } from './giant';
 import { MAX_CASTERS } from './glsl';
-import { findTexture } from './manifest';
+import { findTexture, latitudeKind, notesFromEntry } from './manifest';
 import { SHAPES, genericShape } from './shapes';
-import { ROCK_LOOKS, ROCK_LOOK_GENERIC, buildRockyGlobe, buildShaped } from './small';
+import { ROCK_LOOKS, ROCK_LOOK_COMET, ROCK_LOOK_GENERIC, ROCK_LOOK_GLOBE, buildRockyGlobe, buildShaped, useRockSurface } from './small';
 import { buildSun } from './sun';
 import { buildMapped } from './surface';
 import type { MappedLook } from './surface';
-import type { BodyOptions, BodyStats, BodyUpdate, BodyVariant, BodyVisual } from './types';
+import type { BodyOptions, BodyStats, BodyUpdate, BodyVariant, BodyVisual, TextureEntry } from './types';
 
 export type {
   BodyOptions,
@@ -60,27 +60,36 @@ export const NOTE_CODES = [
   'rings-procedural', // the ring profile is made by code from published ring limits
   'shape-approximate', // the shape is an approximation of the shape class, not a measured model
   'ring-width-exaggerated', // narrow rings are drawn wider than they are
+  'ring-brightness-exaggerated', // dark rings are drawn brighter than they are, so that they show
   'nucleus-only', // a comet shows its nucleus only, with no coma and no tail
   'surface-unknown', // no spacecraft has seen this surface
   'body-unknown', // the id is not in the body table
   // Real maps.
-  'rings-map', // the ring profile is a file of the manifest
+  'rings-map', // the colour and the brightness of the rings come from a file of the manifest (a photograph)
+  'ring-opacity-modelled', // the file of the rings has no opacity: the code derives it from the brightness and from published limits
+  'rings-partly-procedural', // ring parts outside of the file are made by code (the F ring of Saturn)
   'no-data', // a large part of the map has no data (flat dark grey)
   'no-data-small', // a small part of the map has no data
   'no-data-north', // the area with no data is mostly in the north
   'no-data-south', // the area with no data is mostly in the south
+  'map-edge-repaired', // the file had one or two dark pixel columns at its left or right edge (a line along a meridian): the loader replaced them by the column beside them
+  'map-pole-repaired', // the file had one or two dark pixel rows at its top or bottom edge (a dot at a pole): the loader replaced them by the row beside them
   'colour-enhanced', // the colours of the map are stronger than the eye sees
+  'colour-near-natural', // the map comes from filters for visible light, but it is not an exact copy of what the eye sees
+  'map-gaps-filled', // the build of the map has filled areas with no image data with a mean colour (not an observation)
+  'colour-muted', // the module shows an enhanced colour map with less colour, nearer to what the eye sees
   'colour-synthetic', // the colours of the map are not measured colours
   'monochrome', // the map is grey
   'near-infrared', // the map shows near-infrared light
   'radar', // the map is a radar image
   // Things that are missing.
-  'surface-plain', // the Earth has no day map: plain colour
-  'no-night-lights', // the Earth has no night map
-  'no-clouds', // the Earth has no cloud map
-  'variant-unavailable', // the manifest has no map for the variant 'surface'
+  'surface-plain', // the Earth shows no day map: plain colour
+  'no-night-lights', // the Earth shows no night map
+  'no-clouds', // the Earth shows no cloud map
+  'variant-unavailable', // the body shows its default look: the map for the variant 'surface' is not in the manifest, or it did not load
   'ring-map-without-radii', // the ring file of the manifest has no radii, so the code made the ring profile
-  'map-load-failed', // a file did not load: the body shows its plain colour
+  'ring-map-unused', // the module has no opacity model for a ring file of this planet, so the code made the ring profile
+  'map-load-failed', // a file did not load: the body shows a surface of the code (the Earth: a plain colour)
   'night-map-load-failed',
   'cloud-map-load-failed',
   'ring-map-load-failed',
@@ -95,7 +104,13 @@ const GIANTS = new Set(['JUPITER', 'SATURN', 'URANUS', 'NEPTUNE']);
  */
 const ROUND_BODY_MIN_RADIUS_KM = 200;
 
-const DEFAULT_LOOK: MappedLook = { seeliger: 0.5, gain: 1, latitude: 'centric' };
+const DEFAULT_LOOK: MappedLook = { seeliger: 0.5, gain: 1, saturation: 1, latitude: 'centric' };
+
+/**
+ * Colour saturation for a map that the manifest calls "enhanced colour". Such a map shows strong green, yellow
+ * and purple areas that the eye does not see. The lower saturation keeps a trace of them. Set by eye.
+ */
+const ENHANCED_COLOUR_SATURATION = 0.3;
 
 /**
  * Looks of the bodies with a real map. `seeliger` is high for dark dusty ground and low for bright ice.
@@ -106,7 +121,7 @@ const MAPPED_LOOKS: Record<string, Partial<MappedLook>> = {
   MERCURY: { seeliger: 0.75, gain: 1.25 },
   MOON: { seeliger: 0.8, gain: 0.85 },
   MARS: { seeliger: 0.35, gain: 1.5, atmosphere: ATMOSPHERE_MARS, atmosphereNote: 'atmosphere-procedural' },
-  PLUTO: { seeliger: 0.4, gain: 1.6, atmosphere: ATMOSPHERE_PLUTO, atmosphereNote: 'haze-procedural' },
+  PLUTO: { seeliger: 0.4, gain: 1.45, atmosphere: ATMOSPHERE_PLUTO, atmosphereNote: 'haze-procedural' },
   CHARON: { seeliger: 0.5, gain: 1.2 },
   CERES: { seeliger: 0.75, gain: 0.8 },
   VESTA: { seeliger: 0.6, gain: 1.6 },
@@ -128,8 +143,10 @@ const MAPPED_LOOKS: Record<string, Partial<MappedLook>> = {
   TRITON: { seeliger: 0.25, gain: 1.5 },
 };
 
-function mappedLook(id: string): MappedLook {
-  return { ...DEFAULT_LOOK, ...MAPPED_LOOKS[id] };
+function mappedLook(id: string, entry: TextureEntry): MappedLook {
+  const look = { ...DEFAULT_LOOK, ...MAPPED_LOOKS[id], latitude: latitudeKind(entry) };
+  if (notesFromEntry(entry).includes('colour-enhanced')) look.saturation = ENHANCED_COLOUR_SATURATION;
+  return look;
 }
 
 function build(ctx: BuildContext, body: Body | undefined, notes: string[]): Built {
@@ -143,22 +160,35 @@ function build(ctx: BuildContext, body: Body | undefined, notes: string[]): Buil
   if (id === 'EARTH') return buildEarth(ctx, notes);
 
   if (id === 'VENUS' || id === 'TITAN') {
+    const deck = (): Built =>
+      id === 'VENUS'
+        ? buildDeck(ctx, { ...DECK_VENUS, atmosphere: ATMOSPHERE_VENUS }, notes, 'clouds-procedural')
+        : buildDeck(ctx, { ...DECK_TITAN, atmosphere: ATMOSPHERE_TITAN }, notes, 'haze-procedural');
     if (ctx.variant === 'surface') {
       const surface = findTexture(manifest, id, 'surface');
       if (surface) {
         const look: MappedLook =
           id === 'VENUS'
-            ? { seeliger: 0.3, gain: 1.0, latitude: 'centric' }
-            : { seeliger: 0.3, gain: 1.3, latitude: 'centric', atmosphere: ATMOSPHERE_TITAN_THIN, atmosphereNote: 'haze-procedural' };
-        const built = buildMapped(ctx, surface, look, notes);
+            ? { seeliger: 0.3, gain: 1.0, saturation: 1, latitude: 'centric' }
+            : { seeliger: 0.3, gain: 1.3, saturation: 1, latitude: 'centric', atmosphere: ATMOSPHERE_TITAN_THIN, atmosphereNote: 'haze-procedural' };
+        const built = buildMapped(ctx, surface, look, notes, () => {
+          // The map of the variant did not load: the body changes to its default look.
+          for (const part of built.parts) part.dispose();
+          ctx.root.clear();
+          notes.length = 0;
+          notes.push('map-load-failed', 'variant-unavailable');
+          const fallback = deck();
+          built.parts.length = 0;
+          built.parts.push(...fallback.parts);
+          built.extentKm = fallback.extentKm;
+          built.variant = 'default';
+        });
         built.variant = 'surface';
         return built;
       }
       notes.push('variant-unavailable');
     }
-    return id === 'VENUS'
-      ? buildDeck(ctx, { ...DECK_VENUS, atmosphere: ATMOSPHERE_VENUS }, notes, 'clouds-procedural')
-      : buildDeck(ctx, { ...DECK_TITAN, atmosphere: ATMOSPHERE_TITAN }, notes, 'haze-procedural');
+    return deck();
   }
 
   if (GIANTS.has(id)) return buildGiant(ctx, body.rings, notes);
@@ -168,14 +198,20 @@ function build(ctx: BuildContext, body: Body | undefined, notes: string[]): Buil
   if (shape) {
     if (body.kind === 'comet') notes.push('nucleus-only');
     if (id === 'PSYCHE') notes.push('surface-unknown');
-    return buildShaped(ctx, shape, ROCK_LOOKS[id] ?? ROCK_LOOK_GENERIC, entry, notes);
+    return buildShaped(ctx, shape, ROCK_LOOKS[id] ?? (body.kind === 'comet' ? ROCK_LOOK_COMET : ROCK_LOOK_GENERIC), entry, notes);
   }
-  if (entry) return buildMapped(ctx, entry, mappedLook(id), notes);
+  if (entry) {
+    // A map that does not load: the sphere gets the cratered surface of the code.
+    return buildMapped(ctx, entry, mappedLook(id, entry), notes, (globe) => {
+      useRockSurface(ctx, globe, ROCK_LOOK_GLOBE);
+      notes.push('surface-procedural');
+    });
+  }
 
   // A body of the table with no map and no shape.
-  if (body.radius >= ROUND_BODY_MIN_RADIUS_KM) return buildRockyGlobe(ctx, ROCK_LOOK_GENERIC, notes);
+  if (body.radius >= ROUND_BODY_MIN_RADIUS_KM) return buildRockyGlobe(ctx, ROCK_LOOK_GLOBE, notes);
   if (body.kind === 'comet') notes.push('nucleus-only');
-  return buildShaped(ctx, genericShape(id), ROCK_LOOK_GENERIC, null, notes);
+  return buildShaped(ctx, genericShape(id), body.kind === 'comet' ? ROCK_LOOK_COMET : ROCK_LOOK_GENERIC, null, notes);
 }
 
 /** Inverse of the upper 3 x 3 part of a 4 x 4 matrix (three.js element order), in double precision. Returns the determinant. */
@@ -220,7 +256,9 @@ export function createBody(id: string, opt: BodyOptions): BodyVisual {
   });
   const variant: BodyVariant = opt.variant ?? 'default';
   const ctx: BuildContext = { id, root, radiusKm, polarRadiusKm, color: body ? body.color : '#8a8580', quality: opt.quality, variant, maps, frame };
-  const built = build(ctx, body, []);
+  const notes: string[] = [];
+  maps.notes = notes;
+  const built = build(ctx, body, notes);
   maps.seal();
 
   const inverse: number[] = [1, 0, 0, 0, 1, 0, 0, 0, 1];
@@ -230,10 +268,17 @@ export function createBody(id: string, opt: BodyOptions): BodyVisual {
     id,
     object: root,
     radiusKm,
-    extentKm: built.extentKm,
-    provenance: built.provenance,
+    // A map that does not load can change these three values, so they are read from the body each time.
+    get extentKm(): number {
+      return built.extentKm;
+    },
+    get provenance(): BodyVisual['provenance'] {
+      return built.provenance;
+    },
+    get variant(): BodyVariant {
+      return built.variant;
+    },
     notes: built.notes,
-    variant: built.variant,
     update(p: BodyUpdate): void {
       if (disposed) return;
       // World axes to body axes, on the CPU in double precision. The shaders work in the body axes only.
@@ -242,8 +287,10 @@ export function createBody(id: string, opt: BodyOptions): BodyVisual {
       const scale = Math.cbrt(Math.abs(det)) || 1;
       applyRows(inverse, p.sunDir, frame.uSunDir.value).normalize();
       applyRows(inverse, p.cameraPos, frame.uCamPos.value);
-      frame.uTime.value = p.time;
+      // The parts wrap the time themselves (64 bit numbers), so a large value is no problem. A value that is not a number stops the motion.
+      frame.uTime.value = Number.isFinite(p.time) ? p.time : 0;
       frame.uSunAngR.value = p.sunDistanceKm && p.sunDistanceKm > 0 ? SUN_RADIUS_KM / p.sunDistanceKm : 0;
+      frame.uNightFill.value = p.nightFill !== undefined && p.nightFill > 0 ? Math.min(p.nightFill, 1) : 0;
       const casters = p.shadowCasters;
       for (let k = 0; k < MAX_CASTERS; k++) {
         const target = frame.uCasters.value[k];

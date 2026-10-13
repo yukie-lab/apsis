@@ -5,7 +5,7 @@
   "value": 2.3314683517128287e-14,
   "unit": "relative",
   "limit": 1e-11,
-  "truth": "Exact two-body hyperbola from its elements: b = a sqrt(e^2 - 1)."
+  "truth": "Exact two-body hyperbola from its elements: b = a √(e² − 1)."
  },
  {
   "id": "target.closure",
@@ -13,7 +13,7 @@
   "value": 0.0008948374105858312,
   "unit": "km",
   "limit": 0.5,
-  "truth": "The aim point is an input: the flight that the targeter gives is propagated again and its aim is measured.",
+  "truth": "The aim point is an input. The test propagates the flight that the targeter gives and measures its aim point.",
   "detail": {
    "cases": 6,
    "worstTimeS": 0.1835263967514038,
@@ -26,7 +26,7 @@
   "value": 0.3011669646837255,
   "unit": "km",
   "limit": 2,
-  "truth": "The aim point is an input: the flight that the targeter gives is propagated again and its aim is measured.",
+  "truth": "The aim point is an input. The test propagates the flight that the targeter gives and measures its aim point.",
   "detail": {
    "iterations": 3,
    "flybyRadiusKm": 9802147.457415614,
@@ -40,7 +40,7 @@
   "value": 0.010452413794671553,
   "unit": "km",
   "limit": 0.5,
-  "truth": "The aim point is an input: the flight that the targeter gives is propagated again and its aim is measured.",
+  "truth": "The aim point is an input. The test propagates the flight that the targeter gives and measures its aim point.",
   "detail": {
    "iterations": 2
   }

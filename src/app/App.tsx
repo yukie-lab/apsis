@@ -4,7 +4,7 @@ import { useApp, nowEt } from './store';
 import { loadSystem, system } from './system';
 import { engine } from './engine';
 import { clock } from './clock';
-import type { Mode, ExpertPage, ExplorerPage } from './router';
+import { rememberPage, switchMode } from './nav';
 import { t, useLocale, LOCALES, getLocale, setLocale, bodyName } from '../i18n';
 import { TIME_SCALES, type TimeScale } from '../engine/time';
 import { FRAMES, type FrameId } from '../engine/frames';
@@ -18,15 +18,6 @@ import type { DistanceUnit } from './format';
 const ExpertApp = lazy(() => import('../expert/ExpertApp'));
 const ExplorerApp = lazy(() => import('../explorer/ExplorerApp'));
 const About = lazy(() => import('./About'));
-
-/** Last page of each mode: a change of the mode goes back to it. */
-const last: { expert: ExpertPage; explorer: ExplorerPage } = { expert: 'mission', explorer: 'home' };
-
-function switchMode(mode: Mode): void {
-  const s = useApp.getState();
-  if (mode === 'expert') s.go({ mode: 'expert', page: last.expert });
-  else s.go({ mode: 'explorer', page: last.explorer === 'flight' && !s.trajectory ? 'home' : last.explorer });
-}
 
 function TopBar() {
   const route = useApp((s) => s.route);
@@ -134,10 +125,7 @@ export function App() {
     return () => { alive = false; };
   }, [attempt]);
 
-  useEffect(() => {
-    if (route.page === 'about') return;
-    if (route.mode === 'expert') last.expert = route.page as ExpertPage; else last.explorer = route.page as ExplorerPage;
-  }, [route]);
+  useEffect(() => { rememberPage(route); }, [route]);
   useEffect(() => { document.documentElement.lang = locale; document.title = `${t('app.name')} — ${t('app.tagline')}`; }, [locale]);
 
   // The centre of the settings can be a body that is not in this data set (an old setting): use the Sun.

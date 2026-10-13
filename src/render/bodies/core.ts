@@ -5,7 +5,7 @@
 import * as THREE from 'three';
 import { MAX_CASTERS } from './glsl';
 import { acquireSphere, releaseSphere, triangleCount } from './geometry';
-import { loadMap, makeBlankTexture, textureUrl } from './manifest';
+import { loadMap, makeBlankTexture, textureUrl, wasPoleRepaired, wasRepaired } from './manifest';
 import type { MapOptions } from './manifest';
 import type { BodyQuality, BodyStats, BodyVariant, TextureEntry, TextureManifest } from './types';
 
@@ -25,6 +25,8 @@ export interface FrameUniforms {
   uCasters: { value: THREE.Vector4[] };
   uSunAngR: { value: number };
   uSunColor: { value: THREE.Vector3 };
+  /** Fill light of the caller for the parts with no sunlight (BodyUpdate.nightFill), 0 to 1. */
+  uNightFill: { value: number };
 }
 
 export function makeFrameUniforms(): FrameUniforms {
@@ -37,6 +39,7 @@ export function makeFrameUniforms(): FrameUniforms {
     uCasters: { value: casters },
     uSunAngR: { value: 0 },
     uSunColor: { value: new THREE.Vector3(SUN_GAIN, SUN_GAIN, SUN_GAIN) },
+    uNightFill: { value: 0 },
   };
 }
 
@@ -102,6 +105,8 @@ export class MapSet {
   requested = 0;
   /** Number of map files that did not load. */
   failed = 0;
+  /** The notes of the body. The set adds 'map-edge-repaired' and 'map-pole-repaired' when the loader has repaired a map. */
+  notes: string[] | null = null;
 
   constructor(
     private readonly quality: BodyQuality,
@@ -128,6 +133,8 @@ export class MapSet {
       if (texture) this.textures.push(texture);
       else this.failed++;
       ready(texture);
+      if (texture && wasRepaired(texture) && this.notes && !this.notes.includes('map-edge-repaired')) this.notes.push('map-edge-repaired');
+      if (texture && wasPoleRepaired(texture) && this.notes && !this.notes.includes('map-pole-repaired')) this.notes.push('map-pole-repaired');
       this.pending--;
       this.check();
     });

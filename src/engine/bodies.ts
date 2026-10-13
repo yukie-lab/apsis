@@ -98,10 +98,17 @@ const list: Body[] = [
  * Mean radius (km): JPL Small-Body Database (values copied by tools/truth/fetch_small_info.py into data/small.json).
  */
 import smallData from './data/small.json';
+const meanRadius = new Set<string>();
+const nominalRadius = new Set<string>();
 for (const s of smallData.bodies as { id: string; naif: number; kind: BodyKind; radiusKm: number | null; gm: number; color: string }[]) {
   // A body with no radius in the database is drawn with a nominal radius of 10 km.
   list.push(make(s.id, s.naif, s.kind, 'SUN', s.color, { radius: s.radiusKm ?? 10, gm: s.gm, minAlt: 0 }));
+  (s.radiusKm === null ? nominalRadius : meanRadius).add(s.id);
 }
+/** Bodies whose `radius` is the mean radius of the JPL Small-Body Database (all other bodies: the equatorial radius). */
+export const MEAN_RADIUS: ReadonlySet<string> = meanRadius;
+/** Bodies with no radius in the database: `radius` is a nominal value (10 km), not a measurement. */
+export const NOMINAL_RADIUS: ReadonlySet<string> = nominalRadius;
 
 const registry: Record<string, Body> = Object.fromEntries(list.map((b) => [b.id, b]));
 /** All bodies by id. Custom bodies of the user are added with registerCustomBody. */

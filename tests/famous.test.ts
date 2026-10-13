@@ -98,7 +98,7 @@ describe('real missions from their dates', () => {
         }
       }
       const tcm = rep.totalCorrection * 1000;
-      rec.add({ id: `famous.corrections.${id}`, group: 'flyby', value: tcm, unit: 'm/s', limit: 200, truth: 'A ballistic tour needs only small correction maneuvers between the flybys.', detail: { maneuvers: rep.corrections.filter((c) => c.kind === 'tcm').length, launchChangeMS: rep.launchChange * 1000, deepSpaceManeuverMS: rep.totalDsm * 1000, arrivalBurnMS: rep.arrivalBurn * 1000, solveSeconds: Number(seconds.toFixed(2)) } });
+      rec.add({ id: `famous.corrections.${id}`, group: 'flyby', value: tcm, unit: 'm/s', limit: 200, truth: 'A tour of flybys with no engine burn at the flybys has only small correction maneuvers between the flybys.', detail: { maneuvers: rep.corrections.filter((c) => c.kind === 'tcm').length, launchChangeMS: rep.launchChange * 1000, deepSpaceManeuverMS: rep.totalDsm * 1000, arrivalBurnMS: rep.arrivalBurn * 1000, solveSeconds: Number(seconds.toFixed(2)) } });
       expect(tcm).toBeLessThan(200);
     });
   }
@@ -153,7 +153,7 @@ describe('real missions from their dates', () => {
     const early = tPub - lightTime - utcSeconds(hit!.et);
     // The model has no atmosphere: the path comes to the surface at entry speed. The real entry, descent and landing
     // took about 7 minutes, and the published time has a resolution of 1 minute. Limit: 0 to 8 minutes before the landing.
-    rec.add({ id: 'famous.mars2020.arrival', group: 'flyby', value: early, unit: 's', limit: 480, truth: `JPL Mars 2020 launch press kit and NASA NSSDCA: landing signal on the Earth at ${pub.landingEarthReceivedUtc} UTC`, detail: { lightTimeS: lightTime, entrySpeedKmS: hit!.speed ?? 0 } });
+    rec.add({ id: 'famous.mars2020.arrival', group: 'flyby', value: early, unit: 's', limit: 480, truth: `JPL document "Mars 2020 Perseverance Launch Press Kit" and NSSDCA Master Catalog: the Earth got the landing signal at ${pub.landingEarthReceivedUtc} UTC`, detail: { lightTimeS: lightTime, entrySpeedKmS: hit!.speed ?? 0 } });
     expect(early).toBeGreaterThan(0);
     expect(early).toBeLessThan(480);
   });
@@ -163,17 +163,17 @@ describe('real missions from their dates', () => {
     const f = famousFacts('newhorizons');
     const { out } = solve('newhorizons');
     const dT = Math.abs(utcSeconds(jdTdbToEt(f.encounters[1].jdTdb)) - calendarToSeconds(parseCalendar(pub.pluto.utc)!));
-    rec.add({ id: 'famous.newhorizons.time.PLUTO', group: 'flyby', value: dT, unit: 's', limit: 60, truth: `NASA NSSDCA: closest approach to Pluto ${pub.pluto.utc} UTC`, detail: { horizonsClosestApproachJdTdb: f.encounters[1].jdTdb } });
+    rec.add({ id: 'famous.newhorizons.time.PLUTO', group: 'flyby', value: dT, unit: 's', limit: 60, truth: `NSSDCA Master Catalog: closest approach to Pluto ${pub.pluto.utc} UTC`, detail: { horizonsClosestApproachJdTdb: f.encounters[1].jdTdb } });
     expect(dT).toBeLessThan(60);
     // "within 12500 km of Pluto": distance from the surface. Two significant digits: limit 2 %.
     const alt = out.report.encounters[1].altitude;
     const eA = pct(alt, pub.pluto.rangeKm);
-    rec.add({ id: 'famous.newhorizons.published.PLUTO', group: 'flyby', value: eA, unit: '%', limit: 2, truth: `NASA NSSDCA: "within ${pub.pluto.rangeKm} km of Pluto"`, detail: { altitudeKm: alt } });
+    rec.add({ id: 'famous.newhorizons.published.PLUTO', group: 'flyby', value: eA, unit: '%', limit: 2, truth: `NSSDCA Master Catalog: "within ${pub.pluto.rangeKm} km of Pluto"`, detail: { altitudeKm: alt } });
     expect(eA).toBeLessThan(2);
     // "within about 32 Jovian radii of Jupiter": two significant digits: limit 3 %.
     const radii = out.report.encounters[0].radius / BODIES.JUPITER.radius;
     const eJ = pct(radii, pub.jupiter.rangeJupiterRadii);
-    rec.add({ id: 'famous.newhorizons.published.JUPITER', group: 'flyby', value: eJ, unit: '%', limit: 3, truth: `NASA NSSDCA: "within about ${pub.jupiter.rangeJupiterRadii} Jovian radii of Jupiter"`, detail: { rangeJupiterRadii: radii } });
+    rec.add({ id: 'famous.newhorizons.published.JUPITER', group: 'flyby', value: eJ, unit: '%', limit: 3, truth: `NSSDCA Master Catalog: "within about ${pub.jupiter.rangeJupiterRadii} Jovian radii of Jupiter"`, detail: { rangeJupiterRadii: radii } });
     expect(eJ).toBeLessThan(3);
   });
 });

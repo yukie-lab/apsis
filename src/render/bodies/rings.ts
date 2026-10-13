@@ -3,8 +3,11 @@
  *
  * The profile is a strip of N x 1 pixels. Red, green and blue hold the colour of the ring particles times
  * their albedo. Alpha holds the opacity for a ray along the ring axis: alpha = 1 - exp(-optical depth).
- * A strip of the manifest is used if the manifest gives its inner and outer radius. If not, the code makes
- * the strip from published ring limits and adds fine structure with noise.
+ * The code makes the strip from published ring limits and adds fine structure with noise.
+ * If the manifest has a ring strip of Saturn with its inner and outer radius, the colour and the brightness of
+ * each ring part come from this file (a photograph of the lit face). A photograph does not give the opacity, so
+ * the code derives the optical depth from the brightness and from the limits of the fact sheet (see fileProfile).
+ * Ring parts outside of the file (the F ring) stay as the code makes them.
  *
  * Light model: single scattering in a flat layer of particles (the classic formulas for reflected and for
  * transmitted light). The lit face is bright where the ring is dense. The unlit face is bright where the
@@ -15,7 +18,7 @@ import { MeshPart, shaderBase } from './core';
 import type { BuildContext } from './core';
 import { buildAnnulus } from './geometry';
 import { FRAG_HEAD, FRAG_TAIL } from './glsl';
-import { findTexture, ringStripRadii } from './manifest';
+import { findTexture, readMiddleRow, ringStripRadii } from './manifest';
 
 /**
  * Ring limits of Saturn, km from the planet centre.
@@ -55,6 +58,8 @@ const SATURN_WIDTH = {
  * A 0.4 to 1.0 (0.4 to 0.6), F 0.1 (0.6). The variation inside each ring is made by code. It is not measured.
  */
 const SATURN_ALBEDO = { C: 0.22, B: 0.55, CASSINI: 0.3, A: 0.5, F: 0.6 };
+/** Largest optical depth of each main ring: the upper limits of the ranges above. */
+const SATURN_TAU_MAX = { C: 0.35, B: 2.5, CASSINI: 0.1, A: 1.0 };
 
 /** Colour tints of the ring particles (sRGB, 0 to 255). Set by eye: pale tan for the dense rings, grey-brown for the thin rings. */
 const SATURN_TINT: Record<string, [number, number, number]> = {
@@ -84,8 +89,18 @@ const URANUS_RINGS: [number, number, number][] = [
 ];
 /** The rings of Uranus are a few km wide. A line that narrow is not visible, so each ring is drawn with this width at least (km). */
 const URANUS_MIN_WIDTH = 70;
-/** Display albedo of the rings of Uranus. The fact sheet gives about 0.015. The larger value keeps the rings visible, and they stay very dim. */
-const URANUS_ALBEDO = 0.035;
+/**
+ * Display albedo of the rings of Uranus, before the grey tint of the particles. With the tint the rings reflect
+ * about 6 percent of the light. The fact sheet gives about 1.5 percent: rings that dark and that narrow do not show
+ * at all after the tone mapping of the application. The larger value makes them thin faint lines. Set by eye.
+ */
+const URANUS_ALBEDO = 0.2;
+
+/**
+ * Brightness factor of the rings. The light model has single scattering only, and it has no opposition surge:
+ * real rings are brighter. The factor is set by eye so that the B ring is about as bright as the planet.
+ */
+const RING_GAIN = 4.6;
 
 function hash1(n: number): number {
   const s = Math.sin(n * 127.1 + 311.7) * 43758.5453;
@@ -110,6 +125,15 @@ function fbm1(x: number, octaves: number): number {
   return sum / norm;
 }
 const clamp = (v: number, a: number, b: number): number => Math.min(b, Math.max(a, v));
+
+/**
+ * Brightness pattern of the dense rings: many narrow bands of different width, mean value about 0.5.
+ * A dense ring reflects about the same light at each optical depth, so the bands that photographs show are
+ * differences of the particle albedo. The places of the bands here are made by code. They are not measured.
+ */
+function bandPattern(r: number): number {
+  return 0.45 * fbm1(r / 1700 + 3, 3) + 0.35 * fbm1(r / 380 + 40, 3) + 0.2 * noise1(r / 95 + 9);
+}
 const smooth = (a: number, b: number, v: number): number => {
   const t = clamp((v - a) / (b - a), 0, 1);
   return t * t * (3 - 2 * t);
@@ -121,6 +145,14 @@ interface RingSample {
   tint: [number, number, number];
 }
 const NONE: RingSample = { tau: 0, albedo: 0, tint: [0, 0, 0] };
+
+/** One point of a strip: optical depth, and colour of the particles times their albedo (linear light). */
+interface StripSample {
+  tau: number;
+  r: number;
+  g: number;
+  b: number;
+}
 
 /** Optical depth and colour of the rings of Saturn at radius r (km). */
 function saturnSample(r: number, cInner: number, aOuter: number): RingSample {
@@ -140,21 +172,23 @@ function saturnSample(r: number, cInner: number, aOuter: number): RingSample {
     if (d > 0 && d < SATURN_WIDTH.TITAN_GAP) tau = d > 110 && d < 135 ? 0.3 : 0;
     d = r - SATURN.MAXWELL_GAP;
     if (d > 0 && d < SATURN_WIDTH.MAXWELL_GAP) tau = d > 95 && d < 160 ? 0.3 : 0;
-    return { tau: clamp(tau, 0, 0.35), albedo: SATURN_ALBEDO.C, tint: SATURN_TINT.C };
+    return { tau: clamp(tau, 0, SATURN_TAU_MAX.C), albedo: SATURN_ALBEDO.C, tint: SATURN_TINT.C };
   }
   if (r < SATURN.B_OUTER) {
     const t = (r - SATURN.C_OUTER) / (SATURN.B_OUTER - SATURN.C_OUTER);
     // Dense middle, less dense inner part. The general shape is approximate, the structure is made by code.
     const base = 0.95 - 0.3 * smooth(0.06, 0.14, t) + 1.0 * smooth(0.22, 0.34, t) + 0.75 * smooth(0.44, 0.52, t) - 0.55 * smooth(0.74, 0.82, t);
     const tau = base * (0.62 + 0.76 * fbm1(r / 330, 4)) * (0.9 + 0.2 * noise1(r / 85));
-    return { tau: clamp(tau, 0.4, 2.5), albedo: SATURN_ALBEDO.B, tint: SATURN_TINT.B };
+    // The inner part of the B ring is a little darker than the outer part.
+    const albedo = SATURN_ALBEDO.B * (0.68 + 0.64 * bandPattern(r)) * (0.84 + 0.2 * smooth(0.05, 0.55, t));
+    return { tau: clamp(tau, 0.4, SATURN_TAU_MAX.B), albedo, tint: SATURN_TINT.B };
   }
   if (r < SATURN.A_INNER) {
     const t = (r - SATURN.B_OUTER) / (SATURN.A_INNER - SATURN.B_OUTER);
     if (r - SATURN.B_OUTER < SATURN_WIDTH.HUYGENS_GAP) return NONE;
     const bands = 0.5 + 0.5 * Math.sin(noise1(r / 700) * 9 + r / 260);
     const tau = 0.025 + 0.045 * bands * noise1(r / 410) + 0.05 * smooth(0.72, 1.0, t);
-    return { tau: clamp(tau, 0, 0.1), albedo: SATURN_ALBEDO.CASSINI, tint: SATURN_TINT.CASSINI };
+    return { tau: clamp(tau, 0, SATURN_TAU_MAX.CASSINI), albedo: SATURN_ALBEDO.CASSINI, tint: SATURN_TINT.CASSINI };
   }
   if (r < aOuter) {
     let d = r - SATURN.ENCKE_GAP;
@@ -166,7 +200,9 @@ function saturnSample(r: number, cInner: number, aOuter: number): RingSample {
     tau *= 0.9 + 0.2 * fbm1(r / 240, 3);
     // Wave trains in the outer part.
     if (t > 0.6) tau *= 1 + 0.1 * smooth(0.6, 0.8, t) * Math.sin(r / (28 + 20 * noise1(r / 900)));
-    return { tau: clamp(tau, 0.4, 1.0), albedo: SATURN_ALBEDO.A, tint: SATURN_TINT.A };
+    // The A ring is more even than the B ring. Its inner edge is the brightest part.
+    const albedo = SATURN_ALBEDO.A * (0.84 + 0.32 * bandPattern(r + 5000)) * (1.08 - 0.14 * smooth(0.0, 0.3, t));
+    return { tau: clamp(tau, 0.4, SATURN_TAU_MAX.A), albedo, tint: SATURN_TINT.A };
   }
   const x = (r - SATURN.F_RING) / (SATURN_WIDTH.F_RING / 2);
   const tau = 0.1 * Math.exp(-x * x);
@@ -182,6 +218,16 @@ function uranusSample(r: number): RingSample {
   return tau > 0.002 ? { tau, albedo: URANUS_ALBEDO, tint: [150, 150, 152] } : NONE;
 }
 
+/** True if the profile of the code has a ring part at a radius that the file does not cover. */
+function hasRingOutside(code: (r: number) => RingSample, file: { inner: number; outer: number }, inner: number, outer: number): boolean {
+  const steps = 4096;
+  for (let i = 0; i <= steps; i++) {
+    const r = inner + (i / steps) * (outer - inner);
+    if ((r < file.inner || r > file.outer) && code(r).tau > 0) return true;
+  }
+  return false;
+}
+
 function srgbToLinear(c: number): number {
   return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
 }
@@ -189,8 +235,106 @@ function linearToSrgb(c: number): number {
   return c <= 0.0031308 ? c * 12.92 : 1.055 * Math.pow(c, 1 / 2.4) - 0.055;
 }
 
+/** A sample of the code profile as a strip sample. */
+function fromRing(s: RingSample): StripSample {
+  return {
+    tau: s.tau,
+    r: srgbToLinear(s.tint[0] / 255) * s.albedo,
+    g: srgbToLinear(s.tint[1] / 255) * s.albedo,
+    b: srgbToLinear(s.tint[2] / 255) * s.albedo,
+  };
+}
+
+/** One ring of a ring file: its limits (km) and the largest optical depth that the fact sheet gives for it. */
+interface FileRegion {
+  from: number;
+  to: number;
+  tauMax: number;
+}
+
+/** The value at the part `p` (0 to 1) of the sorted list of values. */
+function percentile(values: number[], p: number): number {
+  if (values.length === 0) return 0;
+  const sorted = [...values].sort((x, y) => x - y);
+  return sorted[Math.min(sorted.length - 1, Math.floor(p * sorted.length))];
+}
+
+/**
+ * The profile function of a ring strip of the manifest.
+ *
+ * `row` holds one pixel row of the file (red, green, blue, alpha, 0 to 255). The file is a photograph of the lit
+ * face: red, green and blue are the colour of a ring part, and alpha is its brightness (see the manifest).
+ * A photograph does not give the opacity. The model of this function:
+ *   - Colour: the colour of the file.
+ *   - Albedo: in proportion to alpha. The median of the ring `bright` gets the albedo `albedoRef`.
+ *   - Optical depth: inside each ring of `regions` it grows with the square of alpha, and the bright end of the
+ *     ring (alpha at 95 percent of the sorted values) gets the largest optical depth of the fact sheet.
+ * With the strip of Saturn of 14 October 2026 the model gives (values at 10, 50 and 90 percent of each ring):
+ * C ring optical depth 0.02, 0.08, 0.23 and albedo 0.07, 0.16, 0.27; B ring 1.1, 1.8, 2.4 and 0.43, 0.55, 0.63;
+ * Cassini division 0.004, 0.03, 0.10 and 0.09, 0.22, 0.41; A ring 0.61, 0.69, 0.92 and 0.35, 0.37, 0.43.
+ * These numbers are the result of the model. They are not measured optical depths.
+ * Outside of the radii of the file the function gives the profile of the code.
+ * Returns null if the row has no brightness in the ring `bright`.
+ */
+function fileProfile(
+  row: Uint8ClampedArray,
+  file: { inner: number; outer: number },
+  regions: FileRegion[],
+  bright: FileRegion,
+  albedoRef: number,
+  code: (r: number) => RingSample,
+): ((r: number) => StripSample) | null {
+  const w = row.length >> 2;
+  if (w < 2) return null;
+  const level = new Float32Array(w);
+  const colour = new Float32Array(w * 3);
+  for (let i = 0; i < w; i++) {
+    level[i] = row[i * 4 + 3] / 255;
+    let top = 0;
+    for (let k = 0; k < 3; k++) {
+      colour[i * 3 + k] = srgbToLinear(row[i * 4 + k] / 255);
+      top = Math.max(top, colour[i * 3 + k]);
+    }
+    // The largest channel becomes 1: the brightness is in alpha only.
+    if (top > 0) for (let k = 0; k < 3; k++) colour[i * 3 + k] /= top;
+  }
+  const radiusOf = (i: number): number => file.inner + ((i + 0.5) / w) * (file.outer - file.inner);
+  const levelsIn = (g: FileRegion): number[] => {
+    const out: number[] = [];
+    for (let i = 0; i < w; i++) {
+      const r = radiusOf(i);
+      if (r >= g.from && r < g.to) out.push(level[i]);
+    }
+    return out;
+  };
+  const ref = percentile(levelsIn(bright), 0.5);
+  if (!(ref > 0)) return null;
+  const tau = new Float32Array(w);
+  for (const g of regions) {
+    const high = percentile(levelsIn(g), 0.95);
+    if (!(high > 0)) continue;
+    for (let i = 0; i < w; i++) {
+      const r = radiusOf(i);
+      if (r >= g.from && r < g.to) {
+        const x = Math.min(1, level[i] / high);
+        tau[i] = g.tauMax * x * x;
+      }
+    }
+  }
+  return (r: number): StripSample => {
+    if (r < file.inner || r > file.outer) return fromRing(code(r));
+    // Linear interpolation between the centres of two pixels of the file.
+    const x = clamp(((r - file.inner) / (file.outer - file.inner)) * w - 0.5, 0, w - 1);
+    const i0 = Math.min(Math.floor(x), w - 2);
+    const f = x - i0;
+    const albedo = (albedoRef * (level[i0] * (1 - f) + level[i0 + 1] * f)) / ref;
+    const at = (k: number): number => Math.min(1, albedo * (colour[i0 * 3 + k] * (1 - f) + colour[i0 * 3 + 3 + k] * f));
+    return { tau: tau[i0] * (1 - f) + tau[i0 + 1] * f, r: at(0), g: at(1), b: at(2) };
+  };
+}
+
 /** Makes the strip from a profile function. Each pixel is the mean of four samples. */
-function makeStrip(sample: (r: number) => RingSample, inner: number, outer: number, size: number): THREE.DataTexture {
+function makeStrip(sample: (r: number) => StripSample, inner: number, outer: number, size: number): THREE.DataTexture {
   const data = new Uint8Array(size * 4);
   const sub = 4;
   for (let i = 0; i < size; i++) {
@@ -203,9 +347,9 @@ function makeStrip(sample: (r: number) => RingSample, inner: number, outer: numb
       const r = inner + ((i + (k + 0.5) / sub) / size) * (outer - inner);
       const s = sample(r);
       const opacity = 1 - Math.exp(-s.tau);
-      rr += opacity * srgbToLinear(s.tint[0] / 255) * s.albedo;
-      gg += opacity * srgbToLinear(s.tint[1] / 255) * s.albedo;
-      bb += opacity * srgbToLinear(s.tint[2] / 255) * s.albedo;
+      rr += opacity * s.r;
+      gg += opacity * s.g;
+      bb += opacity * s.b;
       weight += opacity;
       trans += Math.exp(-s.tau);
     }
@@ -248,6 +392,7 @@ uniform vec3 uSunDir;
 uniform vec3 uCamPos;
 uniform vec3 uSunColor;
 uniform float uSunAngR;
+uniform float uNightFill;     // fill light of the caller for the parts with no sunlight (0 = none)
 varying vec3 vPos;
 
 // (1 - exp(-z)) / z for z >= 0, also near zero.
@@ -256,15 +401,14 @@ float ratio1(float z) {
 }
 
 // Part of the sunlight that reaches a ring point: the planet can hide the Sun.
+// The calculation is in a space where the planet is a sphere of radius 1, so t, d and w are lengths in planet radii.
 float planetShadow(vec3 p, vec3 s) {
   vec3 pw = p / uPlanetRadii;
-  vec3 sw = s / uPlanetRadii;
-  float sl = length(sw);
-  sw /= sl;
+  vec3 sw = normalize(s / uPlanetRadii);
   float t = -dot(pw, sw);                 // > 0: the planet is on the Sun side of the point
   if (t <= 0.0) return 1.0;
-  float d = sqrt(max(dot(pw, pw) - t * t, 0.0));
-  float w = max(0.004, t * uSunAngR / sl);
+  float d = sqrt(max(dot(pw, pw) - t * t, 0.0));   // distance from the axis of the shadow
+  float w = max(0.004, t * uSunAngR);              // half-width of the soft edge: it grows with the distance behind the planet
   return smoothstep(1.0 - w, 1.0 + w, d);
 }
 
@@ -296,8 +440,13 @@ void main() {
     // The camera sees the unlit face: light that passes through the ring.
     amount = xv * tau * exp(-tau * min(xs, xv)) * ratio1(tau * abs(xv - xs));
   }
-  vec3 color = uSunColor * strip.rgb * (uRingParams.w * 0.25 * P * amount * planetShadow(vPos, uSunDir));
+  float shadow = planetShadow(vPos, uSunDir);
+  vec3 color = uSunColor * strip.rgb * (uRingParams.w * 0.25 * P * amount * shadow);
   float alpha = 1.0 - exp(-tau * xv);
+  // The fill light of the caller: a ring part with no sunlight shows its colour. This is the part in the shadow
+  // of the planet, and the face that the Sun does not light.
+  float day = v.z * uSunDir.z > 0.0 ? shadow : 0.0;
+  color += uSunColor * strip.rgb * (uNightFill * alpha * (1.0 - day));
   gl_FragColor = vec4(color, alpha);
   ${FRAG_TAIL}
 }
@@ -325,8 +474,8 @@ export interface RingSystem {
   shadowUniforms: { uRing: THREE.IUniform; uRingParams: THREE.IUniform };
   /** Outer radius of the ring mesh, km. */
   outerKm: number;
-  /** 1 if the code made the strip. */
-  codeTextures: number;
+  /** 1 if the strip comes from the code only, 0 if the code has built it from a file of the manifest. */
+  codeTextures(): number;
 }
 
 /** Builds the rings of a planet, or returns null for a planet with no ring limits in the body table. */
@@ -336,54 +485,70 @@ export function buildRings(ctx: BuildContext, limits: { inner: number; outer: nu
   const isUranus = ctx.id === 'URANUS';
   if (!isSaturn && !isUranus) return null;
 
-  // Radii of the strip that the code makes.
-  const inner = isSaturn ? limits.inner - 600 : limits.inner - 500;
-  const outer = isSaturn ? SATURN.F_RING + SATURN_WIDTH.F_RING * 2 : limits.outer + 500;
-  const params = new THREE.Vector4(inner, outer, 1, isSaturn ? 4.6 : 4.6);
-  const strip = makeStrip(isSaturn ? (r) => saturnSample(r, limits.inner, limits.outer) : uranusSample, inner, outer, size);
+  const codeSample = isSaturn ? (r: number): RingSample => saturnSample(r, limits.inner, limits.outer) : uranusSample;
+  const entry = findTexture(ctx.maps.manifest, ctx.id, 'ring');
+  const fileRadii = entry ? ringStripRadii(entry) : null;
+  // The strip covers the rings of the code and the rings of the file.
+  const inner = Math.min(isSaturn ? limits.inner - 600 : limits.inner - 500, fileRadii ? fileRadii.inner : Infinity);
+  const outer = Math.max(isSaturn ? SATURN.F_RING + SATURN_WIDTH.F_RING * 2 : limits.outer + 500, fileRadii ? fileRadii.outer : 0);
+  const params = new THREE.Vector4(inner, outer, 1, RING_GAIN);
+  const strip = makeStrip((r) => fromRing(codeSample(r)), inner, outer, size);
   const uRing: THREE.IUniform = { value: strip };
   const uRingParams: THREE.IUniform = { value: params };
   const owned: THREE.Texture[] = [strip];
   let codeTextures = 1;
   notes.push('rings-procedural');
-  if (isUranus) notes.push('ring-width-exaggerated');
+  if (isUranus) notes.push('ring-width-exaggerated', 'ring-brightness-exaggerated');
 
-  // A strip of the manifest replaces the strip of the code if the manifest gives its radii.
-  const entry = findTexture(ctx.maps.manifest, ctx.id, 'ring');
-  const fileRadii = entry ? ringStripRadii(entry) : null;
-  if (entry && fileRadii) {
-    codeTextures = 0;
+  // A strip of the manifest gives the colour and the brightness of the rings, if the manifest gives its radii.
+  // The opacity model needs the ring limits and the optical depths of the fact sheet, so it exists for Saturn only.
+  if (entry && fileRadii && isSaturn) {
+    const ringB: FileRegion = { from: SATURN.C_OUTER, to: SATURN.B_OUTER, tauMax: SATURN_TAU_MAX.B };
+    const regions: FileRegion[] = [
+      { from: limits.inner, to: SATURN.C_OUTER, tauMax: SATURN_TAU_MAX.C },
+      ringB,
+      { from: SATURN.B_OUTER, to: SATURN.A_INNER, tauMax: SATURN_TAU_MAX.CASSINI },
+      { from: SATURN.A_INNER, to: limits.outer, tauMax: SATURN_TAU_MAX.A },
+    ];
     ctx.maps.load(entry, { srgb: true, wrapU: false }, (texture) => {
-      if (!texture) {
+      const row = texture ? readMiddleRow(texture) : null;
+      const profile = row ? fileProfile(row, fileRadii, regions, ringB, SATURN_ALBEDO.B, codeSample) : null;
+      if (!profile) {
         notes.push('ring-map-load-failed');
         return;
       }
-      texture.premultiplyAlpha = false;
-      uRing.value = texture;
-      // A photograph of the rings has its brightness in the colour, so the factor is lower than for the strip of the code.
-      params.set(fileRadii.inner, fileRadii.outer, 1, 2.4);
+      // The file is sharper than the strip of the code, so the new strip has twice as many pixels.
+      const merged = makeStrip(profile, inner, outer, size * 2);
+      owned.push(merged);
+      uRing.value = merged;
+      strip.dispose();
+      owned.splice(owned.indexOf(strip), 1);
+      codeTextures = 0;
       const k = notes.indexOf('rings-procedural');
       if (k >= 0) notes.splice(k, 1);
-      notes.push('rings-map');
+      notes.push('rings-map', 'ring-opacity-modelled');
+      // Ring parts beyond the file (the F ring of Saturn) still come from the code.
+      if (hasRingOutside(codeSample, fileRadii, inner, outer)) notes.push('rings-partly-procedural');
     });
   } else if (entry) {
-    notes.push('ring-map-without-radii');
+    notes.push(fileRadii ? 'ring-map-unused' : 'ring-map-without-radii');
   }
 
-  const meshOuter = Math.max(outer, fileRadii ? fileRadii.outer : 0);
-  const meshInner = Math.min(inner, fileRadii ? fileRadii.inner : inner);
+  const meshOuter = outer;
+  const meshInner = inner;
   const material = new THREE.ShaderMaterial({
     ...shaderBase(`${ctx.id}/rings`),
     uniforms: {
       uRing,
       uRingParams,
       // Beyond the A ring the rings of Saturn are dust (F ring). The rings of Uranus are large dark particles.
-      uRingDust: { value: new THREE.Vector4(isSaturn ? limits.outer + 1200 : 1e12, 0.72, isSaturn ? 0.035 : 0.02, 0) },
+      uRingDust: { value: new THREE.Vector4(isSaturn ? limits.outer + 1200 : 1e12, 0.72, isSaturn ? 0.05 : 0.02, 0) },
       uPlanetRadii: { value: new THREE.Vector3(ctx.radiusKm, ctx.radiusKm, ctx.polarRadiusKm) },
       uSunDir: ctx.frame.uSunDir,
       uCamPos: ctx.frame.uCamPos,
       uSunColor: ctx.frame.uSunColor,
       uSunAngR: ctx.frame.uSunAngR,
+      uNightFill: ctx.frame.uNightFill,
     },
     vertexShader: VERTEX,
     fragmentShader: FRAGMENT,
@@ -406,5 +571,5 @@ export function buildRings(ctx: BuildContext, limits: { inner: number; outer: nu
     dispose();
     for (const t of owned) t.dispose();
   };
-  return { part, shadowUniforms: { uRing, uRingParams }, outerKm: meshOuter * 1.01, codeTextures };
+  return { part, shadowUniforms: { uRing, uRingParams }, outerKm: meshOuter * 1.01, codeTextures: () => codeTextures };
 }

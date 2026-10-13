@@ -5,7 +5,7 @@
   "value": 0.00003108013105190821,
   "unit": "s",
   "limit": 0.00005,
-  "truth": "JPL Horizons, TDB-UT column (delta-T) of vector tables, 89 epochs from 1972 to 2099",
+  "truth": "JPL Horizons, column \"delta-T\" (TDB − UT) of the vector tables, 89 epochs from 1972 to 2099",
   "detail": {
    "epochs": 89
   }

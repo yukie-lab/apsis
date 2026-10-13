@@ -27,9 +27,13 @@ Changes:
 
 Note of the manifest:
     Monochrome (grey) Dawn mosaic. A dark area at the south pole is in shadow. Thin dark streaks lie along the
-    north edge.
+    north edge. The NASA Photojournal has no better global map of Ceres (checked on 2026-10-14). Its colour maps
+    are false colour (PIA19977, PIA20351, PIA19063), or they have colour that a program adds to a clear-filter
+    mosaic (PIA20354: 'The green and yellow areas at high latitudes are places where Dawn's color imaging coverage
+    is incomplete.'). Its other global maps have labels or show other data.
 
 Remarks about this evidence:
+  - The note of the manifest names five NASA Photojournal pages. Their texts are below, after the USGS parts.
   - The USGS record of this file does not use the words "public domain". See the fields "Access Constraints"
     and "Use Constraints" in the record.
 
@@ -273,3 +277,242 @@ Additional information on Acknowledging or Crediting USGS as Information Source 
    radius 470000.0 m, lon0 180.0000, stdpar 0.0
    left edge -0.0063 deg, centre 180.0000 deg, right edge 360.0063 deg (east positive)
    top lat 89.9909 deg, bottom lat -89.9909 deg
+
+####################################################################################################
+# NASA Photojournal PIA19977 (main part of the page; a map that this work did not take)
+# Address: https://science.nasa.gov/photojournal/hints-at-ceres-composition-from-color/
+# Fetched: 2026-10-14 01:29 (local time)
+# How: Fetched with a small Python script (urllib) and the user agent "ApsisAssetFetch/1.0 (local build script)". The script kept the main part of the page only and removed the HTML tags.
+####################################################################################################
+REQUEST: https://photojournal.jpl.nasa.gov/catalog/PIA19977
+FINAL URL: https://science.nasa.gov/photojournal/hints-at-ceres-composition-from-color/
+
+Photojournal Navigation
+[https://science.nasa.gov/] Science
+[https://science.nasa.gov/category/photojournal/] Photojournal
+Hints at Ceres’ Composition...
+[https://science.nasa.gov/photojournal/] Photojournal Home
+[https://science.nasa.gov/photojournal/search/] Photojournal Search
+[https://science.nasa.gov/photojournal/latest/] Latest Content
+[https://science.nasa.gov/photojournal/galleries/] Galleries
+[https://science.nasa.gov/photojournal/feedback/] Feedback
+[https://science.nasa.gov/photojournal/rss-feeds/] RSS
+[https://science.nasa.gov/photojournal/about-photojournal/] About
+2 Min Read
+Hints at Ceres’ Composition from Color
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia19/pia19977/PIA19977.jpg?w=3078&h=1538&fit=clip&crop=faces%2Cfocalpoint}
+PIA19977
+Credits:
+NASA/JPL-Caltech/UCLA/MPS/DLR/IDA
+Image Addition Date:09/30/2015
+Target:
+Is a satellite of:
+Mission(s):
+Spacecraft(s):
+Instrument(s):
+Downloads
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia19/pia19977/PIA19977.jpg?w=3078&h=1538&fit=clip&crop=faces%2Cfocalpoint}
+Hints at Ceres’ Composition from Color
+JPEG (1.27 MB)
+[https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia19/pia19977/PIA19977.jpg]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia19/pia19977/PIA19977.tif?w=150}
+Hints at Ceres’ Composition from Color
+TIFF (13.55 MB)
+[https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia19/pia19977/PIA19977.tif]
+Description
+This map-projected view of Ceres was created from images taken by NASA's Dawn spacecraft during its high-altitude mapping orbit, in August and September, 2015.
+Images taken using infrared (920 nanometers), red (750 nanometers) and blue (440 nanometers) spectral filters were combined to create this false-color view. Redder colors indicate places on Ceres' surface that reflect light strongly in the infrared, while bluish colors indicate enhanced reflectivity at short (bluer) wavelengths; green indicates places where albedo, or overall brightness, is strongly enhanced.
+Scientists use this technique in order to highlight subtle color differences across Ceres, which would appear fairly uniform in natural color. This can provide valuable insights into the mineral composition of the surface, as well as the relative ages of surface features.
+Dawn's mission is managed by JPL for NASA's Science Mission Directorate in Washington. Dawn is a project of the directorate's Discovery Program, managed by NASA's Marshall Space Flight Center in Huntsville, Alabama. UCLA is responsible for overall Dawn mission science. Orbital ATK, Inc., in Dulles, Virginia, designed and built the spacecraft. The German Aerospace Center, the Max Planck Institute for Solar System Research, the Italian Space Agency and the Italian National Astrophysical Institute are international partners on the mission team. For a complete list of acknowledgments, see [http://dawn.jpl.nasa.gov/mission] http://dawn.jpl.nasa.gov/mission.
+For more information about the Dawn mission, visit [http://dawn.jpl.nasa.gov] http://dawn.jpl.nasa.gov.
+
+####################################################################################################
+# NASA Photojournal PIA20351 (main part of the page; a map that this work did not take)
+# Address: https://science.nasa.gov/photojournal/color-map-of-ceres-elliptical-projection/
+# Fetched: 2026-10-14 01:29 (local time)
+# How: Fetched with a small Python script (urllib) and the user agent "ApsisAssetFetch/1.0 (local build script)". The script kept the main part of the page only and removed the HTML tags.
+####################################################################################################
+REQUEST: https://photojournal.jpl.nasa.gov/catalog/PIA20351
+FINAL URL: https://science.nasa.gov/photojournal/color-map-of-ceres-elliptical-projection/
+
+Photojournal Navigation
+[https://science.nasa.gov/] Science
+[https://science.nasa.gov/category/photojournal/] Photojournal
+Color Map of Ceres (Elliptical...
+[https://science.nasa.gov/photojournal/] Photojournal Home
+[https://science.nasa.gov/photojournal/search/] Photojournal Search
+[https://science.nasa.gov/photojournal/latest/] Latest Content
+[https://science.nasa.gov/photojournal/galleries/] Galleries
+[https://science.nasa.gov/photojournal/feedback/] Feedback
+[https://science.nasa.gov/photojournal/rss-feeds/] RSS
+[https://science.nasa.gov/photojournal/about-photojournal/] About
+2 Min Read
+Color Map of Ceres (Elliptical Projection)
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia20/pia20351/PIA20351.jpg?w=4000&h=2051&fit=clip&crop=faces%2Cfocalpoint}
+PIA20351
+Credits:
+NASA/JPL-Caltech/UCLA/MPS/DLR/IDA
+Image Addition Date:03/22/2016
+Target:
+Is a satellite of:
+Mission(s):
+Spacecraft(s):
+Instrument(s):
+Downloads
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia20/pia20351/PIA20351.jpg?w=4000&h=2051&fit=clip&crop=faces%2Cfocalpoint}
+Color Map of Ceres (Elliptical Projection)
+JPEG (1.66 MB)
+[https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia20/pia20351/PIA20351.jpg]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia20/pia20351/PIA20351.tif?w=150}
+Color Map of Ceres (Elliptical Projection)
+TIFF (15.87 MB)
+[https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia20/pia20351/PIA20351.tif]
+Description
+This global map shows the surface of Ceres in enhanced color, encompassing infrared wavelengths beyond human visual range. Images taken using infrared (965 nanometers), green (555 nanometers) and blue (438 nanometers) spectral filters were combined to create this view.
+This type of map is known as an elliptical, or Mollweide, projection and has a resolution of 460 feet (140 meters) per pixel. Some areas near the poles are black where Dawn's color imaging coverage is incomplete. The images used to make this map were taken from Dawn's high-altitude mapping orbit (HAMO), at a distance of 915 miles (1,470 kilometers) from Ceres.
+Dawn's mission is managed by JPL for NASA's Science Mission Directorate in Washington. Dawn is a project of the directorate's Discovery Program, managed by NASA's Marshall Space Flight Center in Huntsville, Alabama. UCLA is responsible for overall Dawn mission science. Orbital ATK, Inc., in Dulles, Virginia, designed and built the spacecraft. The German Aerospace Center, the Max Planck Institute for Solar System Research, the Italian Space Agency and the Italian National Astrophysical Institute are international partners on the mission team. For a complete list of acknowledgments, see [http://dawn.jpl.nasa.gov/mission] http://dawn.jpl.nasa.gov/mission.
+For more information about the Dawn mission, visit [http://dawn.jpl.nasa.gov] http://dawn.jpl.nasa.gov.
+Photojournal Note: Also available is the full resolution TIFF file [https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia20/pia20351/tiff/PIA20351_full.tif] PIA20351_full.tif. This file may be too large to view from a browser; it can be downloaded onto your desktop by right-clicking on the previous link and viewed with image viewing software.
+
+####################################################################################################
+# NASA Photojournal PIA19063 (main part of the page; a map that this work did not take)
+# Address: https://science.nasa.gov/photojournal/dawns-first-color-map-of-ceres/
+# Fetched: 2026-10-14 01:29 (local time)
+# How: Fetched with a small Python script (urllib) and the user agent "ApsisAssetFetch/1.0 (local build script)". The script kept the main part of the page only and removed the HTML tags.
+####################################################################################################
+REQUEST: https://photojournal.jpl.nasa.gov/catalog/PIA19063
+FINAL URL: https://science.nasa.gov/photojournal/dawns-first-color-map-of-ceres/
+
+Photojournal Navigation
+[https://science.nasa.gov/] Science
+[https://science.nasa.gov/category/photojournal/] Photojournal
+Dawn’s First Color Map of Ceres
+[https://science.nasa.gov/photojournal/] Photojournal Home
+[https://science.nasa.gov/photojournal/search/] Photojournal Search
+[https://science.nasa.gov/photojournal/latest/] Latest Content
+[https://science.nasa.gov/photojournal/galleries/] Galleries
+[https://science.nasa.gov/photojournal/feedback/] Feedback
+[https://science.nasa.gov/photojournal/rss-feeds/] RSS
+[https://science.nasa.gov/photojournal/about-photojournal/] About
+2 Min Read
+Dawn’s First Color Map of Ceres
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia19/pia19063/PIA19063.jpg?w=1377&h=476&fit=clip&crop=faces%2Cfocalpoint}
+PIA19063
+Credits:
+NASA/JPL-Caltech/UCLA/MPS/DLR/IDA
+Image Addition Date:04/13/2015
+Target:
+Is a satellite of:
+Mission(s):
+Spacecraft(s):
+Downloads
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia19/pia19063/PIA19063.jpg?w=1377&h=476&fit=clip&crop=faces%2Cfocalpoint}
+Dawn’s First Color Map of Ceres
+JPEG (171.33 KB)
+[https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia19/pia19063/PIA19063.jpg]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia19/pia19063/PIA19063.tif?w=150}
+Dawn’s First Color Map of Ceres
+TIFF (1.88 MB)
+[https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia19/pia19063/PIA19063.tif]
+Description
+This map-projected view of Ceres was created from images taken by NASA's Dawn spacecraft during its initial approach to the dwarf planet, prior to being captured into orbit in March 2015.
+The map is an enhanced color view that offers an expanded range of the colors visible to human eyes. Scientists use this technique in order to highlight subtle color differences across Ceres. This can provide valuable insights into the physical properties and composition of materials on the surface. For example, scientists have not established clear connections between impact craters and the different colors visible here, but they are investigating this possibility.
+Images taken using blue (440 nanometers), green (550 nanometers) and infrared (920 nanometers) spectral filters were combined to create the map. The filters were assigned to color channels in reverse order, compared to natural color; in other words, the short-wavelength blue images were assigned to the red color channel and the long-wavelength infrared images are assigned to the blue color channel.
+The Dawn mission is managed by NASA's Jet Propulsion Laboratory, Pasadena, California, for NASA's Science Mission Directorate in Washington. Dawn is a project of the directorate's Discovery Program, managed by NASA's Marshall Space Flight Center in Huntsville, Alabama. The University of California, Los Angeles, is responsible for overall Dawn mission science. Orbital ATK, Inc., in Dulles, Virginia, designed and built the spacecraft. The German Aerospace Center, the Max Planck Institute for Solar System Research, the Italian Space Agency and the Italian National Astrophysical Institute are international partners on the mission team.The Dawn mission is managed by NASA's Jet Propulsion Laboratory, Pasadena, California, for NASA's Science Mission Directorate in Washington. Dawn is a project of the directorate's Discovery Program, managed by NASA's Marshall Space Flight Center in Huntsville, Alabama. The University of California, Los Angeles, is responsible for overall Dawn mission science. Orbital ATK, Inc., in Dulles, Virginia, designed and built the spacecraft. The German Aerospace Center, the Max Planck Institute for Solar System Research, the Italian Space Agency and the Italian National Astrophysical Institute are international partners on the mission team. For a complete list of acknowledgments, [https://photojournal.jpl.nasa.gov/ http://dawn.jpl.nasa.gov/mission] http://dawn.jpl.nasa.gov/mission.
+
+####################################################################################################
+# NASA Photojournal PIA20354 (main part of the page; a map that this work did not take)
+# Address: https://science.nasa.gov/photojournal/colorized-map-of-ceres-mercator-projection/
+# Fetched: 2026-10-14 03:49 (local time)
+# How: Fetched with a small Python script (urllib) and the user agent "ApsisAssetFetch/1.0 (local build script)". The script kept the main part of the page only and removed the HTML tags.
+####################################################################################################
+REQUEST: https://science.nasa.gov/photojournal/colorized-map-of-ceres-mercator-projection/
+FINAL URL: https://science.nasa.gov/photojournal/colorized-map-of-ceres-mercator-projection/
+
+Photojournal Navigation
+[https://science.nasa.gov/] Science
+[https://science.nasa.gov/category/photojournal/] Photojournal
+Colorized Map of Ceres...
+[https://science.nasa.gov/photojournal/] Photojournal Home
+[https://science.nasa.gov/photojournal/search/] Photojournal Search
+[https://science.nasa.gov/photojournal/latest/] Latest Content
+[https://science.nasa.gov/photojournal/galleries/] Galleries
+[https://science.nasa.gov/photojournal/feedback/] Feedback
+[https://science.nasa.gov/photojournal/rss-feeds/] RSS
+[https://science.nasa.gov/photojournal/about-photojournal/] About
+2 Min Read
+Colorized Map of Ceres (Mercator Projection)
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia20/pia20354/PIA20354.jpg?w=4000&h=2000&fit=clip&crop=faces%2Cfocalpoint}
+PIA20354
+Credits:
+NASA/JPL-Caltech/UCLA/MPS/DLR/IDA
+Image Addition Date:03/22/2016
+Target:
+Is a satellite of:
+Mission(s):
+Spacecraft(s):
+Instrument(s):
+Downloads
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia20/pia20354/PIA20354.jpg?w=4000&h=2000&fit=clip&crop=faces%2Cfocalpoint}
+Colorized Map of Ceres (Mercator Projection)
+JPEG (2.34 MB)
+[https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia20/pia20354/PIA20354.jpg]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia20/pia20354/PIA20354.tif?w=150}
+Colorized Map of Ceres (Mercator Projection)
+TIFF (21.20 MB)
+[https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia20/pia20354/PIA20354.tif]
+Description
+This colorized global map of Ceres was created from a clear-filter mosaic. Color was added to the map using spectral data from other observations of Ceres (calculated using a color transformation program). The green and yellow areas at high latitudes are places where Dawn's color imaging coverage is incomplete.
+The map is a Mercator projection and has a resolution of 460 feet (140 meters) per pixel. The images used to make this map were taken from Dawn's high-altitude mapping orbit (HAMO), at a distance of 915 miles (1,470 kilometers) from Ceres.
+Dawn's mission is managed by JPL for NASA's Science Mission Directorate in Washington. Dawn is a project of the directorate's Discovery Program, managed by NASA's Marshall Space Flight Center in Huntsville, Alabama. UCLA is responsible for overall Dawn mission science. Orbital ATK, Inc., in Dulles, Virginia, designed and built the spacecraft. The German Aerospace Center, the Max Planck Institute for Solar System Research, the Italian Space Agency and the Italian National Astrophysical Institute are international partners on the mission team. For a complete list of acknowledgments, see [http://dawn.jpl.nasa.gov/mission] http://dawn.jpl.nasa.gov/mission.
+For more information about the Dawn mission, visit [http://dawn.jpl.nasa.gov] http://dawn.jpl.nasa.gov.
+Photojournal Note: Also available is the full resolution TIFF file [https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia20/pia20354/tiff/PIA20354_full.tif] PIA20354_full.tif. This file may be too large to view from a browser; it can be downloaded onto your desktop by right-clicking on the previous link and viewed with image viewing software.
+
+####################################################################################################
+# NASA Photojournal PIA20918 (main part of the page; a map that this work did not take)
+# Address: https://science.nasa.gov/photojournal/ceres-feature-names-september-2016/
+# Fetched: 2026-10-14 01:29 (local time)
+# How: Fetched with a small Python script (urllib) and the user agent "ApsisAssetFetch/1.0 (local build script)". The script kept the main part of the page only and removed the HTML tags.
+####################################################################################################
+REQUEST: https://photojournal.jpl.nasa.gov/catalog/PIA20918
+FINAL URL: https://science.nasa.gov/photojournal/ceres-feature-names-september-2016/
+
+Photojournal Navigation
+[https://science.nasa.gov/] Science
+[https://science.nasa.gov/category/photojournal/] Photojournal
+Ceres Feature Names: September...
+[https://science.nasa.gov/photojournal/] Photojournal Home
+[https://science.nasa.gov/photojournal/search/] Photojournal Search
+[https://science.nasa.gov/photojournal/latest/] Latest Content
+[https://science.nasa.gov/photojournal/galleries/] Galleries
+[https://science.nasa.gov/photojournal/feedback/] Feedback
+[https://science.nasa.gov/photojournal/rss-feeds/] RSS
+[https://science.nasa.gov/photojournal/about-photojournal/] About
+2 Min Read
+Ceres Feature Names: September 2016
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia20/pia20918/PIA20918.jpg?w=1914&h=1076&fit=clip&crop=faces%2Cfocalpoint}
+PIA20918
+Credits:
+NASA/JPL-Caltech/UCLA/MPS/DLR/IDA
+Image Addition Date:09/26/2016
+Target:
+Is a satellite of:
+Mission(s):
+Spacecraft(s):
+Instrument(s):
+Downloads
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia20/pia20918/PIA20918.jpg?w=1914&h=1076&fit=clip&crop=faces%2Cfocalpoint}
+Ceres Feature Names: September 2016
+JPEG (510.54 KB)
+[https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia20/pia20918/PIA20918.jpg]
+{img https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia20/pia20918/PIA20918.tif?w=150}
+Ceres Feature Names: September 2016
+TIFF (5.75 MB)
+[https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia20/pia20918/PIA20918.tif]
+Description
+This topographical map of Ceres, made with images from NASA's Dawn spacecraft, shows all of the dwarf planet's named features as of September 2016. Dawn celebrated nine years since launch on September 27, 2016.
+To date, more than 110 places on Ceres have been named. These include craters such as Occator Crater, home of the brightest areas on the dwarf planet, as well as crater chains called catenae, mountains such as Ahuna Mons, and other geological features. A full list of feature types and their definitions can be found [http://planetarynames.wr.usgs.gov/DescriptorTerms] here.
+Among the most recently named features is Kwanzaa Tholus, named after the African-American winter holiday Kwanzaa, which is based on ancient African harvest festivals. A tholus is a small dome-shaped mountain or hill. There are a total of seven tholi named on Ceres.
+The latest list of features on Ceres can be found at the [http://planetarynames.wr.usgs.gov/SearchResults?target=CERES] USGS Planetary Nomenclature website.
+Dawn's mission is managed by JPL for NASA's Science Mission Directorate in Washington. Dawn is a project of the directorate's Discovery Program, managed by NASA's Marshall Space Flight Center in Huntsville, Alabama. UCLA is responsible for overall Dawn mission science. Orbital ATK, Inc., in Dulles, Virginia, designed and built the spacecraft. The German Aerospace Center, the Max Planck Institute for Solar System Research, the Italian Space Agency and the Italian National Astrophysical Institute are international partners on the mission team. For a complete list of mission participants, see [http://dawn.jpl.nasa.gov/mission] http://dawn.jpl.nasa.gov/mission.
+For more information about the Dawn mission, visit [http://dawn.jpl.nasa.gov] http://dawn.jpl.nasa.gov.

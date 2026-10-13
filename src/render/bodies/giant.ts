@@ -3,16 +3,20 @@
  *
  * A planet with a map in the manifest shows the map. A planet with no map shows cloud bands that the code
  * makes from a table of colours by latitude, with noise for the wavy band edges and the fine streaks.
- * The tables are approximate looks. They are not measured data, and the body then has the provenance 'procedural'.
+ * The tables are approximate looks. They are not measured data, and the body then has the provenance 'procedural'
+ * (or 'mixed' if its ring strip comes from a file) and the note 'bands-procedural'.
  *
  * Shading: the Lambert law with a soft step over the terminator (a deep atmosphere has no sharp terminator),
- * and a little haze at the limb. Saturn and Uranus get their rings. The rings of Saturn put a shadow on the planet.
+ * and a thin haze above the clouds that sends most light forward: it gives the faint line at the limb and the
+ * bright crescent of a planet that is seen against the light.
+ * Saturn and Uranus get their rings. The rings of Saturn put a shadow on the planet.
+ * If the map of a planet does not load, the planet changes to the bands of the code.
  */
 import * as THREE from 'three';
 import { Globe, colorVector, shaderBase } from './core';
 import type { BuildContext, Built, Part } from './core';
 import { FRAG_HEAD, FRAG_TAIL, GLSL_LIGHT, GLSL_MAP, GLSL_NOISE, VERT_UNIT_SPHERE } from './glsl';
-import { findTexture, longitudeOffset, notesFromEntry } from './manifest';
+import { findTexture, latitudeKind, longitudeOffset, notesFromEntry } from './manifest';
 import { GLSL_RING_SHADOW, buildRings } from './rings';
 import { NIGHT_FILL, latitudeFactor } from './surface';
 
@@ -30,7 +34,7 @@ interface GiantLook {
   scale: number;
   /** Half-width of the soft step over the terminator (cosine of the Sun angle). */
   terminator: number;
-  /** Colour and amount of the haze at the limb. */
+  /** Colour and optical depth of the haze above the clouds. */
   haze: string;
   hazeAmount: number;
   /** Brightness factor. */
@@ -50,7 +54,7 @@ const LOOKS: Record<string, GiantLook> = {
     streak: 0.2,
     scale: 3.2,
     terminator: 0.06,
-    haze: '#8fa3b8',
+    haze: '#b7b4ad',
     hazeAmount: 0.05,
     gain: 1.0,
   },
@@ -66,8 +70,8 @@ const LOOKS: Record<string, GiantLook> = {
     streak: 0.07,
     scale: 3.0,
     terminator: 0.07,
-    haze: '#b9b08f',
-    hazeAmount: 0.05,
+    haze: '#c6ba98',
+    hazeAmount: 0.06,
     gain: 1.0,
   },
   URANUS: {
@@ -80,7 +84,7 @@ const LOOKS: Record<string, GiantLook> = {
     scale: 2.4,
     terminator: 0.08,
     haze: '#c9e6ea',
-    hazeAmount: 0.06,
+    hazeAmount: 0.08,
     gain: 0.95,
   },
   NEPTUNE: {
@@ -93,7 +97,7 @@ const LOOKS: Record<string, GiantLook> = {
     scale: 2.6,
     terminator: 0.08,
     haze: '#9fb9e6',
-    hazeAmount: 0.07,
+    hazeAmount: 0.08,
     gain: 0.95,
   },
 };
@@ -148,7 +152,7 @@ uniform sampler2D uMap;       // real map, or the band strip that the code makes
 uniform vec4 uMapParams;      // x: u offset, y: latitude factor, w: 1 = the map is ready
 uniform vec4 uBand;           // x: wave size, y: streak contrast, z: noise frequency
 uniform vec3 uMeanColor;
-uniform vec4 uShade;          // x: half-width of the terminator step, y: haze amount, z: brightness, w: light on the night side
+uniform vec4 uShade;          // x: half-width of the terminator step, y: optical depth of the haze, z: brightness, w: light on the night side
 uniform vec3 uHazeColor;
 uniform vec3 uRadii;
 uniform vec3 uSunDir;
@@ -179,16 +183,26 @@ void main() {
   float mu0 = dot(n, uSunDir);
   float mu = max(dot(n, v), 0.0);
   float lit = softCos(mu0, uShade.x);
-  vec3 sun = uSunColor * casterShadow(pos, uSunDir);
+  float shadow = casterShadow(pos, uSunDir);
+  vec3 sun = uSunColor * shadow;
   #ifdef RING_SHADOW
-    sun *= ringShadow(pos, uSunDir);
+    float ring = ringShadow(pos, uSunDir);
+    sun *= ring;
+    shadow *= ring;
   #endif
-  // The limb is a little darker than the Lambert law says, and a thin haze shows at the very edge.
+  // The limb is a little darker than the Lambert law says.
   float edge = 1.0 - mu;
   float edge2 = edge * edge;
   vec3 color = albedo * sun * lit * (1.0 - 0.25 * edge2 * edge2);
-  color += uHazeColor * sun * (uShade.y * sqrt(lit) * edge2 * edge2);
-  color += albedo * uSunColor * uShade.w;
+  // Haze above the clouds: single scattering in a thin flat layer, with a forward phase function
+  // (Henyey-Greenstein, g = 0.55). It is faint with the Sun behind the camera and bright against the light.
+  float cs = -dot(v, uSunDir);
+  float hazePhase = 0.6975 / pow(max(1.3025 - 1.1 * cs, 1e-3), 1.5);
+  float m0 = max(mu0, 0.0) + 0.02;
+  float mv = mu + 0.02;
+  float hazeLit = smoothstep(-uShade.x, uShade.x, mu0);
+  color += uHazeColor * sun * (0.25 * hazePhase * hazeLit * m0 / (m0 + mv) * (1.0 - exp(-uShade.y * (1.0 / m0 + 1.0 / mv))));
+  color += albedo * uSunColor * (uShade.w + nightFill(shadow * lit));
   gl_FragColor = vec4(color, 1.0);
   ${FRAG_TAIL}
 }
@@ -200,7 +214,13 @@ export function buildGiant(ctx: BuildContext, rings: { inner: number; outer: num
   const entry = findTexture(ctx.maps.manifest, ctx.id, 'color');
   const look = LOOKS[ctx.id] ?? plainLook(ctx.color);
   const high = ctx.quality === 'high';
-  const mapParams = new THREE.Vector4(entry ? longitudeOffset(entry) : 0.5, latitudeFactor(entry ? 'centric' : 'graphic', ctx.radiusKm, ctx.polarRadiusKm), 0, 0);
+  // The rows of a map have the latitude kind that the manifest gives. The band table of the code has planetographic latitude.
+  const mapParams = new THREE.Vector4(
+    entry ? longitudeOffset(entry) : 0.5,
+    latitudeFactor(entry ? latitudeKind(entry) : 'graphic', ctx.radiusKm, ctx.polarRadiusKm),
+    0,
+    0,
+  );
   const uniforms: Record<string, THREE.IUniform> = {
     uMap: { value: ctx.maps.blank },
     uMapParams: { value: mapParams },
@@ -214,31 +234,29 @@ export function buildGiant(ctx: BuildContext, rings: { inner: number; outer: num
     uSunColor: ctx.frame.uSunColor,
     uCasters: ctx.frame.uCasters,
     uSunAngR: ctx.frame.uSunAngR,
+    uNightFill: ctx.frame.uNightFill,
   };
-  const defines: Record<string, number> = {};
+  const defines: Record<string, number> = { MAP_ANISOTROPY: ctx.maps.anisotropy };
   const owned: THREE.Texture[] = [];
-  let codeTextures = 0;
-  let provenance: Built['provenance'];
-  if (entry) {
-    provenance = 'map';
-    notes.push(...notesFromEntry(entry));
-    ctx.maps.load(entry, { srgb: true, wrapU: true }, (texture) => {
-      if (!texture) {
-        notes.push('map-load-failed');
-        return;
-      }
-      uniforms.uMap.value = texture;
-      mapParams.w = 1;
-    });
-  } else {
-    provenance = 'procedural';
-    notes.push('bands-procedural');
+  let bandTextures = 0;
+  // The bands of the code: the strip of colours by latitude replaces the map.
+  const useBands = (target: Record<string, number>): void => {
     const strip = makeBandStrip(look.bands, 512);
     owned.push(strip);
     uniforms.uMap.value = strip;
-    defines.BANDS = 1;
-    defines.BAND_OCTAVES = high ? 4 : 2;
-    codeTextures++;
+    mapParams.set(0.5, latitudeFactor('graphic', ctx.radiusKm, ctx.polarRadiusKm), 0, 1);
+    target.BANDS = 1;
+    target.BAND_OCTAVES = high ? 4 : 2;
+    notes.push('bands-procedural');
+  };
+  // True while the surface of the planet comes from a file (also while the file loads).
+  let planetFromMap = entry !== null;
+  const fileNotes = entry ? notesFromEntry(entry) : [];
+  if (entry) {
+    notes.push(...fileNotes);
+  } else {
+    useBands(defines);
+    bandTextures = 1;
   }
 
   const parts: Part[] = [];
@@ -250,9 +268,7 @@ export function buildGiant(ctx: BuildContext, rings: { inner: number; outer: num
       defines.RING_SHADOW = 1;
       Object.assign(uniforms, ringSystem.shadowUniforms);
     }
-    codeTextures += ringSystem.codeTextures;
     extentKm = ringSystem.outerKm;
-    if (provenance === 'map') provenance = 'mixed';
   }
 
   const material = new THREE.ShaderMaterial({
@@ -279,13 +295,41 @@ export function buildGiant(ctx: BuildContext, rings: { inner: number; outer: num
       for (const t of owned) t.dispose();
     },
   });
-  return {
+  const built: Built = {
     parts,
-    provenance,
+    // These two values change when a file arrives or fails, so they are read each time.
+    // Rings always have parts of the code (the whole profile, or the opacity and the F ring), so a planet with
+    // rings is 'mixed' when its surface or its ring strip comes from a file.
+    get provenance(): Built['provenance'] {
+      if (!ringSystem) return planetFromMap ? 'map' : 'procedural';
+      return planetFromMap || ringSystem.codeTextures() === 0 ? 'mixed' : 'procedural';
+    },
     notes,
     extentKm,
     variant: 'default',
-    codeTextures,
+    get codeTextures(): number {
+      return bandTextures + (ringSystem ? ringSystem.codeTextures() : 0);
+    },
     samplesPerPixel: 1 + (defines.RING_SHADOW ? 1 : 0),
   };
+  if (entry) {
+    ctx.maps.load(entry, { srgb: true, wrapU: true }, (texture) => {
+      if (texture) {
+        uniforms.uMap.value = texture;
+        mapParams.w = 1;
+        return;
+      }
+      // The file did not load: the planet shows the bands of the code, and the notes of the file go away.
+      for (const note of fileNotes) {
+        const k = notes.indexOf(note);
+        if (k >= 0) notes.splice(k, 1);
+      }
+      notes.push('map-load-failed');
+      useBands(material.defines as Record<string, number>);
+      material.needsUpdate = true;
+      bandTextures = 1;
+      planetFromMap = false;
+    });
+  }
+  return built;
 }

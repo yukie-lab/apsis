@@ -3,31 +3,31 @@
   "page": {
    "accuracy": {
     "title": "Accuracy",
-    "intro": "Each number of the application has a source and an accuracy limit. This screen shows the measured errors of the engine and the items that are not verified.",
+    "intro": "Each number of the application has a source and an accuracy limit. This screen shows the measured errors of the engine and the items that have no check.",
     "check": "Check", "measured": "Measured", "limit": "Test limit", "reference": "Reference", "result": "Result",
     "ok": "In the limit", "notOk": "Not in the limit",
     "self": {
      "title": "Checks on this computer",
      "intro": "These checks calculate the values again in this browser and compare them with reference values. The reference values come from JPL Horizons, from exact solutions, or from definitions.",
      "run": "Do the checks",
-     "fast": "Checks of positions, time, frames and propagation are in progress.",
-     "flight": "The calculation of the flight of {craft} is in progress.",
+     "fast": "The application does the checks of positions, time, frames and propagation.",
+     "flight": "The application calculates the flight of {craft}.",
      "good": "All {n} checks are in their limits.",
      "bad": "{n} checks are not in their limits.",
      "failed": "The checks stopped because of an error."
     },
     "tests": {
      "title": "Results of the automatic tests ({n} checks)",
-     "intro": "The tests ran before the release of this version. Each row is the largest error that a test measured. The test limit is the value at which the test fails.",
+     "intro": "These results are from the tests before the release of this version. Each row is the largest error that a test measured. If an error is larger than the test limit, the test result is a failure.",
      "count": "{n} rows"
     },
     "unverified": {
-     "title": "Not verified",
+     "title": "Items with no check",
      "intro": "These items have no comparison with an independent reference. Use them with caution."
     },
     "limits": {
      "title": "Limits of the models",
-     "intro": "The engine does not model these effects."
+     "intro": "The engine has no model for these effects."
     }
    },
    "glossary": {
@@ -55,11 +55,11 @@
    "unverified": {
     "outerCenters": {
      "title": "Centers of Uranus and Neptune",
-     "text": "The barycenters of the two planet systems agree with JPL Horizons to 0.003 km. The application calculates each planet center from the barycenter and the moon model. The JPL Horizons centers are 4 811 km (Uranus) and 2 208 km (Neptune) from these results. The moons cannot move the planet that far. A possible cause is that Horizons uses satellite ephemeris files with a different barycenter. This cause is not verified."
+     "text": "The barycenters of the two planet systems agree with JPL Horizons to 0.003 km. The application calculates each planet center from the barycenter and the moon model. The JPL Horizons centers are 4 811 km (Uranus) and 2 208 km (Neptune) from these results. The moons cannot move the planet that far. A possible cause is that Horizons uses satellite ephemeris files with a different barycenter. There is no check of this cause."
     },
     "rotation": {
      "title": "Rotation angle of the bodies",
-     "text": "The application uses the pole and the rotation rate of the NAIF file pck00011.tpc to draw the maps of the bodies. No test compares the rotation angle with a reference. The trajectory calculations do not use the rotation angle. They use the pole direction for the J2 force."
+     "text": "The application uses the pole and the rotation rate of the NAIF file pck00011.tpc to show the maps of the bodies. No test compares the rotation angle with a reference. The trajectory calculations do not use the rotation angle. They use the pole direction for the J2 force."
     },
     "otherTools": {
      "title": "Files in other programs",
@@ -79,17 +79,17 @@
     },
     "models3d": {
      "title": "Dimensions of the spacecraft models",
-     "text": "The 3D models obey published dimensions where a source was found. The models of the Mars 2020 cruise stage and of Ulysses have estimated dimensions."
+     "text": "The 3D models obey published dimensions where a source was available. The dimensions of the models of the Mars 2020 cruise stage and of Ulysses are estimates."
     },
     "browsers": {
      "title": "Other browsers and computers",
-     "text": "The pictures of the screens were examined in one browser on one computer. The engine tests ran in Node.js. The checks on this screen show if your browser gives the same numbers."
+     "text": "The check of the pictures of the screens was in one browser on one computer. The engine tests used Node.js. The checks on this screen show if your browser gives the same numbers."
     }
    },
    "limits": {
     "impulses": { "title": "Burns are impulses", "text": "Each maneuver changes the velocity in zero time. A long burn of an actual engine has losses that the model does not include." },
-    "forces": { "title": "Forces of the model", "text": "The force model has point-mass gravity, the J2 of the planets, the relativity term of the Sun and, if you set it, radiation pressure on a sphere. It has no atmosphere, no higher gravity terms and no attitude." },
-    "moons": { "title": "Moons", "text": "The moon positions come from an analytic model with errors of 80 km to 41 000 km. A plan can use the flyby of a planet. It cannot give a precise flyby of a moon." },
+    "forces": { "title": "Forces of the model", "text": "The force model has point-mass gravity, the J2 of the planets and the relativity term of the Sun. If you set it, the model also has radiation pressure on a sphere. It has no atmosphere, no higher gravity terms and no attitude." },
+    "moons": { "title": "Moons", "text": "The moon positions come from an analytic model with errors of 80 km to 41 000 km. A plan can use the flyby of a planet. It cannot give an accurate flyby of a moon." },
     "launch": { "title": "Launch", "text": "A flight starts in a circular parking orbit. The model does not include the launch site or the flight from the ground to the orbit." },
     "entry": { "title": "Atmosphere entry", "text": "A flight with an entry stops at the equatorial radius of the body. The model does not include the atmosphere." },
     "interpolation": { "title": "Interpolation", "text": "Between the steps of the integrator, the positions come from an interpolation. Its error is approximately 0.05 km in cruise." },

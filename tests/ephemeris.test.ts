@@ -43,7 +43,7 @@ describe('planet ephemeris against JPL Horizons (DE441), 1950 to 2099', () => {
   for (const [id, key, limit] of cases) {
     it(`${id} position error < ${limit} km`, () => {
       const m = compare(id, t[key]);
-      rec.add({ id: 'ephemeris.' + id, group: 'ephemeris', value: m.maxPos, unit: 'km', limit, truth: `JPL Horizons vectors (ICRF, SSB centre), ${m.n} epochs 1950 to 2099`, detail: { rmsKm: m.rms, maxVelocityErrorKmS: m.maxVel, epochs: m.n } });
+      rec.add({ id: 'ephemeris.' + id, group: 'ephemeris', value: m.maxPos, unit: 'km', limit, truth: `JPL Horizons vectors (ICRF, relative to the solar system barycenter), ${m.n} epochs from 1950 to 2099`, detail: { rmsKm: m.rms, maxVelocityErrorKmS: m.maxVel, epochs: m.n } });
       expect(m.n).toBeGreaterThan(300);
       expect(m.maxPos).toBeLessThan(limit);
     });
@@ -62,7 +62,7 @@ describe('moon model against JPL Horizons (independent epochs)', () => {
       // Limit: 4 % of the orbit radius in the fit interval 2000 to 2050, 10 % for 1975 to 2075.
       // Mimas: 20 % and 70 %. Its mean longitude has a resonant libration (Mimas-Tethys) that one sine term fits poorly.
       const [fa, fb] = id === 'MIMAS' ? [0.2, 0.7] : [0.04, 0.1];
-      rec.add({ id: 'moon.' + id, group: 'ephemeris', value: a.maxPos, unit: 'km', limit: fa * orbit, truth: `JPL Horizons vectors relative to the planet centre, ${a.n} epochs 2000 to 2050`, detail: { rmsKm: a.rms, maxKm1975to2075: b.maxPos, orbitRadiusKm: orbit, epochs: a.n } });
+      rec.add({ id: 'moon.' + id, group: 'ephemeris', value: a.maxPos, unit: 'km', limit: fa * orbit, truth: `JPL Horizons vectors relative to the center of the planet, ${a.n} epochs from 2000 to 2050`, detail: { rmsKm: a.rms, maxKm1975to2075: b.maxPos, orbitRadiusKm: orbit, epochs: a.n } });
       expect(a.maxPos).toBeLessThan(fa * orbit);
       expect(b.maxPos).toBeLessThan(fb * orbit);
     });
@@ -75,7 +75,7 @@ describe('small-body ephemeris against JPL Horizons (independent epochs 1980 to 
     it(`${id}`, () => {
       const m = compare(id, t[id]);
       const limit = 50;
-      rec.add({ id: 'small.' + id, group: 'ephemeris', value: m.maxPos, unit: 'km', limit, truth: `JPL Horizons vectors (ICRF, SSB centre), ${m.n} epochs 1980 to 2059`, detail: { rmsKm: m.rms, epochs: m.n } });
+      rec.add({ id: 'small.' + id, group: 'ephemeris', value: m.maxPos, unit: 'km', limit, truth: `JPL Horizons vectors (ICRF, relative to the solar system barycenter), ${m.n} epochs from 1980 to 2059`, detail: { rmsKm: m.rms, epochs: m.n } });
       expect(m.maxPos).toBeLessThan(limit);
     });
   }

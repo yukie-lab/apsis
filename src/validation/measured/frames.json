@@ -16,7 +16,7 @@
   "value": 0.0015692667472167168,
   "unit": "km",
   "limit": 0.02,
-  "truth": "JPL Horizons heliocentric ecliptic vectors of Venus, the Earth, Mars and the Jupiter barycentre, 1950 to 2099"
+  "truth": "JPL Horizons vectors (heliocentric, ecliptic of J2000) of Venus, the Earth, Mars and the Jupiter barycenter, from 1950 to 2099"
  },
  {
   "id": "frames.elements",
@@ -24,7 +24,7 @@
   "value": 4.077038733497574e-9,
   "unit": "relative",
   "limit": 1e-8,
-  "truth": "JPL Horizons osculating elements (heliocentric, ecliptic of J2000) of Venus, the Earth, Mars and the Jupiter barycentre",
+  "truth": "JPL Horizons osculating elements (heliocentric, ecliptic of J2000) of Venus, the Earth, Mars and the Jupiter barycenter",
   "detail": {
    "maxEccentricityError": 4.43896349539008e-9,
    "maxPeriapsisRelativeError": 8.589723948578785e-9,

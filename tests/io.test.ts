@@ -1303,7 +1303,7 @@ describe('JPL Horizons vector tables: real outputs', () => {
     expect(stats.vel).toBe(0);
     rec.add({
       id: 'io.horizonsVectors', group: 'interchange', value: stats.pos, unit: 'km', limit: 1e-9,
-      truth: `JPL Horizons vector tables: ${stats.files} raw outputs against the numbers of truth/horizons/*.json (an independent parser); the same decimal text gives the same number, thus the correct value is 0`,
+      truth: `The numbers of truth/horizons/*.json for ${stats.files} output files of JPL Horizons (vector tables). An independent parser made these numbers. The same decimal text gives the same number, thus the correct value is 0.`,
       detail: { files: stats.files, rows: stats.rows, maxVelocityDifferenceKmS: stats.vel },
     });
     // The truth files have the Julian date in one 64-bit number: its step at 2.4 million days is 2^-31 day =
@@ -1311,7 +1311,7 @@ describe('JPL Horizons vector tables: real outputs', () => {
     // (20.1 microseconds) plus the rounding of the two results in seconds (0.12 microsecond each): 21 microseconds.
     rec.add({
       id: 'io.horizonsTime', group: 'interchange', value: stats.time, unit: 's', limit: 2.1e-5,
-      truth: 'Julian dates of the same raw outputs as one 64-bit number (step 40 microseconds) in truth/horizons/*.json',
+      truth: 'Julian dates of the same output files as one 64-bit number (step 40 microseconds) in truth/horizons/*.json',
       detail: { rows: stats.rows },
     });
     expect(stats.time).toBeLessThanOrEqual(2.1e-5);
@@ -1347,7 +1347,7 @@ describe('JPL Horizons vector tables: real outputs', () => {
     // sum 2.8e-14 km/s, limit 3e-14 km/s.
     rec.add({
       id: 'io.horizonsUnits', group: 'interchange', value: unitPos, unit: 'km', limit: 2e-7,
-      truth: 'JPL Horizons: tables of Mars and Venus in au and days and of the Earth in km and days against the tables of the same bodies in km and s (truth/horizons/frames.json)',
+      truth: 'JPL Horizons tables of the same bodies in km and s (truth/horizons/frames.json). The test reads tables of Mars and Venus in au and days and a table of the Earth in km and days.',
       detail: { maxVelocityDifferenceKmS: unitVel, velocityLimitKmS: 3e-14 },
     });
     expect(unitPos).toBeLessThanOrEqual(2e-7);
@@ -1611,23 +1611,23 @@ describe('tables from a real flight (Voyager 2, solved by the engine)', () => {
     // Time: 6 decimals of the second. Half of the last digit is 0.5 microsecond. The conversions between et, TAI and
     // the calendar reading round 64-bit numbers by 0.06 microsecond each (eight times at most): limit 1 microsecond.
     const POS = 1e-6, VEL = 1e-14, TIME = 1e-6;
-    const digits = 'the same table read back from the file; limit from the digits of the file';
+    const digits = 'The reference is the table before the file. The limit comes from the digits of the file';
     const oemText = writeOem(t, { originator: 'Apsis test', creationEt: 0 });
     const oem = diff(parseOem(oemText));
     expect(parseOem(oemText).objectName).toBe('VOYAGER 2');
     expect(parseOem(oemText).objectId).toBe('1977-076A');
     expect(parseOem(oemText).comments).toEqual(t.comments);
-    rec.add({ id: 'io.oemPosition', group: 'interchange', value: oem.pos, unit: 'km', limit: POS, truth: `Round trip of a flight table (Voyager 2, ${t.et.length} samples, ${t.segmentStarts!.length} segments) through an OEM file: ${digits} (16 digits)`, detail: { samples: t.et.length, segments: t.segmentStarts!.length, largestCoordinateKm: biggest } });
-    rec.add({ id: 'io.oemVelocity', group: 'interchange', value: oem.vel, unit: 'km/s', limit: VEL, truth: `Round trip through an OEM file: ${digits} (16 digits)`, detail: { largestComponentKmS: fastest } });
-    rec.add({ id: 'io.oemTime', group: 'interchange', value: oem.time, unit: 's', limit: TIME, truth: `Round trip through an OEM file with UTC times: ${digits} (6 decimals of the second)` });
+    rec.add({ id: 'io.oemPosition', group: 'interchange', value: oem.pos, unit: 'km', limit: POS, truth: `The application writes a flight table (Voyager 2, ${t.et.length} samples, ${t.segmentStarts!.length} segments) to an OEM file and reads the file. ${digits} (16 digits).`, detail: { samples: t.et.length, segments: t.segmentStarts!.length, largestCoordinateKm: biggest } });
+    rec.add({ id: 'io.oemVelocity', group: 'interchange', value: oem.vel, unit: 'km/s', limit: VEL, truth: `The same test with an OEM file. ${digits} (16 digits).`, detail: { largestComponentKmS: fastest } });
+    rec.add({ id: 'io.oemTime', group: 'interchange', value: oem.time, unit: 's', limit: TIME, truth: `The same test with an OEM file with UTC times. ${digits} (6 decimals of the second).` });
     expect(oem.pos).toBeLessThanOrEqual(POS);
     expect(oem.vel).toBeLessThanOrEqual(VEL);
     expect(oem.time).toBeLessThanOrEqual(TIME);
 
     const stk = diff(parseStkEphemeris(writeStkEphemeris(t)));
-    rec.add({ id: 'io.stkPosition', group: 'interchange', value: stk.pos, unit: 'km', limit: POS, truth: `Round trip of the same table through an STK ephemeris file: ${digits} (16 digits)` });
-    rec.add({ id: 'io.stkVelocity', group: 'interchange', value: stk.vel, unit: 'km/s', limit: VEL, truth: `Round trip through an STK ephemeris file: ${digits} (16 digits)` });
-    rec.add({ id: 'io.stkTime', group: 'interchange', value: stk.time, unit: 's', limit: TIME, truth: `Round trip through an STK ephemeris file: ${digits} (seconds after the epoch with 6 decimals)` });
+    rec.add({ id: 'io.stkPosition', group: 'interchange', value: stk.pos, unit: 'km', limit: POS, truth: `The same test with an STK ephemeris file. ${digits} (16 digits).` });
+    rec.add({ id: 'io.stkVelocity', group: 'interchange', value: stk.vel, unit: 'km/s', limit: VEL, truth: `The same test with an STK ephemeris file. ${digits} (16 digits).` });
+    rec.add({ id: 'io.stkTime', group: 'interchange', value: stk.time, unit: 's', limit: TIME, truth: `The same test with an STK ephemeris file. ${digits} (seconds after the epoch with 6 decimals).` });
     expect(stk.pos).toBeLessThanOrEqual(POS);
     expect(stk.vel).toBeLessThanOrEqual(VEL);
     expect(stk.time).toBeLessThanOrEqual(TIME);
@@ -1641,7 +1641,7 @@ describe('tables from a real flight (Voyager 2, solved by the engine)', () => {
     const tdb = sample('SUN', 'ICRF', 'TDB');
     const back = parseCsv(writeCsv(tdb, { time: 'jd' }), { center: 'SUN', frame: 'ICRF' });
     const jd = Math.max(...tdb.et.map((x, i) => Math.abs(back.et[i] - x)));
-    rec.add({ id: 'io.csvTime', group: 'interchange', value: csv.time, unit: 's', limit: TIME, truth: `Round trip through a CSV file with calendar times: ${digits} (6 decimals of the second; positions and velocities have 17 digits and come back with no change)`, detail: { julianDateColumnS: jd, julianDateLimitS: 3e-7 } });
+    rec.add({ id: 'io.csvTime', group: 'interchange', value: csv.time, unit: 's', limit: TIME, truth: `The same test with a CSV file with calendar times. ${digits} (6 decimals of the second). Positions and velocities have 17 digits and do not change.`, detail: { julianDateColumnS: jd, julianDateLimitS: 3e-7 } });
     expect(jd).toBeLessThanOrEqual(3e-7);
   });
 
@@ -1718,7 +1718,7 @@ describe('tables from a real flight (Voyager 2, solved by the engine)', () => {
     // Position: (1.5 + 4.5 + 5 + 1.5) e-8 * 1.32 + 6e-8 + 1.6e-8 = 2.4e-7 km, limit 3e-7 km.
     // Velocity: (3.6 + 10.7 + 5 + 3.6) e-15 * 1.32 + 14.2e-15 = 4.4e-14 km/s, limit 5e-14 km/s.
     const pos = maxAbs(back.state0.r, flight.state0.r), vel = maxAbs(back.state0.v, flight.state0.v);
-    rec.add({ id: 'io.opmState', group: 'interchange', value: pos, unit: 'km', limit: 3e-7, truth: 'Round trip of the start state of a flight (Voyager 2, heliocentric, ecliptic frame) through an OPM file: limit from the 16 digits of the file', detail: { velocityDifferenceKmS: vel, velocityLimitKmS: 5e-14, epochDifferenceS: Math.abs(back.et0 - flight.et0) } });
+    rec.add({ id: 'io.opmState', group: 'interchange', value: pos, unit: 'km', limit: 3e-7, truth: 'The application writes the start state of a flight (Voyager 2, heliocentric, ecliptic frame) to an OPM file and reads the file. The reference is the state before the file. The limit comes from the 16 digits of the file.', detail: { velocityDifferenceKmS: vel, velocityLimitKmS: 5e-14, epochDifferenceS: Math.abs(back.et0 - flight.et0) } });
     expect(pos).toBeLessThanOrEqual(3e-7);
     expect(vel).toBeLessThanOrEqual(5e-14);
     expect(Math.abs(back.et0 - flight.et0)).toBeLessThanOrEqual(1e-6); // 6 decimals of the second
@@ -1767,7 +1767,7 @@ describe('Hermite interpolation in a table', () => {
     const h = 200;
     const bound = (R * (W * h) ** 8 * 0.87890625) / 40320;
     const worst = worstAtMiddles(h);
-    rec.add({ id: 'io.hermiteCircle', group: 'interchange', value: worst, unit: 'km', limit: bound, truth: 'Analytic circular orbit (radius 7000 km, 0.2 rad between samples), interpolation in the middle between samples; limit: remainder of the Hermite formula of degree 7' });
+    rec.add({ id: 'io.hermiteCircle', group: 'interchange', value: worst, unit: 'km', limit: bound, truth: 'Analytic circular orbit (radius 7000 km, 0.2 rad between samples). The interpolation is at the center of each interval between samples. The limit is the remainder of the Hermite formula of degree 7.' });
     expect(worst).toBeLessThanOrEqual(bound);
     expect(worst).toBeGreaterThan(bound / 100); // the error has the order of the formula: the test is not empty
     // A step of one half makes the error smaller by 2^8 = 256.
@@ -2053,7 +2053,7 @@ describe('tables with the steps of the integrator (Voyager 2, solved by the engi
     expect(Math.min(...flybys.map((t) => Math.abs(t - b.et)))).toBeLessThan(2 * DAY);
     expect(b.maxKm).toBeGreaterThan(1000 * a.maxKm);
     expect(steps.et.length).toBeLessThan(daily.et.length);
-    rec.add({ id: 'io.stepsTable', group: 'interchange', value: all.maxKm, unit: 'km', limit: 1, truth: 'Flight of Voyager 2 (12 years, 4 flybys): Hermite interpolation of degree 7 in the table of integrator steps against a new integration to the middle of each interval (consistency check, regression limit)', detail: { samples: steps.et.length, samplesOfTheDailyTable: daily.et.length, errorOfTheDailyTableKm: b.maxKm } });
+    rec.add({ id: 'io.stepsTable', group: 'interchange', value: all.maxKm, unit: 'km', limit: 1, truth: 'Flight of Voyager 2 (12 years, 4 flybys). The test compares the Hermite interpolation of degree 7 in the table of integrator steps with a new integration to the center of each interval. The two values come from this application: the test is not an independent check.', detail: { samples: steps.et.length, samplesOfTheDailyTable: daily.et.length, errorOfTheDailyTableKm: b.maxKm } });
     expect(all.maxKm).toBeLessThan(1);
   });
 

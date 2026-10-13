@@ -30,8 +30,10 @@ Options:
     --fetch-missing    download an original file again when it is absent (checks the sha256)
     --docs-only        write docs/ASSETS.md from the manifest that is on disk, and stop
 
-The manifest has these fields beyond the basic list: `conventions` (top level), and per
-texture `licenceStatement` (the words of the source about the licence) and `note`.
+The manifest has these fields beyond the basic list: `conventions` and `sourcesNote` (top
+level; `sourcesNote` is a list of sentences about the kinds of sources, and docs/ASSETS.md
+prints them), and per texture `licenceStatement` (the words of the source about the licence)
+and `note`.
 Some textures have more fields: see OPTIONAL_FIELDS, `zonalFill` and `ring` below.
 
 Fields of one entry of sources.json:
@@ -50,17 +52,23 @@ Fields of one entry of sources.json:
     changes                  the complete text of `changes` (replaces the sentences of the script)
     note                     free text for the manifest
     archiveMember            the original file is this member of the ZIP archive at downloadUrl
-    latitudeType, naturalColour, filters, observed, latitudeLimitsDeg
-                             optional facts from the source; the script copies them to the manifest
+    latitudeType, colour, filters, observed, latitudeLimitsDeg
+                             optional facts from the source; the script copies them to the manifest.
+                             colour is one of: natural, near natural, enhanced, grey
+                             (the field `conventions` of sources.json explains these words)
     zonalFill                for a map that covers only a band of latitudes (prepare "zonal_fill"):
                              validRows [first, last]   rows of the original with clean data
                              interpolateRows [[first, last], ...]   masked rows inside the band
                              meanRows, fadeDeg         see prepare_zonal_fill
-                             The script writes `latitudeLimitsDeg` and `filledBands` to the manifest.
+                             The script writes `latitudeLimitsDeg`, `filledBands` and
+                             `filledSharePercent` to the manifest.
+    edgeColumns              for a map with black pixels (value 0) at its left or right edge
+                             (prepare "edge_columns"): see prepare_edge_columns
     ring                     for the ring strip (role "ring"): see build_ring
 """
 import hashlib
 import json
+import math
 import re
 import shutil
 import struct
@@ -86,7 +94,7 @@ USER_AGENT = "ApsisAssetFetch/1.0 (local build script)"
 FORMAT_NAMES = {".jpg": "JPEG", ".jpeg": "JPEG", ".tif": "TIFF", ".tiff": "TIFF", ".png": "PNG", ".exr": "OpenEXR"}
 
 # Optional fields that the script copies from sources.json to the manifest without change.
-OPTIONAL_FIELDS = ("latitudeLimitsDeg", "latitudeType", "naturalColour", "filters", "observed", "archiveMember")
+OPTIONAL_FIELDS = ("latitudeLimitsDeg", "latitudeType", "colour", "filters", "observed", "archiveMember")
 
 SPACECRAFT_HEADING = "## Spacecraft models"
 SPACECRAFT_DEFAULT = SPACECRAFT_HEADING + "\n\nSee the section that the spacecraft model work adds.\n"
@@ -329,20 +337,31 @@ def row_latitude(y, h):
 
 
 def zonal_fill_info(e, h):
-    """Return the manifest fields that describe the fill of a zonal map with h rows."""
+    """Return the manifest fields that describe the fill of a zonal map with h rows.
+
+    `filledSharePercent` is the share of the surface that the fill covers. The script computes it
+    for a sphere: a band between two latitudes has the share (sin north - sin south) / 2.
+    """
     p = e["zonalFill"]
     y0, y1 = p["validRows"]
-    bands = []
+    rows = []
     if y0 > 0:
-        bands.append({"northDeg": 90.0, "southDeg": row_latitude(y0, h),
-                      "method": "mean colour of the nearest valid rows"})
+        rows.append((0, y0, "mean colour of the nearest valid rows"))
     for ya, yb in p.get("interpolateRows", []):
-        bands.append({"northDeg": row_latitude(ya, h), "southDeg": row_latitude(yb + 1, h),
-                      "method": "linear blend between the valid rows above and below"})
+        rows.append((ya, yb + 1, "linear blend between the valid rows above and below"))
     if y1 < h - 1:
-        bands.append({"northDeg": row_latitude(y1 + 1, h), "southDeg": -90.0,
-                      "method": "mean colour of the nearest valid rows"})
-    return {"latitudeLimitsDeg": [row_latitude(y1 + 1, h), row_latitude(y0, h)], "filledBands": bands}
+        rows.append((y1 + 1, h, "mean colour of the nearest valid rows"))
+    bands = []
+    total = 0.0
+    for first, end, method in rows:
+        north = math.radians(90.0 - first * 180.0 / h)
+        south = math.radians(90.0 - end * 180.0 / h)
+        share = (math.sin(north) - math.sin(south)) / 2 * 100
+        total += share
+        bands.append({"northDeg": row_latitude(first, h), "southDeg": row_latitude(end, h),
+                      "sharePercent": round(share, 1), "method": method})
+    return {"latitudeLimitsDeg": [row_latitude(y1 + 1, h), row_latitude(y0, h)],
+            "filledBands": bands, "filledSharePercent": round(total, 1)}
 
 
 def prepare_zonal_fill(e, src, dst):
@@ -403,7 +422,42 @@ def prepare_zonal_fill(e, src, dst):
     write_png_rgb(dst, w, h, px)
 
 
-PREPARE = {"deimos_scan_marks": prepare_deimos_scan_marks, "zonal_fill": prepare_zonal_fill}
+def prepare_edge_columns(e, src, dst):
+    """Fill the black pixels in the first and last columns of a map.
+
+    Some mosaics have a broken line of pixels with the value 0 (no data) at the left edge or at
+    the right edge. After the resize this line shows as a dark line where the map wraps around.
+    The entry gives `edgeColumns` with:
+        columns     number of columns at each edge that the step looks at (default 8)
+        reach       how far the step looks for a pixel with data, in columns (default 32)
+    In these columns a pixel with the value 0 takes the value of the nearest pixel of the same
+    row, toward the inside of the map, that is not 0. The step changes nothing else.
+    """
+    p = e.get("edgeColumns", {})
+    n, reach = p.get("columns", 8), p.get("reach", 32)
+    w, h, px = load_pixels(src, e["id"])
+    if w < 2 * (n + reach):
+        fail("%s: the image is too narrow for edgeColumns" % e["id"])
+    filled = 0
+    for y in range(h):
+        row = y * w * 3
+        for x in list(range(n - 1, -1, -1)) + list(range(w - n, w)):
+            i = row + x * 3
+            if px[i] or px[i + 1] or px[i + 2]:
+                continue
+            step = 3 if x < n else -3
+            for k in range(1, reach + 1):
+                j = i + step * k
+                if px[j] or px[j + 1] or px[j + 2]:
+                    px[i:i + 3] = px[j:j + 3]
+                    filled += 1
+                    break
+    print("  edge columns of %s: %d pixels filled" % (e["id"], filled))
+    write_png_rgb(dst, w, h, px)
+
+
+PREPARE = {"deimos_scan_marks": prepare_deimos_scan_marks, "zonal_fill": prepare_zonal_fill,
+           "edge_columns": prepare_edge_columns}
 
 
 # ---------------------------------------------------------------------------
@@ -441,27 +495,36 @@ def ring_axis_profile(w, h, px, axis, half_rows):
     return prof
 
 
-def ring_strip(prof, r0, scale, r_in, r_out, out_w, floor):
-    """Resample the axis profile to out_w pixels between the radii r_in and r_out.
+def smooth_profile(prof, columns):
+    """Mean of the profile over `columns` neighbouring columns (the window is shorter at the two ends)."""
+    half = columns // 2
+    w = len(prof)
+    acc = [(0.0, 0.0, 0.0)]
+    for p in prof:
+        a = acc[-1]
+        acc.append((a[0] + p[0], a[1] + p[1], a[2] + p[2]))
+    out = []
+    for x in range(w):
+        lo, hi = max(0, x - half), min(w, x + half + 1)
+        out.append([(acc[hi][c] - acc[lo][c]) / (hi - lo) for c in range(3)])
+    return out
+
+
+def resample_profile(prof, r0, scale, r_in, r_out, out_w):
+    """Resample a profile to out_w pixels between the radii r_in and r_out (area-weighted mean).
 
     Image position x (pixel centre at a whole number) has the radius r0 + scale * x.
-    Return (list of RGBA tuples, largest brightness, number of pixels without image data).
-    Alpha is the brightness (largest colour channel) divided by the largest brightness of the
-    strip. The colour is the observed colour divided by alpha. So colour times alpha gives the
-    observed colour again. A pixel that is darker than `floor` takes the colour of the nearest
-    brighter pixel, because the hue of a very dark pixel is only noise.
+    A pixel of the result that lies outside of the image is None.
     """
     w = len(prof)
-    obs = []
-    empty = 0
+    out = []
     for i in range(out_w):
         # edges of this output pixel in image coordinates (pixel x covers x - 0.5 .. x + 0.5)
         ua = (r_in + (r_out - r_in) * i / out_w - r0) / scale + 0.5
         ub = (r_in + (r_out - r_in) * (i + 1) / out_w - r0) / scale + 0.5
         ua, ub = max(0.0, ua), min(float(w), ub)
         if ub - ua <= 1e-9:
-            obs.append(None)
-            empty += 1
+            out.append(None)
             continue
         total = [0.0, 0.0, 0.0]
         for x in range(int(ua), min(w - 1, int(ub)) + 1):
@@ -469,18 +532,33 @@ def ring_strip(prof, r0, scale, r_in, r_out, out_w, floor):
             if part > 0:
                 for c in range(3):
                     total[c] += prof[x][c] * part
-        obs.append([v / (ub - ua) for v in total])
+        out.append([v / (ub - ua) for v in total])
+    return out
+
+
+def ring_strip(prof, r0, scale, r_in, r_out, out_w, floor, hue_columns):
+    """Make the strip of out_w pixels between the radii r_in and r_out from the axis profile.
+
+    Return (list of RGBA tuples, largest brightness, number of pixels without image data).
+    Alpha is the brightness (largest colour channel) divided by the largest brightness of the
+    strip. The colour is the mean colour of `hue_columns` image columns around the pixel, scaled
+    so that its largest channel is the largest brightness of the strip. So colour times alpha
+    gives the brightness of the image again. The mean over some columns removes the colour
+    fringes that the image has at sharp ring edges. A pixel whose mean colour is darker than
+    `floor` takes the colour of the nearest brighter pixel, because the hue of a very dark pixel
+    is only noise.
+    """
+    obs = resample_profile(prof, r0, scale, r_in, r_out, out_w)
+    hues = resample_profile(smooth_profile(prof, hue_columns), r0, scale, r_in, r_out, out_w)
+    empty = sum(1 for c in obs if c is None)
     vmax = max(max(c) for c in obs if c is not None)
-    good = [i for i, c in enumerate(obs) if c is not None and max(c) >= floor]
+    good = [i for i, c in enumerate(hues) if c is not None and max(c) >= floor]
     out = []
     for i, c in enumerate(obs):
-        if c is None:
-            j = min(good, key=lambda g: abs(g - i))
-            hue = obs[j]
-            alpha = 0.0
-        else:
-            alpha = max(c) / vmax
-            hue = c if max(c) >= floor else obs[min(good, key=lambda g: abs(g - i))]
+        alpha = 0.0 if c is None else max(c) / vmax
+        hue = hues[i]
+        if hue is None or max(hue) < floor:
+            hue = hues[min(good, key=lambda g: abs(g - i))]
         k = vmax / max(hue)
         out.append((min(255, int(round(hue[0] * k))), min(255, int(round(hue[1] * k))),
                     min(255, int(round(hue[2] * k))), min(255, int(round(alpha * 255)))))
@@ -499,7 +577,12 @@ def build_ring(e, src, dst, dst_sm, do_build):
         innerRadiusKm, outerRadiusKm, radiusSource
                         radius range of the strip (left edge and right edge)
         alphaSource     where the alpha channel comes from
-        width, height, smallWidth, smallHeight, alphaFloor
+        colourSource    where the colour comes from
+        width, height, smallWidth, smallHeight
+        hueColumns      the colour of a pixel is the mean colour of this number of image columns
+                        (an odd number; 1 = no mean)
+        hueFloor        a pixel whose mean colour is darker than this value (0 to 255) takes the
+                        colour of the nearest brighter pixel (default 12)
     """
     p = e["ring"]
     width, height = p.get("width", 2048), p.get("height", 16)
@@ -513,7 +596,7 @@ def build_ring(e, src, dst, dst_sm, do_build):
         "radiusSource": p["radiusSource"],
         "kmPerPixel": round((r_out - r_in) / width, 3),
         "alphaSource": p["alphaSource"],
-        "naturalColour": p.get("naturalColour"),
+        "colourSource": p["colourSource"],
         "radiusFit": {
             "kmPerSourcePixel": round(scale, 4),
             "radiusAtFirstSourceColumnKm": round(r0),
@@ -523,13 +606,12 @@ def build_ring(e, src, dst, dst_sm, do_build):
                           "usedInFit": bool(c.get("fit"))} for c in cal],
         },
     }
-    if info["naturalColour"] is None:
-        del info["naturalColour"]
     if do_build:
         w, h, px = load_pixels(src, e["id"])
         prof = ring_axis_profile(w, h, px, p["axis"], p["halfRows"])
         for path, ow, oh in ((dst, width, height), (dst_sm, sm_w, sm_h)):
-            strip, vmax, empty = ring_strip(prof, r0, scale, r_in, r_out, ow, p.get("alphaFloor", 12))
+            strip, vmax, empty = ring_strip(prof, r0, scale, r_in, r_out, ow, p.get("hueFloor", 12),
+                                            p.get("hueColumns", 1))
             line = b"".join(bytes(c) for c in strip)
             write_png_rgba(path, ow, oh, line * oh)
             print("  ring strip %s: %d x %d, largest brightness %.1f, %d pixels without image data" % (
@@ -658,12 +740,72 @@ def fetch_original(e, path):
     part.rename(path)
 
 
+def latitude_text(deg):
+    """Return a latitude as text, for example '76.4 degrees north'."""
+    if abs(deg) < 0.05:
+        return "the equator"
+    return "%s degrees %s" % (("%.1f" % abs(deg)).rstrip("0").rstrip("."), "north" if deg > 0 else "south")
+
+
+def zonal_fill_changes(e, h):
+    """Describe the fill of a zonal map in simple sentences."""
+    p = e["zonalFill"]
+    y0, y1 = p["validRows"]
+    out = ["The build fills each row that has no clean image data."]
+    caps = []
+    if y0 > 0:
+        caps.append("north of " + latitude_text(row_latitude(y0, h)))
+    if y1 < h - 1:
+        caps.append("south of " + latitude_text(row_latitude(y1 + 1, h)))
+    for cap in caps:
+        out.append("The fill %s is the mean colour of the nearest valid rows." % cap)
+    if caps:
+        out.append("Near the limit the fill blends from the nearest valid row to this mean colour.")
+    for ya, yb in p.get("interpolateRows", []):
+        out.append("Between %s and %s the fill is a linear blend of the two nearest valid rows." % (
+            latitude_text(row_latitude(ya, h)), latitude_text(row_latitude(yb + 1, h))))
+    return out
+
+
+def edge_columns_changes(e):
+    """Describe the repair of the edge columns in simple sentences."""
+    n = e.get("edgeColumns", {}).get("columns", 8)
+    return ["The build fills each black pixel (value 0) in the first %d and the last %d columns of the original." % (n, n),
+            "Such a pixel takes the value of the nearest pixel of the same row that is not black."]
+
+
+def ring_changes(e):
+    """Describe the making of the ring strip in simple sentences."""
+    p = e["ring"]
+    width, height = p.get("width", 2048), p.get("height", 16)
+    return " ".join([
+        "The build makes a new image from the original image.",
+        "It takes one brightness profile along the long axis of the ring ellipses.",
+        "Each profile value is the mean of %d image rows." % (2 * p["halfRows"] + 1),
+        "The build resamples the profile to %d pixels between the inner radius and the outer radius." % width,
+        "The radius scale comes from a fit to ring edges with a known radius (field radiusFit).",
+        "The alpha value of a pixel is its brightness divided by the largest brightness of the strip.",
+        "The colour of a pixel is the mean colour of %d image columns around it." % p.get("hueColumns", 1),
+        "The build scales this colour to the largest brightness of the strip.",
+        "A very dark pixel takes the colour of the nearest brighter pixel.",
+        "The build writes %d equal rows as a PNG file." % height,
+        "The small version has %d x %d pixels." % (p.get("smallWidth", width // 2), p.get("smallHeight", height // 2)),
+    ])
+
+
 def changes_text(e, orig, out_w, out_h):
     """Describe the changes in simple sentences (active voice, present tense)."""
     if e.get("changes"):
         return e["changes"]
+    if e["role"] == "ring":
+        return ring_changes(e)
     ext = Path(e["original"]).suffix.lower()
     fmt = FORMAT_NAMES.get(ext, ext.lstrip(".").upper())
+    first = []
+    if e.get("zonalFill"):
+        first = zonal_fill_changes(e, orig["height"])
+    elif e.get("prepare") == "edge_columns":
+        first = edge_columns_changes(e)
     parts = []
     ow, oh = orig["width"], orig["height"]
     if (ow, oh) != (out_w, out_h):
@@ -681,14 +823,16 @@ def changes_text(e, orig, out_w, out_h):
         parts.append("tags the image with the sRGB colour profile.")
     if e.get("extraChanges"):
         parts.append(e["extraChanges"])
-    return " ".join(("The build " if i == 0 else "It ") + p for i, p in enumerate(parts))
+    subject = "Then the build " if first else "The build "
+    return " ".join(first + [(subject if i == 0 else "It ") + part for i, part in enumerate(parts)])
 
 
 def build(only, fetch_missing):
     data, entries = load_sources()
     OUT_SM.mkdir(parents=True, exist_ok=True)
     CACHE.mkdir(parents=True, exist_ok=True)
-    manifest = {"retrieved": data["retrieved"], "conventions": data.get("conventions", ""), "textures": [], "missing": data.get("missing", [])}
+    manifest = {"retrieved": data["retrieved"], "conventions": data.get("conventions", ""),
+                "sourcesNote": data.get("sourcesNote", []), "textures": [], "missing": data.get("missing", [])}
     for e in entries:
         tid = e["id"]
         src = ORIGINAL / e["original"]
@@ -798,12 +942,12 @@ def write_assets_md():
     lines.append("The licence evidence for each file is in `data-src/textures/evidence/`.")
     lines.append("The retrieval date of all files is %s." % manifest["retrieved"])
     lines.append("")
-    lines.append("Each texture comes from the data of a space mission or of a telescope.")
-    lines.append("No texture comes from another application.")
+    for sentence in manifest.get("sourcesNote", []):
+        lines.append(" ".join(sentence.split()))
     lines.append("A file with the licence CC BY 4.0 needs a credit.")
     lines.append("It also needs a note about each change.")
     lines.append("This table gives both.")
-    lines.append("NASA, JPL and the USGS ask for a credit for their files.")
+    lines.append("NASA, JPL, the USGS and the Space Telescope Science Institute ask for a credit for their files.")
     lines.append("This table gives that credit too.")
     lines.append("The manifest field `licenceStatement` quotes the licence words of each source.")
     lines.append("")

@@ -1,0 +1,802 @@
+Licence evidence for the texture "eros"
+============================================================
+
+Texture id:        eros
+Body and role:     EROS, color
+Published file:    public/textures/eros.jpg (sha256 e5af22653a93db44fa00e2f1e4e2ffa972832f87c063a612fdd331876a5e5017)
+Small file:        public/textures/sm/eros.jpg (sha256 62007d71d7fd1648798cb490ccb4b4088ee8af585c04b7556c99db355e25ef2c)
+Original file:     data-src/textures/original/eros_nearmsi_filter4.png (57150284 bytes, sha256 f32d72a9997b5fbe0c2e1b6361b4cd51413c9504f44ab745dc73c72753695e43)
+Retrieved:         2026-10-14
+Title:             NEAR MSI Albedo Mosaics: global albedo map of Eros, filter 4 (950 nm), simple cylindrical (browse image eros_nearmsi_filter4.png)
+Author or credit:  Golish, D.R., Brodbeck, J.I., Webber, C., Becker, K.J., Bennett, C.A., DellaGiustina, D.N. (originators); USGS Astrogeology Science Center (publisher)
+Source page:       https://astrogeology.usgs.gov/search/map/near_msi_albedo_mosaics
+Download address:  https://asc-pds-individual-investigations.s3.us-west-2.amazonaws.com/eros_global-albedo-maps_golish_2023/eros_global-albedo-maps_golish_2023.zip
+Licence:           Public domain
+Licence address:   https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+
+Licence statement (the same text as in the manifest):
+    USGS record of this data set: 'Access Constraints: None', 'Use Constraints: Please cite authors'. The record
+    does not use the words 'public domain'. The download is a PDS4 archive
+    (urn:nasa:pds:eros_global-albedo-maps_golish_2023). Its labels name the authors. They have no licence text.
+    USGS policy page: 'USGS-authored or produced data and information are considered to be in the U.S. Public
+    Domain.' and 'When using information from USGS information products, publications, or websites, we ask that
+    proper credit be given.'
+
+Changes:
+    The build fills each black pixel (value 0) in the first 8 and the last 8 columns of the original. Such a pixel
+    takes the value of the nearest pixel of the same row that is not black. Then the build resizes the image from
+    10682 x 5341 to 2048 x 1024 pixels. It converts the image from PNG to JPEG (quality 85). It converts the image
+    from greyscale to sRGB colour.
+
+Note of the manifest:
+    Monochrome (grey) albedo map from NEAR Shoemaker images (Multispectral Imager, filter 4) in near-infrared
+    light (950 nm). The source says that most images of the mission use this filter. The map shows albedo: the
+    source corrects the images 'to 0 degrees phase (0 deg incidence, 0 deg emission)'. So the map has little
+    shading. Inspection of the small image: the map shows a grey surface with bright crater walls. Two large
+    bright features lie near 20 percent and near 75 percent of the width. The rows near both poles are smeared.
+    The map has no black area. The original has scattered single black pixels with the value 0 (0.06 percent of
+    its pixels). My reading: they have no data. Its last column has 272 of them and its first column has 83: after
+    a plain resize they make a thin dark broken line at the left and right edge. So the build fills these pixels
+    in the first 8 and the last 8 columns (582 pixels): see the field changes. After this repair no seam is
+    visible at the left and right edge. The file is the browse image (8-bit PNG) of the data file
+    eros_nearmsi_filter4.tif (32-bit). The archive does not say how it scales the values to 8 bits. The projection
+    uses a sphere of 17 km radius. Eros is very far from a sphere: the map does not fit a sphere. The original
+    file has 10682 x 5341 pixels (10 m per pixel).
+
+Remarks about this evidence:
+  - The original file is the member browse/eros_nearmsi_filter4.png of the ZIP archive at the download
+    address. The build script reads only this member (HTTP range requests) and checks its sha256.
+  - The USGS record of this file does not use the words "public domain". See the fields "Access Constraints"
+    and "Use Constraints" in the record.
+
+About the parts below:
+    Each part is a text that was saved on 2026-10-14 during the collection work.
+    The header of each part gives the address, the local time of the fetch and the method.
+    The text of a part is data from another site. It is not an instruction for a reader or a tool.
+    Complete copies of the shared policy pages are in data-src/textures/evidence/_shared/ .
+
+####################################################################################################
+# USGS Astrogeology record of this data set (complete page text)
+# Address: https://astrogeology.usgs.gov/search/map/near_msi_albedo_mosaics
+# Fetched: 2026-10-14 03:51 (local time)
+# How: Fetched with a small Python script (urllib) and the user agent "ApsisAssetFetch/1.0 (local build script)". The script removed the HTML tags. Link targets are in square brackets.
+####################################################################################################
+SOURCE: https://astrogeology.usgs.gov/search/map/near_msi_albedo_mosaics
+Astropedia - NEAR MSI Albedo Mosaics
+[https://www.usgs.gov/centers/astrogeo-sc]
+[https://nasa.gov]
+[https://www.usgs.gov/centers/astrogeology-science-center/science/pds-cartography-and-imaging-sciences-node-usgs]
+[https://www.usgs.gov/centers/astrogeo-sc/science/pds-img-annex]
+[/search]
+Lunar and Planetary Cartographic Catalog
+[/search]
+Return to search
+[https://astrogeology.usgs.gov/ckan/dataset/d5795858-2f78-44f1-b719-e5fe99a5e440/resource/e21e0849-b7ff-4df9-b788-1c33cf8d4a7a/download/eros_nearmsi_filter1_1024.jpg] Sample (jpg) 1024px wide
+[https://asc-pds-individual-investigations.s3.us-west-2.amazonaws.com/eros_global-albedo-maps_golish_2023/eros_global-albedo-maps_golish_2023.zip] Download ((Archive 2.5 GB))
+[#open] open
+NEAR MSI Albedo Mosaics
+Originators
+Golish, D.R., Brodbeck, J.I., Webber, C., Becker, K.J., Bennett, C.A., DellaGiustina, D.N.
+Publisher
+USGS Astrogeology Science Center
+Publication Date
+2023-06-16
+Abstract
+This download consists of 14 Eros global albedo mosaics across 7 filters and 2 map projections (Simple Cylindrical and Sinusoidal). The data is hosted as GeoTiffs with PDS4 and ISIS3 detached labels. A full description of the data is available in the download and the ancillary PDF.
+New data
+Recently, MSI data has been archived (DOI: 10.17189/sv8w-5125) with a new deblurring method applied (Golish et al., 2023). This method uses the same mathematical foundation as the original, but develops new blur models and processes the images to avoid edge-artifacts from the Fourier transforms. The new data has improved qualitative sharpness for all filters, particularly those at extreme wavelengths. With this new data, we generate global albedo maps for Eros in each of MSIâs seven filters. To enable color analyses (e.g., color ratios, band depths), we create albedo maps which are corrected to 0 degrees phase (0 deg incidence, 0 deg emission) with per-filter photometric models, rather than 30/30/0 angles used for the existing published basemaps.
+Shape model
+The shape model used to control and project the images for mosaicking is publicly available (Gaskell, 2020) at the Planetary Data System Small Bodies Node (PDS SBN). The shape model was created from 21,135 MSI images consisting of 1,579,014 vertices and 3,145,728 plates with an average resolution of 27 meters. The model contains 9,443,000 voxels with 75,554 coarse voxels.
+filter 1, 550 nm
+filter 2, 450 nm
+filter 3, 760 nm
+filter 4, 950 nm
+filter 5, 900 nm
+filter 6, 1000 nm
+filter 7, 1050 nm
+Backgroud:
+The Near Earth Asteroid Rendezvous (NEAR) â Shoemaker spacecraft observed asteroid 433 Eros for approximately 1 year in 2000 and 2001. While in a series of orbits (with distances to surface varying from hundreds to tens of km), NEARâs Multispectral Imager (MSI) acquired over 100,000 images with of the surface in all seven of its narrowband chromatic filters. The majority of these images were acquired with the 950 nm filter, but enough were acquired in all filters to image most of the asteroid surface. Creating global mosaics with these images is challenging for two reasons. First, Erosâs extremely irregular shape made imaging under consistent conditions infeasible. The surface was heterogeneously imaged with different resolutions and photometric conditions. Moreover, the irregular shape makes image registration (both image to image and image to shape model) more difficult. It is correspondingly difficult to map the shape to any common map projections. Second, a failed burn before entering orbit deposited hydrazine fuel on the outer surface of the MSI, causing significant blurring of all surface-resolved images. The MSI team, during mission operations, developed an effective deblurring technique that they applied to all images (Li et al., 2002). The technique struggled with the highest and lowest wavelengths, but worked well in the middle of the MSI bandpass. As such, most images were acquired with the central filter (950 nm) and much of the Eros surface science was done at this wavelength. Accordingly, the two existing published basemaps of the Eros surface (Bussey et al., 2002) were generated using 950 nm images.
+References:
+Golish, D.R., DellaGiustina, D.N., Becker, K.J., Bennett, C.A., Robinson, M., Crombie, M.K., 2023. Blur remediation in NEAR MSI images. Icarus 400, 115536. [https://doi.org/10.1016/j.icarus.2023.115536] https://doi.org/10.1016/j.icarus.2023.115536.
+Bussey, D.B.J., Robinson, M.S., Edwards, K., Thomas, P.C., Joseph, J., Murchie, S., Veverka, J., Harch, A.P., 2002. 433 Eros Global Basemap from NEAR Shoemaker MSI Images. Icarus 155, 38â50. [ https://doi.org/10.1006/icar.2001.6771] https://doi.org/10.1006/icar.2001.6771.
+Gaskell, R.W., 2020. Gaskell Eros Shape Model V1.0, urn:nasa:pds:gaskell.ast-eros.shape-model::1.0 [WWW Document]. NASA Planetary Data System. URL [https://doi.org/10.26033/0hpf-4e64] https://doi.org/10.26033/0hpf-4e64.
+Li, H., Robinson, M.S., Murchie, S., 2002. Preliminary Remediation of Scattered Light in NEAR MSI Images. Icarus 155, 244â252. [https://doi.org/10.1006/icar.2001.6745] https://doi.org/10.1006/icar.2001.6745.
+Purpose
+Build global maps of Eros in the 7 available filters taken by MSI.
+Contact and Distribution
+Format
+Global Mosaic, Image, Raster Data, Remote-sensing Data
+Access Constraints
+None
+Access Scope
+PDS
+Use Constraints
+Please cite authors
+Supplemental Information
+https://astrogeology.usgs.gov/search/map/Eros/MSI/NEAR_MSI_Deblurred_Images, https://doi.org/10.17189/sv8w-5125, https://doi.org/10.1016/j.icarus.2023.115536
+Native Data Set Environment
+ISIS v3
+Astrogeology Theme
+Asteroids, Cartography, Geophysical, Image Processing, Photogrammetry, Remote Sensing
+Mission Names
+NEAR
+Online Package Link
+https://astrogeology.usgs.gov/search/map/near_msi_albedo_mosaics
+External File Size
+(Archive 2.5 GB)
+Online File Link
+https://asc-pds-individual-investigations.s3.us-west-2.amazonaws.com/eros_global-albedo-maps_golish_2023/eros_global-albedo-maps_golish_2023.zip
+Contact Address
+2255 N. Gemini Drive
+Contact City
+Flagstaff
+Contact State
+AZ
+Contact Postal Code
+86001
+Contact Email
+[/cdn-cgi/l/email-protection] [email protected]
+Data Status and Quality
+Time Period of Content (start)
+2000-01-12
+Time Period of Content (stop)
+2001-02-06
+Currentness Reference
+Ground condition
+Progress
+Complete
+Update Frequency
+None planned
+Logical Consistency
+We used published photogrammetric control networks to register the images to each other and to the Eros shape model (Gaskell, 2020). The shape model itself is generated from the same control network. The control network includes all images for all filters used in the mosaics. We analyzed the quality of the published control networks to determine the resulting accuracy of the mosaics. The analysis used simulated images (generated with the published shape model and control networks) with MSI images. Control points were identified and compared in both sets of images to determine the offset between the two. All control points were merged into a large dataframe producing 789, 634 ground control points. Aggregate data for each image was generated for the plots provided below. The vast majority of the data were registered to within 2-3 pixels. The mosaics were generated at 10 m/pixel, therefore the average surface misregistration is between 10 and 30 meters.
+Completeness Report
+The MSI dataset at Eros is large and heterogeneous. While the vast majority of images were acquired with filter 4, each filter has at least a few hundred to a few thousand images. We used a Postgres SQL database to filter the images and extract lists according to a variety of metrics.
+Process Description
+also see
+Golish, D.R., DellaGiustina, D.N., Becker, K.J., Bennett, C.A., Robinson, M., Crombie, M.K., 2023. Blur remediation in NEAR MSI images. Icarus 400, 115536. https://doi.org/10.1016/j.icarus.2023.115536
+Source Title
+Near Earth Asteroid Rendezvous (NEAR) Data Archive
+Source Online Linkage
+https://pds-smallbodies.astro.umd.edu/data_sb/missions/near/index.shtml
+PDS Status
+PDS 4 Like
+Geospatial Information
+Target
+Eros
+System
+Small Bodies
+Minimum Latitude
+-90
+Maximum Latitude
+90
+Minimum Longitude
+0
+Maximum Longitude
+360
+Direct Spatial Reference Method
+Raster
+Object Type
+Grid Cell
+Raster Row Count (lines)
+5341
+Raster Column Count (samples)
+10682
+Bit Type (8, 16, 32)
+32
+Quad Name
+Radius A
+17000
+Radius C
+17000
+Bands
+1
+Pixel Resolution (meters/pixel)
+10
+Scale (pixels/degree)
+29.67
+Map Projection Name
+Simple Cylindrical
+Latitude Type
+Planetocentric
+Longitude Direction
+Positive East
+Longitude Domain
+0 to 360
+FGDC: XML Metadata
+Ancillary Data
+[https://astrogeology.usgs.gov/ckan/dataset/d5795858-2f78-44f1-b719-e5fe99a5e440/resource/852bbd62-9965-49b0-bf9a-a408e27255de/download/eros_global-albedo-maps_golish_2023_doc.pdf] eros_global-albedo-maps_golish_2023_doc.pdf
+[https://astrogeology.usgs.gov/ckan/dataset/d5795858-2f78-44f1-b719-e5fe99a5e440/resource/6c08eb81-1ad0-4e5f-b52e-69391a510e54/download/bundle_eros_global-albedo-maps_golish_2023.xml] bundle_eros_global-albedo-maps_golish_2023.xml
+[https://astrogeology.usgs.gov/ckan/dataset/d5795858-2f78-44f1-b719-e5fe99a5e440/resource/8d9e4b8c-3ac0-4883-aee2-5a77ef4adefe/download/thumb.png] thumb image
+[https://astrogeology.usgs.gov/ckan/dataset/d5795858-2f78-44f1-b719-e5fe99a5e440/resource/2cf2a376-42e0-464e-946e-dc20203161f0/download/eros_nearmsi_filter1_512.jpg] browse image
+[https://astrogeology.usgs.gov/ckan/dataset/d5795858-2f78-44f1-b719-e5fe99a5e440/resource/e21e0849-b7ff-4df9-b788-1c33cf8d4a7a/download/eros_nearmsi_filter1_1024.jpg] full image
+Related Products
+[https://astrogeology.usgs.gov/search/map/near_msi_deblurred_images]
+[https://astrogeology.usgs.gov/search/map/near_msi_deblurred_images]
+NEAR MSI Deblurred Images
+[http://isis.astrogeology.usgs.gov]
+ISIS
+[http://planetarynames.wr.usgs.gov]
+Planetary Nomenclature
+[https://astrocloud.wr.usgs.gov/index.php]
+Map a Planet 2
+[https://www.usgs.gov/centers/astrogeo-sc/science/cartography-and-imaging-sciences-node-nasa-planetary-data-system]
+PDS Cartography and Imaging Science Node
+[https://www.usgs.gov/centers/astrogeology-science-center/science/astrolink]
+AstroLink
+Photogrammetry Guest Facility
+[https://pilot.wr.usgs.gov]
+PILOT
+[https://www.usgs.gov/centers/astrogeo-sc/science/mrctr-gis-lab]
+MRCTR GIS Lab
+[http://astrogeology.usgs.gov/search/about] About
+[https://www.usgs.gov/centers/astrogeo-sc] USGS Astrogeology Science Center
+
+####################################################################################################
+# USGS policy page: Copyrights and Credits (excerpt, lines 419 to 427 of the saved text)
+# Address: https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+# Fetched: 2026-10-14 01:50 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The complete text is in data-src/textures/evidence/_shared/usgs_copyrights_and_credits.txt
+####################################################################################################
+Important information related to copyrights and credits.
+
+USGS-authored or produced data and information are considered to be in the U.S. Public Domain. While the content of most USGS websites is in the U.S. Public Domain, not all information, illustrations, or photographs on our site are. Some non-USGS photographs, images, and/or graphics that appear on USGS websites are used by the USGS with permission from the copyright holder (as required by USGS policy on the use of copyrighted material). These materials are generally marked as being copyrighted. To use these copyrighted materials, you must obtain permission from the copyright holder under copyright law.
+For any content or multimedia containing USGS personnel or staff, and regardless of the license applied, their likeness, or voice, the person may have publicity rights. For commercial use of that multimedia, permission may be required.
+When using information from USGS information products, publications, or websites, we ask that proper credit be given. Credit can be provided by including a citation such as the following:
+Credit: U.S. Geological Survey
+Department of the Interior/USGS
+U.S. Geological Survey/photo by Jane Doe (if the photographer/artist is known)
+Additional information on Acknowledging or Crediting USGS as Information Source is available.
+
+####################################################################################################
+# ZIP archive at the download address: list of the members (compressed size -> size, method, name)
+# Address: https://asc-pds-individual-investigations.s3.us-west-2.amazonaws.com/eros_global-albedo-maps_golish_2023/eros_global-albedo-maps_golish_2023.zip
+# Fetched: 2026-10-14 04:12 (local time)
+# How: A small Python script (urllib, user agent "ApsisAssetFetch/1.0 (local build script)") read the central directory of the archive with HTTP range requests.
+####################################################################################################
+archive size 2571702513 bytes, 77 members
+             0 ->            0  method 0  browse/
+      27345325 ->     57150284  method 8  browse/eros_nearmsi_filter1.png
+          1313 ->         3606  method 8  browse/eros_nearmsi_filter1.xml
+      24327231 ->     57150284  method 8  browse/eros_nearmsi_filter2.png
+          1313 ->         3606  method 8  browse/eros_nearmsi_filter2.xml
+      31866832 ->     57150284  method 8  browse/eros_nearmsi_filter3.png
+          1313 ->         3606  method 8  browse/eros_nearmsi_filter3.xml
+      35746804 ->     57150284  method 8  browse/eros_nearmsi_filter4.png
+          1313 ->         3606  method 8  browse/eros_nearmsi_filter4.xml
+      21824599 ->     57150284  method 8  browse/eros_nearmsi_filter5.png
+          1313 ->         3606  method 8  browse/eros_nearmsi_filter5.xml
+      29439951 ->     57150284  method 8  browse/eros_nearmsi_filter6.png
+          1313 ->         3606  method 8  browse/eros_nearmsi_filter6.xml
+      19793396 ->     57150284  method 8  browse/eros_nearmsi_filter7.png
+          1313 ->         3606  method 8  browse/eros_nearmsi_filter7.xml
+      22843775 ->     57150284  method 8  browse/eros_nearmsi_sinu_filter1.png
+          1314 ->         3626  method 8  browse/eros_nearmsi_sinu_filter1.xml
+      20830601 ->     57150284  method 8  browse/eros_nearmsi_sinu_filter2.png
+          1314 ->         3626  method 8  browse/eros_nearmsi_sinu_filter2.xml
+      25985632 ->     57150284  method 8  browse/eros_nearmsi_sinu_filter3.png
+          1316 ->         3626  method 8  browse/eros_nearmsi_sinu_filter3.xml
+      28380211 ->     57150284  method 8  browse/eros_nearmsi_sinu_filter4.png
+          1315 ->         3626  method 8  browse/eros_nearmsi_sinu_filter4.xml
+      19825303 ->     57150284  method 8  browse/eros_nearmsi_sinu_filter5.png
+          1315 ->         3626  method 8  browse/eros_nearmsi_sinu_filter5.xml
+      24604818 ->     57150284  method 8  browse/eros_nearmsi_sinu_filter6.png
+          1315 ->         3626  method 8  browse/eros_nearmsi_sinu_filter6.xml
+      18463302 ->     57150284  method 8  browse/eros_nearmsi_sinu_filter7.png
+          1315 ->         3626  method 8  browse/eros_nearmsi_sinu_filter7.xml
+          1142 ->         2977  method 8  bundle_eros_global-albedo-maps_golish_2023.xml
+             0 ->            0  method 0  data/
+           596 ->         1525  method 8  data/eros_nearmsi_filter1.lbl
+     191417061 ->    228242957  method 8  data/eros_nearmsi_filter1.tif
+          2998 ->        10462  method 8  data/eros_nearmsi_filter1.xml
+           595 ->         1515  method 8  data/eros_nearmsi_filter2.lbl
+     193693875 ->    228242957  method 8  data/eros_nearmsi_filter2.tif
+          2998 ->        10462  method 8  data/eros_nearmsi_filter2.xml
+           595 ->         1515  method 8  data/eros_nearmsi_filter3.lbl
+     192628173 ->    228242957  method 8  data/eros_nearmsi_filter3.tif
+          2999 ->        10462  method 8  data/eros_nearmsi_filter3.xml
+           596 ->         1515  method 8  data/eros_nearmsi_filter4.lbl
+     191996643 ->    228242957  method 8  data/eros_nearmsi_filter4.tif
+          2999 ->        10462  method 8  data/eros_nearmsi_filter4.xml
+           595 ->         1515  method 8  data/eros_nearmsi_filter5.lbl
+     188426040 ->    228242957  method 8  data/eros_nearmsi_filter5.tif
+          3000 ->        10462  method 8  data/eros_nearmsi_filter5.xml
+           595 ->         1516  method 8  data/eros_nearmsi_filter6.lbl
+     191947033 ->    228242957  method 8  data/eros_nearmsi_filter6.tif
+          2999 ->        10462  method 8  data/eros_nearmsi_filter6.xml
+           595 ->         1516  method 8  data/eros_nearmsi_filter7.lbl
+     188180334 ->    228242957  method 8  data/eros_nearmsi_filter7.tif
+          2999 ->        10462  method 8  data/eros_nearmsi_filter7.xml
+           618 ->         1416  method 8  data/eros_nearmsi_sinu_filter1.lbl
+     122788928 ->    228242907  method 8  data/eros_nearmsi_sinu_filter1.tif
+          2987 ->        10373  method 8  data/eros_nearmsi_sinu_filter1.xml
+           618 ->         1416  method 8  data/eros_nearmsi_sinu_filter2.lbl
+     124887919 ->    228242907  method 8  data/eros_nearmsi_sinu_filter2.tif
+          2987 ->        10373  method 8  data/eros_nearmsi_sinu_filter2.xml
+           618 ->         1416  method 8  data/eros_nearmsi_sinu_filter3.lbl
+     123106662 ->    228242907  method 8  data/eros_nearmsi_sinu_filter3.tif
+          2987 ->        10373  method 8  data/eros_nearmsi_sinu_filter3.xml
+           618 ->         1416  method 8  data/eros_nearmsi_sinu_filter4.lbl
+     123240426 ->    228242907  method 8  data/eros_nearmsi_sinu_filter4.tif
+          2988 ->        10373  method 8  data/eros_nearmsi_sinu_filter4.xml
+           618 ->         1416  method 8  data/eros_nearmsi_sinu_filter5.lbl
+     122167360 ->    228242907  method 8  data/eros_nearmsi_sinu_filter5.tif
+          2988 ->        10373  method 8  data/eros_nearmsi_sinu_filter5.xml
+           618 ->         1417  method 8  data/eros_nearmsi_sinu_filter6.lbl
+     122539208 ->    228242907  method 8  data/eros_nearmsi_sinu_filter6.tif
+          2990 ->        10368  method 8  data/eros_nearmsi_sinu_filter6.xml
+           619 ->         1417  method 8  data/eros_nearmsi_sinu_filter7.lbl
+     121206690 ->    228242907  method 8  data/eros_nearmsi_sinu_filter7.tif
+          2990 ->        10368  method 8  data/eros_nearmsi_sinu_filter7.xml
+             0 ->            0  method 0  document/
+       2918263 ->      2956074  method 8  document/eros_global-albedo-maps_golish_2023.docx
+      19195371 ->     20041194  method 8  document/eros_global-albedo-maps_golish_2023_doc.pdf
+          1199 ->         3324  method 8  document/eros_global-albedo-maps_golish_2023_doc.xml
+
+####################################################################################################
+# Archive member data/eros_nearmsi_filter4.lbl (ISIS label of the data file; it gives the map projection)
+# Address: https://asc-pds-individual-investigations.s3.us-west-2.amazonaws.com/eros_global-albedo-maps_golish_2023/eros_global-albedo-maps_golish_2023.zip
+# Fetched: 2026-10-14 04:32 (local time)
+# How: A small Python script (urllib, user agent "ApsisAssetFetch/1.0 (local build script)") read this member of the ZIP archive at the download address with HTTP range requests. The text is unchanged.
+####################################################################################################
+Object = IsisCube
+  Object = Core
+
+    Group = Dimensions
+      Samples = 10682
+      Lines   = 5341
+      Bands   = 1
+    End_Group
+
+    Group = Pixels
+      Type       = Real
+      ByteOrder  = Lsb
+      Base       = 0.0
+      Multiplier = 1.0
+    End_Group
+    StartByte = 32710
+    ^Core     = eros_nearmsi_filter4.tif
+    Format    = BandSequential
+  End_Object
+
+  Group = BandBin
+    FilterNumber = 4
+    Center       = 950 <nm>
+  End_Group
+
+  Group = Tracking
+    FileName = mos_dataf4final_tracking.cub
+  End_Group
+
+  Group = Mapping
+    TargetName           = Eros
+    EquatorialRadius     = 17000.0 <meters>
+    PolarRadius          = 17000.0 <meters>
+    LatitudeType         = Planetocentric
+    LongitudeDirection   = PositiveEast
+    LongitudeDomain      = 360
+    MinimumLatitude      = -90.0000000000000000
+    MinimumLongitude     =  0.00000000000000000000
+    MaximumLatitude      = 90.0000000000000000
+    MaximumLongitude     = 0.00000000000000000000
+    ProjectionName       = Equirectangular
+    CenterLongitude      = 180.0
+    CenterLatitude       = 0.0
+    CenterLatitudeRadius = 17000.0
+    UpperLeftCornerX     = -53410.0
+    UpperLeftCornerY     = 26710.0
+    PixelResolution      = 10.0 <meters/pixel>
+    Scale                = 29.6705972839036001 <pixels/degree>
+  End_Group
+End_Object
+
+Object = Label
+  Bytes = 1515             
+End_Object
+
+Object = History
+  Name      = IsisCube
+  StartByte = 1
+  Bytes     = 5437
+  ^History  = eros_nearmsi_filter4.History.IsisCube
+End_Object
+End
+
+####################################################################################################
+# Archive member browse/eros_nearmsi_filter4.xml (PDS4 label of the browse image)
+# Address: https://asc-pds-individual-investigations.s3.us-west-2.amazonaws.com/eros_global-albedo-maps_golish_2023/eros_global-albedo-maps_golish_2023.zip
+# Fetched: 2026-10-14 04:32 (local time)
+# How: A small Python script (urllib, user agent "ApsisAssetFetch/1.0 (local build script)") read this member of the ZIP archive at the download address with HTTP range requests. The text is unchanged.
+####################################################################################################
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1H00.sch"        schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://pds.nasa.gov/pds4/disp/v1/PDS4_DISP_1H00_1510.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1H00_1860.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://pds.nasa.gov/pds4/cart/v1/PDS4_CART_1H00_1950.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Product_Browse xmlns="http://pds.nasa.gov/pds4/pds/v1" 
+  xmlns:pds="http://pds.nasa.gov/pds4/pds/v1" 
+  xmlns:disp="http://pds.nasa.gov/pds4/disp/v1" 
+  xmlns:img="http://pds.nasa.gov/pds4/img/v1" 
+  xmlns:cart="http://pds.nasa.gov/pds4/cart/v1" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1H00.xsd
+                      http://pds.nasa.gov/pds4/disp/v1 https://pds.nasa.gov/pds4/disp/v1/PDS4_DISP_1H00_1510.xsd
+                      http://pds.nasa.gov/pds4/img/v1 https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1H00_1860.xsd
+                      http://pds.nasa.gov/pds4/cart/v1 https://pds.nasa.gov/pds4/cart/v1/PDS4_CART_1H00_1950.xsd">
+  <Identification_Area>
+    <logical_identifier>urn:nasa:pds:eros_global-albedo-maps_golish_2023:browse:eros_nearmsi_filter4_browse</logical_identifier>
+    <version_id>1.0</version_id>
+    <title>Eros Global Albedo Maps</title>
+    <information_model_version>1.17.0.0</information_model_version>
+    <product_class>Product_Browse</product_class>
+    <Citation_Information>
+      <author_list>D. R. Golish, J. I. Brodbeck, C. Webber, K. J. Becker, C. A. Bennett, D. N. DellaGiustina</author_list>
+      <publication_year>2023</publication_year>
+      <description>
+        Recently, MSI data has been archived (DOI: 10.17189/sv8w-5125) with a new deblurring method applied 
+        (Golish et al., 2023). This method uses the same mathematical foundation as the original, but develops 
+        new blur models and processes the images to avoid edge-artifacts from the Fourier transforms. The new 
+        data has improved qualitative sharpness for all filters, particularly those at extreme wavelengths. 
+        With this new data, we generate global albedo maps for Eros in each of MSI’s seven filters. To enable 
+        color analyses (e.g., color ratios, band depths), we create albedo maps which are corrected to 0° 
+        phase (0° incidence, 0° emission) with per-filter photometric models, rather than 30/30/0 angles 
+        used for the existing published basemaps.       
+      </description>
+    </Citation_Information>
+  </Identification_Area>
+  <Reference_List>
+    <Internal_Reference>
+      <lid_reference>urn:nasa:pds:eros_global-albedo-maps_golish_2023:data:eros_nearmsi_filter4</lid_reference>
+      <reference_type>browse_to_data</reference_type>
+      <comment>This is a reference to the data file corresponding to this figure.</comment>
+    </Internal_Reference>
+  </Reference_List>
+  <File_Area_Browse>
+    <File>
+      <file_name>eros_nearmsi_filter4.png</file_name>
+      <local_identifier>eros_nearmsi_filter4_browse</local_identifier>
+      <creation_date_time>2023-06-10</creation_date_time>
+    </File>
+    <Encoded_Image>
+      <local_identifier>miscellaneous_browse</local_identifier>
+      <offset unit="byte">0</offset>
+      <encoding_standard_id>PNG</encoding_standard_id>
+    </Encoded_Image>
+  </File_Area_Browse>
+</Product_Browse>
+
+####################################################################################################
+# Archive member data/eros_nearmsi_filter4.xml (PDS4 label of the data file)
+# Address: https://asc-pds-individual-investigations.s3.us-west-2.amazonaws.com/eros_global-albedo-maps_golish_2023/eros_global-albedo-maps_golish_2023.zip
+# Fetched: 2026-10-14 04:32 (local time)
+# How: A small Python script (urllib, user agent "ApsisAssetFetch/1.0 (local build script)") read this member of the ZIP archive at the download address with HTTP range requests. The text is unchanged.
+####################################################################################################
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1H00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://pds.nasa.gov/pds4/disp/v1/PDS4_DISP_1H00_1510.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1H00_1860.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://pds.nasa.gov/pds4/cart/v1/PDS4_CART_1H00_1950.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Product_Observational xmlns="http://pds.nasa.gov/pds4/pds/v1" xmlns:pds="http://pds.nasa.gov/pds4/pds/v1" xmlns:disp="http://pds.nasa.gov/pds4/disp/v1" xmlns:img="http://pds.nasa.gov/pds4/img/v1" xmlns:cart="http://pds.nasa.gov/pds4/cart/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1H00.xsd
+                      http://pds.nasa.gov/pds4/disp/v1 https://pds.nasa.gov/pds4/disp/v1/PDS4_DISP_1H00_1510.xsd
+                      http://pds.nasa.gov/pds4/img/v1 https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1H00_1860.xsd
+                      http://pds.nasa.gov/pds4/cart/v1 https://pds.nasa.gov/pds4/cart/v1/PDS4_CART_1H00_1950.xsd">
+  <Identification_Area>
+    <logical_identifier>urn:nasa:pds:eros_global-albedo-maps_golish_2023:data:eros_nearmsi_filter4</logical_identifier>
+    <version_id>1.0</version_id>
+    <title>Eros Global Albedo Maps</title>
+    <information_model_version>1.17.0.0</information_model_version>
+    <product_class>Product_Observational</product_class>
+    <Citation_Information>
+      <author_list>D. R. Golish, J. I. Brodbeck, C. Webber, K. J. Becker, C. A. Bennett, D. N. DellaGiustina</author_list>
+      <publication_year>2023</publication_year>
+      <description>Recently, MSI data has been archived (DOI: 10.17189/sv8w-5125) with a new deblurring method applied 
+        (Golish et al., 2023). This method uses the same mathematical foundation as the original, but develops 
+        new blur models and processes the images to avoid edge-artifacts from the Fourier transforms. The new 
+        data has improved qualitative sharpness for all filters, particularly those at extreme wavelengths. 
+        With this new data, we generate global albedo maps for Eros in each of MSI’s seven filters. To enable 
+        color analyses (e.g., color ratios, band depths), we create albedo maps which are corrected to 0° 
+        phase (0° incidence, 0° emission) with per-filter photometric models, rather than 30/30/0 angles 
+        used for the existing published basemaps.       
+      </description>
+    </Citation_Information>
+  </Identification_Area>
+  <Observation_Area>
+    <Time_Coordinates>
+      <start_date_time>1996-02-17T12:00:00.000Z</start_date_time>
+      <stop_date_time>2001-02-28T12:00:00.000Z</stop_date_time>
+    </Time_Coordinates>
+    <Primary_Result_Summary>
+      <purpose>Science</purpose>
+      <processing_level>Derived</processing_level>
+      <description>Derived global albedo maps for Eros in each of seven filters for the Multispectral Imager (MSI).
+      </description>
+      <Science_Facets>
+        <wavelength_range>Visible</wavelength_range>
+        <domain>Surface</domain>
+        <discipline_name>Imaging</discipline_name>
+        <facet1>Grayscale</facet1>
+      </Science_Facets>
+    </Primary_Result_Summary>
+    <Investigation_Area>
+      <name>Eros Global Albedo Maps</name>
+      <type>Individual Investigation</type>
+      <Internal_Reference>
+        <lidvid_reference>urn:nasa:pds:context:investigation:mission.near_earth_asteroid_rendezvous::1.2</lidvid_reference>
+        <reference_type>data_to_investigation</reference_type>
+      </Internal_Reference>
+    </Investigation_Area>
+    <Observing_System>
+      <name>NEAR</name>
+      <description>NEAR EARTH ASTEROID RENDEZVOUS (NEAR) spacecraft</description>
+      <Observing_System_Component>
+        <name>NEAR</name>
+        <type>Host</type>
+        <Internal_Reference>
+          <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.near</lid_reference>
+          <reference_type>is_instrument_host</reference_type>
+        </Internal_Reference>
+      </Observing_System_Component>
+      <Observing_System_Component>
+        <name>Multi-Spectral Imager</name>
+        <type>Instrument</type>
+        <Internal_Reference>
+          <lid_reference>urn:nasa:pds:context:instrument:msi.near</lid_reference>
+          <reference_type>is_instrument</reference_type>
+        </Internal_Reference>
+      </Observing_System_Component>
+    </Observing_System>
+    <Target_Identification>
+      <name>(433) Eros</name>
+      <type>Asteroid</type>
+    </Target_Identification>
+    <Discipline_Area>
+      <disp:Display_Settings>
+        <Local_Internal_Reference>
+          <local_identifier_reference>image</local_identifier_reference>
+          <local_reference_type>display_settings_to_array</local_reference_type>
+        </Local_Internal_Reference>
+        <disp:Display_Direction>
+          <disp:horizontal_display_axis>Sample</disp:horizontal_display_axis>
+          <disp:horizontal_display_direction>Left to Right</disp:horizontal_display_direction>
+          <disp:vertical_display_axis>Line</disp:vertical_display_axis>
+          <disp:vertical_display_direction>Bottom to Top</disp:vertical_display_direction>
+        </disp:Display_Direction>
+      </disp:Display_Settings>
+      <cart:Cartography>
+        <Local_Internal_Reference>
+          <local_identifier_reference>image</local_identifier_reference>
+          <local_reference_type>cartography_parameters_to_image_object</local_reference_type>
+        </Local_Internal_Reference>
+        <cart:Spatial_Domain>
+          <cart:Bounding_Coordinates>
+            <cart:west_bounding_coordinate unit="deg">0</cart:west_bounding_coordinate>
+            <cart:east_bounding_coordinate unit="deg">360</cart:east_bounding_coordinate>
+            <cart:north_bounding_coordinate unit="deg">90</cart:north_bounding_coordinate>
+            <cart:south_bounding_coordinate unit="deg">-90</cart:south_bounding_coordinate>
+          </cart:Bounding_Coordinates>
+        </cart:Spatial_Domain>
+        <cart:Spatial_Reference_Information>
+          <cart:Horizontal_Coordinate_System_Definition>
+            <cart:Planar>
+              <cart:Map_Projection>
+                <cart:map_projection_name>Equirectangular</cart:map_projection_name>
+                <cart:Equirectangular>
+                  <cart:latitude_of_projection_origin unit="deg">0</cart:latitude_of_projection_origin>
+                  <cart:standard_parallel_1 unit="deg">0</cart:standard_parallel_1>
+                  <cart:longitude_of_central_meridian unit="deg">180</cart:longitude_of_central_meridian>
+                </cart:Equirectangular>
+              </cart:Map_Projection>
+              <cart:Planar_Coordinate_Information>
+                <cart:planar_coordinate_encoding_method>Coordinate Pair</cart:planar_coordinate_encoding_method>
+                <cart:Coordinate_Representation>
+                  <cart:pixel_resolution_x unit="m/pixel">10</cart:pixel_resolution_x>
+                  <cart:pixel_resolution_y unit="m/pixel">10</cart:pixel_resolution_y>
+                  <cart:pixel_scale_x unit="pixel/deg">29.6705972839036001</cart:pixel_scale_x>
+                  <cart:pixel_scale_y unit="pixel/deg">29.6705972839036001</cart:pixel_scale_y>
+                </cart:Coordinate_Representation>
+              </cart:Planar_Coordinate_Information>
+              <cart:Geo_Transformation>
+                <cart:upperleft_corner_x unit="m">-53410</cart:upperleft_corner_x>
+                <cart:upperleft_corner_y unit="m">26710</cart:upperleft_corner_y>
+              </cart:Geo_Transformation>
+            </cart:Planar>
+            <cart:Geodetic_Model>
+              <cart:latitude_type>Planetocentric</cart:latitude_type>
+              <cart:spheroid_name>EROS</cart:spheroid_name>
+              <cart:a_axis_radius unit="m">17000</cart:a_axis_radius>
+              <cart:b_axis_radius unit="m">17000</cart:b_axis_radius>
+              <cart:c_axis_radius unit="m">17000</cart:c_axis_radius>
+              <cart:longitude_direction>Positive East</cart:longitude_direction>
+            </cart:Geodetic_Model>
+          </cart:Horizontal_Coordinate_System_Definition>
+        </cart:Spatial_Reference_Information>
+      </cart:Cartography>
+    </Discipline_Area>
+  </Observation_Area>
+  <Reference_List>
+    <External_Reference>
+      <doi>10.1016/j.icarus.2023.115536</doi>
+      <reference_text>Golish, D.R., DellaGiustina, D.N., Becker, K.J., Bennett, C.A., Robinson, M., Crombie, M.K., 2023. Blur remediation in NEAR MSI images. Icarus 400, 115536. https://doi.org/10.1016/j.icarus.2023.115536</reference_text>
+      <description>Paper by Golish to describe the blur remediation in NEAR MSI images</description>
+    </External_Reference>
+  </Reference_List>
+  <File_Area_Observational>
+    <File>
+      <file_name>eros_nearmsi_filter4.tif</file_name>
+      <!--Binary file pre-existing PDS4 label. This comment is used by GDAL to avoid deleting the binary file when the label is deleted. Keep it to preserve this behavior.-->
+    </File>
+    <Header>
+      <offset unit="byte">0</offset>
+      <object_length unit="byte">32709</object_length>
+      <parsing_standard_id>TIFF 6.0</parsing_standard_id>
+      <description>TIFF/GeoTIFF header. The TIFF/GeoTIFF format is used throughout the geospatial and science communities to share geographic image data. </description>
+    </Header>
+    <Array_2D_Map>
+      <local_identifier>image</local_identifier>
+      <offset unit="byte">32709</offset>
+      <axes>2</axes>
+      <axis_index_order>Last Index Fastest</axis_index_order>
+      <Element_Array>
+        <data_type>IEEE754LSBSingle</data_type>
+        <unit>I/F</unit>
+      </Element_Array>
+      <Axis_Array>
+        <axis_name>Line</axis_name>
+        <elements>5341</elements>
+        <sequence_number>1</sequence_number>
+      </Axis_Array>
+      <Axis_Array>
+        <axis_name>Sample</axis_name>
+        <elements>10682</elements>
+        <sequence_number>2</sequence_number>
+      </Axis_Array>
+      <Special_Constants>
+        <missing_constant>-3.40282265508890445e+38</missing_constant>
+      </Special_Constants>
+    </Array_2D_Map>
+  </File_Area_Observational>
+</Product_Observational>
+
+####################################################################################################
+# Archive member bundle_eros_global-albedo-maps_golish_2023.xml (PDS4 label of the bundle)
+# Address: https://asc-pds-individual-investigations.s3.us-west-2.amazonaws.com/eros_global-albedo-maps_golish_2023/eros_global-albedo-maps_golish_2023.zip
+# Fetched: 2026-10-14 04:32 (local time)
+# How: A small Python script (urllib, user agent "ApsisAssetFetch/1.0 (local build script)") read this member of the ZIP archive at the download address with HTTP range requests. The text is unchanged.
+####################################################################################################
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1H00.sch"        schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Product_Bundle xmlns="http://pds.nasa.gov/pds4/pds/v1" 
+  xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1H00.xsd">
+  <Identification_Area>
+    <logical_identifier>urn:nasa:pds:eros_global-albedo-maps_golish_2023</logical_identifier>
+    <version_id>1.0</version_id>
+    <title>Eros Global Albedo Maps</title>
+    <information_model_version>1.17.0.0</information_model_version>
+    <product_class>Product_Bundle</product_class>
+    <Citation_Information>
+      <author_list>D. R. Golish, J. I. Brodbeck, C. Webber, K. J. Becker, C. A. Bennett, D. N. DellaGiustina</author_list>
+      <publication_year>2023</publication_year>
+      <description>
+        Recently, MSI data has been archived (DOI: 10.17189/sv8w-5125) with a new deblurring method applied 
+        (Golish et al., 2023). This method uses the same mathematical foundation as the original, but develops 
+        new blur models and processes the images to avoid edge-artifacts from the Fourier transforms. The new 
+        data has improved qualitative sharpness for all filters, particularly those at extreme wavelengths. 
+        With this new data, we generate global albedo maps for Eros in each of MSI’s seven filters. To enable 
+        color analyses (e.g., color ratios, band depths), we create albedo maps which are corrected to 0° 
+        phase (0° incidence, 0° emission) with per-filter photometric models, rather than 30/30/0 angles 
+        used for the existing published basemaps.       
+      </description>
+    </Citation_Information>
+    <Modification_History>
+      <Modification_Detail>
+        <modification_date>2023-06-18</modification_date>
+        <version_id>1.0</version_id>
+        <description>Initial PDS4 version.</description>
+      </Modification_Detail>
+    </Modification_History>
+  </Identification_Area>
+  <Bundle>
+    <bundle_type>Archive</bundle_type>
+  </Bundle>
+  <Bundle_Member_Entry>
+    <lid_reference>urn:nasa:pds:eros_global-albedo-maps_golish_2023:data</lid_reference>
+    <member_status>Primary</member_status>
+    <reference_type>bundle_has_data_collection</reference_type>
+  </Bundle_Member_Entry>
+  <Bundle_Member_Entry>
+    <lid_reference>urn:nasa:pds:eros_global-albedo-maps_golish_2023:document</lid_reference>
+    <member_status>Primary</member_status>
+    <reference_type>bundle_has_document_collection</reference_type>
+  </Bundle_Member_Entry>
+  <Bundle_Member_Entry>
+    <lid_reference>urn:nasa:pds:eros_global-albedo-maps_golish_2023:browse</lid_reference>
+    <member_status>Primary</member_status>
+    <reference_type>bundle_has_browse_collection</reference_type>
+  </Bundle_Member_Entry>
+</Product_Bundle>
+
+####################################################################################################
+# USGS Astrogeology catalogue: products for some moons and small bodies (check of this work)
+# Address: https://astrogeology.usgs.gov/search (one request for each body)
+# Fetched: 2026-10-14 04:44 (local time)
+# How: A small Python script (urllib, user agent "ApsisAssetFetch/1.0 (local build script)") asked the search of the USGS Astrogeology catalogue for each body. The text gives the products that the catalogue lists.
+# A copy is in data-src/textures/evidence/_shared/usgs_catalogue_listing_moons_and_small_bodies.txt
+####################################################################################################
+FETCHED: 2026-10-14 04:41 (local time)
+=== Deimos ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Miranda ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  miranda_voyager_image_control_network | Miranda Voyager Image Control Network | ['Control Network']
+  miranda_nomenclature | Miranda Nomenclature | ['Nomenclature']
+=== Ariel ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  ariel_voyager_image_control_network | Ariel Voyager Image Control Network | ['Control Network']
+  ariel_nomenclature | Ariel Nomenclature | ['Nomenclature']
+=== Umbriel ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  umbriel_voyager_image_control_network | Umbriel Voyager Image Control Network | ['Control Network']
+  umbriel_nomenclature | Umbriel Nomenclature | ['Nomenclature']
+=== Titania ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  titania_voyager_image_control_network | Titania Voyager Image Control Network | ['Control Network']
+  titania_nomenclature | Titania Nomenclature | ['Nomenclature']
+=== Oberon ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  oberon_voyager_image_control_network | Oberon Voyager Image Control Network | ['Control Network']
+  oberon_nomenclature | Oberon Nomenclature | ['Nomenclature']
+=== Itokawa ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Ryugu ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Psyche ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Didymos ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Dimorphos ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Arrokoth ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Eros ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  near_msi_albedo_mosaics | NEAR MSI Albedo Mosaics | ['Global Mosaic', 'Image', 'Raster Data', 'Remote-sensing Data']
+  near_msi_deblurred_images | NEAR MSI Deblurred Images | ['Image', 'Raster Data', 'Remote-sensing Data']
+=== Bennu ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 3
+  bennu_osiris_rex_ocams_global_pan_mosaic_5cm | Bennu OSIRIS-REx OCAMS Global PAN Mosaic 5cm | ['Global Mosaic']
+  bennu_osiris_rex_ocams_global_albedo_mosaic_6_25cm | Bennu OSIRIS-REx OCAMS Global ALBEDO Mosaic 6.25cm | ['Global Mosaic']
+  bennu-osiris-rex-ocams-photometric-mosaics-25cm | Bennu OSIRIS-REx OCAMS Photometric Mosaics 25cm | ['Global Mosaic', 'Grey Scale', 'Image', 'Raster Data', 'Remote-sensing Data']
+
+=== second check: request https://astrogeology.usgs.gov/search/results without a filter ===
+The server returns 1000 products of 1643. Products with one of these words in the title or in the name:
+--- Deimos: 0
+--- Miranda: 2
+  miranda_nomenclature | Miranda Nomenclature | Nomenclature
+  miranda_voyager_image_control_network | Miranda Voyager Image Control Network | Control Network
+--- Ariel: 2
+  ariel_nomenclature | Ariel Nomenclature | Nomenclature
+  ariel_voyager_image_control_network | Ariel Voyager Image Control Network | Control Network
+--- Umbriel: 2
+  umbriel_nomenclature | Umbriel Nomenclature | Nomenclature
+  umbriel_voyager_image_control_network | Umbriel Voyager Image Control Network | Control Network
+--- Titania: 2
+  titania_nomenclature | Titania Nomenclature | Nomenclature
+  titania_voyager_image_control_network | Titania Voyager Image Control Network | Control Network
+--- Oberon: 2
+  oberon_nomenclature | Oberon Nomenclature | Nomenclature
+  oberon_voyager_image_control_network | Oberon Voyager Image Control Network | Control Network
+--- Itokawa: 0
+--- Ryugu: 0
+--- Psyche: 0
+--- Didymos: 0
+--- Dimorphos: 0
+--- Arrokoth: 0
+--- Eros: 0
+--- Bennu: 1
+  bennu_osiris_rex_ocams_global_pan_mosaic_5cm | Bennu OSIRIS-REx OCAMS Global PAN Mosaic 5cm | Global Mosaic

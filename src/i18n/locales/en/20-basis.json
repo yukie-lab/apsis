@@ -2,12 +2,12 @@
  "text": {
   "basis": {
    "open": "Source and accuracy of this value",
-   "method": "Method", "limit": "Accuracy", "evidence": "Measured in the automatic tests",
+   "method": "Method", "limit": "Accuracy", "evidence": "Results of the automatic tests",
    "testLimit": "(test limit: {limit} {unit})",
    "more": "The Accuracy screen shows {n} more checks.",
    "allChecks": "All checks",
    "status": {
-    "horizons": "Compared with JPL Horizons", "analytic": "Compared with an exact solution", "model": "Model result",
+    "horizons": "Comparison with JPL Horizons", "analytic": "Comparison with an exact solution", "model": "Model result",
     "input": "Input value", "constant": "Published constant"
    },
    "time": {
@@ -37,20 +37,20 @@
    },
    "ephem.state": {
     "title": "Position and velocity of a body",
-    "method": "The data file of the application is a Chebyshev fit of the JPL ephemeris DE440 for the Sun, the planets, the Moon and the Pluto system. The engine calculates the position and the velocity from the polynomials.",
+    "method": "The data file of the application is a Chebyshev fit of the JPL ephemeris DE440. It has the Sun, the planets, the Moon and the Pluto system. The engine calculates the position and the velocity from the polynomials.",
     "limit": "The fit error is less than 0.01 km. The values below are the maximum differences from JPL Horizons for 312 dates from 1950 to 2099. The data range is 1950 to 2100.",
-    "method_centre": "DE440 gives the barycenter of the planet system. To get the center of the planet, the engine subtracts the positions of the large moons multiplied by their mass ratios. The moon positions come from an analytic model.",
+    "method_centre": "DE440 gives the barycenter of the planet system. To get the center of the planet, the engine multiplies the position of each large moon by its mass ratio and subtracts the results. The moon positions come from an analytic model.",
     "limit_centre": "The barycenter has the accuracy of DE440. The center of the planet has the accuracy of the moon model: see the measured values below.",
     "method_moon": "For each moon of Mars and of the outer planets, the engine uses an ellipse with constant rates of the node and of the periapsis. The elements are a fit to JPL Horizons vectors for 2000 to 2050.",
-    "limit_moon": "This model is sufficient for the display and for the mass of the moon in the force model. It is not sufficient to plan a flyby of the moon. See the measured value below.",
+    "limit_moon": "This model is sufficient for the display and for the mass of the moon in the force model. It is not sufficient for the plan of a flyby of the moon. See the measured value below.",
     "method_small": "The data file is a Chebyshev fit of JPL Horizons vectors of the body for 1980 to 2060.",
     "limit_small": "The value below is the maximum difference from JPL Horizons. Before 1980 and after 2060 the application has no data for this body.",
     "method_custom": "The engine propagates the orbit elements that you gave as a two-body orbit about the Sun.",
     "limit_custom": "The orbit has no perturbations. Its accuracy is that of your elements, and it decreases with the time from the epoch."
    },
    "ephem.derived": {
-    "title": "Value calculated from positions",
-    "method": "The engine calculates distances, speeds and angles from the positions and velocities of the bodies. The light time is the distance divided by the speed of light.",
+    "title": "Value from the positions of the bodies",
+    "method": "The engine calculates distances, speeds and angles from the positions and velocities of the bodies. The light time is the ratio of the distance to the speed of light.",
     "limit": "The value has the accuracy of the positions. The light time has no correction for the motion of the bodies while the light moves."
    },
    "ephem.elements": {
@@ -60,7 +60,7 @@
    },
    "twobody": {
     "title": "Two-body transfer",
-    "method": "The engine solves the Lambert problem with the method of Izzo (2015) for the positions of the two bodies at the two dates. The only force is the gravity of the central body.",
+    "method": "The engine finds the solution of the Lambert problem with the method of Izzo (2015) for the positions of the two bodies at the two dates. The only force is the gravity of the central body.",
     "limit": "The solution is exact for two-body motion: see the checks below. The flight in the full force model is different, because the planets pull the spacecraft."
    },
    "plan.c3": {
@@ -71,12 +71,12 @@
    "plan.vinf": {
     "title": "Speed at infinity of the plan",
     "method": "The speed at infinity is the velocity on the two-body transfer orbit minus the velocity of the body at the encounter date.",
-    "limit": "For Voyager 2, the patched-conic model gives differences of up to 3 % from the JPL Horizons trajectory. The flight in the full force model gives better values."
+    "limit": "For Voyager 2, the patched-conic model gives differences of 3 % or less from the JPL Horizons trajectory. The flight in the full force model gives better values."
    },
    "plan.flyby": {
     "title": "Flyby of the plan",
-    "method": "The engine calculates the periapsis radius of the hyperbola that turns the incoming asymptote to the outgoing asymptote.",
-    "limit": "For Voyager 2, the patched-conic model gives differences of up to 3.7 % of the periapsis radius from the JPL Horizons trajectory. The flight in the full force model gives better values."
+    "method": "The engine calculates the periapsis radius of the hyperbola that turns the approach asymptote to the departure asymptote.",
+    "limit": "For Voyager 2, the patched-conic model gives differences of 3.7 % or less of the periapsis radius from the JPL Horizons trajectory. The flight in the full force model gives better values."
    },
    "plan.dv": {
     "title": "Velocity change of the plan",
@@ -91,11 +91,11 @@
    "optimizer": {
     "title": "Result of a search",
     "method": "The search uses a grid of launch dates and arrival dates, then a local search (Nelder-Mead method). If you select it, a global search (differential evolution) comes first.",
-    "limit": "A search finds a good solution. It cannot show that no better solution exists. A different date range can give a better solution."
+    "limit": "A search finds a good solution. It cannot show that there is no better solution. A different date range can give a better solution."
    },
    "flight.state": {
     "title": "Position and velocity of the spacecraft",
-    "method": "The engine integrates the equations of motion with a Runge-Kutta-Fehlberg 7(8) method. The forces are the gravity of the Sun, the planets, the Moon, Pluto and 3 asteroids, the J2 of the planets, and the relativity term of the Sun. Between steps, the engine uses a fifth-degree interpolation.",
+    "method": "The engine integrates the equations of motion with a Runge-Kutta-Fehlberg 7(8) method. The forces are the gravity of the Sun, the planets, the Moon, Pluto and 3 asteroids. The model also has the J2 of the planets and the relativity term of the Sun. Between steps, the engine uses a fifth-degree interpolation.",
     "limit": "For asteroids, the difference from JPL Horizons after 168 days is less than 0.2 km. For actual spacecraft in cruise, the difference is 700 km to 150 000 km for arcs of 6 months to 5 years. The cause is forces that the model does not have: the radiation pressure, thermal forces and small maneuvers of the actual spacecraft."
    },
    "flight.encounter": {
@@ -124,7 +124,7 @@
     "limit": "The masses and the specific impulse are example values that you can change. The model has no losses from the duration of a burn."
    },
    "forensics": {
-    "title": "Maneuver found in a trajectory table",
+    "title": "Maneuver from a search in a trajectory table",
     "method": "The engine propagates each interval of the table forward from its start and backward from its end. The time at which the two paths are nearest is the time of the maneuver. The velocity difference at that time is the maneuver.",
     "limit": "For the deep-space maneuver of Cassini, the result agrees with the velocity change in the JPL Horizons trajectory to 0.0003 %. Forces that the model does not have give a noise floor of some mm/s for intervals of 10 days."
    },
@@ -173,12 +173,12 @@
     "frames_ecliptic": "Rotation between the ICRF and ECLIPJ2000",
     "frames_heliocentric": "Heliocentric ecliptic positions of 4 bodies",
     "frames_elements": "Osculating elements: semi-major axis",
-    "quick_solved": "Flight solver: quick missions with no solution in 352 cases",
+    "quick_solved": "Flight solver: number of the 352 quick missions with no solution",
     "time_utcTdb": "Conversion from UTC to TDB",
     "tisserand_parameter": "Tisserand parameter along a curve of constant speed at infinity",
     "tisserand_hohmann": "Tisserand graph: point of the Hohmann transfer",
     "window_mars2020_period": "Mars 2020: day of the minimum C3 in the published launch period",
-    "window_mars2020_porkchop": "Mars 2020: C3 at the actual dates divided by the minimum of the map"
+    "window_mars2020_porkchop": "Mars 2020: ratio of the C3 at the actual dates to the minimum of the map"
    }
   }
  }

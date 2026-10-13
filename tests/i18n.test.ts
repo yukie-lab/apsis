@@ -1,0 +1,196 @@
+/**
+ * Text of the user interface: all text is in the locale files, and each key that the code uses has a text.
+ *
+ * These checks read the source files. They do not check the language of the texts (see tools/ste).
+ */
+import { describe, it, expect } from 'vitest';
+import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { join } from 'node:path';
+import { BODIES } from '../src/engine/bodies';
+import { NOTE_CODES } from '../src/render/bodies';
+import { hasText, t, LOCALES } from '../src/i18n';
+
+const ROOT = new URL('..', import.meta.url).pathname;
+const LOCALE_DIR = join(ROOT, 'src/i18n/locales/en');
+
+function files(dir: string, ext: string[]): string[] {
+  const out: string[] = [];
+  for (const name of readdirSync(dir)) {
+    const path = join(dir, name);
+    if (statSync(path).isDirectory()) out.push(...files(path, ext));
+    else if (ext.some((e) => name.endsWith(e))) out.push(path);
+  }
+  return out.sort();
+}
+
+/** Keys of a locale object, with points. A key that has points in the file counts as nested objects. */
+function flat(node: unknown, prefix: string, out: string[]): string[] {
+  if (typeof node === 'string') { out.push(prefix); return out; }
+  if (node && typeof node === 'object' && !Array.isArray(node)) {
+    for (const [k, v] of Object.entries(node)) flat(v, prefix ? `${prefix}.${k}` : k, out);
+    return out;
+  }
+  out.push(`${prefix} (not a text)`);
+  return out;
+}
+
+const localeFiles = files(LOCALE_DIR, ['.json']).map((path) => ({ path, json: JSON.parse(readFileSync(path, 'utf8')) as { meta?: unknown; text?: unknown; glossary?: Record<string, { term?: unknown; definition?: unknown }> } }));
+const keys = new Set<string>();
+const prefixes = new Set<string>();
+for (const f of localeFiles) for (const k of flat(f.json.text ?? {}, '', [])) {
+  keys.add(k);
+  const parts = k.split('.');
+  for (let n = 1; n < parts.length; n++) prefixes.add(parts.slice(0, n).join('.'));
+}
+const namespaces = new Set([...keys].map((k) => k.split('.')[0]));
+const sources = files(join(ROOT, 'src'), ['.ts', '.tsx']).filter((p) => !p.includes('/i18n/locales/'));
+const rel = (path: string): string => path.slice(ROOT.length);
+
+describe('locale files', () => {
+  it('has one language, English, and each entry is a text', () => {
+    expect(LOCALES.map((l) => l.code)).toEqual(['en']);
+    expect([...keys].filter((k) => k.endsWith('(not a text)'))).toEqual([]);
+    expect(keys.size).toBeGreaterThan(1000);
+  });
+
+  it('has no key in two files', () => {
+    const seen = new Map<string, string>();
+    const twice: string[] = [];
+    for (const f of localeFiles) for (const k of flat(f.json.text ?? {}, '', [])) {
+      if (seen.has(k)) twice.push(`${k}: ${rel(seen.get(k)!)} and ${rel(f.path)}`);
+      seen.set(k, f.path);
+    }
+    const terms = new Map<string, string>();
+    for (const f of localeFiles) for (const id of Object.keys(f.json.glossary ?? {})) {
+      if (terms.has(id)) twice.push(`glossary ${id}: ${rel(terms.get(id)!)} and ${rel(f.path)}`);
+      terms.set(id, f.path);
+    }
+    expect(twice).toEqual([]);
+  });
+
+  it('has a term and a definition for each glossary entry', () => {
+    const bad: string[] = [];
+    let n = 0;
+    for (const f of localeFiles) for (const [id, g] of Object.entries(f.json.glossary ?? {})) {
+      n += 1;
+      if (typeof g.term !== 'string' || !g.term.trim() || typeof g.definition !== 'string' || !g.definition.trim()) bad.push(id);
+    }
+    expect(bad).toEqual([]);
+    expect(n).toBeGreaterThan(100);
+  });
+});
+
+describe('keys that the code uses', () => {
+  it('has a text for each key that is a fixed string in a call of t() or hasText()', () => {
+    const missing: string[] = [];
+    let n = 0;
+    for (const path of sources) {
+      const code = readFileSync(path, 'utf8');
+      for (const m of code.matchAll(/\b(?:t|hasText)\(\s*(['"])([A-Za-z0-9_.-]+)\1\s*([,)+])/g)) {
+        const [, , key, after] = m;
+        n += 1;
+        // "a.b." + x: the fixed part is a group of texts.
+        if (after === '+' || key.endsWith('.')) { if (!prefixes.has(key.replace(/\.$/, ''))) missing.push(`${rel(path)}: ${key}*`); }
+        else if (!keys.has(key)) missing.push(`${rel(path)}: ${key}`);
+      }
+      for (const m of code.matchAll(/\b(?:t|hasText)\(\s*`([A-Za-z0-9_.-]*)\$\{/g)) {
+        n += 1;
+        const group = m[1].replace(/\.[^.]*$/, '');
+        if (m[1] && !prefixes.has(group) && !prefixes.has(m[1].replace(/\.$/, ''))) missing.push(`${rel(path)}: ${m[1]}*`);
+      }
+    }
+    expect(missing).toEqual([]);
+    expect(n).toBeGreaterThan(800);
+  });
+
+  it('has a text for each string in the code that has the form of a key', () => {
+    // A key in a table (for example { label: 'page.transfer.title' }) goes to t() through a variable.
+    const missing: string[] = [];
+    for (const path of sources) {
+      const code = readFileSync(path, 'utf8');
+      for (const m of code.matchAll(/(['"])([a-z][A-Za-z0-9]*(?:\.[A-Za-z0-9_-]+)+)\1/g)) {
+        const key = m[2];
+        if (!namespaces.has(key.split('.')[0])) continue;
+        // The type of the basis of a number ("plan.dv") is not a key: its texts are in the group "basis".
+        if (prefixes.has('basis.' + key)) continue;
+        if (!keys.has(key) && !prefixes.has(key)) missing.push(`${rel(path)}: ${key}`);
+      }
+    }
+    expect(missing).toEqual([]);
+  });
+
+  it('has a name for each body', () => {
+    // The form of a name in a sentence ("bodyIn") is only necessary for a name that gets an article.
+    const ids = Object.keys(BODIES);
+    expect(ids.length).toBeGreaterThan(40);
+    expect(ids.filter((id) => !hasText(`body.${id}`))).toEqual([]);
+    for (const id of ['SUN', 'EARTH', 'MOON']) expect(t(`bodyIn.${id}`)).toMatch(/^the /);
+  });
+
+  it('has a text for each note about the picture of a body', () => {
+    expect(NOTE_CODES.length).toBeGreaterThan(20);
+    expect(NOTE_CODES.filter((code) => !hasText(`picture.note.${code}`))).toEqual([]);
+    expect(t('picture.note.' + NOTE_CODES[0])).not.toContain('picture.note.');
+  });
+
+  it('has a text for each role of a map in the list of the maps', () => {
+    const manifest = JSON.parse(readFileSync(join(ROOT, 'public/textures/manifest.json'), 'utf8')) as { textures: { role: string }[] };
+    const roles = [...new Set(manifest.textures.map((m) => m.role))];
+    expect(roles.length).toBeGreaterThan(3);
+    expect(roles.filter((r) => !hasText(`about.maps.role.${r}`))).toEqual([]);
+  });
+});
+
+describe('text in the code', () => {
+  // Parts of a screen that are not words of a language: symbols, units, names of the time scales and of the frames.
+  const SYMBOLS = /^(?:UTC|TDB|TT|TAI|ICRF|km|km\/s|m\/s|km²|s²|km³|au|kg|deg|rad|B·T|B·R|Δv|C3|v∞|×|·|→|°|%|s|d|h|min|N|m|x|y|z|vx|vy|vz|a|e|i|Ω|ω|ν|M|GM|J2|px)$/;
+  const isText = (s: string): boolean => {
+    const words = s.replace(/&[a-z]+;/g, ' ').split(/[\s,;:()[\]/|+=<>-]+/).filter(Boolean);
+    return words.some((w) => /[A-Za-z]{2,}/.test(w) && !SYMBOLS.test(w));
+  };
+
+  /** Words in the text of the elements of a line: after the ">" of a tag, before the next "<" or "{". */
+  const elementText = (line: string): string[] => {
+    if (/^\s*(\/\/|\*|\/\*)/.test(line)) return [];
+    const out: string[] = [];
+    for (const m of line.matchAll(/(?<=[A-Za-z0-9"'}\s/])>([^<>{}]+)(?=<|\{|$)/g)) {
+      const s = m[1].trim();
+      // "a > b" in an expression is code, not text: text has no operators and is not only a number.
+      if (!s || /[=;()&|?:]/.test(s) || /^[\d.\s-]+$/.test(s)) continue;
+      if (isText(s)) out.push(s);
+    }
+    return out;
+  };
+  /** Words in the attributes of a line that a user reads or hears. */
+  const attributeText = (line: string): string[] => {
+    const out: string[] = [];
+    for (const m of line.matchAll(/\b(aria-label|title|placeholder|alt|label|aria-description)=(["'])([^"']*)\2/g)) if (isText(m[3])) out.push(`${m[1]}="${m[3]}"`);
+    return out;
+  };
+  const scan = (find: (line: string) => string[]): string[] => {
+    const found: string[] = [];
+    for (const path of sources.filter((p) => p.endsWith('.tsx'))) {
+      readFileSync(path, 'utf8').split('\n').forEach((line, k) => { for (const s of find(line)) found.push(`${rel(path)}:${k + 1}: ${s}`); });
+    }
+    return found;
+  };
+
+  it('finds words in example lines (a check of the two checks below)', () => {
+    expect(elementText('      <b>Start the flight</b>')).toEqual(['Start the flight']);
+    expect(elementText('      <dd>{value}<span className="unit">Speed now</span></dd>')).toEqual(['Speed now']);
+    expect(elementText('      <span className="unit">km/s</span><span>UTC</span><b>{t(\'a.b\')}</b>')).toEqual([]);
+    expect(elementText('      {a > b ? x : y}')).toEqual([]);
+    expect(attributeText('      <button aria-label="Close the page" title={t(\'a.b\')}>')).toEqual(['aria-label="Close the page"']);
+    expect(attributeText('      <input placeholder="km" />')).toEqual([]);
+  });
+
+  it('has no words between the tags of the screens', () => {
+    expect(scan(elementText)).toEqual([]);
+    // Text of an element that is alone on a line.
+    expect(scan((line) => (/^\s+[A-Z][A-Za-z]*(?: [A-Za-z,.'-]+)+[.!?:]?\s*$/.test(line) ? [line.trim()] : []))).toEqual([]);
+  });
+
+  it('has no words in the text attributes of the screens', () => {
+    expect(scan(attributeText)).toEqual([]);
+  });
+});

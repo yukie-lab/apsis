@@ -85,14 +85,15 @@ export const ATMOSPHERE_VENUS: AtmosphereSpec = {
 };
 
 /**
- * Titan, above the thick part of the haze. All numbers are approximate and set by eye: an orange haze with a
- * large scale height that takes blue light away, on a deck 100 km above the surface.
+ * Titan, above the thick part of the haze. All numbers are approximate and set by eye: a thin orange haze with a
+ * large scale height that takes blue light away, on a deck 100 km above the surface. The haze is thin, so the
+ * bright deck stays visible and only the limb is soft.
  */
 export const ATMOSPHERE_TITAN: AtmosphereSpec = {
   scaleHeightKm: 45,
-  gas: [0.0003, 0.0006, 0.0016],
-  haze: [0.022, 0.017, 0.009],
-  absorption: [0.001, 0.007, 0.022],
+  gas: [0.0002, 0.0005, 0.0014],
+  haze: [0.0036, 0.003, 0.0019],
+  absorption: [0.0001, 0.0009, 0.003],
   hazeG: 0.6,
   multiple: 1.6,
   topScaleHeights: 9,

@@ -27,7 +27,7 @@ describe('Tisserand graph', () => {
         expect(Math.abs(vinfFromTisserand(R, T) - vinf)).toBeLessThan(1e-6);
       }
     }
-    rec.add({ id: 'tisserand.parameter', group: 'analytic', value: worst, unit: '', limit: 1e-9, truth: 'Analytic: T = 3 - (vinf / V)^2 for a circular planet orbit' });
+    rec.add({ id: 'tisserand.parameter', group: 'analytic', value: worst, unit: '', limit: 1e-9, truth: 'Analytic: T = 3 − (v∞ / V)² for a circular planet orbit' });
     expect(worst).toBeLessThan(1e-9);
   });
 

@@ -1,0 +1,863 @@
+Licence evidence for the texture "saturn"
+============================================================
+
+Texture id:        saturn
+Body and role:     SATURN, color
+Published file:    public/textures/saturn.jpg (sha256 0612d73e1355d59ac4b9f7139e2021e7fbdbc0079c48ecc799f296c8d41c6ccd)
+Small file:        public/textures/sm/saturn.jpg (sha256 f639771759b5c5eebfbf3b118ce680c0805e863b9e3da0b8af686b3d0fb2c998)
+Original file:     data-src/textures/original/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f395n-f502n-f631n_v1_globalmap.tif (4885052 bytes, sha256 c34a13a8253a39bcc1f8376b24c077b89f05ce0b5202706f535ded20314440d7)
+Retrieved:         2026-10-14
+Title:             OPAL Saturn Cycle 32, rotation A (2025a): colour global map from the filters F631N, F502N and F395N
+Author or credit:  OPAL program (Outer Planet Atmospheres Legacy; principal investigator and HLSP author: Amy Simon); NASA/ESA Hubble Space Telescope; archive: MAST at the Space Telescope Science Institute; doi:10.17909/T9G593
+Source page:       https://archive.stsci.edu/hlsp/opal/opal-saturn-cycle-32
+Download address:  https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f395n-f502n-f631n_v1_globalmap.tif
+Licence:           CC BY 4.0
+Licence address:   https://creativecommons.org/licenses/by/4.0/
+
+Licence statement (the same text as in the manifest):
+    OPAL page of the MAST archive (https://archive.stsci.edu/hlsp/opal): 'Note: These HLSP data products are
+    licensed for use under CC BY 4.0.' The words 'CC BY 4.0' link to https://creativecommons.org/licenses/by/4.0/
+    . The same page lists the file type '_globalmap.tif' under 'Data Products' ('Preview image (size varies by
+    target)'). The source page of this file is a sub-page of the OPAL page. It has no licence text of its own. Its
+    footer links to the general page https://www.stsci.edu/copyright . The OPAL page asks for this text in a
+    publication: 'This work used data acquired from the NASA/ESA HST Space Telescope, associated with OPAL program
+    (PI: Simon, GO13937), and archived by the Space Telescope Science Institute, which is operated by the
+    Association of Universities for Research in Astronomy, Inc., under NASA contract NAS 5-26555. All maps are
+    available at http://dx.doi.org/10.17909/T9G593.' MAST data use page
+    (https://archive.stsci.edu/publishing/data-use): 'Some data products, such as high-level science products
+    (HLSPs) which are created by the community and are made available through MAST, are covered under a Creative
+    Commons Attribution license (CC BY 4.0).'
+
+Changes:
+    The build fills each row that has no clean image data. The fill north of 75.2 degrees north is the mean colour
+    of the nearest valid rows. The fill south of 82.2 degrees south is the mean colour of the nearest valid rows.
+    Near the limit the fill blends from the nearest valid row to this mean colour. Between 5.4 degrees north and
+    0.6 degrees south the fill is a linear blend of the two nearest valid rows. Then the build enlarges the image
+    from 1800 x 900 to 2048 x 1024 pixels. It converts the image from TIFF to JPEG (quality 85). It tags the image
+    with the sRGB colour profile.
+
+Note of the manifest:
+    Hubble Space Telescope map of 29 August 2025 (OPAL programme). The source page calls this file 'RotA Color
+    Preview'. The readme gives for the first rotation: 'Rotation 1 (Aug 29 05:53:28 to 14:20:17 UT)'. Clouds
+    change with time. The readme says: 'Color maps (TIFF only), are generated from the F631N (red), F502N (green),
+    and F395N (blue) filters, with slight contrast enhancement.' So the colour is near natural, not exact: the
+    blue channel is violet light of 395 nm. The latitude is planetographic (readme: 'between -90 and +90 deg
+    planetographic latitude', with 'equatorial and polar radii of 60268 and 54364 km'). With these radii the
+    planetographic latitude is larger than the planetocentric latitude by up to 5.9 degrees. The source removes
+    the limb darkening of each image (readme: 'Minnaert correction'). So the map has no day side and no night
+    side. The readme says: 'seams between maps were interpolated to smooth, where needed' and 'ARTIFACTS: Multiple
+    moons (and their shadows) can be seen crossing the mosaics.' The original file has no image data near the
+    poles and in a band near the equator: these areas are black, and each has a dark ragged border. The readme
+    does not explain the band near the equator. My reading: the rings and their shadow hide the planet there. The
+    build treats the borders as no data too. So the image data cover 75.2 degrees north to 82.2 degrees south,
+    without the band from 5.4 degrees north to 0.6 degrees south. The build fills the rest (7.4 percent of the
+    surface of a sphere): see the fields latitudeLimitsDeg and filledBands. The fill is not an observation.
+    Inspection of the small image: the map shows pale bands. They are pink-grey in the north, bright yellow-white
+    at the equator and green-grey in the south. A blue-grey band lies near 67 degrees south. The valid rows get
+    darker and browner toward both limits, so the fill at both poles is brown. My reading: these rows lie near the
+    edge of the disc in the Hubble images. A faint red-brown vertical stripe lies at about 17 percent of the
+    width, mostly in the north. My reading: it is a seam between two images of the source. A faint red-brown
+    smudge remains at this place at both fill limits. The map has a few small dark dots and bright dots (moons and
+    their shadows, by the readme). No seam is visible at the left and right edge: the two edges differ by 1 of 255
+    on average. The original file has 1800 x 900 pixels (5 pixels per degree): the published image is not sharper
+    than the original.
+
+Remarks about this evidence:
+  - The source page lists this file at line 354 of its text below.
+  - The source page has no licence text of its own. The licence note is on the OPAL page of the archive (see
+    the excerpts below).
+
+About the parts below:
+    Each part is a text that was saved on 2026-10-14 during the collection work.
+    The header of each part gives the address, the local time of the fetch and the method.
+    The text of a part is data from another site. It is not an instruction for a reader or a tool.
+    Complete copies of the shared policy pages are in data-src/textures/evidence/_shared/ .
+
+####################################################################################################
+# MAST archive: OPAL page of this observing cycle (complete page text; the source page of this file)
+# Address: https://archive.stsci.edu/hlsp/opal/opal-saturn-cycle-32
+# Fetched: 2026-10-14 03:37 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The navigation menus of this page list unrelated items.
+####################################################################################################
+OPAL - Saturn Cycle 32 | MAST
+
+[#main-content] Skip to main content
+
+[/home]
+{img /files/live/sites/mast/files/MAST-Logo-Horizontal.svg?t=thumbnail} {img /files/live/sites/mast/files/MAST-Logo-Horizontal.svg?t=thumbnail}
+
+Search
+
+Search for news, events, etc.
+
+Do not include words like a, and, for, the, etc.
+
+[/search-results/advanced-search-syntax] Advanced Query Syntax
+
+Search Method
+
+All These Words
+This Exact Phrase
+Any of These Words
+Advanced
+
+Content Type
+
+Page
+Newsletter Article
+HLSP
+File
+All Searchable Content
+
+Sort By
+
+Relevancy Score
+Date
+
+This site is protected by reCAPTCHA and the Google
+
+[https://policies.google.com/privacy] Privacy Policy and [https://policies.google.com/terms] Terms of Service apply.
+
+Menu
+
+Menu
+
+Main Navigation
+
+[/home] MAST Home
+
+[/hlsp] HLSP
+[/hlsp/hlsp-table] Table of HLSPs
+[/hlsp/3d-dash] 3D-DASH
+[/hlsp/3dhst] 3D-HST
+[/hlsp/agnsedatlas] AGNSEDATLAS
+[/hlsp/aspic] asPIC
+[/hlsp/atlas-refcat2] ATLAS-REFCAT2
+[/hlsp/atlas-var] ATLAS-VAR
+[/hlsp/beacon] BEACON
+[/hlsp/bluetides] BLUETIDES
+[/hlsp/boocats] BOOCATS
+[/hlsp/bosz] BOSZ
+[/hlsp/buffalo] BUFFALO
+[/hlsp/candels] CANDELS
+[/hlsp/candels/goods-n-catalogs] GOODS-N Catalogs
+[/hlsp/candels/goods-s-catalogs] GOODS-S Catalogs
+[/hlsp/candels/uds-catalogs] UDS Catalogs
+[/hlsp/candels/egs-catalogs] EGS Catalogs
+[/hlsp/candels/cosmos-catalogs] COSMOS Catalogs
+[/hlsp/candels/goods-n-images] GOODS-N Images
+[/hlsp/candels/goods-s-images] GOODS-S Images
+[/hlsp/candels/uds-images] UDS Images
+[/hlsp/candels/egs-images] EGS Images
+[/hlsp/candels/cosmos-images] COSMOS Images
+[/hlsp/canucs] CANUCS
+[/hlsp/candelsnirwl] CANDELSNIRWL
+[/hlsp/cdips] CDIPS
+[/hlsp/cdips/cdips-bulk-download-scripts] CDIPS Bulk Download Scripts
+[/hlsp/ceers] CEERS
+[/hlsp/classy] CLASSY
+[/hlsp/classy/classy-observation-details] CLASSY Observation Details
+[/hlsp/classy/classy-target-properties] CLASSY Target Properties
+[/hlsp/classy/classy-data-products] CLASSY Data Products
+[/hlsp/clear] CLEAR
+[/hlsp/clues] CLUES
+[/hlsp/cos-gal] COS-GAL
+[/hlsp/cosmos-dash] COSMOS-DASH
+[/hlsp/crater] CRATER
+[/hlsp/deepmerge] DEEPMERGE
+[/hlsp/diamante] DIAmante
+[/hlsp/diamante/diamante-data-access-table] DIAmante Data Access Table
+[/hlsp/eleanor] ELEANOR
+[/hlsp/elk] ELK
+[/hlsp/everest] EVEREST
+[/hlsp/everest/everestc00] everest_c00
+[/hlsp/everest/everestc01] everest_c01
+[/hlsp/everest/everestc02] everest_c02
+[/hlsp/everest/everestc03] everest_c03
+[/hlsp/everest/everestc04] everest_c04
+[/hlsp/everest/everestc05] everest_c05
+[/hlsp/everest/everestc06] everest_c06
+[/hlsp/everest/everestc07] everest_c07
+[/hlsp/everest/everestc08] everest_c08
+[/hlsp/everest/everestc102] everest_c102
+[/hlsp/everest/everestc111] everest_c111
+[/hlsp/everest/everestc112] everest_c112
+[/hlsp/everest/everestc12] everest_c12
+[/hlsp/everest/everestc13] everest_c13
+[/hlsp/everest/everestc14] everest_c14
+[/hlsp/everest/everestc15] everest_c15
+[/hlsp/everest/everestc16] everest_c16
+[/hlsp/everest/everestc17] everest_c17
+[/hlsp/everest/everestc18] everest_c18
+[/hlsp/fhufd] FHUFD
+[/hlsp/fhufd/bootes] bootes
+[/hlsp/fhufd/canesvenatici] canes_venatici
+[/hlsp/fhufd/comaberenices] coma_berenices
+[/hlsp/fhufd/hercules] hercules
+[/hlsp/fhufd/leo] leo
+[/hlsp/fhufd/ursamajor] ursa_major
+[/hlsp/fresco] FRESCO
+[/hlsp/fuvs] FUVS
+[/hlsp/galsedatlas] GALSEDATLAS
+[/hlsp/gfcat] GFCAT
+[/hlsp/glass-jwst] GLASS-JWST
+[/hlsp/goals] GOALS
+[/hlsp/grs-wfc3] GRS-WFC3
+[/hlsp/gsfc-eleanor-lite] GSFC-ELEANOR-LITE
+[/hlsp/guvcat] GUVCAT
+[/hlsp/guvcat/guvcat-column-description---gaia-dr2-columns] GUVCat Column Description - Gaia DR2 Columns
+[/hlsp/guvcat/guvcat-column-description] GUVCat Column Description
+[/hlsp/guvcat/guvcat-column-description---sdss-dr14-columns] GUVCat Column Description - SDSS DR14 Columns
+[/hlsp/guvcat-hotstars] GUVCAT-HOTSTARS
+[/hlsp/guvpncat] GUVPNCAT
+[/hlsp/hacks] HACKS
+[/hlsp/hags] HAGS
+[/hlsp/halo] HALO
+[/hlsp/halo-tess] HALO-TESS
+[/hlsp/hamsters] HAMSTERS
+[/hlsp/hazmat] HAZMAT
+[/hlsp/hcv] HCV
+[/hlsp/hffcatalogs] HFFCATALOGS
+[/hlsp/hipeec] HiPEEC
+[/hlsp/hisp] HISP
+[/hlsp/hst-hyperion] HST-HYPERION
+[/hlsp/http] HTTP
+[/hlsp/http/http-observational-details] HTTP Observational Details
+[/hlsp/illustris] ILLUSTRIS
+[/hlsp/iris] IRIS
+[/hlsp/lacos] LACOS
+[/hlsp/lars] LARS
+[/hlsp/laurelin] LAURELIN
+[/hlsp/lcgcosmos] LCGCOSMOS
+[/hlsp/jades] JADES
+[/hlsp/jems] JEMS
+[/hlsp/jwst-ero] JWST-ERO
+[/hlsp/jwst-ero/jwst-ero-team] JWST-ERO Team
+[/hlsp/jwststars] JWSTSTARS
+[/hlsp/k2sff] K2SFF
+[/hlsp/k2yso] K2YSO
+[/hlsp/kbonus-apexba] KBONUS-APEXBA
+[/hlsp/kbonus-bkg] KBONUS-BKG
+[/hlsp/kepler-smear] KEPLER-SMEAR
+[/hlsp/kswags] KSwAGS
+[/hlsp/lmc-flows] LMC-FLOWS
+[/hlsp/lowlib] LOWLIB
+[/hlsp/m31-satellites] M31-SATELLITES
+[/hlsp/m87-hst-uv] M87-HST-UV
+[/hlsp/mstarpanspec] MSTARPANSPEC
+[/hlsp/mudf] MUDF
+[/hlsp/mysst] MYSST
+[/hlsp/muscles] MUSCLES
+[/hlsp/muscles/acknowledgement] Acknowledgement
+[/hlsp/nds-2018] NDS-2018
+[/hlsp/ngc5044-hst] NGC5044-HST
+[/hlsp/ngc5253-dr2] NGC5253-DR2
+[/hlsp/nlr-agn] NLR-AGN
+[/hlsp/nlte-obgrid] NLTE-OBGRID
+[/hlsp/opal] OPAL
+[/hlsp/opal/opal-jupiter-cycle-22] OPAL - Jupiter Cycle 22
+[/hlsp/opal/opal-jupiter-cycle-23] OPAL - Jupiter Cycle 23
+[/hlsp/opal/opal-jupiter-cycle-24] OPAL - Jupiter Cycle 24
+[/hlsp/opal/opal-jupiter-cycle-25] OPAL - Jupiter Cycle 25
+[/hlsp/opal/opal-jupiter-cycle-26] OPAL - Jupiter Cycle 26
+[/hlsp/opal/opal-jupiter-cycle-27] OPAL - Jupiter Cycle 27
+[/hlsp/opal/opal-jupiter-cycle-28] OPAL - Jupiter Cycle 28
+[/hlsp/opal/opal-jupiter-cycle-29] OPAL - Jupiter Cycle 29
+[/hlsp/opal/opal-jupiter-cycle-30] OPAL - Jupiter Cycle 30
+[/hlsp/opal/opal-jupiter-cycle-31] OPAL - Jupiter Cycle 31
+[/hlsp/opal/opal-jupiter-cycle-32] OPAL - Jupiter Cycle 32
+[/hlsp/opal/opal-saturn-cycle-25] OPAL - Saturn Cycle 25
+[/hlsp/opal/opal-saturn-cycle-26] OPAL - Saturn Cycle 26
+[/hlsp/opal/opal-saturn-cycle-27] OPAL - Saturn Cycle 27
+[/hlsp/opal/opal-saturn-cycle-28] OPAL - Saturn Cycle 28
+[/hlsp/opal/opal-saturn-cycle-29] OPAL - Saturn Cycle 29
+[/hlsp/opal/opal-saturn-cycle-30] OPAL - Saturn Cycle 30
+[/hlsp/opal/opal-saturn-cycle-31] OPAL - Saturn Cycle 31
+[/hlsp/opal/opal-saturn-cycle-32] OPAL - Saturn Cycle 32
+[/hlsp/opal/opal-uranus-cycle-22] OPAL - Uranus Cycle 22
+[/hlsp/opal/opal-uranus-cycle-23] OPAL - Uranus Cycle 23
+[/hlsp/opal/opal-uranus-cycle-24] OPAL - Uranus Cycle 24
+[/hlsp/opal/opal-uranus-cycle-25] OPAL - Uranus Cycle 25
+[/hlsp/opal/opal-uranus-cycle-26] OPAL - Uranus Cycle 26
+[/hlsp/opal/opal-uranus-cycle-27] OPAL - Uranus Cycle 27
+[/hlsp/opal/opal-uranus-cycle-28] OPAL - Uranus Cycle 28
+[/hlsp/opal/opal-uranus-cycle-29] OPAL - Uranus Cycle 29
+[/hlsp/opal/opal-uranus-cycle-30] OPAL - Uranus Cycle 30
+[/hlsp/opal/opal-uranus-cycle-31] OPAL - Uranus Cycle 31
+[/hlsp/opal/opal-uranus-cycle-32] OPAL - Uranus Cycle 32
+[/hlsp/opal/opal-uranus-cycle-33] OPAL - Uranus Cycle 33
+[/hlsp/opal/opal-neptune-cycle-22] OPAL - Neptune Cycle 22
+[/hlsp/opal/opal-neptune-cycle-23] OPAL - Neptune Cycle 23
+[/hlsp/opal/opal-neptune-cycle-24] OPAL - Neptune Cycle 24
+[/hlsp/opal/opal-neptune-cycle-25] OPAL - Neptune Cycle 25
+[/hlsp/opal/opal-neptune-cycle-26] OPAL - Neptune Cycle 26
+[/hlsp/opal/opal-neptune-cycle-27] OPAL - Neptune Cycle 27
+[/hlsp/opal/opal-neptune-cycle-28] OPAL - Neptune Cycle 28
+[/hlsp/opal/opal-neptune-cycle-29] OPAL - Neptune Cycle 29
+[/hlsp/opal/opal-neptune-cycle-30] OPAL - Neptune Cycle 30
+[/hlsp/opal/opal-neptune-cycle-31] OPAL - Neptune Cycle 31
+[/hlsp/opal/opal-neptune-cycle-32] OPAL - Neptune Cycle 32
+[/hlsp/owls] OWLS
+[/hlsp/pathos] PATHOS
+[/hlsp/phangs] PHANGS
+[/hlsp/phangs/phangs-cat] PHANGS-CAT
+[/hlsp/phangs/phangs-hst] PHANGS-HST
+[/hlsp/phangs/phangs-jwst] PHANGS-JWST
+[/hlsp/phast] PHAST
+[/hlsp/phat] PHAT
+[/hlsp/phatagb] PHATAGB
+[/hlsp/phatagb/phatagb-cluster-finding-charts] PHATAGB Cluster Finding Charts
+[/hlsp/phathighmass] PHATHIGHMASS
+[/hlsp/phatter] PHATTER
+[/hlsp/pie] PIE
+[/hlsp/ps1-strm] PS1-STRM
+[/hlsp/psfk2] PSFK2
+[/hlsp/pqs] PQS
+[/hlsp/qlp] QLP
+[/hlsp/qlp/provenancesearch] provenance_search
+[/hlsp/qlp/searchbytic] search_by_tic
+[/hlsp/reference-atlases] REFERENCE-ATLASES
+[/hlsp/relics] RELICS
+[/hlsp/rocky-worlds] Rocky Worlds DDT
+[/hlsp/rslss] RSLSS
+[/hlsp/scylla] SCYLLA
+[/hlsp/sgas] SGAS
+[/hlsp/skysurf] SKYSURF
+[/hlsp/smarts] SMARTS
+[/hlsp/smiles] SMILES
+[/hlsp/stella] STELLA
+[/hlsp/storm] STORM
+[/hlsp/storm2] STORM2
+[/hlsp/superborg] SUPERBORG
+[/hlsp/t16] T16
+[/hlsp/tars] TARS
+[/hlsp/tasoc] TASOC
+[/hlsp/templates] TEMPLATES
+[/hlsp/tempos] TEMPOS
+[/hlsp/tequila] TEQUILA
+[/hlsp/tess-3i] TESS-3I
+[/hlsp/tess-coadd-cutouts] TESS-COADD-CUTOUTS
+[/hlsp/tess-ebs] TESS-EBs
+[/hlsp/tess-spoc] TESS-SPOC
+[/hlsp/tess-spoc/provenancesearch] provenance_search
+[/hlsp/tess-spoc/searchbytic] search_by_tic
+[/hlsp/tess-svc] TESS-SVC
+[/hlsp/tess-yso] TESS-YSO
+[/hlsp/tglc] TGLC
+[/hlsp/thor] THOR
+[/hlsp/tica] TICA
+[/hlsp/ullyses] ULLYSES
+[/hlsp/ullyses/hlspauthors] hlsp_authors
+[/hlsp/ullyses/provenancesearch] provenance_search
+[/hlsp/ullyses/linkeddatasets] linked_datasets
+[/hlsp/uvcandels] UVCANDELS
+[/hlsp/uvcandels/uvcandels-team] UVCANDELS Team
+[/hlsp/uvescape] UVESCAPE
+[/hlsp/uvot-oc] UVOT-OC
+[/hlsp/uvudf] UVUDF
+[/hlsp/wd-grid] WD-GRID
+[/hlsp/wfc3ir-fluxcal] WFC3IR-FLUXCAL
+[/hlsp/wfcj] WFCJ
+[/hlsp/wfcj/pj03global] pj03_global
+[/hlsp/wfcj/pj03niri] pj03_niri
+[/hlsp/wfcj/pj03bglobal] pj03b_global
+[/hlsp/wfcj/pj03bniri] pj03b_niri
+[/hlsp/wfcj/pj04global] pj04_global
+[/hlsp/wfcj/pj04niri] pj04_niri
+[/hlsp/wfcj/pj05snapshot] pj05_snapshot
+[/hlsp/wfcj/pj06niri] pj06_niri
+[/hlsp/wfcj/pj06snapshot] pj06_snapshot
+[/hlsp/wfcj/pj07niri] pj07_niri
+[/hlsp/wfcj/pj07snapshot] pj07_snapshot
+[/hlsp/wfcj/pj11global] pj11_global
+[/hlsp/wfcj/pj12global] pj12_global
+[/hlsp/wfcj/pj12niri] pj12_niri
+[/hlsp/wfcj/pj13niri] pj13_niri
+[/hlsp/wfcj/pj13snapshot] pj13_snapshot
+[/hlsp/wfcj/pj14niri] pj14_niri
+[/hlsp/wfcj/pj14snapshot] pj14_snapshot
+[/hlsp/wfcj/pj15snapshot] pj15_snapshot
+[/hlsp/wfcj/pj18snapshot] pj18_snapshot
+[/hlsp/wfcj/pj19global] pj19_global
+[/hlsp/wfcj/pj19niri] pj19_niri
+[/hlsp/wfcj/pj20niri] pj20_niri
+[/hlsp/wfcj/pj21snapshot] pj21_snapshot
+[/hlsp/wfcj/pj22snapshot] pj22_snapshot
+[/hlsp/wide] WIDE
+[/hlsp/wise-ps1-strm] WISE-PS1-STRM
+[/hlsp/wisp] WISP
+[/hello-universe] Hello Universe
+[/hello-universe/deepmerge] DEEPMERGE
+[/hello-universe/stella] stella
+[/hello-universe/3d-hst] 3D-HST
+[/hello-universe/ps1-strm] PS1-STRM
+[/hello-universe/interpretability] Interpretability
+[/hello-universe/tess-cnn-rotation] TESS CNN Stellar Rotation
+[/missions-and-data] Missions and Data
+[/search-interfaces] Search Interfaces
+[/search-interfaces/phad] RETIRED: PHAD
+[/search-interfaces/galexview] RETIRED: GalexView
+[/search-interfaces/hla] RETIRED: Hubble Legacy Archive (HLA)
+[/publishing] Publishing
+[/publishing/doi] DOI
+[https://archive.stsci.edu/publishing/bibliography] Bibliography Search
+[/publishing/data-attributions] Data Attributions
+[/publishing/mission-acknowledgements] Mission Acknowledgements
+[/publishing/mission-publications-mailing-list] Mission Publications Mailing List
+[/news] News
+[/asdi] Archived Synthetic Data
+[/asdi/prototype-demo] Prototype Demo
+[/virtual-observatory] Virtual Observatory
+[http://archive.stsci.edu/searches.html#missions] Mission Data Search
+[/mug] MUG
+[/about-mast] About MAST
+[/new-mission-partnerships-with-mast] New Mission Partnerships with MAST
+[/astro-art-internship] Astro Art Internship
+[/2024-summer-webinar] 2024 MAST Summer Webinar
+
+OPAL - Saturn Cycle 32
+
+{img /files/live/sites/mast/files/home/hlsp/ultraviolet-hubble-ultra-deep-field-uvudf/_images/uvudf_crop.jpg?t=tn370} {img /files/live/sites/mast/files/home/hlsp/ultraviolet-hubble-ultra-deep-field-uvudf/_images/uvudf_crop.jpg?t=tn370}
+
+Breadcrumbs Navigation
+
+[/home]
+Home
+
+[/hlsp]
+HLSP
+
+[/hlsp/opal]
+OPAL
+
+Saturn Cycle 32
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025_all_v1_readme.txt] Download README [https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f395n-f502n-f631n_v1_globalmap.tif] RotA Color Preview [https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f395n-f502n-f631n_v1_globalmap.tif] RotB Color Preview
+
+Saturn (Rotation A)
+
+{img https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/html_pngs/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f225w_v1_globalmap-small.png}
+
+F225W
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f225w_v1_globalmap.fits] IMG (FITS)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f225w_v1_globalmap.tif] FULL (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f225w_v1_globalmap-medium.tif] MED (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f225w_v1_globalmap-small.tif] SMALL (TIF)
+
+{img https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/html_pngs/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f395n_v1_globalmap-small.png}
+
+F395N
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f395n_v1_globalmap.fits] IMG (FITS)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f395n_v1_globalmap.tif] FULL (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f395n_v1_globalmap-medium.tif] MED (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f395n_v1_globalmap-small.tif] SMALL (TIF)
+
+{img https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/html_pngs/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f467m_v1_globalmap-small.png}
+
+F467M
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f467m_v1_globalmap.fits] IMG (FITS)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f467m_v1_globalmap.tif] FULL (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f467m_v1_globalmap-medium.tif] MED (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f467m_v1_globalmap-small.tif] SMALL (TIF)
+
+{img https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/html_pngs/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f502n_v1_globalmap-small.png}
+
+F502N
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f502n_v1_globalmap.fits] IMG (FITS)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f502n_v1_globalmap.tif] FULL (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f502n_v1_globalmap-medium.tif] MED (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f502n_v1_globalmap-small.tif] SMALL (TIF)
+
+{img https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/html_pngs/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f631n_v1_globalmap-small.png}
+
+F631N
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f631n_v1_globalmap.fits] IMG (FITS)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f631n_v1_globalmap.tif] FULL (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f631n_v1_globalmap-medium.tif] MED (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f631n_v1_globalmap-small.tif] SMALL (TIF)
+
+{img https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/html_pngs/hlsp_opal_hst_wfc3-uvis_saturn-2025a_fq727n_v1_globalmap-small.png}
+
+FQ727N
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_fq727n_v1_globalmap.fits] IMG (FITS)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_fq727n_v1_globalmap.tif] FULL (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_fq727n_v1_globalmap-medium.tif] MED (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_fq727n_v1_globalmap-small.tif] SMALL (TIF)
+
+{img https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/html_pngs/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f763m_v1_globalmap-small.png}
+
+F763M
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f763m_v1_globalmap.fits] IMG (FITS)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f763m_v1_globalmap.tif] FULL (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f763m_v1_globalmap-medium.tif] MED (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f763m_v1_globalmap-small.tif] SMALL (TIF)
+
+{img https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/html_pngs/hlsp_opal_hst_wfc3-uvis_saturn-2025a_fq889n_v1_globalmap-small.png}
+
+FQ889N
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_fq889n_v1_globalmap.fits] IMG (FITS)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_fq889n_v1_globalmap.tif] FULL (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_fq889n_v1_globalmap-medium.tif] MED (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_fq889n_v1_globalmap-small.tif] SMALL (TIF)
+
+Saturn (Rotation B)
+
+{img https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/html_pngs/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f225w_v1_globalmap-small.png}
+
+F225W
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f225w_v1_globalmap.fits] IMG (FITS)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f225w_v1_globalmap.tif] FULL (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f225w_v1_globalmap-medium.tif] MED (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f225w_v1_globalmap-small.tif] SMALL (TIF)
+
+{img https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/html_pngs/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f395n_v1_globalmap-small.png}
+
+F395N
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f395n_v1_globalmap.fits] IMG (FITS)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f395n_v1_globalmap.tif] FULL (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f395n_v1_globalmap-medium.tif] MED (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f395n_v1_globalmap-small.tif] SMALL (TIF)
+
+{img https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/html_pngs/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f467m_v1_globalmap-small.png}
+
+F467M
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f467m_v1_globalmap.fits] IMG (FITS)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f467m_v1_globalmap.tif] FULL (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f467m_v1_globalmap-medium.tif] MED (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f467m_v1_globalmap-small.tif] SMALL (TIF)
+
+{img https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/html_pngs/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f502n_v1_globalmap-small.png}
+
+F502N
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f502n_v1_globalmap.fits] IMG (FITS)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f502n_v1_globalmap.tif] FULL (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f502n_v1_globalmap-medium.tif] MED (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f502n_v1_globalmap-small.tif] SMALL (TIF)
+
+{img https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/html_pngs/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f631n_v1_globalmap-small.png}
+
+F631N
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f631n_v1_globalmap.fits] IMG (FITS)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f631n_v1_globalmap.tif] FULL (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f631n_v1_globalmap-medium.tif] MED (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f631n_v1_globalmap-small.tif] SMALL (TIF)
+
+{img https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/html_pngs/hlsp_opal_hst_wfc3-uvis_saturn-2025b_fq727n_v1_globalmap-small.png}
+
+FQ727N
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_fq727n_v1_globalmap.fits] IMG (FITS)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_fq727n_v1_globalmap.tif] FULL (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_fq727n_v1_globalmap-medium.tif] MED (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_fq727n_v1_globalmap-small.tif] SMALL (TIF)
+
+{img https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/html_pngs/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f763m_v1_globalmap-small.png}
+
+F763M
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f763m_v1_globalmap.fits] IMG (FITS)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f763m_v1_globalmap.tif] FULL (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f763m_v1_globalmap-medium.tif] MED (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_f763m_v1_globalmap-small.tif] SMALL (TIF)
+
+{img https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/html_pngs/hlsp_opal_hst_wfc3-uvis_saturn-2025b_fq889n_v1_globalmap-small.png}
+
+FQ889N
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_fq889n_v1_globalmap.fits] IMG (FITS)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_fq889n_v1_globalmap.tif] FULL (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_fq889n_v1_globalmap-medium.tif] MED (TIF)
+
+[https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025b_fq889n_v1_globalmap-small.tif] SMALL (TIF)
+
+[#body]
+
+Footer
+
+Secondary Navigation
+
+[https://www.stsci.edu/]
+{img /files/live/sites/mast/files/home/_images/footer/stsci_pri_combo_mark_white_bkgd.png?t=thumbnail}
+
+[https://proper.stsci.edu/proper/authentication/auth]
+MyST
+
+[https://stsci.service-now.com/mast]
+Help Desk
+
+[mailto:archive@stsci.edu]
+archive@stsci.edu
+
+[http://archive.stsci.edu/site-classic.html]
+MAST Classic
+
+[https://archive.stsci.edu/about-mast#section-d11fd734-67cc-4e65-91a2-570fa015a228]
+MAST Credits
+
+[/nasa-data-centers]
+NASA Data Centers
+
+[/publishing]
+Data Policies
+
+[/site-map]
+Site Map
+
+[https://www.stsci.edu/copyright]
+Copyright
+
+[https://www.stsci.edu/privacy]
+Privacy
+
+Social Media
+
+[https://www.facebook.com/MASTArchive/]
+
+[https://twitter.com/mast_news?lang=en]
+
+[https://www.youtube.com/user/STScIMAST]
+
+####################################################################################################
+# Readme of this observing cycle (complete text)
+# Address: https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025_all_v1_readme.txt
+# Fetched: 2026-10-14 03:39 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". The text is unchanged.
+####################################################################################################
+OPAL Saturn Maps README file
+
+Cycle 32 Saturn data were acquired with WFC3/UVIS between August 29, 2025 05:53 to August 29, 2025 23:47 UT.
+
+Images were navigated using an ellipsoid limb fitting technique with equatorial and polar radii of 60268 and 54364 km, respectively.  The FQ727N and FQ889N data were fringe corrected post-pipeline, resulting in an ~2% correction. Each map was generated at the sub-earth longitude +/- 90 at 5 pixels/deg resolution, between -90 and +90 deg planetographic latitude .  Maps were mosaicked to cover 360 deg of longitude (left edge = 360 System III W. longitude, decreasing to the right) and seams between maps were interpolated to smooth, where needed.  The table below lists the Minnaert correction (ratio of cosines of incidence and emission angles to the k power) applied to remove limb darkening for each map.  The mosaics are available in TIF (arbitrarily scaled) and FITS.  The FITS values can be converted to I/F by multiplying by the values in the table below.  Two global maps exist for most filters, covering two full rotations of Saturn. Color maps (TIFF only), are generated from the F631N (red), F502N (green), and F395N (blue) filters, with slight contrast enhancement.  ARTIFACTS: Multiple moons (and their shadows) can be seen crossing the mosaics.
+
+Rotation 1 (Aug 29 05:53:28 to 14:20:17 UT)
+Rotation 2 (Aug 29 15:19:36 to 23:46:07 UT)
+
+Filter	Minnaert k	  I/F scale factor (FITS files)
+F225W	0.55		    	  .00207	
+F395N	0.40			  .00231
+F467M	0.86			  .00507	
+F502N	0.65			  .00285
+F631N	0.80			  .00362
+F763M	0.85			  .00376
+FQ727N	0.90			  .00422
+FQ889N	1.00			  .00329
+
+####################################################################################################
+# OPAL page of the MAST archive: acknowledgement text, data products and licence note (excerpt, lines 396 to 516 of the saved text)
+# Address: https://archive.stsci.edu/hlsp/opal
+# Fetched: 2026-10-14 03:35 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The complete text is in data-src/textures/evidence/_shared/mast_opal_hlsp.txt
+####################################################################################################
+Any publication that uses images or maps from the OPAL program should include the following statement in the Acknowledgments:
+
+"This work used data acquired from the NASA/ESA HST Space Telescope, associated with OPAL program (PI: Simon, GO13937), and archived by the Space Telescope Science Institute, which is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS 5-26555. All maps are available at http://dx.doi.org/10.17909/T9G593."
+
+Data Products
+
+The data files have the following naming convention:
+
+hlsp_opal_hst_wfc3-uvis_<planet>-<rotation>_<filter>_v1_<type>.<ext>
+
+where:
+
+<planet> = one of "jupiter", "saturn", "uranus", or "neptune"
+
+<rotation> = the rotation+epoch of the observation, in the format of <year><letter>, e.g., "2015a" is the first rotation of Jupiter from Cycle 22, and "2015b" is the second rotation from Cycle 22. Keep in mind that HST cycles span two calendar years since they start in Oct. and run through Sep. of the following year.
+
+<type> = Data product type, either "globalmap" for the science data product and full-size preview images, or "globalmap-medium" and "globalmap-small" for the smaller-sized preview images. Some datasets, like Uranus Cycle 33, introduce a "n-pole" product type, where 0 degrees longitude is oriented to the right. These also include the "n-pole-medium" and "n-pole-small" preview images.
+
+<ext> = File extension, either "fits" for the science data products, "tif" for the preview images, or "png" for the web-friendly version of the preview images.
+
+Data file types:
+
+_globalmap.fits
+Mosaic (projection) for the given filter.
+
+_n-pole.fits
+Mosaic (projection) for the given filter, with 0 degrees longitude oriented to the right.
+
+_globalmap.tif,
+
+_n-pole.tif
+
+Preview image (size varies by target).
+
+_globalmap-medium.tif,
+
+_n-pole-medium.tif
+
+Preview image (width x height ~ 900 x 450 px, varies by target).
+
+_globalmap-small.tif,
+
+_n-pole-small.tif
+
+Preview image (width x height ~ 450 x 225 px, varies by target).
+
+_globalmap-small.png,
+
+_n-pole-small.png
+
+Web-friendly version of the small-sized preview image.
+
+Data Access
+
+Jupiter
+Saturn
+Uranus
+Neptune
+
+[/hlsp/opal/opal-jupiter-cycle-22] Jupiter Cycle 22 (Jan. 2015)
+N/A
+[/hlsp/opal/opal-uranus-cycle-22] Uranus Cycle 22 (Nov. 2014)
+[/hlsp/opal/opal-neptune-cycle-22] Neptune Cycle 22 (Sep. 2015)
+
+[/hlsp/opal/opal-jupiter-cycle-23] Jupiter Cycle 23 (Feb. 2016)
+N/A
+[/hlsp/opal/opal-uranus-cycle-23] Uranus Cycle 23 (Sep. 2015)
+[/hlsp/opal/opal-neptune-cycle-23] Neptune Cycle 23 (Oct. 2016)
+
+[/hlsp/opal/opal-jupiter-cycle-24] Jupiter Cycle 24 (Apr. 2017)
+N/A
+[/hlsp/opal/opal-uranus-cycle-24] Uranus Cycle 24 (Sep. 2016)
+[/hlsp/opal/opal-neptune-cycle-24] Neptune Cycle 24 (Oct. 2017)
+
+[/hlsp/opal/opal-jupiter-cycle-25] Jupiter Cycle 25 (Apr. 2018)
+[/hlsp/opal/opal-saturn-cycle-25] Saturn Cycle 25 (Jun. 2018)
+[/hlsp/opal/opal-uranus-cycle-25] Uranus Cycle 25 (Oct. 2017)
+[/hlsp/opal/opal-neptune-cycle-25] Neptune Cycle 25 (Sep. 2018)
+
+[/hlsp/opal/opal-jupiter-cycle-26] Jupiter Cycle 26 (Jun. 2019)
+[/hlsp/opal/opal-saturn-cycle-26] Saturn Cycle 26 (Jun. 2019)
+[/hlsp/opal/opal-uranus-cycle-26] Uranus Cycle 26 (Nov. 2018)
+[/hlsp/opal/opal-neptune-cycle-26] Neptune Cycle 26 (Sep. 2019)
+
+[/hlsp/opal/opal-jupiter-cycle-27] Jupiter Cycle 27 (Aug. 2020)
+[/hlsp/opal/opal-saturn-cycle-27] Saturn Cycle 27 (Jul. 2020)
+[/hlsp/opal/opal-uranus-cycle-27] Uranus Cycle 27 (Nov. 2019)
+[/hlsp/opal/opal-neptune-cycle-27] Neptune Cycle 27 (Aug. 2020)
+
+[/hlsp/opal/opal-jupiter-cycle-28] Jupiter Cycle 28 (Sep. 2021)
+[/hlsp/opal/opal-saturn-cycle-28] Saturn Cycle 28 (Sep. 2021)
+[/hlsp/opal/opal-uranus-cycle-28] Uranus Cycle 28 (Oct. 2020)
+[/hlsp/opal/opal-neptune-cycle-28] Neptune Cycle 28 (Sep. 2021)
+
+[/hlsp/opal/opal-jupiter-cycle-29] Jupiter Cycle 29 (Nov. 2022)
+[/hlsp/opal/opal-saturn-cycle-29] Saturn Cycle 29 (Sep. 2022)
+[/hlsp/opal/opal-uranus-cycle-29] Uranus Cycle 29 (Dec. 2021)
+[/hlsp/opal/opal-neptune-cycle-29] Neptune Cycle 29 (Sep. 2022)
+
+[/hlsp/opal/opal-jupiter-cycle-30] Jupiter Cycle 30 (Jan. 2024)
+[/hlsp/opal/opal-saturn-cycle-30] Saturn Cycle 30 (Oct. 2023)
+[/hlsp/opal/opal-uranus-cycle-30] Uranus Cycle 30 (Nov. 2022)
+[/hlsp/opal/opal-neptune-cycle-30] Neptune Cycle 30 (Sep. 2023)
+
+[/hlsp/opal/opal-jupiter-cycle-31] Jupiter Cycle 31 (Nov. 2024)
+[/hlsp/opal/opal-saturn-cycle-31] Saturn Cycle 31 (Aug. 2024)
+[/hlsp/opal/opal-uranus-cycle-31] Uranus Cycle 31 (Sep. 2023)
+[/hlsp/opal/opal-neptune-cycle-31] Neptune Cycle 31 (Jun. 2025)
+
+[/hlsp/opal/opal-jupiter-cycle-32] Jupiter Cycle 32 (Dec. 2025)
+[/hlsp/opal/opal-saturn-cycle-32] Saturn Cycle 32 (Aug. 2025)
+[/hlsp/opal/opal-uranus-cycle-32] Uranus Cycle 32 (Nov. 2024)
+[/hlsp/opal/opal-neptune-cycle-32] Neptune Cycle 32 (Aug. 2025)
+
+[/hlsp/opal/opal-uranus-cycle-33] Uranus Cycle 33 (Oct. 2025)
+
+Citations
+
+Please remember to cite the appropriate paper(s) below and the [https://dx.doi.org/10.17909/T9G593] DOI if you use these data in a published work.
+
+Note: These HLSP data products are licensed for use under [https://creativecommons.org/licenses/by/4.0/] CC BY 4.0.
+
+####################################################################################################
+# MAST data use page: public domain and CC BY 4.0 (excerpt, lines 353 to 365 of the saved text)
+# Address: https://archive.stsci.edu/publishing/data-use
+# Fetched: 2026-10-14 03:35 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The complete text is in data-src/textures/evidence/_shared/mast_data_use.txt
+####################################################################################################
+Most data hosted at MAST are in the public domain (see: [https://en.wikipedia.org/wiki/Open_data] open data), and therefore do not have restrictions on use. There are, however, expectations (or in some cases, requirements) that researchers acknowledge the originating mission and (usually) STScI in all scholarly publications. See [https://archive.stsci.edu/publishing/data-attributions] MAST Data Attributions for details.
+
+The subset of data for which restrictions do apply are described in the following subsections.
+
+Exclusive Access Data
+
+Access to science data from most active missions is often limited to the Program Investigator Team during a period of exclusive access immediately following the observations. The duration of the exclusive access period ranges from a few months to as much as a year, depending upon the mission, the program category, and other factors. Some other data, such as those obtained during facility commissioning, or those that are found to duplicate concurrent observations by a Guaranteed Time Observer (GTO), may also be embargoed for a period of time. Data falling under exclusive access can be discovered via MAST public interfaces, but may not be retrieved except by authorized and authenticated persons. Following the expiration of the applicable exclusive access period, science data become available for public use without restriction.
+
+Principal Investigators may request modifications (i.e., extensions, reductions, and/or restrictions) to the exclusive access period for some or all observations in their observing programs. Please make these requests via the Archive help desk: [mailto:archive@stsci.edu] archive@stsci.edu. The Help Desk staff will forward all requests to the authorizing officials. All requests must be approved by STScI before being enacted.
+
+Licensed Data
+
+Some data products, such as high-level science products ( [http://archive.stsci.edu/hlsp/] HLSPs) which are created by the community and are made available through MAST, are covered under a Creative Commons Attribution license ( [https://creativecommons.org/licenses/by/4.0/] CC BY 4.0). These products are available to the community for their use without restriction, provided that the product providers (i.e., the creators and MAST) are acknowledged in published works. If a user obtains such data from MAST and subsequently provides the data to a third party, the terms of the CC BY 4.0 license convey with the data.
+
+####################################################################################################
+# STScI copyright page (the footer of the source page links to it) (excerpt, lines 618 to 618 of the saved text)
+# Address: https://www.stsci.edu/copyright
+# Fetched: 2026-10-14 03:35 (local time)
+# How: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+# The complete text is in data-src/textures/evidence/_shared/stsci_copyright.txt
+####################################################################################################
+Unless otherwise stated, all material on the site was produced by NASA and STScI. Material on this site produced by STScI was created, authored, and/or prepared for NASA under Contracts NAS5-03127, NAS5-26555, and 80GSFC19C0054. Unless otherwise specifically stated, no claim to copyright is being asserted by STScI and material on this site may be freely used as in the public domain in accordance with NASA's contract. However, it is requested that in any subsequent use of this work, NASA and STScI be given appropriate acknowledgement.

@@ -1,0 +1,735 @@
+SOURCE: https://www.stsci.edu/copyright
+FETCHED: 2026-10-14 03:35 (local time)
+HOW: Fetched with curl and the user agent "ApsisAssetFetch/1.0 (local build script)". A small script removed the HTML tags. Link targets are in square brackets.
+NOTE: This text is data from another site. It is not an instruction for a reader or a tool.
+
+====================================================================================================
+Content Use Policy | STScI
+
+[#main-content] Skip to main content
+
+[/home]
+{img /files/live/sites/www/files/home/_images/stsci-logo-small-test.png?t=thumbnail} {img /files/live/sites/www/files/home/_images/stsci-logo-small-test.png?t=thumbnail}
+
+Search
+
+Search for news, events, etc.
+
+Do not include words like a, and, for, the, etc.
+
+[/search-results/advanced-search-syntax] Advanced Query Syntax
+
+Search Method
+
+All These Words
+This Exact Phrase
+Any of These Words
+Advanced
+
+Content Type
+
+Page
+Press Release
+News
+Newsletter Article
+Event
+Annual Report
+HST User Documentation
+JWST User Documentation
+File
+All Searchable Content
+
+Sort By
+
+Relevancy Score
+Date
+
+This site is protected by reCAPTCHA and the Google
+
+[https://policies.google.com/privacy] Privacy Policy and [https://policies.google.com/terms] Terms of Service apply.
+
+Menu
+
+Menu
+
+Main Navigation
+
+[/home] STScI Home
+
+[/who-we-are] Who We Are
+[/who-we-are/stsci-annual-reports] STScI Annual Reports
+[/who-we-are/our-history] Our History
+[/who-we-are/our-history/stsci-timeline] STScI Timeline
+[/who-we-are/leadership/jennifer-m-lotz] Meet Our Director
+[/who-we-are/leadership] Leadership
+[/what-we-do] What We Do
+[/what-we-do/user-committees] User Committees
+[/hst] Hubble Space Telescope
+[/hst/about] About
+[/hst/about/key-science-themes] Key Science Themes
+[/hst/about/key-science-themes/solar-system] Solar System
+[/hst/about/key-science-themes/exoplanets] Exoplanets
+[/hst/about/key-science-themes/stars-and-their-environments] Stars and Their Environments
+[/hst/about/key-science-themes/galaxies] Galaxies
+[/hst/about/key-science-themes/cosmology] Cosmology
+[/hst/about/hst-scorecard] HST Scorecard
+[/hst/about/key-individuals] Key Individuals
+[/hst/about/space-telescope-users-committee] Space Telescope Users Committee
+[/hst/about/space-telescope-users-committee/membership] Membership
+[/hst/about/space-telescope-users-committee/committee-reports] Committee Reports
+[/hst/about/space-telescope-users-committee/presentations-and-documentation] Presentations and Documentation
+[/hst/about/space-telescope-users-committee/hst-repair-contingency-plans] HST Repair Contingency Plans
+[/hst/proposing] Proposing
+[/hst/proposing/phase-i] Phase I
+[https://hst-docs.stsci.edu/display/HSP/] Call for Proposals
+[https://hst-docs.stsci.edu/display/HSP/HST+Cycle+33+Director%27s+Discretionary+Time+Submission] Director's Discretionary Time Submission
+[/hst/proposing/phase-i/proposal-planning-toolbox] Proposal Planning Toolbox
+[http://etc.stsci.edu/etc/] Exposure Time Calculator
+[/hst/proposing/phase-i/proposal-planning-toolbox/orbital-visibility-and-scheduling] Orbital Visibility and Scheduling
+[/hst/proposing/phase-i/peer-review-information] Peer Review Information
+[/hst/proposing/phase-ii] Phase II
+[/hst/proposing/phase-ii/phase-ii-proposal-preparation] Phase II Proposal Preparation
+[https://hst-docs.stsci.edu/display/HPIOM/] Phase II Proposal Instructions
+[/hst/proposing/phase-ii/visit-size-recommendations] Visit Size Recommendations
+[/hst/proposing/phase-ii/guidelines-and-documents] Guidelines and Documents
+[/hst/proposing/approved-programs] Approved Programs
+[/hst/observing] Observing
+[/hst/observing/scheduling] Scheduling
+[/hst/observing/activating-your-target-of-opportunity] Activating Your Target of Opportunity
+[/hst/observing/observing-status] Observing Status
+[/hst/observing/program-information] Program Information
+[/hst/observing/post-observation] Post-Observation
+[/hst/observing/post-observation/data-analysis-toolbox] Data Analysis Toolbox
+[/hst/observing/post-observation/exception-reports] Exception Reports
+[/hst/observing/post-observation/exception-reports/gs-acq-failed-to-single-guide-star] GS ACQ Failed to Single Guide Star
+[/hst/observing/post-observation/reporting-problems] Reporting Problems
+[http://archive.stsci.edu/hst/index.html] Retrieving Data on MAST
+[https://hla.stsci.edu] Hubble Legacy Archive
+[/hst/instrumentation] Instrumentation
+[/hst/instrumentation/acs] Advanced Camera for Surveys
+[/hst/instrumentation/acs/instrument-design] Instrument Design
+[/hst/instrumentation/acs/instrument-design/system-throughputs] System Throughputs
+[/hst/instrumentation/acs/performance] Performance
+[/hst/instrumentation/acs/performance/anomalies-and-artifacts] Anomalies and Artifacts
+[/hst/instrumentation/acs/performance/anomalies-and-artifacts/dragons-breath-and-edge-glow] Dragon's Breath and Edge Glow
+[/hst/instrumentation/acs/performance/anomalies-and-artifacts/guidestars] Guidestars
+[/hst/instrumentation/acs/performance/cte-information] CTE Information
+[/hst/instrumentation/acs/performance/photometric-cte-corrections] Photometric CTE Corrections
+[/hst/instrumentation/acs/performance/pixel-based-cte-corrections] Pixel-Based CTE Corrections
+[/hst/instrumentation/acs/proposing] Proposing
+[http://etc.stsci.edu/etc/] ACS ETC
+[/hst/instrumentation/acs/proposing/dither-strategies] Dither Strategies
+[/hst/instrumentation/acs/proposing/dither-strategies/acs-wfc-dither-line] ACS-WFC-DITHER-LINE
+[/hst/instrumentation/acs/proposing/dither-strategies/acs-wfc-dither-box] ACS-WFC-DITHER-BOX
+[/hst/instrumentation/acs/proposing/dither-strategies/acs-wfc-mosaic-line] ACS-WFC-MOSAIC-LINE
+[/hst/instrumentation/acs/proposing/dither-strategies/acs-wfc-mosaic-box] ACS-WFC-MOSAIC-BOX
+[/hst/instrumentation/acs/proposing/dither-strategies/acs-hrc-dither-line] ACS-HRC-DITHER-LINE
+[/hst/instrumentation/acs/proposing/dither-strategies/acs-hrc-dither-box] ACS-HRC-DITHER-BOX
+[/hst/instrumentation/acs/proposing/dither-strategies/acs-hrc-mosaic-line] ACS-HRC-MOSAIC-LINE
+[/hst/instrumentation/acs/proposing/dither-strategies/acs-hrc-mosaic-box] ACS-HRC-MOSAIC-BOX
+[/hst/instrumentation/acs/proposing/dither-strategies/acs-sbc-dither-line] ACS-SBC-DITHER-LINE
+[/hst/instrumentation/acs/proposing/dither-strategies/acs-sbc-dither-box] ACS-SBC-DITHER-BOX
+[/hst/instrumentation/acs/proposing/dither-strategies/acs-sbc-mosaic-line] ACS-SBC-MOSAIC-LINE
+[/hst/instrumentation/acs/proposing/dither-strategies/acs-sbc-mosaic-box] ACS-SBC-MOSAIC-BOX
+[/hst/instrumentation/acs/proposing/exception-report-instructions] Exception Report Instructions
+[/hst/instrumentation/acs/data-analysis] Data Analysis
+[/hst/instrumentation/acs/data-analysis/aperture-corrections] Aperture Corrections
+[/hst/instrumentation/acs/data-analysis/distortion] Distortion
+[/hst/instrumentation/acs/data-analysis/dq-flag-definitions] DQ Flag Definitions
+[http://drizzlepac.stsci.edu/] DrizzlePac
+[/hst/instrumentation/acs/data-analysis/pixel-area-maps] Pixel Area Maps
+[/hst/instrumentation/acs/data-analysis/prism-grism] Prism / Grism
+[/hst/instrumentation/acs/data-analysis/prism-grism/acs-axe-downloadable-files] ACS aXe Downloadable Files
+[/hst/instrumentation/acs/data-analysis/prism-grism/wfc-g800l] WFC G800L
+[/hst/instrumentation/acs/data-analysis/prism-grism/hrc-g800l] HRC G800L
+[/hst/instrumentation/acs/data-analysis/prism-grism/hrc-pr200l] HRC PR200L
+[/hst/instrumentation/acs/data-analysis/prism-grism/sbc-pr110l-and-pr130l] SBC PR110L and PR130L
+[/hst/instrumentation/acs/data-analysis/psf] PSF
+[/hst/instrumentation/acs/data-analysis/zeropoints] Zeropoints
+[/hst/instrumentation/acs/calibration] Calibration
+[/hst/instrumentation/acs/calibration/anneal-dates] Anneal Dates
+[/hst/instrumentation/acs/calibration/calibration-plans] Calibration Plans
+[/hst/instrumentation/reference-data-for-calibration-and-tools] Reference Files
+[/hst/instrumentation/acs/software-tools] Software Tools
+[/hst/instrumentation/acs/software-tools/analysis-tools] Analysis Tools
+[/hst/instrumentation/acs/software-tools/calibration-tools] Calibration Tools
+[http://drizzlepac.readthedocs.io/en/deployment/index.html] DrizzlePac
+[/hst/instrumentation/acs/documentation] Documentation
+[https://hst-docs.stsci.edu/acsihb] ACS Instrument Handbook
+[https://hst-docs.stsci.edu/acsdhb] ACS Data Handbook
+[/hst/instrumentation/acs/documentation/instrument-science-reports-isrs] Instrument Science Reports (ISRs)
+[/hst/instrumentation/acs/documentation/stsci-analysis-newsletter-stan] STScI Analysis Newsletter (STAN)
+[/hst/instrumentation/acs/documentation/conference-posters] Conference Posters
+[/hst/instrumentation/acs/shortcuts] Shortcuts
+[/hst/instrumentation/acs/documentation/instrument-science-reports-isrs] ACS ISRs
+[/hst/instrumentation/acs/documentation/stsci-analysis-newsletter-stan] ACS STANs
+[http://etc.stsci.edu/etc/input/acs/imaging/] ACS Imaging ETC
+[http://etc.stsci.edu/etc/input/acs/spectroscopic/] ACS Spectroscopic ETC
+[http://etc.stsci.edu/etc/input/acs/rampfilter/] ACS Ramp Filter ETC
+[/hst/proposing] HST Proposing
+[/hst/proposing/phase-i] Phase I Proposals
+[/hst/proposing/phase-ii] Phase II Proposal
+[https://hst-docs.stsci.edu/display/HSP/The+Hubble+Space+Telescope+Primer+for+Cycle+32] HST Cycle 32 Primer
+[/hst/instrumentation/cos] Cosmic Origins Spectrograph
+[/hst/instrumentation/cos/instrument-design] Instrument Design
+[/hst/instrumentation/cos/performance] Performance
+[/hst/instrumentation/cos/performance/monitoring] Monitoring
+[/hst/instrumentation/cos/performance/sensitivity] Sensitivity
+[/hst/instrumentation/cos/performance/spectral-resolution] Spectral Resolution and Line Spread Functions
+[/hst/instrumentation/cos/proposing] Proposing
+[/hst/instrumentation/cos/proposing/cos2025-policies] COS2025 Policies
+[/hst/instrumentation/cos/proposing/cos2035-policies] COS2035 Policies
+[/hst/instrumentation/cos/proposing/observing-strategies] Observing Strategies
+[/hst/instrumentation/cos/proposing/wavelength-tool] Wavelength Tool
+[/hst/instrumentation/cos/data-analysis--software-tools] Data Analysis & Software Tools
+[/hst/instrumentation/cos/calibration] Calibration
+[/hst/instrumentation/cos/calibration/airglow] Airglow
+[/hst/instrumentation/cos/calibration/cycle-33-calibration-plan] Cycle 33 Calibration Plan
+[/hst/instrumentation/cos/calibration/cycle-32-calibration-plan] Cycle 32 Calibration Plan
+[/hst/instrumentation/cos/calibration/cycle-31-calibration-plan] Cycle 31 Calibration Plan
+[/hst/instrumentation/cos/calibration/cycle-30-calibration-plan] Cycle 30 Calibration Plan
+[/hst/instrumentation/cos/calibration/cycle-29-calibration-plan] Cycle 29 Calibration Plan
+[/hst/instrumentation/cos/calibration/cycle-28-calibration-plan] Cycle 28 Calibration Plan
+[/hst/instrumentation/cos/calibration/cycle-27-calibration-plan] Cycle 27 Calibration Plan
+[/hst/instrumentation/cos/calibration/cycle-26-calibration-plan] Cycle 26 Calibration Plan
+[/hst/instrumentation/cos/calibration/cycle-25-calibration-plan] Cycle 25 Calibration Plan
+[/hst/instrumentation/cos/calibration/cycle-24-calibration-plan] Cycle 24 Calibration Plan
+[/hst/instrumentation/cos/calibration/cycle-23-calibration-plan] Cycle 23 Calibration Plan
+[/hst/instrumentation/cos/calibration/cycle-22-calibration-plan] Cycle 22 Calibration Plan
+[/hst/instrumentation/cos/calibration/cycle-21-calibration-plan] Cycle 21 Calibration Plan
+[/hst/instrumentation/cos/calibration/cycle-20-calibration-plan] Cycle 20 Calibration Plan
+[/hst/instrumentation/cos/calibration/cycle-19-calibration-plan] Cycle 19 Calibration Plan
+[/hst/instrumentation/cos/calibration/cycle-18-calibration-plan] Cycle 18 Calibration Plan
+[/hst/instrumentation/cos/calibration/cycle-17-calibration-plan] Cycle 17 Calibration Plan
+[/hst/instrumentation/cos/documentation] Documentation
+[https://hst-docs.stsci.edu/display/COSIHB] COS Instrument Handbook
+[https://hst-docs.stsci.edu/display/COSDHB] COS Data Handbook
+[/hst/instrumentation/cos/documentation/instrument-science-reports-isrs] Instrument Science Reports (ISRs)
+[/hst/instrumentation/cos/documentation/stsci-analysis-newsletter-stan] STScI Analysis Newsletter (STAN)
+[/hst/instrumentation/cos/documentation/exception-report-instructions] Exception Report Instructions
+[/hst/instrumentation/cos/documentation/conference-posters] Conference Posters
+[/hst/instrumentation/cos/documentation/calcos-release-notes] CalCOS Release Notes
+[/hst/instrumentation/cos/documentation/notebooks] Notebooks
+[/hst/instrumentation/fgs] Fine Guidance Sensors
+[/hst/instrumentation/fgs/history] History
+[/hst/instrumentation/fgs/instrument-design] Instrument Design
+[/hst/instrumentation/fgs/performance] Performance
+[/hst/instrumentation/fgs/proposing] Proposing
+[/hst/instrumentation/fgs/data-analysis] Data Analysis
+[/hst/instrumentation/fgs/data-analysis/software-tools] Software Tools
+[/hst/instrumentation/fgs/documentation] Documentation
+[/hst/instrumentation/stis] Space Telescope Imaging Spectrograph
+[/hst/instrumentation/stis/instrument-design] Instrument Design
+[/hst/instrumentation/stis/instrument-design/apertures] Apertures
+[/hst/instrumentation/stis/instrument-design/detectors] Detectors
+[/hst/instrumentation/stis/instrument-design/filters] Filters
+[/hst/instrumentation/stis/instrument-design/gratings--prism] Gratings / Prism
+[/hst/instrumentation/stis/instrument-design/gratings--prism/spectral-format-plots] Spectral Format Plots
+[/hst/instrumentation/stis/performance] Performance
+[/hst/instrumentation/stis/performance/anomalies] Anomalies
+[/hst/instrumentation/stis/performance/image-quality] Image Quality
+[/hst/instrumentation/stis/performance/monitoring] Monitoring
+[/hst/instrumentation/stis/performance/sensitivity] Sensitivity
+[/hst/instrumentation/stis/performance/spectral-resolution] Spectral Resolution
+[/hst/instrumentation/stis/performance/throughput] Throughput
+[/hst/instrumentation/stis/performance/background-noise] Background Noise
+[/hst/instrumentation/stis/proposing] Proposing
+[/hst/instrumentation/stis/proposing/go-wavecal-aperture-selection] GO Wavecal Aperture Selection
+[/hst/instrumentation/stis/proposing/exception-reports] Exception Reports
+[/hst/instrumentation/stis/observing-strategies] Observing Strategies
+[/hst/instrumentation/stis/observing-strategies/target-acquisition] Target Acquisition
+[/hst/instrumentation/stis/observing-strategies/spectroscopy] Spectroscopy
+[/hst/instrumentation/stis/observing-strategies/imaging] Imaging
+[/hst/instrumentation/stis/observing-strategies/available-modes] Available Modes
+[/hst/instrumentation/stis/observing-strategies/available-modes/high-contrast-coronagraphy-at-small-inner-working-angles-with-bar5] High Contrast Coronagraphy at Small Inner Working Angles with BAR5
+[/hst/instrumentation/stis/observing-strategies/available-modes/stis-bar5] STIS BAR5
+[/hst/instrumentation/stis/data-analysis-and-software-tools] Data Analysis and Software Tools
+[/hst/instrumentation/stis/data-analysis-and-software-tools/pixel-based-cti] Pixel Based CTI
+[/hst/instrumentation/stis/calibration] Calibration
+[/hst/instrumentation/stis/documentation] Documentation
+[/hst/instrumentation/stis/documentation/instrument-science-reports] Instrument Science Reports
+[/hst/instrumentation/stis/documentation/stsci-analysis-newsletter-stan] STScI Analysis Newsletter (STAN)
+[https://hst-docs.stsci.edu/stisihb] STIS Instrument Handbook
+[https://hst-docs.stsci.edu/stisdhb] STIS Data Handbook
+[/hst/instrumentation/stis/flux-recalibration] Flux Recalibration
+[/hst/instrumentation/wfc3] Wide Field Camera 3
+[/hst/instrumentation/wfc3/instrument-design] Instrument Design
+[/hst/instrumentation/wfc3/performance] Performance
+[/hst/instrumentation/wfc3/performance/usage-statistics] Usage Statistics
+[/hst/instrumentation/wfc3/performance/anomalies] Anomalies
+[/hst/instrumentation/wfc3/performance/cte] CTE
+[/hst/instrumentation/wfc3/performance/ground-testing] Ground Testing
+[/hst/instrumentation/wfc3/performance/monitoring] Monitoring
+[/hst/instrumentation/wfc3/performance/monitoring/complete-anneal-history] Complete Anneal History
+[/hst/instrumentation/wfc3/performance/throughputs] Throughputs
+[/hst/instrumentation/wfc3/performance/cal-subsystem] Cal Subsystem
+[/hst/instrumentation/wfc3/proposing] Proposing
+[/hst/instrumentation/wfc3/proposing/dithering-strategies] Dithering Strategies
+[/hst/instrumentation/wfc3/proposing/exception-reports] Exception Reports
+[/hst/instrumentation/wfc3/data-analysis] Data Analysis
+[https://github.com/spacetelescope/WFC3Library/tree/master/notebooks/filter_transformations] Color Conversion Notebook
+[/hst/instrumentation/wfc3/data-analysis/full-well-depth] Full Well Depth
+[/hst/instrumentation/wfc3/documentation/grism-resources] Grism Spectroscopy
+[/hst/instrumentation/wfc3/data-analysis/ir-flats] IR Flats
+[/hst/instrumentation/wfc3/data-analysis/ir-flats/blob-delta-flats-from-earth-flat-calibration-images] Blob Delta-flats from Earth Flat Calibration Images
+[/hst/instrumentation/wfc3/data-analysis/ir-persistence] IR Persistence
+[/hst/instrumentation/wfc3/data-analysis/photometric-calibration] Photometric Calibration
+[/hst/instrumentation/wfc3/data-analysis/photometric-calibration/uvis-photometric-calibration] UVIS Photometric Calibration
+[/hst/instrumentation/wfc3/data-analysis/photometric-calibration/uvis-photometric-calibration/quad-filter-photometry] Quad Filter Photometry
+[/hst/instrumentation/wfc3/data-analysis/photometric-calibration/uvis-photometric-calibration/uv-filter-modified-keywords] UV Filter Modified Keywords
+[/hst/instrumentation/wfc3/data-analysis/photometric-calibration/uvis-photometric-calibration/previous-uvis-photometric-calibrations] Previous UVIS Photometric Calibrations
+[/hst/instrumentation/wfc3/data-analysis/photometric-calibration/uvis-encircled-energy] UVIS Encircled Energy
+[/hst/instrumentation/wfc3/data-analysis/photometric-calibration/ir-photometric-calibration] IR Photometric Calibration
+[/hst/instrumentation/wfc3/data-analysis/photometric-calibration/ir-photometric-calibration/previous-ir-photometric-calibrations] Previous IR Photometric Calibrations
+[/hst/instrumentation/wfc3/data-analysis/photometric-calibration/ir-encircled-energy] IR Encircled Energy
+[/hst/instrumentation/wfc3/data-analysis/pixel-area-maps] Pixel Area Maps
+[/hst/instrumentation/wfc3/data-analysis/psf] PSF
+[/hst/instrumentation/wfc3/data-analysis/psf/psf-search] PSF Search
+[http://archive.stsci.edu/hst/index.html] Retrieving Data
+[/hst/instrumentation/wfc3/data-analysis/should-i-recalibrate] Should I Recalibrate?
+[/hst/instrumentation/wfc3/data-analysis/uvis-flats] UVIS Flats
+[/hst/observing/post-observation] Post-Observation
+[/hst/instrumentation/wfc3/data-analysis/uvis-and-ir-distortion-calibration] UVIS and IR Distortion Calibration
+[/hst/instrumentation/wfc3/calibration-plan] Calibration Plan
+[/hst/instrumentation/wfc3/calibration-plan/tv3-results] TV3 Results
+[/hst/instrumentation/wfc3/calibration-plan/tv2-results] TV2 Results
+[/hst/instrumentation/wfc3/calibration-plan/tv1-results] TV1 Results
+[/hst/instrumentation/wfc3/calibration-plan/old-versions] Old Versions
+[/hst/instrumentation/wfc3/software-tools] Software Tools
+[/hst/instrumentation/wfc3/software-tools/crosstalk] Crosstalk
+[/hst/instrumentation/wfc3/software-tools/cte-tools] CTE Tools
+[/hst/instrumentation/wfc3/software-tools/exposure-time-calculators] Exposure Time Calculators
+[/hst/instrumentation/wfc3/software-tools/pipeline] Pipeline
+[/hst/instrumentation/wfc3/documentation] Documentation
+[/hst/instrumentation/wfc3/documentation/instrument-science-reports-isrs] Instrument Science Reports (ISRs)
+[/hst/instrumentation/wfc3/documentation/stsci-analysis-newsletter-stan] STScI Analysis Newsletter (STAN)
+[/hst/instrumentation/wfc3/documentation/grism-resources] Grism Resources
+[/hst/instrumentation/wfc3/documentation/grism-resources/grism-data-analysis] Grism Data Analysis
+[/hst/instrumentation/wfc3/documentation/grism-resources/wfc3-ir-grism-data-reduction-cookbook] WFC3 IR Grism Data Reduction Cookbook
+[/hst/instrumentation/wfc3/documentation/grism-resources/grism-frequently-asked-questions] Grism Frequently Asked Questions
+[/hst/instrumentation/wfc3/documentation/grism-resources/ir-grism-sky-images] IR Grism Sky Images
+[/hst/instrumentation/wfc3/documentation/grism-resources/wfc3-g141-calibrations] WFC3 G141 Calibrations
+[/hst/instrumentation/wfc3/documentation/grism-resources/wfc3-g280-calibrations] WFC3 G280 Calibrations
+[/hst/instrumentation/wfc3/documentation/grism-resources/wfc3-g102-calibrations] WFC3 G102 Calibrations
+[/hst/instrumentation/wfc3/documentation/grism-resources/uvis-grism-sky-images] UVIS Grism Sky Images
+[/hst/instrumentation/wfc3/documentation/conference-posters] Conference Posters
+[/hst/instrumentation/wfc3/news] News
+[/hst/instrumentation/focus-and-pointing] Focus and Pointing
+[/hst/instrumentation/focus-and-pointing/focus] Focus
+[/hst/instrumentation/focus-and-pointing/focus/secondary-mirror-moves] Secondary Mirror Moves
+[/hst/instrumentation/focus-and-pointing/focus/hst-focus-model] HST Focus Model
+[/hst/instrumentation/focus-and-pointing/focus/tiny-tim-hst-psf-modeling] Tiny Tim HST PSF Modeling
+[/hst/instrumentation/focus-and-pointing/pointing] Pointing
+[/hst/instrumentation/focus-and-pointing/pointing/jitter-file-format-definition] Jitter File Format Definition
+[/hst/instrumentation/focus-and-pointing/pointing/determining-an-observations-orientation] Determining an Observation’s Orientation
+[/hst/instrumentation/focus-and-pointing/fov-geometry] FoV Geometry
+[/hst/instrumentation/focus-and-pointing/documentation] Documentation
+[/hst/instrumentation/legacy] Legacy Instruments
+[/hst/instrumentation/legacy/nicmos] NICMOS
+[/hst/instrumentation/legacy/nicmos/instrument-science-reports-isrs] Instrument Science Reports (ISRs)
+[/hst/instrumentation/legacy/wfpc2] WFPC2
+[/hst/instrumentation/legacy/wfpc2/instrument-science-reports-isrs] Instrument Science Reports (ISRs)
+[/hst/instrumentation/reference-data-for-calibration-and-tools] Reference Data for Calibration and Tools
+[https://hst-crds.stsci.edu/] Calibration Reference Data System (CRDS)
+[/hst/instrumentation/reference-data-for-calibration-and-tools/file-and-table-structures] File and Table Structures
+[/hst/instrumentation/reference-data-for-calibration-and-tools/reference-file-retreival-instructions] Reference File Retrieval Instructions
+[/hst/instrumentation/reference-data-for-calibration-and-tools/legacy-instrument-reference-files] Legacy Instrument Reference Files
+[/hst/instrumentation/reference-data-for-calibration-and-tools/synphot-throughput-tables] Synphot Throughput Tables
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs] Astronomical Catalogs
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/the-agn-atlas] The AGN Atlas
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/atmo-2020-atmosphere-models] ATMO 2020 Atmosphere Models
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/brown-dwarfs-and-substellar-objects] Brown Dwarfs and Substellar Objects
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/bruzual-atlas] Bruzual Atlas
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/the-bruzual-charlot-atlas] The Bruzual-Charlot Atlas
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/bruzual-and-charlot-2003] Bruzual and Charlot 2003
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/bruzual-persson-gunn-stryker-atlas-list] Bruzual-Persson-Gunn-Stryker Atlas list
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/buser-kurucz-atlas] Buser-Kurucz Atlas
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/calobs] CALOBS
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/calspec] CALSPEC
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/castelli-and-kurucz-atlas] Castelli and Kurucz Atlas
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/composite-qso-spectra-for-nir] Composite QSO Spectra for NIR
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/the-galactic-emission-line-object-atlas] The Galactic Emission Line Object Atlas
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/gunn-stryker-atlas-list] Gunn-Stryker Atlas list
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/interstellar-extinction-curves] Interstellar Extinction Curves
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/jacoby-hunter-christian-atlas] Jacoby-Hunter-Christian Atlas
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/the-kinney-calzetti-spetral-atlas] The Kinney-Calzetti Spectral Atlas
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/kinney-models] Kinney Models
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/kurucz-1993-models] Kurucz 1993 Models
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/non-stellar-spectra] Non-Stellar Spectra
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/novae-models] Novae Models
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/phoenix-models-available-in-synphot] Phoenix Models available in Synphot
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/planetary-nebula-spectra] Planetary Nebula Spectra
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/pickles-atlas] Pickles Atlas
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/simple-stellar-population-atlas] Simple Stellar Population Atlas
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/solar-system-objects-spectra] Solar System Objects Spectra
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/swire-galaxies] SWIRE Galaxies
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/the-trds-brown-atlas] The TRDS Brown Atlas
+[/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/trds-brown19-spectra-of-agns] TRDS Brown19 Spectra of AGNs
+[/hst/instrumentation/reference-data-for-calibration-and-tools/modewave-data] Modewave Data
+[/hst/instrumentation/reference-data-for-calibration-and-tools/documentation] Documentation
+[/hst/documentation] Documentation
+[/hst/documentation/hst-tutorial-videos] HST Tutorial Videos
+[/hst/documentation/handbook-archive] Handbook Archive
+[/hst/news-and-events] News & Events
+[/hst/news-and-events/news] News
+[/hst/news-and-events/articles] Articles
+[/events] Events
+[https://science.nasa.gov/mission/hubble/hubble-news/] Press
+[/jwst] James Webb Space Telescope
+[/jwst/about-jwst] About JWST
+[/jwst/about-jwst/history] History
+[/jwst/about-jwst/history/mission-timeline] Mission Timeline
+[/jwst/about-jwst/history/historical-sensitivity-estimates] Historical Sensitivity Estimates
+[/jwst/about-jwst/history/jwst-advisory-committee-jstac] JWST Advisory Committee (JSTAC)
+[/jwst/about-jwst/history/jwst-science-working-group] JWST Science Working Group
+[/jwst/about-jwst/history/flyers] Flyers
+[/jwst/about-jwst/history/white-papers] White Papers
+[/jwst/about-jwst/history/design-reference-mission-drm] Design Reference Mission (DRM)
+[/jwst/about-jwst/history/science-operations-design-reference-mission-sodrm] Science Operations Design Reference Mission (SODRM)
+[/jwst/about-jwst/history/science-operations-design-reference-mission-sodrm/solar-system-programs] Solar System Programs
+[/jwst/about-jwst/history/science-operations-design-reference-mission-sodrm/exoplanet-programs] Exoplanet Programs
+[/jwst/about-jwst/history/science-operations-design-reference-mission-sodrm/galactic-programs] Galactic Programs
+[/jwst/about-jwst/history/science-operations-design-reference-mission-sodrm/nearby-galaxies-programs] Nearby Galaxies Programs
+[/jwst/about-jwst/history/science-operations-design-reference-mission-sodrm/distant-galaxies-and-cosmology-programs] Distant Galaxies and Cosmology Programs
+[/jwst/about-jwst/history/science-operations-design-reference-mission-sodrm/instrumentation-calibration-programs] Instrumentation Calibration Programs
+[/jwst/about-jwst/history/science-operations-design-reference-mission-sodrm/observation-calibration-programs] Observation Calibration Programs
+[/jwst/about-jwst/history/science-operations-design-reference-mission-sodrm/statistical-summary] Statistical Summary
+[/jwst/about-jwst/science-themes] Science Themes
+[/jwst/about-jwst/stsci-and-jwst] STScI and JWST
+[/jwst/about-jwst/science-communication-resources] Science Communication Resources
+[/jwst/news-events] News & Events
+[/jwst/news-events/news] News
+[/jwst/news-events/events] Events
+[/jwst/news-events/articles] Articles
+[/jwst/instrumentation] Instrumentation
+[/jwst/instrumentation/instruments] Science Instruments
+[/jwst/instrumentation/imaging-modes] Imaging Modes
+[/jwst/instrumentation/spectroscopic-modes] Spectroscopic Modes
+[/jwst/science-planning] Science Planning
+[/jwst/science-planning/calls-for-proposals-and-policy] Calls for Proposals and Policy
+[/jwst/science-planning/proposal-planning-toolbox] Proposal Planning Toolbox
+[/jwst/science-planning/proposal-planning-toolbox/exposure-time-calculator] Exposure Time Calculator
+[/jwst/science-planning/proposal-planning-toolbox/target-visibility-tools] Target Visibility Tools
+[/jwst/science-planning/proposal-planning-toolbox/psf-simulation-tool] PSF Simulation Tool
+[/jwst/science-planning/proposal-planning-toolbox/jist] JIST
+[/jwst/science-planning/proposal-planning-toolbox/sensitivity-and-saturation-limits] Sensitivity and Saturation Limits
+[/jwst/science-planning/proposal-planning-toolbox/mirage] Mirage
+[/jwst/science-planning/proposal-planning-toolbox/mirisim] MIRISim
+[/jwst/science-planning/proposal-planning-toolbox/simulated-data] Simulated Data
+[/jwst/science-planning/proposal-planning-toolbox/proposal-training] Proposal Training
+[/jwst/science-planning/tools-from-the-community] Tools from the Community
+[/jwst/science-planning/user-committees] User Committees
+[/jwst/science-planning/user-committees/jwst-users-committee] JWST Users Committee
+[/jwst/science-execution] Science Execution
+[/jwst/science-execution/program-information] Program Information
+[/jwst/science-execution/approved-programs] Approved Programs
+[/jwst/science-execution/approved-programs/general-observers] General Observers
+[/jwst/science-execution/approved-programs/general-observers/cycle-1-go] Cycle 1 GO
+[/jwst/science-execution/approved-programs/general-observers/cycle-2-go] Cycle 2 GO
+[/jwst/science-execution/approved-programs/general-observers/cycle-3-go] Cycle 3 GO
+[/jwst/science-execution/approved-programs/general-observers/cycle-4-go] Cycle 4 GO
+[/jwst/science-execution/approved-programs/general-observers/cycle-5-go] Cycle 5 GO
+[/jwst/science-execution/approved-programs/joint-observing-programs] Joint Observing Programs
+[/jwst/science-execution/approved-programs/directors-discretionary-time] Director's Discretionary Time
+[/jwst/science-execution/approved-programs/calibration] Calibration
+[/jwst/science-execution/approved-ers-programs] DD-ERS
+[/jwst/science-execution/approved-programs/dd-ers/program-1288] ERS Program 1288
+[/jwst/science-execution/approved-programs/dd-ers/program-1309] ERS Program 1309
+[/jwst/science-execution/approved-programs/dd-ers/program-1324] ERS Program 1324
+[/jwst/science-execution/approved-programs/dd-ers/program-1328] ERS Program 1328
+[/jwst/science-execution/approved-programs/dd-ers/program-1334] ERS Program 1334
+[/jwst/science-execution/approved-programs/dd-ers/program-1335] ERS Program 1335
+[/jwst/science-execution/approved-programs/dd-ers/program-1345] ERS Program 1345
+[/jwst/science-execution/approved-programs/dd-ers/program-1349] ERS Program 1349
+[/jwst/science-execution/approved-programs/dd-ers/program-1355] ERS Program 1355
+[/jwst/science-execution/approved-programs/dd-ers/program-1364] ERS Program 1364
+[/jwst/science-execution/approved-programs/dd-ers/program-1366] ERS Program 1366
+[/jwst/science-execution/approved-programs/dd-ers/program-1373] ERS Program 1373
+[/jwst/science-execution/approved-programs/dd-ers/program-1386] ERS Program 1386
+[/jwst/science-execution/approved-programs/guaranteed-time-observations] Guaranteed Time Observations
+[/jwst/science-execution/approved-programs/webb-first-image-observations] Webb First Image Observations
+[/jwst/science-execution/observing-schedules] Observing Schedules
+[/jwst/science-execution/jwebbinars] JWebbinars
+[/jwst/science-execution/data-analysis-toolbox] Data Analysis Toolbox
+[/jwst/science-execution/data-analysis-toolbox/laboratory-astrophysics-resources] Laboratory Astrophysics Resources
+[/jwst/science-execution/science-publications] Science Publications
+[/jwst/documentation] Documentation
+[/jwst/documentation/technical-documents] Technical Documents
+[https://jwst-docs.stsci.edu/] JDox
+[/roman] Nancy Grace Roman Space Telescope
+[/roman/about] About
+[/roman/about/science-themes] Science Themes
+[/roman/about/take-part-in-the-mission] Take Part in the Mission
+[/roman/about/partners] Partners
+[/roman/about/roman-committees] Roman Committees
+[/roman/surveys-and-programs] Surveys and Programs
+[/roman/observatory] Observatory
+[/roman/science-planning-toolbox] Science Planning Toolbox
+[/roman/documentation] Documentation
+[/roman/documentation/technical-documentation] Technical Documentation
+[/roman/documentation/science-publications] Science Publications
+[https://roman-docs.stsci.edu/] RDox
+[https://archive.stsci.edu/missions-and-data/roman/] Roman at MAST
+[/roman/news-and-events] News & Events
+[/roman/news-and-events/news] News
+[/roman/news-and-events/events] Events
+[/roman/news-and-events/articles] Articles
+[/roman/news-and-events/press] Press
+[http://archive.stsci.edu/] Mikulski Archive for Space Telescopes (MAST)
+[/scientific-community] Scientific Community
+[/scientific-community/community-missions] Community Missions
+[/scientific-community/community-missions/services] Services
+[/scientific-community/community-missions/services/peer-review] Peer Review
+[/scientific-community/community-missions/missions] Missions
+[/scientific-community/community-missions/advanced-concepts] Advanced Concepts
+[/scientific-community/grants-administration] Grants Administration
+[/scientific-community/grants-administration/stsci-budget-proposer-guide] STScI Budget Proposer Guide
+[/scientific-community/grants-administration/stgms-user-guide] STGMS User Guide
+[/scientific-community/grants-administration/frequently-asked-questions] Frequently Asked Questions
+[/scientific-community/grants-administration/nhfp-grant-resources] NHFP Grant Resources
+[/scientific-community/grants-administration/nhfp-grant-resources/nhfp-stgms-user-guide] NHFP STGMS User Guide
+[/scientific-community/grants-administration/nhfp-grant-resources/nhfp-frequently-asked-questions] NHFP Frequently Asked Questions
+[/scientific-community/stsci-library-and-institutional-archive] STScI Library and Institutional Archive
+[/scientific-community/stsci-library-and-institutional-archive/our-collections] Our Collections
+[/scientific-community/stsci-library-and-institutional-archive/institutional-archive] Institutional Archive
+[/scientific-community/stsci-library-and-institutional-archive/missions-publications] Missions Publications
+[/scientific-community/stsci-library-and-institutional-archive/missions-publications/bibliography-methodology] Bibliography Methodology
+[https://archive.stsci.edu/publishing/bibliography#/] Publication Search
+[https://archive.stsci.edu/hst/bibliography/pubstat.html] Hubble Publication Statistics
+[https://mast.stsci.edu/papertrack/reports/jwst] Webb Publication Statistics
+[https://stsci.on.worldcat.org/discovery] Our Catalog
+[/scientific-community/software] Software
+[/scientific-community/software/astronomers-proposal-tool-apt] Astronomer's Proposal Tool (APT)
+[/scientific-community/software/astronomers-proposal-tool-apt/linux] Linux
+[/scientific-community/software/astronomers-proposal-tool-apt/mac-os] macOS
+[/scientific-community/software/astronomers-proposal-tool-apt/windows] Windows
+[/scientific-community/software/astronomers-proposal-tool-apt/previous-apt-releases] Previous APT Releases
+[/scientific-community/software/astronomers-proposal-tool-apt/hst-training-materials] HST Training Materials
+[http://etc.stsci.edu/etc/] Exposure Time Calculator
+[/scientific-community/software/drizzlepac] DrizzlePac
+[/scientific-community/software/drizzlepac/features] Features
+[/scientific-community/software/drizzlepac/frequently-asked-questions] Frequently Asked Questions
+[/scientific-community/software/drizzlepac/instrument-characteristics] Instrument Characteristics
+[/scientific-community/software/drizzlepac/news] News
+[/scientific-community/software/axe] HSTaXe
+[/scientific-community/software/slitlessutils] Slitlessutils
+[/scientific-community/scientific-careers] Scientific Careers
+[/stsci-research] STScI Research
+[/stsci-research/research-groups] Research Groups
+[/stsci-research/research-groups/active-galactic-nuclei-research-group] Active Galactic Nuclei Research Group
+[/stsci-research/research-groups/extrasolar-planetary-systems-imaging-group] Extrasolar Planetary Systems Imaging Group
+[/stsci-research/research-groups/galaxies-and-the-cgm-group] Galaxies and the CGM Group
+[/stsci-research/research-groups/galaxy-clusters-science-group] Galaxy Clusters Science Group
+[/stsci-research/research-groups/hstpromo-group] HSTPROMO Group
+[/stsci-research/research-groups/interstellar-medium-group] Interstellar Medium* Group
+[/stsci-research/research-groups/jwst-telescope-scientist-team] JWST Telescope Scientist Team
+[/stsci-research/research-groups/milky-way-halo-group] Milky Way Halo Group
+[/stsci-research/research-groups/post-starburst-galaxies-group] Post-Starburst Galaxies Group
+[/stsci-research/research-groups/reionization-and-emission-line-galaxies-group] Reionization and Emission Line Galaxies Group
+[/stsci-research/research-groups/star-and-planet-formation-group] Star and Planet Formation Group
+[/stsci-research/research-groups/transient-science-space-telescope] Transient Science @ Space Telescope Group
+[/stsci-research/research-groups/transiting-exoplanets-group] Transiting Exoplanets Group
+[/stsci-research/research-topics-and-programs] Research Topics and Programs
+[/stsci-research/research-topics-and-programs/russell-b-makidon-optics-laboratory] Russell B. Makidon Optics Laboratory
+[/stsci-research/research-topics-and-programs/russell-b-makidon-optics-laboratory/meet-the-team] Meet the Team
+[/stsci-research/research-topics-and-programs/russell-b-makidon-optics-laboratory/news-from-the-lab] News from the Lab
+[/stsci-research/research-topics-and-programs/institute-for-planets-and-life] Institute for Planets and Life
+[/stsci-research/research-topics-and-programs/institute-for-planets-and-life/astrophysics] Astrophysics
+[/stsci-research/research-topics-and-programs/institute-for-planets-and-life/planetary-sciences] Planetary Sciences
+[/stsci-research/research-topics-and-programs/institute-for-planets-and-life/biological-sciences] Biological Sciences
+[/stsci-research/research-topics-and-programs/institute-for-planets-and-life/events-and-lectures] Events and Lectures
+[/stsci-research/research-topics-and-programs/institute-for-planets-and-life/related-resources] Related Resources
+[/stsci-research/research-topics-and-programs/exoplanet-and-planetary-science] Exoplanet and Planetary Science
+[/stsci-research/research-topics-and-programs/exoplanet-and-planetary-science/hst-exoplanet-and-planetary-science] HST Exoplanet and Planetary Science
+[/stsci-research/research-topics-and-programs/exoplanet-and-planetary-science/jwst-exoplanet-and-planetary-science] JWST Exoplanet and Planetary Science
+[/stsci-research/research-topics-and-programs/exoplanet-and-planetary-science/planet-discovery-and-demographics] Planet Discovery and Demographics
+[/stsci-research/research-topics-and-programs/exoplanet-and-planetary-science/planet-characterization] Planet Characterization
+[/stsci-research/research-topics-and-programs/exoplanet-and-planetary-science/solar-system] Solar System
+[/stsci-research/research-topics-and-programs/exoplanet-and-planetary-science/planetary-system-formation-and-evolution] Planetary System Formation and Evolution
+[/stsci-research/research-topics-and-programs/exoplanet-and-planetary-science/archives-and-high-level-data-products] Archives and High Level Data Products
+[/stsci-research/research-topics-and-programs/exoplanet-and-planetary-science/software-and-tools] Software and Tools
+[/stsci-research/research-directory] Research Directory
+[/stsci-research/fellowships] Fellowships
+[/stsci-research/fellowships/nasa-hubble-fellowship-program] NASA Hubble Fellowship Program
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/announcement-of-opportunity] Announcement of Opportunity
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/announcement-of-opportunity/science-categories-and-techniques] Science Categories and Techniques
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/announcement-of-opportunity/frequently-asked-questions] Frequently Asked Questions
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/announcement-of-opportunity/advice-for-applicants] Advice for Applicants
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/announcement-of-opportunity/nhfp-selection-rubric] NHFP Selection Rubric
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/host-institutions] Host Institutions and the NHFP Employment Policy
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/host-institutions/faq] Frequently Asked Questions
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/nhfp-annual-symposia] NHFP Annual Symposia
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/resources-for-current-fellows] Resources for Current Fellows
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/resources-for-current-fellows/visa-and-benefits-information] Visa and Benefits Information
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/2026-nhfp-fellows] 2026 NHFP Fellows
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/2025-nhfp-fellows] 2025 NHFP Fellows
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/2024-nhfp-fellows] 2024 NHFP Fellows
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/2023-nhfp-fellows] 2023 NHFP Fellows
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/2022-nhfp-fellows] 2022 NHFP Fellows
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/2021-nhfp-fellows] 2021 NHFP Fellows
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/2020-nhfp-fellows] 2020 NHFP Fellows
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/2019-nhfp-fellows] 2019 NHFP Fellows
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/2018-nhfp-fellows] 2018 NHFP Fellows
+[/stsci-research/fellowships/nasa-hubble-fellowship-program/2017-and-prior-fellows] 2017 and Prior Fellows
+[/stsci-research/fellowships/announcement-of-opportunity] Announcement of Opportunity
+[/stsci-research/fellowships/giacconi-fellowship] Giacconi Fellowship
+[/stsci-research/fellowships/lasker-fellowship] Lasker Fellowship
+[/stsci-research/fellowships/exoplanet-science-fellowship] Exoplanet Science Fellowship
+[/stsci-research/fellowships/stsci-postdoctoral-fellowship] STScI Postdoctoral Fellowship
+[/stsci-research/fellowships/davidsen-fellowship] Davidsen Fellowship
+[/stsci-research/fellowships/brinson-prize-fellowship-program] Brinson Prize Fellowship Program
+[/stsci-research/fellowships/brinson-prize-fellowship-program/announcement-of-opportunity] Announcement of Opportunity
+[/stsci-research/fellowships/current-and-past-fellows] Current and Past Fellows
+[/stsci-research/caroline-herschel-visitor-program] Caroline Herschel Visitor Program
+[/stsci-research/caroline-herschel-visitor-program/past-visitors] Past Visitors
+[/news] News Center
+[/news/press-releases] Press Releases
+[/news/journalist-resources] Journalist Resources
+[/news/scientist-resources] Scientist Resources
+[/news/newsletters] Newsletters
+[/events] Events
+[/events/webcasts] Webcasts
+[/events/webcasts/webcast-faqs] Webcast FAQs
+[/communications-and-outreach] Communications and Outreach
+[/communications-and-outreach/news-production] News Production
+[/communications-and-outreach/stem-learning] STEM Learning
+[/communications-and-outreach/public-outreach] Public Outreach
+[/communications-and-outreach/public-outreach/public-lecture-series] Public Lectures
+[/opportunities] Opportunities
+[/opportunities/how-to-apply] How to Apply
+[/opportunities/benefits] Benefits
+[/opportunities/our-work] Our Work
+[/opportunities/space-astronomy-summer-program] Space Astronomy Summer Program
+[/opportunities/space-astronomy-summer-program/program-details] Program Details
+[/opportunities/space-astronomy-summer-program/application-information] Application Information
+[/opportunities/space-astronomy-summer-program/housing-and-transportation] Housing and Transportation
+[/opportunities/space-astronomy-summer-program/working-at-the-institute] Working at the Institute
+[/opportunities/space-astronomy-summer-program/frequently-asked-questions] Frequently Asked Questions
+[/opportunities/space-astronomy-summer-program/archived-student-presentations] Archived Student Presentations
+[/contact] Contact Us
+[/contact/local-information] Local Information
+[/contact/getting-here] Getting Here
+
+Content Use Policy
+
+{img /files/live/sites/www/files/home/copyright/image/Banner-Copyright-001.jpg?t=tn370} {img /files/live/sites/www/files/home/copyright/image/Banner-Copyright-001.jpg?t=tn370}
+
+Breadcrumbs Navigation
+
+[/home]
+Home
+
+Institute Content Use Policy
+
+Unless otherwise stated, all material on the site was produced by NASA and STScI. Material on this site produced by STScI was created, authored, and/or prepared for NASA under Contracts NAS5-03127, NAS5-26555, and 80GSFC19C0054. Unless otherwise specifically stated, no claim to copyright is being asserted by STScI and material on this site may be freely used as in the public domain in accordance with NASA's contract. However, it is requested that in any subsequent use of this work, NASA and STScI be given appropriate acknowledgement.
+
+This site also contains material generated, authored and/or prepared by individuals or institutions other than STScI, and those individuals or institutions may claim copyright. Should you desire use of such material at this time, inquiries should be made to those individuals and institutions.
+
+STScI is not responsible for the content that is linked from our websites. As external content is out of our control and may change over time, we reserve the right to edit or remove hyperlinks that no longer return a valid pathway.
+
+Disclaimers
+
+The availability of STScI materials on this website does not imply the endorsement of STScI or by any STScI employee of any private use of such materials, including, in particular, any commercial use and any use intended to mislead.
+
+Photography: If a recognizable person appears in a photograph, use for commercial purposes may infringe a right of privacy or publicity, and permission should be obtained from the recognizable person.
+
+Audio Recordings: Use of a portion or segment of an audiotape, such as talent, narration or music, may infringe a right of publicity or copyright, and permission should be obtained from the source.
+
+Video or Motion Picture Recordings: Music or footage copyrighted by others, which is incorporated in a production, may not be used unless permission is obtained from the copyright owner. While in most instances using non-copyrighted segments is permitted, use for commercial purposes of a portion or segment containing talent or a recognizable person may infringe a right of publicity, and permission should be obtained from the talent or recognizable person.
+
+Additional Notice (Effective January 1, 2008)
+
+Individuals and institutions other than AURA/STScI and grantees of STScI whose work was funded by NASA are requested to state at the time they contribute materials for distribution on STScI websites whether they wish to claim any copyright restrictions. If they do not do so it will be assumed that no copyright restriction is claimed. Of course, such individuals and institutions will be given appropriate credit for their contributions. If they do claim copyright restrictions, an appropriate notice will be added to that particular material, and users who wish to download that material and distribute it further will have to obtain permission from the source of that material.
+
+STScI is operated by the Association of Universities for research in Astronomy, Inc., under a contract with the National Aeronautics and Space Administration.
+
+Please contact us with any questions you may have regarding the above copyright statement.
+
+About This Content
+
+Last reviewed: October 21, 2025
+
+contact us
+
+Close
+
+Copyright Questions
+
+Contact Information
+
+Name (required)
+
+Email (required)
+
+Message (required)
+
+Submit
+
+This site is protected by reCAPTCHA and the Google
+
+[https://policies.google.com/privacy] Privacy Policy and [https://policies.google.com/terms] Terms of Service apply.
+
+Close
+
+Submission in progress
+
+Processing...
+
+[#body]
+
+Footer
+
+Secondary Navigation
+
+[/home]
+{img /files/live/sites/www/files/home/_images/footer/stsci_pri_combo_mark_white_bkgd.png?t=thumbnail}
+
+[/who-we-are]
+Who We Are
+
+[/events/webcasts]
+Webcasts
+
+[http://archive.stsci.edu/]
+MAST
+
+[/news]
+News Center
+
+[https://proper.stsci.edu/proper/authentication/auth]
+MyST
+
+[/contact]
+Contact Us
+
+[/opportunities]
+Opportunities
+
+[/events]
+Events
+
+[/site-map]
+Sitemap
+
+Social Media
+
+[https://www.facebook.com/stsci/]
+
+[https://twitter.com/spacetelescope]
+
+[https://www.instagram.com/space_telescopes]
+
+[https://www.youtube.com/channel/UCQXVf-94-RV7NVTOhVCNTiQ]
+
+[https://bsky.app/profile/stsci.edu]
+
+Utility Navigation
+
+[/copyright]
+Copyright
+
+[/privacy]
+Privacy
+
+[/accessibility-statement]
+Accessibility

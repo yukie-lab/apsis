@@ -37,7 +37,7 @@ describe('reference frames against JPL Horizons', () => {
         max = Math.max(max, dist(s.r, b.ecliptic[k].slice(0, 3) as Vec3));
       }
     }
-    rec.add({ id: 'frames.heliocentric', group: 'frames', value: max, unit: 'km', limit: 0.02, truth: 'JPL Horizons heliocentric ecliptic vectors of Venus, the Earth, Mars and the Jupiter barycentre, 1950 to 2099' });
+    rec.add({ id: 'frames.heliocentric', group: 'frames', value: max, unit: 'km', limit: 0.02, truth: 'JPL Horizons vectors (heliocentric, ecliptic of J2000) of Venus, the Earth, Mars and the Jupiter barycenter, from 1950 to 2099' });
     expect(max).toBeLessThan(0.02);
   });
 
@@ -74,7 +74,7 @@ describe('reference frames against JPL Horizons', () => {
     // Horizons uses DE441. This gives an error of about 4e-9 in the eccentricity vector; the angles that depend
     // on it (periapsis longitude times e, mean longitude) have the same error in radians. Limit for all: 1e-8.
     const rad = (deg: number) => deg * DEG;
-    rec.add({ id: 'frames.elements', group: 'frames', value: eA, unit: 'relative', limit: 1e-8, truth: 'JPL Horizons osculating elements (heliocentric, ecliptic of J2000) of Venus, the Earth, Mars and the Jupiter barycentre', detail: { maxEccentricityError: eE, maxPeriapsisRelativeError: eQ, maxPeriodRelativeError: ePr, maxInclinationErrorRad: rad(eInc), maxNodeErrorTimesSinIRad: rad(eNode), maxPeriapsisLongitudeErrorTimesERad: rad(ePeri), maxTrueLongitudeErrorRad: rad(eLon), maxMeanLongitudeErrorRad: rad(eMean) } });
+    rec.add({ id: 'frames.elements', group: 'frames', value: eA, unit: 'relative', limit: 1e-8, truth: 'JPL Horizons osculating elements (heliocentric, ecliptic of J2000) of Venus, the Earth, Mars and the Jupiter barycenter', detail: { maxEccentricityError: eE, maxPeriapsisRelativeError: eQ, maxPeriodRelativeError: ePr, maxInclinationErrorRad: rad(eInc), maxNodeErrorTimesSinIRad: rad(eNode), maxPeriapsisLongitudeErrorTimesERad: rad(ePeri), maxTrueLongitudeErrorRad: rad(eLon), maxMeanLongitudeErrorRad: rad(eMean) } });
     for (const v of [eA, eE, eQ, ePr, rad(eInc), rad(eNode), rad(ePeri), rad(eLon), rad(eMean)]) expect(v).toBeLessThan(1e-8);
   });
 });

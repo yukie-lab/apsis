@@ -1,0 +1,95 @@
+{
+  "text": {
+    "explorer": {
+      "headline": "Fly a spacecraft through the solar system",
+      "sub": "Select a destination. The application finds the launch date and calculates the flight.",
+      "live": "The solar system at this time: {date}",
+      "tabs": {
+        "label": "Type of mission",
+        "make": "Your mission",
+        "famous": "Actual missions"
+      },
+      "destinations": "Destinations",
+      "missions": "Actual missions",
+      "continue": "Continue: {name}",
+      "close": "Close this panel",
+      "target": {
+        "distance": "Distance from the Earth at this time"
+      },
+      "goal": {
+        "label": "At the destination",
+        "flyby": "Do a flyby",
+        "orbit": "Go into orbit",
+        "rendezvous": "Stay near the body",
+        "entry": "Go into the atmosphere"
+      },
+      "style": {
+        "label": "Type of flight",
+        "efficient": "Minimum propellant",
+        "fast": "Short flight time"
+      },
+      "after": "Earliest launch date",
+      "model": "Spacecraft model",
+      "options": "More options",
+      "launch": "Launch to {body}",
+      "missionName": "Flight to {body}",
+      "famous": {
+        "launchDate": "Launch date",
+        "route": "Route",
+        "fly": "Fly this mission",
+        "note": "The application calculates this flight from the launch date and the flyby dates of the actual mission. The Expert mode shows the differences between this flight and the actual flight.",
+        "story": {
+          "voyager2": "Voyager 2 did a flyby of Jupiter, Saturn, Uranus and Neptune. The gravity of each planet sent the spacecraft to the next planet.",
+          "cassini": "Cassini did two flybys of Venus, then a flyby of the Earth and a flyby of Jupiter. Each flyby gave it more speed. It then went into orbit around Saturn.",
+          "newhorizons": "New Horizons got more speed from the gravity of Jupiter. It then did a flyby of Pluto.",
+          "voyager1": "Voyager 1 did a flyby of Jupiter and a flyby of Saturn. At Saturn it flew near the moon Titan. Then it went out of the plane of the planets.",
+          "mars2020": "Mars 2020 flew to Mars with no flyby. It went into the atmosphere with the rover Perseverance.",
+          "juno": "Juno flew around the Sun one time. It then did a flyby of the Earth to get more speed and went into orbit around Jupiter.",
+          "ulysses": "Ulysses used the gravity of Jupiter to go out of the plane of the planets. It then flew above the poles of the Sun.",
+          "pioneer11": "Pioneer 11 did a flyby of Jupiter and then flew across the solar system to Saturn. It was the first spacecraft at Saturn."
+        }
+      },
+      "flight": {
+        "back": "Go to the start screen",
+        "numbers": "Show the numbers",
+        "numbersTitle": "Open this flight in the Expert mode",
+        "day": "Day {n} of {total}",
+        "speed": "Speed relative to the Sun",
+        "fromEarth": "Distance from the center of the Earth",
+        "fromSun": "Distance from the center of the Sun",
+        "altitude": "Altitude above {body}",
+        "next": "Next event",
+        "inTime": "in {time}",
+        "readouts": "Flight data",
+        "views": {
+          "label": "Camera",
+          "auto": "Automatic",
+          "craft": "Spacecraft",
+          "system": "Solar system"
+        },
+        "event": {
+          "start": "Start of the flight at the Earth",
+          "maneuver": "Maneuver",
+          "periapsis": "Closest approach to {body}",
+          "impact": "Arrival at {body}",
+          "end": "End of the flight"
+        },
+        "approachDetail": "Altitude {altitude}. Speed relative to {body}: {speed}.",
+        "maneuverDetail": "Velocity change {dv}.",
+        "prevEvent": "Go to the event before this time",
+        "nextEvent": "Go to the next event",
+        "done": {
+          "title": "End of the flight",
+          "time": "Flight time",
+          "dv": "Velocity change of the maneuvers",
+          "launchEnergy": "Launch energy (C3)",
+          "again": "Fly again",
+          "new": "New mission",
+          "numbers": "Show the numbers"
+        },
+        "centerDetail": "Distance from the center {distance}. Speed relative to {body}: {speed}.",
+        "centerDistance": "Distance from the center of {body}"
+      }
+    }
+  }
+}

@@ -65,7 +65,7 @@ describe('Hohmann transfer: Lambert solver against the analytic solution', () =>
     const vc2: Vec3 = [-Math.sqrt(mu / r2) * Math.sin(th), Math.sqrt(mu / r2) * Math.cos(th), 0];
     const myDv1 = norm(sub(sol.v1, vc1)), myDv2 = norm(sub(vc2, sol.v2));
     const err = Math.max(Math.abs(myDv1 - dv1), Math.abs(myDv2 - dv2));
-    rec.add({ id: 'analytic.hohmann', group: 'analytic', value: err * 1e3, unit: 'm/s', limit: 0.05, truth: 'Analytic Hohmann transfer between circular coplanar orbits (1 au to 1.523679 au)', detail: { dv1AnalyticKmS: dv1, dv2AnalyticKmS: dv2, tofDays: tof / 86400 } });
+    rec.add({ id: 'analytic.hohmann', group: 'analytic', value: err * 1e3, unit: 'm/s', limit: 0.05, truth: 'Analytic Hohmann transfer between circular orbits in one plane (1 au to 1.523679 au)', detail: { dv1AnalyticKmS: dv1, dv2AnalyticKmS: dv2, tofDays: tof / 86400 } });
     expect(err * 1e3).toBeLessThan(0.05);
     // exact 180 degrees: the solver must still return the Hohmann speeds
     const s180 = lambert(mu, [r1, 0, 0], [-r2, 0, 0], tof, {})[0];
@@ -137,7 +137,7 @@ describe('RKF7(8) integrator', () => {
     };
     const e1 = run(20), e2 = run(40);
     const order = Math.log2(e1 / e2);
-    rec.add({ id: 'integrator.order', group: 'analytic', value: order, unit: 'order', limit: 7.5, truth: 'Analytic two-body solution; error ratio for step h and h/2', detail: { errorKmCoarse: e1, errorKmFine: e2 } });
+    rec.add({ id: 'integrator.order', group: 'analytic', value: order, unit: 'order', limit: 7.5, truth: 'Analytic two-body solution. Error ratio for the steps h and h/2.', detail: { errorKmCoarse: e1, errorKmFine: e2 } });
     expect(order).toBeGreaterThan(7.5);
     expect(order).toBeLessThan(9.5);
   });

@@ -31,6 +31,9 @@ Note of the manifest:
     gives the credit 'USGS/Tammy Becker & JPL/Caltech'. The map comes from the texture map database of the JPL
     Solar System Simulator (https://maps.jpl.nasa.gov/tmaps/uranus.html). The JPL site says about its maps: 'some
     have also been enhanced and slightly altered for aesthetic appeal'. The original file has 1440 x 720 pixels.
+    Weak point: the file does not come from the USGS directly. The catalogue of USGS Astrogeology
+    (https://astrogeology.usgs.gov/search, checked on 2026-10-14) has no image mosaic of this moon. It has only a
+    control network and the nomenclature.
 
 Remarks about this evidence:
   - SHA-1 of the stored original file equals the SHA-1 in the Commons API answer: yes.
@@ -38,6 +41,7 @@ Remarks about this evidence:
     https://raw.githubusercontent.com/nasa/NASA-3D-Resources/master/Images%20and%20Textures/Uranus%20-%20Ariel/Uranus%20-%20Ariel.jpg
     is fc0f8a59b5c29e44e4a3409e452f0427f5b53b8c9b41c89dc35d28babaae5cee; sha256 of the stored original is
     fc0f8a59b5c29e44e4a3409e452f0427f5b53b8c9b41c89dc35d28babaae5cee; equal: yes.
+  - The USGS Astrogeology catalogue has no image mosaic of this moon: see the last part below.
 
 About the parts below:
     Each part is a text that was saved on 2026-10-14 during the collection work.
@@ -1220,3 +1224,83 @@ If a NASA image, audio, video or media includes an identifiable person, using th
 Astronauts or employees who are currently employed by NASA cannot have their names, likenesses or other personality traits displayed or position title used on any commercial products, advertisements, promotional material or commercial product packaging.
 For guidance on commercial use on merchandise please refer to NASA’s Merchandise Guidelines.
 For more information on using NASA content for commercial purposes, please read NASA Advertising Guidelines and Merchandise Guidelines. Any questions regarding use of NASA content, or any NASA emblems, should be directed to nasa-merchandise-&-brand-team@mail.nasa.gov in NASA’s Office of Communications at NASA Headquarters in Washington.
+
+####################################################################################################
+# USGS Astrogeology catalogue: products for some moons and small bodies (check of this work)
+# Address: https://astrogeology.usgs.gov/search (one request for each body)
+# Fetched: 2026-10-14 04:44 (local time)
+# How: A small Python script (urllib, user agent "ApsisAssetFetch/1.0 (local build script)") asked the search of the USGS Astrogeology catalogue for each body. The text gives the products that the catalogue lists.
+# A copy is in data-src/textures/evidence/_shared/usgs_catalogue_listing_moons_and_small_bodies.txt
+####################################################################################################
+FETCHED: 2026-10-14 04:41 (local time)
+=== Deimos ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Miranda ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  miranda_voyager_image_control_network | Miranda Voyager Image Control Network | ['Control Network']
+  miranda_nomenclature | Miranda Nomenclature | ['Nomenclature']
+=== Ariel ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  ariel_voyager_image_control_network | Ariel Voyager Image Control Network | ['Control Network']
+  ariel_nomenclature | Ariel Nomenclature | ['Nomenclature']
+=== Umbriel ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  umbriel_voyager_image_control_network | Umbriel Voyager Image Control Network | ['Control Network']
+  umbriel_nomenclature | Umbriel Nomenclature | ['Nomenclature']
+=== Titania ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  titania_voyager_image_control_network | Titania Voyager Image Control Network | ['Control Network']
+  titania_nomenclature | Titania Nomenclature | ['Nomenclature']
+=== Oberon ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  oberon_voyager_image_control_network | Oberon Voyager Image Control Network | ['Control Network']
+  oberon_nomenclature | Oberon Nomenclature | ['Nomenclature']
+=== Itokawa ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Ryugu ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Psyche ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Didymos ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Dimorphos ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Arrokoth ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: None
+=== Eros ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 2
+  near_msi_albedo_mosaics | NEAR MSI Albedo Mosaics | ['Global Mosaic', 'Image', 'Raster Data', 'Remote-sensing Data']
+  near_msi_deblurred_images | NEAR MSI Deblurred Images | ['Image', 'Raster Data', 'Remote-sensing Data']
+=== Bennu ===
+  keys: ['collections', 'facets', 'page', 'results', 'title', 'total'] total: 3
+  bennu_osiris_rex_ocams_global_pan_mosaic_5cm | Bennu OSIRIS-REx OCAMS Global PAN Mosaic 5cm | ['Global Mosaic']
+  bennu_osiris_rex_ocams_global_albedo_mosaic_6_25cm | Bennu OSIRIS-REx OCAMS Global ALBEDO Mosaic 6.25cm | ['Global Mosaic']
+  bennu-osiris-rex-ocams-photometric-mosaics-25cm | Bennu OSIRIS-REx OCAMS Photometric Mosaics 25cm | ['Global Mosaic', 'Grey Scale', 'Image', 'Raster Data', 'Remote-sensing Data']
+
+=== second check: request https://astrogeology.usgs.gov/search/results without a filter ===
+The server returns 1000 products of 1643. Products with one of these words in the title or in the name:
+--- Deimos: 0
+--- Miranda: 2
+  miranda_nomenclature | Miranda Nomenclature | Nomenclature
+  miranda_voyager_image_control_network | Miranda Voyager Image Control Network | Control Network
+--- Ariel: 2
+  ariel_nomenclature | Ariel Nomenclature | Nomenclature
+  ariel_voyager_image_control_network | Ariel Voyager Image Control Network | Control Network
+--- Umbriel: 2
+  umbriel_nomenclature | Umbriel Nomenclature | Nomenclature
+  umbriel_voyager_image_control_network | Umbriel Voyager Image Control Network | Control Network
+--- Titania: 2
+  titania_nomenclature | Titania Nomenclature | Nomenclature
+  titania_voyager_image_control_network | Titania Voyager Image Control Network | Control Network
+--- Oberon: 2
+  oberon_nomenclature | Oberon Nomenclature | Nomenclature
+  oberon_voyager_image_control_network | Oberon Voyager Image Control Network | Control Network
+--- Itokawa: 0
+--- Ryugu: 0
+--- Psyche: 0
+--- Didymos: 0
+--- Dimorphos: 0
+--- Arrokoth: 0
+--- Eros: 0
+--- Bennu: 1
+  bennu_osiris_rex_ocams_global_pan_mosaic_5cm | Bennu OSIRIS-REx OCAMS Global PAN Mosaic 5cm | Global Mosaic

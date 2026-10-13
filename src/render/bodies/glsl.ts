@@ -63,6 +63,32 @@ float vnoise(vec3 p) {
                 mix(hash13(i + vec3(0.0, 1.0, 1.0)), hash13(i + vec3(1.0, 1.0, 1.0)), u.x), u.y);
   return mix(a, b, u.z);
 }
+// Value noise with its gradient: x is the value (0 to 1), yzw is the gradient.
+vec4 vnoiseGrad(vec3 p) {
+  vec3 i = floor(p);
+  vec3 f = fract(p);
+  // Curve of degree five: the gradient has no kink at the borders of the cells.
+  vec3 u = f * f * f * (f * (f * 6.0 - 15.0) + 10.0);
+  vec3 du = 30.0 * f * f * (f * (f - 2.0) + 1.0);
+  float a = hash13(i);
+  float b = hash13(i + vec3(1.0, 0.0, 0.0));
+  float c = hash13(i + vec3(0.0, 1.0, 0.0));
+  float d = hash13(i + vec3(1.0, 1.0, 0.0));
+  float e = hash13(i + vec3(0.0, 0.0, 1.0));
+  float g = hash13(i + vec3(1.0, 0.0, 1.0));
+  float h = hash13(i + vec3(0.0, 1.0, 1.0));
+  float k = hash13(i + vec3(1.0, 1.0, 1.0));
+  float k1 = b - a;
+  float k2 = c - a;
+  float k3 = e - a;
+  float k4 = a - b - c + d;
+  float k5 = a - c - e + h;
+  float k6 = a - b - e + g;
+  float k7 = -a + b + c - d + e - g - h + k;
+  float value = a + k1 * u.x + k2 * u.y + k3 * u.z + k4 * u.x * u.y + k5 * u.y * u.z + k6 * u.z * u.x + k7 * u.x * u.y * u.z;
+  vec3 grad = du * vec3(k1 + k4 * u.y + k6 * u.z + k7 * u.y * u.z, k2 + k5 * u.z + k4 * u.x + k7 * u.z * u.x, k3 + k6 * u.x + k5 * u.y + k7 * u.x * u.y);
+  return vec4(value, grad);
+}
 // Sum of octaves of value noise, 0 to 1.
 float fbm(vec3 p, int octaves) {
   float sum = 0.0;
@@ -81,10 +107,19 @@ float fbm(vec3 p, int octaves) {
 
 /**
  * Lookup in a longitude-latitude map from a direction in the body axes.
- * The gradients come from the derivatives of the direction, so the lookup has no seam at 180 degrees
- * and no pinch at the poles.
+ * The gradients come from the derivatives of the direction, so the lookup has no seam at 180 degrees.
+ *
+ * Near a pole one screen pixel covers many map pixels in longitude: the factor is 1 / rho, with rho = cos(latitude).
+ * The texture filter can follow this stretch up to the anisotropy of the texture. Beyond it the filter takes a
+ * smaller copy of the map, and the area of the pole is smeared along the meridians (a pinch).
+ * A map has no detail that fine in longitude near a pole. So mapCoord limits the gradient in longitude:
+ * the stretch that the filter sees is never larger than MAP_ANISOTROPY.
+ * A material sets MAP_ANISOTROPY to the anisotropy of its maps. Without it the value is 1.
  */
 export const GLSL_MAP = /* glsl */ `
+#ifndef MAP_ANISOTROPY
+#define MAP_ANISOTROPY 1
+#endif
 struct MapCoord {
   vec2 uv;
   vec2 dx;
@@ -101,7 +136,8 @@ MapCoord mapCoord(vec3 dir, float uOffset, float latK) {
   MapCoord m;
   float lon = rho2 > 1e-9 ? atan(dir.y, dir.x) : 0.0;
   m.uv = vec2(lon * RECIPROCAL_PI2 + uOffset, atan(zk, rho) * RECIPROCAL_PI + 0.5);
-  float iu = RECIPROCAL_PI2 / rho2;
+  // The second factor is the limit of the stretch in longitude. It is 1 away from the poles.
+  float iu = (RECIPROCAL_PI2 / rho2) * min(1.0, rho * float(MAP_ANISOTROPY));
   float iv = RECIPROCAL_PI / (rho2 + zk * zk);
   float rhoX = dot(dir.xy, ddx.xy) / rho;
   float rhoY = dot(dir.xy, ddy.xy) / rho;
@@ -120,33 +156,50 @@ vec2 mapUv(vec3 dir, float uOffset, float latK) {
 }
 `;
 
-/** Areas of a map with no data. The shader shows them in one flat colour. */
+/**
+ * Areas of a map with no data. The shader shows them in one flat colour.
+ * A pixel has no data if it is black (or has the flat grey level of the map) and if the area around it has no
+ * data too. The second test keeps a dark shadow between bright rocks as it is.
+ */
 export const GLSL_NODATA = /* glsl */ `
 uniform vec4 uNoData;         // x: 1 = black has no data, y: 1 = a grey band has no data, z: low limit of the band, w: high limit (linear light)
 uniform vec3 uNoDataColor;
-// 1 where the map has data, 0 where it has none. tex: colour of the map.
-float mapHasData(vec3 tex) {
+uniform sampler2D uNoDataArea;  // small map: share of the surface around a point that has no data (white until the map is read)
+// 1 where the map has data, 0 where it has none. tex: colour of the map at the map position uv.
+float mapHasData(vec3 tex, vec2 uv) {
   float level = max3(tex);
-  float data = mix(1.0, smoothstep(0.002, 0.012, level), uNoData.x);
-  float band = smoothstep(uNoData.z - 0.04, uNoData.z, level) * (1.0 - smoothstep(uNoData.w, uNoData.w + 0.04, level));
-  return data * (1.0 - uNoData.y * band);
+  float dark = uNoData.x * (1.0 - smoothstep(0.002, 0.012, level));
+  float band = uNoData.y * smoothstep(uNoData.z - 0.04, uNoData.z, level) * (1.0 - smoothstep(uNoData.w, uNoData.w + 0.04, level));
+  float pixel = max(dark, band);
+  if (pixel <= 0.0) return 1.0;
+  float area = smoothstep(0.15, 0.45, textureLod(uNoDataArea, uv, 0.0).r);
+  return 1.0 - pixel * area;
 }
 `;
 
 /** Number of shadow casters that a shader accepts. */
 export const MAX_CASTERS = 4;
 
-/** Diffuse laws and the soft shadow of another body. */
+/** Diffuse laws, the soft shadow of another body, and the fill light of the caller. */
 export const GLSL_LIGHT = /* glsl */ `
 uniform vec4 uCasters[${MAX_CASTERS}];   // xyz: centre in the body axes (km), w: radius (km), 0 = not used
 uniform float uSunAngR;                  // angular radius of the Sun (rad)
+uniform float uNightFill;                // fill light of the caller for the parts with no sunlight (0 = none)
+
+// Fill light at a point, as a part of the light of a surface that faces the Sun (BodyUpdate.nightFill).
+// day: part of the full sunlight that the point has now. A point in full sunlight gets no fill light.
+float nightFill(float day) {
+  return uNightFill * (1.0 - clamp(day, 0.0, 1.0));
+}
 
 // Dusty surface with no atmosphere: mix of the Lambert law and the Lommel-Seeliger law.
 // ls = 0 gives a matt ball. ls = 1 gives the flat disc of the full Moon.
 float dustyDiffuse(float mu0, float mu, float ls) {
   float m0 = max(mu0, 0.0);
   float seeliger = 2.0 * m0 / (m0 + max(mu, 0.0) + 0.02);
-  return mix(m0, seeliger, ls);
+  // Rough ground puts shadows on itself when the Sun is low, so the light falls off faster near the terminator.
+  float rough = smoothstep(0.0, 0.2, m0);
+  return mix(m0, seeliger * rough, ls);
 }
 
 // Cosine of the Sun angle with a soft step over the terminator. w is the half-width of the step.
@@ -221,6 +274,11 @@ vec3 atmSunAtGround(float mu) {
   float lit;
   float col = atmSunColumn(uAtm.x, mu, lit);
   return lit * exp(-uAtmExt * col);
+}
+// Part of the light that remains after one path down and one path up through all the air, with the Sun and the
+// camera above the point. In full sunlight a surface below the air shows its colour times this value.
+vec3 atmTwoWay() {
+  return exp(-2.0 * uAtmExt * uAtm.y);
 }
 // Light of the sky on the ground. direct: result of atmSunAtGround.
 vec3 atmSkyAtGround(float mu, vec3 direct) {

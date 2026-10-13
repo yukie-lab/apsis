@@ -1,7 +1,7 @@
 {
  "text": {
   "missionBox": {
-   "none": "No mission is open.", "plan": "Plan", "flight": "Flight", "flightOld": "Flight is not current", "saveAgain": "Save again"
+   "none": "No mission is open.", "plan": "Plan", "flight": "Flight", "flightOld": "Flight of the old plan", "saveAgain": "Save again"
   },
   "el": {
    "a": "Semi-major axis", "e": "Eccentricity", "i": "Inclination", "raan": "Longitude of the ascending node", "argp": "Argument of periapsis",

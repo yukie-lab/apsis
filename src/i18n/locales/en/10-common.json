@@ -5,7 +5,7 @@
       "tagline": "Trajectory design for the solar system",
       "loading": "The application reads the ephemeris data.",
       "loadFailed": "The application cannot read its data files. Make sure that all files of the application are on the server.",
-      "retry": "Try again",
+      "retry": "Read the files again",
       "language": "Language",
       "narrow": "The Expert mode is for a wide screen. On this screen, some tables are wider than the screen."
     },
@@ -66,7 +66,7 @@
       "none": "None",
       "all": "All",
       "now": "Time now",
-      "previous": "Previous step",
+      "previous": "Step before",
       "next": "Next step",
       "search": "Search",
       "badDate": "The date is incorrect or is not in the range of the data. Format: YYYY-MM-DD HH:MM:SS.",
@@ -167,13 +167,13 @@
       "rosetta": "Rosetta"
     },
     "error": {
-      "title": "The calculation did not give a result",
+      "title": "The calculation did not give a result.",
       "internal": "The calculation stopped because of an internal error. Change the input values and do the calculation again.",
       "plan": "The plan has no solution. Make sure that each date is after the date before it.",
       "quick:target": "This target or this goal is not possible.",
       "quick:coverage": "The dates are not in the range of the ephemeris data of this body. Select an earlier launch date.",
       "quick:window": "The search found no launch window in this date range.",
-      "not-ready": "The engine is not ready. Try again after some seconds.",
+      "not-ready": "The engine cannot calculate at this time. Do the operation again after some seconds.",
       "no-flight": "The mission has no flight. Calculate the flight first.",
       "storage": "The browser did not save the data."
     },
