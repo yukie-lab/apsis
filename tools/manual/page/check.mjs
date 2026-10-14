@@ -129,6 +129,7 @@ for (const size of sizes) {
 
     // Pictures of the page for a person to examine.
     await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+    await page.waitForTimeout(250); // the contents marks the section on the screen after the scroll
     await page.screenshot({ path: `${OUT}${size.name}-${lang}-top.png` });
     // The full page in parts (Chrome cannot make one picture of a very long page).
     const step = size.viewport.height - 60;
