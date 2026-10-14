@@ -132,4 +132,5 @@ On 2026-10-14, the result was no problem. The tool also writes pictures of the p
 - The voice comes from a speech model. The speech recognition finds incorrect words. It cannot find all problems of the speech. No person examined the speech of the videos for this record.
 - The project examined the manual only in Google Chrome on macOS. The phone screen of section 4.3 is a size of the browser, not an actual phone.
 - The pictures show the application on 14 October 2026. The Explorer mode starts at the time of the computer. Thus the screens of the user show different dates and positions.
+- The subtitles show on the lower part of the video. Thus they can be on a part of a figure for some seconds. The subtitle button of the video player removes them from the video.
 - A video player that cannot use the script of the page shows no subtitles. The subtitle files are in `manual/video/`.

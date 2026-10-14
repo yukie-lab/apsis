@@ -19,9 +19,9 @@
  },
  "totals": {
   "files": 39,
-  "texts": 5346,
-  "sentences": 7002,
-  "words": 52505,
+  "texts": 5347,
+  "sentences": 7005,
+  "words": 52540,
   "open": 0,
   "excepted": 0,
   "distinctWords": 1589,
@@ -359,9 +359,9 @@
   },
   {
    "file": "docs/MANUAL.md",
-   "texts": 143,
-   "sentences": 180,
-   "words": 1120,
+   "texts": 144,
+   "sentences": 183,
+   "words": 1155,
    "open": 0,
    "excepted": 0,
    "findings": []

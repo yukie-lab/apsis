@@ -142,8 +142,8 @@ The reader made no list of the results. This is not a full check of these rules.
 | Files of measured values (13 files) | 110 | 134 | 1774 | 0 | 0 |
 | `public/textures/manifest.json` | 34 | 101 | 1889 | 0 | 0 |
 | `README.md` | 102 | 132 | 888 | 0 | 0 |
-| Documents in `docs/` (8 files) | 3368 | 4473 | 32786 | 0 | 0 |
-| Total | 5346 | 7002 | 52505 | 0 | 0 |
+| Documents in `docs/` (8 files) | 3369 | 4476 | 32821 | 0 | 0 |
+| Total | 5347 | 7005 | 52540 | 0 | 0 |
 
 A text is one value of a locale file or one text of a file of data. In a document, a text is one heading, paragraph, list item or table cell. The count of words does not include numbers, placeholders and code texts. These texts have 1589 different words. 70 of them are forms of the words with a question mark (section 5.3). The tool did not examine 76 table cells of `docs/ASSETS.md` (section 2).
 
