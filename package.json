@@ -12,7 +12,14 @@
     "lint:ste": "node tools/ste/ste-lint.mjs",
     "check:language": "node tools/i18n/second-language.mjs",
     "report": "vitest run --config tools/validation/vitest.config.ts",
-    "shots": "node tools/shots/shots.mjs"
+    "shots": "node tools/shots/shots.mjs",
+    "manual:data": "vitest run --config tools/manual/vitest.config.ts",
+    "manual:shots": "npm run build && node tools/manual/shots/capture.mjs",
+    "manual:voice": "node tools/manual/narration/speak.mjs && node tools/manual/narration/check.mjs",
+    "manual:video": "node tools/manual/video/capture.mjs v1 --video && node tools/manual/video/capture.mjs v2 --video && node tools/manual/video/capture.mjs v3 --video && node tools/manual/video/capture.mjs v4 --video",
+    "manual:build": "node tools/manual/page/build.mjs",
+    "manual:check": "node tools/manual/page/check.mjs",
+    "manual": "npm run manual:data && npm run manual:shots && npm run manual:voice && npm run manual:video && npm run manual:build && npm run manual:check"
   },
   "dependencies": {
     "react": "^19.3.0",

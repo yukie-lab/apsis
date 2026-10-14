@@ -30,6 +30,7 @@ The tool does not examine these texts:
 - The test page `dev/bodies/`. The files of the application do not contain it.
 - A small number of labels in the source code (example: the label "B·T").
 - The license texts of the libraries in `dist/licenses.txt`. These texts come from the libraries.
+- The English text of the user manual (`manual/index.html`) and the narration of its videos. Some findings stay in these texts. The command `npm run manual:build` gives them to the tool separately and writes the part of the sentences with no finding (`docs/MANUAL.md`, section 4.1).
 
 ## 3. Checks that the tool does
 
@@ -140,11 +141,11 @@ The reader made no list of the results. This is not a full check of these rules.
 | Locale files (16 files) | 1732 | 2162 | 15168 | 0 | 0 |
 | Files of measured values (13 files) | 110 | 134 | 1774 | 0 | 0 |
 | `public/textures/manifest.json` | 34 | 101 | 1889 | 0 | 0 |
-| `README.md` | 96 | 123 | 815 | 0 | 0 |
-| Documents in `docs/` (7 files) | 3135 | 4171 | 30794 | 0 | 0 |
-| Total | 5107 | 6691 | 50440 | 0 | 0 |
+| `README.md` | 102 | 132 | 888 | 0 | 0 |
+| Documents in `docs/` (8 files) | 3368 | 4473 | 32786 | 0 | 0 |
+| Total | 5346 | 7002 | 52505 | 0 | 0 |
 
-A text is one value of a locale file or one text of a file of data. In a document, a text is one heading, paragraph, list item or table cell. The count of words does not include numbers, placeholders and code texts. These texts have 1544 different words. 70 of them are forms of the words with a question mark (section 5.3). The tool did not examine 76 table cells of `docs/ASSETS.md` (section 2).
+A text is one value of a locale file or one text of a file of data. In a document, a text is one heading, paragraph, list item or table cell. The count of words does not include numbers, placeholders and code texts. These texts have 1589 different words. 70 of them are forms of the words with a question mark (section 5.3). The tool did not examine 76 table cells of `docs/ASSETS.md` (section 2).
 
 The command `npm run lint:ste` gives the exit code 0 for these files.
 
@@ -167,7 +168,7 @@ The counts of this table come from the tool and the lists at the end of the firs
 | `part-of-speech` | 4 | 1 |
 | `sentence-length` | 8 | 0 |
 | `text-end` | 4 | 2 |
-| Total | 5107 | 6691 | 50440 | 0 | 0 |
+| Total | 404 | 285 |
 
 The corrections of the first step:
 

@@ -1,0 +1,29 @@
+{
+  "id": "v4",
+  "title": { "en": "Flybys", "ja": "フライバイ" },
+  "lead": 3.2,
+  "tail": 3,
+  "lines": [
+    { "id": "voyager", "en": "Voyager 2 started in {v2StartYear}. It flew near Jupiter, Saturn, Uranus and Neptune.", "ja": "ボイジャー 2 号は {v2StartYear} 年に出発し、|木星・土星・天王星・海王星の近くを飛びました。", "say": "Voyager two started in {v2StartYear}. It flew near Jupiter, Saturn, Uranus and Neptune.", "pause": 0.6 },
+    { "id": "how", "en": "At each planet, the flight path turned and the speed changed. How did this occur?", "ja": "惑星ごとに飛行経路が曲がり、速さが変わりました。|なぜでしょうか。", "pause": 1.0 },
+    { "id": "jupiter", "en": "Look at the flyby of Jupiter in {jupiterMonth}, relative to Jupiter.", "ja": "{jupiterMonth}の木星フライバイを、木星から見てみます。", "pause": 0.5 },
+    { "id": "hyperbola", "en": "Relative to Jupiter, the spacecraft moves on a hyperbola.", "ja": "木星から見ると、探査機は双曲線の上を動きます。", "pause": 0.6 },
+    { "id": "same", "en": "It comes in at {jupiterVinf} kilometers per second. It goes out at the same speed.", "ja": "秒速 {jupiterVinf} km で近づき、|同じ速さで離れていきます。", "pause": 0.5 },
+    { "id": "turn", "en": "Only the direction changes. Here, it turns through {jupiterTurn} degrees.", "ja": "変わるのは向きだけです。|ここでは {jupiterTurn} 度曲がりました。", "pause": 1.0 },
+    { "id": "closer", "en": "A flyby nearer to the planet gives a larger turn.", "ja": "惑星の近くを通るほど、大きく曲がります。", "pause": 0.6 },
+    { "id": "curve", "en": "This curve shows the turn angle for each distance of closest approach. Voyager 2 went to {jupiterRpRj} radii of Jupiter.", "ja": "この曲線は、最接近距離ごとの曲がる角度です。|ボイジャー 2 号は木星半径の {jupiterRpRj} 倍まで近づきました。", "say": "This curve shows the turn angle for each distance of closest approach. Voyager two went to {jupiterRpRj} radii of Jupiter.", "pause": 1.2 },
+    { "id": "sun", "en": "Now look at the same flyby relative to the Sun.", "ja": "次に、同じフライバイを太陽から見ます。", "pause": 0.4 },
+    { "id": "add", "en": "Jupiter moves at {jupiterSpeed} kilometers per second. Add the velocity of Jupiter to the two velocities of the spacecraft.", "ja": "木星は秒速 {jupiterSpeed} km で動いています。|探査機の 2 つの速度に、木星の速度を足します。", "pause": 0.8 },
+    { "id": "result", "en": "Before the flyby, the speed relative to the Sun is {helioIn} kilometers per second. After the flyby, it is {helioOut}.", "ja": "太陽に対する速さは、フライバイの前は秒速 {helioIn} km、|後は秒速 {helioOut} km です。", "pause": 0.8 },
+    { "id": "gain", "en": "The spacecraft gets speed from the motion of Jupiter. The speed of Jupiter decreases by a very small quantity.", "ja": "探査機は木星の運動から速さを受け取ります。|木星はほんのわずかに遅くなります。", "pause": 0.4 },
+    { "id": "assist", "en": "This is a gravity assist. It uses no propellant.", "ja": "これがスイングバイ(重力アシスト)です。|推進剤を使いません。", "pause": 1.2 },
+    { "id": "full", "en": "Here is the full flight of Voyager 2, with its speed relative to the Sun.", "ja": "ボイジャー 2 号の飛行の全体と、|太陽に対する速さです。", "say": "Here is the full flight of Voyager two, with its speed relative to the Sun.", "pause": 0.6 },
+    { "id": "escape", "en": "The dashed line is the escape speed from the solar system at each distance.", "ja": "破線は、それぞれの距離で太陽系から脱出する速さです。", "pause": 0.6 },
+    { "id": "after", "en": "After Jupiter, Voyager 2 was faster than the escape speed.", "ja": "木星のあと、ボイジャー 2 号は|脱出速度より速くなりました。", "say": "After Jupiter, Voyager two was faster than the escape speed.", "pause": 0.4 },
+    { "id": "neptune", "en": "At Neptune, the flyby decreased the speed from {neptuneBefore} to {neptuneAfter} kilometers per second. But the spacecraft stayed faster than the escape speed.", "ja": "海王星では、速さが秒速 {neptuneBefore} km から {neptuneAfter} km に|落ちました。それでも脱出速度より速いままでした。", "pause": 1.2 },
+    { "id": "corr", "en": "Apsis calculates this flight with {correctionCount} small corrections, a total of {v2CorrectionsMs} meters per second.", "ja": "Apsis はこの飛行を、{correctionCount} 回の小さな修正|(合計で秒速 {v2CorrectionsMs} m)を入れて計算します。", "pause": 0.4 },
+    { "id": "accuracy", "en": "The distances of closest approach agree with JPL Horizons within {v2PeriMaxPct} percent. The speeds at infinity agree within {v2VinfMaxPct} percent.", "ja": "最接近距離は JPL Horizons と {v2PeriMaxPct}% 以内、|無限遠での速さは {v2VinfMaxPct}% 以内で一致します。", "say": "The distances of closest approach agree with J P L Horizons within {v2PeriMaxPct} percent. The speeds at infinity agree within {v2VinfMaxPct} percent.", "pause": 1.0 },
+    { "id": "screens", "en": "In the Expert mode, use the Flyby tour screen to design flights of this type.", "ja": "Expert モードの Flyby tour 画面で、|このような飛行を設計できます。", "pause": 0.4 },
+    { "id": "fly", "en": "In the Explorer mode, you can fly the actual missions.", "ja": "Explorer モードでは、|実際のミッションを飛ばせます。", "pause": 0.5 }
+  ]
+}

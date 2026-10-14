@@ -1,0 +1,29 @@
+{
+  "id": "v1",
+  "title": { "en": "Apsis in three minutes", "ja": "3 分でわかる Apsis" },
+  "lead": 3.2,
+  "tail": 3,
+  "lines": [
+    { "id": "intro", "en": "This is Apsis. It is an application for the design of flights through the solar system.", "ja": "これは Apsis です。|太陽系での飛行を設計するアプリケーションです。", "say": "This is Apsis. It is an application for the design of flights through the solar system." },
+    { "id": "browser", "en": "Apsis operates in your web browser. It does not use a server or an account.", "ja": "Apsis はウェブブラウザの中で動きます。|サーバーもアカウントも使いません。", "pause": 1.0 },
+    { "id": "today", "en": "This is the solar system on {epochDate}.", "ja": "これは {epochDate}の太陽系です。", "pause": 0.6 },
+    { "id": "de440", "en": "The positions of the planets come from DE440, an ephemeris of JPL. The data covers the years {coverStartYear} to {coverEndYear}.", "ja": "惑星の位置は JPL の天体暦 DE440 から求めます。|データの範囲は {coverStartYear} 年から {coverEndYear} 年までです。", "say": "The positions of the planets come from D E four forty, an ephemeris of J P L. The data covers the years {coverStartYear} to {coverEndYear}.", "pause": 1.2 },
+    { "id": "modes", "en": "Apsis has two modes: Explorer and Expert.", "ja": "Apsis には Explorer と Expert の|2 つのモードがあります。", "pause": 0.5 },
+    { "id": "explorer", "en": "In the Explorer mode, you select a destination. Apsis finds a launch date and calculates the flight.", "ja": "Explorer モードでは、行き先を選びます。|Apsis が打ち上げ日を探し、飛行を計算します。" },
+    { "id": "expert", "en": "In the Expert mode, you set all the values, and you see all the numbers.", "ja": "Expert モードでは、すべての値を自分で決め、|すべての数値を見ることができます。", "pause": 1.2 },
+    { "id": "mars", "en": "For example, select Mars. Then click the launch button.", "ja": "例として火星を選び、打ち上げのボタンを押します。", "pause": 0.6 },
+    { "id": "search", "en": "Apsis examines the launch dates of the next {searchMonths} months.", "ja": "Apsis は、この先 {searchMonths} か月の打ち上げ日を調べます。" },
+    { "id": "each", "en": "For each launch date, it finds the transfer with the smallest change of velocity.", "ja": "打ち上げ日ごとに、|速度の変化が最も小さい遷移軌道を探します。", "pause": 0.8 },
+    { "id": "two", "en": "This chart shows two launch windows. Their values are almost equal: {windowADv} and {windowBDv} kilometers per second.", "ja": "このグラフには 2 つの打ち上げ時期があります。|値はほぼ同じで、秒速 {windowADv} km と {windowBDv} km です。", "pause": 0.5 },
+    { "id": "pick", "en": "Apsis selects the lower value: a launch on {quickLaunchDate}.", "ja": "Apsis は小さいほうを選びます。|{quickLaunchDate}の打ち上げです。", "pause": 0.8 },
+    { "id": "fly", "en": "Then it calculates the flight. The spacecraft gets to Mars after {quickDays} days.", "ja": "続いて飛行を計算します。|探査機は {quickDays} 日後に火星に着きます。", "pause": 1.5 },
+    { "id": "nodrawing", "en": "No path in Apsis is a drawing. Each path is the result of a calculation.", "ja": "Apsis の軌道は絵ではありません。|すべて計算の結果です。", "pause": 0.6 },
+    { "id": "simple", "en": "First, a simple model uses only the gravity of the Sun.", "ja": "まず、太陽の重力だけを使う|簡単なモデルで道すじを決めます。", "pause": 0.4 },
+    { "id": "full", "en": "Then a numerical integration adds the gravity of the planets, the Moon, Pluto and three large asteroids.", "ja": "次に数値積分で、惑星、月、冥王星、|3 つの大きな小惑星の重力を加えます。" },
+    { "id": "corrections", "en": "Then Apsis adjusts the velocity at the start. Thus the spacecraft goes near Mars at an altitude of {quickAltitude} kilometers.", "ja": "そのうえで出発時の速度を調整し、|火星の上空 {quickAltitude} km を通るようにします。", "pause": 1.2 },
+    { "id": "actual", "en": "Apsis also contains {missionCount} actual missions, from Pioneer 11 to Mars 2020.", "ja": "パイオニア 11 号からマーズ 2020 まで、|実際の {missionCount} つのミッションも入っています。", "say": "Apsis also contains {missionCount} actual missions, from Pioneer eleven to Mars twenty twenty." },
+    { "id": "compare", "en": "It calculates these flights again and compares the results with data from JPL Horizons.", "ja": "それらの飛行を計算し直し、|結果を JPL Horizons のデータと比べます。", "say": "It calculates these flights again and compares the results with data from J P L Horizons.", "pause": 0.6 },
+    { "id": "accuracy", "en": "For Voyager 2, the distances of closest approach at Jupiter, Saturn and Uranus agree within {v2PeriMaxPct} percent.", "ja": "ボイジャー 2 号では、木星・土星・天王星での|最接近距離の差が {v2PeriMaxPct}% 以内です。", "say": "For Voyager two, the distances of closest approach at Jupiter, Saturn and Uranus agree within {v2PeriMaxPct} percent.", "pause": 1.5 },
+    { "id": "next", "en": "The next three videos tell you about orbits, transfers and flybys.", "ja": "次の 3 本の動画では、|軌道、遷移、フライバイを説明します。", "pause": 0.5 }
+  ]
+}

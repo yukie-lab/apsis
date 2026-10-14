@@ -12,19 +12,19 @@
   "approvedWordsNotCertain": 44,
   "notApprovedWords": 173,
   "spellingPairs": 207,
-  "technicalNames": 1005,
+  "technicalNames": 1058,
   "technicalVerbs": 13,
   "glossaryEntries": 144,
   "exceptions": 0
  },
  "totals": {
-  "files": 38,
-  "texts": 5107,
-  "sentences": 6691,
-  "words": 50440,
+  "files": 39,
+  "texts": 5346,
+  "sentences": 7002,
+  "words": 52505,
   "open": 0,
   "excepted": 0,
-  "distinctWords": 1544,
+  "distinctWords": 1589,
   "distinctWordsNotCertain": 70,
   "staleExceptions": 0
  },
@@ -314,18 +314,18 @@
   },
   {
    "file": "README.md",
-   "texts": 96,
-   "sentences": 123,
-   "words": 815,
+   "texts": 102,
+   "sentences": 132,
+   "words": 888,
    "open": 0,
    "excepted": 0,
    "findings": []
   },
   {
    "file": "docs/ASSETS.md",
-   "texts": 404,
-   "sentences": 611,
-   "words": 4781,
+   "texts": 461,
+   "sentences": 674,
+   "words": 5021,
    "open": 0,
    "excepted": 0,
    "findings": []
@@ -341,9 +341,9 @@
   },
   {
    "file": "docs/DECISIONS.md",
-   "texts": 260,
-   "sentences": 581,
-   "words": 7054,
+   "texts": 281,
+   "sentences": 626,
+   "words": 7560,
    "open": 0,
    "excepted": 0,
    "findings": []
@@ -358,19 +358,28 @@
    "findings": []
   },
   {
+   "file": "docs/MANUAL.md",
+   "texts": 143,
+   "sentences": 180,
+   "words": 1120,
+   "open": 0,
+   "excepted": 0,
+   "findings": []
+  },
+  {
    "file": "docs/PROGRESS.md",
-   "texts": 79,
-   "sentences": 85,
-   "words": 475,
+   "texts": 93,
+   "sentences": 99,
+   "words": 563,
    "open": 0,
    "excepted": 0,
    "findings": []
   },
   {
    "file": "docs/STE_CHECK.md",
-   "texts": 264,
+   "texts": 262,
    "sentences": 394,
-   "words": 2752,
+   "words": 2790,
    "open": 0,
    "excepted": 0,
    "findings": []

@@ -1,0 +1,12 @@
+{
+  "name": "apsis-manual-tools",
+  "private": true,
+  "type": "module",
+  "description": "Tools that make the user manual of Apsis: the narration, the frames of the videos and the page. The application does not use these packages.",
+  "dependencies": {
+    "@fontsource/inter": "5.3.0",
+    "@mathjax/src": "4.1.3",
+    "kokoro-js": "1.2.1",
+    "opentype.js": "2.0.0"
+  }
+}

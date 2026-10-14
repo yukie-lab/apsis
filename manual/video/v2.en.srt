@@ -1,0 +1,137 @@
+1
+00:00:03,200 --> 00:00:06,748
+A spacecraft in space moves
+under the force of gravity.
+
+2
+00:00:06,788 --> 00:00:10,134
+Here, the Sun pulls the
+spacecraft toward its center.
+
+3
+00:00:10,334 --> 00:00:15,110
+With a small speed to the side, the
+spacecraft falls almost into the Sun.
+
+4
+00:00:15,310 --> 00:00:20,067
+With more speed to the side, it falls
+around the Sun. This is an orbit.
+
+5
+00:00:20,467 --> 00:00:26,592
+At the distance of the Earth, a speed of
+29.8 kilometers per second gives a circle.
+
+6
+00:00:26,632 --> 00:00:28,871
+A higher speed gives an ellipse.
+
+7
+00:00:29,071 --> 00:00:36,398
+At 42.1 kilometers per second, the orbit does not
+close. The spacecraft goes away from the Sun.
+
+8
+00:00:36,598 --> 00:00:41,413
+Circles, ellipses, parabolas and
+hyperbolas are conic sections.
+
+9
+00:00:42,013 --> 00:00:48,259
+Now look at one ellipse. The Sun is not at its
+center. The Sun is at one focus of the ellipse.
+
+10
+00:00:48,299 --> 00:00:53,628
+The nearest point to the Sun is the periapsis.
+The farthest point is the apoapsis.
+
+11
+00:00:53,668 --> 00:00:59,260
+Each of these two points is an apsis. This
+application has its name from this word.
+
+12
+00:00:59,460 --> 00:01:06,038
+Half of the long axis is the semi-major axis,
+a. The eccentricity, e, gives the shape.
+
+13
+00:01:06,638 --> 00:01:09,311
+The speed of the spacecraft is not constant.
+
+14
+00:01:09,351 --> 00:01:13,358
+Here are its positions at
+16 equal intervals of time.
+
+15
+00:01:13,558 --> 00:01:20,381
+The line from the Sun moves across equal areas in
+equal times. This is the second law of Kepler.
+
+16
+00:01:20,580 --> 00:01:25,648
+Thus the spacecraft is fast near the
+periapsis and slow near the apoapsis.
+
+17
+00:01:26,049 --> 00:01:29,745
+The vis-viva equation gives
+the speed at each distance.
+
+18
+00:01:29,785 --> 00:01:36,870
+μ is the gravitational parameter of the Sun, r
+is the distance, and a is the semi-major axis.
+
+19
+00:01:36,910 --> 00:01:45,136
+At the periapsis, at 0.72 astronomical units,
+the speed is 43.7 kilometers per second.
+
+20
+00:01:45,176 --> 00:01:52,824
+At the apoapsis, at 2.48 astronomical units,
+it is only 12.7 kilometers per second.
+
+21
+00:01:53,623 --> 00:01:59,101
+An orbit in space also has a direction in
+three dimensions. Three angles give it.
+
+22
+00:01:59,141 --> 00:02:04,856
+The inclination, i, is the angle between the
+plane of the orbit and the reference plane.
+
+23
+00:02:04,896 --> 00:02:12,630
+The orbit goes up through the reference plane at the
+ascending node. Its angle from the reference direction is Ω.
+
+24
+00:02:12,670 --> 00:02:17,600
+ω is the angle from the
+ascending node to the periapsis.
+
+25
+00:02:17,640 --> 00:02:22,508
+The true anomaly, ν, gives the position
+of the spacecraft on the orbit.
+
+26
+00:02:22,708 --> 00:02:28,244
+These six values are the orbit elements.
+They give one orbit and one position on it.
+
+27
+00:02:28,844 --> 00:02:34,675
+In an actual flight, the planets also pull the
+spacecraft. Thus the elements change slowly.
+
+28
+00:02:34,715 --> 00:02:42,055
+Apsis calculates all these forces, step by step. The
+Propagation screen compares the models of the forces.

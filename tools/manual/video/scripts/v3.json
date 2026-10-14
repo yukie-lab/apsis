@@ -1,0 +1,28 @@
+{
+  "id": "v3",
+  "title": { "en": "Transfers and launch windows", "ja": "遷移軌道と打ち上げ時期" },
+  "lead": 3.2,
+  "tail": 3,
+  "lines": [
+    { "id": "dates", "en": "To fly from the Earth to Mars, you select two dates: a launch date and an arrival date.", "ja": "地球から火星へ飛ぶには、|打ち上げ日と到着日の 2 つの日付を選びます。", "pause": 0.6 },
+    { "id": "start", "en": "On the launch date, the spacecraft starts at the position of the Earth.", "ja": "打ち上げ日に、探査機は地球の位置から出発します。", "pause": 0.4 },
+    { "id": "end", "en": "On the arrival date, it must be at the position of Mars.", "ja": "到着日には、火星の位置にいなければなりません。", "pause": 0.8 },
+    { "id": "lambert", "en": "For less than one revolution, only one orbit around the Sun connects these two positions in this time.", "ja": "1 周より短い飛行では、この 2 点をこの時間で結ぶ|太陽のまわりの軌道は 1 つだけです。", "pause": 0.4 },
+    { "id": "problem", "en": "To find this orbit is the problem of Lambert. Apsis solves it with the method of Izzo.", "ja": "この軌道を求めるのがランベルト問題です。|Apsis はイッツォ(Izzo)の方法で解きます。", "say": "To find this orbit is the problem of Lambert. Apsis solves it with the method of Itso.", "pause": 1.0 },
+    { "id": "family", "en": "A different arrival date gives a different orbit.", "ja": "到着日を変えると、軌道も変わります。", "pause": 1.6 },
+    { "id": "energy", "en": "Very fast flights use much energy. Very slow flights can also use much energy.", "ja": "速すぎる飛行は多くのエネルギーを使います。|遅すぎる飛行も同じです。", "pause": 1.0 },
+    { "id": "depart", "en": "Now look at the departure. The Earth moves around the Sun at {earthSpeed} kilometers per second.", "ja": "出発の場面を見ます。|地球は秒速 {earthSpeed} km で太陽のまわりを動いています。", "pause": 0.5 },
+    { "id": "transfer", "en": "The transfer orbit starts with a different velocity: {departureSpeed} kilometers per second.", "ja": "遷移軌道は、それと違う速度で始まります。|秒速 {departureSpeed} km です。", "pause": 0.6 },
+    { "id": "vinf", "en": "The difference of the two vectors is the speed at infinity, v-infinity. The launch vehicle must give it.", "ja": "2 つのベクトルの差が、無限遠での速さ v∞ です。|これを打ち上げロケットが与えます。", "say": "The difference of the two vectors is the speed at infinity, v infinity. The launch vehicle must give it.", "pause": 0.5 },
+    { "id": "c3", "en": "The square of v-infinity is the launch energy, C3.", "ja": "v∞ の 2 乗が打ち上げエネルギー C3 です。", "say": "The square of v infinity is the launch energy, C three.", "pause": 1.2 },
+    { "id": "many", "en": "Now calculate C3 for many pairs of dates.", "ja": "では、たくさんの日付の組み合わせで C3 を計算します。", "say": "Now calculate C three for many pairs of dates.", "pause": 0.4 },
+    { "id": "axes", "en": "Each point of this map is one transfer. The horizontal axis is the launch date. The vertical axis is the arrival date.", "ja": "この図の 1 点が 1 つの遷移軌道です。|横軸は打ち上げ日、縦軸は到着日です。", "pause": 0.6 },
+    { "id": "porkchop", "en": "Bright colors show a low energy. Because of its shape, the name of this map is porkchop plot.", "ja": "明るい色ほどエネルギーが小さいことを示します。|形から、ポークチョップ図と呼ばれます。", "say": "Bright colors show a low energy. Because of its shape, the name of this map is pork chop plot.", "pause": 0.8 },
+    { "id": "best", "en": "The lowest C3 is {bestC3} square kilometers per second squared: a launch on {depDate} and a flight of {bestTof} days.", "ja": "C3 の最小値は {bestC3} km²/s²。|{depDate}に打ち上げ、{bestTof} 日の飛行です。", "say": "The lowest C three is {bestC3} square kilometers per second squared: a launch on {depDate} and a flight of {bestTof} days.", "pause": 1.0 },
+    { "id": "ridge", "en": "Along this line, the transfer angle is 180 degrees. There, the plane of the transfer must turn very much, and the energy is very high.", "ja": "この線上では遷移角が 180 度です。軌道面を|大きく傾けるので、エネルギーが大きくなります。", "pause": 0.5 },
+    { "id": "types", "en": "Thus the map has two parts: flights of less than half a revolution, and flights of more than half a revolution.", "ja": "そのため図は 2 つに分かれます。|半周より短い飛行と、半周より長い飛行です。", "pause": 1.2 },
+    { "id": "repeat", "en": "The good dates come again after each synodic period. For Mars, this is approximately {synodicMonths} months.", "ja": "良い日付は会合周期ごとにくり返します。|火星では約 {synodicMonths} か月です。", "pause": 0.4 },
+    { "id": "series", "en": "This chart shows the lowest C3 for each launch date from {seriesStartYear} to {seriesEndYear}.", "ja": "このグラフは、{seriesStartYear} 年から {seriesEndYear} 年までの|打ち上げ日ごとの最小 C3 です。", "say": "This chart shows the lowest C three for each launch date from {seriesStartYear} to {seriesEndYear}.", "pause": 1.2 },
+    { "id": "screens", "en": "In Apsis, the Transfer screen solves one pair of dates. The Launch windows screen calculates the full map.", "ja": "Transfer 画面は 1 組の日付を解き、|Launch windows 画面は図の全体を計算します。", "pause": 0.5 }
+  ]
+}

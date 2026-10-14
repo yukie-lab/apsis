@@ -110,7 +110,8 @@
     {
       "category": "person", "group": "Names of organizations and groups", "case": true, "plural": false,
       "items": ["NASA", "JPL", "NAIF", "SANA", "ESA", "JAXA", "USGS", "STScI", "Jet Propulsion Laboratory", "Consultative Committee for Space Data Systems", "NSSDCA", "NSSDC", "NASA Science", "author", "user", "owner", "space agency",
-        "Caltech", "USGS Astrogeology", "government", "company", "administrator", "Space Telescope Science Institute"]
+        "Caltech", "USGS Astrogeology", "government", "company", "administrator", "Space Telescope Science Institute",
+        "ElevenLabs", "Hugging Face"]
     },
     {
       "category": "navigation", "group": "Names of the bodies of the solar system", "case": true, "plural": false,
@@ -175,6 +176,22 @@
         "Google Chrome", "macOS", "Linux", "Windows", "Universe Sandbox", "Astrogator"]
     },
     {
+      "category": "it", "group": "Terms of the user manual (manual/index.html): videos, subtitles and speech (nouns)",
+      "items": ["video", "subtitle", "narration", "voice", "speech", "speech model", "speech recognition", "video player", "player", "menu", "internet"]
+    },
+    {
+      "category": "it", "group": "Names of the programs, models, fonts and formats that make the user manual", "case": true, "plural": false,
+      "items": ["Kokoro", "Kokoro-82M", "af_heart", "kokoro-js", "Transformers.js", "phonemizer", "eSpeak NG", "ONNX", "ONNX Runtime", "Whisper", "Whisper small.en", "Xenova",
+        "MathJax", "mathjax-newcm", "Inter", "opentype.js", "FFmpeg", "x264", "H.264", "AAC", "Playwright", "WebP", "WebVTT", "VTT", "SRT", "MP4", "Koniwa", "SIWIS", "tnc"]
+    },
+    {
+      "category": "document", "group": "Parts of the user manual", "items": ["figure", "contents"]
+    },
+    {
+      "category": "document", "group": "Names of licenses", "case": true, "plural": false,
+      "items": ["Apache", "Apache-2.0", "MIT", "GPL", "CC BY", "CC BY 3.0", "SIL Open Font License", "OFL"]
+    },
+    {
       "category": "it", "group": "File name extensions", "kind": "extension",
       "items": ["tls", "tpc", "bsp", "json", "csv", "txt", "md", "pdf", "htm", "html", "ts", "tsx", "mjs", "js", "py", "png", "jpg", "log", "oem", "opm", "xml", "script", ".e"]
     },
@@ -191,7 +208,7 @@
       "category": "document", "group": "Parts of documents and terms of documentation",
       "items": ["annex", "document", "glossary", "guide", "page", "section", "sentence", "paragraph", "specification", "standard", "summary", "word", "rule", "dictionary",
         "heading", "comma", "semicolon", "colon", "bracket", "letter", "notation", "report", "exception", "finding", "status", "presentation",
-        "capital letter", "technical name", "technical verb", "writing rule", "user guide", "help page", "fact sheet", "press kit", "international designator",
+        "capital letter", "technical name", "technical verb", "writing rule", "user guide", "user manual", "help page", "fact sheet", "press kit", "international designator",
         "instruction", "description", "topic", "meaning", "vocabulary", "spelling", "question mark", "exclamation mark", "quotation mark", "note", "catalog", "credit", "license", "title",
         "public domain",
         { "name": "parenthesis", "plural": "parentheses" }, "brace", "dash", "hyphen"]

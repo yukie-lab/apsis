@@ -19,3 +19,6 @@ truth/published/*.html
 data-src/textures/evidence/
 data-src/evidence/
 __pycache__/
+
+# Output of the manual tools (data, stills, audio, video drafts): npm run manual:* writes it again.
+tools/manual/.out/

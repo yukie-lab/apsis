@@ -1,0 +1,98 @@
+WEBVTT
+
+1
+00:00:03.200 --> 00:00:08.878
+To fly from the Earth to Mars, you select two
+dates: a launch date and an arrival date.
+
+2
+00:00:08.918 --> 00:00:12.826
+On the launch date, the spacecraft
+starts at the position of the Earth.
+
+3
+00:00:12.866 --> 00:00:16.737
+On the arrival date, it must
+be at the position of Mars.
+
+4
+00:00:16.937 --> 00:00:23.341
+For less than one revolution, only one orbit around
+the Sun connects these two positions in this time.
+
+5
+00:00:23.381 --> 00:00:29.266
+To find this orbit is the problem of Lambert.
+Apsis solves it with the method of Izzo.
+
+6
+00:00:29.666 --> 00:00:32.759
+A different arrival date gives a different orbit.
+
+7
+00:00:33.760 --> 00:00:39.585
+Very fast flights use much energy. Very
+slow flights can also use much energy.
+
+8
+00:00:39.985 --> 00:00:46.492
+Now look at the departure. The Earth moves
+around the Sun at 30.0 kilometers per second.
+
+9
+00:00:46.532 --> 00:00:52.857
+The transfer orbit starts with a different
+velocity: 33.0 kilometers per second.
+
+10
+00:00:52.897 --> 00:00:59.278
+The difference of the two vectors is the speed at
+infinity, v-infinity. The launch vehicle must give it.
+
+11
+00:00:59.318 --> 00:01:02.965
+The square of v-infinity is the launch energy, C3.
+
+12
+00:01:03.565 --> 00:01:06.776
+Now calculate C3 for many pairs of dates.
+
+13
+00:01:06.816 --> 00:01:14.957
+Each point of this map is one transfer. The horizontal axis
+is the launch date. The vertical axis is the arrival date.
+
+14
+00:01:14.997 --> 00:01:21.113
+Bright colors show a low energy. Because of its
+shape, the name of this map is porkchop plot.
+
+15
+00:01:21.313 --> 00:01:32.406
+The lowest C3 is 9.18 square kilometers per second squared:
+a launch on 31 October 2026 and a flight of 292 days.
+
+16
+00:01:32.806 --> 00:01:42.142
+Along this line, the transfer angle is 180 degrees. There, the plane
+of the transfer must turn very much, and the energy is very high.
+
+17
+00:01:42.182 --> 00:01:48.815
+Thus the map has two parts: flights of less than half a
+revolution, and flights of more than half a revolution.
+
+18
+00:01:49.414 --> 00:01:56.079
+The good dates come again after each synodic
+period. For Mars, this is approximately 26 months.
+
+19
+00:01:56.119 --> 00:02:02.324
+This chart shows the lowest C3 for
+each launch date from 2026 to 2035.
+
+20
+00:02:02.924 --> 00:02:09.726
+In Apsis, the Transfer screen solves one pair of dates.
+The Launch windows screen calculates the full map.

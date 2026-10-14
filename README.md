@@ -14,6 +14,12 @@ no service of a different computer and no user account.
 
 The two modes use one engine and one mission. A change of the mode keeps the mission.
 
+## User manual
+
+Open `manual/index.html` in a web browser. A web server is not necessary.
+The manual has text in English and in Japanese, figures, pictures of the screens and four videos with subtitles.
+The document `docs/MANUAL.md` tells how the project makes the manual, and gives the results of its checks.
+
 ## Necessary software
 
 - Node.js and npm. The project did all its checks with Node.js 26.4 on macOS. Other versions have no check.
@@ -59,7 +65,8 @@ The application gets only its files from the web server. It sends no data.
 | `tests` | Automatic checks. |
 | `truth` | Reference data: JPL Horizons, published values and their sources. |
 | `data-src` | Source data and the record of each file that the project got from a server. |
-| `tools` | Tools that make the data files, the checks of the texts, the pictures of the screens. |
+| `tools` | Tools that make the data files, the checks of the texts, the pictures of the screens and the user manual. |
+| `manual` | The user manual (`manual/index.html`) with its pictures and videos. |
 | `public` | Data files and maps that the application loads. |
 | `docs` | Documents. |
 
@@ -75,6 +82,7 @@ The application gets only its files from the web server. It sends no data.
 | `docs/IO_FORMATS.md` | File formats that the application reads and writes. |
 | `docs/STE_CHECK.md` | Method and result of the check of the English texts. |
 | `docs/PROGRESS.md` | State of the work and how to continue it. |
+| `docs/MANUAL.md` | How the project makes the user manual, and the results of its checks. |
 
 ## How to add a language
 

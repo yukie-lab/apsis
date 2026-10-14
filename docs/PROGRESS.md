@@ -6,6 +6,7 @@ Read this file first when the work starts again after a stop.
 - Measured accuracy, items with no check and limits of the models: `docs/VALIDATION.md`.
 - Sources and licenses: `docs/ASSETS.md`.
 - Report of the completed work (in Japanese): `docs/FINAL_REPORT_ja.md`.
+- User manual, how to make it again and the results of its checks: `docs/MANUAL.md`.
 
 ## State on 2026-10-14
 
@@ -26,6 +27,7 @@ Read this file first when the work starts again after a stop.
 | Record of the accuracy checks (the command `npm run report` writes it) | `docs/VALIDATION.md` |
 | Comparison with other tools | `docs/COMPARISON.md` |
 | Pictures of all screens with automatic checks | `tools/shots` |
+| User manual: a page in English and in Japanese with figures, pictures of the screens and four videos with narration and subtitles | `manual`, `tools/manual`, `docs/MANUAL.md` |
 
 ### Parts in work
 
@@ -45,6 +47,7 @@ Do these commands in the project directory.
 | `npm run build` | Does the type check and writes the application to `dist/`. |
 | `npm run preview` | Starts a local web server for `dist/`. |
 | `npm run shots` | Makes a picture of each screen in `shots/app/` and writes the list of the problems. |
+| `npm run manual:check` | Opens the user manual in Google Chrome and does the checks of the page (`docs/MANUAL.md`, section 4.3). |
 
 The command `npm run shots` uses the address `http://localhost:5310/`. Start the application at that address first, or give a different address with the option `--base`.
 
@@ -57,6 +60,9 @@ The directory of the project has these files, but `git` does not have them.
 | `data-src/kernels/` | The four NAIF kernels (the data of the scripts in `tools/ephem`). | `data-src/reference-copies.json` gives the address and the SHA-256 of each kernel. |
 | `data-src/textures/original/` | The source files of the maps. | Do `python3 -I tools/textures/build_textures.py --fetch-missing`. The script compares the SHA-256 of each file with `data-src/textures/sources.json`. |
 | `data-src/evidence/`, `data-src/textures/evidence/`, `data-src/factsheets/`, `truth/published/*.html`, and the directories `ccsds`, `gmat`, `sana` and `stk` in `data-src/specs/` | Local copies of documents and pages of other sources (decision D79). | `data-src/reference-copies.json` gives the address, the size and the SHA-256 of each copy. |
+| `tools/manual/node_modules/` | The packages of the manual tools. | Do `npm ci --prefix tools/manual`. |
+| `tools/manual/.cache/hf/` | The voice model and the speech recognition model (1.2 GB). | Do the first commands of `docs/MANUAL.md`, section 3. |
+| `tools/manual/.out/` | The data, the pictures, the narration and the videos that the manual tools made. | Do `npm run manual` (`docs/MANUAL.md`, section 3). |
 
 The application and the automatic tests do not use these files.
 Only the scripts in `tools/` use them.

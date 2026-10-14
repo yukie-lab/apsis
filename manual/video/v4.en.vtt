@@ -1,0 +1,103 @@
+WEBVTT
+
+1
+00:00:03.200 --> 00:00:10.100
+Voyager 2 started in 1977. It flew near
+Jupiter, Saturn, Uranus and Neptune.
+
+2
+00:00:10.140 --> 00:00:15.306
+At each planet, the flight path turned and
+the speed changed. How did this occur?
+
+3
+00:00:15.706 --> 00:00:20.784
+Look at the flyby of Jupiter in
+July 1979, relative to Jupiter.
+
+4
+00:00:20.824 --> 00:00:24.880
+Relative to Jupiter, the
+spacecraft moves on a hyperbola.
+
+5
+00:00:24.920 --> 00:00:30.640
+It comes in at 7.64 kilometers per
+second. It goes out at the same speed.
+
+6
+00:00:30.680 --> 00:00:36.379
+Only the direction changes. Here,
+it turns through 97.6 degrees.
+
+7
+00:00:36.779 --> 00:00:40.148
+A flyby nearer to the planet gives a larger turn.
+
+8
+00:00:40.188 --> 00:00:47.905
+This curve shows the turn angle for each distance of
+closest approach. Voyager 2 went to 10 radii of Jupiter.
+
+9
+00:00:48.505 --> 00:00:51.533
+Now look at the same flyby relative to the Sun.
+
+10
+00:00:51.573 --> 00:01:00.072
+Jupiter moves at 12.7 kilometers per second. Add the
+velocity of Jupiter to the two velocities of the spacecraft.
+
+11
+00:01:00.272 --> 00:01:09.292
+Before the flyby, the speed relative to the Sun is 9.6
+kilometers per second. After the flyby, it is 19.5.
+
+12
+00:01:09.492 --> 00:01:16.359
+The spacecraft gets speed from the motion of Jupiter.
+The speed of Jupiter decreases by a very small quantity.
+
+13
+00:01:16.399 --> 00:01:19.916
+This is a gravity assist. It uses no propellant.
+
+14
+00:01:20.516 --> 00:01:25.262
+Here is the full flight of Voyager 2,
+with its speed relative to the Sun.
+
+15
+00:01:25.302 --> 00:01:30.227
+The dashed line is the escape speed
+from the solar system at each distance.
+
+16
+00:01:30.267 --> 00:01:34.246
+After Jupiter, Voyager 2 was
+faster than the escape speed.
+
+17
+00:01:34.286 --> 00:01:45.283
+At Neptune, the flyby decreased the speed from 18.9 to 16.7 kilometers
+per second. But the spacecraft stayed faster than the escape speed.
+
+18
+00:01:45.883 --> 00:01:52.363
+Apsis calculates this flight with 3 small
+corrections, a total of 104 meters per second.
+
+19
+00:01:52.403 --> 00:02:04.276
+The distances of closest approach agree with JPL Horizons within
+1.02 percent. The speeds at infinity agree within 0.45 percent.
+
+20
+00:02:04.677 --> 00:02:09.320
+In the Expert mode, use the Flyby tour
+screen to design flights of this type.
+
+21
+00:02:09.360 --> 00:02:13.049
+In the Explorer mode, you
+can fly the actual missions.

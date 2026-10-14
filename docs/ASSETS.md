@@ -238,6 +238,31 @@ The project uses the tools of the next table for the work on the code. The files
 The application contains no font files: it uses the fonts of the computer of the user.
 The project made the logo and the icons of the application. They are in the code.
 
+## Tools and models of the user manual
+
+The tools in `tools/manual/` make the user manual (`docs/MANUAL.md`). The files of the application do not contain these tools.
+The manual contains the videos, the subtitles, the pictures and the figures that the tools made.
+
+| Item | Version | License | Use |
+|---|---|---|---|
+| Kokoro-82M, ONNX model `onnx-community/Kokoro-82M-v1.0-ONNX` | 1.0 | `Apache-2.0` | Voice of the narration (voice af_heart) |
+| Whisper `small.en`, ONNX model `Xenova/whisper-small.en` | | `Apache-2.0` | Check of the narration (speech recognition) |
+| `kokoro-js` | 1.2.1 | `Apache-2.0` | Operates the voice model |
+| `@huggingface/transformers` (Transformers.js) | 3.8.1 | `Apache-2.0` | Operates the two models |
+| `phonemizer` | 1.2.1 | `Apache-2.0` | Changes the text into a form for the voice model. The package contains eSpeak NG (GPL version 3 or later). |
+| `onnxruntime-node`, `onnxruntime-web` | 1.21.0, `1.22.0-dev.20250409` | `MIT` | Operates the two models |
+| `@mathjax/src`, `@mathjax/mathjax-newcm-font` | 4.1.3 | `Apache-2.0` | Equations in the videos |
+| `@fontsource/inter` (font Inter) | 5.3.0 | `OFL-1.1` | Text in the videos |
+| `opentype.js` | 2.0.0 | `MIT` | Text in the videos |
+| FFmpeg (`ffmpeg`, `ffprobe`) | 8.1.2 | GPL version 3 or later (this version has x264) | Makes the video files (H.264 and AAC) |
+| `cwebp` (`libwebp`) | 1.6.0 | `BSD-3-Clause` | Makes the WebP pictures of the manual |
+| Google Chrome | 147 | License of Google Chrome | Makes the pictures of the screens and the frames of the videos, with `playwright-core` |
+
+- The licenses of the two models are the license fields of their pages on Hugging Face (read on 2026-10-14). The licenses of the packages are the license fields of their `package.json` files.
+- The page of the model Kokoro-82M gives two sources of speech with a CC BY license in the data of the model: Koniwa `tnc` (CC BY 3.0) and SIWIS (CC BY 4.0). The manual gives this credit.
+- The files of the two models are in `tools/manual/.cache/hf/` (1.2 GB). They are not in `git`.
+- The project did not use ElevenLabs or a different service on the internet for the voice.
+
 ## Documents and pages for reference
 
 The project read documents and pages of other sources for the file formats and for the published values.
