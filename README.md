@@ -14,9 +14,16 @@ no service of a different computer and no user account.
 
 The two modes use one engine and one mission. A change of the mode keeps the mission.
 
+## Languages and music
+
+- The screens have texts in English and in Japanese. The control at the top right changes the language. The browser keeps the language for the next time. At the first start, the application uses the language of the browser if it has this language. If not, it uses English.
+- The music button in the top bar starts and stops the music. The code of the application makes the music with the Web Audio interface of the browser. The application contains no music file.
+
 ## User manual
 
 Open `manual/index.html` in a web browser. A web server is not necessary.
+The button "User manual" on the About page of the application also opens the manual, in a new tab.
+The command `npm run build` puts a copy of `manual/` into `dist/manual/`.
 The manual has text in English and in Japanese, figures, pictures of the screens and four videos with subtitles.
 The document `docs/MANUAL.md` tells how the project makes the manual, and gives the results of its checks.
 
@@ -37,7 +44,7 @@ Do these commands in the project directory.
 | `npm test` | Does all automatic checks. On the computer of the project, the time is approximately 1 minute. |
 | `npm run report` | Writes `docs/VALIDATION.md` from the values that the automatic checks measured. |
 | `npm run lint:ste` | Does the check of the English texts (see `docs/STE_CHECK.md`). |
-| `npm run check:language` | Does a check of the application with a second language (Google Chrome is necessary). |
+| `npm run check:language` | Does a check of the application with a test language (Google Chrome is necessary). |
 | `npm run build` | Does the type check and writes the application to `dist/`. |
 | `npm run preview` | Starts a local web server for `dist/`. |
 | `npm run shots` | Makes a picture of each screen (start the application first). |
@@ -45,7 +52,7 @@ Do these commands in the project directory.
 ## How to put the application on a web server
 
 1. Do `npm run build`.
-2. Put a copy of all files and directories of `dist/` into a directory of a web server.
+2. Put a copy of all files and directories of `dist/` into a directory of a web server. The directory `dist/manual/` contains the user manual.
 
 All paths in the application are relative. Thus the application also works in a directory below the root of the server.
 A browser cannot open `dist/index.html` as a local file: use a web server (for example `npm run preview`).

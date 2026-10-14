@@ -1,7 +1,9 @@
 import { defineConfig } from 'vitest/config';
 import type { Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
-import { readFileSync } from 'node:fs';
+import { cpSync, existsSync, readFileSync } from 'node:fs';
+import { join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const read = (path: string): string => readFileSync(new URL(path, import.meta.url), 'utf8');
 const pkg = JSON.parse(read('./package.json')) as { version: string };
@@ -32,10 +34,26 @@ function licenseFile(): Plugin {
   };
 }
 
+/**
+ * Puts the user manual (the directory manual/, made by tools/manual) next to index.html in the build: the About
+ * screen opens manual/index.html. The development server serves the directory from the project directory.
+ */
+function manualFiles(): Plugin {
+  const from = fileURLToPath(new URL('./manual', import.meta.url));
+  let outDir = '';
+  return {
+    name: 'apsis-manual',
+    apply: 'build',
+    configResolved(config) { outDir = resolve(config.root, config.build.outDir); },
+    buildStart() { if (!existsSync(join(from, 'index.html'))) this.error('manual/index.html is missing. The About screen opens this file (npm run manual:build).'); },
+    closeBundle() { cpSync(from, join(outDir, 'manual'), { recursive: true }); },
+  };
+}
+
 // Relative base: the build output works in any directory of a static host.
 export default defineConfig({
   base: './',
-  plugins: [react(), licenseFile()],
+  plugins: [react(), licenseFile(), manualFiles()],
   define: { __APP_VERSION__: JSON.stringify(pkg.version), __LIBRARIES__: JSON.stringify(libraries) },
   build: { target: 'es2022', chunkSizeWarningLimit: 1500 },
   worker: { format: 'es' },

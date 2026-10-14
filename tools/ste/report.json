@@ -12,19 +12,19 @@
   "approvedWordsNotCertain": 44,
   "notApprovedWords": 173,
   "spellingPairs": 207,
-  "technicalNames": 1058,
+  "technicalNames": 1067,
   "technicalVerbs": 13,
   "glossaryEntries": 144,
   "exceptions": 0
  },
  "totals": {
   "files": 39,
-  "texts": 5347,
-  "sentences": 7005,
-  "words": 52540,
+  "texts": 5387,
+  "sentences": 7100,
+  "words": 53588,
   "open": 0,
   "excepted": 0,
-  "distinctWords": 1589,
+  "distinctWords": 1603,
   "distinctWordsNotCertain": 70,
   "staleExceptions": 0
  },
@@ -53,9 +53,9 @@
   },
   {
    "file": "src/i18n/locales/en/10-common.json",
-   "texts": 179,
-   "sentences": 188,
-   "words": 484,
+   "texts": 182,
+   "sentences": 191,
+   "words": 491,
    "open": 0,
    "excepted": 0,
    "findings": []
@@ -134,9 +134,9 @@
   },
   {
    "file": "src/i18n/locales/en/37-files.json",
-   "texts": 275,
-   "sentences": 361,
-   "words": 3085,
+   "texts": 276,
+   "sentences": 363,
+   "words": 3102,
    "open": 0,
    "excepted": 0,
    "findings": []
@@ -170,9 +170,9 @@
   },
   {
    "file": "src/i18n/locales/en/41-about.json",
-   "texts": 58,
-   "sentences": 83,
-   "words": 595,
+   "texts": 61,
+   "sentences": 87,
+   "words": 630,
    "open": 0,
    "excepted": 0,
    "findings": []
@@ -314,18 +314,18 @@
   },
   {
    "file": "README.md",
-   "texts": 102,
-   "sentences": 132,
-   "words": 888,
+   "texts": 105,
+   "sentences": 144,
+   "words": 1006,
    "open": 0,
    "excepted": 0,
    "findings": []
   },
   {
    "file": "docs/ASSETS.md",
-   "texts": 461,
-   "sentences": 674,
-   "words": 5021,
+   "texts": 463,
+   "sentences": 678,
+   "words": 5062,
    "open": 0,
    "excepted": 0,
    "findings": []
@@ -333,17 +333,17 @@
   {
    "file": "docs/COMPARISON.md",
    "texts": 135,
-   "sentences": 259,
-   "words": 2275,
+   "sentences": 260,
+   "words": 2284,
    "open": 0,
    "excepted": 0,
    "findings": []
   },
   {
    "file": "docs/DECISIONS.md",
-   "texts": 281,
-   "sentences": 626,
-   "words": 7560,
+   "texts": 299,
+   "sentences": 676,
+   "words": 8173,
    "open": 0,
    "excepted": 0,
    "findings": []
@@ -359,27 +359,27 @@
   },
   {
    "file": "docs/MANUAL.md",
-   "texts": 144,
-   "sentences": 183,
-   "words": 1155,
+   "texts": 147,
+   "sentences": 194,
+   "words": 1301,
    "open": 0,
    "excepted": 0,
    "findings": []
   },
   {
    "file": "docs/PROGRESS.md",
-   "texts": 93,
-   "sentences": 99,
-   "words": 563,
+   "texts": 99,
+   "sentences": 105,
+   "words": 616,
    "open": 0,
    "excepted": 0,
    "findings": []
   },
   {
    "file": "docs/STE_CHECK.md",
-   "texts": 262,
-   "sentences": 394,
-   "words": 2790,
+   "texts": 263,
+   "sentences": 396,
+   "words": 2799,
    "open": 0,
    "excepted": 0,
    "findings": []

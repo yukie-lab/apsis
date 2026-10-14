@@ -12,8 +12,11 @@ import { useSyncExternalStore } from 'react';
 export interface LocaleFile {
   meta: { code: string; name: string };
   text: Record<string, unknown>;
-  /** Technical names and their definitions (also the glossary screen). */
-  glossary: Record<string, { term: string; definition: string }>;
+  /**
+   * Technical names and their definitions (also the glossary screen). "sort" is the text for the alphabetical order
+   * when the term does not give it (for example the reading of a Japanese term in hiragana).
+   */
+  glossary: Record<string, { term: string; definition: string; sort?: string }>;
 }
 type Part = Partial<LocaleFile>;
 
@@ -53,11 +56,22 @@ export const LOCALES: { code: string; name: string }[] = [...table.values()].map
 const FALLBACK = table.has('en') ? 'en' : LOCALES[0].code;
 
 const STORAGE_KEY = 'apsis.locale';
+/**
+ * The language at the start: the language that the user selected before; else the first language of the browser
+ * that the application has; else English.
+ */
 function initial(): string {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved && table.has(saved)) return saved;
-  } catch { /* storage is not available: use the default */ }
+  } catch { /* storage is not available: use the language of the browser */ }
+  if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
+    const tags = navigator.languages?.length ? navigator.languages : [navigator.language];
+    for (const tag of tags) {
+      const code = (tag ?? '').toLowerCase().split('-')[0];
+      if (table.has(code)) return code;
+    }
+  }
   return FALLBACK;
 }
 let current = initial();
@@ -101,6 +115,18 @@ export function t(key: string, vars?: Record<string, string | number>): string {
 export function tEnglish(key: string, vars?: Record<string, string | number>): string {
   return fill(lookup(table.get(FALLBACK), key) ?? key, vars);
 }
+/**
+ * Sentences in one paragraph. A space comes after a sentence that ends with a Latin character ("."), and no space
+ * after a sentence that ends with a Japanese character ("。"). Empty parts and false are not in the result.
+ */
+export function sentences(...parts: (string | false | null | undefined)[]): string {
+  let out = '';
+  for (const part of parts) {
+    if (!part) continue;
+    out += out && /[\x21-\x7e]$/.test(out) ? ' ' + part : part;
+  }
+  return out;
+}
 /** True if a key has a text. */
 export function hasText(key: string): boolean {
   return lookup(table.get(current), key) !== undefined || lookup(table.get(FALLBACK), key) !== undefined;
@@ -122,7 +148,9 @@ export function bodyIn(id: string): string {
 export function craftName(id: string, fallback: string = id): string {
   return hasText(`spacecraft.${id}`) ? t(`spacecraft.${id}`) : fallback;
 }
-export function glossary(): { id: string; term: string; definition: string }[] {
+/** Glossary of the current language, in the alphabetical order of that language. */
+export function glossary(): { id: string; term: string; definition: string; sort?: string }[] {
   const g = (table.get(current) ?? table.get(FALLBACK))!.glossary;
-  return Object.entries(g).map(([id, v]) => ({ id, ...v })).sort((a, b) => a.term.localeCompare(b.term));
+  const code = table.has(current) ? current : FALLBACK;
+  return Object.entries(g).map(([id, v]) => ({ id, ...v })).sort((a, b) => (a.sort ?? a.term).localeCompare(b.sort ?? b.term, code));
 }

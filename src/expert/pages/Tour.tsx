@@ -246,7 +246,7 @@ export default function Tour() {
                     <td className="nw">{t('plan.leg', { from: bodyName(plan.nodes[i].body), to: bodyName(plan.nodes[i + 1].body) })}{res && !res.ok && <> <span className="tag bad">{t('plan.legBad')}</span></>}</td>
                     <td>
                       <span className="row" style={{ flexWrap: 'nowrap', gap: 6 }}>
-                        <span style={{ width: 58, flex: 'none' }}><Select value={String(leg.revs)} label={t('plan.revs')} onChange={(v) => setLeg(i, { revs: Number(v), branch: Number(v) === 0 ? 'single' : leg.branch === 'single' ? 'left' : leg.branch })} options={[0, 1, 2, 3].map((k) => ({ value: String(k), label: String(k) }))} /></span>
+                        <span style={{ width: 66, flex: 'none' }}><Select value={String(leg.revs)} label={t('plan.revs')} onChange={(v) => setLeg(i, { revs: Number(v), branch: Number(v) === 0 ? 'single' : leg.branch === 'single' ? 'left' : leg.branch })} options={[0, 1, 2, 3].map((k) => ({ value: String(k), label: String(k) }))} /></span>
                         {leg.revs > 0 && <span style={{ width: 138, flex: 'none' }}><Select value={leg.branch === 'single' ? 'left' : leg.branch} label={t('page.transfer.branch')} onChange={(branch) => setLeg(i, { branch })} options={branchLabels[i] ?? []} /></span>}
                       </span>
                     </td>

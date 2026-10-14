@@ -7,7 +7,7 @@ import { useApp, nowEt } from '../../app/store';
 import { clock, useClock } from '../../app/clock';
 import { system } from '../../app/system';
 import { engine, EngineError } from '../../app/engine';
-import { t, bodyName, bodyIn } from '../../i18n';
+import { t, bodyName, bodyIn, sentences } from '../../i18n';
 import { newFlightMission, DEFAULT_SPACECRAFT, type Mission } from '../../engine/mission';
 import type { Flight } from '../../engine/flight';
 import { ALL_GRAVITY_BODIES, PLANET_GRAVITY_BODIES, FULL_MODEL, type ForceModel, type Maneuver, type Trajectory } from '../../engine/propagate';
@@ -178,7 +178,7 @@ function ForcePanel({ draft, onChange, mass }: { draft: Draft; onChange: (d: Dra
           </dl>
         </>
       )}
-      <p className="note">{t('page.propagation.asteroidNote')} {t('page.propagation.notModeled')}</p>
+      <p className="note">{sentences(t('page.propagation.asteroidNote'), t('page.propagation.notModeled'))}</p>
     </Panel>
   );
 }
@@ -469,7 +469,7 @@ function StudyPanel({ mission, flight, trajectory, dirty }: { mission: Mission; 
                 </tbody>
               </table>
             </div>
-            <p className="note">{t('page.propagation.studyNote')} {t(mine.mode === 'arc' ? 'page.propagation.studyNoteArc' : 'page.propagation.studyNoteWhole')}</p>
+            <p className="note">{sentences(t('page.propagation.studyNote'), t(mine.mode === 'arc' ? 'page.propagation.studyNoteArc' : 'page.propagation.studyNoteWhole'))}</p>
             {stops.length > 0 && (
               <ul className="note">
                 {stops.map((r) => <li key={r.id}>{r.group === 'force' ? forceName(r.id) : sci(Number(r.id.slice(4)), 1)}: {stopText(r)}</li>)}
@@ -507,7 +507,7 @@ function StudyPanel({ mission, flight, trajectory, dirty }: { mission: Mission; 
               </tbody>
             </table>
           </div>
-          <p className="note">{t('page.propagation.toleranceNote')} {mine.mode === 'whole' && hasManeuvers ? t('page.propagation.toleranceWhole') : ''}</p>
+          <p className="note">{sentences(t('page.propagation.toleranceNote'), mine.mode === 'whole' && hasManeuvers && t('page.propagation.toleranceWhole'))}</p>
         </Panel>
       )}
     </>

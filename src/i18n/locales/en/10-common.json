@@ -7,6 +7,9 @@
       "loadFailed": "The application cannot read its data files. Make sure that all files of the application are on the server.",
       "retry": "Read the files again",
       "language": "Language",
+      "music": "Music",
+      "musicStart": "Start the music",
+      "musicStop": "Stop the music",
       "narrow": "The Expert mode is for a wide screen. On this screen, some tables are wider than the screen."
     },
     "mode": {

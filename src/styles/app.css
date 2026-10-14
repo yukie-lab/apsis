@@ -20,6 +20,14 @@
   --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
   color-scheme: dark;
 }
+/* Japanese text: the Japanese system fonts first (macOS, Windows, Linux). */
+:root:lang(ja) {
+  --font: system-ui, -apple-system, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", Meiryo, "Noto Sans JP", "Noto Sans CJK JP", sans-serif;
+}
+/* Japanese headings: line breaks between phrases, not in a word (browsers without this value break as before). */
+:root:lang(ja) :is(h1, h2, h3) { word-break: auto-phrase; }
+/* Japanese table headings: line breaks only at spaces and punctuation (else a narrow column breaks a word into lines). */
+:root:lang(ja) th { word-break: keep-all; }
 * { box-sizing: border-box; }
 html, body, #root { height: 100%; margin: 0; }
 body {
@@ -134,9 +142,12 @@ header button.src, th button.src { width: 18px; height: 18px; font-size: 12px; c
 .mode { display: inline-flex; background: #080c15; border: 1px solid var(--line-2); border-radius: 99px; padding: 2px; }
 .mode button { border: 0; background: transparent; padding: 4px 14px; border-radius: 99px; cursor: pointer; color: var(--dim); min-height: 30px; }
 .mode button.on { background: var(--accent); color: var(--accent-ink); font-weight: 650; }
-.context { display: flex; gap: 6px; align-items: center; font-size: 12px; color: var(--dim); }
+.context { display: flex; gap: 6px; align-items: center; font-size: 12px; color: var(--dim); white-space: nowrap; }
 .context select { background: #080c15; border: 1px solid var(--line-2); border-radius: 5px; padding: 2px 4px; min-height: 26px; font-size: 12.5px; max-width: 130px; }
 .context label { display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+.top .topicon { padding: 2px 6px; }
+.top .topicon svg, .top .about-button svg { width: 16px; height: 16px; flex: none; }
+.top .about-button { gap: 5px; }
 
 /* ---------- expert layout */
 .expert { flex: 1; display: grid; grid-template-columns: 190px 1fr; min-height: 0; }
@@ -255,6 +266,8 @@ header button.src, th button.src { width: 18px; height: 18px; font-size: 12px; c
 @media (max-width: 560px) {
   .brandname { display: none; }
   .top { gap: 8px; padding: 0 8px; }
+  .top .about-button { padding: 2px 6px; }
+  .top .about-button .label { display: none; }
   /* Two values in one cell: on a narrow screen, each value is on its own line, with no separator. */
   .pair-sep { display: block; height: 0; overflow: hidden; }
 }
@@ -507,6 +520,8 @@ h3 > button.src, h2 > button.src { margin-left: 8px; }
 .about-head { display: flex; align-items: center; gap: 12px; }
 .about-intro { max-width: 78ch; font-size: 15px; color: #c9d3e6; }
 .about-nav { display: flex; flex-wrap: wrap; gap: 6px; }
+.about-manual a.btn { text-decoration: none; }
+.about-manual a.btn svg:last-child { opacity: 0.7; }
 .about section { scroll-margin-top: 8px; }
 .about .panel p, .about ul.list li, .about .deflist dd { max-width: 86ch; }
 .about .deflist dd + dd { margin-top: 6px; }

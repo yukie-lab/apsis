@@ -29,3 +29,7 @@ export const IconNumbers = () => <I><path d="M4 19V9M10 19V5M16 19v-7M21 19H3" /
 export const IconRocket = () => <I><path d="M12 3c3 2 5 5.5 5 9.5l-2 3H9l-2-3C7 8.500 9 5 12 3z" /><circle cx="12" cy="10" r="1.6" /><path d="M9 15.5l-2.500 4 3.500-1.200M15 15.500l2.500 4-3.500-1.200M12 18v3" /></I>;
 export const IconInfo = () => <I><circle cx="12" cy="12" r="9" /><path d="M12 11v6M12 7.500v.500" /></I>;
 export const IconRuler = () => <I><path d="M3 17L17 3l4 4L7 21z" /><path d="M7.500 12.500l2 2M10.500 9.500l2 2M13.500 6.500l2 2" /></I>;
+export const IconSound = () => <I><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" stroke="none" /><path d="M15.5 9a4.5 4.5 0 0 1 0 6M18.5 6.500a8.500 8.500 0 0 1 0 11" /></I>;
+export const IconSoundOff = () => <I><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" stroke="none" /><path d="M16 9.500l5 5M21 9.500l-5 5" /></I>;
+export const IconBook = () => <I><path d="M4 5.500C6.500 4.500 9.500 4.500 12 6.500v13c-2.500-2-5.500-2-8-1z" /><path d="M20 5.500c-2.500-1-5.500-1-8 1v13c2.500-2 5.500-2 8-1z" /></I>;
+export const IconExternal = ({ size = 14 }: { size?: number }) => <I size={size}><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6" /></I>;

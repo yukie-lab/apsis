@@ -26,6 +26,7 @@ The tool does not examine these texts:
 
 - The cells of the columns Title and Credit of the table of maps in `docs/ASSETS.md`. Each cell is the title of a source file or the credit line of its source. These texts are names and texts from the sources. The About screen shows the same titles and credit lines.
 - The other fields of `public/textures/manifest.json` (examples: `note`, `licenceStatement` and `longitudeNote`). These fields are the records of the work on the maps, and they contain text from the pages of the sources. The application does not show them.
+- The Japanese locale files in `src/i18n/locales/ja/`. Their text is Japanese.
 - The comments in the source code and in the scripts.
 - The test page `dev/bodies/`. The files of the application do not contain it.
 - A small number of labels in the source code (example: the label "B·T").
@@ -138,14 +139,14 @@ The reader made no list of the results. This is not a full check of these rules.
 
 | Files | Texts | Sentences | Words | Findings | Exceptions |
 |---|---|---|---|---|---|
-| Locale files (16 files) | 1732 | 2162 | 15168 | 0 | 0 |
+| Locale files (16 files) | 1739 | 2171 | 15227 | 0 | 0 |
 | Files of measured values (13 files) | 110 | 134 | 1774 | 0 | 0 |
 | `public/textures/manifest.json` | 34 | 101 | 1889 | 0 | 0 |
-| `README.md` | 102 | 132 | 888 | 0 | 0 |
-| Documents in `docs/` (8 files) | 3369 | 4476 | 32821 | 0 | 0 |
-| Total | 5347 | 7005 | 52540 | 0 | 0 |
+| `README.md` | 105 | 144 | 1006 | 0 | 0 |
+| Documents in `docs/` (8 files) | 3399 | 4550 | 33692 | 0 | 0 |
+| Total | 5387 | 7100 | 53588 | 0 | 0 |
 
-A text is one value of a locale file or one text of a file of data. In a document, a text is one heading, paragraph, list item or table cell. The count of words does not include numbers, placeholders and code texts. These texts have 1589 different words. 70 of them are forms of the words with a question mark (section 5.3). The tool did not examine 76 table cells of `docs/ASSETS.md` (section 2).
+A text is one value of a locale file or one text of a file of data. In a document, a text is one heading, paragraph, list item or table cell. The count of words does not include numbers, placeholders and code texts. These texts have 1603 different words. 70 of them are forms of the words with a question mark (section 5.3). The tool did not examine 76 table cells of `docs/ASSETS.md` (section 2).
 
 The command `npm run lint:ste` gives the exit code 0 for these files.
 

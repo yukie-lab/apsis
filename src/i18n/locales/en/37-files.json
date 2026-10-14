@@ -285,6 +285,7 @@
     "noFlight": "This mission has no flight. Calculate the flight on the Mission screen. You can write the mission file with no flight.",
     "flightOld": "The plan changed after the last flight calculation. The file has the flight, not the plan.",
     "objectName": "Object name",
+    "asciiOnly": "A file for other programs can contain only ASCII characters. The application writes \"?\" for each different character.",
     "objectIdHint": "CCSDS recommends the international designator: launch year, launch number and part letter (YYYY-NNNP).",
     "frameFixed": "This format has the states in the ICRF.",
     "scaleFixed": "This format has its times in seconds after an epoch in UTC.",

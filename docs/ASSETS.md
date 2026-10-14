@@ -175,6 +175,11 @@ Sources of the numbers in the code:
 
 The file `data-src/reference-copies.json` lists the local copies of the fact sheets.
 
+## Music
+
+The code in `src/app/music.ts` makes the music of the application with the Web Audio interface of the browser.
+It uses no music file and no music of a different author. The project made the chords and the notes of the music.
+
 ## Data of the engine
 
 The application contains the data files of this table.

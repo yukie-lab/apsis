@@ -1,7 +1,7 @@
 {
   "name": "apsis",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "description": "Apsis - solar system trajectory design and mission planner (static web application)",
   "scripts": {
@@ -14,7 +14,7 @@
     "report": "vitest run --config tools/validation/vitest.config.ts",
     "shots": "node tools/shots/shots.mjs",
     "manual:data": "vitest run --config tools/manual/vitest.config.ts",
-    "manual:shots": "npm run build && node tools/manual/shots/capture.mjs",
+    "manual:shots": "npm run build && node tools/manual/shots/capture.mjs && node tools/manual/shots/capture.mjs --lang ja",
     "manual:voice": "node tools/manual/narration/speak.mjs && node tools/manual/narration/check.mjs",
     "manual:video": "node tools/manual/video/capture.mjs v1 --video && node tools/manual/video/capture.mjs v2 --video && node tools/manual/video/capture.mjs v3 --video && node tools/manual/video/capture.mjs v4 --video",
     "manual:build": "node tools/manual/page/build.mjs",

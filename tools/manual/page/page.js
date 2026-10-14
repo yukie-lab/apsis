@@ -31,6 +31,8 @@
       p.tracks.en.mode = lang === 'en' ? 'showing' : 'hidden';
       p.tracks.ja.mode = lang === 'ja' ? 'showing' : 'hidden';
     });
+    // Each picture of a screen has a copy for each language: the marks of the copy that now shows get their places.
+    spreadAll();
     if (!save) return;
     try { localStorage.setItem(KEY, lang); } catch (e) { /* no storage: the page keeps the language until it closes */ }
     try {
@@ -103,8 +105,8 @@
     }
     p.forEach(function (q) { if (q.dx || q.dy) q.m.style.translate = q.dx.toFixed(1) + 'px ' + q.dy.toFixed(1) + 'px'; });
   }
-  var wraps = all('.shot .shotwrap');
-  wraps.forEach(spread);
+  /** The pictures of the language of the page (the pictures of the other language do not show: they have no size). */
+  function spreadAll() { all('.shot .shotwrap').forEach(spread); }
   var again = 0;
   window.addEventListener('resize', function () {
     cancelAnimationFrame(again);
@@ -131,7 +133,8 @@
     });
   });
   all('button.zbtn').forEach(function (z) {
-    z.addEventListener('click', function () { z.closest('.shot').querySelector('button.pic').click(); });
+    // The picture in the language of the page.
+    z.addEventListener('click', function () { z.closest('.shot').querySelector('.shotwrap.t-' + root.getAttribute('data-lang') + ' button.pic').click(); });
   });
   dialog.querySelector('.zclose').addEventListener('click', function () { dialog.close(); });
   dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });

@@ -132,7 +132,7 @@ Each item gives the function, the result and the reason. The project found no eq
 
 ### 12. Controlled English and a glossary
 
-- **Function.** The texts of the screens, the help texts and the documents obey the rules of ASD-STE100. The Glossary screen gives each technical name. A second language is possible with no change to the code.
+- **Function.** The texts of the screens, the help texts and the documents obey the rules of ASD-STE100. The Glossary screen gives each technical name. The screens have texts in English and in Japanese. A new language is possible with no change to the code.
 - **Result.** A script does the check of the texts (`docs/STE_CHECK.md`). The official dictionary of ASD-STE100 was not available: the record gives the limits of the check.
 - **Reason.** Many persons use a tool of this type in a language that is not their first language.
 

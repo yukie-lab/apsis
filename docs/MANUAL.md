@@ -4,7 +4,7 @@ The user manual of Apsis is the page `manual/index.html`. It has these parts:
 
 - Text in English and in Japanese. A control at the top right of the page changes the language.
 - 14 figures. The engine of Apsis calculated each orbit, each flight path and each number in them.
-- 22 pictures of the screens of Apsis 1.0.0. Numbers on a picture show the parts of the screen. The list below the picture gives the same numbers.
+- 22 pictures of the screens of Apsis 1.1.0, each in English and in Japanese. The page shows the pictures in the language of the page. Numbers on a picture show the parts of the screen. The list below the picture gives the same numbers.
 - 4 videos with an English narration. Each video has Japanese subtitles and English subtitles.
 
 Date of this record: 2026-10-14.
@@ -15,6 +15,9 @@ Date of this record: 2026-10-14.
 2. To change the language, click "English" or "日本語" at the top right of the page.
 
 The browser keeps the language for the next time. The address `manual/index.html?lang=ja` opens the page in Japanese.
+
+The About page of the application also has a button for the manual. The manual then opens in a new tab, in the language of the application.
+The command `npm run build` puts a copy of `manual/` into `dist/manual/` for this button.
 
 The page gets only the files in `manual/`. It sends no data, and it uses no service on the internet.
 
@@ -53,7 +56,7 @@ Then do these commands, in this sequence:
 | Command | Result |
 |---|---|
 | `npm run manual:data` | The engine calculates the data of the figures and of the videos (`tools/manual/.out/data/`). |
-| `npm run manual:shots` | Makes the files of the application and the pictures of its screens (`tools/manual/.out/shots/`). |
+| `npm run manual:shots` | Makes the files of the application and the pictures of its screens in English (`tools/manual/.out/shots/`) and in Japanese (`tools/manual/.out/shots/ja/`). |
 | `npm run manual:voice` | Makes the narration and the subtitles, and does the check of the narration (`tools/manual/.out/audio/`, `tools/manual/.out/subs/`). |
 | `npm run manual:video` | Makes the four videos (`tools/manual/.out/video/`). |
 | `npm run manual:build` | Makes `manual/index.html`, `manual/img/` and `manual/video/`, and does the check of the English text (section 4.1). |
@@ -65,7 +68,7 @@ The command `npm run manual` does all six commands. The directory `tools/manual/
 
 | File | Contents |
 |---|---|
-| `tools/manual/page/content.mjs` | The English text and the Japanese text of the page. |
+| `tools/manual/page/content.mjs` | The English text and the Japanese text of the page. In the Japanese text, a label of a control in `[[ ]]` must be the Japanese text of the application. `npm run manual:build` stops with an error if it is not. |
 | `tools/manual/page/figures.mjs` | The figures. |
 | `tools/manual/video/scripts/v1.json` to `v4.json` | The narration and the subtitles of each video. |
 | `tools/manual/video/src/scenes/` | The code that makes the pictures of each video. |
@@ -85,7 +88,7 @@ The result is the part of the sentences for which the tool has no finding. The n
 
 | Text | Sentences | No finding | Without the names of the manual | With unit words |
 |---|---|---|---|---|
-| Page | 280 | 260 (93 %) | 241 (86 %) | 260 (93 %) |
+| Page | 285 | 265 (93 %) | 246 (86 %) | 265 (93 %) |
 | Narration | 133 | 85 (64 %) | 84 (63 %) | 97 (73 %) |
 
 - "Without the names of the manual": the result if the tool did not know the names that this work added to `tools/ste/technical-names.json` (examples: "video", "subtitle", "Kokoro").
@@ -121,6 +124,7 @@ It finds these problems:
 - A video that does not load, or a subtitle that does not show at its time.
 - A language control that does not change the page, the subtitles or the language that the browser keeps.
 - A number on a picture that is on a different number, or a number that goes out of the picture.
+- A picture of a screen that does not show one time in the language of the page, or a full picture in the other language.
 - A full picture that does not open or does not close.
 
 On 2026-10-14, the result was no problem. The tool also writes pictures of the pages to `tools/manual/.out/check/`. The author examined these pictures.
@@ -128,7 +132,8 @@ On 2026-10-14, the result was no problem. The tool also writes pictures of the p
 ## 5. Limits
 
 - The STE tool uses the word lists of the project, not the official ASD-STE100 dictionary. No person did a check of the text with the official rules.
-- No tool examined the Japanese text. The author of the Japanese text is the same AI model as the author of the English text.
+- No tool examined the meaning of the Japanese text. The tool compares only the labels of the controls with the texts of the application. The author of the Japanese text is the same AI model as the author of the English text.
+- The videos show the screens in English. The narration is English. The Japanese subtitles give the Japanese text.
 - The voice comes from a speech model. The speech recognition finds incorrect words. It cannot find all problems of the speech. No person examined the speech of the videos for this record.
 - The project examined the manual only in Google Chrome on macOS. The phone screen of section 4.3 is a size of the browser, not an actual phone.
 - The pictures show the application on 14 October 2026. The Explorer mode starts at the time of the computer. Thus the screens of the user show different dates and positions.

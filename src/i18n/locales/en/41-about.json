@@ -6,6 +6,10 @@
       "intro": "Apsis is a tool for the design of trajectories in the solar system. The Explorer mode shows a flight in a 3D view. The Expert mode shows the plan, the maneuvers and all numbers. The two modes use one engine and the same data.",
       "close": "Close this page",
       "sections": "Sections of this page",
+      "manual": {
+        "open": "User manual",
+        "note": "The user manual opens in a new tab of the browser."
+      },
       "privacy": {
         "title": "Your data",
         "local": "This browser does all calculations. No server does calculations for the application, and the application has no user accounts.",
@@ -69,7 +73,8 @@
         "version": "Version",
         "license": "License",
         "texts": "Show the license texts",
-        "fonts": "The application uses the fonts of your computer. It contains no font files. The project made the logo and the icons for this application."
+        "fonts": "The application uses the fonts of your computer. It contains no font files. The project made the logo and the icons for this application.",
+        "music": "Music: the application makes the music while it operates, with the Web Audio interface of the browser. It uses no recorded music."
       },
       "names": {
         "title": "Names",

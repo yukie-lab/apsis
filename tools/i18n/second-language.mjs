@@ -5,10 +5,11 @@
 //   1. makes a temporary language "zz" in src/i18n/locales/zz/ from the English files: each text gets a mark at its
 //      start and at its end. The temporary language does not have the file 41-about.json. It has two texts for
 //      data files: the reference of one measured value and the changes of one map;
-//   2. does the automatic checks of the texts (tests/i18n.test.ts) with the two languages, and builds the application
+//   2. does the automatic checks of the texts (tests/i18n.test.ts) with the temporary language, and builds the application
 //      into a temporary directory (vite build). The code and the checks have no change;
 //   3. opens the build in Chrome, at the size of a desktop screen and at the size of a phone screen, and examines:
-//        - the control for the language shows in the two modes, and it has the two languages;
+//        - the control for the language shows in the two modes, and it has the languages of the project and the
+//          temporary language;
 //        - the selection of a language changes the texts of the screen, and the page does not load again;
 //        - the application keeps the route and the mission;
 //        - the browser keeps the selection for the next visit;
@@ -151,8 +152,12 @@ const libraryTexts = ['react', 'react-dom', 'scheduler', 'three', 'zustand'].fla
   const p = json(join(ROOT, 'node_modules', name, 'package.json'));
   return [name, String(p.license)];
 });
+/** Names of the languages in the control, in the order of the application (code): the languages of the project and the temporary language. */
+const LANGUAGE_NAMES = [...readdirSync(join(ROOT, 'src/i18n/locales')).filter((d) => d !== CODE && existsSync(join(ROOT, 'src/i18n/locales', d, '00-meta.json')))
+  .map((d) => json(join(ROOT, 'src/i18n/locales', d, '00-meta.json')).meta), { code: CODE, name: NAME }]
+  .sort((a, b) => a.code.localeCompare(b.code)).map((m) => m.name);
 const KNOWN = {
-  language: ['English', NAME],
+  language: LANGUAGE_NAMES,
   user: [MISSION_NAME],
   about: aboutTexts,
   reference: referenceTexts,
@@ -181,8 +186,8 @@ for (const signal of ['SIGINT', 'SIGTERM']) process.on(signal, () => { cleanup()
 try {
   const texts = makeLanguage();
   console.log(`temporary language: ${texts} texts with marks, without ${LEFT_OUT}`);
-  try { execFileSync('npx', ['vitest', 'run', 'tests/i18n.test.ts'], { cwd: ROOT, stdio: 'pipe' }); console.log('tests/i18n.test.ts: passed with the two languages'); }
-  catch (e) { fail('the automatic checks of the texts do not pass with the two languages: ' + String(e.stdout ?? e).split('\n').filter((s) => /FAIL|Error|expected/.test(s)).slice(0, 6).join(' | ')); }
+  try { execFileSync('npx', ['vitest', 'run', 'tests/i18n.test.ts'], { cwd: ROOT, stdio: 'pipe' }); console.log('tests/i18n.test.ts: passed with the temporary language'); }
+  catch (e) { fail('the automatic checks of the texts do not pass with the temporary language: ' + String(e.stdout ?? e).split('\n').filter((s) => /FAIL|Error|expected/.test(s)).slice(0, 6).join(' | ')); }
   execFileSync('npx', ['vite', 'build', '--outDir', OUT, '--emptyOutDir', '--logLevel', 'error'], { cwd: ROOT, stdio: 'inherit' });
   // The temporary language is in the build: the directory in src/ is not necessary for the checks.
   rmSync(ZZ, { recursive: true });
@@ -226,7 +231,7 @@ try {
     if (await control.count() !== 1) { fail(`${size}: the control for the language does not show`); await context.close(); continue; }
     if (!(await control.isVisible())) fail(`${size}: the control for the language is not visible`);
     const names = await control.locator('option').allTextContents();
-    if (JSON.stringify(names) !== JSON.stringify(['English', NAME])) fail(`${size}: the languages of the control are ${JSON.stringify(names)}`);
+    if (JSON.stringify(names) !== JSON.stringify(LANGUAGE_NAMES)) fail(`${size}: the languages of the control are ${JSON.stringify(names)}, not ${JSON.stringify(LANGUAGE_NAMES)}`);
     if (await lang(page) !== 'en') fail(`${size}: the first language is not English`);
     if ((await pageText(page)).includes(OPEN)) fail(`${size}: the English screen shows a text of the temporary language`);
     if (await overflow(page) > 1) fail(`${size}: with the control for the language, the page is wider than the screen`);

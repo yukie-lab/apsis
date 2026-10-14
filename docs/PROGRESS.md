@@ -24,10 +24,13 @@ Read this file first when the work starts again after a stop.
 | 3D view: bodies, rings, spacecraft models, flight path, automatic camera | `src/render` |
 | About screen: data of the user, rules of the 3D view, sources and licenses | `src/app/About.tsx` |
 | Texts: one directory for each language, glossary, check of the English texts | `src/i18n`, `tools/ste`, `docs/STE_CHECK.md` |
+| Japanese texts of all screens and of the glossary, with a test that each English text has a Japanese text | `src/i18n/locales/ja`, `tests/i18n.test.ts` |
+| Music that the code makes, with a button in the top bar | `src/app/music.ts`, `tests/music.test.ts` |
+| Button on the About page that opens the user manual, and a copy of the manual in `dist/manual/` | `src/app/About.tsx`, `vite.config.ts` |
 | Record of the accuracy checks (the command `npm run report` writes it) | `docs/VALIDATION.md` |
 | Comparison with other tools | `docs/COMPARISON.md` |
 | Pictures of all screens with automatic checks | `tools/shots` |
-| User manual: a page in English and in Japanese with figures, pictures of the screens and four videos with narration and subtitles | `manual`, `tools/manual`, `docs/MANUAL.md` |
+| User manual: a page in English and in Japanese with figures, pictures of the screens in the two languages and four videos with narration and subtitles | `manual`, `tools/manual`, `docs/MANUAL.md` |
 
 ### Parts in work
 
@@ -43,7 +46,7 @@ Do these commands in the project directory.
 | `npm test` | Does all automatic tests and writes the measured values to `src/validation/measured/`. |
 | `npm run report` | Writes `docs/VALIDATION.md` from the measured values. |
 | `npm run lint:ste` | Does the check of the English texts. |
-| `npm run check:language` | Does a check of the application with a second language. Do not do it at the same time as a different command of this table. |
+| `npm run check:language` | Does a check of the application with a test language. Do not do it at the same time as a different command of this table. |
 | `npm run build` | Does the type check and writes the application to `dist/`. |
 | `npm run preview` | Starts a local web server for `dist/`. |
 | `npm run shots` | Makes a picture of each screen in `shots/app/` and writes the list of the problems. |

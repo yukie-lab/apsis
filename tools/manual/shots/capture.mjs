@@ -1,19 +1,53 @@
 // Pictures of the screens of the application for the manual and the videos.
 //
-// Use (from the project directory, after npm run build): node tools/manual/shots/capture.mjs [--only <text>]
+// Use (from the project directory, after npm run build):
+//   node tools/manual/shots/capture.mjs [--lang <code>] [--only <text>]
 // The script starts the built application (vite preview, port 5311) and Google Chrome without a window. Each
 // picture is a desktop screen of 1440 x 900 pixels at a device scale of 2. For each picture, the script also
 // writes the boxes of the parts of the screen that the manual marks with numbers (pixels of the picture).
-// Output: tools/manual/.out/shots/<name>.png and <name>.json.
+// --lang: the language of the application in the pictures (default: en). The labels that the steps look for come
+// from the locale files of that language (src/i18n/locales/<code>/).
+// Output: tools/manual/.out/shots/<name>.png and <name>.json (English), tools/manual/.out/shots/<code>/ (other languages).
 // Checks: no console error or warning, no failed request, no request to an other server.
 import { preview } from 'vite';
 import { chromium } from 'playwright-core';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 
 const ROOT = new URL('../../../', import.meta.url).pathname;
-const OUT = new URL('../.out/shots/', import.meta.url).pathname;
+const arg = (name, fallback) => { const k = process.argv.indexOf(name); return k > 0 ? process.argv[k + 1] : fallback; };
+const only = arg('--only', '');
+const LANG = arg('--lang', 'en');
+const OUT = new URL(`../.out/shots/${LANG === 'en' ? '' : LANG + '/'}`, import.meta.url).pathname;
 mkdirSync(OUT, { recursive: true });
-const only = (() => { const k = process.argv.indexOf('--only'); return k > 0 ? process.argv[k + 1] : ''; })();
+
+// ---- Texts of the application in the language of the pictures (the same merge as src/i18n/index.ts) --------------
+const LOCALES = ROOT + 'src/i18n/locales/';
+function merge(into, from) {
+  for (const [key, v] of Object.entries(from)) {
+    const path = key.split('.');
+    let node = into;
+    for (const part of path.slice(0, -1)) node = node[part] && typeof node[part] === 'object' ? node[part] : (node[part] = {});
+    const k = path[path.length - 1];
+    if (v && typeof v === 'object' && !Array.isArray(v)) { if (!node[k] || typeof node[k] !== 'object') node[k] = {}; merge(node[k], v); } else node[k] = v;
+  }
+}
+function localeTexts(code) {
+  if (!existsSync(LOCALES + code)) throw new Error(`No locale files for the language "${code}".`);
+  const text = {};
+  for (const f of readdirSync(LOCALES + code).filter((n) => n.endsWith('.json')).sort()) merge(text, JSON.parse(readFileSync(LOCALES + code + '/' + f, 'utf8')).text ?? {});
+  return text;
+}
+const TEXT = localeTexts(LANG), ENGLISH = localeTexts('en');
+const lookup = (table, key) => { let n = table; for (const p of key.split('.')) n = n && typeof n === 'object' ? n[p] : undefined; return typeof n === 'string' ? n : undefined; };
+/** The text of a key in the language of the pictures (as the application shows it), with the parts in braces. */
+const L = (key, vars = {}) => {
+  let s = lookup(TEXT, key) ?? lookup(ENGLISH, key);
+  if (s === undefined) throw new Error(`No text for the key "${key}".`);
+  for (const [k, v] of Object.entries(vars)) s = s.split(`{${k}}`).join(v);
+  return s;
+};
+/** The text of a key as a regular expression: any text for each part in braces. */
+const LR = (key) => new RegExp(L(key).split(/\{[A-Za-z0-9_]+\}/).map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('.*'));
 const PORT = 5311;
 const BASE = `http://localhost:${PORT}/`;
 const DPR = 2;
@@ -27,10 +61,10 @@ const homeReady = async (page) => {
 };
 const pickChip = (page, text) => page.locator('.xp-chips .chip', { hasText: text }).first().click();
 const stopTime = async (page) => {
-  const stop = page.getByRole('button', { name: 'Stop the time' });
+  const stop = page.getByRole('button', { name: L('common.pause') });
   await stop.first().waitFor({ timeout: 15000 });
   await stop.first().click();
-  await page.getByRole('button', { name: 'Start the time' }).first().waitFor({ timeout: 5000 });
+  await page.getByRole('button', { name: L('common.play') }).first().waitFor({ timeout: 5000 });
 };
 const flyTo = async (page, body) => {
   await homeReady(page);
@@ -42,7 +76,7 @@ const flyTo = async (page, body) => {
 const caption = async (page) => (await page.locator('.xp-caption b').allTextContents()).join(' | ');
 const toEvent = async (page, text) => {
   for (let k = 0; k < 24; k++) {
-    await page.getByRole('button', { name: 'Go to the next event' }).click();
+    await page.getByRole('button', { name: L('explorer.flight.nextEvent') }).click();
     await page.waitForTimeout(500);
     if ((await caption(page)).includes(text)) return;
   }
@@ -50,13 +84,13 @@ const toEvent = async (page, text) => {
 };
 const toEnd = async (page) => {
   for (let k = 0; k < 40 && !(await page.locator('.xp-done').count()); k++) {
-    await page.getByRole('button', { name: 'Go to the next event' }).click();
+    await page.getByRole('button', { name: L('explorer.flight.nextEvent') }).click();
     await page.waitForTimeout(200);
   }
   await page.waitForSelector('.xp-done', { timeout: 5000 });
 };
 const openFamous = async (page, name) => {
-  await page.locator('tr', { hasText: name }).first().getByRole('button', { name: 'Open' }).click();
+  await page.locator('tr', { hasText: name }).first().getByRole('button', { name: L('page.mission.open') }).click();
   await page.waitForTimeout(300);
   await busyDone(page);
   await page.waitForSelector('table.data tr.click', { timeout: 30000 });
@@ -71,51 +105,52 @@ const panel = (page, heading) => page.locator('.panel', { has: page.locator('h2,
 // element: picture of one element only.
 const shots = [
   { name: 'explorer-home', hash: '#/explorer',
-    run: async (page) => { await homeReady(page); await pickChip(page, 'Mars'); await page.waitForSelector('.xp-card'); await page.waitForTimeout(3500); },
+    run: async (page) => { await homeReady(page); await pickChip(page, L('body.MARS')); await page.waitForSelector('.xp-card'); await page.waitForTimeout(3500); },
     boxes: (page) => ({
-      mode: page.locator('.top .mode'), about: page.locator('.top').getByRole('button', { name: 'About', exact: true }),
-      time: page.locator('.xp-live'), chips: page.locator('.xp-chips'), mars: page.locator('.xp-chips .chip', { hasText: 'Mars' }).first(),
+      mode: page.locator('.top .mode'), about: page.locator('.top .about-button'),
+      language: page.locator('.top > label.context'), music: page.locator('.top .topicon'),
+      time: page.locator('.xp-live'), chips: page.locator('.xp-chips'), mars: page.locator('.xp-chips .chip', { hasText: L('body.MARS') }).first(),
       tabs: page.locator('.xp-tabs'), card: page.locator('.xp-card'),
-      goal: page.locator('.xp-card').getByRole('button', { name: 'Do a flyby' }), more: page.locator('.xp-card details summary'),
-      launch: page.locator('.xp-card .btn.primary'), scale: page.getByText('True scale').first(),
+      goal: page.locator('.xp-card').getByRole('button', { name: L('explorer.goal.flyby') }), more: page.locator('.xp-card details summary'),
+      launch: page.locator('.xp-card .btn.primary'), scale: page.getByText(L('scene.trueScale')).first(),
     }) },
   { name: 'explorer-options', hash: '#/explorer',
-    run: async (page) => { await homeReady(page); await pickChip(page, 'Saturn'); await page.waitForSelector('.xp-card'); await page.locator('.xp-card details summary').click(); await page.waitForTimeout(3500); },
+    run: async (page) => { await homeReady(page); await pickChip(page, L('body.SATURN')); await page.waitForSelector('.xp-card'); await page.locator('.xp-card details summary').click(); await page.waitForTimeout(3500); },
     boxes: (page) => ({
-      goals: [page.locator('.xp-card').getByRole('button', { name: 'Do a flyby' }), page.locator('.xp-card').getByRole('button', { name: 'Go into the atmosphere' })],
-      style: [page.locator('.xp-card').getByRole('button', { name: 'Minimum propellant' }), page.locator('.xp-card').getByRole('button', { name: 'Short flight time' })],
-      date: page.locator('.xp-card .xp-field', { hasText: 'Earliest launch date' }), model: page.locator('.xp-card .xp-field', { hasText: 'Spacecraft model' }),
+      goals: [page.locator('.xp-card').getByRole('button', { name: L('explorer.goal.flyby') }), page.locator('.xp-card').getByRole('button', { name: L('explorer.goal.entry') })],
+      style: [page.locator('.xp-card').getByRole('button', { name: L('explorer.style.efficient') }), page.locator('.xp-card').getByRole('button', { name: L('explorer.style.fast') })],
+      date: page.locator('.xp-card .xp-field', { hasText: L('explorer.after') }), model: page.locator('.xp-card .xp-field', { hasText: L('explorer.model') }),
       launch: page.locator('.xp-card .btn.primary'),
     }) },
   { name: 'explorer-flight', hash: '#/explorer',
-    run: async (page) => { await flyTo(page, 'Mars'); await toEvent(page, 'Closest approach to Mars'); await page.waitForTimeout(4000); },
+    run: async (page) => { await flyTo(page, L('body.MARS')); await toEvent(page, L('explorer.flight.event.periapsis', { body: L('body.MARS') })); await page.waitForTimeout(4000); },
     boxes: (page) => ({
-      back: page.locator('.xp-top button').first(), title: page.locator('.xp-title'), numbers: page.getByRole('button', { name: 'Show the numbers' }),
+      back: page.locator('.xp-top button').first(), title: page.locator('.xp-title'), numbers: page.getByRole('button', { name: L('explorer.flight.numbers') }),
       views: page.locator('.xp-views'), data: page.locator('.xp-data'), caption: page.locator('.xp-caption'),
-      buttons: [page.getByRole('button', { name: 'Go to the event before this time' }).first(), page.getByRole('button', { name: 'Go to the next event' }).first()],
+      buttons: [page.getByRole('button', { name: L('explorer.flight.prevEvent') }).first(), page.getByRole('button', { name: L('explorer.flight.nextEvent') }).first()],
       timeline: page.locator('.transport .timeline'), rate: page.locator('.transport select'), note: page.locator('.scene-note-line'),
     }) },
   { name: 'explorer-notes', hash: '#/explorer',
     run: async (page) => {
-      await flyTo(page, 'Mars'); await toEvent(page, 'Closest approach to Mars'); await page.waitForTimeout(5000);
+      await flyTo(page, L('body.MARS')); await toEvent(page, L('explorer.flight.event.periapsis', { body: L('body.MARS') })); await page.waitForTimeout(5000);
       await page.locator('.scene-note-line').click(); await page.waitForSelector('.scene-note-text'); await page.waitForTimeout(500);
     },
     boxes: (page) => ({ notes: page.locator('.scene-note-text') }) },
   { name: 'explorer-done', hash: '#/explorer',
-    run: async (page) => { await flyTo(page, 'Mars'); await toEnd(page); await page.waitForTimeout(4000); },
+    run: async (page) => { await flyTo(page, L('body.MARS')); await toEnd(page); await page.waitForTimeout(4000); },
     boxes: (page) => ({ summary: page.locator('.xp-done') }) },
   { name: 'explorer-famous', hash: '#/explorer/famous',
-    run: async (page) => { await homeReady(page); await pickChip(page, 'Voyager 2'); await page.waitForSelector('.xp-card'); await page.waitForTimeout(3500); },
+    run: async (page) => { await homeReady(page); await pickChip(page, L('spacecraft.voyager2')); await page.waitForSelector('.xp-card'); await page.waitForTimeout(3500); },
     boxes: (page) => ({ chips: page.locator('.xp-chips'), card: page.locator('.xp-card'), fly: page.locator('.xp-card .btn.primary'), tabs: page.locator('.xp-tabs') }) },
   { name: 'explorer-voyager2', hash: '#/explorer/famous',
     run: async (page) => {
-      await homeReady(page); await pickChip(page, 'Voyager 2'); await page.locator('.xp-card .btn.primary').click();
+      await homeReady(page); await pickChip(page, L('spacecraft.voyager2')); await page.locator('.xp-card .btn.primary').click();
       await page.waitForSelector('.xp-flight', { timeout: 300000 }); await stopTime(page);
-      await toEvent(page, 'Closest approach to Jupiter'); await page.waitForTimeout(6000);
+      await toEvent(page, L('explorer.flight.event.periapsis', { body: L('body.JUPITER') })); await page.waitForTimeout(6000);
     },
     boxes: (page) => ({ caption: page.locator('.xp-caption'), data: page.locator('.xp-data') }) },
   { name: 'expert-mission', hash: '#/expert/mission',
-    run: async (page) => { await openFamous(page, 'Voyager 2'); await page.waitForTimeout(4000); },
+    run: async (page) => { await openFamous(page, L('spacecraft.voyager2')); await page.waitForTimeout(4000); },
     boxes: (page) => ({
       mode: page.locator('.top .mode'), context: page.locator('.top .context'), nav: page.locator('.nav'),
       mission: page.locator('.missionbox').first(), view: page.locator('.view3d.inpanel'), status: page.locator('.statusbar'),
@@ -123,63 +158,63 @@ const shots = [
   { name: 'expert-mission-start', hash: '#/expert/mission', run: async (page) => { await page.waitForTimeout(1500); },
     boxes: (page) => ({ famous: page.locator('table.data').first() }) },
   { name: 'expert-mission-compare', hash: '#/expert/mission',
-    run: async (page) => { await openFamous(page, 'Voyager 2'); await grow(page); await page.waitForTimeout(800); },
-    element: (page) => panel(page, 'Comparison with the actual flight') },
+    run: async (page) => { await openFamous(page, L('spacecraft.voyager2')); await grow(page); await page.waitForTimeout(800); },
+    element: (page) => panel(page, L('basis.flight.real.title')) },
   { name: 'expert-ephemeris', hash: '#/expert/ephemeris', run: async (page) => { await page.waitForTimeout(2500); },
     boxes: (page) => ({ source: page.locator('button.src').first() }) },
   { name: 'expert-source', hash: '#/expert/ephemeris',
     run: async (page) => {
       await page.waitForTimeout(2500);
-      await panel(page, 'State of').locator('button.src').first().click(); await page.waitForSelector('.pop'); await page.waitForTimeout(600);
+      await panel(page, LR('page.ephemeris.state')).locator('button.src').first().click(); await page.waitForSelector('.pop'); await page.waitForTimeout(600);
     },
-    boxes: (page) => ({ button: panel(page, 'State of').locator('button.src').first(), pop: page.locator('.pop') }) },
+    boxes: (page) => ({ button: panel(page, LR('page.ephemeris.state')).locator('button.src').first(), pop: page.locator('.pop') }) },
   { name: 'expert-transfer', hash: '#/expert/transfer', full: true,
-    run: async (page) => { await page.getByRole('button', { name: 'Find the best dates' }).click(); await page.waitForTimeout(300); await busyDone(page); await page.waitForTimeout(800); },
+    run: async (page) => { await page.getByRole('button', { name: L('page.transfer.findBest') }).click(); await page.waitForTimeout(300); await busyDone(page); await page.waitForTimeout(800); },
     boxes: (page) => ({
-      bodies: panel(page, 'Bodies and dates'), find: page.getByRole('button', { name: 'Find the best dates' }), budget: panel(page, 'Velocity budget'),
-      top: panel(page, 'Top view'), legs: panel(page, 'Legs'), hohmann: panel(page, 'Hohmann'), make: page.getByRole('button', { name: 'Make a mission from these dates' }),
+      bodies: panel(page, L('page.transfer.input')), find: page.getByRole('button', { name: L('page.transfer.findBest') }), budget: panel(page, L('plan.budget')),
+      top: panel(page, L('page.transfer.plot')), legs: panel(page, L('plan.legs')), hohmann: panel(page, L('page.transfer.hohmann')), make: page.getByRole('button', { name: L('page.transfer.makeMission') }),
     }) },
   { name: 'expert-windows', hash: '#/expert/windows', full: true,
     run: async (page) => { await page.waitForSelector('canvas.map', { timeout: 60000 }); await busyDone(page); await page.waitForTimeout(800); },
     boxes: (page) => ({
-      ranges: panel(page, 'Bodies and date ranges'), map: page.locator('canvas.map'), actual: panel(page, 'Actual missions'),
-      minimum: panel(page, 'Dates with the minimum'), open: page.getByRole('button', { name: 'Open these dates in the Transfer screen' }),
+      ranges: panel(page, L('page.windows.input')), map: page.locator('canvas.map'), actual: panel(page, L('page.windows.examples')),
+      minimum: panel(page, L('page.windows.best')), open: page.getByRole('button', { name: L('page.windows.toTransfer') }),
     }) },
   { name: 'expert-tour', hash: '#/expert/mission', full: true,
-    run: async (page) => { await openFamous(page, 'Voyager 2'); await expertPage(page, 'Flyby tour'); await page.waitForSelector('canvas.tiss'); await page.waitForTimeout(1500); },
-    boxes: (page) => ({ sequence: panel(page, 'Sequence of bodies'), legs: panel(page, 'Legs'), tiss: page.locator('canvas.tiss'), optimizer: panel(page, 'Optimizer') }) },
+    run: async (page) => { await openFamous(page, L('spacecraft.voyager2')); await expertPage(page, L('nav.tour')); await page.waitForSelector('canvas.tiss'); await page.waitForTimeout(1500); },
+    boxes: (page) => ({ sequence: panel(page, L('page.tour.sequence')), legs: panel(page, L('plan.legs')), tiss: page.locator('canvas.tiss'), optimizer: panel(page, L('page.tour.optimizer')) }) },
   { name: 'expert-maneuvers', hash: '#/expert/mission', full: true,
     run: async (page) => {
-      await openFamous(page, 'Cassini'); await expertPage(page, 'Maneuvers'); await page.waitForSelector('table.inputs');
+      await openFamous(page, L('spacecraft.cassini')); await expertPage(page, L('nav.maneuvers')); await page.waitForSelector('table.inputs');
       await page.locator('table.inputs tbody tr').first().locator('button').first().click(); await page.waitForTimeout(1500);
     },
     boxes: (page) => ({ list: page.locator('table.inputs') }) },
   { name: 'expert-propagation-earth', hash: '#/expert/propagation', full: true,
     run: async (page) => {
       await page.locator('.context select').nth(2).selectOption('EARTH');
-      await page.getByRole('button', { name: /Set example values/ }).click();
-      await page.getByRole('button', { name: 'Orbit elements', exact: true }).first().click();
-      await page.getByRole('button', { name: 'Calculate the flight' }).click();
+      await page.getByRole('button', { name: LR('page.propagation.example') }).click();
+      await page.getByRole('button', { name: L('page.propagation.elements'), exact: true }).first().click();
+      await page.getByRole('button', { name: L('page.propagation.create') }).click();
       await page.waitForTimeout(300); await busyDone(page);
-      await page.getByRole('button', { name: 'Do the comparison' }).click();
+      await page.getByRole('button', { name: L('page.propagation.studyRun') }).click();
       await page.waitForTimeout(300); await busyDone(page);
       await page.waitForSelector('canvas.wide', { timeout: 30000 }); await page.waitForTimeout(800);
     },
     boxes: (page) => ({
-      compare: page.locator('canvas.wide').first(), start: panel(page, 'Start state'), force: panel(page, 'Force model'),
-      top: panel(page, 'Top view of the flight'), integration: panel(page, 'Integration'), effect: panel(page, 'Effect of each force'),
-      error: panel(page, 'Numerical error'),
+      compare: page.locator('canvas.wide').first(), start: panel(page, L('page.propagation.start')), force: panel(page, L('page.propagation.model')),
+      top: panel(page, L('page.propagation.plot')), integration: panel(page, L('page.propagation.integration')), effect: panel(page, L('page.propagation.study')),
+      error: panel(page, L('page.propagation.tolerance_')),
     }) },
   { name: 'expert-files', hash: '#/expert/mission', full: true,
-    run: async (page) => { await openFamous(page, 'Voyager 2'); await expertPage(page, 'Files'); await page.waitForSelector('pre.filetext'); await page.waitForTimeout(800); },
-    boxes: (page) => ({ write: page.getByRole('button', { name: 'Write the file' }), text: page.locator('pre.filetext') }) },
+    run: async (page) => { await openFamous(page, L('spacecraft.voyager2')); await expertPage(page, L('nav.files')); await page.waitForSelector('pre.filetext'); await page.waitForTimeout(800); },
+    boxes: (page) => ({ write: page.getByRole('button', { name: L('page.files.writeFile') }), text: page.locator('pre.filetext') }) },
   { name: 'expert-accuracy', hash: '#/expert/accuracy',
     run: async (page) => { await page.click('button.primary'); await page.waitForSelector('.banner.good, .banner.bad', { timeout: 120000 }); await page.waitForTimeout(800); },
     boxes: (page) => ({ banner: page.locator('.banner.good, .banner.bad').first() }) },
   { name: 'expert-glossary', hash: '#/expert/glossary', run: async (page) => { await page.waitForTimeout(1500); } },
   { name: 'about', hash: '#/about', full: true,
     run: async (page) => { await page.waitForSelector('.about-maps article', { timeout: 30000 }); await page.waitForTimeout(1500); },
-    boxes: (page) => ({ remove: page.getByRole('button', { name: 'Remove the stored data' }) }) },
+    boxes: (page) => ({ remove: page.getByRole('button', { name: L('about.privacy.clear') }), manual: page.locator('.about-manual a.btn') }) },
 ];
 
 // ---- Capture ------------------------------------------------------------------------------------------------------
@@ -189,6 +224,8 @@ let failed = 0;
 for (const sc of shots) {
   if (only && !sc.name.includes(only)) continue;
   const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: DPR });
+  // The language of the application: the setting that the language control keeps (src/i18n/index.ts).
+  await context.addInitScript((code) => { try { localStorage.setItem('apsis.locale', code); } catch { /* no storage */ } }, LANG);
   const page = await context.newPage();
   const problems = [];
   page.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') problems.push(`${m.type()}: ${m.text()}`); });

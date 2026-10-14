@@ -73,6 +73,7 @@ for (const size of sizes) {
       out.marksOut = [];
       for (const wrap of document.querySelectorAll('.shot .shotwrap')) {
         const w = wrap.getBoundingClientRect();
+        if (!w.width) continue; // the copy of the picture for the other language
         const name = wrap.querySelector('img').getAttribute('src');
         const ms = [...wrap.querySelectorAll('.badge')].map((m) => { const r = m.getBoundingClientRect(); return { n: m.textContent, r, x: r.left + r.width / 2, y: r.top + r.height / 2, s: r.width }; });
         for (const m of ms) if (m.r.left < w.left - 1 || m.r.top < w.top - 1 || m.r.right > w.right + 1 || m.r.bottom > w.bottom + 1) out.marksOut.push(`${name} ${m.n}`);
@@ -80,6 +81,11 @@ for (const size of sizes) {
           if (Math.hypot(ms[i].x - ms[j].x, ms[i].y - ms[j].y) < (ms[i].s + ms[j].s) / 2 - 0.5) out.marksOver.push(`${name} ${ms[i].n}/${ms[j].n}`);
         }
       }
+      // Each picture of a screen shows once, in the language of the page (the files of the Japanese pictures end with -ja).
+      out.shotLang = [...document.querySelectorAll('.shot')].filter((s) => {
+        const shown = [...s.querySelectorAll('.shotwrap')].filter((w) => w.getClientRects().length > 0);
+        return shown.length !== 1 || /-ja\.webp$/.test(shown[0].querySelector('img').getAttribute('src')) !== (lang === 'ja');
+      }).map((s) => s.querySelector('img').getAttribute('src'));
       // Links in the page.
       out.badLinks = [...document.querySelectorAll('a[href^="#"]')].map((a) => a.getAttribute('href').slice(1)).filter((id) => id && !document.getElementById(id));
       // Videos and subtitles.
@@ -122,7 +128,7 @@ for (const size of sizes) {
       const d = document.getElementById('zoom');
       const img = d.querySelector('.zbody img');
       if (img) await img.decode().catch(() => null);
-      return { open: d.open, picture: img ? img.naturalWidth : 0, title: d.querySelector('.ztitle').textContent.trim(), buttons: d.querySelectorAll('.ztitle button').length, marks: d.querySelectorAll('.zbody .badge').length };
+      return { open: d.open, picture: img ? img.naturalWidth : 0, src: img ? img.getAttribute('src') : '', title: d.querySelector('.ztitle').textContent.trim(), buttons: d.querySelectorAll('.ztitle button').length, marks: d.querySelectorAll('.zbody .badge').length };
     });
     await page.locator('#zoom .zclose').click();
     zoom.closed = await page.evaluate(() => !document.getElementById('zoom').open);
@@ -161,6 +167,8 @@ for (const size of sizes) {
     if (result.marksOver.length) p.push('marks that cover other marks: ' + result.marksOver.join(', '));
     if (result.marksOut.length) p.push('marks that are not fully in the picture: ' + result.marksOut.join(', '));
     if (!zoom.open || !zoom.picture || !zoom.title || zoom.buttons || !zoom.marks || !zoom.closed) p.push('the full picture does not operate: ' + JSON.stringify(zoom));
+    if (/-ja\.webp$/.test(zoom.src) !== (lang === 'ja')) p.push(`the full picture is not in the language of the page: ${zoom.src}`);
+    if (result.shotLang.length) p.push('pictures of screens that do not show once in the language of the page: ' + result.shotLang.join(', '));
     for (const vi of result.videos) {
       if (vi.error || !(vi.duration > 0)) p.push(`video ${vi.id}: it does not load (${vi.error})`);
       if (vi.showing.join(',') !== lang) p.push(`video ${vi.id}: the subtitles that show are "${vi.showing}", not "${lang}"`);

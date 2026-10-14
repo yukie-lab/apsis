@@ -167,7 +167,7 @@
     {
       "category": "it", "group": "Information technology abbreviations and names", "case": true, "plural": false,
       "items": ["API", "URL", "XML", "JSON", "CSV", "ASCII", "KVN", "SHA-256", "ID", "3D", "telnet", "Node.js", "npm", "WebGL", "HTML", "CSS", "PDF", "PNG", "JPEG", "UTF-8", "printable ASCII", "AI", "Markdown",
-        "TypeScript", "JavaScript", "Web Worker", "Python", "OpenGL", "TIFF", "OpenEXR", "sRGB", "JPEG quality", "GPU"]
+        "TypeScript", "JavaScript", "Web Worker", "Web Audio", "Python", "OpenGL", "TIFF", "OpenEXR", "sRGB", "JPEG quality", "GPU"]
     },
     {
       "category": "it", "group": "Names of programs, services and data products", "case": true, "plural": false,
@@ -178,6 +178,10 @@
     {
       "category": "it", "group": "Terms of the user manual (manual/index.html): videos, subtitles and speech (nouns)",
       "items": ["video", "subtitle", "narration", "voice", "speech", "speech model", "speech recognition", "video player", "player", "menu", "internet"]
+    },
+    {
+      "category": "system", "group": "Functions of the application: the music that the browser makes (src/app/music.ts)",
+      "items": ["music", "chord", "bell", "reverb", "A minor scale", "pentatonic scale"]
     },
     {
       "category": "it", "group": "Names of the programs, models, fonts and formats that make the user manual", "case": true, "plural": false,
@@ -221,7 +225,7 @@
     {
       "category": "document", "group": "Names of documents, standards and languages", "case": true, "plural": false,
       "items": ["ASD-STE100", "Simplified Technical English", "STE", "English", "Orbit Data Messages", "Technical Corrigendum", "Editorial Change", "NTRS", "SANA registry", "Orbit Ephemeris Message", "Orbit Parameter Message",
-        "Japanese", "CC BY 4.0", "Apache License", "JPL Image Use Policy", "Cassini Quick Facts", "Saturnian Rings Fact Sheet", "Uranian Rings Fact Sheet",
+        "Japanese", "kana", "kanji", "CC BY 4.0", "Apache License", "JPL Image Use Policy", "Cassini Quick Facts", "Saturnian Rings Fact Sheet", "Uranian Rings Fact Sheet",
         { "name": "American", "pos": "adj" }, { "name": "Latin", "pos": "adj" }]
     }
   ],

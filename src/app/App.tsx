@@ -1,10 +1,11 @@
 /** Root of the application: data load, top bar, the two modes, messages. */
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState, useSyncExternalStore } from 'react';
 import { useApp, nowEt } from './store';
 import { loadSystem, system } from './system';
 import { engine } from './engine';
 import { clock } from './clock';
 import { rememberPage, switchMode } from './nav';
+import { music } from './music';
 import { t, useLocale, LOCALES, getLocale, setLocale } from '../i18n';
 import { TIME_SCALES, type TimeScale } from '../engine/time';
 import { FRAMES, type FrameId } from '../engine/frames';
@@ -12,13 +13,25 @@ import { BODIES } from '../engine/bodies';
 import { BasisPopover } from '../ui/Val';
 import { ConfirmDialog } from '../ui/Confirm';
 import { BodySelect, Select } from '../ui/controls';
-import { Logo } from '../ui/icons';
+import { Logo, IconInfo, IconSound, IconSoundOff } from '../ui/icons';
 import { BusyContent } from '../ui/Busy';
 import type { DistanceUnit } from './format';
 
 const ExpertApp = lazy(() => import('../expert/ExpertApp'));
 const ExplorerApp = lazy(() => import('../explorer/ExplorerApp'));
 const About = lazy(() => import('./About'));
+
+/** The music button: it starts and stops the music of the application (src/app/music.ts). */
+function MusicButton() {
+  const on = useSyncExternalStore((f) => music.subscribe(f), () => music.isOn());
+  if (!music.available()) return null;
+  const action = t(on ? 'app.musicStop' : 'app.musicStart');
+  return (
+    <button type="button" className={'btn ghost small topicon' + (on ? ' on' : '')} aria-pressed={on} aria-label={t('app.music')} title={action} onClick={() => music.toggle()}>
+      {on ? <IconSound /> : <IconSoundOff />}
+    </button>
+  );
+}
 
 function TopBar() {
   const route = useApp((s) => s.route);
@@ -55,7 +68,8 @@ function TopBar() {
           <Select value={getLocale()} onChange={setLocale} options={LOCALES.map((l) => ({ value: l.code, label: l.name }))} />
         </label>
       )}
-      <button type="button" className={'btn ghost small' + (route.page === 'about' ? ' on' : '')} onClick={() => go({ mode: route.mode, page: 'about' })}>{t('nav.about')}</button>
+      <MusicButton />
+      <button type="button" className={'btn ghost small about-button' + (route.page === 'about' ? ' on' : '')} aria-label={t('nav.about')} onClick={() => go({ mode: route.mode, page: 'about' })}><IconInfo /><span className="label">{t('nav.about')}</span></button>
     </header>
   );
 }

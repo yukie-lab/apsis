@@ -124,7 +124,7 @@ export function quickFlight(Q, P) {
   b += tag(X(m) + 12, Y(m) + 18, L(`Mars at the arrival: ${da.en}`, `到着時の火星: ${da.ja}`), { size: 13, fill: planetColor(P, 'MARS') });
   // Legend.
   const lx = 640;
-  b += line(lx, 70, lx + 34, 70, { stroke: C.craft, width: 3 }) + text(lx + 44, 75, L('flight path (result of the engine)', '飛行経路(エンジンの計算結果)'), { size: 14 });
+  b += line(lx, 70, lx + 34, 70, { stroke: C.craft, width: 3 }) + text(lx + 44, 75, L('flight path (result of the engine)', '飛行経路(計算エンジンの結果)'), { size: 14 });
   b += circle(lx + 17, 100, 3, { fill: C.craft }) + text(lx + 44, 105, L('a point each 30 days', '30 日ごとの点'), { size: 14 });
   b += text(lx, 150, L(`Flight time: ${Math.round(Q.daysToArrival)} days`, `飛行時間: ${Math.round(Q.daysToArrival)} 日`), { size: 14, fill: 'var(--dim)' });
   b += text(lx, 175, L(`Altitude at Mars: ${Q.closest[0].altitudeKm} km`, `火星での高度: ${Q.closest[0].altitudeKm} km`), { size: 14, fill: 'var(--dim)' });
@@ -449,7 +449,7 @@ export function voyagerPath(V2, P) {
   }
   // Scale bar: 10 au.
   b += line(700, 660, 700 + 10 * s, 660, { stroke: 'var(--dim)', width: 1.2 }) + text(700 + 5 * s, 650, '10 au', { size: 12, anchor: 'middle', fill: 'var(--dim)' });
-  b += line(600, 60, 634, 60, { stroke: C.craft, width: 3 }) + text(644, 65, L('Voyager 2 (result of the engine)', 'ボイジャー 2 号(エンジンの計算結果)'), { size: 14 });
+  b += line(600, 60, 634, 60, { stroke: C.craft, width: 3 }) + text(644, 65, L('Voyager 2 (result of the engine)', 'ボイジャー 2 号(計算エンジンの結果)'), { size: 14 });
   b += circle(617, 90, 7, { fill: 'none', stroke: 'var(--fg)', width: 2 }) + text(644, 95, L('flyby: closest approach', 'フライバイ: 最接近'), { size: 14 });
   b += text(600, 125, L('Thin lines: orbits of the planets', '細い線: 惑星の軌道'), { size: 13, fill: 'var(--dim)' });
   b += text(600, 147, L('Top view of the ecliptic plane', '黄道面を上から見た図'), { size: 13, fill: 'var(--dim)' });
@@ -581,7 +581,7 @@ export function browser() {
     return g;
   };
   b += box(30, 60, 270, 170, L('Web server', 'ウェブサーバー'), [L('files of the application', 'アプリのファイル'), L('data files (DE440 and others)', 'データファイル(DE440 など)'), L('maps of the bodies', '天体の地図')], 'var(--dim)');
-  b += box(440, 30, 490, 240, L('Your web browser', 'あなたのウェブブラウザ'), [L('engine: all calculations', 'エンジン: すべての計算'), L('3D view and tables', '3D 表示と表'), L('your missions and settings (storage of the browser)', 'ミッションと設定(ブラウザの保存領域)'), L('files that you read and write', '読み書きするファイル'), L('no account, no cookies', 'アカウントなし、Cookie なし'), L('no record of your operations', '操作の記録なし')], C.green);
+  b += box(440, 30, 490, 240, L('Your web browser', 'あなたのウェブブラウザ'), [L('engine: all calculations', '計算エンジン: すべての計算'), L('3D view and tables', '3D 表示と表'), L('your missions and settings (storage of the browser)', 'ミッションと設定(ブラウザの保存領域)'), L('files that you read and write', '読み書きするファイル'), L('no account, no cookies', 'アカウントなし、Cookie なし'), L('no record of your operations', '操作の記録なし')], C.green);
   b += arrow(305, 120, 432, 120, { stroke: 'var(--fg)', width: 2.5 }) + text(368, 108, L('files', 'ファイル'), { size: 13, anchor: 'middle', fill: 'var(--dim)' });
   b += line(432, 180, 310, 180, { stroke: C.red, width: 2.5, dash: '6 5' }) + `<path d="M310 180L322 173L322 187Z" fill="${C.red}"/>`;
   b += line(361, 170, 381, 190, { stroke: C.red, width: 3 }) + line(381, 170, 361, 190, { stroke: C.red, width: 3 });

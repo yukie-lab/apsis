@@ -52,7 +52,7 @@ const namespaces = new Set([...keys].map((k) => k.split('.')[0]));
 const sources = files(join(ROOT, 'src'), ['.ts', '.tsx']).filter((p) => !p.includes('/i18n/locales/'));
 const rel = (path: string): string => path.slice(ROOT.length);
 
-/** Directories of the other languages. This version of the project has English only: the list is empty. */
+/** Directories of the other languages (this version: Japanese, "ja"). */
 const LOCALES_DIR = join(ROOT, 'src/i18n/locales');
 const otherLanguages = readdirSync(LOCALES_DIR).filter((d) => d !== 'en' && statSync(join(LOCALES_DIR, d)).isDirectory()).sort();
 /** Keys that a language can have when the English files do not have them: its texts for data files and for names. */
@@ -90,6 +90,42 @@ describe('locale files', () => {
       }
     }
     expect(bad).toEqual([]);
+  });
+
+  it('has, in Japanese, each English text and each glossary entry, in a file of the same name', () => {
+    // The Japanese user interface is complete: a text that is only in English is an error of this version.
+    // The English text stays in two keys only: the comments that the application writes into ASCII files (tEnglish).
+    const JA = join(LOCALES_DIR, 'ja');
+    expect(otherLanguages).toContain('ja');
+    const missing: string[] = [];
+    for (const f of localeFiles) {
+      const name = f.path.slice(LOCALE_DIR.length + 1);
+      const ja = JSON.parse(readFileSync(join(JA, name), 'utf8')) as { text?: unknown; glossary?: Record<string, { term?: unknown; definition?: unknown; sort?: unknown }> };
+      const jaTexts = texts(ja.text ?? {}, '', new Map());
+      for (const [key, english] of texts(f.json.text ?? {}, '', new Map())) {
+        const text = jaTexts.get(key);
+        if (text === undefined || !text.trim()) missing.push(`${name}: ${key}`);
+        else if (text === english && !/^page\.files\.comment/.test(key) && /[a-z]{3,} [a-z]{3,}/.test(english)) missing.push(`${name}: ${key} is the English text`);
+      }
+      for (const id of Object.keys(f.json.glossary ?? {})) {
+        const g = ja.glossary?.[id];
+        if (!g || typeof g.term !== 'string' || typeof g.definition !== 'string' || typeof g.sort !== 'string' || !g.sort.trim()) missing.push(`${name}: glossary ${id}`);
+      }
+    }
+    expect(missing).toEqual([]);
+  });
+
+  it('has, in Japanese, the reference of each measured value and the changes of each map', () => {
+    // These English texts are in data files (the test files and public/textures/manifest.json). A language gives them
+    // with its own keys (validation.truth.<id>, about.maps.changeText.<id>).
+    const ja = new Map<string, string>();
+    for (const path of files(join(LOCALES_DIR, 'ja'), ['.json'])) texts((JSON.parse(readFileSync(path, 'utf8')) as { text?: unknown }).text ?? {}, '', ja);
+    const manifest = JSON.parse(readFileSync(join(ROOT, 'public/textures/manifest.json'), 'utf8')) as { textures: { id: string; changes?: string }[] };
+    const missing = [
+      ...MEASUREMENTS.filter((m) => !ja.get('validation.truth.' + m.id.replace(/\./g, '_'))?.trim()).map((m) => `measured value ${m.id}`),
+      ...manifest.textures.filter((m) => m.changes && !ja.get('about.maps.changeText.' + m.id)?.trim()).map((m) => `map ${m.id}`),
+    ];
+    expect(missing).toEqual([]);
   });
 
   it('has no key in two files', () => {

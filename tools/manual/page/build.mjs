@@ -18,7 +18,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync, copyFileSync, readd
 import { execFileSync, spawnSync } from 'node:child_process';
 import * as F from './figures.mjs';
 import { esc, BODY } from './svg.mjs';
-import { content, STORY_JA, MISSION_JA, UI, CREDITS } from './content.mjs';
+import { content, UI, CREDITS } from './content.mjs';
 import { makeValues, fill, date } from '../values.mjs';
 
 const MANUAL = new URL('..', import.meta.url).pathname;
@@ -62,6 +62,53 @@ function findKey(node, key) {
 }
 const howTo = findKey(appText('38-scene.json'), 'howTo');
 if (howTo !== `${UI.turn.en} ${UI.zoomView.en}`) throw new Error(`The text "howTo" of the application changed: change UI.turn and UI.zoomView in content.mjs.\n  application: ${howTo}`);
+
+// All texts of the application in the two languages of the manual (the same merge as src/i18n/index.ts).
+function appTexts(code) {
+  const dir = `${ROOT}src/i18n/locales/${code}/`;
+  const tree = {};
+  const put = (into, from) => {
+    for (const [key, v] of Object.entries(from)) {
+      const path = key.split('.');
+      let node = into;
+      for (const part of path.slice(0, -1)) node = node[part] && typeof node[part] === 'object' ? node[part] : (node[part] = {});
+      const k = path[path.length - 1];
+      if (v && typeof v === 'object' && !Array.isArray(v)) { if (!node[k] || typeof node[k] !== 'object') node[k] = {}; put(node[k], v); } else node[k] = v;
+    }
+  };
+  for (const f of readdirSync(dir).filter((n) => n.endsWith('.json')).sort()) put(tree, readJson(dir + f).text ?? {});
+  const flat = new Map();
+  const walk = (node, prefix) => { for (const [k, v] of Object.entries(node)) { const key = prefix ? `${prefix}.${k}` : k; if (typeof v === 'string') flat.set(key, v); else walk(v, key); } };
+  walk(tree, '');
+  return flat;
+}
+const APP = { en: appTexts('en'), ja: appTexts('ja') };
+const howToJa = APP.ja.get('scene.howTo');
+if (howToJa !== `${UI.turn.ja}${UI.zoomView.ja}`) throw new Error(`The Japanese text "scene.howTo" of the application changed: change UI.turn and UI.zoomView in content.mjs.\n  application: ${howToJa}`);
+const escRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+/**
+ * The Japanese forms of an English text of the application: the Japanese texts of all keys with this English text.
+ * A key with parts in braces ("Launch to {body}") also gives a form: the parts are the Japanese forms of their texts.
+ */
+function appJa(en) {
+  const forms = new Set();
+  for (const [key, v] of APP.en) {
+    if (v === en) { if (APP.ja.has(key)) forms.add(APP.ja.get(key)); continue; }
+    if (!v.includes('{') || !APP.ja.has(key)) continue;
+    const names = [...v.matchAll(/\{(\w+)\}/g)].map((m) => m[1]);
+    const m = new RegExp('^' + v.split(/\{\w+\}/).map(escRe).join('(.+?)') + '$').exec(en);
+    if (!m) continue;
+    let ja = APP.ja.get(key);
+    names.forEach((n, i) => { ja = ja.split(`{${n}}`).join([...appJa(m[i + 1])][0] ?? m[i + 1]); });
+    forms.add(ja);
+  }
+  return forms;
+}
+/** The Japanese name of a screen of the Expert mode (the texts "nav"). */
+function screenJa(en) {
+  for (const [key, v] of APP.en) if (key.startsWith('nav.') && v === en) return APP.ja.get(key);
+  throw new Error(`"${en}" is not the name of a screen of the application (texts "nav").`);
+}
 const favicon = /<link rel="icon" href="([^"]+)"/.exec(readFileSync(ROOT + 'index.html', 'utf8'))?.[1];
 if (!favicon) throw new Error('No icon in index.html.');
 
@@ -85,11 +132,20 @@ for (const v of VIDEOS) {
 V.werPct = (100 * werErrors / werWords).toFixed(1);
 
 // ---- Text --------------------------------------------------------------------------------------------------------------
-/** Placeholders and labels of a text: the English and the Japanese text must have the same. */
-const marks = (s) => [...s.matchAll(/\{\w+\}|\[\[.+?\]\]|`[^`]+`/g)].map((m) => m[0]).sort().join(' ');
+/** Placeholders and file names of a text: the English and the Japanese text must have the same. */
+const marks = (s) => [...s.matchAll(/\{\w+\}|`[^`]+`/g)].map((m) => m[0]).sort().join(' ');
+const labels = (s) => [...s.matchAll(/\[\[(.+?)\]\]/g)].map((m) => m[1]);
 function checkPair(T, where) {
   if (!T || typeof T.en !== 'string' || typeof T.ja !== 'string' || !T.en.trim() || !T.ja.trim()) throw new Error(`${where}: a text needs "en" and "ja".`);
-  if (marks(T.en) !== marks(T.ja)) throw new Error(`${where}: the English and the Japanese text have different values or labels.\n  en: ${T.en}\n  ja: ${T.ja}`);
+  if (marks(T.en) !== marks(T.ja)) throw new Error(`${where}: the English and the Japanese text have different values or file names.\n  en: ${T.en}\n  ja: ${T.ja}`);
+  // A label is a text of the application: the Japanese text quotes the Japanese text of the same label.
+  const en = labels(T.en), ja = labels(T.ja);
+  if (en.length !== ja.length) throw new Error(`${where}: the English and the Japanese text have a different number of labels.\n  en: ${T.en}\n  ja: ${T.ja}`);
+  for (const l of en) {
+    const forms = appJa(l);
+    if (!forms.size) throw new Error(`${where}: the label [[${l}]] is not a text of the application.`);
+    if (!ja.some((x) => forms.has(x))) throw new Error(`${where}: the Japanese text does not have the label of the application for [[${l}]]: ${[...forms].map((f) => `[[${f}]]`).join(' or ')}.\n  ja: ${T.ja}`);
+  }
 }
 /** Markup of a text: [[label]] is a control of the application, `text` is a file name or a command. */
 const markup = (s) => esc(s).replace(/\[\[(.+?)\]\]/g, '<b class="ui">$1</b>').replace(/`([^`]+)`/g, '<code>$1</code>');
@@ -119,16 +175,18 @@ mkdirSync(DEST + 'video', { recursive: true });
 const made = new Set(); // files of manual/ that this run makes
 const shots = {};
 const pictures = {};
-function picture(name, crop) {
-  const key = name + (crop ? ':' + crop.join(',') : '');
+/** A picture of a screen in a language of the application: English pictures are in .out/shots/, the others in .out/shots/<lang>/. */
+function picture(name, crop, lang = 'en') {
+  const key = `${lang}:${name}` + (crop ? ':' + crop.join(',') : '');
   if (pictures[key]) return pictures[key];
-  const s = (shots[name] ??= readJson(need(`${OUT}shots/${name}.json`, 'npm run manual:shots')));
+  const dir = `${OUT}shots/${lang === 'en' ? '' : lang + '/'}`;
+  const s = (shots[`${lang}:${name}`] ??= readJson(need(`${dir}${name}.json`, lang === 'en' ? 'npm run manual:shots' : `node tools/manual/shots/capture.mjs --lang ${lang}`)));
   const [x, y, w, h] = crop ?? [0, 0, s.width, s.height];
-  if (x < 0 || y < 0 || x + w > s.width || y + h > s.height) throw new Error(`${name}: the crop ${crop} is not in the picture (${s.width} x ${s.height}).`);
+  if (x < 0 || y < 0 || x + w > s.width || y + h > s.height) throw new Error(`${name} (${lang}): the crop ${crop} is not in the picture (${s.width} x ${s.height}).`);
   const outW = Math.min(PICTURE_WIDTH, w), outH = Math.round((h * outW) / w);
-  const file = `img/${name}${crop ? `-${x}-${y}` : ''}.webp`;
+  const file = `img/${name}${crop ? `-${x}-${y}` : ''}${lang === 'en' ? '' : '-' + lang}.webp`;
   if (!(FAST && existsSync(DEST + file))) {
-    execFileSync('cwebp', ['-quiet', '-q', '86', '-m', '6', '-sharp_yuv', '-metadata', 'none', '-crop', x, y, w, h, '-resize', outW, outH, `${OUT}shots/${s.file}`, '-o', DEST + file].map(String));
+    execFileSync('cwebp', ['-quiet', '-q', '86', '-m', '6', '-sharp_yuv', '-metadata', 'none', '-crop', x, y, w, h, '-resize', outW, outH, `${dir}${s.file}`, '-o', DEST + file].map(String));
   }
   made.add(file);
   return (pictures[key] = { file, w: outW, h: outH, crop: [x, y, w, h], shot: s });
@@ -215,26 +273,30 @@ function videoBlock(v) {
 
 const ZOOM_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6"/></svg>';
 function shotBlock(b) {
-  const pic = picture(b.shot, b.crop);
-  const [cx, cy, cw, ch] = pic.crop;
   const pct = (v, d) => +((100 * v) / d).toFixed(3) + '%';
-  let overlay = '', legend = '';
-  (b.marks ?? []).forEach(([name, T, at], k) => {
-    const box = pic.shot.boxes?.[name];
-    if (!box) throw new Error(`${b.shot}: no box "${name}" in the picture data.`);
-    const [bx, by, bw, bh] = box;
-    const x0 = Math.max(bx, cx), y0 = Math.max(by, cy), x1 = Math.min(bx + bw, cx + cw), y1 = Math.min(by + bh, cy + ch);
-    if (x1 <= x0 || y1 <= y0 || (x1 - x0) * (y1 - y0) < 0.5 * bw * bh) throw new Error(`${b.shot}: the box "${name}" is not in the crop.`);
-    const n = k + 1;
-    overlay += `<span class="box" data-mark="${n}" style="left:${pct(x0 - cx, cw)};top:${pct(y0 - cy, ch)};width:${pct(x1 - x0, cw)};height:${pct(y1 - y0, ch)}"></span>`;
-    if (at && !['bl', 'tr', 'br'].includes(at)) throw new Error(`${b.shot}: unknown position "${at}" of a number.`);
-    const ax = at === 'tr' || at === 'br' ? x1 : x0, ay = at === 'bl' || at === 'br' ? y1 : y0;
-    overlay += `<span class="badge" data-mark="${n}" style="--x:${pct(ax - cx, cw)};--y:${pct(ay - cy, ch)}" aria-hidden="true">${n}</span>`;
-    legend += `<li data-mark="${n}"><span class="num" aria-hidden="true">${n}</span><span>${bi(T)}</span></li>`;
-  });
   const alt = { en: plain(b.title, 'en'), ja: plain(b.title, 'ja') };
+  // One picture for each language: the screens show the texts of the language of the page.
+  const wraps = LANGS.map((lang) => {
+    const pic = picture(b.shot, b.crop, lang);
+    const [cx, cy, cw, ch] = pic.crop;
+    let overlay = '';
+    (b.marks ?? []).forEach(([name, , at], k) => {
+      const box = pic.shot.boxes?.[name];
+      if (!box) throw new Error(`${b.shot} (${lang}): no box "${name}" in the picture data.`);
+      const [bx, by, bw, bh] = box;
+      const x0 = Math.max(bx, cx), y0 = Math.max(by, cy), x1 = Math.min(bx + bw, cx + cw), y1 = Math.min(by + bh, cy + ch);
+      if (x1 <= x0 || y1 <= y0 || (x1 - x0) * (y1 - y0) < 0.5 * bw * bh) throw new Error(`${b.shot} (${lang}): the box "${name}" is not in the crop.`);
+      const n = k + 1;
+      overlay += `<span class="box" data-mark="${n}" style="left:${pct(x0 - cx, cw)};top:${pct(y0 - cy, ch)};width:${pct(x1 - x0, cw)};height:${pct(y1 - y0, ch)}"></span>`;
+      if (at && !['bl', 'tr', 'br'].includes(at)) throw new Error(`${b.shot}: unknown position "${at}" of a number.`);
+      const ax = at === 'tr' || at === 'br' ? x1 : x0, ay = at === 'bl' || at === 'br' ? y1 : y0;
+      overlay += `<span class="badge" data-mark="${n}" style="--x:${pct(ax - cx, cw)};--y:${pct(ay - cy, ch)}" aria-hidden="true">${n}</span>`;
+    });
+    return `<div class="shotwrap t-${lang}" lang="${lang}"><button type="button" class="pic" data-label-en="${esc(UI.zoom.en)}" data-label-ja="${esc(UI.zoom.ja)}" aria-label="${esc(UI.zoom.en)}"><img src="${pic.file}" width="${pic.w}" height="${pic.h}" loading="lazy" decoding="async" alt="${esc(alt.en)}" data-alt-en="${esc(alt.en)}" data-alt-ja="${esc(alt.ja)}"></button>${overlay}</div>`;
+  }).join('');
+  const legend = (b.marks ?? []).map(([, T], k) => `<li data-mark="${k + 1}"><span class="num" aria-hidden="true">${k + 1}</span><span>${bi(T)}</span></li>`).join('');
   return `<figure class="shot">
-<div class="shotwrap"><button type="button" class="pic" data-label-en="${esc(UI.zoom.en)}" data-label-ja="${esc(UI.zoom.ja)}" aria-label="${esc(UI.zoom.en)}"><img src="${pic.file}" width="${pic.w}" height="${pic.h}" loading="lazy" decoding="async" alt="${esc(alt.en)}" data-alt-en="${esc(alt.en)}" data-alt-ja="${esc(alt.ja)}"></button>${overlay}</div>
+${wraps}
 <figcaption><span class="ptag">${bi(UI.picture)}</span> ${bi(b.title, 'b')}<button type="button" class="zbtn" data-label-en="${esc(UI.zoom.en)}" data-label-ja="${esc(UI.zoom.ja)}" aria-label="${esc(UI.zoom.en)}">${ZOOM_ICON}</button></figcaption>
 ${legend ? `<ol class="legend">${legend}</ol>` : ''}${b.note ? bi(b.note, 'p', 'note') : ''}
 </figure>`;
@@ -249,15 +311,16 @@ function figBlock(b) {
 function missionsBlock() {
   return `<div class="missions">${D.missions.map((m) => {
     const story = explorer.famous.story[m.id];
-    if (!story || !STORY_JA[m.id] || !MISSION_JA[m.id]) throw new Error(`Mission ${m.id}: no story or no Japanese name.`);
+    const storyJa = APP.ja.get(`explorer.famous.story.${m.id}`), nameJa = APP.ja.get(`spacecraft.${m.id}`);
+    if (!story || !storyJa || !nameJa) throw new Error(`Mission ${m.id}: no story or no Japanese name in the texts of the application.`);
     const route = m.route.map((id, k) => {
       if (!BODY[id] || !bodyColor[id]) throw new Error(`Mission ${m.id}: no name or no color for ${id}.`);
       return (k ? '<li class="arr" aria-hidden="true">›</li>' : '') + `<li style="--c:${bodyColor[id]}">${biValue(BODY[id])}</li>`;
     }).join('');
-    return `<article class="mission"><h3>${biValue({ en: m.name, ja: MISSION_JA[m.id] })}</h3>
+    return `<article class="mission"><h3>${biValue({ en: m.name, ja: nameJa })}</h3>
 <p class="mdate">${bi(UI.launchCol)}: ${biValue(date(m.startUtc))}</p>
 <ol class="route" aria-label="${esc(UI.routeCol.en)}" data-label-en="${esc(UI.routeCol.en)}" data-label-ja="${esc(UI.routeCol.ja)}">${route}</ol>
-${bi({ en: story, ja: STORY_JA[m.id] }, 'p')}</article>`;
+${bi({ en: story, ja: storyJa }, 'p')}</article>`;
   }).join('')}</div>`;
 }
 
@@ -282,7 +345,7 @@ function block(b) {
   if (b.steps) return `<ol class="steps">${b.steps.map((t) => `<li>${bi(t)}</li>`).join('')}</ol>`;
   if (b.controls) return `<h3>${bi(UI.controlsTitle)}</h3><ul class="controls"><li>${ICONS.turn}<span>${bi(UI.turn)}</span></li><li>${ICONS.zoom}<span>${bi(UI.zoomView)}</span></li></ul>`;
   if (b.missions) return missionsBlock();
-  if (b.screens) return `<h3>${bi(UI.screensTitle)}</h3><dl class="screens">${b.screens.map(([name, t]) => `<div><dt><b class="ui">${esc(name)}</b></dt><dd>${bi(t)}</dd></div>`).join('')}</dl>`;
+  if (b.screens) return `<h3>${bi(UI.screensTitle)}</h3><dl class="screens">${b.screens.map(([name, t]) => `<div><dt><b class="ui">${biValue({ en: name, ja: screenJa(name) })}</b></dt><dd>${bi(t)}</dd></div>`).join('')}</dl>`;
   if (b.list) return (b.title ? `<h3>${bi(b.title)}</h3>` : '') + `<ul class="bul">${b.list.map((t) => `<li>${bi(t)}</li>`).join('')}</ul>`;
   if (b.downloads) return downloadsBlock();
   if (b.credits) return `<h3>${bi(UI.credits)}</h3><ul class="bul credits">${CREDITS.map((t) => `<li>${bi(t)}</li>`).join('')}</ul>`;

@@ -8,7 +8,7 @@ export default function Glossary() {
   const [filter, setFilter] = useState('');
   const all = useMemo(() => glossary(), []);
   const f = filter.trim().toLowerCase();
-  const list = all.filter((g) => !f || g.term.toLowerCase().includes(f) || g.definition.toLowerCase().includes(f));
+  const list = all.filter((g) => !f || g.term.toLowerCase().includes(f) || g.definition.toLowerCase().includes(f) || (g.sort ?? '').toLowerCase().includes(f));
   return (
     <>
       <PageHead id="glossary" />

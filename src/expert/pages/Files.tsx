@@ -8,7 +8,7 @@ import { useClock } from '../../app/clock';
 import { system } from '../../app/system';
 import { engine, EngineError } from '../../app/engine';
 import { APP_VERSION } from '../../app/version';
-import { t, tEnglish, hasText, bodyName, bodyIn } from '../../i18n';
+import { t, tEnglish, hasText, bodyName, bodyIn, sentences } from '../../i18n';
 import { newFlightMission, missionFromJson, type Mission } from '../../engine/mission';
 import type { Flight } from '../../engine/flight';
 import { FULL_MODEL, type Maneuver, type Trajectory } from '../../engine/propagate';
@@ -50,6 +50,21 @@ const HEADER_CODES = ['horizons.center', 'horizons.frame', 'horizons.units', 'ho
 const num = (text: string, unit = ''): Quantity => ({ text, unit });
 const stem = (name: string): string => name.replace(/\.[^.]*$/, '');
 const slug = (name: string): string => name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+/** Printable ASCII characters only: the writers of files for other programs change each other character to '?'. */
+const isAscii = (s: string): boolean => /^[\x20-\x7e]*$/.test(s);
+/**
+ * Name of the mission in a file for other programs. A name with other characters (for example a default name in
+ * Japanese) becomes the English name of the route, or APSIS for a mission with no plan.
+ */
+function asciiMissionName(mission: Mission): string {
+  const own = mission.name.trim();
+  if (own && isAscii(own)) return own;
+  const nodes = mission.plan?.nodes ?? [];
+  if (nodes.length < 2) return 'APSIS';
+  const english = (id: string): string => (hasText(`body.${id}`) ? tEnglish(`body.${id}`) : id);
+  const route = tEnglish('mission.defaultName', { from: english(nodes[0].body), to: english(nodes[nodes.length - 1].body) });
+  return isAscii(route) ? route : 'APSIS';
+}
 
 interface Problem { code: string; line?: number; detail?: string; lineText?: string }
 
@@ -166,7 +181,7 @@ function ReadPanel() {
   return (
     <section className={'panel droparea' + (over ? ' over' : '')} onDragOver={(e) => { e.preventDefault(); setOver(true); }} onDragLeave={() => setOver(false)} onDrop={onDrop}>
       <header><h2>{t('page.files.read')}</h2></header>
-      <p className="note">{t('page.files.readNote')} {t('page.files.moveNote')}</p>
+      <p className="note">{sentences(t('page.files.readNote'), t('page.files.moveNote'))}</p>
       <div className="row">
         <button type="button" className="btn primary" onClick={() => input.current?.click()}>{t('page.files.select')}</button>
         <input ref={input} type="file" hidden onChange={(e) => { const f = e.target.files?.[0]; e.target.value = ''; if (f) void read(f); }} />
@@ -424,7 +439,7 @@ function ManeuverPanel({ fileIn, table }: { fileIn: FileIn; table: EphemerisTabl
             <button type="button" className="btn primary" disabled={!!busy || n < 2} onClick={make}>{t('page.files.makeMission')}</button>
             {hasFlight && reference !== table && <button type="button" className="btn" onClick={() => setReference(table)}>{t('page.files.compare')}</button>}
           </div>
-          <p className="note">{t('page.files.spanNote')} {t('page.files.makeNote')}{hasFlight && <> {t('page.files.compareNote')}</>}</p>
+          <p className="note">{sentences(t('page.files.spanNote'), t('page.files.makeNote'), hasFlight && t('page.files.compareNote'))}</p>
         </>
       )}
     </Panel>
@@ -564,7 +579,7 @@ function WritePanel() {
   const ready = !!flight && !!trajectory;
   const format = ready ? out.format : 'mission';
   const isTable = format === 'oem' || format === 'stk' || format === 'csv';
-  const name = (out.objectName ?? mission?.name ?? '').trim() || 'APSIS';
+  const name = (out.objectName ?? (mission ? asciiMissionName(mission) : '')).trim() || 'APSIS';
   const center = format === 'stk' && (out.center ?? settings.center) === 'SSB' ? 'SUN' : out.center ?? settings.center;
   const timeScale = format === 'stk' ? 'UTC' : out.timeScale ?? settings.timeScale;
   const frame: FrameId = format === 'csv' ? out.frame ?? settings.frame : 'ICRF';
@@ -593,7 +608,7 @@ function WritePanel() {
       if (format === 'mission') return finish(missionFileText(mission) + '\n');
       if (!flight || !trajectory) return none;
       // The text in a file for other programs is English in all languages of the user interface (ASCII characters only).
-      const comments = [tEnglish('page.files.comment', { app: tEnglish('app.name'), version: APP_VERSION, name: mission.name }), tEnglish('page.files.commentModel', { app: tEnglish('app.name') })];
+      const comments = [tEnglish('page.files.comment', { app: tEnglish('app.name'), version: APP_VERSION, name: asciiMissionName(mission) }), tEnglish('page.files.commentModel', { app: tEnglish('app.name') })];
       const header = { originator: tEnglish('app.name').toUpperCase(), creationEt: nowEt() };
       if (isTable) {
         if (!table.table) return { ...none, problem: table.problem };
@@ -638,7 +653,7 @@ function WritePanel() {
       {format === 'mission' && <p className="note">{t('page.files.missionNote')}</p>}
       {format !== 'mission' && format !== 'gmat' && (
         <div className="grid2">
-          <Field label={t('page.files.objectName')}><TextInput value={out.objectName ?? mission.name} onChange={(v) => set({ objectName: v })} /></Field>
+          <Field label={t('page.files.objectName')} hint={isAscii(name) ? undefined : t('page.files.asciiOnly')}><TextInput value={out.objectName ?? asciiMissionName(mission)} onChange={(v) => set({ objectName: v })} /></Field>
           <Field label={t('page.files.objectId')} hint={format === 'csv' ? undefined : t('page.files.objectIdHint')}><TextInput value={out.objectId} onChange={(v) => set({ objectId: v })} /></Field>
         </div>
       )}
@@ -672,7 +687,7 @@ function WritePanel() {
           <p className="note">{t('page.files.samplingNote')}</p>
         </>
       )}
-      {format === 'opm' && <p className="note">{t('page.files.opmNote')} {t('page.files.opmMassNote', { mass: `${mass(sc.dryMassKg + sc.propellantKg).text} kg`, isp: `${fixed(sc.ispS, 0)} s` })}</p>}
+      {format === 'opm' && <p className="note">{sentences(t('page.files.opmNote'), t('page.files.opmMassNote', { mass: `${mass(sc.dryMassKg + sc.propellantKg).text} kg`, isp: `${fixed(sc.ispS, 0)} s` }))}</p>}
       {format === 'gmat' && (
         <>
           <div className="grid2">

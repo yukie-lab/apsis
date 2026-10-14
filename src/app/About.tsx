@@ -6,10 +6,10 @@ import { useEffect, useState } from 'react';
 import { useApp } from './store';
 import { switchMode } from './nav';
 import { APP_VERSION, LIBRARIES } from './version';
-import { t, hasText, bodyName } from '../i18n';
+import { t, hasText, bodyName, getLocale } from '../i18n';
 import { confirm } from '../ui/Confirm';
 import { Panel } from '../ui/controls';
-import { Logo, IconClose } from '../ui/icons';
+import { Logo, IconClose, IconBook, IconExternal } from '../ui/icons';
 
 /** The fields of an entry of public/textures/manifest.json that this screen shows. */
 interface MapEntry {
@@ -42,6 +42,14 @@ function useMaps(): MapEntry[] | null | 'failed' {
 function changesText(m: MapEntry): string {
   const key = 'about.maps.changeText.' + m.id;
   return hasText(key) ? t(key) : m.changes ?? '';
+}
+
+/** Languages of the user manual (manual/index.html, made by tools/manual/page/build.mjs). */
+const MANUAL_LANGUAGES = ['en', 'ja'];
+/** Address of the user manual. The build puts the directory manual/ next to index.html (vite.config.ts). */
+function manualHref(): string {
+  const lang = getLocale();
+  return import.meta.env.BASE_URL + 'manual/index.html' + (MANUAL_LANGUAGES.includes(lang) ? '?lang=' + lang : '');
 }
 
 const SECTIONS = ['privacy', 'view', 'data', 'maps', 'models', 'software', 'names'] as const;
@@ -114,6 +122,10 @@ export default function About() {
         <button type="button" className="btn icon" aria-label={t('about.close')} title={t('about.close')} onClick={() => switchMode(route.mode)}><IconClose /></button>
       </div>
       <p className="about-intro">{t('about.intro')}</p>
+      <div className="row about-manual">
+        <a className="btn primary" href={manualHref()} target="_blank" rel="noopener noreferrer"><IconBook />{t('about.manual.open')}<IconExternal /></a>
+        <span className="note">{t('about.manual.note')}</span>
+      </div>
       <nav className="about-nav" aria-label={t('about.sections')}>
         {SECTIONS.map((id) => <button key={id} type="button" className="btn small" onClick={() => to(id)}>{t(`about.${id}.title`)}</button>)}
       </nav>
@@ -190,6 +202,7 @@ export default function About() {
           </table></div>
           <div className="row"><a className="btn" href={import.meta.env.BASE_URL + 'licenses.txt'} target="_blank" rel="noopener noreferrer">{t('about.software.texts')}</a></div>
           <p>{t('about.software.fonts')}</p>
+          <p>{t('about.software.music')}</p>
         </Panel>
       </section>
 
