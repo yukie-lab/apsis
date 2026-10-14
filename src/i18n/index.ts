@@ -85,11 +85,21 @@ function lookup(file: LocaleFile | undefined, key: string): string | undefined {
   return typeof node === 'string' ? node : undefined;
 }
 
-/** Text for a key. Missing in the current language: the fallback language. Missing in the two: the key. */
-export function t(key: string, vars?: Record<string, string | number>): string {
-  let s = lookup(table.get(current), key) ?? lookup(table.get(FALLBACK), key) ?? key;
+function fill(text: string, vars?: Record<string, string | number>): string {
+  let s = text;
   if (vars) for (const [k, v] of Object.entries(vars)) s = s.split(`{${k}}`).join(String(v));
   return s;
+}
+/** Text for a key. Missing in the current language: the fallback language. Missing in the two: the key. */
+export function t(key: string, vars?: Record<string, string | number>): string {
+  return fill(lookup(table.get(current), key) ?? lookup(table.get(FALLBACK), key) ?? key, vars);
+}
+/**
+ * Text for a key in English (the fallback language), for all languages of the user interface.
+ * Use: the comments in the files for other programs. These files contain only ASCII characters.
+ */
+export function tEnglish(key: string, vars?: Record<string, string | number>): string {
+  return fill(lookup(table.get(FALLBACK), key) ?? key, vars);
 }
 /** True if a key has a text. */
 export function hasText(key: string): boolean {
@@ -107,6 +117,10 @@ export function bodyName(id: string): string {
 /** Name of a body in a sentence. A language with articles gives the article in the "bodyIn" texts ("the Sun"). */
 export function bodyIn(id: string): string {
   return hasText(`bodyIn.${id}`) ? t(`bodyIn.${id}`) : bodyName(id);
+}
+/** Name of an actual spacecraft or mission. A language can give its own form of the name ("spacecraft" texts). */
+export function craftName(id: string, fallback: string = id): string {
+  return hasText(`spacecraft.${id}`) ? t(`spacecraft.${id}`) : fallback;
 }
 export function glossary(): { id: string; term: string; definition: string }[] {
   const g = (table.get(current) ?? table.get(FALLBACK))!.glossary;

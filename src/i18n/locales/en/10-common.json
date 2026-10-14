@@ -163,6 +163,9 @@
       "pioneer11": "Pioneer 11",
       "ulysses": "Ulysses",
       "mars2020": "Mars 2020",
+      "insight": "InSight",
+      "msl": "Mars Science Laboratory",
+      "phoenix": "Phoenix",
       "messenger": "MESSENGER",
       "rosetta": "Rosetta"
     },

@@ -4,6 +4,7 @@ import { t } from '../i18n';
 import { DAY } from '../engine/time';
 import { duration, q } from '../app/format';
 import { IconPlay, IconPause, IconSkipStart, IconSkipEnd } from './icons';
+import { useNarrow, useShort } from './media';
 
 /** Fixed time rates, simulation seconds for each second. */
 const RATES: { id: string; rate: number }[] = [
@@ -33,20 +34,25 @@ export function eventMarks(events: { et: number; type: string }[]): TransportMar
  * it from the distance to the nearest body: slow near a body, fast in the cruise).
  * marks: events of the flight. They show on the time line, and the two buttons at the sides of the start button
  * then go to the event before and to the next event.
- * compact: a narrow screen. The automatic rate shows in a short form.
+ * On a narrow or a short screen, the automatic rate shows in a short form.
  */
-export function Transport({ et0, et1, auto = true, marks, compact = false, className }: { et0: number; et1: number; auto?: boolean; marks?: TransportMark[]; compact?: boolean; className?: string }) {
+export function Transport({ et0, et1, auto = true, marks, className }: { et0: number; et1: number; auto?: boolean; marks?: TransportMark[]; className?: string }) {
   const { et, playing, rate, autoRate } = useClock(100);
+  const narrow = useNarrow(), short = useShort();
+  const compact = narrow || short;
   const span = et1 - et0;
   const frac = (x: number): number => (span !== 0 ? Math.min(1, Math.max(0, (x - et0) / span)) : 0);
   const value = autoRate && auto ? 'auto' : RATES.find((r) => r.rate === rate)?.id ?? 'custom';
-  // Event before the time of the view (with a margin: a second push goes one more event back) and next event.
-  const margin = Math.abs(span) * 2e-4;
+  // Event before the time of the view and next event. Two events in the same second are one stop.
+  // While the time runs, the button for the event before has a margin of one second of the display: a second push
+  // goes one more event back.
+  const same = 1;
+  const margin = playing ? Math.max(same, 1.2 * Math.abs(rate)) : same;
   const stops = marks ? [et0, ...marks.map((m) => m.et), et1] : [et0, et1];
   const back = (): void => { let to = et0; for (const s of stops) if (s < et - margin) to = s; clock.set(to); };
-  const forward = (): void => { const to = stops.find((s) => s > et + margin) ?? et1; if (to >= et1) clock.play(false); clock.set(to); };
+  const forward = (): void => { const to = stops.find((s) => s > et + same) ?? et1; if (to >= et1) clock.play(false); clock.set(to); };
   return (
-    <div className={'transport' + (className ? ' ' + className : '')}>
+    <div className={'transport' + (className ? ' ' + className : '')} data-cover>
       <button type="button" className="btn icon" aria-label={t(marks ? 'scene.prevEvent' : 'scene.toStart')} title={t(marks ? 'scene.prevEvent' : 'scene.toStart')} onClick={back}><IconSkipStart /></button>
       <button type="button" className="btn icon primary" aria-label={t(playing ? 'scene.pause' : 'scene.play')} title={t(playing ? 'scene.pause' : 'scene.play')} onClick={() => clock.play(!playing)}>
         {playing ? <IconPause /> : <IconPlay />}

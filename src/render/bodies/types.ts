@@ -20,12 +20,21 @@ export interface TextureEntry {
   body: string;
   /** 'color', 'surface', 'night', 'clouds', 'ring', 'stars' and others. */
   role: string;
-  /** Path of the large file, relative to the public directory. */
+  /** Path of the standard file (2048 pixels wide for a map of a body), relative to the public directory. */
   file: string;
-  /** Path of the small file, relative to the public directory. */
+  /** Path of the small file (half the width of the standard file), relative to the public directory. */
   small?: string;
+  /**
+   * Path of the large file (about 4096 pixels wide), relative to the public directory.
+   * Only a map with a large original has it. A body takes it into use when the camera is near (see BodyStats.mapWidth).
+   */
+  large?: string;
+  /** Size of the standard file, pixels. */
   width?: number;
   height?: number;
+  /** Size of the large file, pixels. */
+  largeWidth?: number;
+  largeHeight?: number;
   /** East longitude at the image centre, degrees. null: not known. */
   centerLongitudeDeg?: number | null;
   /** 'global' or 'partial'. */
@@ -113,8 +122,21 @@ export interface BodyStats {
    * for a map that is not ready.
    */
   codeTextures: number;
-  /** Largest number of texture samples for one pixel of the surface. */
+  /**
+   * Largest number of texture samples for one pixel of the surface.
+   * A lookup in a map is one sample where one pixel of the map file covers two screen pixels or less.
+   * It is five samples where a pixel of the map file is larger on the screen (see BodyOptions.magFilter).
+   */
   samplesPerPixel: number;
+  /**
+   * Width in pixels of the widest map file that the surface of the body shows now.
+   * 0: no map is ready, or the body has no map. A ring strip does not count.
+   * The value grows when the body takes a larger file into use, and it goes back when the body goes back to
+   * its first file (see BodyOptions.mapUpgrade).
+   */
+  mapWidth: number;
+  /** Number of larger map files that the body loads now. They are not in use yet. */
+  mapsLoading: number;
 }
 
 export interface BodyVisual {
@@ -145,6 +167,8 @@ export interface BodyVisual {
   /**
    * Short machine-readable notes for the user interface. The list of all notes is in `NOTE_CODES`.
    * The module can add notes until `onLoad` fires (for example 'no-data-south' after it has read the map).
+   * After that, only 'map-edge-repaired' and 'map-pole-repaired' can change: they tell what the loader did to the
+   * map files in use, and the body can change to another file of a map later (see BodyOptions.mapUpgrade).
    */
   notes: string[];
   /**
@@ -152,7 +176,14 @@ export interface BodyVisual {
    * It changes from 'surface' to 'default' if this map does not load (before `onLoad` fires).
    */
   readonly variant: BodyVariant;
-  /** Call each frame, after the caller has set position and quaternion. */
+  /**
+   * Call each frame, after the caller has set position and quaternion, and before the caller renders the scene.
+   * The module reads the camera and the size of the view when the renderer draws the body. `update` then uses
+   * these values of the frame before to select the size of the maps (see BodyOptions.mapUpgrade).
+   * `update` also gives the renderer that drew the body last the next part of a map file that loads. So call it
+   * each frame, also for a body that is not in the view: a body that gets no call keeps the files that it has
+   * (only the cap `maxLargeMaps` can then take back a larger file, for another body).
+   */
   update(p: BodyUpdate): void;
   /** Numbers for a performance report. */
   stats(): BodyStats;
@@ -167,6 +198,78 @@ export interface BodyOptions {
   /** Fires one time: when all maps of the body are ready, or at once (in a microtask) for a body with no map. */
   onLoad?: () => void;
   variant?: BodyVariant;
+  /**
+   * Change to a larger file of a map when the camera is near. Default: true.
+   *
+   * A body starts with the small file (quality 'low') or with the standard file (quality 'high') of each map.
+   * When the renderer draws the body, the module calculates the size of one screen pixel on the ground at the point
+   * below the camera, from the camera and the size of the view of this renderer. If one pixel of the map file in use
+   * is larger than this size, the body loads the next file: the standard file for the quality 'low', the large file
+   * (field `large` of the manifest) for the quality 'high'. The quality 'low' never loads the large file.
+   * The body shows the first file while the larger file loads. The module downloads the larger file with fetch (as
+   * the manifest), the browser decodes it in the background, and the graphics card gets its pixels in parts: one
+   * part in each frame (each call of `update`), so no frame is long.
+   * When the graphics card has all of the larger file, the body changes to it from one frame to the next. The body
+   * keeps the texture of the first file for the way back.
+   * The larger file gets at least the repair of the edge lines that the first file has (the notes
+   * 'map-edge-repaired' and 'map-pole-repaired'). The areas with no data stay the areas that the module found in
+   * the first file.
+   *
+   * The way back: a map goes back to its first file when no view needs the larger file for the time
+   * `mapReturnDelay` without a break. "No need" means: a file with 0.7 times the pixel rows of the first file is
+   * enough for each view, or no renderer draws the body. The change is from one frame to the next, with no download
+   * and no transfer: the graphics card still has the first file. The body then releases the texture and the pixels
+   * of the larger file. After the way back, the body can change to the larger file again in the same way (it
+   * downloads the larger file again, as a rule from the cache of the browser).
+   * The cap `maxLargeMaps` limits the number of larger files of all bodies together. So the memory of the larger
+   * files depends on the bodies that are near the camera now, and it has a limit.
+   *
+   * Memory of a larger file in use: its pixels stay in the memory of the page (4 bytes for each pixel: 33.6 MB for a
+   * file of 4096 x 2048 pixels, 8.4 MB for 2048 x 1024), because the renderer needs them after a loss of the WebGL
+   * context. The graphics card has it with its smaller copies for the filter (44.7 MB and 11.2 MB). The first file
+   * stays as it was before the change. While a larger file loads, the decoded file takes its size once more.
+   * A larger file that does not load changes nothing: the body keeps its first file and does not ask for the larger
+   * file again.
+   * `onLoad` does not wait for the larger files, and it does not fire again.
+   * false: the body keeps the files that it starts with.
+   */
+  mapUpgrade?: boolean;
+  /**
+   * Time in seconds with no need of the larger file after which a map goes back to its first file (see
+   * `mapUpgrade`). Default: 10. Infinity: a map that has changed to its larger file keeps it while the body lives,
+   * unless the cap `maxLargeMaps` takes it back for another body.
+   * The time counts in the calls of `update`. A time between two calls that is longer than 1 second counts as 1 second.
+   */
+  mapReturnDelay?: number;
+  /**
+   * Largest number of maps that use their larger file at one time, for all bodies of the module together (see
+   * `mapUpgrade`). A map that loads its larger file counts. Default: 2. Infinity: no limit.
+   * A value below 1, or a value that is not a number, gives the default. To keep all first files, use
+   * `mapUpgrade: false`.
+   * When a body needs a larger file and the limit is full, a body whose larger files have no need now (the time of
+   * `mapReturnDelay` runs, or no renderer draws it) goes back to its first files at once: the body whose need
+   * stopped first goes first. If each map with a larger file has need now, the new body keeps its first files and
+   * asks again in a later frame. So two bodies that are both near the camera do not take the larger files from each
+   * other.
+   * The maps of one body change together. A body with more maps than the limit (the Earth at the quality 'low' has
+   * three) can use all of them when no other body uses a larger file.
+   * With the default, the larger files take at most about 157 MB more than the first files at the quality 'high'
+   * (two files of 4096 x 2048 pixels: 33.6 MB in the page and 44.7 MB on the graphics card each), and at most about
+   * 59 MB at the quality 'low' (the three maps of the Earth: 8.4 MB and 11.2 MB each), plus the decoded file of each
+   * load that runs.
+   * Each body uses its own value when it asks for a larger file, so give all bodies the same value.
+   */
+  maxLargeMaps?: number;
+  /**
+   * Filter for a map that is larger on the screen than in its file (the camera is very near). Default: 'bicubic'.
+   * 'bilinear': the plain filter of the GPU. Each pixel of the map shows as a diamond, and a thin line of the map
+   * shows as steps.
+   * 'bicubic': a smooth curve through the pixels of the map (the cubic curve of Catmull and Rom), as sharp as
+   * the plain filter. It comes in by degrees where one pixel of the map file covers more than two screen pixels,
+   * and it is complete where a pixel covers six screen pixels or more. There it needs five texture samples where
+   * the plain filter needs one. It changes no pixel where a pixel of the map file covers two screen pixels or less.
+   */
+  magFilter?: 'bicubic' | 'bilinear';
 }
 
 export interface StarfieldOptions {

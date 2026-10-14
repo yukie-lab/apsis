@@ -23,23 +23,31 @@
  *   maps=none              use an empty manifest (all bodies are then made by code)
  *   drop=id,id             remove these texture ids from the manifest (test of the fallbacks)
  *   fail=id,id|all         give these texture ids the address of a file that does not exist (test of a failed download)
+ *   failup=id,id|all       the same, but only for the larger file that a body loads when the camera is near
+ *   upgrade=0              the body keeps the map files that it starts with (BodyOptions.mapUpgrade = false)
+ *   return=<seconds>|never time with no need of the larger file after which a map goes back to its first file
+ *                          (BodyOptions.mapReturnDelay, default 10). Move the camera away with the mouse wheel to see it.
+ *   large=<n>|all          number of maps of all bodies that can use their larger file at one time
+ *                          (BodyOptions.maxLargeMaps, default 2)
+ *   mag=bilinear           the plain filter for a map that is larger on the screen than in its file (BodyOptions.magFilter)
  *   dpr=<n>                pixel ratio of the canvas (default 1)
  *
  * URL query, all bodies in a grid at the same phase:
- *   sheet=1 [quality, phase, lat, lon, variant, bg, maps, drop, fail, fill, labels=0]
+ *   sheet=1 [quality, phase, lat, lon, variant, bg, maps, drop, fail, failup, upgrade, return, large, mag, fill, labels=0]
  *
  * The body has its real orientation in the ICRF axes (bodyAxes of the engine). It is far from the origin of the
  * scene, as in the application. The renderer has the settings of the application: logarithmic depth buffer,
  * ACES filmic tone mapping, exposure 1, sRGB output. The scene has no three.js light.
  *
- * When all maps are ready and three frames are drawn, the page sets `window.__ready = true` and `window.__stats`.
+ * The page sets `window.__ready = true` and `window.__stats` when all maps are ready, no larger map file loads,
+ * and three frames are drawn after that. So a picture of a view from near shows the larger files.
  */
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { BODIES, BODY_LIST } from '../../src/engine/bodies';
 import { bodyAxes } from '../../src/engine/frames';
 import { EMPTY_MANIFEST, createBody, createStarfield, loadManifest } from '../../src/render/bodies/index';
-import type { BodyQuality, BodyVariant, BodyVisual, ShadowCaster, TextureManifest } from '../../src/render/bodies/index';
+import type { BodyOptions, BodyQuality, BodyVariant, BodyVisual, ShadowCaster, TextureManifest } from '../../src/render/bodies/index';
 
 interface BodyReport {
   id: string;
@@ -54,6 +62,8 @@ interface BodyReport {
   mapTextures: number;
   codeTextures: number;
   samplesPerPixel: number;
+  /** Width of the widest map file in use, pixels. */
+  mapWidth: number;
   /** Time of createBody, ms. */
   buildMs: number;
   /** Time from createBody to onLoad, ms. */
@@ -70,6 +80,18 @@ interface Stats {
   glPrograms: number;
   width: number;
   height: number;
+  /**
+   * One body only. Each frame that first showed a map file of a new width: the width, and the time of the frame
+   * with a pixel read-back (ms). The read-back waits for the GPU, so the time has the work of the GPU in it.
+   */
+  mapFrames?: { width: number; ms: number }[];
+  /**
+   * One body only. The longest frame (ms, with a pixel read-back) from the second frame after the first maps were
+   * ready, until the page is ready. A larger map file loads in this time: the value shows if the picture stops.
+   */
+  longestFrameMs?: number;
+  /** One body only. Number of frames from the first frame with the first maps to the first frame with the larger files. */
+  upgradeFrames?: number;
 }
 
 declare global {
@@ -198,19 +220,40 @@ function makeView(q: URLSearchParams, id: string): View {
 
 function editManifest(manifest: TextureManifest, q: URLSearchParams): TextureManifest {
   if (q.get('maps') === 'none') return EMPTY_MANIFEST;
-  const drop = (q.get('drop') ?? '').split(',').filter((s) => s !== '');
-  const fail = (q.get('fail') ?? '').split(',').filter((s) => s !== '');
-  if (drop.length === 0 && fail.length === 0) return manifest;
+  const list = (key: string): string[] => (q.get(key) ?? '').split(',').filter((s) => s !== '');
+  const drop = list('drop');
+  const fail = list('fail');
+  const failUp = list('failup');
+  if (drop.length === 0 && fail.length === 0 && failUp.length === 0) return manifest;
+  const low = q.get('quality') === 'low';
   const textures = manifest.textures
     .filter((e) => !drop.includes(e.id))
     .map((e) => {
-      if (!fail.includes('all') && !fail.includes(e.id)) return e;
-      // The star map stays: a test of the bodies does not need a black sky.
-      if (e.role === 'stars' && !fail.includes(e.id)) return e;
       const gone = `textures/no-such-file-${e.id}.jpg`;
-      return { ...e, file: gone, small: gone };
+      // The star map stays: a test of the bodies does not need a black sky.
+      const hit = (ids: string[]): boolean => ids.includes(e.id) || (ids.includes('all') && e.role !== 'stars');
+      if (hit(fail)) return { ...e, file: gone, small: gone, ...(e.large ? { large: gone } : {}) };
+      if (hit(failUp)) {
+        // The larger file is the standard file for the low quality, and the large file for the high quality.
+        if (low) return e.small ? { ...e, file: gone } : e;
+        return e.large ? { ...e, large: gone } : e;
+      }
+      return e;
     });
   return { ...manifest, textures };
+}
+
+/** Options of the module that the query can change. */
+function moduleOptions(q: URLSearchParams): Pick<BodyOptions, 'mapUpgrade' | 'mapReturnDelay' | 'maxLargeMaps' | 'magFilter'> {
+  const back = q.get('return');
+  const large = q.get('large');
+  return {
+    mapUpgrade: q.get('upgrade') !== '0',
+    // Without the parameter the module uses its default.
+    ...(back !== null ? { mapReturnDelay: back === 'never' ? Infinity : num(q, 'return', 10) } : {}),
+    ...(large !== null ? { maxLargeMaps: large === 'all' ? Infinity : num(q, 'large', 2) } : {}),
+    magFilter: q.get('mag') === 'bilinear' ? 'bilinear' : 'bicubic',
+  };
 }
 
 function makeRenderer(q: URLSearchParams): THREE.WebGLRenderer {
@@ -244,6 +287,7 @@ function report(body: BodyVisual, quality: string, buildMs: number, loadMs: numb
     mapTextures: s.mapTextures,
     codeTextures: s.codeTextures,
     samplesPerPixel: s.samplesPerPixel,
+    mapWidth: s.mapWidth,
     buildMs: Math.round(buildMs * 10) / 10,
     loadMs: Math.round(loadMs),
   };
@@ -287,6 +331,7 @@ async function startSingle(q: URLSearchParams, manifest: TextureManifest, baseUr
     manifest,
     baseUrl,
     variant,
+    ...moduleOptions(q),
     onLoad: () => {
       loadMs = performance.now() - t0;
       pending--;
@@ -371,11 +416,32 @@ async function startSingle(q: URLSearchParams, manifest: TextureManifest, baseUr
     renderer.render(scene, camera);
   };
 
+  const gl = renderer.getContext();
+  const pixel = new Uint8Array(4);
+  const mapFrames: { width: number; ms: number }[] = [];
+  let mapWidth = 0;
+  let longestFrameMs = 0;
+  let framesWithMaps = 0;
+  let upgradeFrames = 0;
   let frames = 0;
   const tick = (): void => {
+    const start = performance.now();
     draw();
-    if (pending === 0 && !window.__ready) {
-      frames++;
+    if (!window.__ready) {
+      // The read-back waits for the GPU, so the time of the frame has the work of the GPU in it.
+      gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, pixel);
+      const ms = performance.now() - start;
+      const stats = body.stats();
+      if (pending === 0) framesWithMaps++;
+      if (framesWithMaps > 1) longestFrameMs = Math.max(longestFrameMs, ms);
+      if (stats.mapWidth !== mapWidth) {
+        // The first frame with a map file of a new width.
+        mapWidth = stats.mapWidth;
+        mapFrames.push({ width: mapWidth, ms: Math.round(ms * 10) / 10 });
+        if (mapFrames.length > 1) upgradeFrames = framesWithMaps - 1;
+      }
+      // The first maps are ready and no larger file loads. A larger file starts to load in the second frame at the latest.
+      frames = pending === 0 && stats.mapsLoading === 0 ? frames + 1 : 0;
       if (frames === 3) {
         const drawCalls = renderer.info.render.calls;
         window.__stats = {
@@ -387,6 +453,9 @@ async function startSingle(q: URLSearchParams, manifest: TextureManifest, baseUr
           glPrograms: renderer.info.programs?.length ?? 0,
           width: renderer.domElement.width,
           height: renderer.domElement.height,
+          mapFrames,
+          longestFrameMs: Math.round(longestFrameMs * 10) / 10,
+          upgradeFrames,
         };
         window.__ready = true;
       }
@@ -439,6 +508,7 @@ async function startSheet(q: URLSearchParams, manifest: TextureManifest, baseUrl
       manifest,
       baseUrl,
       variant,
+      ...moduleOptions(q),
       onLoad: () => {
         cell.loadMs = performance.now() - t0;
         pending--;
@@ -495,8 +565,9 @@ async function startSheet(q: URLSearchParams, manifest: TextureManifest, baseUrl
   let frames = 0;
   const tick = (): void => {
     draw();
-    if (pending === 0 && !window.__ready) {
-      frames++;
+    if (!window.__ready) {
+      // The first maps are ready and no body loads a larger file.
+      frames = pending === 0 && cells.every((c) => c.body.stats().mapsLoading === 0) ? frames + 1 : 0;
       if (frames === 3) {
         window.__stats = {
           mode: 'sheet',

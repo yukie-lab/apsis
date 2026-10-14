@@ -17,7 +17,7 @@ export interface Methods {
   init: { args: SystemData; result: true };
   solve: { args: { mission: Mission; custom: CustomList }; result: SolvedData };
   /** Plan of an actual mission from its facts, then the flight. */
-  famous: { args: { id: string; custom: CustomList }; result: SolvedData };
+  famous: { args: { id: string; name: string; custom: CustomList }; result: SolvedData };
   quick: { args: { request: QuickRequest; name: string; spacecraft: SpacecraftSpec; custom: CustomList }; result: { solved: SolvedData; window: QuickWindow } };
   porkchop: { args: { request: PorkchopRequest; custom: CustomList }; result: PorkchopData };
   optimize: { args: { plan: Plan; options: Omit<PlanOptOptions, 'onProgress'>; custom: CustomList }; result: { plan: Plan; result: PlanResult; cost: number } };

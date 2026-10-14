@@ -1,6 +1,6 @@
 """Build the compact Chebyshev ephemeris used by Apsis.
 
-Source: JPL DE440 (de440s.bsp, NAIF generic kernels, public domain).
+Source: JPL DE440 (de440s.bsp, NAIF generic kernels). Conditions of use: data-src/evidence/naif_rules.txt.
 Each body is re-fitted with Chebyshev polynomials on fixed-length intervals.
 The fit error against DE440 is measured on dense check points and written
 into the header so that the application can publish it.

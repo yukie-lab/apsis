@@ -1,10 +1,10 @@
 /** Start screen of the Explorer mode: select a destination or an actual mission, then launch. */
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useApp, nowEt } from '../app/store';
 import { system, assetUrl } from '../app/system';
 import { clock } from '../app/clock';
 import { engine, EngineError } from '../app/engine';
-import { t, bodyName, bodyIn } from '../i18n';
+import { t, bodyName, bodyIn, craftName } from '../i18n';
 import { BODIES, MEAN_RADIUS, NOMINAL_RADIUS } from '../engine/bodies';
 import { FAMOUS, famousFacts, quickTargets, DEFAULT_SPACECRAFT, type QuickGoal, type QuickStyle } from '../engine/mission';
 import { tdb, formatEt } from '../engine/time';
@@ -14,6 +14,8 @@ import type { Scene3D } from '../render/scene/Scene3D';
 import { DateInput, Seg, Select } from '../ui/controls';
 import { SceneNote } from '../ui/View3D';
 import { confirm } from '../ui/Confirm';
+import { BusyContent } from '../ui/Busy';
+import { useNarrow, useShort } from '../ui/media';
 import { IconClose, IconRocket } from '../ui/icons';
 import { SPACECRAFT_KINDS } from '../app/spacecraftKinds';
 import { made } from './start';
@@ -36,16 +38,44 @@ function useThumbs(): Map<string, string> {
   return map;
 }
 
-export function useNarrow(): boolean {
-  const query = '(max-width: 720px)';
-  const [narrow, setNarrow] = useState(() => window.matchMedia(query).matches);
+
+/**
+ * Text of a panel, in a box that moves when the text is longer than the box. The lower edge of the box
+ * is dim while there is more text below it. The upper edge is dim while there is more text above it.
+ */
+function CardBody({ children }: { children: ReactNode }) {
+  const outer = useRef<HTMLDivElement>(null), inner = useRef<HTMLDivElement>(null);
+  const [more, setMore] = useState(false);
+  const [above, setAbove] = useState(false);
   useEffect(() => {
-    const m = window.matchMedia(query);
-    const f = (): void => setNarrow(m.matches);
-    m.addEventListener('change', f);
-    return () => m.removeEventListener('change', f);
+    const el = outer.current, content = inner.current;
+    if (!el || !content) return;
+    const check = (): void => { setMore(el.scrollHeight - el.scrollTop - el.clientHeight > 2); setAbove(el.scrollTop > 2); };
+    check();
+    el.addEventListener('scroll', check, { passive: true });
+    const observer = new ResizeObserver(check);
+    observer.observe(el);
+    observer.observe(content);
+    return () => { el.removeEventListener('scroll', check); observer.disconnect(); };
   }, []);
-  return narrow;
+  return <div className={'xp-card-body' + (more ? ' more' : '') + (above ? ' above' : '')} ref={outer}><div ref={inner}>{children}</div></div>;
+}
+
+/** The progress of the calculation, in the place of the button that started it. */
+function BusyLine() {
+  return <div className="busy-line" role="status" aria-live="polite"><BusyContent /></div>;
+}
+
+/**
+ * After the options open, move the text of the panel up so that the options show. The summary line stays in view,
+ * below the dim upper edge of the box (26 px, see .xp-card-body.above in app.css).
+ */
+function showOptions(details: HTMLElement): void {
+  const box = details.closest('.xp-card-body');
+  if (!box) return;
+  const inner = details.getBoundingClientRect(), outer = box.getBoundingClientRect();
+  const move = Math.min(inner.bottom - outer.bottom, inner.top - outer.top - 26);
+  if (move > 0) box.scrollBy({ top: move, behavior: 'smooth' });
 }
 
 /** The question before a new mission replaces a mission that the user changed. */
@@ -67,6 +97,7 @@ export function Home({ scene, tab, time }: { scene: Scene3D | null; tab: 'make' 
   const busy = useApp((s) => s.busy);
   const thumbs = useThumbs();
   const narrow = useNarrow();
+  const short = useShort();
   const targets = useMemo(() => quickTargets(), []);
   const [target, setTarget] = useState<string | null>(null);
   const [famous, setFamous] = useState<string | null>(null);
@@ -117,7 +148,7 @@ export function Home({ scene, tab, time }: { scene: Scene3D | null; tab: 'make' 
     observer.observe(el);
     for (const child of el.querySelectorAll('.xp-hero, .xp-tray, .xp-card')) observer.observe(child);
     return () => observer.disconnect();
-  }, [open, narrow, tab]);
+  }, [open, narrow, short, tab]);
 
   // The camera goes to the body of the selection. With no selection it looks at the Earth.
   const lookAt = look ?? 'EARTH';
@@ -157,7 +188,7 @@ export function Home({ scene, tab, time }: { scene: Scene3D | null; tab: 'make' 
     if (app.busy || !famous || !(await canReplace())) return;
     app.setBusy({ task: 'solve', stage: 'plan', fraction: null });
     try {
-      const solved = await engine.famous(famous, (p) => app.setBusy({ task: 'solve', stage: p.text ?? '', fraction: null }));
+      const solved = await engine.famous(famous, craftName(famous, info?.name), (p) => app.setBusy({ task: 'solve', stage: p.text ?? '', fraction: null }));
       app.setBusy(null);
       await app.openMission(solved.mission, solved);
       begin();
@@ -171,8 +202,8 @@ export function Home({ scene, tab, time }: { scene: Scene3D | null; tab: 'make' 
 
   return (
     <div className="xp-home" ref={root}>
-      {!(narrow && open) && (
-        <header className="xp-hero">
+      {!((narrow || short) && open) && (
+        <header className="xp-hero" data-cover>
           <h1>{t('explorer.headline')}</h1>
           <p>{t('explorer.sub')}</p>
           <p className="xp-live">{t('explorer.live', { date: formatEt(now, 'UTC', 'second') + ' UTC' })}</p>
@@ -182,12 +213,13 @@ export function Home({ scene, tab, time }: { scene: Scene3D | null; tab: 'make' 
       <div className="xp-mid">
         <SceneNote scene={scene} flight={false} />
         {tab === 'make' && body && target && (
-          <section className="xp-card" aria-label={bodyName(target)}>
+          <section className="xp-card" aria-label={bodyName(target)} data-cover>
             <header>
               <Thumb id={target} thumbs={thumbs} />
               <h2>{bodyName(target)}</h2>
               <button type="button" className="btn ghost icon" aria-label={t('explorer.close')} title={t('explorer.close')} onClick={() => setTarget(null)}><IconClose /></button>
             </header>
+            <CardBody>
             <dl className="kv">
               <dt>{t('explorer.target.distance')}</dt><dd><span className="num">{distanceShort(distance).text}</span><span className="unit">{distanceShort(distance).unit}</span></dd>
               {!NOMINAL_RADIUS.has(target) && <><dt>{t(MEAN_RADIUS.has(target) ? 'const.meanRadius' : 'const.radius')}</dt><dd><span className="num">{distanceShort(body.radius).text}</span><span className="unit">{distanceShort(body.radius).unit}</span></dd></>}
@@ -196,7 +228,7 @@ export function Home({ scene, tab, time }: { scene: Scene3D | null; tab: 'make' 
               <span className="label">{t('explorer.goal.label')}</span>
               <Seg<QuickGoal> value={goal} onChange={setGoal} label={t('explorer.goal.label')} options={goals.map((g) => ({ value: g, label: t('explorer.goal.' + g) }))} />
             </div>
-            <details>
+            <details onToggle={(e) => { if (e.currentTarget.open) showOptions(e.currentTarget); }}>
               <summary>{t('explorer.options')}</summary>
               <div className="xp-options">
                 <div className="xp-field">
@@ -213,26 +245,29 @@ export function Home({ scene, tab, time }: { scene: Scene3D | null; tab: 'make' 
                 </div>
               </div>
             </details>
-            <button type="button" className="btn primary big" disabled={!!busy} onClick={() => void launch()}><IconRocket />{t('explorer.launch', { body: bodyIn(target) })}</button>
+            </CardBody>
+            {busy ? <BusyLine /> : <button type="button" className="btn primary big" onClick={() => void launch()}><IconRocket />{t('explorer.launch', { body: bodyIn(target) })}</button>}
           </section>
         )}
         {tab === 'famous' && info && facts && (
-          <section className="xp-card" aria-label={info.name}>
+          <section className="xp-card" aria-label={craftName(info.id, info.name)} data-cover>
             <header>
-              <h2>{info.name}</h2>
+              <h2>{craftName(info.id, info.name)}</h2>
               <button type="button" className="btn ghost icon" aria-label={t('explorer.close')} title={t('explorer.close')} onClick={() => setFamous(null)}><IconClose /></button>
             </header>
+            <CardBody>
             <p>{t('explorer.famous.story.' + info.id)}</p>
             <dl className="kv">
               <dt>{t('explorer.famous.launchDate')}</dt><dd><span className="num">{formatEt(tdb(facts.startTdb), 'UTC', 'day')}</span><span className="unit">UTC</span></dd>
               <dt>{t('explorer.famous.route')}</dt><dd className="xp-route">{['EARTH', ...facts.encounters.map((e) => e.body)].map(bodyName).join(' → ')}</dd>
             </dl>
             <p className="note">{t('explorer.famous.note')}</p>
-            <button type="button" className="btn primary big" disabled={!!busy} onClick={() => void fly()}><IconRocket />{t('explorer.famous.fly')}</button>
+            </CardBody>
+            {busy ? <BusyLine /> : <button type="button" className="btn primary big" onClick={() => void fly()}><IconRocket />{t('explorer.famous.fly')}</button>}
           </section>
         )}
       </div>
-      <div className="xp-tray">
+      <div className="xp-tray" data-cover>
         <div className="xp-tabs" role="group" aria-label={t('explorer.tabs.label')}>
           <button type="button" className={tab === 'make' ? 'on' : ''} aria-pressed={tab === 'make'} onClick={() => go({ mode: 'explorer', page: 'home' })}>{t('explorer.tabs.make')}</button>
           <button type="button" className={tab === 'famous' ? 'on' : ''} aria-pressed={tab === 'famous'} onClick={() => go({ mode: 'explorer', page: 'famous' })}>{t('explorer.tabs.famous')}</button>
@@ -249,7 +284,7 @@ export function Home({ scene, tab, time }: { scene: Scene3D | null; tab: 'make' 
           <div className="xp-chips" role="group" aria-label={t('explorer.missions')}>
             {FAMOUS.map((f) => (
               <button type="button" key={f.id} className={'chip' + (f.id === famous ? ' on' : '')} aria-pressed={f.id === famous} onClick={() => setFamous(f.id === famous ? null : f.id)}>
-                {f.name}<span className="dim num">{famousFacts(f.id).startTdb.slice(0, 4)}</span>
+                {craftName(f.id, f.name)}<span className="dim num">{famousFacts(f.id).startTdb.slice(0, 4)}</span>
               </button>
             ))}
           </div>

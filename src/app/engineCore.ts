@@ -57,7 +57,7 @@ export class EngineCore {
         const args = a as Methods['famous']['args'];
         const sys = this.system(args.custom);
         progress({ text: 'plan' });
-        return pack(solveMission(sys, famousMission(sys, args.id), (text) => progress({ text })));
+        return pack(solveMission(sys, famousMission(sys, args.id, args.name), (text) => progress({ text })));
       }
       case 'quick': {
         const args = a as Methods['quick']['args'];

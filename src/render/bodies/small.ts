@@ -232,7 +232,7 @@ void main() {
   vec3 albedo = uAlbedo;
   #ifdef USE_MAP
     MapCoord mc = mapCoord(normalize(pos), uMapParams.x, uMapParams.y);
-    vec3 tex = mapSample(uMap, mc).rgb;
+    vec3 tex = mapSampleSmooth(uMap, mc).rgb;
     albedo = mix(uMeanColor, mix(uNoDataColor, tex * uShade.z, mapHasData(tex, mc.uv)), uMapParams.w);
   #endif
 
@@ -352,6 +352,7 @@ function makeRockMaterial(
   if (useMap) {
     defines.USE_MAP = 1;
     defines.MAP_ANISOTROPY = ctx.maps.anisotropy;
+    if (ctx.maps.smooth) defines.MAP_SMOOTH = 1;
     uniforms.uMap = { value: ctx.maps.blank };
     uniforms.uMapParams = { value: new THREE.Vector4(0.5, 1, 0, 0) };
     uniforms.uMeanColor = { value: colorVector(ctx.color, 0.8) };
@@ -398,7 +399,7 @@ export function buildShaped(ctx: BuildContext, spec: ShapeSpec, look: RockLook, 
     extentKm: shape.extentKm,
     variant: 'default',
     codeTextures: 0,
-    samplesPerPixel: entry ? 1 : 0,
+    samplesPerPixel: entry ? ctx.maps.taps : 0,
   };
   if (entry) {
     const mapParams = uniforms.uMapParams.value as THREE.Vector4;
@@ -407,30 +408,40 @@ export function buildShaped(ctx: BuildContext, spec: ShapeSpec, look: RockLook, 
     notes.push(...notesFromEntry(entry));
     if (partial) notes.push('no-data');
     const fromFile = [...notesFromEntry(entry), 'no-data'];
-    ctx.maps.load(entry, { srgb: true, wrapU: true }, (texture) => {
-      if (texture) {
-        uniforms.uMap.value = texture;
-        mapParams.w = 1;
-        if (noData) area = applyMapScan(texture, partial, noData, notes);
-        // A map with areas of no data has a second small texture, and a dark pixel reads it.
-        if (area) {
-          built.codeTextures = 1;
-          built.samplesPerPixel = 2;
+    ctx.maps.watch(mesh, shape.meanRadiusKm);
+    ctx.maps.load(
+      entry,
+      { srgb: true, wrapU: true },
+      (texture) => {
+        if (texture) {
+          uniforms.uMap.value = texture;
+          mapParams.w = 1;
+          if (noData) area = applyMapScan(texture, partial, noData, notes);
+          // A map with areas of no data has a second small texture, and a dark pixel reads it.
+          if (area) {
+            built.codeTextures = 1;
+            built.samplesPerPixel = ctx.maps.taps + 1;
+          }
+          return;
         }
-        return;
-      }
-      // The file did not load: the shape gets the surface of the code, and the notes of the file go away.
-      const rock = makeRockMaterial(ctx, look, shape.meanRadiusKm, true, false, shape.lobes, shape.neck);
-      mesh.material = rock.material;
-      material.dispose();
-      for (const note of fromFile) {
-        const k = notes.indexOf(note);
-        if (k >= 0) notes.splice(k, 1);
-      }
-      notes.push('map-load-failed', 'surface-procedural');
-      built.provenance = 'procedural';
-      built.samplesPerPixel = 0;
-    });
+        // The file did not load: the shape gets the surface of the code, and the notes of the file go away.
+        const rock = makeRockMaterial(ctx, look, shape.meanRadiusKm, true, false, shape.lobes, shape.neck);
+        mesh.material = rock.material;
+        material.dispose();
+        for (const note of fromFile) {
+          const k = notes.indexOf(note);
+          if (k >= 0) notes.splice(k, 1);
+        }
+        notes.push('map-load-failed', 'surface-procedural');
+        built.provenance = 'procedural';
+        built.samplesPerPixel = 0;
+      },
+      // Another file of the same map (the larger file, or the first file again): the small map of the areas with no
+      // data stays as it is.
+      (texture) => {
+        uniforms.uMap.value = texture;
+      },
+    );
   } else {
     notes.push('surface-procedural');
   }

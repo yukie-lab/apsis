@@ -37,7 +37,7 @@
  {
   "id": "target.closureInsertion",
   "group": "solver",
-  "value": 0.010452413794671553,
+  "value": 0.010452046744838302,
   "unit": "km",
   "limit": 0.5,
   "truth": "The aim point is an input. The test propagates the flight that the targeter gives and measures its aim point.",

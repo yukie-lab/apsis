@@ -20,8 +20,6 @@
       "view": {
         "title": "The 3D view",
         "engine": "The engine calculates each flight path on the screen. The 3D view and the tables show the same results. The application has no stored flight paths.",
-        "sunlight": "The sunlight has the same brightness at all distances from the Sun. With the actual brightness, the outer planets are too dark on a screen.",
-        "night": "The night side of a body gets a small quantity of light that is not physical. Without this light, the night side is black.",
         "aids": "Names, orbit lines and symbols help you to find objects. They are not physical objects.",
         "notes": "In the 3D view, the button with the letter i shows how the application made the picture of the body in view."
       },

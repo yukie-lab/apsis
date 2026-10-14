@@ -7,10 +7,12 @@
  *   bodies   comma list of body ids, or "all" (default), or "sheet" for the sheets only. "STARS" in the list gives the
  *            pictures of the star background alone.
  *   views    comma list of view names, or "all" (default). View names: see VIEWS, SATURN_VIEWS, EXTRA_VIEWS, LOW_VIEWS,
- *            PHONE_VIEWS, FILL_VIEWS, FILL_EXTRA_VIEWS and STAR_VIEWS below.
+ *            PHONE_VIEWS, FILL_VIEWS, FILL_EXTRA_VIEWS, NEAR_VIEWS and STAR_VIEWS below.
  *
  * Output: shots/bodies/<ID>-<view>.png, one line of numbers for each body and quality (triangles, textures,
  * build time), and each console error or warning of the browser. The exit code is 1 if there was an error or warning.
+ * The numbers of a body are the numbers of its first picture. With APSIS_FRAME_STATS, the line of each picture
+ * gives the width of the map files in use: a view from near shows a larger file than a view from far.
  *
  * Environment:
  *   APSIS_DEV_URL       address of the test page (default http://localhost:5333/dev/bodies/index.html)
@@ -19,6 +21,7 @@
  *   APSIS_DELAY_MS      delay of each texture file, ms (test of the surface that a body shows while its maps load).
  *                       The script then writes <ID>-<view>-loading.png before the maps arrive, and not the usual picture.
  *                       It still waits until the maps are there: "maps ready after" in the output shows the delay.
+ *   APSIS_QUERY         more parameters for the test page, for example "mag=bilinear" or "upgrade=0&fill=0.08"
  *   APSIS_SUFFIX        text that is added to each file name (for example "-nomap")
  *   APSIS_SHEET_STATS   print the numbers of each body of a sheet
  *   APSIS_FRAME_STATS   print the draw calls and the frame time of each picture
@@ -29,7 +32,10 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
 
 const BASE = process.env.APSIS_DEV_URL ?? 'http://localhost:5333/dev/bodies/index.html';
-const DROP = (process.env.APSIS_DROP ? `&drop=${process.env.APSIS_DROP}` : '') + (process.env.APSIS_FAIL ? `&fail=${process.env.APSIS_FAIL}` : '');
+const DROP =
+  (process.env.APSIS_DROP ? `&drop=${process.env.APSIS_DROP}` : '') +
+  (process.env.APSIS_FAIL ? `&fail=${process.env.APSIS_FAIL}` : '') +
+  (process.env.APSIS_QUERY ? `&${process.env.APSIS_QUERY}` : '');
 const SUFFIX = process.env.APSIS_SUFFIX ?? '';
 const DELAY_MS = Number(process.env.APSIS_DELAY_MS ?? 0);
 const here = dirname(fileURLToPath(import.meta.url));
@@ -47,6 +53,8 @@ function bodyIds() {
 
 const DESKTOP = { width: 1280, height: 800 };
 const PHONE = { width: 390, height: 844 };
+/** The same phone screen with two device pixels for each CSS pixel: the picture file has each pixel of the canvas (780 x 1688). */
+const PHONE_2X = { width: 390, height: 844, scale: 2 };
 const WIDE = { width: 1920, height: 1200 };
 
 /** Views of each body. Saturn has the Sun 18 degrees north of the ring plane in all views (SUN_LATITUDE of the test page). */
@@ -119,6 +127,23 @@ const PHONE_VIEWS = {
   phone: 'quality=low&phase=50&bg=stars&dpr=2',
 };
 /**
+ * Views from near, where the map is larger than the screen needs: "near" has the camera above the ground at
+ * 0.15 body radii or a little more (Mars: 500 km), "mid" has it at one body radius. The camera looks straight down.
+ * Each view has a twin with the low quality on a phone screen (names "near-low" and "mid-low").
+ * A body with an irregular shape has a larger distance, so that the camera is not inside the shape.
+ */
+const NEAR_VIEWS = {
+  MARS: { near: 'phase=45&distance=1.1475', mid: 'phase=45&distance=2' },
+  MERCURY: { near: 'phase=45&distance=1.15&lat=-11&lon=-31', mid: 'phase=45&distance=2&lat=-11&lon=-31' },
+  EUROPA: { near: 'phase=45&distance=1.15&lat=-25&lon=89', mid: 'phase=45&distance=2&lat=-25&lon=89' },
+  EARTH: { near: 'phase=45&distance=1.15&lat=42&lon=12', mid: 'phase=45&distance=2&lat=42&lon=12' },
+  MOON: { near: 'phase=45&distance=1.15', mid: 'phase=45&distance=2' },
+  ENCELADUS: { near: 'phase=45&distance=1.15', mid: 'phase=45&distance=2' },
+  PHOBOS: { near: 'phase=45&distance=1.7&lat=0&lon=-49', mid: 'phase=45&distance=2.6&lat=0&lon=-49' },
+  BENNU: { near: 'phase=45&distance=1.7', mid: 'phase=45&distance=2.6' },
+  JUPITER: { near: 'phase=45&distance=1.15&lat=-15&lon=-48', mid: 'phase=45&distance=2&lat=-15&lon=-48' },
+};
+/**
  * The star background alone. The body is a rock of 1 km that is too far to see. An id that is not in the body table
  * has the ICRF axes, and the camera looks from the point (lat, lon) to the body: the middle of the picture is at
  * right ascension lon + 180 degrees and declination -lat.
@@ -169,6 +194,11 @@ for (const id of bodyArg && !sheetsOnly ? bodyArg : ids) {
   if (PHONE_BODIES.includes(id)) add(PHONE_VIEWS, PHONE);
   if (FILL_BODIES.includes(id)) add(FILL_VIEWS, DESKTOP);
   if (FILL_EXTRA_VIEWS[id]) add(FILL_EXTRA_VIEWS[id], DESKTOP);
+  if (NEAR_VIEWS[id]) {
+    add(NEAR_VIEWS[id], DESKTOP);
+    const low = Object.fromEntries(Object.entries(NEAR_VIEWS[id]).map(([view, query]) => [`${view}-low`, `quality=low&dpr=2&${query}`]));
+    add(low, PHONE_2X);
+  }
 }
 if (!sheetsOnly && (!bodyArg || bodyArg.includes('STARS'))) {
   for (const [name, query] of Object.entries(STAR_VIEWS)) {
@@ -188,8 +218,9 @@ const browser = await chromium.launch({
 });
 const contexts = new Map();
 async function contextFor(viewport) {
-  const key = `${viewport.width}x${viewport.height}`;
-  if (!contexts.has(key)) contexts.set(key, await browser.newContext({ viewport, deviceScaleFactor: 1 }));
+  const scale = viewport.scale ?? 1;
+  const key = `${viewport.width}x${viewport.height}@${scale}`;
+  if (!contexts.has(key)) contexts.set(key, await browser.newContext({ viewport: { width: viewport.width, height: viewport.height }, deviceScaleFactor: scale }));
   return contexts.get(key);
 }
 
@@ -242,7 +273,14 @@ for (const job of jobs) {
         printed.add(key);
         console.log(line(b));
       }
-      if (process.env.APSIS_FRAME_STATS) console.log(`  ${job.name}: draw calls ${stats.drawCalls}, frame ${stats.frameMs} ms at ${stats.width} x ${stats.height}, triangles now ${b.triangles}`);
+      if (process.env.APSIS_FRAME_STATS) {
+        const maps = (stats.mapFrames ?? []).map((f) => `${f.width} px in ${f.ms} ms`).join(', then ');
+        console.log(
+          `  ${job.name}: draw calls ${stats.drawCalls}, frame ${stats.frameMs} ms at ${stats.width} x ${stats.height}, triangles now ${b.triangles}, ` +
+            `samples per pixel ${b.samplesPerPixel}, map width ${b.mapWidth}` +
+            (maps ? ` (first frame with a map: ${maps}; longest frame after the first maps ${stats.longestFrameMs} ms; larger files in use after ${stats.upgradeFrames} frames)` : ''),
+        );
+      }
     }
   }
   if (DELAY_MS <= 0) await page.screenshot({ path: resolve(outDir, `${job.name}${SUFFIX}.png`) });

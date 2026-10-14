@@ -59,6 +59,8 @@ export interface Maneuver {
 
 /** Largest difference between a computed state and an anchor for which the anchor is used: 1 km and 1 mm/s. */
 export const ANCHOR_LIMIT = { r: 1, v: 1e-6 };
+/** A closest approach less than this time from a burn is the closest approach at the burn (s). */
+export const BURN_PERIAPSIS_S = 1;
 
 export interface TrajectoryEvent {
   type: 'periapsis' | 'impact' | 'maneuver' | 'start' | 'end';
@@ -455,6 +457,10 @@ export class Propagator {
     let h = ctl.h0;
     let tNow = t;
     let anchored = true;
+    // The last burn. A closest approach less than BURN_PERIAPSIS_S from a burn (an orbit insertion burn at the
+    // periapsis) is one event at the time of the burn, with the state before the burn: its speed is the speed of
+    // the approach. Without this rule, the steps find the periapsis before or after the burn by chance, or not at all.
+    let lastBurn: { t: number; y: Float64Array; bodies: Set<string> } | null = null;
     for (const br of breaks) {
       if ((br.t - t) * dir > 0) {
         let res: { t: number; h: number; steps: number };
@@ -482,7 +488,16 @@ export class Propagator {
                 }
               }
               const rd = rdot(p, tn, yn);
-              if (prevRdot[i] * dir < 0 && rd * dir >= 0) this.refinePeriapsis(traj, p, tp, yp, tn, dir, ctl);
+              if (prevRdot[i] * dir < 0 && rd * dir >= 0) {
+                const n = traj.events.length;
+                this.refinePeriapsis(traj, p, tp, yp, tn, dir, ctl);
+                if (lastBurn && traj.events.length > n && traj.events[n].type === 'periapsis' && Math.abs(traj.events[n].et - lastBurn.t) <= BURN_PERIAPSIS_S) {
+                  // A periapsis just after a burn is the closest approach at the burn.
+                  traj.events.pop();
+                  const ev = lastBurn.bodies.has(p.id) ? null : this.approachEvent(p, lastBurn.t, lastBurn.y);
+                  if (ev) { traj.events.push(ev); lastBurn.bodies.add(p.id); }
+                }
+              }
               prevRdot[i] = rd;
             }
             if (deep) {
@@ -507,6 +522,7 @@ export class Propagator {
       }
       if (br.man) {
         const m = br.man;
+        const before = new Float64Array(y), rdBefore = Float64Array.from(prevRdot);
         const ref = this.sys.state(m.refBody, t);
         const rel: State = { r: [y[0] - ref.r[0], y[1] - ref.r[1], y[2] - ref.r[2]], v: [y[3] - ref.v[0], y[4] - ref.v[1], y[5] - ref.v[2]] };
         const dv = localToIcrf(m.frame, rel, m.dv);
@@ -533,10 +549,34 @@ export class Propagator {
         traj.events.push({ type: 'maneuver', et: t, state: toState(y), maneuverId: m.id, dvIcrf: dv, anchorMiss });
         initRdot(t);
         h = 60;
+        // Closest approaches at the burn. A burn at the start is not at a closest approach (departure from a parking orbit).
+        if (t !== req.et0) {
+          // Two burns at the same time: the state before the first burn.
+          const prev: { t: number; y: Float64Array; bodies: Set<string> } | null = lastBurn !== null && lastBurn.t === t ? lastBurn : null;
+          // The state before the burn in time: a backward propagation removes the impulse.
+          const approach: Float64Array = prev ? prev.y : dir > 0 ? before : new Float64Array(y);
+          const bodies: Set<string> = prev ? prev.bodies : new Set<string>();
+          for (let i = 0; i < eventBodies.length; i++) {
+            const p = eventBodies[i];
+            if (bodies.has(p.id)) continue;
+            // A periapsis that the steps before the burn found less than BURN_PERIAPSIS_S before it.
+            const k = traj.events.findIndex((e) => e.type === 'periapsis' && e.body === p.id && Math.abs(e.et - t) <= BURN_PERIAPSIS_S);
+            // Or: the distance becomes smaller up to the burn and larger after it.
+            const turn = rdBefore[i] * dir < 0 && prevRdot[i] * dir >= 0;
+            if (k < 0 && !turn) continue;
+            const ev = this.approachEvent(p, t, approach);
+            if (!ev) continue;
+            if (k >= 0) traj.events[k] = ev; else traj.events.push(ev);
+            bodies.add(p.id);
+          }
+          lastBurn = { t, y: approach, bodies };
+        }
       }
     }
     traj.events.push({ type: 'end', et: t, state: toState(y) });
-    traj.events.sort((a, b) => (a.et - b.et) * dir);
+    // At the same time: the start first and the end last. A closest approach comes before a burn in time.
+    const rank = (e: TrajectoryEvent): number => (e.type === 'start' ? -10 : e.type === 'end' ? 10 : e.type === 'maneuver' ? dir : 0);
+    traj.events.sort((a, b) => (a.et - b.et) * dir || rank(a) - rank(b));
     traj.evals = rk.evals;
     traj.finish();
     return traj;
@@ -562,11 +602,29 @@ export class Propagator {
     return { t: ta, y: yA };
   }
 
+  /**
+   * Largest distance of a closest approach event (km): 3 radii of the sphere of influence (moons: 50 radii of the moon).
+   * A body with almost no mass has almost no sphere of influence: the limit is then 2 million km.
+   */
+  private eventLimit(p: EventBody, t: number): number {
+    return p.moonOf ? 50 * p.radius : Math.max(3 * soiRadius(this.sys, p.id, t), p.watch || p.radius < 600 ? 2e6 : 0);
+  }
+
+  /** Closest approach event at a burn, with the state before the burn. null: too far from the body for an event. */
+  private approachEvent(p: EventBody, t: number, y: Float64Array): TrajectoryEvent | null {
+    const s = this.sys.state(p.id, t);
+    const radius = Math.hypot(y[0] - s.r[0], y[1] - s.r[1], y[2] - s.r[2]);
+    if (radius > this.eventLimit(p, t)) return null;
+    return {
+      type: radius < p.radius ? 'impact' : 'periapsis', et: t, body: p.id, radius, altitude: radius - p.radius,
+      speed: Math.hypot(y[3] - s.v[0], y[4] - s.v[1], y[5] - s.v[2]), state: toState(y),
+    };
+  }
+
   /** Find the exact time of closest approach to a body between two steps and record the event. */
   private refinePeriapsis(traj: Trajectory, p: EventBody, t0: number, y0: Float64Array, t1: number, dir: number, ctl: { rtol: number; atol: Float64Array; hMax: number; hMin: number }): void {
-    // Only close passes are events: inside 3 radii of the sphere of influence (moons: 50 radii of the moon).
-    // A body with almost no mass has almost no sphere of influence: the limit is then 2 million km.
-    const limit = p.moonOf ? 50 * p.radius : Math.max(3 * soiRadius(this.sys, p.id, t1), p.watch || p.radius < 600 ? 2e6 : 0);
+    // Only close passes are events.
+    const limit = this.eventLimit(p, t1);
     const yA = new Float64Array(y0);
     let ta = t0;
     const yB = new Float64Array(6);

@@ -10,6 +10,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "lint:ste": "node tools/ste/ste-lint.mjs",
+    "check:language": "node tools/i18n/second-language.mjs",
+    "report": "vitest run --config tools/validation/vitest.config.ts",
     "shots": "node tools/shots/shots.mjs"
   },
   "dependencies": {

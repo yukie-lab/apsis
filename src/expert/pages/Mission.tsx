@@ -4,7 +4,7 @@ import { useApp, missionFileText } from '../../app/store';
 import { clock, useClock } from '../../app/clock';
 import { system } from '../../app/system';
 import { engine, EngineError } from '../../app/engine';
-import { t, bodyName, bodyIn } from '../../i18n';
+import { t, bodyName, bodyIn, craftName } from '../../i18n';
 import { FAMOUS, famousFacts, newMission, missionFromJson, dvCapacity, propellantFor, type Mission as MissionT, type SpacecraftSpec } from '../../engine/mission';
 import type { RefineReport } from '../../engine/flight';
 import type { Trajectory, TrajectoryEvent } from '../../engine/propagate';
@@ -39,7 +39,7 @@ function useOpeners() {
       if (useApp.getState().busy || !(await canReplace())) return;
       setBusy({ task: 'solve', stage: 'plan', fraction: null });
       try {
-        const solved = await engine.famous(id, (p) => setBusy({ task: 'solve', stage: p.text ?? '', fraction: null }));
+        const solved = await engine.famous(id, craftName(id, FAMOUS.find((f) => f.id === id)?.name), (p) => setBusy({ task: 'solve', stage: p.text ?? '', fraction: null }));
         setBusy(null);
         await openMission(solved.mission, solved);
       } catch (e) { setBusy(null); fail(e instanceof EngineError ? e.code : 'internal'); }
@@ -106,7 +106,7 @@ function Start() {
               const facts = famousFacts(f.id);
               return (
                 <tr key={f.id}>
-                  <td className="nw">{f.name}</td>
+                  <td className="nw">{craftName(f.id, f.name)}</td>
                   <td>{sequence(['EARTH', ...facts.encounters.map((e) => e.body)])}</td>
                   <td className="nw"><Dt et={tdb(facts.startTdb)} precision="day" /></td>
                   <td className="r"><button type="button" className="btn small" disabled={!!busy} onClick={() => void open.famous(f.id)}>{t('page.mission.open')}</button></td>
@@ -225,7 +225,7 @@ function EncounterCompare({ mission, report }: { mission: MissionT; report: Refi
       )}
       <details>
         <summary>{t('page.mission.solver')}</summary>
-        <table className="data wrap">
+        <div className="scroll"><table className="data wrap">
           <thead><tr><th>{t('common.body')}</th><th>{t('page.mission.stage')}</th><th className="r">{t('page.mission.iterations')}</th><th className="r">{t('page.mission.residual')}</th><th /></tr></thead>
           <tbody>
             {report.stages.map((s, k) => (
@@ -236,7 +236,7 @@ function EncounterCompare({ mission, report }: { mission: MissionT; report: Refi
               </tr>
             ))}
           </tbody>
-        </table>
+        </table></div>
         <p className="note">{t('page.mission.solverNote')}</p>
       </details>
     </Panel>
@@ -246,7 +246,7 @@ function EncounterCompare({ mission, report }: { mission: MissionT; report: Refi
 function ActualCompare({ id, report, trajectory }: { id: string; report: RefineReport; trajectory: Trajectory }) {
   const rows = useMemo(() => { try { return compareWithFacts(system(), id, { report, trajectory }); } catch { return []; } }, [id, report, trajectory]);
   const facts = famousFacts(id);
-  const name = FAMOUS.find((f) => f.id === id)?.name ?? id;
+  const name = craftName(id, FAMOUS.find((f) => f.id === id)?.name);
   if (rows.length === 0) return null;
   const pct = (a: number, b: number) => (Number.isFinite(a) && b !== 0 ? num(sig((100 * (a - b)) / b, 2), '%') : num('—'));
   return (
@@ -290,7 +290,7 @@ function ActualCompare({ id, report, trajectory }: { id: string; report: RefineR
 function eventRow(e: TrajectoryEvent): { label: string; detail: React.ReactNode } {
   if (e.type === 'maneuver') return { label: t('page.mission.event.maneuver'), detail: e.dvIcrf ? <Val q={deltaV(norm(e.dvIcrf))} /> : null };
   if (e.type === 'periapsis' || e.type === 'impact') {
-    return { label: t('page.mission.event.' + e.type, { body: bodyIn(e.body ?? '') }), detail: <><Val q={distance(e.altitude ?? NaN, 'km', 0)} /> <span className="dim">·</span> <Val q={speed(e.speed ?? NaN)} /></> };
+    return { label: t('page.mission.event.' + e.type, { body: bodyIn(e.body ?? '') }), detail: <><Val q={distance(e.altitude ?? NaN, 'km', 0)} /><span className="pair-sep"> <span className="dim">·</span> </span><Val q={speed(e.speed ?? NaN)} /></> };
   }
   return { label: t('page.mission.event.' + e.type), detail: null };
 }
@@ -343,7 +343,7 @@ export default function Mission() {
             <Field label={t('common.name')}><input className="input" value={mission.name} maxLength={60} onChange={(e) => updateMission((m) => ({ ...m, name: e.target.value }))} /></Field>
             <dl className="kv">
               <dt>{t('page.mission.sequence')}</dt><dd style={{ textAlign: 'left' }}>{mission.plan ? sequence(mission.plan.nodes.map((n) => n.body)) : t('page.mission.flightOnly')}</dd>
-              {famous && <><dt>{t('page.mission.actualOf')}</dt><dd style={{ textAlign: 'left' }}>{famous.name}</dd></>}
+              {famous && <><dt>{t('page.mission.actualOf')}</dt><dd style={{ textAlign: 'left' }}>{craftName(famous.id, famous.name)}</dd></>}
             </dl>
             <div className="row">
               <button type="button" className="btn" onClick={save}>{t(inLibrary ? 'missionBox.saveAgain' : 'page.mission.save')}</button>

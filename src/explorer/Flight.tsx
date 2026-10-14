@@ -2,7 +2,7 @@
  * Flight screen of the Explorer mode: the flight in the 3D view with a small set of readouts and controls.
  * All values come from the trajectory of the mission in work: the Expert mode shows the same numbers with all digits.
  */
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { useApp } from '../app/store';
 import { system } from '../app/system';
 import { clock, useClock } from '../app/clock';
@@ -10,14 +10,14 @@ import { t, bodyName, bodyIn } from '../i18n';
 import type { Mission } from '../engine/mission';
 import type { Trajectory, TrajectoryEvent } from '../engine/propagate';
 import { norm } from '../engine/vec';
-import { NOMINAL_RADIUS } from '../engine/bodies';
+import { BODIES, NOMINAL_RADIUS } from '../engine/bodies';
 import { DAY, formatEt } from '../engine/time';
 import { deltaV, distanceShort, duration, fixed, q, speed } from '../app/format';
 import type { Scene3D } from '../render/scene/Scene3D';
 import { SceneNote, useSceneInfo } from '../ui/View3D';
 import { Transport, eventMarks } from '../ui/Transport';
 import { IconBack, IconNumbers, IconRocket } from '../ui/icons';
-import { useNarrow } from './Home';
+import { useNarrow, useShort } from '../ui/media';
 import { made } from './start';
 
 function eventTitle(e: TrajectoryEvent): string {
@@ -42,14 +42,18 @@ export function Flight({ scene, mission, trajectory }: { scene: Scene3D | null; 
   const info = useSceneInfo(scene, 250);
   const { et, playing } = useClock(150);
   const narrow = useNarrow();
+  const short = useShort();
   const sys = system();
   const et0 = trajectory.et0, et1 = trajectory.et1;
   const lo = Math.min(et0, et1), hi = Math.max(et0, et1);
   const events = trajectory.events;
   const marks = useMemo(() => eventMarks(events), [events]);
-  const [caption, setCaption] = useState<TrajectoryEvent | null>(null);
-  // A narrow screen has little space: the flight data are closed until the user opens them.
-  const [showData, setShowData] = useState(() => !window.matchMedia('(max-width: 720px)').matches);
+  // The text of the last event that the time went through, with the other events at the same time (an arrival
+  // burn is at a periapsis).
+  const [caption, setCaption] = useState<TrajectoryEvent[] | null>(null);
+  const atTime = (e: TrajectoryEvent): TrajectoryEvent[] => events.filter((x) => x.type !== 'end' && Math.abs(x.et - e.et) < 1);
+  // A small screen has little space: the flight data are closed until the user opens them.
+  const [showData, setShowData] = useState(() => !window.matchMedia('(max-width: 720px), (max-height: 520px)').matches);
   const before = useRef(et);
 
   // Start of the screen: a new flight starts to play from its start. A flight that was in view before continues.
@@ -63,12 +67,13 @@ export function Flight({ scene, mission, trajectory }: { scene: Scene3D | null; 
       clock.setRate(clock.rate, true);
       scene.setDirector(true, { immediate: true });
       clock.play(true);
-      setCaption(events.find((e) => e.type === 'start') ?? null);
+      const start = events.find((e) => e.type === 'start');
+      setCaption(start ? atTime(start) : null);
     } else scene.setDirector(true, { immediate: true });
     return () => { clock.play(false); scene.setDirector(false); };
   }, [scene, trajectory]); // eslint-disable-line react-hooks/exhaustive-deps
   // The controls cover the lower part of the view.
-  useEffect(() => { scene?.setShift(0, narrow ? 0.18 : 0.07); }, [scene, narrow]);
+  useEffect(() => { scene?.setShift(0, narrow ? 0.18 : short ? 0.14 : 0.07); }, [scene, narrow, short]);
 
   // An event that the time of the view goes through shows for some seconds.
   useEffect(() => {
@@ -78,7 +83,7 @@ export function Flight({ scene, mission, trajectory }: { scene: Scene3D | null; 
     // The time goes forward through an event, or a control puts the time on an event.
     let hit: TrajectoryEvent | null = null;
     for (const e of events) if (e.type !== 'end' && ((e.et > a && e.et <= et) || e.et === et)) hit = e;
-    if (hit) setCaption(hit);
+    if (hit) setCaption(atTime(hit));
     // A change of the time by hand removes the text of an event that is not at the new time.
     else if (!playing) setCaption(null);
   }, [et, events]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -95,9 +100,11 @@ export function Flight({ scene, mission, trajectory }: { scene: Scene3D | null; 
   const near = info?.near && info.near.distanceKm < 80 * (sys.hasBody(info.near.id) ? (info.near.distanceKm - info.near.altitudeKm) : 0) ? info.near : null;
   const next = events.find((e) => e.et > et + 1 && e.type !== 'start');
   // Body of the view button: the body that the spacecraft is near, or the next body of the flight, or the last one.
+  // After the last body, a planet (or a body with no parent planet) comes before its moons.
   const isVisit = (e: TrajectoryEvent): boolean => (e.type === 'periapsis' || e.type === 'impact') && !!e.body;
   const visits = events.filter(isVisit);
-  const target = near?.id ?? visits.find((e) => e.et > et)?.body ?? visits[visits.length - 1]?.body ?? 'EARTH';
+  const last = [...visits].reverse().find((e) => BODIES[e.body!]?.parent === 'SUN') ?? visits[visits.length - 1];
+  const target = near?.id ?? visits.find((e) => e.et > et)?.body ?? last?.body ?? 'EARTH';
   const done = !playing && et >= hi - 1e-6 * (hi - lo);
   const burns = events.filter((e) => e.type === 'maneuver' && e.dvIcrf).reduce((sum, e) => sum + norm(e.dvIcrf!), 0);
   const total = Math.max(1, Math.ceil((hi - lo) / DAY));
@@ -115,8 +122,8 @@ export function Flight({ scene, mission, trajectory }: { scene: Scene3D | null; 
   const numbers = (): void => go({ mode: 'expert', page: 'mission' });
 
   return (
-    <div className="xp-flight">
-      <header className="xp-top">
+    <div className={'xp-flight' + (done ? ' done' : '')}>
+      <header className="xp-top" data-cover>
         <button type="button" className="btn icon" aria-label={t('explorer.flight.back')} title={t('explorer.flight.back')} onClick={() => go({ mode: 'explorer', page: 'home' })}><IconBack /></button>
         <div className="xp-title">
           <b>{mission.name}</b>
@@ -125,7 +132,7 @@ export function Flight({ scene, mission, trajectory }: { scene: Scene3D | null; 
         <button type="button" className="btn" title={t('explorer.flight.numbersTitle')} onClick={numbers}><IconNumbers />{t('explorer.flight.numbers')}</button>
       </header>
 
-      <section className={'xp-data' + (showData ? '' : ' closed')} aria-label={t('explorer.flight.readouts')}>
+      <section className={'xp-data' + (showData ? '' : ' closed')} aria-label={t('explorer.flight.readouts')} data-cover>
         <button type="button" className="xp-data-toggle" aria-expanded={showData} onClick={() => setShowData((v) => !v)}>{t('explorer.flight.readouts')}</button>
         {showData && (
           <dl>
@@ -140,7 +147,7 @@ export function Flight({ scene, mission, trajectory }: { scene: Scene3D | null; 
         )}
       </section>
 
-      <div className="xp-views" role="group" aria-label={t('explorer.flight.views.label')}>
+      <div className="xp-views" role="group" aria-label={t('explorer.flight.views.label')} data-cover>
         <button type="button" className={'btn small' + (auto ? ' on' : '')} aria-pressed={auto} onClick={() => scene?.setDirector(!auto)}>{t('explorer.flight.views.auto')}</button>
         <button type="button" className={'btn small' + (!auto && focus?.kind === 'craft' ? ' on' : '')} onClick={() => { scene?.setDirector(false); scene?.viewCraft(); }}>{t('explorer.flight.views.craft')}</button>
         <button type="button" className={'btn small' + (!auto && focus?.kind === 'body' && focus.id === target ? ' on' : '')} onClick={() => { scene?.setDirector(false); scene?.viewBody(target); }}>{bodyName(target)}</button>
@@ -148,14 +155,18 @@ export function Flight({ scene, mission, trajectory }: { scene: Scene3D | null; 
       </div>
 
       {caption && !done && (
-        <div className="xp-caption" role="status">
-          <b>{eventTitle(caption)}</b>
-          {eventDetail(caption) && <span>{eventDetail(caption)}</span>}
-          <span className="dim"><span className="num">{formatEt(caption.et, 'UTC', 'minute')}</span><span className="unit">UTC</span></span>
+        <div className="xp-caption" role="status" data-cover>
+          {caption.map((e, k) => (
+            <Fragment key={k}>
+              <b>{eventTitle(e)}</b>
+              {eventDetail(e) && <span>{eventDetail(e)}</span>}
+            </Fragment>
+          ))}
+          <span className="dim"><span className="num">{formatEt(caption[0].et, 'UTC', 'minute')}</span><span className="unit">UTC</span></span>
         </div>
       )}
       {done && (
-        <section className="xp-done" aria-label={t('explorer.flight.done.title')}>
+        <section className="xp-done" aria-label={t('explorer.flight.done.title')} data-cover>
           <h2>{t('explorer.flight.done.title')}</h2>
           <dl className="kv">
             <dt>{t('explorer.flight.done.time')}</dt><dd><span className="num">{duration(hi - lo).text}</span><span className="unit">{duration(hi - lo).unit}</span></dd>
@@ -172,7 +183,7 @@ export function Flight({ scene, mission, trajectory }: { scene: Scene3D | null; 
 
       <div className="xp-bottom">
         <SceneNote scene={scene} flight />
-        <Transport et0={et0} et1={et1} marks={marks} compact={narrow} />
+        <Transport et0={et0} et1={et1} marks={marks} />
       </div>
     </div>
   );

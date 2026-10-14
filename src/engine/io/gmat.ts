@@ -13,7 +13,7 @@
  *
  * Axes. The guide has two sets of inertial axes, MJ2000Eq and ICRF. It says that the rotation between them changes
  * with time, and that the difference of a vector is less than 1 m at the surface of the Earth (an angle below
- * 1.6e-7 rad, which is 23 km at 1 au). The guide does not say in which axes GMAT uses the vectors of its planetary
+ * 1.6e-7 rad, which is 24 km at 1 au). The guide does not say in which axes GMAT uses the vectors of its planetary
  * ephemeris. This module assumes that GMAT uses them as MJ2000Eq vectors with no rotation. This assumption is not
  * verified. With it, the numbers of Apsis (ICRF vectors of the JPL ephemeris) go into the GMAT axes MJ2000Eq
  * (default). The option `axes: 'ICRF'` uses the GMAT axes ICRF.

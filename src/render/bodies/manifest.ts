@@ -40,10 +40,21 @@ export function findTexture(manifest: TextureManifest, body: string, role: strin
   return null;
 }
 
-/** Address of the file of an entry for a quality. */
+/** Address of the file of an entry that a body of this quality starts with: the small file ('low') or the standard file. */
 export function textureUrl(entry: TextureEntry, quality: BodyQuality, baseUrl: string): string {
   const file = quality === 'low' && typeof entry.small === 'string' ? entry.small : entry.file;
   return `${withSlash(baseUrl)}${file}`;
+}
+
+/**
+ * Address of the next larger file of an entry, for a camera that is near, or null if the entry has none.
+ * The quality 'low' goes from the small file to the standard file. The quality 'high' goes from the standard file
+ * to the large file. Each quality has one step only.
+ */
+export function largerTextureUrl(entry: TextureEntry, quality: BodyQuality, baseUrl: string): string | null {
+  const first = quality === 'low' && typeof entry.small === 'string' ? entry.small : entry.file;
+  const next = quality === 'low' ? entry.file : entry.large;
+  return typeof next === 'string' && next !== '' && next !== first ? `${withSlash(baseUrl)}${next}` : null;
 }
 
 /**
@@ -146,6 +157,11 @@ const EDGE_FLOOR = 24;
 const EDGE_MIN_SHARE = 0.05;
 /** An edge line is wrong only if it is at least this much darker than the line beside it. */
 const EDGE_MIN_DROP = 0.06;
+/** Number of pixel lines that the test reads at each edge, and the same number for a larger file of a map in use. */
+const EDGE_LINES = 4;
+const EDGE_LINES_LARGER = 8;
+/** A larger file of a map in use: the column beside the wrong columns is wrong also if its level differs by more than this from the next column. */
+const EDGE_OVERSHOOT = 0.02;
 
 /**
  * Number of wrong lines (0, 1 or 2) at one edge of a map.
@@ -190,53 +206,136 @@ function darkLines(px: Uint8ClampedArray, n: number, at: (line: number, i: numbe
   return 1 - s0 / s1 > Math.max(3 * natural1, EDGE_MIN_DROP) ? 1 : 0;
 }
 
-interface EdgeRepair {
-  canvas: HTMLCanvasElement;
-  /** A column at the left or the right edge was wrong. */
-  columns: boolean;
-  /** A row at the top or the bottom edge was wrong. */
-  rows: boolean;
+/** Number of wrong pixel lines at each edge of a map image: 0, 1 or 2 (a larger file of a map in use: 0 to 6). */
+export interface DarkEdges {
+  top: number;
+  bottom: number;
+  left: number;
+  right: number;
 }
 
 /**
- * Repair of wrong pixel lines at the edges of a map that goes around the body.
+ * The repair of the map file that a larger file of the same map takes the place of: the wrong lines of the
+ * file in use, and the height of its image in pixels.
+ */
+export interface EdgeBasis {
+  edges: DarkEdges;
+  height: number;
+}
+
+/** Wrong lines of a larger file at one edge: its own number, or the lines that cover the wrong lines of the file in use. */
+function widerEdge(own: number, first: number, ratio: number): number {
+  return Math.min(EDGE_LINES_LARGER - 2, Math.max(own, Math.ceil(first * ratio - 0.05)));
+}
+
+/**
+ * Test of the four edges of a map that goes around the body, for wrong pixel lines.
  *
  * Some map files have a first or a last column that is much darker than the columns beside it: the body then shows
  * a thin line along one meridian. Some have a dark first or last row: the body then shows a dark dot at a pole.
- * The function tests the four edges (see darkLines). If an edge has wrong lines, it returns a copy of the image in
- * which the nearest good line replaces them. It returns null if the image is good, or if the browser does not let
- * the code read the pixels.
+ * The function reads four lines at each edge (see darkLines). `image`: an image element or an image bitmap.
+ * It returns null if the browser does not let the code read the pixels, or if the image is too small for the test.
+ *
+ * `basis`: give it for a larger file that takes the place of a file in use. The wrong lines of a file come from
+ * some wrong pixels at the edge of the original image. In a larger file they are more lines, and the test of
+ * four lines does not find all of them (three black rows at a pole, or two dark columns of the same level).
+ * So the larger file gets at least the repair of the file in use: where that file has n wrong lines, the larger
+ * file has the lines that cover the same part of the map. The test of the larger file can add lines.
+ * At the left and the right edge, the column beside the wrong columns is wrong also if its level differs much from
+ * the next column: the resize of an image with a dark edge makes such a column, and it shows as a thin bright line.
  */
-function repairEdges(image: unknown): EdgeRepair | null {
-  if (typeof document === 'undefined' || typeof HTMLImageElement === 'undefined' || !(image instanceof HTMLImageElement)) return null;
-  const w = image.naturalWidth;
-  const h = image.naturalHeight;
-  if (w < 16 || h < 16) return null;
+export function findDarkEdges(image: unknown, basis?: EdgeBasis): DarkEdges | null {
+  if (typeof document === 'undefined') return null;
+  let w = 0;
+  let h = 0;
+  if (typeof HTMLImageElement !== 'undefined' && image instanceof HTMLImageElement) {
+    w = image.naturalWidth;
+    h = image.naturalHeight;
+  } else if (typeof ImageBitmap !== 'undefined' && image instanceof ImageBitmap) {
+    w = image.width;
+    h = image.height;
+  } else {
+    return null;
+  }
+  // Number of columns that the code reads at the left and at the right edge.
+  const n = basis ? EDGE_LINES_LARGER : EDGE_LINES;
+  if (w < 4 * n || h < 4 * n) return null;
   try {
     // Four rows of the top edge, then four rows of the bottom edge.
     const rowStrip = document.createElement('canvas');
     rowStrip.width = w;
-    rowStrip.height = 8;
+    rowStrip.height = 2 * EDGE_LINES;
     const rctx = rowStrip.getContext('2d', { willReadFrequently: true });
     if (!rctx) return null;
-    rctx.drawImage(image, 0, 0, w, 4, 0, 0, w, 4);
-    rctx.drawImage(image, 0, h - 4, w, 4, 0, 4, w, 4);
-    const rows = rctx.getImageData(0, 0, w, 8).data;
-    const top = darkLines(rows, w, (line, i) => (line * w + i) * 4);
-    const bottom = darkLines(rows, w, (line, i) => ((7 - line) * w + i) * 4);
-    // Four columns of the left edge, then four columns of the right edge.
+    rctx.drawImage(image, 0, 0, w, EDGE_LINES, 0, 0, w, EDGE_LINES);
+    rctx.drawImage(image, 0, h - EDGE_LINES, w, EDGE_LINES, 0, EDGE_LINES, w, EDGE_LINES);
+    const rows = rctx.getImageData(0, 0, w, 2 * EDGE_LINES).data;
+    const edges: DarkEdges = { top: 0, bottom: 0, left: 0, right: 0 };
+    edges.top = darkLines(rows, w, (line, i) => (line * w + i) * 4);
+    edges.bottom = darkLines(rows, w, (line, i) => ((2 * EDGE_LINES - 1 - line) * w + i) * 4);
+    // The columns of the left edge, then the columns of the right edge.
     const columnStrip = document.createElement('canvas');
-    columnStrip.width = 8;
+    columnStrip.width = 2 * n;
     columnStrip.height = h;
     const cctx = columnStrip.getContext('2d', { willReadFrequently: true });
     if (!cctx) return null;
-    cctx.drawImage(image, 0, 0, 4, h, 0, 0, 4, h);
-    cctx.drawImage(image, w - 4, 0, 4, h, 4, 0, 4, h);
-    const columns = cctx.getImageData(0, 0, 8, h).data;
-    const left = darkLines(columns, h, (line, i) => (i * 8 + line) * 4);
-    const right = darkLines(columns, h, (line, i) => (i * 8 + 7 - line) * 4);
-    if (top + bottom + left + right === 0) return null;
+    cctx.drawImage(image, 0, 0, n, h, 0, 0, n, h);
+    cctx.drawImage(image, w - n, 0, n, h, n, 0, n, h);
+    const columns = cctx.getImageData(0, 0, 2 * n, h).data;
+    const atLeft = (line: number, i: number): number => (i * 2 * n + line) * 4;
+    const atRight = (line: number, i: number): number => (i * 2 * n + 2 * n - 1 - line) * 4;
+    edges.left = darkLines(columns, h, atLeft);
+    edges.right = darkLines(columns, h, atRight);
+    if (basis && basis.height > 0) {
+      const ratio = h / basis.height;
+      edges.top = widerEdge(edges.top, basis.edges.top, ratio);
+      edges.bottom = widerEdge(edges.bottom, basis.edges.bottom, ratio);
+      edges.left = widerEdge(edges.left, basis.edges.left, ratio);
+      edges.right = widerEdge(edges.right, basis.edges.right, ratio);
+      // Level of the column `line` relative to the next column, minus 1. Only the rows where the two have data count.
+      const step = (line: number, at: (line: number, i: number) => number): number => {
+        let here = 0;
+        let next = 0;
+        for (let i = 0; i < h; i++) {
+          const a = at(line, i);
+          const b = at(line + 1, i);
+          const va = columns[a] + columns[a + 1] + columns[a + 2];
+          const vb = columns[b] + columns[b + 1] + columns[b + 2];
+          if (va <= EDGE_FLOOR || vb <= EDGE_FLOOR) continue;
+          here += va;
+          next += vb;
+        }
+        return next > 0 ? here / next - 1 : 0;
+      };
+      if (edges.left > 0 && edges.left + 1 < n && Math.abs(step(edges.left, atLeft)) > EDGE_OVERSHOOT) edges.left++;
+      if (edges.right > 0 && edges.right + 1 < n && Math.abs(step(edges.right, atRight)) > EDGE_OVERSHOOT) edges.right++;
+    }
+    return edges;
+  } catch {
+    return null;
+  }
+}
 
+interface EdgeRepair {
+  canvas: HTMLCanvasElement;
+  edges: DarkEdges;
+}
+
+/**
+ * Repair of the wrong pixel lines that findDarkEdges finds. If an edge has wrong lines, the function returns a
+ * copy of the image in which the nearest good line replaces them. It returns null if the image is good, or if
+ * the browser does not let the code read the pixels.
+ * The loader of a larger file does the same repair on the pixels that it reads (parts.ts).
+ * `basis`: see findDarkEdges.
+ */
+function repairEdges(image: HTMLImageElement, basis?: EdgeBasis): EdgeRepair | null {
+  const edges = findDarkEdges(image, basis);
+  if (!edges) return null;
+  const { top, bottom, left, right } = edges;
+  if (top + bottom + left + right === 0) return null;
+  const w = image.naturalWidth;
+  const h = image.naturalHeight;
+  try {
     const canvas = document.createElement('canvas');
     canvas.width = w;
     canvas.height = h;
@@ -260,7 +359,7 @@ function repairEdges(image: unknown): EdgeRepair | null {
       const good = ctx.getImageData(0, h - 1 - bottom, w, 1);
       for (let y = 0; y < bottom; y++) ctx.putImageData(good, 0, h - 1 - y);
     }
-    return { canvas, columns: left + right > 0, rows: top + bottom > 0 };
+    return { canvas, edges };
   } catch {
     return null;
   }
@@ -299,6 +398,55 @@ export function wasPoleRepaired(texture: THREE.Texture): boolean {
   return texture.userData.poleRepaired === true;
 }
 
+/** Width and height of the image of a texture, pixels. Both are 0 for a texture with no image. */
+export function imageSize(texture: THREE.Texture): { width: number; height: number } {
+  const image = texture.image as { naturalWidth?: number; naturalHeight?: number; width?: number; height?: number } | null | undefined;
+  const width = Number(image?.naturalWidth ?? image?.width ?? 0);
+  const height = Number(image?.naturalHeight ?? image?.height ?? 0);
+  return { width: width > 0 ? width : 0, height: height > 0 ? height : 0 };
+}
+
+/**
+ * The repair of the image of a map texture, as a basis for the repair of a larger file of the same map
+ * (see findDarkEdges). A texture with no repair has no wrong line.
+ */
+export function edgeBasis(texture: THREE.Texture): EdgeBasis {
+  const edges = texture.userData.darkEdges as DarkEdges | undefined;
+  return { edges: edges ?? { top: 0, bottom: 0, left: 0, right: 0 }, height: imageSize(texture).height };
+}
+
+/** Gives a texture the settings of a map, and the marks of the edge repair. */
+export function setUpMapTexture(texture: THREE.Texture, url: string, opt: MapOptions, edges: DarkEdges | null): THREE.Texture {
+  if (edges) {
+    texture.userData.darkEdges = edges;
+    texture.userData.edgeRepaired = edges.left + edges.right > 0;
+    texture.userData.poleRepaired = edges.top + edges.bottom > 0;
+  }
+  texture.name = url;
+  texture.colorSpace = opt.srgb ? THREE.SRGBColorSpace : THREE.NoColorSpace;
+  texture.wrapS = opt.wrapU ? THREE.RepeatWrapping : THREE.ClampToEdgeWrapping;
+  texture.wrapT = THREE.ClampToEdgeWrapping;
+  texture.magFilter = THREE.LinearFilter;
+  texture.minFilter = THREE.LinearMipmapLinearFilter;
+  texture.generateMipmaps = true;
+  texture.anisotropy = opt.anisotropy;
+  texture.needsUpdate = true;
+  return texture;
+}
+
+/**
+ * The map texture of an image that TextureLoader has loaded: the image itself, or a repaired copy of it.
+ * `basis`: see findDarkEdges.
+ */
+export function imageMapTexture(loaded: THREE.Texture, url: string, opt: MapOptions, basis?: EdgeBasis): THREE.Texture {
+  const image: unknown = loaded.image;
+  const repaired =
+    (opt.repair ?? opt.wrapU) && typeof HTMLImageElement !== 'undefined' && image instanceof HTMLImageElement ? repairEdges(image, basis) : null;
+  if (!repaired) return setUpMapTexture(loaded, url, opt, null);
+  loaded.dispose();
+  return setUpMapTexture(new THREE.CanvasTexture(repaired.canvas), url, opt, repaired.edges);
+}
+
 /**
  * Starts the download of a map. `done` gets the texture, or null if the file did not load.
  * The returned function stops the use of the result (after dispose).
@@ -309,28 +457,8 @@ export function loadMap(url: string, opt: MapOptions, done: (texture: THREE.Text
   loader.load(
     url,
     (loaded) => {
-      if (!alive) {
-        loaded.dispose();
-        return;
-      }
-      let texture: THREE.Texture = loaded;
-      const repaired = (opt.repair ?? opt.wrapU) ? repairEdges(loaded.image) : null;
-      if (repaired) {
-        loaded.dispose();
-        texture = new THREE.CanvasTexture(repaired.canvas);
-        texture.userData.edgeRepaired = repaired.columns;
-        texture.userData.poleRepaired = repaired.rows;
-      }
-      texture.name = url;
-      texture.colorSpace = opt.srgb ? THREE.SRGBColorSpace : THREE.NoColorSpace;
-      texture.wrapS = opt.wrapU ? THREE.RepeatWrapping : THREE.ClampToEdgeWrapping;
-      texture.wrapT = THREE.ClampToEdgeWrapping;
-      texture.magFilter = THREE.LinearFilter;
-      texture.minFilter = THREE.LinearMipmapLinearFilter;
-      texture.generateMipmaps = true;
-      texture.anisotropy = opt.anisotropy;
-      texture.needsUpdate = true;
-      done(texture);
+      if (alive) done(imageMapTexture(loaded, url, opt));
+      else loaded.dispose();
     },
     undefined,
     () => {

@@ -83,17 +83,32 @@
     },
     "browsers": {
      "title": "Other browsers and computers",
-     "text": "The check of the pictures of the screens was in one browser on one computer. The engine tests used Node.js. The checks on this screen show if your browser gives the same numbers."
+     "text": "The check of the pictures of the screens was in one browser on one computer. The check for a small screen used a browser window with the size of a phone screen: no check used an actual phone. The engine tests used Node.js. The checks on this screen show if your browser gives the same numbers."
+    },
+    "maneuverSearch": {
+     "title": "Maneuvers that the search finds in a table",
+     "text": "The Files screen finds velocity changes in a trajectory table. For the deep-space maneuver of Cassini, the size and the time agree with the velocity change in the JPL Horizons table. No test compares the results with the maneuver documents of a mission."
+    },
+    "pictures": {
+     "title": "Colors and brightness of the bodies in the 3D view",
+     "text": "The maps come from mission data. The brightness of each map and the values of each atmosphere do not come from measured data: the project set them for a good picture. No test compares the pictures with images from spacecraft or telescopes. The source of the Jupiter map does not give the longitude of the map. Thus the 3D view can show the clouds of Jupiter at an incorrect longitude."
+    },
+    "smallShapes": {
+     "title": "Shapes of the small bodies in the 3D view",
+     "text": "The shape of an asteroid or a comet in the 3D view is approximate: it shows the type of the shape, not a measured model. A body with no radius in the JPL Small-Body Database has a radius of 10 km in the picture."
     }
    },
    "limits": {
     "impulses": { "title": "Burns are impulses", "text": "Each maneuver changes the velocity in zero time. A long burn of an actual engine has losses that the model does not include." },
     "forces": { "title": "Forces of the model", "text": "The force model has point-mass gravity, the J2 of the planets and the relativity term of the Sun. If you set it, the model also has radiation pressure on a sphere. It has no atmosphere, no higher gravity terms and no attitude." },
-    "moons": { "title": "Moons", "text": "The moon positions come from an analytic model with errors of 80 km to 41 000 km. A plan can use the flyby of a planet. It cannot give an accurate flyby of a moon." },
+    "moons": { "title": "Moons", "text": "The moon positions come from an analytic model with errors of 83 km to 41 400 km. A plan can use the flyby of a planet. It cannot give an accurate flyby of a moon." },
     "launch": { "title": "Launch", "text": "A flight starts in a circular parking orbit. The model does not include the launch site or the flight from the ground to the orbit." },
     "entry": { "title": "Atmosphere entry", "text": "A flight with an entry stops at the equatorial radius of the body. The model does not include the atmosphere." },
-    "interpolation": { "title": "Interpolation", "text": "Between the steps of the integrator, the positions come from an interpolation. Its error is approximately 0.05 km in cruise." },
-    "range": { "title": "Date range", "text": "The planet data is for 1950 to 2100. The small-body data is for 1980 to 2060." }
+    "interpolation": { "title": "Interpolation", "text": "Between the steps of the integrator, the positions come from an interpolation. For the flight of Voyager 2, the largest interpolation error that the test measured is 0.06 km." },
+    "range": { "title": "Date range", "text": "The planet data is for 1950 to 2100. The small-body data is for 1980 to 2060." },
+    "centralBody": { "title": "Plans around the Sun only", "text": "A plan is a sequence of transfers around the Sun with flybys. The application cannot make a plan around a planet, for example a tour of the moons of Jupiter. After an arrival burn, a flight can stay in an orbit around the planet." },
+    "utcBefore1972": { "title": "UTC before 1972", "text": "UTC has leap seconds from 1972. For a date before 1972, the application uses TAI − UTC = 9 s. This is not the UTC of those years: the error of a UTC time before 1972 can be some seconds. This limit does not change the TDB times." },
+    "lightTime": { "title": "No light time", "text": "All positions are geometric positions at one time. The application does not correct a position for the time of the light between a body and the point of view." }
    }
   }
  }

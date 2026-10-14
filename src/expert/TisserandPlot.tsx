@@ -102,11 +102,13 @@ export function TisserandPlot({ plan, result }: { plan: Plan; result: PlanResult
     // orbits of the legs, in the order of the flight
     ctx.strokeStyle = 'rgba(255,255,255,0.5)'; ctx.setLineDash([3, 4]); ctx.lineWidth = 1;
     ctx.beginPath();
-    m.legs.forEach((l, i) => { const x = X(l.rp), y = Y(Math.min(l.ra, m.y[1] * 0.97)); if (i) ctx.lineTo(x, y); else ctx.moveTo(x, y); });
+    // An open orbit has no apoapsis: its point is at the top of the graph, with all of the triangle in the graph.
+    const yLeg = (ra: number): number => (Number.isFinite(ra) ? Math.max(M.t + 10, Y(ra)) : M.t + 10);
+    m.legs.forEach((l, i) => { const x = X(l.rp), y = yLeg(l.ra); if (i) ctx.lineTo(x, y); else ctx.moveTo(x, y); });
     ctx.stroke(); ctx.setLineDash([]);
     m.legs.forEach((l) => {
       const open = !Number.isFinite(l.ra);
-      const x = X(l.rp), y = Y(Math.min(l.ra, m.y[1] * 0.97));
+      const x = X(l.rp), y = yLeg(l.ra);
       ctx.fillStyle = '#fff'; ctx.strokeStyle = '#000'; ctx.lineWidth = 2;
       ctx.beginPath();
       if (open) { ctx.moveTo(x, y - 7); ctx.lineTo(x + 6, y + 4); ctx.lineTo(x - 6, y + 4); ctx.closePath(); } else ctx.arc(x, y, 4.5, 0, 2 * Math.PI);

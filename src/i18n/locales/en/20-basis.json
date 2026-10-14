@@ -13,12 +13,12 @@
    "time": {
     "title": "Time scale conversion",
     "method": "The engine counts time in seconds of TDB after J2000. The conversion to UTC uses the leap second table of the NAIF file naif0012.tls. The conversion between TT and TDB uses the periodic formula of the same file.",
-    "limit": "The maximum difference from JPL Horizons is 0.03 ms. For dates before 1972, the engine uses TAI − UTC = 9 s. For dates after 2017-01-01, TAI − UTC stays at 37 s until a new leap second table is in the application."
+    "limit": "The maximum difference from JPL Horizons is 0.031 ms. For dates before 1972, the engine uses TAI − UTC = 9 s. For dates after 2017-01-01, TAI − UTC stays at 37 s until a new leap second table is in the application."
    },
    "frame": {
     "title": "Reference frame",
     "method": "The engine calculates in the ICRF with the origin at the solar system barycenter. ECLIPJ2000 is a rotation of the ICRF about the X axis by 84 381.448 arcseconds, the obliquity of J2000.",
-    "limit": "The rotation has the precision of 64-bit numbers. The maximum difference from the heliocentric ecliptic positions of JPL Horizons is 0.002 km."
+    "limit": "The rotation has the precision of 64-bit numbers. The maximum difference from the heliocentric ecliptic positions of JPL Horizons is 0.0016 km."
    },
    "const": {
     "title": "Physical constant",
@@ -56,7 +56,7 @@
    "ephem.elements": {
     "title": "Osculating orbit elements",
     "method": "The engine converts the position and the velocity relative to the center to two-body elements. The gravitational parameter is the sum of the values of the center and of the body, as in JPL Horizons.",
-    "limit": "The maximum relative difference of the semi-major axis from the element tables of JPL Horizons is 4 × 10⁻⁹. Osculating elements change with time because of the perturbations."
+    "limit": "The maximum relative difference of the semi-major axis from the element tables of JPL Horizons is 4.1 × 10⁻⁹. Osculating elements change with time because of the perturbations."
    },
    "twobody": {
     "title": "Two-body transfer",
@@ -71,7 +71,7 @@
    "plan.vinf": {
     "title": "Speed at infinity of the plan",
     "method": "The speed at infinity is the velocity on the two-body transfer orbit minus the velocity of the body at the encounter date.",
-    "limit": "For Voyager 2, the patched-conic model gives differences of 3 % or less from the JPL Horizons trajectory. The flight in the full force model gives better values."
+    "limit": "For Voyager 2, the patched-conic model gives differences of 3.01 % or less from the JPL Horizons trajectory. The flight in the full force model gives better values."
    },
    "plan.flyby": {
     "title": "Flyby of the plan",
@@ -96,7 +96,7 @@
    "flight.state": {
     "title": "Position and velocity of the spacecraft",
     "method": "The engine integrates the equations of motion with a Runge-Kutta-Fehlberg 7(8) method. The forces are the gravity of the Sun, the planets, the Moon, Pluto and 3 asteroids. The model also has the J2 of the planets and the relativity term of the Sun. Between steps, the engine uses a fifth-degree interpolation.",
-    "limit": "For asteroids, the difference from JPL Horizons after 168 days is less than 0.2 km. For actual spacecraft in cruise, the difference is 700 km to 150 000 km for arcs of 6 months to 5 years. The cause is forces that the model does not have: the radiation pressure, thermal forces and small maneuvers of the actual spacecraft."
+    "limit": "For asteroids, the difference from JPL Horizons after 168 days is less than 0.2 km. For actual spacecraft in cruise, the difference is 670 km to 153 000 km for arcs of 6 months to 5 years. The cause is forces that the model does not have: the radiation pressure, thermal forces and small maneuvers of the actual spacecraft."
    },
    "flight.encounter": {
     "title": "Flyby of the flight",
@@ -164,6 +164,7 @@
     "propSpacecraftCruise": "Propagation of {craft} in cruise: position difference at the end",
     "propFlyby": "Propagation of {craft} through the flyby of {body}: periapsis radius",
     "windowC3": "{craft}: launch C3 of the plan with the actual dates",
+    "windowDistance": "{craft}: length of the flight path from the Earth to Mars, compared with the published distance",
     "famous_mars2020_arrival": "Mars 2020, calculated flight: arrival time",
     "famous_newhorizons_time_PLUTO": "New Horizons: time of the closest approach to Pluto in the JPL trajectory",
     "famous_cassini_realCorrections": "Cassini: corrections in the JPL trajectory before the flyby of the Earth",

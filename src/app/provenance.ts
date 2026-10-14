@@ -57,6 +57,8 @@ const OUTER = ['JUPITER', 'SATURN', 'URANUS', 'NEPTUNE', 'PLUTO'];
 const startsWith = (...prefixes: string[]) => MEASUREMENTS.filter((m) => prefixes.some((p) => m.id.startsWith(p)));
 const pick = (...ids: string[]) => ids.map((id) => BY_ID.get(id)).filter((m): m is Measurement => !!m);
 /** Margin used: measured value divided by the test limit. The largest values are the most interesting evidence. */
+/** Length of a flight path against a published distance: it is a check of the transfer arc, not of the launch energy. */
+const PATH_LENGTH = /^window\.\w+\.distance$/;
 const byMargin = (a: Measurement, b: Measurement) => (b.limit > 0 ? b.value / b.limit : 0) - (a.limit > 0 ? a.value / a.limit : 0);
 
 function ephemEvidence(body?: string): { list: Measurement[]; status: BasisStatus; variant: string } {
@@ -82,8 +84,8 @@ function build(kind: BasisKind, ctx: BasisContext): { list: Measurement[]; statu
     case 'ephem.state': return ephemEvidence(ctx.body);
     case 'ephem.derived': return ephemEvidence(ctx.body);
     case 'ephem.elements': { const e = ephemEvidence(ctx.body); return { ...e, list: [...pick('frames.elements'), ...e.list] }; }
-    case 'twobody': return { list: pick('analytic.hohmann', 'lambert.consistency', 'tisserand.hohmann'), status: 'analytic' };
-    case 'plan.c3': return { list: startsWith('window.').sort(byMargin), status: 'horizons' };
+    case 'twobody': return { list: [...pick('analytic.hohmann', 'lambert.consistency', 'tisserand.hohmann'), ...MEASUREMENTS.filter((m) => PATH_LENGTH.test(m.id)).sort(byMargin)], status: 'analytic' };
+    case 'plan.c3': return { list: startsWith('window.').filter((m) => !PATH_LENGTH.test(m.id)).sort(byMargin), status: 'horizons' };
     case 'plan.vinf': return { list: MEASUREMENTS.filter((m) => /\.conic\.(vinf|mismatch)\./.test(m.id)).sort(byMargin), status: 'horizons' };
     case 'plan.flyby': return { list: MEASUREMENTS.filter((m) => /\.conic\.periapsis\./.test(m.id)).sort(byMargin), status: 'horizons' };
     case 'plan.dv': return { list: [...pick('analytic.hohmann', 'missions.cassini.conic.dsm'), ...startsWith('window.c3.').sort(byMargin)], status: 'model' };
@@ -128,7 +130,7 @@ export function basis(kind: BasisKind, ctx: BasisContext = {}): Basis {
 
 // ------------------------------------------------------------------------------------- measurement texts
 
-const craftName = (id: string): string => FAMOUS.find((f) => f.id === id)?.name ?? (hasText('spacecraft.' + id) ? t('spacecraft.' + id) : id);
+const craftName = (id: string): string => (hasText('spacecraft.' + id) ? t('spacecraft.' + id) : FAMOUS.find((f) => f.id === id)?.name ?? id);
 const nth = (k: string | undefined): string => (k === undefined ? '' : String(Number(k) + 1));
 
 type Vars = Record<string, string>;
@@ -156,6 +158,7 @@ const PATTERNS: [RegExp, string, (m: RegExpExecArray) => Vars][] = [
   [/^propagation\.spacecraft\.([a-z0-9]+?)_cruise$/, 'propSpacecraftCruise', (m) => ({ craft: craftName(m[1]) })],
   [/^propagation\.flyby\.(\w+)\.(\d+)\.(\w+)$/, 'propFlyby', (m) => ({ craft: craftName(m[1]), body: bodyIn(m[3]) })],
   [/^window\.c3\.(\w+)$/, 'windowC3', (m) => ({ craft: craftName(m[1]) })],
+  [/^window\.(\w+)\.distance$/, 'windowDistance', (m) => ({ craft: craftName(m[1]) })],
   [/^famous\.newhorizons\.published\.(\w+)$/, 'publishedDistance', (m) => ({ craft: craftName('newhorizons'), body: bodyIn(m[1]) })],
 ];
 

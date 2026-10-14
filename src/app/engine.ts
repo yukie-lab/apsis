@@ -93,8 +93,9 @@ class EngineClient {
   async solve(mission: Mission, progress?: Progress): Promise<Solved> {
     return unpack(await this.call('solve', { mission, custom: customList() }, progress));
   }
-  async famous(id: string, progress?: Progress): Promise<Solved> {
-    return unpack(await this.call('famous', { id, custom: customList() }, progress));
+  /** name: the name of the mission in the language of the user interface. */
+  async famous(id: string, name: string, progress?: Progress): Promise<Solved> {
+    return unpack(await this.call('famous', { id, name, custom: customList() }, progress));
   }
   async quick(request: QuickRequest, name: string, spacecraft: SpacecraftSpec = DEFAULT_SPACECRAFT, progress?: Progress): Promise<{ solved: Solved; window: QuickWindow }> {
     const r = await this.call('quick', { request, name, spacecraft, custom: customList() }, progress);

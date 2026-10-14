@@ -116,11 +116,14 @@ export function FlightPlot({ trajectory, markEt, reference = null }: { trajector
     const unit = useAu ? AU : 1;
     const step = ticks(0, R / unit, 4)[1] ?? 1;
     ctx.strokeStyle = COLORS.grid; ctx.fillStyle = COLORS.text; ctx.lineWidth = 1;
+    const rings: [string, number, number, number][] = [];
     for (let r = step; r * unit < R * 1.45; r += step) {
+      // The disk of the center body is above a ring that is in the body: this ring has no label.
+      if (r * unit <= (BODIES[center]?.radius ?? 0)) continue;
       ctx.beginPath(); ctx.arc(cx, cy, r * unit * k, 0, 2 * Math.PI); ctx.stroke();
       const text = useAu ? `${+r.toFixed(3)} au` : `${fixed(r, 0)} km`;
-      const ly = cy + r * unit * k * 0.7071 + 11;
-      if (ly < h - 2) ctx.fillText(text, Math.min(w - ctx.measureText(text).width - 4, cx + r * unit * k * 0.7071 + 3), ly);
+      const ly = cy + r * unit * k * 0.7071 + 11, tw = ctx.measureText(text).width;
+      if (ly < h - 2) rings.push([text, Math.min(w - tw - 4, cx + r * unit * k * 0.7071 + 3), ly, tw]);
     }
     ctx.strokeStyle = COLORS.axis;
     ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(Math.min(w - 8, cx + R * k), cy); ctx.stroke();
@@ -147,7 +150,7 @@ export function FlightPlot({ trajectory, markEt, reference = null }: { trajector
       let ly = Math.max(12, Y(p) - 6);
       for (let j = 0; j < 8 && placed.some(([x0, y0, x1, y1]) => lx < x1 && lx + tw > x0 && ly - 11 < y1 && ly + 4 > y0); j++) ly += 15;
       placed.push([lx - 3, ly - 11, lx + tw + 3, ly + 4]);
-      ctx.fillStyle = 'rgba(5,7,12,0.78)'; ctx.fillRect(lx - 3, ly - 11, tw + 6, 15);
+      ctx.fillStyle = 'rgba(5,7,12,0.92)'; ctx.fillRect(lx - 3, ly - 11, tw + 6, 15);
       ctx.fillStyle = COLORS.bright;
       ctx.fillText(text, lx, ly);
     };
@@ -172,6 +175,11 @@ export function FlightPlot({ trajectory, markEt, reference = null }: { trajector
         ctx.strokeRect(X(m.p) - 4, Y(m.p) - 4, 8, 8);
         label(m.p, `${t('page.mission.event.start')} ${formatEt(m.et, timeScale, 'day')}`);
       }
+    }
+    // The label of a ring shows only where no label of an event is.
+    ctx.fillStyle = COLORS.text;
+    for (const [text, lx, ly, tw] of rings) {
+      if (!placed.some(([x0, y0, x1, y1]) => lx < x1 && lx + tw > x0 && ly - 11 < y1 && ly + 3 > y0)) ctx.fillText(text, lx, ly);
     }
     if (markEt !== undefined && markEt >= Math.min(trajectory.et0, trajectory.et1) && markEt <= Math.max(trajectory.et0, trajectory.et1)) {
       // The bodies and the spacecraft at the time of the view.

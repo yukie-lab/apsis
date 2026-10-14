@@ -4,7 +4,7 @@ import { useApp, nowEt } from '../../app/store';
 import { system } from '../../app/system';
 import { engine, EngineError } from '../../app/engine';
 import { measurement } from '../../app/provenance';
-import { t, bodyName } from '../../i18n';
+import { t, bodyName, craftName } from '../../i18n';
 import type { PorkchopRequest, PorkchopData } from '../../engine/planopt';
 import { synodicPeriod, hohmannTof } from '../../engine/planopt';
 import { FAMOUS, famousFacts, newMission } from '../../engine/mission';
@@ -31,7 +31,7 @@ function examples(): { id: string; name: string; to: string; dep: number; arr: n
     const facts = famousFacts(f.id);
     const first = facts.encounters[0];
     if (!first || first.body === 'EARTH' || facts.dsm?.some((d) => d.jdTdb < first.jdTdb)) continue;
-    out.push({ id: f.id, name: f.name, to: first.body, dep: tdb(facts.startTdb), arr: jdTdbToEt(first.jdTdb) });
+    out.push({ id: f.id, name: craftName(f.id, f.name), to: first.body, dep: tdb(facts.startTdb), arr: jdTdbToEt(first.jdTdb) });
   }
   return out;
 }
@@ -139,7 +139,8 @@ function Map({ data, quantity, pick, onPick, example }: {
       ctx.drawImage(layer.image, M.l - W / (2 * (nx - 1)), M.t - H / (2 * (ny - 1)), (W * nx) / (nx - 1), (H * ny) / (ny - 1));
       // lines of constant time of flight
       const tofLo = Math.max(DAY, arr[0] - dep[1]), tofHi = arr[1] - dep[0];
-      ctx.setLineDash([4, 5]); ctx.strokeStyle = 'rgba(255,255,255,0.28)'; ctx.fillStyle = 'rgba(255,255,255,0.6)'; ctx.lineWidth = 1;
+      ctx.setLineDash([4, 5]); ctx.strokeStyle = 'rgba(255,255,255,0.28)'; ctx.lineWidth = 1;
+      const tofLabels: [string, number, number][] = [];
       for (const days of ticks(tofLo / DAY, tofHi / DAY, 7)) {
         if (days <= 0) continue;
         const T = days * DAY;
@@ -147,7 +148,8 @@ function Map({ data, quantity, pick, onPick, example }: {
         // label where the line leaves the plot (top edge or right edge)
         const etTop = arr[1] - T;
         const lx = etTop <= dep[1] ? Xt(etTop) : Xt(dep[1]), ly = etTop <= dep[1] ? M.t : Yt(dep[1] + T);
-        if (lx > M.l + 30 && ly < M.t + H - 14) { ctx.textAlign = 'right'; ctx.fillText(`${days} d`, lx - 4, ly + 12); }
+        // The label shows only if all of it is in the plot.
+        if (lx - 6 - ctx.measureText(`${days} d`).width > M.l && ly < M.t + H - 14) tofLabels.push([`${days} d`, lx - 4, ly + 12]);
       }
       ctx.setLineDash([]);
       // contour lines
@@ -157,24 +159,34 @@ function Map({ data, quantity, pick, onPick, example }: {
         for (let i = 0; i < seg.length; i += 4) { ctx.moveTo(X(seg[i]), Y(seg[i + 1])); ctx.lineTo(X(seg[i + 2]), Y(seg[i + 3])); }
         ctx.stroke();
       });
-      // One label for each value, where the line crosses the row of the minimum on the side of the later
-      // departure dates. A label that would cover an earlier label is not drawn.
+      // The labels of the lines of constant time of flight are above the contour lines, with a dark edge.
+      ctx.textAlign = 'right'; ctx.lineJoin = 'round'; ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(5,7,12,0.85)'; ctx.fillStyle = 'rgba(255,255,255,0.8)';
+      for (const [text, x, y] of tofLabels) { ctx.strokeText(text, x, y); ctx.fillText(text, x, y); }
+      // One label for each value, where the line crosses the row of the minimum: on the side of the later departure
+      // dates or, if there is no space, on the other side. A label that would cover an earlier label is not drawn.
       const ref = data.best ?? data.bestC3;
       const placed: [number, number][] = [];
+      // The marks of the minimums are above the labels: a label does not go below a mark.
+      for (const m of [data.best, data.bestC3]) if (m && ref && Math.abs(Y(m.iy) - Y(ref.iy)) < 16) placed.push([X(m.ix), 18]);
       if (ref) layer.segs.forEach((seg, k) => {
-        let best = -1;
+        let right = -1, left = -1;
         for (let i = 0; i < seg.length; i += 4) {
           const lo = Math.min(seg[i + 1], seg[i + 3]), hi = Math.max(seg[i + 1], seg[i + 3]);
-          if (lo <= ref.iy && hi >= ref.iy && seg[i] > ref.ix && (best < 0 || seg[i] < seg[best])) best = i;
+          if (lo > ref.iy || hi < ref.iy) continue;
+          if (seg[i] > ref.ix && (right < 0 || seg[i] < seg[right])) right = i;
+          if (seg[i] < ref.ix && (left < 0 || seg[i] > seg[left])) left = i;
         }
-        if (best < 0) return;
         const text = String(layer.levels[k]);
-        const tx = X(seg[best]), ty = Y(seg[best + 1]);
         const tw = ctx.measureText(text).width + 6;
-        if (tx + tw / 2 > M.l + W - 2 || placed.some(([px, pw]) => Math.abs(px - tx) < (pw + tw) / 2 + 3)) return;
-        placed.push([tx, tw]);
-        ctx.fillStyle = 'rgba(5,7,12,0.82)'; ctx.fillRect(tx - tw / 2, ty - 7, tw, 14);
-        ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.fillText(text, tx, ty + 4);
+        for (const i of [right, left]) {
+          if (i < 0) continue;
+          const tx = X(seg[i]), ty = Y(seg[i + 1]);
+          if (tx + tw / 2 > M.l + W - 2 || tx - tw / 2 < M.l + 2 || placed.some(([px, pw]) => Math.abs(px - tx) < (pw + tw) / 2 + 3)) continue;
+          placed.push([tx, tw]);
+          ctx.fillStyle = 'rgba(5,7,12,0.82)'; ctx.fillRect(tx - tw / 2, ty - 7, tw, 14);
+          ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.fillText(text, tx, ty + 4);
+          break;
+        }
       });
     }
     const mark = (ix: number, iy: number, kind: 'best' | 'c3' | 'pick' | 'hover') => {

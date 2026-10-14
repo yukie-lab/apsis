@@ -7,8 +7,14 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { BODIES } from '../src/engine/bodies';
+import { FRAMES } from '../src/engine/frames';
+import { FAMOUS } from '../src/engine/mission';
 import { NOTE_CODES } from '../src/render/bodies';
-import { hasText, t, LOCALES } from '../src/i18n';
+import { EXPERT_PAGES } from '../src/app/router';
+import { SPACECRAFT_KINDS } from '../src/app/spacecraftKinds';
+import { MEASUREMENTS, describeMeasurement, measuredText } from '../src/app/provenance';
+import { UNVERIFIED, LIMITS } from '../src/validation/lists';
+import { hasText, t, tEnglish, craftName, LOCALES } from '../src/i18n';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const LOCALE_DIR = join(ROOT, 'src/i18n/locales/en');
@@ -46,11 +52,44 @@ const namespaces = new Set([...keys].map((k) => k.split('.')[0]));
 const sources = files(join(ROOT, 'src'), ['.ts', '.tsx']).filter((p) => !p.includes('/i18n/locales/'));
 const rel = (path: string): string => path.slice(ROOT.length);
 
+/** Directories of the other languages. This version of the project has English only: the list is empty. */
+const LOCALES_DIR = join(ROOT, 'src/i18n/locales');
+const otherLanguages = readdirSync(LOCALES_DIR).filter((d) => d !== 'en' && statSync(join(LOCALES_DIR, d)).isDirectory()).sort();
+/** Keys that a language can have when the English files do not have them: its texts for data files and for names. */
+const OWN_KEYS = /^(?:validation\.truth\.|validation\.item\.|about\.maps\.changeText\.|bodyIn\.|spacecraft\.)/;
+/** Texts of a locale object by key. */
+function texts(node: unknown, prefix: string, out: Map<string, string>): Map<string, string> {
+  if (typeof node === 'string') out.set(prefix, node);
+  else if (node && typeof node === 'object' && !Array.isArray(node)) for (const [k, v] of Object.entries(node)) texts(v, prefix ? `${prefix}.${k}` : k, out);
+  return out;
+}
+/** Parts in braces of a text ("{name}"), which the code replaces. */
+const braces = (s: string): string => [...new Set(s.match(/\{[A-Za-z0-9_]+\}/g) ?? [])].sort().join(' ');
+
 describe('locale files', () => {
-  it('has one language, English, and each entry is a text', () => {
-    expect(LOCALES.map((l) => l.code)).toEqual(['en']);
+  it('has English, each language has a name, and each entry is a text', () => {
+    expect(LOCALES.map((l) => l.code).sort()).toEqual(['en', ...otherLanguages].sort());
+    expect(LOCALES.filter((l) => !l.name.trim() || l.name === l.code).map((l) => l.code)).toEqual([]);
     expect([...keys].filter((k) => k.endsWith('(not a text)'))).toEqual([]);
     expect(keys.size).toBeGreaterThan(1000);
+  });
+
+  it('has, in each other language, only keys of the English files, with the same parts in braces', () => {
+    // A language does not have to give each text: a text that it does not have shows in English.
+    const english = new Map<string, string>();
+    for (const f of localeFiles) texts(f.json.text ?? {}, '', english);
+    const bad: string[] = [];
+    for (const code of otherLanguages) {
+      for (const path of files(join(LOCALES_DIR, code), ['.json'])) {
+        const part = JSON.parse(readFileSync(path, 'utf8')) as { text?: unknown };
+        for (const [key, text] of texts(part.text ?? {}, '', new Map())) {
+          const source = english.get(key);
+          if (source === undefined) { if (!OWN_KEYS.test(key)) bad.push(`${rel(path)}: ${key} is not a key of the English files`); }
+          else if (braces(text) !== braces(source)) bad.push(`${rel(path)}: ${key} has the parts "${braces(text)}", the English text has "${braces(source)}"`);
+        }
+      }
+    }
+    expect(bad).toEqual([]);
   });
 
   it('has no key in two files', () => {
@@ -86,14 +125,14 @@ describe('keys that the code uses', () => {
     let n = 0;
     for (const path of sources) {
       const code = readFileSync(path, 'utf8');
-      for (const m of code.matchAll(/\b(?:t|hasText)\(\s*(['"])([A-Za-z0-9_.-]+)\1\s*([,)+])/g)) {
+      for (const m of code.matchAll(/\b(?:t|tEnglish|hasText)\(\s*(['"])([A-Za-z0-9_.-]+)\1\s*([,)+])/g)) {
         const [, , key, after] = m;
         n += 1;
         // "a.b." + x: the fixed part is a group of texts.
         if (after === '+' || key.endsWith('.')) { if (!prefixes.has(key.replace(/\.$/, ''))) missing.push(`${rel(path)}: ${key}*`); }
         else if (!keys.has(key)) missing.push(`${rel(path)}: ${key}`);
       }
-      for (const m of code.matchAll(/\b(?:t|hasText)\(\s*`([A-Za-z0-9_.-]*)\$\{/g)) {
+      for (const m of code.matchAll(/\b(?:t|tEnglish|hasText)\(\s*`([A-Za-z0-9_.-]*)\$\{/g)) {
         n += 1;
         const group = m[1].replace(/\.[^.]*$/, '');
         if (m[1] && !prefixes.has(group) && !prefixes.has(m[1].replace(/\.$/, ''))) missing.push(`${rel(path)}: ${m[1]}*`);
@@ -138,6 +177,53 @@ describe('keys that the code uses', () => {
     const roles = [...new Set(manifest.textures.map((m) => m.role))];
     expect(roles.length).toBeGreaterThan(3);
     expect(roles.filter((r) => !hasText(`about.maps.role.${r}`))).toEqual([]);
+  });
+});
+
+describe('keys that the code makes at run time', () => {
+  it('has a text for each value of the lists of the engine and of the screens', () => {
+    const need = [
+      ...FRAMES.flatMap((f) => [`frame.${f}`, `frameLong.${f}`]),
+      ...EXPERT_PAGES.flatMap((p) => [`nav.${p}`, `page.${p}.title`, `page.${p}.intro`]),
+      ...SPACECRAFT_KINDS.map((k) => `spacecraftKind.${k}`),
+      ...FAMOUS.flatMap((f) => [`explorer.famous.story.${f.id}`, `spacecraft.${f.id}`]),
+      // The reasons of Trajectory.failure (src/engine/propagate.ts).
+      ...['inside-body', 'not-finite', 'step-limit'].map((r) => `page.mission.failure.${r}`),
+      ...[...new Set(MEASUREMENTS.map((m) => m.group))].map((g) => `validation.group.${g}`),
+    ];
+    expect(need.length).toBeGreaterThan(60);
+    expect(need.filter((k) => !hasText(k))).toEqual([]);
+  });
+
+  it('gives the English text for the files for other programs', () => {
+    expect(tEnglish('page.files.comment', { app: tEnglish('app.name'), version: '1', name: 'A' })).toBe('File of Apsis 1. Mission: A.');
+    expect(tEnglish('not.a.key')).toBe('not.a.key');
+    // The comments of a file must have only ASCII characters.
+    for (const key of ['page.files.comment', 'page.files.commentModel', 'app.name']) expect(tEnglish(key)).toMatch(/^[\x20-\x7e]+$/);
+  });
+
+  it('shows the name of an actual spacecraft from the texts of the language', () => {
+    for (const f of FAMOUS) expect(craftName(f.id, '?')).toBe(t(`spacecraft.${f.id}`));
+    expect(craftName('not-a-spacecraft', 'Name')).toBe('Name');
+  });
+
+  it('has a description and a unit for each measured value of the Accuracy screen', () => {
+    expect(MEASUREMENTS.length).toBeGreaterThan(200);
+    expect(MEASUREMENTS.filter((m) => { const s = describeMeasurement(m); return s === m.id || s.includes('validation.item.') || /\{[a-z]+\}/i.test(s); }).map((m) => m.id)).toEqual([]);
+    expect(MEASUREMENTS.filter((m) => m.unit && !hasText('validation.unit.' + m.unit) && !/^(km|km\/s|m\/s|mm\/s|m|s|ms|%|deg|d|h|rad|au)$/.test(measuredText(m).unit)).map((m) => `${m.id}: ${m.unit}`)).toEqual([]);
+    expect(MEASUREMENTS.filter((m) => !m.truth || m.truth.length < 12).map((m) => m.id)).toEqual([]);
+  });
+
+  it('has a title and a text for each item with no check and for each limit of the Accuracy screen', () => {
+    const unverified: string[] = [...UNVERIFIED], limits: string[] = [...LIMITS];
+    expect(unverified.length).toBeGreaterThan(5);
+    expect(limits.length).toBeGreaterThan(5);
+    const need = [...unverified.flatMap((id) => [`validation.unverified.${id}.title`, `validation.unverified.${id}.text`]), ...limits.flatMap((id) => [`validation.limits.${id}.title`, `validation.limits.${id}.text`])];
+    expect(need.filter((k) => !hasText(k))).toEqual([]);
+    // Each item of the locale files is on the screen.
+    const inLocale = (group: string): string[] => [...new Set([...keys].filter((k) => k.startsWith(`validation.${group}.`)).map((k) => k.split('.')[2]))];
+    expect(inLocale('unverified').filter((id) => !unverified.includes(id))).toEqual([]);
+    expect(inLocale('limits').filter((id) => !limits.includes(id))).toEqual([]);
   });
 });
 

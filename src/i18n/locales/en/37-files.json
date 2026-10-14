@@ -120,7 +120,7 @@
    "file.approach": {
     "title": "Closest approach from a table",
     "method": "The application finds the sample of the table that is nearest to the body. It propagates the state of the sample before it to the sample after it in the default force model. The closest approach of that propagation is the result. The column \"Distance from the next sample\" shows the difference between the propagation and the file.",
-    "limit": "The test is the flyby of Venus by Cassini. The result from a JPL Horizons table with 1-day samples is 0.008 km from the closest approach in the 1-minute table. A maneuver between the two samples is not in the result: then the distance from the next sample is large."
+    "limit": "The test is the flyby of Venus by Cassini. The result from a JPL Horizons table with 1-day samples is 0.0076 km from the closest approach in the 1-minute table. A maneuver between the two samples is not in the result: then the distance from the next sample is large."
    },
    "file.check": {
     "title": "Interpolation error of the table",
@@ -298,7 +298,7 @@
     "csvIso": "Calendar time",
     "csvJd": "Julian date",
     "gmatAxes": "GMAT axes for the ICRF numbers",
-    "gmatAxesNote": "The GMAT user guide does not give the axes in which GMAT uses its planet data. The default (MJ2000Eq) is correct if GMAT uses this data as MJ2000Eq vectors with no rotation. An incorrect selection gives an error of approximately 23 km at 1 au.",
+    "gmatAxesNote": "The GMAT user guide does not give the axes in which GMAT uses its planet data. The default (MJ2000Eq) is correct if GMAT uses this data as MJ2000Eq vectors with no rotation. If the selection is incorrect, the error is less than 24 km at 1 au. This limit comes from a value in the user guide.",
     "gmatOutput": "Output of the script",
     "gmatReport": "Report file",
     "gmatOem": "Ephemeris file (OEM)",

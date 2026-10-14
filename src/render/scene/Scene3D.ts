@@ -78,6 +78,11 @@ export type DirectorMode = 'craft' | 'system' | 'body';
 
 /** Lighting of the spacecraft models (the values of their test page). */
 const LIGHT = { sun: 3.2, fill: 0.22, environment: 0.32 };
+/**
+ * Light on the night side of the bodies, as a part of the sunlight. It is not physical: with 0 the night side is
+ * black and a body in front of the black sky does not show. The notes of the view tell the user about this light.
+ */
+const NIGHT_LIGHT = 0.08;
 const MAJOR = new Set(['SUN', 'MERCURY', 'VENUS', 'EARTH', 'MARS', 'JUPITER', 'SATURN', 'URANUS', 'NEPTUNE', 'PLUTO']);
 const COLOR_PAST = '#ffc56e', COLOR_FUTURE = '#6f8fd0';
 /** Apparent radius of a body as seen from the spacecraft at which the automatic camera goes to the spacecraft, rad. */
@@ -91,6 +96,19 @@ const DIRECTOR_CLOSE = 0.35, DIRECTOR_CLOSE_OUT = 0.24;
 const NIGHT_IN = -0.4, NIGHT_OUT = -0.15;
 /** Part of the view by which the automatic camera moves the spacecraft from the middle (the body is on the other side). */
 const AIM_SHIFT = 0.42;
+/**
+ * A near body is larger than the view. The automatic camera then turns away from the body: the limb of the body
+ * stays in the view, at this part of the half-size of the view from the spacecraft.
+ */
+const AIM_LIMB = 0.35;
+/**
+ * The automatic camera is on the side of the Sun. Very near a body, the part of the body in the view can then be
+ * dark. The camera goes to the other side above the first apparent radius of the body (rad) and comes back below
+ * the second value.
+ */
+const AIM_NEAR_IN = 0.5, AIM_NEAR_OUT = 0.4;
+/** That change occurs when the cosine of the Sun angle on the part of the body in the view is below the first value, and back above the second value. */
+const LIMB_DARK = 0.1, LIMB_LIT = 0.2;
 /** View of a body by the automatic camera: the part of the smaller side of the view that the body and the spacecraft fill. */
 const BODY_FILL = 0.58;
 /** That view: angle by which the camera turns from the side view to the Sun, rad. */
@@ -152,6 +170,11 @@ export class Scene3D {
   private directorBody = '';
   private autoAim = false;
   /**
+   * Side of the spacecraft on which the automatic camera is (see AIM_NEAR_IN). 0: the usual side. 1: the opposite
+   * side. 2: the side from which the camera looks in the direction of the Sun.
+   */
+  private aimSide = 0;
+  /**
    * Position of the focus on the screen: distance from the middle in half-sizes of the view (x to the right, y up).
    * The projection moves (as with a lens shift): the perspective does not change.
    * shiftBase: set by the user interface (a panel covers a part of the view). shiftAim: set by the automatic camera.
@@ -191,6 +214,7 @@ export class Scene3D {
   private readonly craftPos: Vec3 = [0, 0, 0];
   private readonly craftVel: Vec3 = [0, 0, 0];
   private rateNow = 0;
+  private nightFill = NIGHT_LIGHT;
   /** Largest distance of the path from the solar system barycenter, km. */
   private pathRadius = 0;
 
@@ -381,11 +405,15 @@ export class Scene3D {
   }
   /** Slow turn of the view until the user moves it, rad/s. */
   setSpin(rate: number): void { this.spin = rate; }
-  /** smallBodies: show all asteroids, comets and dwarf planets (default: only those of the flight). */
-  setLayers(p: { labels?: boolean; orbits?: boolean; smallBodies?: boolean }): void {
+  /**
+   * smallBodies: show all asteroids, comets and dwarf planets (default: only those of the flight).
+   * nightLight: the night side of the bodies gets a small quantity of light (default: on).
+   */
+  setLayers(p: { labels?: boolean; orbits?: boolean; smallBodies?: boolean; nightLight?: boolean }): void {
     if (p.labels !== undefined) this.showLabels = p.labels;
     if (p.orbits !== undefined) this.showOrbits = p.orbits;
     if (p.smallBodies !== undefined) this.showSmall = p.smallBodies;
+    if (p.nightLight !== undefined) this.nightFill = p.nightLight ? NIGHT_LIGHT : 0;
     this.lastEt = NaN;
   }
   /** Automatic time rate (simulation seconds for each second) for the geometry of this moment. 0: no flight. */
@@ -456,6 +484,8 @@ export class Scene3D {
    * the body is at the edge of the view (to the side on a wide screen, above on a tall screen). The automatic
    * camera then moves the view (shiftAim): the spacecraft is on one side and the body on the other side.
    * The camera is on the side of the Sun where that is possible: the spacecraft is in sunlight.
+   * A near body is larger than the view: the camera turns more, and the limb of the body stays in the view. If the
+   * part of the body in the view is then dark, the camera goes to a different side: it shows a limb in sunlight.
    */
   private aimPose(): { az: number; el: number } {
     const near = this.aimHasBody() ? this.byId.get(this.info.near!.id) : undefined;
@@ -472,11 +502,40 @@ export class Scene3D {
     const e2 = new THREE.Vector3().crossVectors(b, e1).normalize();
     if (e2.z < 0) e2.negate();
     const portrait = this.aspect < 1;
-    const vHalf = (this.cam.fov * Math.PI) / 360;
+    const ty = Math.tan((this.cam.fov * Math.PI) / 360), tx = ty * this.aspect;
     // A tall screen has controls at its top and at its bottom: the body is nearer to the spacecraft in the view.
-    const sigma = !near ? 0.5 : portrait ? Math.atan(0.66 * Math.tan(vHalf)) : Math.atan(Math.tan(vHalf) * this.aspect);
-    const e = portrait ? e2.multiplyScalar(0.97).addScaledVector(e1, 0.22) : e1.multiplyScalar(0.96).addScaledVector(e2, 0.28);
-    const d = b.multiplyScalar(-Math.cos(sigma)).addScaledVector(e.normalize(), Math.sin(sigma)).normalize();
+    let sigma = !near ? 0.5 : portrait ? Math.atan(0.66 * ty) : Math.atan(tx);
+    // Side of the camera as seen from the spacecraft (b and each side are at 90 degrees).
+    const mix = (k1: number, k2: number): THREE.Vector3 => e1.clone().multiplyScalar(k1).addScaledVector(e2, k2).normalize();
+    const sides = [portrait ? mix(0.22, 0.97) : mix(0.96, 0.28), portrait ? mix(0.22, -0.97) : mix(-0.96, 0.28), mix(-0.96, 0.28)];
+    const rho = near ? Math.asin(Math.min(1, near.body.radius / Math.max(this.info.near!.distanceKm, near.body.radius))) : 0;
+    if (rho < AIM_NEAR_OUT) this.aimSide = 0;
+    else if (rho > AIM_NEAR_IN || this.aimSide) {
+      // Cosine of the Sun angle at a point of the surface between the point below the spacecraft and the limb in
+      // the view, for each side.
+      const lambda = 0.6 * (Math.PI / 2 - rho);
+      const light = sides.map((dir) => -Math.cos(lambda) * b.dot(s) - Math.sin(lambda) * dir.dot(s));
+      const best = light[2] > light[1] + 0.05 ? 2 : 1;
+      if (this.aimSide === 0) { if (light[0] < LIMB_DARK && light[best] > light[0] + 0.15) this.aimSide = best; }
+      else if (light[0] > LIMB_LIT || light[this.aimSide] < light[0]) this.aimSide = 0;
+      else if (light[best] > light[this.aimSide] + 0.15) this.aimSide = best;
+    }
+    const side = sides[this.aimSide];
+    if (near) {
+      // Angle between the spacecraft and the limb in the view. The body is from the spacecraft in a direction p
+      // on the screen: the angle is a constant part of the half-size of the view in that direction.
+      const margin = (sg: number): number => {
+        const axis = b.clone().multiplyScalar(Math.cos(sg)).addScaledVector(side, -Math.sin(sg));
+        const right = new THREE.Vector3().crossVectors(axis, up);
+        if (right.lengthSq() < 1e-9) right.set(1, 0, 0);
+        right.normalize();
+        const above = new THREE.Vector3().crossVectors(right, axis);
+        const p = side.clone().multiplyScalar(Math.cos(sg)).addScaledVector(b, Math.sin(sg));
+        return Math.atan(AIM_LIMB / Math.max(Math.abs(p.dot(right)) / tx, Math.abs(p.dot(above)) / ty));
+      };
+      sigma = Math.max(sigma, rho + margin(rho + margin(Math.max(sigma, rho))));
+    }
+    const d = b.multiplyScalar(-Math.cos(sigma)).addScaledVector(side, Math.sin(sigma)).normalize();
     return { az: Math.atan2(d.y, d.x), el: Math.asin(Math.max(-1, Math.min(1, d.z))) };
   }
   /** The view that the automatic camera uses for the geometry of this moment. */
@@ -662,17 +721,20 @@ export class Scene3D {
     if (aiming && this.aimHasBody()) {
       const b = this.byId.get(this.info.near!.id)!;
       const v = this.v1.set(b.pos[0] - o[0], b.pos[1] - o[1], b.pos[2] - o[2]).applyMatrix4(cam.matrixWorldInverse);
-      if (v.z < 0) {
-        const ty = Math.tan((cam.fov * Math.PI) / 360);
-        const clamp = (x: number): number => Math.max(-0.45, Math.min(0.45, x));
-        this.shiftAim.set(clamp((-AIM_SHIFT * v.x) / (-v.z * ty * cam.aspect)), clamp((-AIM_SHIFT * v.y) / (-v.z * ty)));
-      }
+      // Position of the center of the body in half-sizes of the view. A center behind the plane of the camera is far
+      // to its side. The direction stays the same when the position is larger than the limit.
+      const ty = Math.tan((cam.fov * Math.PI) / 360);
+      const depth = Math.max(-v.z, 1e-6 * Math.hypot(v.x, v.y), 1e-12);
+      const ax = (-AIM_SHIFT * v.x) / (depth * ty * cam.aspect), ay = (-AIM_SHIFT * v.y) / (depth * ty);
+      // A tall screen has more controls at its top: the spacecraft goes up by a smaller part of the view.
+      const k = Math.min(1, 0.45 / Math.max(Math.abs(ax), 1e-12), (ay > 0 && cam.aspect < 1 ? 0.22 : 0.45) / Math.max(Math.abs(ay), 1e-12));
+      this.shiftAim.set(ax * k, ay * k);
     }
 
     // Bodies.
     const time = this.effects;
     this.markers.begin(this.pixelRatio);
-    this.labels.begin();
+    this.labels.begin(this.width);
     const big: Entry[] = [];
     for (const e of this.entries) {
       if (!e.valid) { if (e.visual) e.visual.object.visible = false; if (e.orbit) e.orbit.line.setOpacity(0); e.shown = false; continue; }
@@ -721,7 +783,7 @@ export class Scene3D {
       const sunDistanceKm = this.v1.length();
       if (sunDistanceKm > 0) this.v1.multiplyScalar(1 / sunDistanceKm); else this.v1.set(1, 0, 0);
       this.v2.copy(cam.position).sub(e.rel);
-      e.visual.update({ sunDir: this.v1, cameraPos: this.v2, time, shadowCasters: this.casters, sunDistanceKm });
+      e.visual.update({ sunDir: this.v1, cameraPos: this.v2, time, shadowCasters: this.casters, sunDistanceKm, nightFill: this.nightFill });
     }
 
     // Marks, labels and orbits of the bodies.
@@ -763,9 +825,20 @@ export class Scene3D {
       const off2 = bx * bx + by * by + bz * bz - along * along;
       if (off2 < b.body.radius * b.body.radius) return;
     }
-    const x = (p.x + 1) * 0.5 * this.width + Math.max(0, 0.72 * px - 6), y = (1 - p.y) * 0.5 * this.height - Math.max(0, 0.72 * px - 6);
-    // The label of an event is above its mark: the flight path goes through the mark.
-    this.labels.place(id, text, x, cls === 'event' ? y - 13 : y, cls);
+    // The spacecraft model in front of the object hides the label also (the sphere around the model).
+    if (this.info.craftModel && this.craft) {
+      const o = this.origin, c = this.craftPos;
+      const bx = c[0] - o[0] - cam.position.x, by = c[1] - o[1] - cam.position.y, bz = c[2] - o[2] - cam.position.z;
+      const along = (bx * dx + by * dy + bz * dz) / len;
+      const r = this.craft.radius / 1000;
+      if (along > 0 && along < len - r && bx * bx + by * by + bz * bz - along * along < r * r) return;
+    }
+    const sx = (p.x + 1) * 0.5 * this.width, off = Math.max(0, 0.72 * px - 6), y = (1 - p.y) * 0.5 * this.height - off;
+    // The label of an event is above its mark: the flight path goes through the mark. If a label is there, it is below.
+    // The name of the spacecraft gets its position first, then the planets, then the moons, then the events.
+    const priority = cls === 'craft' ? 3 : cls === 'event' ? 0 : cls === 'moon' ? 1 : 2;
+    if (cls !== 'event') this.labels.place(id, text, sx + off, y, cls, sx - off, priority);
+    else this.labels.place(id, text, sx + off, y - 13, cls, sx - off, priority, y + 14);
   }
 
   private updateOrbit(e: Entry, et: number, alpha: number, parent: Entry | null | undefined, bufW: number, bufH: number): void {

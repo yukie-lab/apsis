@@ -379,7 +379,7 @@ The source is the help page "Ephemeris File Format (*.e)" of STK 13.1.0.
 ### 5.4 Items with no check
 
 - The use of an Apsis file in STK. STK was not available.
-- A file that STK made. The sample files of the help page are in `data-src/specs/stk/`, but no test reads them.
+- A file that STK made. The project has local copies of the sample files of the help page (section 11), but no test reads them.
 - No test shows that STK accepts comment lines with `#`. One sample file of the help page has a line of this type.
 - No test shows that STK accepts the body names that Apsis writes for bodies other than the Earth and the Moon.
 - No test shows that STK accepts the text of `ScenarioEpoch` with three decimals.
@@ -444,7 +444,7 @@ The script has these parts, in this order:
 - With this condition, the ICRF numbers of Apsis go into the `MJ2000Eq` axes of GMAT. This is the default.
 - From the guide: the rotation between its `ICRF` axes and `MJ2000Eq` changes with time.
 - Also from the guide: the difference of a vector is less than 1 m at the surface of the Earth.
-- That angle is below 1.6e-7 rad, which is 23 km at 1 au. An incorrect selection of the axes thus gives an error of this size.
+- That angle is less than 1.6e-7 rad. At 1 au, this angle is 24 km. An incorrect selection of the axes thus gives an error of less than 24 km at 1 au.
 - The UTC labels of GMAT and of Apsis are different before 1972. Use the TDB column of the report for a comparison.
 
 `gmatDifferences` gives the differences between the flight in Apsis and the flight of the script:
@@ -679,7 +679,12 @@ This table has the values from the test results of 2026-10-14.
 
 The date of the copies of all the documents is 2026-10-14 (local time, UTC+9).
 The time stamps of the requests in the Horizons files are in UTC: 2026-10-13, 18:10 to 18:28.
-The copies are in `data-src/specs/`. The directory has 25 MB.
+The copies are in `data-src/specs/` on the computer of the project. The directory has 25 MB.
+
+Only the Horizons outputs are in `git`. The project did not find the conditions for a copy of the other documents.
+Thus the other copies stay on the computer of the project (decision D79).
+The file `data-src/reference-copies.json` has the address, the time, the size and the SHA-256 of each of these copies.
+The command `python tools/truth/reference_copies.py` compares the local copies with this record.
 
 | File in `data-src/specs/` | Document | URL |
 |---|---|---|

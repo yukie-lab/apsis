@@ -66,21 +66,24 @@ void main() {
   float mu = max(dot(n, v), 0.0);
 
   MapCoord mc = mapCoord(dir, uMapParams.x, uMapParams.y);
-  vec3 day = mix(uMeanColor, mapSample(uDay, mc).rgb, uReady.x);
+  vec3 day = mix(uMeanColor, mapSampleSmooth(uDay, mc).rgb, uReady.x);
   // Water: blue is the largest channel by a wide margin (sea), or the pixel is nearly black (lakes).
   float blue = day.b / (max(day.r, day.g) + 0.0005);
   float water = uReady.x * max(smoothstep(1.2, 2.0, blue), 1.0 - smoothstep(0.004, 0.007, max3(day)));
 
   vec2 cloudUv = vec2(mc.uv.x - uMapParams.x + uMapParams.w + uCloud.x, mc.uv.y);
-  float cloud = uReady.z * cloudAmount(textureGrad(uClouds, cloudUv, mc.dx, mc.dy).r);
+  float cloud = uReady.z * cloudAmount(mapSampleSmooth(uClouds, MapCoord(cloudUv, mc.dx, mc.dy)).r);
   float shade = 1.0;
   #ifdef CLOUD_SHADOW
     // The shadow of a cloud falls on the ground on the side away from the Sun.
-    vec3 sunFlat = uSunDir - n * mu0;
-    vec3 dir2 = normalize(dir + sunFlat * (uCloud.y / max(mu0, 0.22)));
-    vec2 uv2 = mapUv(dir2, uMapParams.w + uCloud.x, uMapParams.y);
-    float cloud2 = uReady.z * cloudAmount(textureGrad(uClouds, uv2, mc.dx * 2.0, mc.dy * 2.0).r);
-    shade = 1.0 - uCloud.z * cloud2 * smoothstep(0.0, 0.1, mu0);
+    // The night side has no such shadow, so it does not read the cloud map a second time.
+    if (mu0 > 0.0) {
+      vec3 sunFlat = uSunDir - n * mu0;
+      vec3 dir2 = normalize(dir + sunFlat * (uCloud.y / max(mu0, 0.22)));
+      vec2 uv2 = mapUv(dir2, uMapParams.w + uCloud.x, uMapParams.y);
+      float cloud2 = uReady.z * cloudAmount(mapSampleSmooth(uClouds, MapCoord(uv2, mc.dx * 2.0, mc.dy * 2.0)).r);
+      shade = 1.0 - uCloud.z * cloud2 * smoothstep(0.0, 0.1, mu0);
+    }
   #endif
 
   vec3 k = vec3(1.0, 1.0, uAtm.w);
@@ -108,10 +111,12 @@ void main() {
   vec3 sun = uSunColor * shadow;
   vec3 color = mix(ground, cloudColor, cloud) * sun;
 
-  // Lights of the cities, on the dark side only. Clouds hide a part of them.
-  vec3 lights = max(mapSample(uNight, MapCoord(vec2(mc.uv.x - uMapParams.x + uMapParams.z, mc.uv.y), mc.dx, mc.dy)).rgb - uNightLights.xyz, 0.0);
+  // Lights of the cities, on the dark side only. Clouds hide a part of them. The day side does not read the night map.
   float dark = 1.0 - smoothstep(-0.14, 0.02, muS);
-  color += uReady.y * uNightLights.w * dark * (1.0 - 0.8 * cloud) * lights;
+  if (dark > 0.0) {
+    vec3 lights = max(mapSampleSmooth(uNight, MapCoord(vec2(mc.uv.x - uMapParams.x + uMapParams.z, mc.uv.y), mc.dx, mc.dy)).rgb - uNightLights.xyz, 0.0);
+    color += uReady.y * uNightLights.w * dark * (1.0 - 0.8 * cloud) * lights;
+  }
   color += mix(day, vec3(0.5), cloud) * uSunColor * uSea.z;
 
   vec3 toGround = dir * uAtm.x - ro;
@@ -165,6 +170,7 @@ export function buildEarth(ctx: BuildContext, notes: string[]): Built {
   };
   const high = ctx.quality === 'high';
   const defines: Record<string, number> = { ATM_SAMPLES: high ? 6 : 3, MAP_ANISOTROPY: ctx.maps.anisotropy };
+  if (ctx.maps.smooth) defines.MAP_SMOOTH = 1;
   if (high && clouds) defines.CLOUD_SHADOW = 1;
   const material = new THREE.ShaderMaterial({
     ...shaderBase(`${ctx.id}/surface`),
@@ -175,6 +181,7 @@ export function buildEarth(ctx: BuildContext, notes: string[]): Built {
   });
   const globe = new Globe(`${ctx.id}/surface`, material, radii, ctx.quality);
   ctx.root.add(globe.mesh);
+  ctx.maps.watch(globe.mesh, ctx.radiusKm);
 
   // The maps that the body shows, or will show when they are ready. A file that does not load leaves the list.
   const shown = { day: day !== null, night: night !== null, clouds: clouds !== null };
@@ -182,39 +189,58 @@ export function buildEarth(ctx: BuildContext, notes: string[]): Built {
   const fail = (what: string, missing: string): void => {
     notes.push(`${what}-load-failed`, missing);
   };
+  // The set gives a map another file: the larger file, or the first file again.
+  const swap = (uniform: THREE.IUniform) => (t: THREE.Texture): void => {
+    uniform.value = t;
+  };
   if (day) {
-    ctx.maps.load(day, { srgb: true, wrapU: true }, (t) => {
-      if (!t) {
-        shown.day = false;
-        return fail('map', 'surface-plain');
-      }
-      uniforms.uDay.value = t;
-      ready.x = 1;
-    });
+    ctx.maps.load(
+      day,
+      { srgb: true, wrapU: true },
+      (t) => {
+        if (!t) {
+          shown.day = false;
+          return fail('map', 'surface-plain');
+        }
+        uniforms.uDay.value = t;
+        ready.x = 1;
+      },
+      swap(uniforms.uDay),
+    );
   } else {
     notes.push('surface-plain');
   }
   if (night) {
-    ctx.maps.load(night, { srgb: true, wrapU: true }, (t) => {
-      if (!t) {
-        shown.night = false;
-        return fail('night-map', 'no-night-lights');
-      }
-      uniforms.uNight.value = t;
-      ready.y = 1;
-    });
+    ctx.maps.load(
+      night,
+      { srgb: true, wrapU: true },
+      (t) => {
+        if (!t) {
+          shown.night = false;
+          return fail('night-map', 'no-night-lights');
+        }
+        uniforms.uNight.value = t;
+        ready.y = 1;
+      },
+      swap(uniforms.uNight),
+    );
   } else {
     notes.push('no-night-lights');
   }
   if (clouds) {
-    ctx.maps.load(clouds, { srgb: false, wrapU: true }, (t) => {
-      if (!t) {
-        shown.clouds = false;
-        return fail('cloud-map', 'no-clouds');
-      }
-      uniforms.uClouds.value = t;
-      ready.z = 1;
-    });
+    ctx.maps.load(
+      clouds,
+      { srgb: false, wrapU: true },
+      (t) => {
+        if (!t) {
+          shown.clouds = false;
+          return fail('cloud-map', 'no-clouds');
+        }
+        uniforms.uClouds.value = t;
+        ready.z = 1;
+      },
+      swap(uniforms.uClouds),
+    );
   } else {
     notes.push('no-clouds');
   }
@@ -243,8 +269,9 @@ export function buildEarth(ctx: BuildContext, notes: string[]): Built {
     extentKm: atmosphereTop(ATMOSPHERE_EARTH, ctx.radiusKm),
     variant: 'default',
     codeTextures: 0,
+    // Each lookup in a map is one sample, or five where a pixel of the map is large on the screen (GLSL_MAP).
     get samplesPerPixel(): number {
-      return (shown.day ? 1 : 0) + (shown.night ? 1 : 0) + (shown.clouds ? (high ? 2 : 1) : 0);
+      return ctx.maps.taps * ((shown.day ? 1 : 0) + (shown.night ? 1 : 0) + (shown.clouds ? (high ? 2 : 1) : 0));
     },
   };
 }

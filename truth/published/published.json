@@ -1,5 +1,5 @@
 {
- "note": "Values copied from primary documents. The HTML files in this directory are the pages as retrieved on 2026-10-13.",
+ "note": "Values copied from primary documents. The HTML files in this directory are local copies of the pages as retrieved on 2026-10-13. They are not in the repository: data-src/reference-copies.json has the address and the SHA-256 of each copy.",
  "voyager2": {
   "source": "NASA Science, Voyager 2 mission page, https://science.nasa.gov/mission/voyager/voyager-2/ (file nasa_voyager2.html)",
   "launchUtc": "1977-08-20 14:29:44",
@@ -53,7 +53,15 @@
   "cruiseDaysFromFirstDay": 213,
   "launchUtc": "2020-07-30 11:50",
   "landingEarthReceivedUtc": "2021-02-18 20:55",
-  "source2": "NASA NSSDCA Master Catalog, Mars 2020, https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2020-052A (file nssdc_mars2020.html): launch and landing times"
+  "source2": "NASA NSSDCA Master Catalog, Mars 2020, https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2020-052A (file nssdc_mars2020.html): launch and landing times",
+  "travel": {
+   "launchUtc": "2020-07-20 13:15",
+   "landingUtc": "2021-02-18 20:44",
+   "distanceKm": 497000000.0,
+   "launchDayStated": true,
+   "quote": "it will take 213 days to travel about 309 million miles (497 million kilometers)",
+   "remark": "The page gives this value for a launch on the first day of the launch period (July 20). Launch time: start of the launch window on July 20 (9:15 a.m. EDT). Landing time: Earth received time of the NSSDCA page minus the signal delay of about 11 minutes."
+  }
  },
  "newhorizons": {
   "source": "NASA NSSDCA Master Catalog, New Horizons, https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2006-001A (file nssdc_newhorizons.html)",
@@ -67,5 +75,76 @@
    "rangeKm": 12500
   },
   "remark": "The page says: \"within about 32 Jovian radii of Jupiter\" and \"within 12500 km of Pluto\"."
+ },
+ "insight": {
+  "source": "JPL, InSight Launch Press Kit, Quick Facts (page 14 of the PDF file), https://www.jpl.nasa.gov/news/press_kits/insight/launch/download/mars_insight_launch_presskit.pdf",
+  "sourceFile": {
+   "bytes": 7521627,
+   "sha256": "21b7daaaa65c9fb0264b80628121137cecf85e922238dde1f3119a977593e48c",
+   "remark": "Retrieved on 2026-10-14. The project keeps no copy of this document: the record has the address, the size and the SHA-256 of the file as retrieved."
+  },
+  "launchPeriod": [
+   "2018-05-05",
+   "2018-06-08"
+  ],
+  "landing": "2018-11-26",
+  "quotePeriod": "Launch period: May 5 through June 8, 2018",
+  "travel": {
+   "launchUtc": "2018-05-05 11:05",
+   "landingUtc": "2018-11-26 20:00",
+   "distanceKm": 485000000.0,
+   "launchDayStated": true,
+   "quote": "Travel distance, Earth to Mars (May 5 launch): About 301 million miles (485 million kilometers)",
+   "remark": "Launch time: start of the launch window on May 5 (11:05 UTC). Landing time: \"about noon PST (3 p.m. EST; 20:00 UTC)\"."
+  },
+  "source2": "NASA NSSDCA Master Catalog, InSight, https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2018-042A: launch on 5 May 2018 at 11:05 UT, landing on 26 November 2018 at 19:52:59 UT"
+ },
+ "msl": {
+  "source": "JPL, Mars Science Laboratory Launch Press Kit, Quick Facts (page 6), https://www.jpl.nasa.gov/news/press_kits/MSLLaunch.pdf",
+  "sourceFile": {
+   "bytes": 5459665,
+   "sha256": "ff11d5f1068ac2f81d3ec3ccdd0201d98afcf9036ffdca9e44c7502ea8a0e1ea",
+   "remark": "Retrieved on 2026-10-14. The project keeps no copy of this document: the record has the address, the size and the SHA-256 of the file as retrieved."
+  },
+  "launchPeriod": [
+   "2011-11-25",
+   "2011-12-18"
+  ],
+  "landing": "2012-08-06",
+  "quotePeriod": "Launch period: Nov. 25 through Dec. 18, 2011",
+  "travel": {
+   "launchUtc": "2011-11-25 15:25",
+   "landingUtc": "2012-08-06 05:15",
+   "distanceKm": 570000000.0,
+   "launchDayStated": false,
+   "quote": "Total distance of travel, Earth to Mars: About 354 million miles (570 million kilometers)",
+   "remark": "The document does not give the launch day of this value. The test uses the first day of the launch period: the document gives the distance between the Earth and Mars for that day. Launch time: first launch opportunity on Nov. 25 (10:25 a.m. EST). Landing time: middle of \"Aug. 6, 5 a.m. to 5:30 a.m. Universal Time\"."
+  },
+  "source2": "NASA NSSDCA Master Catalog, Mars Science Laboratory, https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2011-070A: launch on 26 November 2011 at 15:02 UT, touchdown at 05:32 UTC on 6 August",
+  "source3": "Martin-Mur, Kruizinga, Wong, \"Mars Science Laboratory Interplanetary Navigation Analysis\", ISSFD 2011, page 4, https://www.issfd.org/ISSFD_2011/S6-Interplanetary.Navigation-IN/S6_P3_ISSFD22_PF_001.pdf: the set \"Type 1B\" has a launch period from November 25, 2011 through December 18, 2011, \"with a constant arrival date of August 6, 2012\". \"The launch/arrival sets are limited by the performance of the launch vehicle and the desired entry velocity at Mars.\""
+ },
+ "phoenix": {
+  "source": "JPL, Phoenix Launch Press Kit, Quick Facts (page 6), https://www.jpl.nasa.gov/news/press_kits/phoenix-launch-presskit.pdf",
+  "sourceFile": {
+   "bytes": 6528179,
+   "sha256": "a75baf171ab5432bd4cccec5cf38e22ea6fb7365c467c1c1a39a659657ea3db3",
+   "remark": "Retrieved on 2026-10-14. The project keeps no copy of this document: the record has the address, the size and the SHA-256 of the file as retrieved."
+  },
+  "launchPeriod": [
+   "2007-08-03",
+   "2007-08-24"
+  ],
+  "landing": "2008-05-25",
+  "landingForTheLast7Days": "2008-06-05",
+  "quotePeriod": "Launch period: Aug. 3-24, 2007",
+  "travel": {
+   "launchUtc": "2007-08-03 09:35",
+   "landingUtc": "2008-05-25 23:54",
+   "distanceKm": 680000000.0,
+   "launchDayStated": false,
+   "quote": "Total distance traveled, Earth to Mars: About 680 million kilometers (423 million miles)",
+   "remark": "The document does not give the launch day of this value. The test uses the first day of the launch period: the document gives the distance between the Earth and Mars for that day. Launch time: first launch window on Aug. 3 (5:35 a.m. EDT). The document gives the landing day only: \"If launched during first 15 days of launch period, landing May 25, 2008\". Landing time: touchdown time of the NSSDCA page."
+  },
+  "source2": "NASA NSSDCA Master Catalog, Phoenix, https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2007-034A: launch on 04 August 2007 at 09:26:34 UT, touchdown at 23:53:44 UT on 25 May"
  }
 }

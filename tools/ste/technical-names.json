@@ -7,7 +7,8 @@
     "names: 'case' = the tool compares capital letters and small letters (symbols, units, abbreviations in which the capital letters are important). 'plural: false' = the name has no plural. 'pos: adj' = the name is an adjective. An item can be a text or an object { name, plural, see }. 'see' is the id of the glossary entry that gives the definition of a related name.",
     "kind 'symbol': characters that are not letters. kind 'extension': the last part of a file name (the tool reads a text of the form name.ext as a file name).",
     "patterns: regular expressions for identifiers that have a constant form (versions, document numbers, keywords of file formats).",
-    "verbs: 'forms' = third person, past, past participle. 'noun: true' = the noun has the same form (example: a search)."
+    "verbs: 'forms' = third person, past, past participle. 'noun: true' = the noun has the same form (example: a search).",
+    "nameColumns: columns of a table in a document that contain only names and quoted text from sources. The tool does not examine the cells of these columns. It counts them."
   ],
   "categories": {
     "vehicle": "Rule 1.5, technical names: names of vehicles or machines and locations on them",
@@ -28,6 +29,7 @@
     {
       "category": "number", "group": "Symbols of units of measurement", "case": true, "plural": false, "unit": true,
       "items": ["km", "m", "mm", "s", "d", "h", "ms", "kg", "rad", "au", "MB", "px",
+        "kB", "GB",
         "km/s", "m/s", "mm/s", "km/d", "au/d", "km²/s²", "km³/s²", "km²", "km³", "s²", "m²", "m²/kg", "m/s²", "W/m²", "s/s", "km/s²", "%", "°"]
     },
     {
@@ -67,10 +69,11 @@
       "category": "science", "group": "Mathematical terms (nouns)",
       "items": ["accuracy", "arithmetic", "boundary", "circle", "coefficient", "component", "constant", "conversion", "coordinate", "cost", "covariance", "curve",
         "decimal", "derivative", "diameter", "diamond", "digit", "ellipse", "equation", "evaluation", "exponent", "fit", "formula", "fraction", "graph", "grid",
-        "hyperbola", "infinity", "integer", "interval", "iteration", "magnitude", { "name": "matrix", "plural": "matrices" }, "mean", "median", "method", "model",
+        "hyperbola", "infinity", "integer", "interval", "iteration", "magnitude", "factor", { "name": "matrix", "plural": "matrices" }, "mean", "median", "method", "model",
         "normal", "order", "origin", "parameter", "plane", "plot", "polynomial", "precision", "product", { "name": "radius", "plural": "radii" }, "ratio", "relation",
         "remainder", "root", "scale", "solution", "solver", "sphere", "square", "sum", "term", "triangle", "uncertainty", "variable", "vector", "binormal",
         "contour line", "dashed line", "exact solution", "finite number", "significant digits", "statistical uncertainty", "local search", "global search",
+        "equality constraint", "compensated sum", "box",
         "root mean square", "least squares"]
     },
     {
@@ -86,42 +89,50 @@
         { "name": "patched conics", "see": "patchedConic" }, { "name": "insertion", "see": "orbitInsertion" }, { "name": "optimization", "see": "optimize" },
         { "name": "window", "see": "launchWindow" }, { "name": "anomaly", "see": "trueAnomaly" }, { "name": "node", "see": "ascendingNode" },
         { "name": "element", "see": "orbitElements" }, { "name": "integration", "see": "integrate" }, { "name": "launch site", "see": "launch" },
-        { "name": "relativity", "see": "relativityTerm" }]
+        { "name": "relativity", "see": "relativityTerm" },
+        "collision", "climate", { "name": "galaxy", "plural": "galaxies" }, { "name": "spherical harmonics", "plural": false }, "orbit determination",
+        "albedo", "optical depth", "scale height", "contrast", "color saturation", "ring gap", "mosaic"]
     },
     {
       "category": "science", "group": "Mathematical and scientific terms (adjectives)", "pos": "adj",
       "items": ["analytic", "atomic", "barycentric", "celestial", "circular", "eccentric", "elliptical", "equatorial", "exact", "finite", "geometric", "global", "gravitational", "hyperbolic",
         "Keplerian", "local", "logarithmic", "negative", "numerical", "periodic", "perpendicular", "physical", "planetary", "polar", "positive", "radial", "relative",
-        "relativistic", "solar", "thermal", "transverse",
+        "relativistic", "solar", "thermal", "transverse", "linear",
+        "singular", "chaotic", "cubic",
         { "name": "impulsive", "see": "impulse" }, { "name": "osculating", "see": "osculatingElements" }, { "name": "two-body", "see": "twoBody" },
         { "name": "patched-conic", "see": "patchedConic" }]
     },
     {
       "category": "person", "group": "Names of persons in the names of methods", "case": true, "plural": false,
       "items": ["Hohmann", "Lambert", "Tisserand", "Chebyshev", "Hermite", "Newton", "Kepler", "Schwarzschild", "Izzo", "Gauss", "Runge-Kutta-Fehlberg", "Nelder-Mead",
-        "Gauss-Newton", "Runge-Kutta"]
+        "Gauss-Newton", "Runge-Kutta", "Catmull-Rom"]
     },
     {
       "category": "person", "group": "Names of organizations and groups", "case": true, "plural": false,
-      "items": ["NASA", "JPL", "NAIF", "SANA", "ESA", "JAXA", "USGS", "STScI", "Jet Propulsion Laboratory", "Consultative Committee for Space Data Systems", "NSSDCA", "NASA Science", "author", "user", "owner", "space agency"]
+      "items": ["NASA", "JPL", "NAIF", "SANA", "ESA", "JAXA", "USGS", "STScI", "Jet Propulsion Laboratory", "Consultative Committee for Space Data Systems", "NSSDCA", "NSSDC", "NASA Science", "author", "user", "owner", "space agency",
+        "Caltech", "USGS Astrogeology", "government", "company", "administrator", "Space Telescope Science Institute"]
     },
     {
       "category": "navigation", "group": "Names of the bodies of the solar system", "case": true, "plural": false,
       "items": ["Sun", "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto", "Moon", "Luna", "Phobos", "Deimos", "Io", "Europa",
         "Ganymede", "Callisto", "Mimas", "Enceladus", "Tethys", "Dione", "Rhea", "Titan", "Iapetus", "Miranda", "Ariel", "Umbriel", "Titania", "Oberon", "Triton",
-        "Charon", "Ceres", "Vesta", "Psyche", "Eros", "Itokawa", "Ryugu", "Bennu", "Didymos", "Arrokoth", "Halley", "Churyumov-Gerasimenko"]
+        "Charon", "Ceres", "Vesta", "Psyche", "Eros", "Itokawa", "Ryugu", "Bennu", "Didymos", "Arrokoth", "Halley", "Churyumov-Gerasimenko", "F ring"]
     },
     {
       "category": "navigation", "group": "Navigation and geographic terms",
-      "items": ["equator", "latitude", "longitude", "map", "north", "south", "pole", "path", "ground", "site", "north pole", "flight path", "destination", "route"]
+      "items": ["equator", "latitude", "longitude", "map", "north", "south", "pole", "path", "ground", "site", "north pole", "flight path", "destination", "route", "meridian", "ocean",
+        { "name": "navigation", "plural": false }]
     },
     {
       "category": "vehicle", "group": "Names of spacecraft and missions", "case": true, "plural": false,
-      "items": ["Voyager", "Cassini", "New Horizons", "Juno", "Galileo", "Pioneer", "Ulysses", "Mars 2020", "MESSENGER", "Rosetta", "Perseverance"]
+      "items": ["Voyager", "Cassini", "New Horizons", "Juno", "Galileo", "Pioneer", "Ulysses", "Mars 2020", "MESSENGER", "Rosetta", "Perseverance",
+        "Viking", "Hubble", "InSight", "Mars Science Laboratory", "Phoenix"]
     },
     {
       "category": "vehicle", "group": "Vehicles and their parts",
-      "items": ["orbiter", "stage", "vehicle", "engine", "antenna", "rocket", "rover"]
+      "items": ["orbiter", "stage", "vehicle", "engine", "antenna", "rocket", "rover",
+        "bus", "boom", "magnetometer", "generator", "probe", "aeroshell", "strut", "truss", "vault", "instrument",
+        "solar array", "dish antenna", "high-gain antenna", "antenna feed"]
     },
     {
       "category": "system", "group": "Systems and their functions",
@@ -146,17 +157,22 @@
         "message", "metadata", "module", "option", "output", "panel", "parser", "program", "reader", "writer", "release", "request", "row", "screen", "script",
         "server", "service", "segment", "separator", "statement", "syntax", "tab", "table", "text", "tool", "update", "version", "web", "spreadsheet", "clock",
         "e-mail", "top bar", "arrow key", "upper case", "lower case", "file name", "web page", "web site", "machine code", "source code",
-        "address", "caller", "registry", "version stamp", "warning", "package", "placeholder", "cell", "locale file", "exit code",
+        "address", "caller", "registry", "version stamp", "warning", "package", "placeholder", "cell", "locale file", "exit code", "alpha", "color space",
         "image", "mouse", "mouse wheel",
-        "account", { "name": "cookie", "plural": "cookies" }, "storage", "setting", "link", "software", "library", "font", "icon", "logo", "web server"]
+        { "name": "cache", "plural": "caches" }, "download", "regression", "asset", "texture", "shader", { "name": "static", "pos": "adj" },
+        "account", { "name": "cookie", "plural": "cookies" }, "storage", "setting", "link", "software", "library", "font", "icon", "logo", "web server",
+        "phone", "console", "graphics card", "simulator", "kernel", "normal map"]
     },
     {
       "category": "it", "group": "Information technology abbreviations and names", "case": true, "plural": false,
-      "items": ["API", "URL", "XML", "JSON", "CSV", "ASCII", "KVN", "SHA-256", "ID", "3D", "telnet", "Node.js", "npm", "WebGL", "HTML", "CSS", "PDF", "PNG", "JPEG", "UTF-8", "printable ASCII", "AI", "Markdown"]
+      "items": ["API", "URL", "XML", "JSON", "CSV", "ASCII", "KVN", "SHA-256", "ID", "3D", "telnet", "Node.js", "npm", "WebGL", "HTML", "CSS", "PDF", "PNG", "JPEG", "UTF-8", "printable ASCII", "AI", "Markdown",
+        "TypeScript", "JavaScript", "Web Worker", "Python", "OpenGL", "TIFF", "OpenEXR", "sRGB", "JPEG quality", "GPU"]
     },
     {
       "category": "it", "group": "Names of programs, services and data products", "case": true, "plural": false,
-      "items": ["Apsis", "GMAT", "STK", "Horizons", "DE", "SPICE", "JPL Small-Body Database", "General Mission Analysis Tool", "NSSDCA Master Catalog"]
+      "items": ["Apsis", "GMAT", "STK", "Horizons", "DE", "SPICE", "JPL Small-Body Database", "General Mission Analysis Tool", "NSSDCA Master Catalog",
+        "Vite", "React", "zustand", "vitest", "playwright-core", "Chrome", "Orekit", "Solar System Scope", "NASA 3D Resources", "Wikimedia Commons", "OPAL", "Solar System Simulator", "NASA Photojournal",
+        "Google Chrome", "macOS", "Linux", "Windows", "Universe Sandbox", "Astrogator"]
     },
     {
       "category": "it", "group": "File name extensions", "kind": "extension",
@@ -175,8 +191,9 @@
       "category": "document", "group": "Parts of documents and terms of documentation",
       "items": ["annex", "document", "glossary", "guide", "page", "section", "sentence", "paragraph", "specification", "standard", "summary", "word", "rule", "dictionary",
         "heading", "comma", "semicolon", "colon", "bracket", "letter", "notation", "report", "exception", "finding", "status", "presentation",
-        "capital letter", "technical name", "technical verb", "writing rule", "user guide", "help page", "fact sheet", "international designator",
+        "capital letter", "technical name", "technical verb", "writing rule", "user guide", "help page", "fact sheet", "press kit", "international designator",
         "instruction", "description", "topic", "meaning", "vocabulary", "spelling", "question mark", "exclamation mark", "quotation mark", "note", "catalog", "credit", "license", "title",
+        "public domain",
         { "name": "parenthesis", "plural": "parentheses" }, "brace", "dash", "hyphen"]
     },
     {
@@ -187,6 +204,7 @@
     {
       "category": "document", "group": "Names of documents, standards and languages", "case": true, "plural": false,
       "items": ["ASD-STE100", "Simplified Technical English", "STE", "English", "Orbit Data Messages", "Technical Corrigendum", "Editorial Change", "NTRS", "SANA registry", "Orbit Ephemeris Message", "Orbit Parameter Message",
+        "Japanese", "CC BY 4.0", "Apache License", "JPL Image Use Policy", "Cassini Quick Facts", "Saturnian Rings Fact Sheet", "Uranian Rings Fact Sheet",
         { "name": "American", "pos": "adj" }, { "name": "Latin", "pos": "adj" }]
     }
   ],
@@ -201,6 +219,12 @@
     {
       "category": "verb-computer", "group": "Computer processes",
       "items": ["click", "save", "cancel", "convert", "store", "load", { "verb": "search", "noun": true }]
+    }
+  ],
+  "nameColumns": [
+    {
+      "file": "docs/ASSETS.md", "columns": ["Title", "Credit"], "category": "quoted",
+      "reason": "Each cell of these two columns is the title of a source file or the credit line of its source (the author). They are names and quoted text from the sources, not text of the project."
     }
   ]
 }

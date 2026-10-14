@@ -7,6 +7,13 @@
  *   scene.add(earth.object);
  *   // each frame, after the caller has set earth.object.position and earth.object.quaternion:
  *   earth.update({ sunDir, cameraPos, time });
+ *   renderer.render(scene, camera);
+ *
+ * A map has two or three files of different sizes. A body starts with a small one and loads a larger one when the
+ * camera is near. It goes back to the first one when the camera is far again for some time, or when another body
+ * needs a larger file and the cap of all bodies is full (BodyOptions.mapUpgrade, BodyOptions.maxLargeMaps).
+ * The module reads the camera and the size of the view from the renderer when the renderer draws the body, so the
+ * caller gives no size of the view.
  *
  * The module uses no three.js light and no shadow map. Each material computes its light from the Sun direction.
  * The real maps come from public/textures (see docs/ASSETS.md). All other surfaces are made by code,
@@ -16,7 +23,7 @@ import * as THREE from 'three';
 import { BODIES } from '../../engine/bodies';
 import type { Body } from '../../engine/bodies';
 import { ATMOSPHERE_MARS, ATMOSPHERE_PLUTO, ATMOSPHERE_TITAN, ATMOSPHERE_TITAN_THIN, ATMOSPHERE_VENUS } from './atmosphere';
-import { MapSet, SUN_RADIUS_KM, makeFrameUniforms, sumStats } from './core';
+import { MAP_RETURN_DELAY_S, MAX_LARGE_MAPS, MapSet, SUN_RADIUS_KM, makeFrameUniforms, sumStats } from './core';
 import type { BuildContext, Built } from './core';
 import { DECK_TITAN, DECK_VENUS, buildDeck } from './deck';
 import { buildEarth } from './earth';
@@ -251,9 +258,19 @@ export function createBody(id: string, opt: BodyOptions): BodyVisual {
   root.name = `body/${id}`;
   const frame = makeFrameUniforms();
   let disposed = false;
-  const maps = new MapSet(opt.quality, opt.manifest, opt.baseUrl, () => {
-    if (!disposed) opt.onLoad?.();
-  });
+  // A value that is not a time (a negative number, not a number) gives the default.
+  const returnDelay = typeof opt.mapReturnDelay === 'number' && opt.mapReturnDelay >= 0 ? opt.mapReturnDelay : MAP_RETURN_DELAY_S;
+  // A value below 1, or not a number, gives the default. Infinity stays: no cap.
+  const maxLarge = typeof opt.maxLargeMaps === 'number' && opt.maxLargeMaps >= 1 ? Math.floor(opt.maxLargeMaps) : MAX_LARGE_MAPS;
+  const maps = new MapSet(
+    opt.quality,
+    opt.manifest,
+    opt.baseUrl,
+    () => {
+      if (!disposed) opt.onLoad?.();
+    },
+    { upgrade: opt.mapUpgrade !== false, smooth: opt.magFilter !== 'bilinear', returnDelay, maxLarge },
+  );
   const variant: BodyVariant = opt.variant ?? 'default';
   const ctx: BuildContext = { id, root, radiusKm, polarRadiusKm, color: body ? body.color : '#8a8580', quality: opt.quality, variant, maps, frame };
   const notes: string[] = [];
@@ -304,6 +321,8 @@ export function createBody(id: string, opt: BodyOptions): BodyVisual {
       }
       const camDistance = frame.uCamPos.value.length();
       for (const part of built.parts) part.update?.(camDistance);
+      // The maps: the file of each map for the views of the frame before, and the next part of a file that loads.
+      maps.update();
     },
     stats(): BodyStats {
       return sumStats(built.parts, maps, built);

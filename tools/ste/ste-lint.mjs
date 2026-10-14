@@ -7,12 +7,18 @@
 // their limits. A result with no findings does not show that a text obeys ASD-STE100.
 //
 // Use (from the project directory):
-//   node tools/ste/ste-lint.mjs                  the locale files, the files of measured values and docs/*.md
+//   node tools/ste/ste-lint.mjs                  the locale files, the files of measured values, the list of the
+//                                                maps and the documents (README.md, docs/*.md)
 //   node tools/ste/ste-lint.mjs docs/A.md ...    the locale files and the given Markdown documents
 //   node tools/ste/ste-lint.mjs --locales        only the locale files
 //   node tools/ste/ste-lint.mjs --only <files>   only the given files (Markdown documents or locale JSON files)
 // A file of measured values (src/validation/measured/*.json) has the reference text "truth" of each row. The
 // application shows these texts on the Accuracy screen. The full check examines them.
+// The list of the maps (public/textures/manifest.json) has the text "changes" of each map. The application shows
+// these texts on the About screen. The full check examines them. The title and the credit of a map are names
+// from its source: the tool does not examine them.
+// A table in a document can have columns that contain only names and quoted text from sources (the entry
+// "nameColumns" of technical-names.json). The tool does not examine the cells of these columns. It counts them.
 // Options:
 //   --all          show also the findings that have an exception
 //   --summary      show only the table of counts
@@ -40,6 +46,7 @@ const ROOT = resolve(HERE, '..', '..');
 const LOCALE_DIR = 'src/i18n/locales/en';
 const DOCS_DIR = 'docs';
 const MEASURED_DIR = 'src/validation/measured';
+const MAPS_FILE = 'public/textures/manifest.json';
 const DEFAULT_REPORT = 'tools/ste/report.json';
 
 // Limits of the writing rules.
@@ -292,6 +299,7 @@ function loadTechnical(glossary) {
       addName(name, info, { case: isShort && !plain.test(name), plural: true });
     });
   }
+  tn.nameColumns = data.nameColumns ?? [];
   return tn;
 }
 
@@ -819,6 +827,17 @@ function unitsOfLocale(relPath) {
     }
     return units;
   }
+  // The list of the maps (public/textures/manifest.json): the application shows the text "changes" of each map.
+  // Two maps with the same text are one text.
+  if (Array.isArray(data.textures)) {
+    const seen = new Set();
+    for (const row of data.textures) {
+      if (!row || typeof row.changes !== 'string' || seen.has(row.changes)) continue;
+      seen.add(row.changes);
+      units.push({ file: relPath, key: `${row.id ?? units.length} (changes)`, kind: 'text', text: row.changes });
+    }
+    return units;
+  }
   const walk = (node, path) => {
     for (const [key, v] of Object.entries(node)) {
       const p = path ? path + '.' + key : key;
@@ -851,6 +870,9 @@ function plainMarkdown(text, codes) {
   return s.replace(/\s+/g, ' ').trim();
 }
 
+/** For each document: the number of table cells that the tool does not examine (columns of names, "nameColumns"). */
+const nameCells = new Map();
+
 function unitsOfMarkdown(relPath) {
   let source;
   try { source = readFileSync(join(ROOT, relPath), 'utf8'); } catch { stop(`Cannot read ${relPath}.`); }
@@ -858,11 +880,15 @@ function unitsOfMarkdown(relPath) {
   const units = [];
   const codes = [];
   const push = (kind, text, line) => { const t = plainMarkdown(text, codes); if (t) units.push({ file: relPath, line, kind, text: t, raw: text.trim(), codes }); };
+  // Columns of this file that contain only names and quoted text from sources.
+  const nameColumns = new Set((L.tn.nameColumns ?? []).filter((c) => c.file === relPath).flatMap((c) => c.columns));
+  let tableHeader = null; // the cells of the first row of the table in work
   let para = null; // { kind, text, line }
   const flush = () => { if (para) push(para.kind, para.text, para.line); para = null; };
   let fence = null;
   lines.forEach((raw, k) => {
     const line = k + 1;
+    if (!/^\s*\|/.test(raw)) tableHeader = null;
     const fm = /^\s*(```+|~~~+)/.exec(raw);
     if (fence) { if (fm && fm[1][0] === fence[0] && fm[1].length >= fence.length) fence = null; return; }
     if (fm) { flush(); fence = fm[1]; return; }
@@ -882,7 +908,13 @@ function unitsOfMarkdown(relPath) {
         cur += ch;
       }
       cells.push(cur);
-      for (const cell of cells) if (cell.trim()) push('cell', cell, line);
+      const header = tableHeader;
+      if (!header) tableHeader = cells.map((c) => c.trim());
+      cells.forEach((cell, i) => {
+        if (!cell.trim()) return;
+        if (header && nameColumns.has(header[i])) { nameCells.set(relPath, (nameCells.get(relPath) ?? 0) + 1); return; }
+        push('cell', cell, line);
+      });
       return;
     }
     if (/^\s*([-*_])(\s*\1){2,}\s*$/.test(raw)) { flush(); return; } // horizontal rule
@@ -914,9 +946,10 @@ const docFiles = () => [
   ...(existsSync(join(ROOT, DOCS_DIR)) ? readdirSync(join(ROOT, DOCS_DIR)).filter((f) => f.endsWith('.md') && !/_[a-z]{2}\.md$/.test(f)).sort().map((f) => `${DOCS_DIR}/${f}`) : []),
 ];
 const measuredFiles = () => (existsSync(join(ROOT, MEASURED_DIR)) ? readdirSync(join(ROOT, MEASURED_DIR)).filter((f) => f.endsWith('.json')).sort().map((f) => `${MEASURED_DIR}/${f}`) : []);
+const mapFiles = () => (existsSync(join(ROOT, MAPS_FILE)) ? [MAPS_FILE] : []);
 const given = opt.files.map(toRel);
 const fullCheck = !opt.only && !opt.locales && !given.length;
-const files = opt.only ? given : opt.locales ? localeFiles() : given.length ? [...localeFiles(), ...given] : [...localeFiles(), ...measuredFiles(), ...docFiles()];
+const files = opt.only ? given : opt.locales ? localeFiles() : given.length ? [...localeFiles(), ...given] : [...localeFiles(), ...measuredFiles(), ...mapFiles(), ...docFiles()];
 for (const f of files) if (!existsSync(join(ROOT, f))) stop(`Cannot find ${f}.`);
 
 const vocabulary = new Map(); // lower-case word -> { count, cls, where }
@@ -1015,6 +1048,7 @@ out.push('File                                               texts  sentences   
 for (const r of results) out.push(`${r.file.padEnd(50)} ${String(r.texts).padStart(5)} ${String(r.sentences).padStart(10)} ${String(r.words).padStart(7)} ${String(r.open).padStart(6)} ${String(r.excepted).padStart(11)}`);
 out.push(`${'Total'.padEnd(50)} ${String(totals.texts).padStart(5)} ${String(totals.sentences).padStart(10)} ${String(totals.words).padStart(7)} ${String(totals.open).padStart(6)} ${String(totals.excepted).padStart(11)}`);
 out.push(`Distinct words: ${vocabulary.size} (${uncertainUsed} with an approval that is not certain).`);
+for (const [file, n] of nameCells) out.push(`${file}: ${n} table cells with names and quoted text from sources (columns ${(L.tn.nameColumns ?? []).filter((c) => c.file === file).flatMap((c) => c.columns).join(', ')}). The tool does not examine them.`);
 if (Object.keys(byRule).length) out.push('Findings for each rule: ' + Object.entries(byRule).sort().map(([k, v]) => `${k} ${v.open}${v.excepted ? ' (+' + v.excepted + ' exceptions)' : ''}`).join(', ') + '.');
 for (const e of stale) out.push(`STALE EXCEPTION: ${e.file} ${e.key ?? JSON.stringify(e.text)} [${e.rule}] agrees with no finding. Remove it from exceptions.json.`);
 out.push(totals.open || stale.length ? `Result: ${totals.open} open findings, ${stale.length} stale exceptions.` : `Result: no open findings (${totals.excepted} findings have an exception).`);
@@ -1029,6 +1063,7 @@ if (reportPath) {
     limits: { wordsInInstruction: MAX_WORDS_PROCEDURE, wordsInDescription: MAX_WORDS_DESCRIPTION, sentencesInParagraph: MAX_SENTENCES_PARAGRAPH, nounsInCluster: MAX_NOUN_CLUSTER },
     lists,
     totals: { files: results.length, ...totals, distinctWords: vocabulary.size, distinctWordsNotCertain: uncertainUsed, staleExceptions: stale.length },
+    nameColumns: (L.tn.nameColumns ?? []).map((c) => ({ ...c, cells: nameCells.get(c.file) ?? 0 })),
     rules: Object.fromEntries(Object.entries(byRule).sort()),
     files: results,
     staleExceptions: stale.map((e) => ({ file: e.file, ...(e.key ? { key: e.key } : { text: e.text }), rule: e.rule })),

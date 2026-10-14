@@ -8,7 +8,7 @@ import { useClock } from '../../app/clock';
 import { system } from '../../app/system';
 import { engine, EngineError } from '../../app/engine';
 import { APP_VERSION } from '../../app/version';
-import { t, hasText, bodyName, bodyIn } from '../../i18n';
+import { t, tEnglish, hasText, bodyName, bodyIn } from '../../i18n';
 import { newFlightMission, missionFromJson, type Mission } from '../../engine/mission';
 import type { Flight } from '../../engine/flight';
 import { FULL_MODEL, type Maneuver, type Trajectory } from '../../engine/propagate';
@@ -416,7 +416,7 @@ function ManeuverPanel({ fileIn, table }: { fileIn: FileIn; table: EphemerisTabl
       {inRange && (
         <>
           <h3>{t('page.files.newFlight')}</h3>
-          <div className="grid2">
+          <div className="grid2 dates">
             <Field label={t('page.files.startAt')}><DateInput et={table.et[span[0]]} min={table.et[0]} max={table.et[n - 1]} onChange={(et) => setSpan([Math.min(nearest(et, true), span[1] - 1), span[1]])} /></Field>
             <Field label={t('page.files.endAt')}><DateInput et={table.et[span[1]]} min={table.et[0]} max={table.et[n - 1]} onChange={(et) => setSpan([span[0], Math.max(nearest(et, false), span[0] + 1)])} /></Field>
           </div>
@@ -592,8 +592,9 @@ function WritePanel() {
     try {
       if (format === 'mission') return finish(missionFileText(mission) + '\n');
       if (!flight || !trajectory) return none;
-      const comments = [t('page.files.comment', { app: t('app.name'), version: APP_VERSION, name: mission.name }), t('page.files.commentModel', { app: t('app.name') })];
-      const header = { originator: t('app.name').toUpperCase(), creationEt: nowEt() };
+      // The text in a file for other programs is English in all languages of the user interface (ASCII characters only).
+      const comments = [tEnglish('page.files.comment', { app: tEnglish('app.name'), version: APP_VERSION, name: mission.name }), tEnglish('page.files.commentModel', { app: tEnglish('app.name') })];
+      const header = { originator: tEnglish('app.name').toUpperCase(), creationEt: nowEt() };
       if (isTable) {
         if (!table.table) return { ...none, problem: table.problem };
         const full: EphemerisTable = { ...table.table, objectName: name, objectId: out.objectId.trim() || 'UNKNOWN', comments };
@@ -609,7 +610,7 @@ function WritePanel() {
       }
       const sc = mission.spacecraft;
       return finish(writeGmatScript({
-        sys, flight, trajectory, comments: [...comments, ...differences.map((d) => t('gmatDiff.' + d.split('.')[1]))], massKg: sc.dryMassKg + sc.propellantKg,
+        sys, flight, trajectory, comments: [...comments, ...differences.map((d) => tEnglish('gmatDiff.' + d.split('.')[1]))], massKg: sc.dryMassKg + sc.propellantKg,
         axes: out.gmatAxes, output: out.gmatOutput, setGm: out.gmatSetGm, ...(out.gmatSource.trim() ? { ephemerisSource: out.gmatSource.trim() } : {}),
       }));
     } catch (e) { return { ...none, problem: problemOf(e) }; }

@@ -61,7 +61,7 @@ function HohmannPanel({ plan }: { plan: Plan }) {
   return (
     <Panel title={<>{t('page.transfer.hohmann')} <Src kind="twobody" /></>}>
       <p className="note">{t('page.transfer.hohmannNote', { r1: fixed(data.r1 / AU, 4), r2: fixed(data.r2 / AU, 4) })}</p>
-      <table className="data">
+      <div className="scroll"><table className="data">
         <thead><tr><th /><th className="r">{t('page.transfer.reference')}</th><th className="r">{t('page.transfer.thisTransfer')}</th></tr></thead>
         <tbody>
           {row(t('plan.vinfDep'), <Val q={speed(data.h.vinfDep)} />, <Val q={speed(result.departure.vinf)} />)}
@@ -71,7 +71,7 @@ function HohmannPanel({ plan }: { plan: Plan }) {
           {row(t('page.transfer.phase'), <Val q={angleDeg(want, 2)} />, <Val q={angleDeg(data.phase, 2)} />)}
           {row(t('page.transfer.synodic'), <Val q={duration(data.syn)} />, '')}
         </tbody>
-      </table>
+      </table></div>
     </Panel>
   );
 }

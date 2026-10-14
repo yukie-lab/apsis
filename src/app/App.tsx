@@ -5,7 +5,7 @@ import { loadSystem, system } from './system';
 import { engine } from './engine';
 import { clock } from './clock';
 import { rememberPage, switchMode } from './nav';
-import { t, useLocale, LOCALES, getLocale, setLocale, bodyName } from '../i18n';
+import { t, useLocale, LOCALES, getLocale, setLocale } from '../i18n';
 import { TIME_SCALES, type TimeScale } from '../engine/time';
 import { FRAMES, type FrameId } from '../engine/frames';
 import { BODIES } from '../engine/bodies';
@@ -13,6 +13,7 @@ import { BasisPopover } from '../ui/Val';
 import { ConfirmDialog } from '../ui/Confirm';
 import { BodySelect, Select } from '../ui/controls';
 import { Logo } from '../ui/icons';
+import { BusyContent } from '../ui/Busy';
 import type { DistanceUnit } from './format';
 
 const ExpertApp = lazy(() => import('../expert/ExpertApp'));
@@ -59,29 +60,13 @@ function TopBar() {
   );
 }
 
-function stageText(stage: string): string {
-  if (stage === 'window') return t('busy.window');
-  if (stage === 'plan') return t('busy.plan');
-  const miss = /^miss:(.+)$/.exec(stage);
-  if (miss) return t('busy.miss', { value: miss[1] });
-  const best = /^best:(.+)$/.exec(stage);
-  if (best) return t('busy.best', { value: best[1] + ' km/s' });
-  const m = /^(\w+): (\w)$/.exec(stage);
-  return m ? t('busy.stage', { body: bodyName(m[1]), stage: m[2] }) : '';
-}
-
+/** The progress window at the bottom of the screen. A panel that shows the progress itself hides it (see app.css). */
 function BusyOverlay() {
   const busy = useApp((s) => s.busy);
-  const setBusy = useApp((s) => s.setBusy);
   if (!busy) return null;
   return (
     <div className="busy" role="status" aria-live="polite">
-      <div>
-        <span className="spin" />
-        <span>{t('busy.' + busy.task)}{busy.stage && stageText(busy.stage) ? ' — ' + stageText(busy.stage) : ''}</span>
-        {busy.fraction !== null && <span className="bar"><i style={{ width: `${Math.round(100 * busy.fraction)}%` }} /></span>}
-        <button type="button" className="btn small" onClick={() => { engine.cancel(); setBusy(null); }}>{t('busy.cancel')}</button>
-      </div>
+      <div><BusyContent /></div>
     </div>
   );
 }

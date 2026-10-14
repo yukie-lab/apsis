@@ -130,6 +130,7 @@ failure         n
 far             adj,adv   farther farthest
 find            v         finds found
 first           adj,adv
+?flag           n                          # the flag of a country on a vehicle
 flow            n
 ?fly            v         flies flew flown      # a spacecraft flies: the official dictionary has the word for aircraft
 follow          v
@@ -162,6 +163,7 @@ include         v
 incorrect       adj
 incorrectly     adv
 increase        n,v
+?install        v                          # to put a program on a computer
 ?independent    adj
 internal        adj
 into            prep
@@ -174,6 +176,7 @@ know            v         knows knew known
 large           adj       larger largest
 last            adj
 ?late           adj       later latest
+left            adj       -                # the side. Not the past of "leave"
 length          n
 less            adj,adv
 let             v         lets let
@@ -239,6 +242,7 @@ point           n,v
 position        n
 possible        adj
 prevent         v
+?price          n                          # the quantity of money for a product
 problem         n
 procedure       n
 ?project        n                          # "project list": a list that this project made
@@ -258,6 +262,7 @@ refer           v         refers referred
 remove          v
 replace         v
 result          n
+right           adj       -                # the side. Not for "correct"
 same            adj
 sample          n
 see             v         sees saw seen

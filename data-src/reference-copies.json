@@ -1,0 +1,895 @@
+{
+ "note": "Local copies of source data, documents and pages from other sources. The copies are not in the repository (decision D79). copiedUtc is the time when the file was written on the computer of the project. On 2026-10-14, a second copy from each address of the kernels and of the NSSDC fact sheets had the same SHA-256. The files in data-src/textures/evidence are the license records of the maps: each file has notes of the project and text from the pages of the source. The files in data-src/evidence are the records of the conditions of use of the engine data.",
+ "copies": [
+  {
+   "path": "data-src/kernels/de440s.bsp",
+   "document": "NAIF generic kernel: JPL planet ephemeris DE440, short version",
+   "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/de440s.bsp",
+   "usedIn": "tools/ephem/build_ephem.py",
+   "notInRepository": "Size. The NAIF rules permit a copy of a kernel that has no changes (data-src/evidence/naif_rules.txt).",
+   "bytes": 32726016,
+   "sha256": "c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2",
+   "copiedUtc": "2026-10-13T15:20:23Z"
+  },
+  {
+   "path": "data-src/kernels/gm_de440.tpc",
+   "document": "NAIF generic kernel: mass parameters of DE440",
+   "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/pck/gm_de440.tpc",
+   "usedIn": "tools/ephem/build_constants.py",
+   "notInRepository": "Size. The NAIF rules permit a copy of a kernel that has no changes (data-src/evidence/naif_rules.txt).",
+   "bytes": 12406,
+   "sha256": "924ddf4fb9ead9fe8a1aa55780bcabde40b09d00065d58226e24b68d8092f140",
+   "copiedUtc": "2026-10-13T15:20:25Z"
+  },
+  {
+   "path": "data-src/kernels/pck00011.tpc",
+   "document": "NAIF generic kernel: sizes and orientation of the bodies",
+   "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/pck/pck00011.tpc",
+   "usedIn": "tools/ephem/build_constants.py",
+   "notInRepository": "Size. The NAIF rules permit a copy of a kernel that has no changes (data-src/evidence/naif_rules.txt).",
+   "bytes": 131226,
+   "sha256": "3dff7b1dbeceaa01f25467767d3fa25816051c85d162d1edf04acb310ee28bb1",
+   "copiedUtc": "2026-10-13T15:20:24Z"
+  },
+  {
+   "path": "data-src/kernels/naif0012.tls",
+   "document": "NAIF generic kernel: leap seconds",
+   "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/lsk/naif0012.tls",
+   "usedIn": "tools/ephem/build_constants.py",
+   "notInRepository": "Size. The NAIF rules permit a copy of a kernel that has no changes (data-src/evidence/naif_rules.txt).",
+   "bytes": 5257,
+   "sha256": "678e32bdb5a744117a467cd9601cd6b373f0e9bc9bbde1371d5eee39600a039b",
+   "copiedUtc": "2026-10-13T15:20:26Z"
+  },
+  {
+   "path": "data-src/specs/ccsds/502x0b1s.pdf",
+   "document": "CCSDS 502.0-B-1, Orbit Data Messages",
+   "url": "https://public.ccsds.org/Pubs/502x0b1s.pdf",
+   "usedIn": "docs/IO_FORMATS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 651066,
+   "sha256": "fab306a994e5bce9cad8c64d77af172a5819af38faf459faab1b7e2f6163223c",
+   "copiedUtc": "2026-10-13T17:53:32Z"
+  },
+  {
+   "path": "data-src/specs/ccsds/502x0b2s.pdf",
+   "document": "CCSDS 502.0-B-2, Orbit Data Messages",
+   "url": "https://public.ccsds.org/Pubs/502x0b2s.pdf",
+   "usedIn": "docs/IO_FORMATS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 1381441,
+   "sha256": "3dd6102c119cd4d33a97f03437787b5bdfb6b6acaa036a0e0b716c6c9f5747db",
+   "copiedUtc": "2026-10-13T17:50:23Z"
+  },
+  {
+   "path": "data-src/specs/ccsds/502x0b3e1.pdf",
+   "document": "CCSDS 502.0-B-3, Orbit Data Messages",
+   "url": "https://public.ccsds.org/Pubs/502x0b3e1.pdf",
+   "usedIn": "docs/IO_FORMATS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 2346017,
+   "sha256": "97d1687b4a461ffdf965b9b65923820cc6aa9d1d1c4d4df77a598a53d4a49d81",
+   "copiedUtc": "2026-10-13T17:49:54Z"
+  },
+  {
+   "path": "data-src/specs/gmat/help-letter.pdf",
+   "document": "GMAT User Guide R2015a",
+   "url": "https://gmat.atlassian.net/wiki/download/attachments/380273216/help-letter.pdf?api=v2",
+   "usedIn": "docs/IO_FORMATS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 14496614,
+   "sha256": "8ee9e8bf380e5d85e3877f727b8b3fe9fba86854f6f59b18acf697f6e12e6cb2",
+   "copiedUtc": "2026-10-13T17:57:00Z"
+  },
+  {
+   "path": "data-src/specs/gmat/ntrs-20170001580.pdf",
+   "document": "NASA presentation about GMAT R2016a, NTRS document 20170001580",
+   "url": "https://ntrs.nasa.gov/api/citations/20170001580/downloads/20170001580.pdf",
+   "usedIn": "docs/IO_FORMATS.md (not used)",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 5650470,
+   "sha256": "d0b48d6ff1da078a3b87881c57c0a640a778c5540060d8437e9eee6cb2a8470d",
+   "copiedUtc": "2026-10-13T17:56:57Z"
+  },
+  {
+   "path": "data-src/specs/sana/celestial_body_reference_frames.html",
+   "document": "SANA registry, celestial body reference frames",
+   "url": "https://sanaregistry.org/r/celestial_body_reference_frames/?per_page=500",
+   "usedIn": "docs/IO_FORMATS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 122303,
+   "sha256": "e7f61ad8902fda9be14147928aa81746d4d80786cd5c8c796b5513bbba7a8099",
+   "copiedUtc": "2026-10-13T17:55:29Z"
+  },
+  {
+   "path": "data-src/specs/sana/orbit_centers.html",
+   "document": "SANA registry, orbit centers",
+   "url": "https://sanaregistry.org/r/orbit_centers/?per_page=500",
+   "usedIn": "docs/IO_FORMATS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 183943,
+   "sha256": "8204d941c595c84024bf2b049d26a7e975349329d141639bff1d128ccbf81f2f",
+   "copiedUtc": "2026-10-13T17:55:31Z"
+  },
+  {
+   "path": "data-src/specs/sana/orbit_relative_reference_frames.html",
+   "document": "SANA registry, orbit-relative reference frames",
+   "url": "https://sanaregistry.org/r/orbit_relative_reference_frames/?per_page=500",
+   "usedIn": "docs/IO_FORMATS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 67217,
+   "sha256": "a6b68b33004eff07c30bcb1fe8ded9fcd704e0ca55bb3ec892ba3764593fc073",
+   "copiedUtc": "2026-10-13T17:55:32Z"
+  },
+  {
+   "path": "data-src/specs/sana/time_systems.html",
+   "document": "SANA registry, time systems",
+   "url": "https://sanaregistry.org/r/time_systems/?per_page=500",
+   "usedIn": "docs/IO_FORMATS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 59988,
+   "sha256": "f8e345d457b77f0f526b185b1d66a064a0d6cc9018e06bf97b599492454bcc60",
+   "copiedUtc": "2026-10-13T17:55:33Z"
+  },
+  {
+   "path": "data-src/specs/stk/importfiles-02.htm",
+   "document": "STK help, \"Ephemeris File Format (*.e)\"",
+   "url": "https://help.agi.com/stk/Content/stk/importfiles-02.htm",
+   "usedIn": "docs/IO_FORMATS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 105161,
+   "sha256": "2aaa1fab16fabc7472d87ed5aaa56e151e85897c4513d46381f4b491551f033f",
+   "copiedUtc": "2026-10-13T18:08:15Z"
+  },
+  {
+   "path": "data-src/specs/stk/example_ephemeris2.htm",
+   "document": "STK help, sample file of the ephemeris format",
+   "url": "https://help.agi.com/stk/Content/stk/example_ephemeris2.htm",
+   "usedIn": "docs/IO_FORMATS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 236411,
+   "sha256": "c9ac41da9a3833d9f6a37f7c2843591a691c92900163e50f048d0e2a3459a9bf",
+   "copiedUtc": "2026-10-13T18:09:13Z"
+  },
+  {
+   "path": "data-src/specs/stk/example_ephemeris3.htm",
+   "document": "STK help, sample file of the ephemeris format",
+   "url": "https://help.agi.com/stk/Content/stk/example_ephemeris3.htm",
+   "usedIn": "docs/IO_FORMATS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 162573,
+   "sha256": "a19c1a8ede5dbf0874850000de23ab69af3446bad146642a2d61625e8d321f67",
+   "copiedUtc": "2026-10-13T18:09:14Z"
+  },
+  {
+   "path": "data-src/specs/stk/example_ephemeris5.htm",
+   "document": "STK help, sample file of the ephemeris format",
+   "url": "https://help.agi.com/stk/Content/stk/example_ephemeris5.htm",
+   "usedIn": "docs/IO_FORMATS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 100188,
+   "sha256": "d402f639d069f0c0ed55a6b4b0fd9a860ff289494abc638cec25be265a1a0b70",
+   "copiedUtc": "2026-10-13T18:09:15Z"
+  },
+  {
+   "path": "data-src/specs/stk/example_ephemeris6.htm",
+   "document": "STK help, sample file of the ephemeris format",
+   "url": "https://help.agi.com/stk/Content/stk/example_ephemeris6.htm",
+   "usedIn": "docs/IO_FORMATS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 37077,
+   "sha256": "0c21b143535ecaaecf45be62a205a9d067fbca3bb0cae09a368983a458d25bb7",
+   "copiedUtc": "2026-10-13T18:09:16Z"
+  },
+  {
+   "path": "truth/published/nasa_voyager2.html",
+   "document": "NASA Science, Voyager 2 mission page",
+   "url": "https://science.nasa.gov/mission/voyager/voyager-2/",
+   "usedIn": "truth/published/published.json",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 326344,
+   "sha256": "d0dd9d1a659beec2c44d3939af932a0629758acc3f960db6de8f58c51aef6f33",
+   "copiedUtc": "2026-10-13T16:00:56Z"
+  },
+  {
+   "path": "truth/published/nasa_cassini_timeline.html",
+   "document": "NASA Science, Cassini timeline",
+   "url": "https://science.nasa.gov/mission/cassini/the-journey/timeline/",
+   "usedIn": "truth/published/published.json",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 294872,
+   "sha256": "3d1bb8481895c3414e296e3bd148720ced35ea046d2b3265da686aa238a914a9",
+   "copiedUtc": "2026-10-13T16:00:57Z"
+  },
+  {
+   "path": "truth/published/jpl_mars2020_presskit.html",
+   "document": "JPL, Mars 2020 Perseverance Launch Press Kit, mission page",
+   "url": "https://www.jpl.nasa.gov/news/press_kits/mars_2020/launch/mission/",
+   "usedIn": "truth/published/published.json",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 51459,
+   "sha256": "1568fabb5cea24576f9abd1467e4a6287fb8f62815b3741477bd26853e37d712",
+   "copiedUtc": "2026-10-13T16:01:00Z"
+  },
+  {
+   "path": "truth/published/nssdc_mars2020.html",
+   "document": "NASA NSSDCA Master Catalog, Mars 2020",
+   "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2020-052A",
+   "usedIn": "truth/published/published.json, docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 12171,
+   "sha256": "e2b837e4f656f324524e6a055cb270cab1352dde329db5b4a43f48a56dc91a7d",
+   "copiedUtc": "2026-10-13T16:00:43Z"
+  },
+  {
+   "path": "truth/published/nssdc_newhorizons.html",
+   "document": "NASA NSSDCA Master Catalog, New Horizons",
+   "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2006-001A",
+   "usedIn": "truth/published/published.json, docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 15272,
+   "sha256": "0b3186695bb2abf6e8a0078a1d35a9718f3fce0dde9bcd10716b512cde3bfcfd",
+   "copiedUtc": "2026-10-13T16:00:45Z"
+  },
+  {
+   "path": "truth/published/nssdc_voyager1.html",
+   "document": "NASA NSSDCA Master Catalog, Voyager 1",
+   "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1977-084A",
+   "usedIn": "docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 17550,
+   "sha256": "5d59cd914f1055c38bafcbef928b4280a90e903f6a7c5598609c96ad126ca0a7",
+   "copiedUtc": "2026-10-13T16:00:44Z"
+  },
+  {
+   "path": "truth/published/nssdc_voyager2.html",
+   "document": "NASA NSSDCA Master Catalog, Voyager 2",
+   "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1977-076A",
+   "usedIn": "docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 18572,
+   "sha256": "438669d9ef17aacd1df73f19f1a2bbf45f34d82e9e1f63ef80536bc9b860af54",
+   "copiedUtc": "2026-10-13T16:00:41Z"
+  },
+  {
+   "path": "data-src/factsheets/earthfact.html",
+   "document": "NSSDC Earth Fact Sheet",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html",
+   "usedIn": "docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 5490,
+   "sha256": "1b06e3ec31249d063d40d1b38837fac89ddcd2f4b25268b38e8a6d5f413e70ef",
+   "copiedUtc": "2026-10-13T15:40:53Z"
+  },
+  {
+   "path": "data-src/factsheets/jupiterfact.html",
+   "document": "NSSDC Jupiter Fact Sheet",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/jupiterfact.html",
+   "usedIn": "docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 11195,
+   "sha256": "9ac7835ae5387261bc02019a641bbfc8450122ffebebffea5678c3de6c54d0cb",
+   "copiedUtc": "2026-10-13T15:40:55Z"
+  },
+  {
+   "path": "data-src/factsheets/marsfact.html",
+   "document": "NSSDC Mars Fact Sheet",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html",
+   "usedIn": "docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 13261,
+   "sha256": "366b0ce9b69cbee370be904956748af954468a41b93dc71a796a986519aa8d74",
+   "copiedUtc": "2026-10-13T15:40:54Z"
+  },
+  {
+   "path": "data-src/factsheets/mercuryfact.html",
+   "document": "NSSDC Mercury Fact Sheet",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/mercuryfact.html",
+   "usedIn": "docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 10878,
+   "sha256": "170d9f2d2ba7f7ae322c68d473ccb0b35ab94f4b4aca197bf74fe3b7e4e10f3f",
+   "copiedUtc": "2026-10-13T15:40:51Z"
+  },
+  {
+   "path": "data-src/factsheets/neptunefact.html",
+   "document": "NSSDC Neptune Fact Sheet",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/neptunefact.html",
+   "usedIn": "docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 11071,
+   "sha256": "4b9166f959be2b507eea77a9eef56f4e5679b693ba75151072a28bb228f44328",
+   "copiedUtc": "2026-10-13T15:40:57Z"
+  },
+  {
+   "path": "data-src/factsheets/satringfact.html",
+   "document": "NSSDC Saturnian Rings Fact Sheet",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/satringfact.html",
+   "usedIn": "src/render/bodies/rings.ts",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 5566,
+   "sha256": "95d44c887d4fa6f235ec0ba0cce2352c6c542243c05cf66e20cdf86ceeddd957",
+   "copiedUtc": "2026-10-13T15:41:51Z"
+  },
+  {
+   "path": "data-src/factsheets/saturnfact.html",
+   "document": "NSSDC Saturn Fact Sheet",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/saturnfact.html",
+   "usedIn": "docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 11257,
+   "sha256": "6d09ba010cacef61c8ae1a1ff137b06e5464e99461faf8f32c107419c474d06d",
+   "copiedUtc": "2026-10-13T15:40:56Z"
+  },
+  {
+   "path": "data-src/factsheets/uranringfact.html",
+   "document": "NSSDC Uranian Rings Fact Sheet",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/uranringfact.html",
+   "usedIn": "src/render/bodies/rings.ts",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 4338,
+   "sha256": "dbbe304c6cd6927fbb8ac94b8451ec67f2be56e6e3762bfb5c4c213e2488093e",
+   "copiedUtc": "2026-10-13T15:41:52Z"
+  },
+  {
+   "path": "data-src/factsheets/uranusfact.html",
+   "document": "NSSDC Uranus Fact Sheet",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/uranusfact.html",
+   "usedIn": "docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 10941,
+   "sha256": "02389139f8345a4328fc8f8956012cb72f691c6c7c2854c03c0b2512a063de81",
+   "copiedUtc": "2026-10-13T15:40:56Z"
+  },
+  {
+   "path": "data-src/factsheets/venusfact.html",
+   "document": "NSSDC Venus Fact Sheet",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/venusfact.html",
+   "usedIn": "docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 10558,
+   "sha256": "473c61da0bf7188764ec8ae5b12c0fdc9f922bccd9e3f6b47c885fef0723541c",
+   "copiedUtc": "2026-10-13T15:40:52Z"
+  },
+  {
+   "path": "data-src/evidence/naif_rules.txt",
+   "document": "Text of the NAIF page \"Rules Regarding Use of SPICE\"",
+   "url": "https://naif.jpl.nasa.gov/naif/rules.html",
+   "usedIn": "docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 1133,
+   "sha256": "cf209c54fa256a224c6ffc514cb8e1099ddbfe019923c31592b4e2b12a7c88f3",
+   "copiedUtc": "2026-10-14T01:49:07Z"
+  },
+  {
+   "path": "data-src/evidence/jpl_ssd_api_fair_use.txt",
+   "document": "Text of the JPL page \"API Documentation\"",
+   "url": "https://ssd-api.jpl.nasa.gov/doc/index.php",
+   "usedIn": "docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 1248,
+   "sha256": "d45c1bb66aeb4dd8636325d0de3aad7126117514130cc8a511fd3d9bd01f3b15",
+   "copiedUtc": "2026-10-14T01:49:07Z"
+  },
+  {
+   "path": "data-src/textures/evidence/ariel.txt",
+   "document": "License record of the map \"ariel\": notes of the project and text from the pages of the source",
+   "url": "https://commons.wikimedia.org/wiki/File:Ariel_map_JPL_USGS.jpg",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 57888,
+   "sha256": "b5d3c84117772d81b7e2f97a23635edb313468943e8c95e5d4e20c209c5c2fbc",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/bennu.txt",
+   "document": "License record of the map \"bennu\": notes of the project and text from the pages of the source",
+   "url": "https://astrogeology.usgs.gov/search/map/bennu_osiris_rex_ocams_global_pan_mosaic_5cm",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 23216,
+   "sha256": "212289815eae500ac35762150bfcd7526d9a143560f86401cf4737de9ed9cf2e",
+   "copiedUtc": "2026-10-13T20:31:53Z"
+  },
+  {
+   "path": "data-src/textures/evidence/callisto.txt",
+   "document": "License record of the map \"callisto\": notes of the project and text from the pages of the source",
+   "url": "https://astrogeology.usgs.gov/search/map/callisto_galileo_voyager_global_mosaic_1km",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 16595,
+   "sha256": "bb38d0c9b24b50df0ef2a727e2289b5dfd69fcda051c476220a3f852f9fa166a",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/ceres.txt",
+   "document": "License record of the map \"ceres\": notes of the project and text from the pages of the source",
+   "url": "https://astrogeology.usgs.gov/search/map/ceres_dawn_fc_global_mosaic_400m",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 38360,
+   "sha256": "280ccc13e87b372070e3a087ca0077cd120ec256eec0b386184fcaafc3727426",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/charon.txt",
+   "document": "License record of the map \"charon\": notes of the project and text from the pages of the source",
+   "url": "https://astrogeology.usgs.gov/search/map/charon_new_horizons_lorri_mvic_global_mosaic_300m",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 52062,
+   "sha256": "27a6a24af730be00a797084d0f79699b01dfb6cef7a80913d721e2596d741306",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/deimos.txt",
+   "document": "License record of the map \"deimos\": notes of the project and text from the pages of the source",
+   "url": "https://science.nasa.gov/3d-resources/mars-deimos/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 51974,
+   "sha256": "fe423dc3c77cc4a3c999f50d64dca3711db7ddb86b5297e008e54f3ef155ecb4",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/dione.txt",
+   "document": "License record of the map \"dione\": notes of the project and text from the pages of the source",
+   "url": "https://science.nasa.gov/photojournal/color-maps-of-dione-2014/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 46013,
+   "sha256": "083d63b6e8b28a90b42685330a975b438fe6b549a70b2728251b135a6d10a595",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/earth.txt",
+   "document": "License record of the map \"earth\": notes of the project and text from the pages of the source",
+   "url": "https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-topography-bathymetry/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 139701,
+   "sha256": "dea58f6fc5e304f57c5eedd5ae2325bec52b7011cfe98b4063c00be1176aad4b",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/earth_clouds.txt",
+   "document": "License record of the map \"earth_clouds\": notes of the project and text from the pages of the source",
+   "url": "https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 47074,
+   "sha256": "99822a0f2547134aa9e903ee78c71eefe932c9303fc3c18d9f563cc236791153",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/earth_night.txt",
+   "document": "License record of the map \"earth_night\": notes of the project and text from the pages of the source",
+   "url": "https://science.nasa.gov/earth/earth-observatory/earth-at-night/maps/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 101144,
+   "sha256": "291ce5c6e3b10031e116d387d3f221312152925aac37986cac8c8b0fb834e27f",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/enceladus.txt",
+   "document": "License record of the map \"enceladus\": notes of the project and text from the pages of the source",
+   "url": "https://science.nasa.gov/photojournal/color-maps-of-enceladus-2014/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 46196,
+   "sha256": "ca3213bd560bacc4fe1be26281c8e77be31aa17008e2f69f4d315c8fa8e74f3d",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/eros.txt",
+   "document": "License record of the map \"eros\": notes of the project and text from the pages of the source",
+   "url": "https://astrogeology.usgs.gov/search/map/near_msi_albedo_mosaics",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 50258,
+   "sha256": "34b9363138ad166a3541d4ef618c2fe30440c3fb3ff9cf257dd2c8a07b09d091",
+   "copiedUtc": "2026-10-13T20:31:53Z"
+  },
+  {
+   "path": "data-src/textures/evidence/europa.txt",
+   "document": "License record of the map \"europa\": notes of the project and text from the pages of the source",
+   "url": "https://astrogeology.usgs.gov/search/map/europa_voyager_galileo_ssi_global_mosaic_500m",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 20240,
+   "sha256": "cbf6a0a7e5f8f7a051e723320f171f84d8b97f8507a5e54a9e91f09fd0128daa",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/ganymede.txt",
+   "document": "License record of the map \"ganymede\": notes of the project and text from the pages of the source",
+   "url": "https://astrogeology.usgs.gov/search/map/ganymede_voyager_galileo_ssi_color_global_mosaic_1_4km",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 22026,
+   "sha256": "42ff5d12d77d6a0d69703b5b30bb7d064a43364f9707ccbb64a2ac077b49b187",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/iapetus.txt",
+   "document": "License record of the map \"iapetus\": notes of the project and text from the pages of the source",
+   "url": "https://science.nasa.gov/photojournal/color-maps-of-iapetus-2014/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 45555,
+   "sha256": "36101ebea64cd67e54a57114ade556617323bc48bc67ba482f646fd427ab7862",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/io.txt",
+   "document": "License record of the map \"io\": notes of the project and text from the pages of the source",
+   "url": "https://astrogeology.usgs.gov/search/map/io_galileo_ssi_voyager_color_merged_global_mosaic_1km",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 18803,
+   "sha256": "3fcfedc139174215a6ebc7432192d24fa89783fd248eb0f57e1364366bdfb90d",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/jupiter.txt",
+   "document": "License record of the map \"jupiter\": notes of the project and text from the pages of the source",
+   "url": "https://science.nasa.gov/photojournal/cassinis-best-maps-of-jupiter-cylindrical-map/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 46415,
+   "sha256": "6b8bf39dec4e53b0897cf0138a7d66215e7eeabffe1f86d2eb1b34b96dd8384d",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/mars.txt",
+   "document": "License record of the map \"mars\": notes of the project and text from the pages of the source",
+   "url": "https://commons.wikimedia.org/wiki/File:Mars_Viking_MDIM21_ClrMosaic_1km.jpg",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 42023,
+   "sha256": "d657815cfa476d7230849064295b3d1167ccf4e77c27742c298b176efc819dce",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/mercury.txt",
+   "document": "License record of the map \"mercury\": notes of the project and text from the pages of the source",
+   "url": "https://astrogeology.usgs.gov/search/map/mercury_messenger_mdis_basemap_md3_color_global_mosaic_665m",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 20991,
+   "sha256": "3c8f951221095927d1051fbf3f377ff7bff64b965b6a16d7c4848d9b96eebdd1",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/mimas.txt",
+   "document": "License record of the map \"mimas\": notes of the project and text from the pages of the source",
+   "url": "https://science.nasa.gov/photojournal/color-maps-of-mimas-2014/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 46369,
+   "sha256": "39fb6726533f17898322e3b967b4c36be9725f06bcec0b4596112489086cc084",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/miranda.txt",
+   "document": "License record of the map \"miranda\": notes of the project and text from the pages of the source",
+   "url": "https://commons.wikimedia.org/wiki/File:Miranda_map_JPL_USGS.jpg",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 57598,
+   "sha256": "490419d303a2ed20413b58ee5e703a7932443157a484c2480fe3b6f829bc2177",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/moon.txt",
+   "document": "License record of the map \"moon\": notes of the project and text from the pages of the source",
+   "url": "https://svs.gsfc.nasa.gov/4720/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 17749,
+   "sha256": "459849f554b3b616704d2038069836273f17d054704f742107b70bb46b212054",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/neptune.txt",
+   "document": "License record of the map \"neptune\": notes of the project and text from the pages of the source",
+   "url": "https://archive.stsci.edu/hlsp/opal/opal-neptune-cycle-22",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 41114,
+   "sha256": "618d003df672f1fe8b47bb02e25918e0d71e97c5485e456e06d7e9076f67adb2",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/oberon.txt",
+   "document": "License record of the map \"oberon\": notes of the project and text from the pages of the source",
+   "url": "https://commons.wikimedia.org/wiki/File:Oberon_map_JPL_USGS.jpg",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 58165,
+   "sha256": "8fa9829d6016e52ed186c6bfd6055170569ff4fe5b58bf05e06188b83b9ddf2a",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/phobos.txt",
+   "document": "License record of the map \"phobos\": notes of the project and text from the pages of the source",
+   "url": "https://astrogeology.usgs.gov/search/map/phobos_viking_global_mosaic_5m",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 15463,
+   "sha256": "5edb998f633e3a27409d13bb2b6fb866260c49c82411b672b441daf1c499b0be",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/pluto.txt",
+   "document": "License record of the map \"pluto\": notes of the project and text from the pages of the source",
+   "url": "https://commons.wikimedia.org/wiki/File:Pluto_color_mapmosaic.jpg",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 47191,
+   "sha256": "b471306b2455bf2404dd4277dbc0963508492836f6885547bfe8615d06aa0e7f",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/rhea.txt",
+   "document": "License record of the map \"rhea\": notes of the project and text from the pages of the source",
+   "url": "https://science.nasa.gov/photojournal/color-maps-of-rhea-2014/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 45996,
+   "sha256": "b971c5fc6fae11510d7226584a11a8ff8a1d8ba71e38556533963179c7ef4d5e",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/saturn.txt",
+   "document": "License record of the map \"saturn\": notes of the project and text from the pages of the source",
+   "url": "https://archive.stsci.edu/hlsp/opal/opal-saturn-cycle-32",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 43495,
+   "sha256": "f0bc1e1d8eb888ab2fa130a86470f99124ed0bec47f9237dc5ee1775e05cf881",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/saturn_ring.txt",
+   "document": "License record of the map \"saturn_ring\": notes of the project and text from the pages of the source",
+   "url": "https://science.nasa.gov/photojournal/panoramic-rings/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 28811,
+   "sha256": "8ad2529a1292598acf2c77166bed94209468c4aed41a50929696cd320a4caa19",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/stars.txt",
+   "document": "License record of the map \"stars\": notes of the project and text from the pages of the source",
+   "url": "https://svs.gsfc.nasa.gov/4851/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 33615,
+   "sha256": "7dca3d406cb0bdc09017bd287aac2338616004555574802bfe7b361302d8b5c2",
+   "copiedUtc": "2026-10-13T20:31:53Z"
+  },
+  {
+   "path": "data-src/textures/evidence/tethys.txt",
+   "document": "License record of the map \"tethys\": notes of the project and text from the pages of the source",
+   "url": "https://science.nasa.gov/photojournal/color-maps-of-tethys-2014/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 46864,
+   "sha256": "983980a8621abe1fbf8f587d0fb1cd8c06377881be1e08bd8c0bce0233bfb4c1",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/titan_surface.txt",
+   "document": "License record of the map \"titan_surface\": notes of the project and text from the pages of the source",
+   "url": "https://astrogeology.usgs.gov/search/map/titan_cassini_iss_global_mosaic_4005m",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 30679,
+   "sha256": "8629cec1807e70c53b8485b3227d42d5be01134c6e129de581ea295c4122b410",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/titania.txt",
+   "document": "License record of the map \"titania\": notes of the project and text from the pages of the source",
+   "url": "https://commons.wikimedia.org/wiki/File:Titania_map_JPL_USGS.jpg",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 57999,
+   "sha256": "8d4510e37d27d5b88f46449bfaa47917b8bb4ae57ac81929212280113f1e8377",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/triton.txt",
+   "document": "License record of the map \"triton\": notes of the project and text from the pages of the source",
+   "url": "https://astrogeology.usgs.gov/search/map/triton_voyager_2_global_color_mosaic_600m",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 16657,
+   "sha256": "e8cd94fa88aed3e376c30601d1294e32bd84e07a07b6b2297e636fe7d4a87d2d",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/umbriel.txt",
+   "document": "License record of the map \"umbriel\": notes of the project and text from the pages of the source",
+   "url": "https://commons.wikimedia.org/wiki/File:Umbriel_map_JPL_USGS.jpg",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 57999,
+   "sha256": "c97a933b69607c469f3c5edc89cf4a4c810c42afb20c079a699af01f42f2af98",
+   "copiedUtc": "2026-10-13T20:31:52Z"
+  },
+  {
+   "path": "data-src/textures/evidence/uranus.txt",
+   "document": "License record of the map \"uranus\": notes of the project and text from the pages of the source",
+   "url": "https://archive.stsci.edu/hlsp/opal/opal-uranus-cycle-23",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 40501,
+   "sha256": "c05b31e4b0ca4add94c17b4e2e71c8220462693ec3aeb6ab157e87a34d3670b2",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/venus_surface.txt",
+   "document": "License record of the map \"venus_surface\": notes of the project and text from the pages of the source",
+   "url": "https://astrogeology.usgs.gov/search/map/venus_magellan_global_c3_mdir_synthetic_color_mosaic_4641m",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 15836,
+   "sha256": "a13acf40881e21add626273656ee7c0adfc602df93191ce4142d02ad9707f807",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/vesta.txt",
+   "document": "License record of the map \"vesta\": notes of the project and text from the pages of the source",
+   "url": "https://astrogeology.usgs.gov/search/map/vesta_dawn_fc_hamo_global_mosaic_60m",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 23853,
+   "sha256": "14603b3851c44c75d886d2fef1dcb3adcad4350f3ce6a9372546ea12581b2a64",
+   "copiedUtc": "2026-10-13T20:31:53Z"
+  },
+  {
+   "path": "data-src/textures/evidence/_shared/gaia_dr2_credit_and_citation.txt",
+   "document": "Text of a page about the license and the credit of the maps",
+   "url": "https://gea.esac.esa.int/archive/documentation/GDR2/Miscellaneous/sec_credit_and_citation_instructions/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 7708,
+   "sha256": "ecec58cd5e7a7ae144f02f58ef3cd6340916e764197b944240a799de355a7930",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/_shared/jpl_image_use_policy.txt",
+   "document": "Text of a page about the license and the credit of the maps",
+   "url": "https://www.jpl.nasa.gov/jpl-image-use-policy/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 3697,
+   "sha256": "0e5aceda2464a2f1d5bf3974127de3577255f0f582ddca944533899d0e757b31",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/_shared/jpl_texture_maps_index.txt",
+   "document": "Text of a page about the license and the credit of the maps",
+   "url": "https://maps.jpl.nasa.gov/tmaps/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 1898,
+   "sha256": "0cf4483e4d4f2f6c8c109c4b80fc57b17796ed830a22c4da0079686a1adbda7b",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/_shared/mast_data_use.txt",
+   "document": "Text of a page about the license and the credit of the maps",
+   "url": "https://archive.stsci.edu/publishing/data-use",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 18304,
+   "sha256": "acc9f979eb17fc8052e424284b8ca22d7968f863a2a933f5c493ad224d80236a",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/_shared/mast_opal_hlsp.txt",
+   "document": "Text of a page about the license and the credit of the maps",
+   "url": "https://archive.stsci.edu/hlsp/opal",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 21644,
+   "sha256": "6e3aa32d7235a2357c522c4a868ec6b9554931262bfa64a9b37f85cd961e34c2",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/_shared/nasa_3d_resources.txt",
+   "document": "Text of a page about the license and the credit of the maps",
+   "url": "https://science.nasa.gov/3d-resources/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 34126,
+   "sha256": "94b8cd1a24bf16adc93de0f666b0a877a6ee374349137f016f193eec86f4ee03",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/_shared/nasa_3d_resources_github_README.txt",
+   "document": "Text of a page about the license and the credit of the maps",
+   "url": "https://raw.githubusercontent.com/nasa/NASA-3D-Resources/master/README.md",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 2821,
+   "sha256": "16ebc5df2b1fc386516d3fae4dfb4a4e8d14e4341f03708c398a300598256c94",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/_shared/nasa_images_and_media.txt",
+   "document": "Text of a page about the license and the credit of the maps",
+   "url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 40663,
+   "sha256": "141d4038a6ebca9ccbe97538e4977dcda88aa4e5eb73a070c45d6a37fc682813",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/_shared/nasa_nssdc_saturnian_rings_fact_sheet.txt",
+   "document": "Text of a page about the license and the credit of the maps",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/satringfact.html",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 2042,
+   "sha256": "4e25fafba02e2fa47fb01c70296e367fd02b0a725a5ef9e98e0acbe847b98413",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/_shared/nasa_photojournal_redirects.txt",
+   "document": "Text of a page about the license and the credit of the maps",
+   "url": "https://photojournal.jpl.nasa.gov/catalog/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 1584,
+   "sha256": "65718e33d15b1055f6f6c2df8b423377012f96fde121fca0ea32f4097c993028",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/_shared/nasa_svs_help.txt",
+   "document": "Text of a page about the license and the credit of the maps",
+   "url": "https://svs.gsfc.nasa.gov/help/",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 37620,
+   "sha256": "9df61d5b658327f8e2cee6d628ebd0257d9893d24bb7bf540790bf59f22e6d57",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/_shared/stsci_copyright.txt",
+   "document": "Text of a page about the license and the credit of the maps",
+   "url": "https://www.stsci.edu/copyright",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 50525,
+   "sha256": "a8e48738707e5698fa463231183ce356bacb5d28fe4fa864cf78a3b583bce9ea",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/_shared/usgs_catalogue_listing_moons_and_small_bodies.txt",
+   "document": "Text of a page about the license and the credit of the maps",
+   "url": "https://astrogeology.usgs.gov/search",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 4673,
+   "sha256": "a808144b861d362a245af8717e639d2974dc715edcfe714d782496c871f1e089",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  },
+  {
+   "path": "data-src/textures/evidence/_shared/usgs_copyrights_and_credits.txt",
+   "document": "Text of a page about the license and the credit of the maps",
+   "url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+   "usedIn": "public/textures/manifest.json (licenceStatement), docs/ASSETS.md",
+   "notInRepository": "The project did not find the conditions for a copy.",
+   "bytes": 6586,
+   "sha256": "0a22df492a7fe9cbc7085fce3da6e0021516dd61a4c26fb0032c7f118757a1a5",
+   "copiedUtc": "2026-10-13T20:31:51Z"
+  }
+ ]
+}

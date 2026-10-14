@@ -9,4 +9,13 @@ data-src/kernels/
 /scratch/
 
 data-src/textures/original/
+# Local copies of documents and pages of other owners: record in data-src/reference-copies.json (decision D79).
+data-src/specs/ccsds/
+data-src/specs/gmat/
+data-src/specs/sana/
+data-src/specs/stk/
+data-src/factsheets/
+truth/published/*.html
+data-src/textures/evidence/
+data-src/evidence/
 __pycache__/

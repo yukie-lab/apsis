@@ -102,7 +102,7 @@
    "launchChangeMS": 82.69300378219441,
    "deepSpaceManeuverMS": 0,
    "arrivalBurnMS": 0,
-   "solveSeconds": 2.97
+   "solveSeconds": 1.44
   }
  },
  {
@@ -234,7 +234,7 @@
    "launchChangeMS": 24.06829369262388,
    "deepSpaceManeuverMS": 454.04688748314595,
    "arrivalBurnMS": 577.8358893017095,
-   "solveSeconds": 7.01
+   "solveSeconds": 3.24
   }
  },
  {
@@ -288,7 +288,7 @@
    "launchChangeMS": 105.7604800173813,
    "deepSpaceManeuverMS": 0,
    "arrivalBurnMS": 0,
-   "solveSeconds": 1.25
+   "solveSeconds": 0.58
   }
  },
  {
@@ -342,7 +342,7 @@
    "launchChangeMS": 58.25423602857804,
    "deepSpaceManeuverMS": 0,
    "arrivalBurnMS": 0,
-   "solveSeconds": 0.45
+   "solveSeconds": 0.22
   }
  },
  {
@@ -370,7 +370,7 @@
    "launchChangeMS": 12.608696857332367,
    "deepSpaceManeuverMS": 0,
    "arrivalBurnMS": 0,
-   "solveSeconds": 0.11
+   "solveSeconds": 0.05
   }
  },
  {
@@ -424,7 +424,7 @@
    "launchChangeMS": 0,
    "deepSpaceManeuverMS": 777.0324427704168,
    "arrivalBurnMS": 514.3945433037381,
-   "solveSeconds": 0.87
+   "solveSeconds": 0.46
   }
  },
  {
@@ -452,7 +452,7 @@
    "launchChangeMS": 53.25058285037617,
    "deepSpaceManeuverMS": 0,
    "arrivalBurnMS": 0,
-   "solveSeconds": 0.21
+   "solveSeconds": 0.11
   }
  },
  {
@@ -506,7 +506,7 @@
    "launchChangeMS": 73.24615163003561,
    "deepSpaceManeuverMS": 0,
    "arrivalBurnMS": 0,
-   "solveSeconds": 0.77
+   "solveSeconds": 0.38
   }
  },
  {

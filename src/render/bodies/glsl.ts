@@ -115,6 +115,10 @@ float fbm(vec3 p, int octaves) {
  * A map has no detail that fine in longitude near a pole. So mapCoord limits the gradient in longitude:
  * the stretch that the filter sees is never larger than MAP_ANISOTROPY.
  * A material sets MAP_ANISOTROPY to the anisotropy of its maps. Without it the value is 1.
+ *
+ * mapSampleSmooth is the lookup for a map that can be larger on the screen than in its file (a camera near the ground).
+ * A material that defines MAP_SMOOTH gets the smooth filter that the text below describes.
+ * Without MAP_SMOOTH, mapSampleSmooth is mapSample.
  */
 export const GLSL_MAP = /* glsl */ `
 #ifndef MAP_ANISOTROPY
@@ -148,6 +152,57 @@ MapCoord mapCoord(vec3 dir, float uOffset, float latK) {
 vec4 mapSample(sampler2D map, MapCoord m) {
   return textureGrad(map, m.uv, m.dx, m.dy);
 }
+#ifdef MAP_SMOOTH
+// Where a map pixel covers more than one screen pixel, the filter of the GPU (linear between four map pixels) shows
+// each map pixel as a diamond with creases, and a thin line of the map as steps. The function then puts a smooth
+// curve through the map pixels: the cubic curve of Catmull and Rom. It goes through the value of each map pixel,
+// so the picture stays as sharp as with the linear filter.
+// The curve needs 4 x 4 map pixels. The function reads the 2 x 2 in the middle with one linear lookup at the right
+// place, and the pairs above, below, left and right of them with four lookups more. It leaves the four corner
+// pairs out: their weights are 1.6 percent of the sum at most.
+// The diamonds show only where a map pixel is large on the screen. So the curve comes in by degrees, for each
+// axis of the map: not at all where a map pixel covers two screen pixels or less, fully where it covers six
+// screen pixels or more. Where it does not come in, the result is the result of mapSample.
+vec4 mapSampleSmooth(sampler2D map, MapCoord m) {
+  vec2 size = vec2(textureSize(map, 0));
+  vec2 gx = m.dx * size;
+  vec2 gy = m.dy * size;
+  // Map pixels for each screen pixel, squared, in the screen direction that has the most.
+  float rho2 = max(dot(gx, gx), dot(gy, gy));
+  // Weight of the curve for the two axes of the map. The second factor is 0 where a screen direction has one map
+  // pixel or more for each screen pixel: the filter of the GPU then does its work for a map that is not enlarged.
+  vec2 k = smoothstep(2.0, 6.0, 1.0 / max(max(abs(gx), abs(gy)), 1e-6)) * smoothstep(1.0, 2.0, inversesqrt(max(rho2, 1e-12)));
+  if (k.x + k.y <= 0.0) return textureGrad(map, m.uv, m.dx, m.dy);
+  vec2 st = m.uv * size - 0.5;
+  vec2 f = fract(st);
+  vec2 base = st - f;
+  vec2 f2 = f * f;
+  vec2 f3 = f2 * f;
+  // Weights of four map pixels in a row. The linear filter has (0, 1 - f, f, 0). The curve has a first and a
+  // last weight that are negative or zero.
+  vec2 wa = k * (-0.5 * f3 + f2 - 0.5 * f);
+  vec2 wd = k * (0.5 * f3 - 0.5 * f2);
+  vec2 wc = mix(f, -1.5 * f3 + 2.0 * f2 + 0.5 * f, k);
+  // Weight of the two middle map pixels together: 1 or a little more.
+  vec2 wm = 1.0 - wa - wd;
+  // A linear lookup at this place between the two middle map pixels gives their weighted mean.
+  vec2 pm = (base + 0.5 + wc / wm) / size;
+  vec2 pa = (base - 0.5) / size;
+  vec2 pd = (base + 2.5) / size;
+  // The middle lookup is the lookup of mapSample at a place a little to the side: the result has no step where the curve comes in.
+  vec4 sum = textureGrad(map, pm, m.dx, m.dy) * (wm.x * wm.y)
+    + textureLod(map, vec2(pa.x, pm.y), 0.0) * (wa.x * wm.y)
+    + textureLod(map, vec2(pd.x, pm.y), 0.0) * (wd.x * wm.y)
+    + textureLod(map, vec2(pm.x, pa.y), 0.0) * (wm.x * wa.y)
+    + textureLod(map, vec2(pm.x, pd.y), 0.0) * (wm.x * wd.y);
+  // The sum of the five weights (1 minus the weights of the corners). The division keeps a flat area flat.
+  float total = 1.0 - (wa.x + wd.x) * (wa.y + wd.y);
+  // The curve can go a little below 0 beside a bright map pixel.
+  return max(sum / total, 0.0);
+}
+#else
+#define mapSampleSmooth mapSample
+#endif
 // Map position only. Use it with the gradients of a MapCoord of a near direction.
 vec2 mapUv(vec3 dir, float uOffset, float latK) {
   float rho2 = dot(dir.xy, dir.xy);

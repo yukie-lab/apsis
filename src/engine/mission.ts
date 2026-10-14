@@ -165,7 +165,7 @@ export interface FamousInfo {
   id: string;
   /** 3D model. */
   kind: string;
-  /** Name of the spacecraft (a proper name: not translated). */
+  /** Name of the spacecraft in English. The user interface shows the "spacecraft" text of its language if there is one. */
   name: string;
   /** Flight time after the last flyby, days (only for missions where the path after the flyby is the point). */
   coastDays?: number;
@@ -193,7 +193,7 @@ export function famousFacts(id: string): FamousFacts {
  * Plan of a real mission from its facts. For a mission with a deep-space maneuver the parameters of the maneuver
  * leg are solved here (plan optimizer); the times stay at the real values.
  */
-export function famousMission(sys: SolarSystem, id: string): PlannedMission {
+export function famousMission(sys: SolarSystem, id: string, name?: string): PlannedMission {
   const info = FAMOUS.find((f) => f.id === id);
   if (!info) throw new Error('Unknown mission: ' + id);
   const f = famousFacts(id);
@@ -232,7 +232,9 @@ export function famousMission(sys: SolarSystem, id: string): PlannedMission {
     plan = optimizePlan(sys, plan, { objective: 'c3', freeDsmTime: false, global: true, generations: 200, seed: 11 }).plan;
   }
   // Mass and engine data are example values (the path does not depend on them).
-  const m = newMission(info.name, plan, { ...DEFAULT_SPACECRAFT, kind: info.kind, name: info.name });
+  // name: the name of the mission in the language of the user interface.
+  const shown = name ?? info.name;
+  const m = newMission(shown, plan, { ...DEFAULT_SPACECRAFT, kind: info.kind, name: shown });
   m.famousId = id;
   m.refine = { moons: false, optimizeDsm };
   return m;

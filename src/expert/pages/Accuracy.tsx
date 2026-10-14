@@ -1,8 +1,9 @@
 /** Accuracy screen: the measured errors of the automatic tests, checks on this computer, and what is not verified. */
 import { useMemo, useState } from 'react';
-import { t, bodyIn } from '../../i18n';
+import { t, bodyIn, craftName } from '../../i18n';
 import { MEASUREMENTS, describeMeasurement, truthSource, measuredText } from '../../app/provenance';
 import { runFastChecks, flightChecks, type CheckResult } from '../../validation/selfcheck';
+import { UNVERIFIED, LIMITS } from '../../validation/lists';
 import { system } from '../../app/system';
 import { engine } from '../../app/engine';
 import { famousMission, FAMOUS } from '../../engine/mission';
@@ -10,13 +11,11 @@ import { auto } from '../../app/format';
 import { Panel, Seg } from '../../ui/controls';
 import { PageHead } from '../common';
 
-const UNVERIFIED = ['outerCenters', 'rotation', 'otherTools', 'ste', 'masses', 'insertionBurns', 'models3d', 'browsers'];
-const LIMITS = ['impulses', 'forces', 'moons', 'launch', 'entry', 'interpolation', 'range', 'tables', 'horizonsCenter'];
 const SELF_MISSION = 'voyager2';
-const CRAFT = FAMOUS.find((f) => f.id === SELF_MISSION)!.name;
+const craft = (): string => craftName(SELF_MISSION, FAMOUS.find((f) => f.id === SELF_MISSION)!.name);
 
 function checkText(c: CheckResult): string {
-  return t('validation.self.' + c.id, { body: c.body ? bodyIn(c.body) : '', craft: CRAFT });
+  return t('validation.self.' + c.id, { body: c.body ? bodyIn(c.body) : '', craft: craft() });
 }
 
 function SelfCheck() {
@@ -41,24 +40,24 @@ function SelfCheck() {
   return (
     <Panel title={t('page.accuracy.self.title')} actions={<button type="button" className="btn primary" disabled={state === 'fast' || state === 'flight'} onClick={run}>{t('page.accuracy.self.run')}</button>}>
       <p className="note">{t('page.accuracy.self.intro')}</p>
-      {(state === 'fast' || state === 'flight') && <p className="row"><span className="spin" />{t(state === 'fast' ? 'page.accuracy.self.fast' : 'page.accuracy.self.flight', { craft: CRAFT })}</p>}
+      {(state === 'fast' || state === 'flight') && <p className="row"><span className="spin" />{t(state === 'fast' ? 'page.accuracy.self.fast' : 'page.accuracy.self.flight', { craft: craft() })}</p>}
       {state === 'failed' && <div className="banner bad">{t('page.accuracy.self.failed')}</div>}
       {state === 'done' && <div className={'banner ' + (bad ? 'bad' : 'good')}>{bad ? t('page.accuracy.self.bad', { n: bad }) : t('page.accuracy.self.good', { n: rows!.length })}</div>}
       {rows && (
-        <table className="data">
+        <div className="scroll"><table className="data">
           <thead><tr><th>{t('page.accuracy.check')}</th><th className="r">{t('page.accuracy.measured')}</th><th className="r">{t('page.accuracy.limit')}</th><th>{t('page.accuracy.reference')}</th><th>{t('page.accuracy.result')}</th></tr></thead>
           <tbody>
             {rows.map((c, k) => (
               <tr key={k}>
-                <td>{checkText(c)}</td>
+                <td className="what">{checkText(c)}</td>
                 <td className="r"><span className="num">{auto(c.value)}</span><span className="unit">{c.unit}</span></td>
                 <td className="r"><span className="num">{auto(c.limit)}</span><span className="unit">{c.unit}</span></td>
-                <td>{t('validation.selfRef.' + c.reference)}</td>
+                <td className="src">{t('validation.selfRef.' + c.reference)}</td>
                 <td><span className={'tag ' + (c.ok ? 'good' : 'bad')}>{t(c.ok ? 'page.accuracy.ok' : 'page.accuracy.notOk')}</span></td>
               </tr>
             ))}
           </tbody>
-        </table>
+        </table></div>
       )}
     </Panel>
   );
@@ -93,10 +92,10 @@ export default function Accuracy() {
                 const x = measuredText(m);
                 return (
                   <tr key={m.id}>
-                    <td>{text}</td>
+                    <td className="what">{text}</td>
                     <td className="r"><span className="num">{x.value}</span><span className="unit">{x.unit}</span></td>
                     <td className="r"><span className="num">{x.limit}</span><span className="unit">{x.unit}</span></td>
-                    <td className="note" style={{ maxWidth: 420 }}>{source}</td>
+                    <td className="note src" style={{ maxWidth: 420 }}>{source}</td>
                   </tr>
                 );
               })}

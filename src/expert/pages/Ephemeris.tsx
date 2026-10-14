@@ -49,7 +49,7 @@ function CustomBodies() {
     <Panel title={t('page.ephemeris.custom.title')}>
       <p className="note">{t('page.ephemeris.custom.intro')}</p>
       {custom.length > 0 && (
-        <table className="data">
+        <div className="scroll"><table className="data">
           <thead><tr><th>{t('common.name')}</th><th className="r">a</th><th className="r">e</th><th className="r">i</th><th /></tr></thead>
           <tbody>
             {custom.map((c) => (
@@ -62,7 +62,7 @@ function CustomBodies() {
               </tr>
             ))}
           </tbody>
-        </table>
+        </table></div>
       )}
       <div className="grid3">
         <Field label={t('common.name')}><input className="input" value={name} maxLength={24} onChange={(e) => setName(e.target.value)} /></Field>
@@ -163,13 +163,13 @@ export default function Ephemeris() {
           {same && <div className="banner">{t('page.ephemeris.same')}</div>}
           {st && !same && (
             <Panel title={t('page.ephemeris.state', { body: bodyIn(id), center: bodyIn(s.center) })} actions={<Src kind={kind} body={id} />}>
-              <table className="data">
+              <div className="scroll"><table className="data">
                 <thead><tr><th /><th className="r">{t('common.x')}</th><th className="r">{t('common.y')}</th><th className="r">{t('common.z')}</th><th className="r">{t('page.ephemeris.magnitude')}</th></tr></thead>
                 <tbody>
                   <tr><td>{t('page.ephemeris.position')}</td>{st.r.map((x, k) => <td className="r" key={k}><Val q={pos(x)} /></td>)}<td className="r"><Val q={pos(r)} kind="ephem.derived" body={id} /></td></tr>
                   <tr><td>{t('page.ephemeris.velocity')}</td>{st.v.map((x, k) => <td className="r" key={k}><Val q={speed(x, 7)} /></td>)}<td className="r"><Val q={speed(v, 7)} kind="ephem.derived" body={id} /></td></tr>
                 </tbody>
-              </table>
+              </table></div>
               <dl className="kv">
                 <dt>{t('page.ephemeris.longitude', { frame: t('frame.' + s.frame) })}</dt><dd><Val q={angleDeg(lon < 0 ? lon + 2 * Math.PI : lon, 5)} kind="ephem.derived" body={id} /></dd>
                 <dt>{t('page.ephemeris.latitude', { frame: t('frame.' + s.frame) })}</dt><dd><Val q={angleDeg(lat, 5)} kind="ephem.derived" body={id} /></dd>
@@ -194,31 +194,32 @@ export default function Ephemeris() {
               <p className="note">{t('page.ephemeris.elementsNote', { frame: t('frameLong.' + s.frame) })}</p>
             </Panel>
           )}
-          {inRange && !same && (
-            <Panel title={t('page.ephemeris.table')} actions={<><Src kind={kind} body={id} /><button type="button" className="btn small" onClick={csv}>{t('page.ephemeris.csv')}</button></>}>
-              <div className="row">
-                <Field label={t('page.ephemeris.step')}><NumberInput value={stepDays} onChange={setStepDays} unit="d" min={0.001} max={3650} /></Field>
-                <Field label={t('page.ephemeris.rows')}><NumberInput value={rows} onChange={(x) => setRows(Math.round(x))} min={2} max={2000} /></Field>
-              </div>
-              <div className="scroll" style={{ maxHeight: 320 }}>
-                <table className="data">
-                  <thead><tr><th>{t('common.date')} ({s.timeScale})</th><th className="r">X ({s.distUnit})</th><th className="r">Y ({s.distUnit})</th><th className="r">Z ({s.distUnit})</th><th className="r">VX (km/s)</th><th className="r">VY (km/s)</th><th className="r">VZ (km/s)</th></tr></thead>
-                  <tbody>
-                    {table.slice(0, 400).map((row) => (
-                      <tr key={row.et}>
-                        <td className="num">{formatEt(row.et, s.timeScale)}</td>
-                        {row.s.r.map((x, k) => <td className="r num" key={k}>{pos(x).text}</td>)}
-                        {row.s.v.map((x, k) => <td className="r num" key={k}>{fixed(x, 6)}</td>)}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              {table.length > 400 && <p className="note">{t('page.ephemeris.tableLimit', { n: 400, total: table.length })}</p>}
-            </Panel>
-          )}
         </div>
       </div>
+      {/* The table has seven columns: it uses the full width of the page. */}
+      {inRange && !same && (
+        <Panel title={t('page.ephemeris.table')} actions={<><Src kind={kind} body={id} /><button type="button" className="btn small" onClick={csv}>{t('page.ephemeris.csv')}</button></>}>
+          <div className="row">
+            <Field label={t('page.ephemeris.step')}><NumberInput value={stepDays} onChange={setStepDays} unit="d" min={0.001} max={3650} /></Field>
+            <Field label={t('page.ephemeris.rows')}><NumberInput value={rows} onChange={(x) => setRows(Math.round(x))} min={2} max={2000} /></Field>
+          </div>
+          <div className="scroll" style={{ maxHeight: 320 }}>
+            <table className="data">
+              <thead><tr><th>{t('common.date')} ({s.timeScale})</th><th className="r">X ({s.distUnit})</th><th className="r">Y ({s.distUnit})</th><th className="r">Z ({s.distUnit})</th><th className="r">VX (km/s)</th><th className="r">VY (km/s)</th><th className="r">VZ (km/s)</th></tr></thead>
+              <tbody>
+                {table.slice(0, 400).map((row) => (
+                  <tr key={row.et}>
+                    <td className="num">{formatEt(row.et, s.timeScale)}</td>
+                    {row.s.r.map((x, k) => <td className="r num" key={k}>{pos(x).text}</td>)}
+                    {row.s.v.map((x, k) => <td className="r num" key={k}>{fixed(x, 6)}</td>)}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {table.length > 400 && <p className="note">{t('page.ephemeris.tableLimit', { n: 400, total: table.length })}</p>}
+        </Panel>
+      )}
     </>
   );
 }

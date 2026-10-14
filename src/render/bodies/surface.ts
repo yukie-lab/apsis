@@ -58,7 +58,7 @@ void main() {
   vec3 n = normalize(dir / uRadii);
   vec3 v = normalize(uCamPos - pos);
   MapCoord mc = mapCoord(dir, uMapParams.x, uMapParams.y);
-  vec3 tex = mapSample(uMap, mc).rgb;
+  vec3 tex = mapSampleSmooth(uMap, mc).rgb;
   vec3 tone = mix(vec3(dot(tex, vec3(0.2126, 0.7152, 0.0722))), tex, uShade.w) * uShade.z;
   vec3 albedo = mix(uMeanColor, mix(uNoDataColor, tone, mapHasData(tex, mc.uv)), uMapParams.w);
   float mu0 = dot(n, uSunDir);
@@ -168,6 +168,7 @@ export function buildMapped(ctx: BuildContext, entry: TextureEntry, look: Mapped
     uNightFill: ctx.frame.uNightFill,
   };
   const defines: Record<string, number | string> = { MAP_ANISOTROPY: ctx.maps.anisotropy };
+  if (ctx.maps.smooth) defines.MAP_SMOOTH = 1;
   if (look.atmosphere) {
     Object.assign(uniforms, atmosphereUniforms(look.atmosphere, ctx.radiusKm, ctx.polarRadiusKm));
     defines.USE_ATMOSPHERE = 1;
@@ -182,6 +183,7 @@ export function buildMapped(ctx: BuildContext, entry: TextureEntry, look: Mapped
   });
   const globe = new Globe(`${ctx.id}/surface`, material, radii, ctx.quality);
   ctx.root.add(globe.mesh);
+  ctx.maps.watch(globe.mesh, ctx.radiusKm);
   const parts: Part[] = [globe];
 
   notes.push(...notesFromEntry(entry));
@@ -203,29 +205,38 @@ export function buildMapped(ctx: BuildContext, entry: TextureEntry, look: Mapped
     extentKm,
     variant: 'default',
     codeTextures: 0,
-    samplesPerPixel: 1,
+    samplesPerPixel: ctx.maps.taps,
   };
   let area: THREE.Texture | null = null;
   parts.push({ triangles: () => 0, trianglesMax: () => 0, dispose: () => area?.dispose() });
-  ctx.maps.load(entry, { srgb: true, wrapU: true }, (texture) => {
-    if (texture) {
-      uniforms.uMap.value = texture;
-      mapParams.w = 1;
-      area = applyMapScan(texture, partial, noData, notes);
-      // A map with areas of no data has a second small texture, and a dark pixel reads it.
-      if (area) {
-        built.codeTextures = 1;
-        built.samplesPerPixel = 2;
+  ctx.maps.load(
+    entry,
+    { srgb: true, wrapU: true },
+    (texture) => {
+      if (texture) {
+        uniforms.uMap.value = texture;
+        mapParams.w = 1;
+        area = applyMapScan(texture, partial, noData, notes);
+        // A map with areas of no data has a second small texture, and a dark pixel reads it.
+        if (area) {
+          built.codeTextures = 1;
+          built.samplesPerPixel = ctx.maps.taps + 1;
+        }
+        return;
       }
-      return;
-    }
-    // The notes of the file are no longer true: the body shows no map.
-    notes.length = 0;
-    notes.push('map-load-failed');
-    if (look.atmosphere && look.atmosphereNote) notes.push(look.atmosphereNote);
-    built.provenance = 'procedural';
-    built.samplesPerPixel = 0;
-    onFail?.(globe);
-  });
+      // The notes of the file are no longer true: the body shows no map.
+      notes.length = 0;
+      notes.push('map-load-failed');
+      if (look.atmosphere && look.atmosphereNote) notes.push(look.atmosphereNote);
+      built.provenance = 'procedural';
+      built.samplesPerPixel = 0;
+      onFail?.(globe);
+    },
+    // Another file of the same map (the larger file, or the first file again): the small map of the areas with no
+    // data stays as it is.
+    (texture) => {
+      uniforms.uMap.value = texture;
+    },
+  );
   return built;
 }

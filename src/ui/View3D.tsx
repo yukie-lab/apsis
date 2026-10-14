@@ -190,7 +190,7 @@ export function SceneNote({ scene, flight }: { scene: Scene3D | null; flight: bo
   const body = info ? (info.focus.kind === 'body' ? info.focus.id : info.near?.id ?? null) : null;
   const picture = usePicture(scene, open ? body : null);
   return (
-    <div className={'scene-note' + (open ? ' open' : '')}>
+    <div className={'scene-note' + (open ? ' open' : '')} data-cover>
       <button type="button" className="scene-note-line" aria-expanded={open} title={t('scene.notes')} onClick={() => setOpen((v) => !v)}>
         {open ? <IconClose /> : <IconInfo />}
         <span><b>{t('scene.trueScale')}</b>{path && <> · {path}</>}</span>
@@ -201,6 +201,8 @@ export function SceneNote({ scene, flight }: { scene: Scene3D | null; flight: bo
           <p>{t('scene.scaleNote')}</p>
           {flight && <p>{t('scene.attitudeNote')}</p>}
           {flight && <p>{t('scene.perspectiveNote')}</p>}
+          <p>{t('scene.sunlightNote')}</p>
+          <p>{t('scene.nightNote')}</p>
           <p>{t('scene.effectsNote')}</p>
           <p>{t('scene.howTo')}</p>
           {flight && (
@@ -223,6 +225,7 @@ export function SceneViews({ scene, flight }: { scene: Scene3D | null; flight: b
   const [labels, setLabels] = useState(true);
   const [orbits, setOrbits] = useState(true);
   const [small, setSmall] = useState(false);
+  const [night, setNight] = useState(true);
   const focus = info?.focus;
   const body = focus?.kind === 'body' ? focus.id : '';
   const auto = info?.director != null;
@@ -236,6 +239,7 @@ export function SceneViews({ scene, flight }: { scene: Scene3D | null; flight: b
       <Check checked={labels} label={t('scene.layers.labels')} onChange={(v) => { setLabels(v); scene.setLayers({ labels: v }); }} />
       <Check checked={orbits} label={t('scene.layers.orbits')} onChange={(v) => { setOrbits(v); scene.setLayers({ orbits: v }); }} />
       <Check checked={small} label={t('scene.layers.smallBodies')} onChange={(v) => { setSmall(v); scene.setLayers({ smallBodies: v }); }} />
+      <Check checked={night} label={t('scene.layers.nightLight')} onChange={(v) => { setNight(v); scene.setLayers({ nightLight: v }); }} />
     </div>
   );
 }

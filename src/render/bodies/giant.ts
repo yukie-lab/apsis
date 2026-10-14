@@ -177,7 +177,7 @@ void main() {
     albedo *= 1.0 + uBand.y * (streak - 0.5);
   #else
     MapCoord mc = mapCoord(dir, uMapParams.x, uMapParams.y);
-    vec3 albedo = mix(uMeanColor, mapSample(uMap, mc).rgb, uMapParams.w);
+    vec3 albedo = mix(uMeanColor, mapSampleSmooth(uMap, mc).rgb, uMapParams.w);
   #endif
   albedo *= uShade.z;
   float mu0 = dot(n, uSunDir);
@@ -237,6 +237,7 @@ export function buildGiant(ctx: BuildContext, rings: { inner: number; outer: num
     uNightFill: ctx.frame.uNightFill,
   };
   const defines: Record<string, number> = { MAP_ANISOTROPY: ctx.maps.anisotropy };
+  if (ctx.maps.smooth) defines.MAP_SMOOTH = 1;
   const owned: THREE.Texture[] = [];
   let bandTextures = 0;
   // The bands of the code: the strip of colours by latitude replaces the map.
@@ -281,6 +282,7 @@ export function buildGiant(ctx: BuildContext, rings: { inner: number; outer: num
   const globe = new Globe(`${ctx.id}/surface`, material, radii, ctx.quality);
   // The planet is first in the group, so the rings are drawn after it.
   ctx.root.add(globe.mesh);
+  ctx.maps.watch(globe.mesh, ctx.radiusKm);
   if (ringSystem) {
     ctx.root.remove(ringSystem.part.mesh);
     ctx.root.add(ringSystem.part.mesh);
@@ -310,26 +312,36 @@ export function buildGiant(ctx: BuildContext, rings: { inner: number; outer: num
     get codeTextures(): number {
       return bandTextures + (ringSystem ? ringSystem.codeTextures() : 0);
     },
-    samplesPerPixel: 1 + (defines.RING_SHADOW ? 1 : 0),
+    // The band strip of the code is one sample. A map is one sample, or five where a pixel of the map is large on the screen.
+    get samplesPerPixel(): number {
+      return (planetFromMap ? ctx.maps.taps : 1) + (defines.RING_SHADOW ? 1 : 0);
+    },
   };
   if (entry) {
-    ctx.maps.load(entry, { srgb: true, wrapU: true }, (texture) => {
-      if (texture) {
+    ctx.maps.load(
+      entry,
+      { srgb: true, wrapU: true },
+      (texture) => {
+        if (texture) {
+          uniforms.uMap.value = texture;
+          mapParams.w = 1;
+          return;
+        }
+        // The file did not load: the planet shows the bands of the code, and the notes of the file go away.
+        for (const note of fileNotes) {
+          const k = notes.indexOf(note);
+          if (k >= 0) notes.splice(k, 1);
+        }
+        notes.push('map-load-failed');
+        useBands(material.defines as Record<string, number>);
+        material.needsUpdate = true;
+        bandTextures = 1;
+        planetFromMap = false;
+      },
+      (texture) => {
         uniforms.uMap.value = texture;
-        mapParams.w = 1;
-        return;
-      }
-      // The file did not load: the planet shows the bands of the code, and the notes of the file go away.
-      for (const note of fileNotes) {
-        const k = notes.indexOf(note);
-        if (k >= 0) notes.splice(k, 1);
-      }
-      notes.push('map-load-failed');
-      useBands(material.defines as Record<string, number>);
-      material.needsUpdate = true;
-      bandTextures = 1;
-      planetFromMap = false;
-    });
+      },
+    );
   }
   return built;
 }

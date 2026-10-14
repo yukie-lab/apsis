@@ -40,7 +40,7 @@ function useMaps(): MapEntry[] | null | 'failed' {
 
 /** Text of the changes of a map. A locale can replace the text of the manifest. */
 function changesText(m: MapEntry): string {
-  const key = 'about.maps.changes.' + m.id;
+  const key = 'about.maps.changeText.' + m.id;
   return hasText(key) ? t(key) : m.changes ?? '';
 }
 
@@ -136,8 +136,8 @@ export default function About() {
           <ul className="list">
             <li>{t('about.view.engine')}</li>
             <li>{t('scene.scaleNote')}</li>
-            <li>{t('about.view.sunlight')}</li>
-            <li>{t('about.view.night')}</li>
+            <li>{t('scene.sunlightNote')}</li>
+            <li>{t('scene.nightNote')}</li>
             <li>{t('scene.effectsNote')}</li>
             <li>{t('about.view.aids')}</li>
             <li>{t('about.view.notes')}</li>
@@ -184,10 +184,10 @@ export default function About() {
       <section id="about-software">
         <Panel title={t('about.software.title')}>
           <p>{t('about.software.intro')}</p>
-          <table className="data about-libs">
+          <div className="scroll"><table className="data about-libs">
             <thead><tr><th>{t('about.software.library')}</th><th>{t('about.software.version')}</th><th>{t('about.software.license')}</th></tr></thead>
             <tbody>{LIBRARIES.map((l) => <tr key={l.name}><td>{l.name}</td><td className="num">{l.version}</td><td>{l.license}</td></tr>)}</tbody>
-          </table>
+          </table></div>
           <div className="row"><a className="btn" href={import.meta.env.BASE_URL + 'licenses.txt'} target="_blank" rel="noopener noreferrer">{t('about.software.texts')}</a></div>
           <p>{t('about.software.fonts')}</p>
         </Panel>

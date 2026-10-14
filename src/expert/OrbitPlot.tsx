@@ -79,9 +79,12 @@ export function OrbitPlot({ plan, result, markEt }: { plan: Plan; result: PlanRe
     const step = ticks(0, R / AU, 4)[1] ?? 1;
     ctx.strokeStyle = COLORS.grid; ctx.fillStyle = COLORS.text; ctx.lineWidth = 1;
     const placed: [number, number, number, number][] = [];
+    const rings: [string, number, number, number][] = [];
     for (let r = step; r * AU < R * 1.45; r += step) {
       ctx.beginPath(); ctx.arc(cx, cy, r * AU * k, 0, 2 * Math.PI); ctx.stroke();
-      ctx.fillText(`${+r.toFixed(3)} au`, cx + r * AU * k * 0.7071 + 3, cy + r * AU * k * 0.7071 + 11);
+      // The label of a ring shows only if all of it is in the plot.
+      const text = `${+r.toFixed(3)} au`, lx = cx + r * AU * k * 0.7071 + 3, ly = cy + r * AU * k * 0.7071 + 11, tw = ctx.measureText(text).width;
+      if (lx + tw < w - 2 && ly < h - 2) rings.push([text, lx, ly, tw]);
     }
     ctx.strokeStyle = COLORS.axis;
     ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(Math.min(w - 8, cx + R * k), cy); ctx.stroke();
@@ -108,10 +111,15 @@ export function OrbitPlot({ plan, result, markEt }: { plan: Plan; result: PlanRe
       let ly = Math.max(12, Y(n.p) - 6);
       for (let k = 0; k < 8 && placed.some(([x0, y0, x1, y1]) => lx < x1 && lx + tw > x0 && ly - 11 < y1 && ly + 4 > y0); k++) ly += 15;
       placed.push([lx - 3, ly - 11, lx + tw + 3, ly + 4]);
-      ctx.fillStyle = 'rgba(5,7,12,0.78)'; ctx.fillRect(lx - 3, ly - 11, tw + 6, 15);
+      ctx.fillStyle = 'rgba(5,7,12,0.92)'; ctx.fillRect(lx - 3, ly - 11, tw + 6, 15);
       ctx.fillStyle = COLORS.bright;
       ctx.fillText(label, lx, ly);
     });
+    // The label of a ring shows only where no label of an encounter is.
+    ctx.fillStyle = COLORS.text;
+    for (const [text, lx, ly, tw] of rings) {
+      if (!placed.some(([x0, y0, x1, y1]) => lx < x1 && lx + tw > x0 && ly - 11 < y1 && ly + 3 > y0)) ctx.fillText(text, lx, ly);
+    }
     if (markEt !== undefined) {
       const mu = centralMu(plan.central);
       for (const leg of result.legs) for (const arc of leg.arcs) {

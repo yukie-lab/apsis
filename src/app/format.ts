@@ -1,6 +1,7 @@
 /**
  * Number formats. A value never shows with no unit: each function returns the number text and the unit.
  * The decimal sign is a point and the group sign is a thin space in all languages (ISO 80000-1).
+ * The thin space is the narrow no-break space (U+202F): a line does not break in a number or between a number and its unit.
  */
 import { AU } from '../engine/bodies';
 import { type TimeScale, formatEt, DAY, YEAR } from '../engine/time';
@@ -8,7 +9,7 @@ import { type TimeScale, formatEt, DAY, YEAR } from '../engine/time';
 export type DistanceUnit = 'km' | 'au';
 export interface Quantity { text: string; unit: string }
 
-const THIN = ' ';
+const THIN = ' ';
 
 /** Fixed-point number with digit groups. */
 export function fixed(x: number, digits: number): string {
